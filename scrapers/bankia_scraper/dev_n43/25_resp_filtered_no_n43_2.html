@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<script>var ctx = "/sib-war-1.0"</script>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+    <title></title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet" type="text/css">
+    <link rel="Shortcut Icon" href="https://oi.bankia.es/_imagenes/2038bankia/favicon.ico" type="image/x-icon">
+    <link type="text/css" href="/sib-war-1.0/envs/gf3/css/argusErrors.css?Tue Feb 09 00:09:38 CET 2021" rel="stylesheet" />
+    <link type="text/css" href="/sib-war-1.0/envs/gf3/css/pruebaBANKIA.css?Tue Feb 09 00:09:38 CET 2021" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/api/api.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/iban.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/utils.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/bankiaDom.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/dataFormatter.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/datepickerConfig.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/localeFormatter.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/progressBar.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/table.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/dialog.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/webSession.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/helpContext.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/receivedFileTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/receivedFileTableN43C.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/mandateClientTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/payment/paymentConfirmingNacional.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailCharge19SEPA.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailChargeCINTERN.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment34SEPA.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment34NOM.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPaymentINTERN.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment67.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailNationalCONFNACIONAL.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittance/remittanceProductName.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/paymentTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/orderDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/orderTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton/OrderTableDialog.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton/GenerateDialog.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceSearchFilter.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableDuplicate.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableTrace.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/mandateTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/creditorTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/creditorDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/receivedFileTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/receivedFileTableN43C.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/conceptTemplateTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/emisoresTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/mandateClientTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/paymentTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/conceptTemplateTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/clientTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/emisoresTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceSearchFilter.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/clientTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/mandateTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/menu.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTableTrace.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/creditorTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/creditorDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderSearchFilter.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/events/onWindowLoad.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <!-- INFOCORPORATE -->
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admUsuariosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admUsuariosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admTarjetasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admTarjetasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTarjetasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTarjetasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admSectoresTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admSectoresTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infFavoritosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infFavoritosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infPersonalizadosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infPersonalizadosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGestionTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGestionTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGeneradasTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGeneradasTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosDetail.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/resultadosTable.js?Tue Feb 09 00:09:38 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/resultadosTableButton.js?Tue Feb 09 00:09:38 CET 2021"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="//assets.adobedtm.com/3f100fde332348f1ba97dff0fe024576cbd52b42/satelliteLib-df8e363ea838735556d80afc34a66c17eff87545.js"></script>
+
+</head>
+<body>
+
+
+
+<div id="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="globalMenuId" style="display: none" >menu_global_consult</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            $(".bki-schedule").datepicker({
+                buttonImage: "/sib-war-1.0/envs/gf3/img/calendar.gif",
+                buttonImageOnly: true,
+                buttonText: 'Calendar',
+                firstDay: 1,
+                dateFormat: 'dd/mm/yy',
+                showOn: 'button',
+                onSelect: function(dateText, inst) {
+                    var id = "#" + $(this).attr("id");
+                    $(id + "anyo").val(dateText.substr(6,4));
+                    $(id + "mes").val(dateText.substr(3,2));
+                    $(id + "dia").val(dateText.substr(0,2));
+                }
+            });
+            $('.bki-schedule').datepicker($.datepicker.regional['es']);
+            $('.bki-schedule').datepicker({ constrainInput: false });
+
+
+
+
+            if( $('#argusOrderCINTERNBean_order_fechaVenc_') != undefined ){
+                // date from db to input
+                var vDia =  $('#argusOrderCINTERNBean_order_fechaVenc_dia').val();
+                var vMes =  $('#argusOrderCINTERNBean_order_fechaVenc_mes').val();
+                var vAnyo =  $('#argusOrderCINTERNBean_order_fechaVenc_anyo').val();
+
+                if($('#argusOrderCINTERNBean_order_fechaVenc_dia').val() != undefined ){
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').val(vDia + "/" + vMes + "/" + vAnyo);
+                }else{
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').val("");
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').attr('placeholder', 'dd/mm/aaaa');
+                }
+                // date from input to db
+                $('#argusOrderCINTERNBean_order_fechaVenc_').keyup(function(){
+                    var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                    if($('#argusOrderCINTERNBean_order_fechaVenc_').val().match(dateReg)){
+
+                        $('#argusOrderCINTERNBean_order_fechaVenc_dia').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(0, 2));
+                        $('#argusOrderCINTERNBean_order_fechaVenc_mes').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(3, 2));
+                        $('#argusOrderCINTERNBean_order_fechaVenc_anyo').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(6, 4));
+
+                        $('#argusOrderCINTERNBean_order_fechaVenc_').val(
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(0, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(3, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(6, 4)
+                        );
+                    }
+                });
+            }
+
+            if( $('#argusOrderCINTERNBean_order_fechaEmi_') != undefined ){
+                // date from db to input
+                var eDia =  $('#argusOrderCINTERNBean_order_fechaEmi_dia').val();
+                var eMes =  $('#argusOrderCINTERNBean_order_fechaEmi_mes').val();
+                var eAnyo =  $('#argusOrderCINTERNBean_order_fechaEmi_anyo').val();
+                if($('#argusOrderCINTERNBean_order_fechaEmi_dia').val() != undefined || $('#argusOrderCINTERNBean_order_fechaEmi_dia').val() != 'undefined' ){
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').val(eDia + "/" + eMes + "/" + eAnyo);
+                    if( $('.bki-schedule').val() == now()  || $('.bki-schedule').val() == "//" ){
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').val("");
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').attr('placeholder', 'dd/mm/aaaa');
+                    }
+                }else{
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').val("");
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').attr('placeholder', 'dd/mm/aaaa');
+                }
+                // date from input to db
+                $('#argusOrderCINTERNBean_order_fechaEmi_').keyup(function(){
+                    var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                    if($('#argusOrderCINTERNBean_order_fechaEmi_').val().match(dateReg)){
+                        $('#argusOrderCINTERNBean_order_fechaEmi_dia').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(0, 2));
+                        $('#argusOrderCINTERNBean_order_fechaEmi_mes').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(3, 2));
+                        $('#argusOrderCINTERNBean_order_fechaEmi_anyo').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(6, 4));
+                        var dt =  $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(0, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(3, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(6, 4);
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').val(dt);
+                    }
+                });
+            }
+
+            var parent = $('.bki-schedule').parent();
+
+            if(parent.length > 1){
+                for(i=0; i<parent.length; i++) {
+                    if (parent[i] != undefined) {
+                        //if ($('.bki-schedule')[i].value == now() || $('.bki-schedule')[i].value == "//") {
+                        if(parent[i].parentElement.childNodes[1].childNodes[4].value == "" || $('.bki-schedule')[i].value == "//"){
+                            if("false" == "false"){
+                                parent[i].parentElement.childNodes[1].childNodes[4].value = "";
+                                parent[i].parentElement.childNodes[2].childNodes[1].value = "";
+                                parent[i].childNodes[1].value = "";
+                                parent[i].childNodes[2].value = "";
+                                $('.bki-schedule')[i].setAttribute("placeholder", "dd/mm/aaaa");
+                            }
+                        }
+                        parent[i].addEventListener("keyup", function () {
+                            var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                            if (this.childNodes[2].value.match(dateReg)) {
+                                var d, m, a;
+                                d = this.childNodes[2].value.substr(0, 2);
+                                m = this.childNodes[2].value.substr(3, 2);
+                                a = this.childNodes[2].value.substr(6, 4);
+
+                                this.parentElement.childNodes[1].childNodes[4].value = d;
+                                this.parentElement.childNodes[2].childNodes[1].value = m;
+                                this.childNodes[1].value = a;
+
+                            } else {
+                                this.parentElement.childNodes[1].childNodes[4].value = "";
+                                this.parentElement.childNodes[2].childNodes[1].value = "";
+                                this.childNodes[1].value = "";
+                            }
+                        });
+                    }
+                }
+
+            }else {
+
+                if (parent[0] != undefined) {
+                    //if ($('.bki-schedule').val() == now() || $('.bki-schedule').val() == "//") {
+                    if(parent[0].parentElement.childNodes[1].childNodes[4].value == "" || $('.bki-schedule').val() == "//") {
+                        parent[0].parentElement.childNodes[1].childNodes[4].value = "";
+                        parent[0].parentElement.childNodes[2].childNodes[1].value = "";
+                        parent[0].childNodes[1].value = "";
+                        parent[0].childNodes[2].value = "";
+                        $('.bki-schedule').attr('placeholder', 'dd/mm/aaaa');
+                    }
+                    parent[0].addEventListener("keyup", function () {
+                        var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                        if (parent[0].childNodes[2].value.match(dateReg)) {
+                            var d, m, a;
+                            d = parent[0].childNodes[2].value.substr(0, 2);
+                            m = parent[0].childNodes[2].value.substr(3, 2);
+                            a = parent[0].childNodes[2].value.substr(6, 4);
+
+                            parent[0].parentElement.childNodes[1].childNodes[4].value = d;
+                            parent[0].parentElement.childNodes[2].childNodes[1].value = m;
+                            parent[0].childNodes[1].value = a;
+
+                        } else {
+                            parent[0].parentElement.childNodes[1].childNodes[4].value = "";
+                            parent[0].parentElement.childNodes[2].childNodes[1].value = "";
+                            parent[0].childNodes[1].value = "";
+                        }
+                    });
+                }
+            }
+        });
+
+        function now() {
+            var d = new Date();
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+
+            var output = (day<10 ? '0' : '') + day + "/"
+                + (month<10 ? '0' : '') + month + '/'
+                + d.getFullYear();
+
+            return output;
+        }
+
+        function addIconCalendarStyleHiddenOrders() {
+            var currentCalendarIcons = $('.ui-datepicker-trigger');
+            for(var i = 0; i <= currentCalendarIcons.length - 1; i +=1){
+                if(currentCalendarIcons[i].parentElement.className != 'iconoCalendario') {
+                    $(currentCalendarIcons[i]).wrap('<span class=\"iconoCalendario\"></span>');
+                }
+            }
+        }
+
+    </script>
+
+    <section id="main-layout" class="oie2-main-layout oie2-main-layout--header ng-scope">
+        <div class="oie2-main-grid">
+
+            <header id="oie2-layout-header">
+                <div class="ng-isolate-scope">
+                    <div class="path bk-breadcrumbs">
+                        <h1>Petici&oacute;n N43-Aperi&oacute;dica</h1>
+                    </div>
+                </div>
+            </header>
+
+            <aside id="oie2-layout-aside">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <style>
+                    #liPreFre {display: none}
+                    #help_common {display: none}
+                </style>
+                <div id="help_common" class="fixed-content">
+                    <span class="aside-help-menu bk-combo bk-active">
+                        <button type="button" id="mostrarAyuda" class="dropdown-button ng-scope" aria-pressed="true">
+                            <span class="sr-only">
+                                <span aria-hidden="true" class="toggle-show">Mostrar</span>
+                                <span aria-hidden="false" class="toggle-hide">Ocultar</span>
+                                Ayuda
+                            </span>
+                          <span class="text">Ayuda</span>
+                          <span id="arrowHelp" class="bki-month-down"></span>
+                        </button>
+                        <div id="bk-relational" class="ng-scope" role="region" tabindex="-1" aria-hidden="false" aria-expanded="true" style="display: none;">
+                          <div class="bk-relational ng-isolate-scope" style="width:100%">
+                            <div class="">
+                              <h1 class="header-relational"></h1>
+                              <ul id="listliPreFre">
+                                <li id="liPreFre" class="ng-scope collapsed">
+                                 <button id="help-preguntas-frecuentes" type="button" class="icon-show-detail ng-scope">
+                                     <div style="width:10%"> <span id="arrowPregFre" class="bki-month-down"></span>
+                                                <span class="sr-only">
+                                                    <span aria-hidden="true">Desplegar</span>
+                                                    <span aria-hidden="false">Plegar</span>
+                                                </span></div>
+                                      <div style="width:90%"><span id="textkey" class="text ng-binding"></span></div>
+                                  </button>
+
+                                  <div id="verPreguntas" class="bk-relational-content ng-binding" style="display: none;" >
+                                      <div ><span id="textValue" class="text ng-binding"></span></div>
+                                      <div>&nbsp;</div>
+                                      <div>&nbsp;</div>
+                                      <p><a id="link" target="_blank">Preguntas Frecuentes</a></p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <section class="oie2-main-grid" id="likeGF3">
+        <article id="oie2-layout-content">
+            <section id="section1" class="sg-section">
+
+                <form id="form" class="cssform" action="/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s3" method="post">
+
+
+
+
+
+
+
+
+
+
+
+
+                    <iframe id="iframe_oculto" scrolling="no" frameborder="0" style="position:absolute; top:0px; left:0px; display:none;width:205px;height:230px;" src="/sib-war-1.0/norma43/download/consulta43.html?cuentaCargo=ES7120381798683000625960"></iframe>
+
+                    <div bk-message="" bk-type="success" bk-close="false" class="ng-isolate-scope bk-message-success">
+                        <span class="bki-success"></span>
+                        <div class="content">
+                            <div ng-transclude="">
+                                <strong class="ng-scope">Iniciada descarga del fichero de movimientos</strong>
+                                <p class=""></p>
+                                <strong class="ng-scope">Una vez terminada la descarga, pulse Volver para seguir trabajando </strong>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="bk-inforeport ng-isolate-scope bk-message-warning">
+                        <span class="bki-warning"></span>
+
+                        <div class="content">
+                            <div>
+                                <ul class="ng-scope">
+                                    <li class="text ng-isolate-scope">
+                                        <span role="button" aria-hidden="isInfo" class="text-warning ng-binding">NO ES POSIBLE FACILITAR LA INFORMACI&Oacute;N SOLICITADA. COMPRUEBE SI TIENE UNA PETICI&Oacute;N REALIZADA PARA ESTA CUENTA.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+
+                        });
+                    </script>
+
+
+
+
+
+
+                    <ul class="oie2-buttonbar">
+                        <li>
+
+
+
+
+
+                            <input type="button" id="_cancel" name="_eventId_cancel" value="Volver" class="oie2-btn btn-white" onclick="window.location.href='/sib-war-1.0/products/GF3/products/norma43/list.html?opcsubmenu=N43A'"/>
+
+
+                        </li>
+                    </ul>
+
+                </form>
+            </section>
+        </article>
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img class="img0" src="" width="0" height="0" alt="refresco" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Add _satellite.pageBottom() before </body>
+    $(document).ready(function()
+    {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.innerHTML ="_satellite.pageBottom();";
+        document.body.appendChild(s);
+    });
+</script>
+
+
+</body>
+<!--  BUILD 20180509-1138 -->
+
+</html>
+
+
+
+
+
+

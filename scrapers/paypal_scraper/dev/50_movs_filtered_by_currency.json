@@ -1,0 +1,1653 @@
+{
+  "meta": {
+    "device": "desktop"
+  },
+  "rootTxn": {},
+  "data": {
+    "currentYear": 2021,
+    "device": "desktop",
+    "headerFooterURI": "https://www.paypalobjects.com/merchant-hf/stable/hf.js",
+    "user": {
+      "firstName": "Federico",
+      "lastName": "Zwanck Sáenz",
+      "fullName": "ROI PERFORMANCE MEDIA, SOCIEDAD LIMITADA",
+      "email": "finance@gasmobi.com",
+      "businessName": null,
+      "privileges": {
+        "view_balance": true,
+        "view_transactions_charts_and_graphs": true,
+        "view_customers": true,
+        "view_bookkeeping": true,
+        "send_money": true,
+        "request_money": true,
+        "api_access": true,
+        "refunds": true,
+        "add_funds": true,
+        "withdraw_funds": true,
+        "cancel_payments": true,
+        "mass_pay": true,
+        "recurring_payment": true,
+        "virtual_terminal": true,
+        "manual_reference_txn": true,
+        "auth_settle": true,
+        "view_profile": true,
+        "edit_profile": true,
+        "permission_to_speak": true,
+        "sdl": true,
+        "permission_to_ship": true,
+        "general_secondary_login": true
+      },
+      "encryptedAccountNumber": "22TLHVJV84Z82",
+      "isSecondaryUser": false,
+      "locality": {
+        "timezone": "Europe/Berlin",
+        "country": "ES",
+        "locale": "es_ES",
+        "culture": "es-ES",
+        "language": "es",
+        "directionality": "ltr",
+        "determiners": {
+          "country": "viaUserProfile",
+          "locale": "viaUserProfile",
+          "timezone": "viaUserProfile"
+        }
+      },
+      "multiAccount": false,
+      "cobrand": "es",
+      "taxId": "-xxxxxx-"
+    },
+    "showOldHeader": false,
+    "elmo": {
+      "buyer_redirect": true,
+      "show_charts_and_graphs_tab": false,
+      "show_balance_and_fee_tab": false,
+      "NO_SEARCH_FILTER_CATEGORY": false,
+      "Merchant_Listing_Hide_Balance_Col": true,
+      "Merchant_Listing_FTS_Experiment": true,
+      "Merchant_ActSearchServ_FTS_2ndary_Txs_Enabled": false,
+      "ppcp_for_business": true,
+      "CASE_ID_SEARCH_ACTIVITY": false,
+      "search_and_filtering": true,
+      "refund_recursive_call": false,
+      "muma_fts": true
+    },
+    "bubblePageId": 1012,
+    "hideBalanceForCountry": false,
+    "FlowEntryPoint": null,
+    "hideFeeOnActivityandShowFeeDisClaimer": true,
+    "searchResultsTotal": 6,
+    "transactions": [
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "BK-0eq86wIWV44d7jrVb2t-q_Q9tEUEaQMWjXKZlll91cSx2eS2xBl86Kvy",
+        "transactionId": "3EN10661YD048282S",
+        "scidValue": "",
+        "transactionTime": "21 oct. 2021",
+        "transactionTimeFormatted": "21/10/21",
+        "transactionTimeUnformatted": "2021-10-21T06:05:25.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "3EN10661YD048282S",
+          "account": {},
+          "time_created": "2021-10-21T06:05:25.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "purchasing@asana.com"
+          },
+          "counterparty": {
+            "business_name": "Asana, Inc.",
+            "email": "purchasing@asana.com",
+            "name": "Asana, Inc.",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "59.02",
+            "amount": -59.02,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "59.02",
+            "amount": -59.02,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "68.67",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "BK-0eq86wIWV44d7jrVb2t-q_Q9tEUEaQMWjXKZlll91cSx2eS2xBl86Kvy",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "59.02"
+                }
+              }
+            ],
+            "internal_id": "BK-0eq86wIWV44d7jrVb2t-q_Q9tEUEaQMWjXKZlll91cSx2eS2xBl86Kvy",
+            "partner_info": {
+              "partner_account_number": "1160787179873529793"
+            },
+            "is_balance_affecting": true,
+            "merchant_category_code": "4816",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "897.43"
+            },
+            "debit_credit_code": "DEBIT",
+            "client_configuration": {
+              "product_code": "BILLING_AGREEMENTS",
+              "product_feature": "NONE",
+              "integration_artifact": "NONE",
+              "experience": {}
+            },
+            "is_rtr_applicable": false,
+            "billing_agreement_id": "B-3AT52624EY120950V",
+            "is_incentive_refund": false,
+            "purposes": [
+              "BILLING_AGREEMENT_PAYMENT",
+              "PURCHASE_GOODS"
+            ],
+            "activity_id": "32384588EA330180T",
+            "invoice_number": "P-00526565",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "897.43"
+              },
+              "purposes": [
+                "BILLING_AGREEMENT_PAYMENT",
+                "PURCHASE_GOODS"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "is_rtr_applicable": false,
+              "partner_info": {
+                "partner_account_number": "1160787179873529793"
+              },
+              "billing_agreement_id": "B-3AT52624EY120950V",
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "59.02"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "BK-0eq86wIWV44d7jrVb2t-q_Q9tEUEaQMWjXKZlll91cSx2eS2xBl86Kvy",
+              "invoice_number": "P-00526565",
+              "merchant_category_code": "4816",
+              "is_handout_activity": false,
+              "activity_id": "32384588EA330180T",
+              "is_incentive_refund": false,
+              "client_configuration": {
+                "product_code": "BILLING_AGREEMENTS",
+                "product_feature": "NONE",
+                "integration_artifact": "NONE",
+                "experience": {},
+                "issuance_product": "NONE"
+              },
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "email": "finance@gasmobi.com",
+            "name": "Federico Zwanck Sáenz"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+          "matchedTCodes": [
+            "T-0000",
+            "T0003",
+            "T-0007",
+            "T-0012"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-59,02 EUR",
+          "amountUnformatted": -59.02,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-59,02 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-59,02 EUR",
+          "amountUnformatted": -59.02,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-59,02 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "897,43 EUR",
+          "amountUnformatted": "897.43",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "897,43 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": null,
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "Asana, Inc."
+        }
+      },
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "IbxnA02H1HfQOud-2cN5hqWtCcTEFexnhhPWV8dSWTgWIrKK-JESkTv1QxK",
+        "transactionId": "7DD52920TP3939624",
+        "scidValue": "",
+        "transactionTime": "20 oct. 2021",
+        "transactionTimeFormatted": "20/10/21",
+        "transactionTimeUnformatted": "2021-10-20T15:50:45.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "7DD52920TP3939624",
+          "account": {},
+          "time_created": "2021-10-20T15:50:45.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "payments@nomadsmedia.io"
+          },
+          "counterparty": {
+            "business_name": "STILL TRYING S.L.",
+            "email": "payments@nomadsmedia.io",
+            "name": "STILL TRYING S.L.",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "1.00",
+            "amount": -1,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "1.00",
+            "amount": -1,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "1.16",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "IbxnA02H1HfQOud-2cN5hqWtCcTEFexnhhPWV8dSWTgWIrKK-JESkTv1QxK",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "is_rtr_applicable": false,
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "1.00"
+                }
+              }
+            ],
+            "internal_id": "IbxnA02H1HfQOud-2cN5hqWtCcTEFexnhhPWV8dSWTgWIrKK-JESkTv1QxK",
+            "channels": [
+              "PERSONAL_PAYMENT"
+            ],
+            "is_incentive_refund": false,
+            "purposes": [
+              "PURCHASE_GOODS"
+            ],
+            "is_balance_affecting": true,
+            "merchant_category_code": "5969",
+            "activity_id": "3H712564V81069004",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "956.45"
+            },
+            "debit_credit_code": "DEBIT",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "956.45"
+              },
+              "purposes": [
+                "PURCHASE_GOODS"
+              ],
+              "channels": [
+                "PERSONAL_PAYMENT"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "is_rtr_applicable": false,
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "1.00"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "IbxnA02H1HfQOud-2cN5hqWtCcTEFexnhhPWV8dSWTgWIrKK-JESkTv1QxK",
+              "merchant_category_code": "5969",
+              "is_handout_activity": false,
+              "activity_id": "3H712564V81069004",
+              "is_incentive_refund": false,
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "email": "finance@gasmobi.com",
+            "name": "Federico Zwanck Sáenz"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:PERSONAL_PAYMENT:",
+          "matchedTCodes": [
+            "T-0000",
+            "T-0007"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-1,00 EUR",
+          "amountUnformatted": -1,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-1,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-1,00 EUR",
+          "amountUnformatted": -1,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-1,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "956,45 EUR",
+          "amountUnformatted": "956.45",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "956,45 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": null,
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:PERSONAL_PAYMENT:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "STILL TRYING S.L."
+        }
+      },
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "KXyW1SDQKWg7b51LUGPID39UuY-IZ0OhDL6xFI6vltx56OTMffhli_4Cv6e",
+        "transactionId": "30996019GN769511X",
+        "scidValue": "",
+        "transactionTime": "16 oct. 2021",
+        "transactionTimeFormatted": "16/10/21",
+        "transactionTimeUnformatted": "2021-10-16T12:21:10.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "30996019GN769511X",
+          "account": {},
+          "time_created": "2021-10-16T12:21:10.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "paypaleur@godaddy.com"
+          },
+          "counterparty": {
+            "business_name": "Go Daddy Europe Limited",
+            "email": "paypaleur@godaddy.com",
+            "name": "Go Daddy Europe Limited",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "48.74",
+            "amount": -48.74,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "48.74",
+            "amount": -48.74,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "56.55",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "KXyW1SDQKWg7b51LUGPID39UuY-IZ0OhDL6xFI6vltx56OTMffhli_4Cv6e",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "48.74"
+                }
+              }
+            ],
+            "internal_id": "KXyW1SDQKWg7b51LUGPID39UuY-IZ0OhDL6xFI6vltx56OTMffhli_4Cv6e",
+            "partner_info": {
+              "partner_account_number": "2089704399975642465"
+            },
+            "is_balance_affecting": true,
+            "merchant_category_code": "4816",
+            "memo": "POSTBACKEN.COM",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "957.45"
+            },
+            "debit_credit_code": "DEBIT",
+            "client_configuration": {
+              "product_code": "BILLING_AGREEMENTS",
+              "product_feature": "DIGITAL_GOODS",
+              "integration_artifact": "NONE",
+              "experience": {}
+            },
+            "is_rtr_applicable": false,
+            "billing_agreement_id": "B-18T30222CF9982916",
+            "is_incentive_refund": false,
+            "purposes": [
+              "PURCHASE_GOODS",
+              "BILLING_AGREEMENT_PAYMENT",
+              "PURCHASE_DIGITAL_GOODS"
+            ],
+            "activity_id": "03X28149V9649794Y",
+            "invoice_number": "1955204890_EUR_4874",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "957.45"
+              },
+              "purposes": [
+                "PURCHASE_GOODS",
+                "BILLING_AGREEMENT_PAYMENT",
+                "PURCHASE_DIGITAL_GOODS"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "memo": "POSTBACKEN.COM",
+              "is_rtr_applicable": false,
+              "partner_info": {
+                "partner_account_number": "2089704399975642465"
+              },
+              "billing_agreement_id": "B-18T30222CF9982916",
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "48.74"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "KXyW1SDQKWg7b51LUGPID39UuY-IZ0OhDL6xFI6vltx56OTMffhli_4Cv6e",
+              "invoice_number": "1955204890_EUR_4874",
+              "merchant_category_code": "4816",
+              "is_handout_activity": false,
+              "activity_id": "03X28149V9649794Y",
+              "is_incentive_refund": false,
+              "client_configuration": {
+                "product_code": "BILLING_AGREEMENTS",
+                "product_feature": "DIGITAL_GOODS",
+                "integration_artifact": "NONE",
+                "experience": {},
+                "issuance_product": "NONE"
+              },
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "email": "finance@gasmobi.com",
+            "name": "Federico Zwanck Sáenz"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+          "matchedTCodes": [
+            "T-0000",
+            "T0003",
+            "T-0007",
+            "T-0012"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-48,74 EUR",
+          "amountUnformatted": -48.74,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-48,74 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-48,74 EUR",
+          "amountUnformatted": -48.74,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-48,74 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "957,45 EUR",
+          "amountUnformatted": "957.45",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "957,45 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": null,
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "Go Daddy Europe Limited"
+        }
+      },
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "InICavMrLRGg1kQ7-WxxAfZqEL3Gl8xH3Ihss1hsLpdfPBCDQWt6gEgYUPu",
+        "transactionId": "8DH88558UA9397213",
+        "scidValue": "",
+        "transactionTime": "15 oct. 2021",
+        "transactionTimeFormatted": "15/10/21",
+        "transactionTimeUnformatted": "2021-10-15T12:48:07.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "8DH88558UA9397213",
+          "account": {},
+          "time_created": "2021-10-15T12:48:07.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "zana.ibragim@hotmail.com"
+          },
+          "counterparty": {
+            "first_name": "Yasser",
+            "last_name": "Saadoen",
+            "email": "zana.ibragim@hotmail.com",
+            "name": "Yasser Saadoen",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "43.65",
+            "amount": -43.65,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "43.65",
+            "amount": -43.65,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "50.64",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "InICavMrLRGg1kQ7-WxxAfZqEL3Gl8xH3Ihss1hsLpdfPBCDQWt6gEgYUPu",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "is_rtr_applicable": false,
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "43.65"
+                }
+              }
+            ],
+            "internal_id": "InICavMrLRGg1kQ7-WxxAfZqEL3Gl8xH3Ihss1hsLpdfPBCDQWt6gEgYUPu",
+            "buyer_notes": "Payment Invoice No.   2438 and 2440 (Sept 21)",
+            "channels": [
+              "PERSONAL_PAYMENT"
+            ],
+            "is_incentive_refund": false,
+            "purposes": [
+              "PERSONAL"
+            ],
+            "is_balance_affecting": true,
+            "activity_id": "79P33862RD361412P",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "1006.19"
+            },
+            "debit_credit_code": "DEBIT",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "1006.19"
+              },
+              "purposes": [
+                "PERSONAL"
+              ],
+              "channels": [
+                "PERSONAL_PAYMENT"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "buyer_notes": "Payment Invoice No.   2438 and 2440 (Sept 21)",
+              "is_rtr_applicable": false,
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "43.65"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "InICavMrLRGg1kQ7-WxxAfZqEL3Gl8xH3Ihss1hsLpdfPBCDQWt6gEgYUPu",
+              "is_handout_activity": false,
+              "activity_id": "79P33862RD361412P",
+              "is_incentive_refund": false,
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "first_name": "Federico",
+            "last_name": "Zwanck Sáenz",
+            "email": "finance@gasmobi.com",
+            "name": "Federico Zwanck Sáenz"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:PERSONAL_PAYMENT:",
+          "matchedTCodes": [
+            "T-0000",
+            "T-0007"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-43,65 EUR",
+          "amountUnformatted": -43.65,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-43,65 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-43,65 EUR",
+          "amountUnformatted": -43.65,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-43,65 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "1.006,19 EUR",
+          "amountUnformatted": "1006.19",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "1.006,19 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": "Payment Invoice No.   2438 and 2440 (Sept 21)",
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:PERSONAL_PAYMENT:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [
+          "Payment Invoice No.   2438 and 2440 (Sept 21)"
+        ],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "Yasser Saadoen"
+        }
+      },
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "XhAGX6j5AYboHx8pFRE86ec0TvvOBjJEvEfCnA7_KpcAgr6XGeloI_9umu8",
+        "transactionId": "1C76620032374972D",
+        "scidValue": "",
+        "transactionTime": "15 oct. 2021",
+        "transactionTimeFormatted": "15/10/21",
+        "transactionTimeUnformatted": "2021-10-15T07:09:37.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "1C76620032374972D",
+          "account": {},
+          "time_created": "2021-10-15T07:09:37.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "paypaleur@godaddy.com"
+          },
+          "counterparty": {
+            "business_name": "Go Daddy Europe Limited",
+            "email": "paypaleur@godaddy.com",
+            "name": "Go Daddy Europe Limited",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "12.27",
+            "amount": -12.27,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "12.27",
+            "amount": -12.27,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "14.23",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "XhAGX6j5AYboHx8pFRE86ec0TvvOBjJEvEfCnA7_KpcAgr6XGeloI_9umu8",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "12.27"
+                }
+              }
+            ],
+            "internal_id": "XhAGX6j5AYboHx8pFRE86ec0TvvOBjJEvEfCnA7_KpcAgr6XGeloI_9umu8",
+            "partner_info": {
+              "partner_client_id": "AcWEQlX18Hd_GSAsUd03eerroQbtdNtTQq5VWn0IB_itRvikbAl4k3jRJtdXHND8HzV6KUQDF9RHf6sd",
+              "partner_account_number": "2089704399975642465"
+            },
+            "is_balance_affecting": true,
+            "merchant_category_code": "4816",
+            "memo": "sumo-food.com",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "1049.84"
+            },
+            "debit_credit_code": "DEBIT",
+            "client_configuration": {
+              "product_code": "BILLING_AGREEMENTS",
+              "product_feature": "NONE",
+              "integration_artifact": "NONE",
+              "experience": {}
+            },
+            "is_rtr_applicable": false,
+            "billing_agreement_id": "B-18T30222CF9982916",
+            "is_incentive_refund": false,
+            "purposes": [
+              "PURCHASE_GOODS",
+              "BILLING_AGREEMENT_PAYMENT"
+            ],
+            "activity_id": "64A941696R190484K",
+            "invoice_number": "1954521979_EUR_1227",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "1049.84"
+              },
+              "purposes": [
+                "PURCHASE_GOODS",
+                "BILLING_AGREEMENT_PAYMENT"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "memo": "sumo-food.com",
+              "is_rtr_applicable": false,
+              "partner_info": {
+                "partner_account_number": "2089704399975642465",
+                "partner_client_id": "AcWEQlX18Hd_GSAsUd03eerroQbtdNtTQq5VWn0IB_itRvikbAl4k3jRJtdXHND8HzV6KUQDF9RHf6sd"
+              },
+              "billing_agreement_id": "B-18T30222CF9982916",
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "12.27"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "XhAGX6j5AYboHx8pFRE86ec0TvvOBjJEvEfCnA7_KpcAgr6XGeloI_9umu8",
+              "invoice_number": "1954521979_EUR_1227",
+              "merchant_category_code": "4816",
+              "is_handout_activity": false,
+              "activity_id": "64A941696R190484K",
+              "is_incentive_refund": false,
+              "client_configuration": {
+                "product_code": "BILLING_AGREEMENTS",
+                "product_feature": "NONE",
+                "integration_artifact": "NONE",
+                "experience": {},
+                "issuance_product": "NONE"
+              },
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "email": "f.zwanck@gasmobi.com",
+            "name": "ROI PERFORMANCE MEDIA, SOCIEDAD LIMITADA"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+          "matchedTCodes": [
+            "T-0000",
+            "T0003",
+            "T-0007",
+            "T-0012"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-12,27 EUR",
+          "amountUnformatted": -12.27,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-12,27 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-12,27 EUR",
+          "amountUnformatted": -12.27,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-12,27 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "1.049,84 EUR",
+          "amountUnformatted": "1049.84",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "1.049,84 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": null,
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "Go Daddy Europe Limited"
+        }
+      },
+      {
+        "secondaryTransactions": [],
+        "actionList": [
+          {
+            "name": "Archivar",
+            "type": "HIDE"
+          }
+        ],
+        "isPayUponInvoice": false,
+        "c3Transaction": false,
+        "encryptedAccountNumber": "22TLHVJV84Z82",
+        "accountInfo": "",
+        "internalTransactionId": "tpepMppREugzcR8dJYnnAcFLZZQCjbfnirVPwWVFZihbsQYk9aKHbdwbx00",
+        "transactionId": "25502769VL2535448",
+        "scidValue": "",
+        "transactionTime": "11 oct. 2021",
+        "transactionTimeFormatted": "11/10/21",
+        "transactionTimeUnformatted": "2021-10-11T08:58:14.000Z",
+        "transactionType": "PAYMENT",
+        "transactionStatus": "Completado",
+        "transactionParent": "None",
+        "isTokenized": false,
+        "activity": {
+          "id": "25502769VL2535448",
+          "account": {},
+          "time_created": "2021-10-11T08:58:14.000Z",
+          "activity_type": "PAYMENT",
+          "subtype": "PAYMENT",
+          "status": "COMPLETED",
+          "detailed_status": "COMPLETED",
+          "payee_details": {
+            "type": "EMAIL",
+            "value": "paypaleur@godaddy.com"
+          },
+          "counterparty": {
+            "business_name": "Go Daddy Europe Limited",
+            "email": "paypaleur@godaddy.com",
+            "name": "Go Daddy Europe Limited",
+            "payment_id": "--XXXXX--"
+          },
+          "global_properties": {
+            "counterparty": {}
+          },
+          "fee": {
+            "currency_code": "EUR",
+            "value": "0.00",
+            "amount": "0.00"
+          },
+          "gross": {
+            "currency_code": "EUR",
+            "value": "61.01",
+            "amount": -61.01,
+            "amountUnformatted": null
+          },
+          "net": {
+            "currency_code": "EUR",
+            "value": "61.01",
+            "amount": -61.01,
+            "amountUnformatted": null
+          },
+          "gross_usd_amount": "70.53",
+          "is_primary": true,
+          "raw_status": "S",
+          "internal_id": "tpepMppREugzcR8dJYnnAcFLZZQCjbfnirVPwWVFZihbsQYk9aKHbdwbx00",
+          "actions": [
+            "ACTIVITY_DETAILS",
+            "ARCHIVE"
+          ],
+          "extension": {
+            "money_movements": [
+              {
+                "funding_source": {
+                  "id": "BALANCE"
+                },
+                "amount": {
+                  "currency_code": "EUR",
+                  "value": "61.01"
+                }
+              }
+            ],
+            "internal_id": "tpepMppREugzcR8dJYnnAcFLZZQCjbfnirVPwWVFZihbsQYk9aKHbdwbx00",
+            "partner_info": {
+              "partner_client_id": "AcWEQlX18Hd_GSAsUd03eerroQbtdNtTQq5VWn0IB_itRvikbAl4k3jRJtdXHND8HzV6KUQDF9RHf6sd",
+              "partner_account_number": "2089704399975642465"
+            },
+            "is_balance_affecting": true,
+            "merchant_category_code": "4816",
+            "memo": "instanjoy.comSERILY.COMTRACKSHI.COM",
+            "running_balance": {
+              "currency_code": "EUR",
+              "value": "1062.11"
+            },
+            "debit_credit_code": "DEBIT",
+            "client_configuration": {
+              "product_code": "BILLING_AGREEMENTS",
+              "product_feature": "NONE",
+              "integration_artifact": "NONE",
+              "experience": {}
+            },
+            "is_rtr_applicable": false,
+            "billing_agreement_id": "B-18T30222CF9982916",
+            "is_incentive_refund": false,
+            "purposes": [
+              "PURCHASE_GOODS",
+              "BILLING_AGREEMENT_PAYMENT"
+            ],
+            "activity_id": "2RW20290N26307156",
+            "invoice_number": "1952107658_EUR_6101",
+            "is_handout_activity": false
+          },
+          "extensions": {
+            "payment_properties": {
+              "running_balance": {
+                "currency_code": "EUR",
+                "value": "1062.11"
+              },
+              "purposes": [
+                "PURCHASE_GOODS",
+                "BILLING_AGREEMENT_PAYMENT"
+              ],
+              "debit_credit_code": "DEBIT",
+              "is_balance_affecting": true,
+              "memo": "instanjoy.comSERILY.COMTRACKSHI.COM",
+              "is_rtr_applicable": false,
+              "partner_info": {
+                "partner_account_number": "2089704399975642465",
+                "partner_client_id": "AcWEQlX18Hd_GSAsUd03eerroQbtdNtTQq5VWn0IB_itRvikbAl4k3jRJtdXHND8HzV6KUQDF9RHf6sd"
+              },
+              "billing_agreement_id": "B-18T30222CF9982916",
+              "money_movements": [
+                {
+                  "amount": {
+                    "currency_code": "EUR",
+                    "value": "61.01"
+                  },
+                  "funding_source": {
+                    "id": "BALANCE"
+                  }
+                }
+              ],
+              "internal_id": "tpepMppREugzcR8dJYnnAcFLZZQCjbfnirVPwWVFZihbsQYk9aKHbdwbx00",
+              "invoice_number": "1952107658_EUR_6101",
+              "merchant_category_code": "4816",
+              "is_handout_activity": false,
+              "activity_id": "2RW20290N26307156",
+              "is_incentive_refund": false,
+              "client_configuration": {
+                "product_code": "BILLING_AGREEMENTS",
+                "product_feature": "NONE",
+                "integration_artifact": "NONE",
+                "experience": {},
+                "issuance_product": "NONE"
+              },
+              "DEF_EXT_FLD": "DEF_EXT_VAL"
+            }
+          },
+          "party": {
+            "email": "finance@gasmobi.com",
+            "name": "Federico Zwanck Sáenz"
+          },
+          "NewNodeURL": true,
+          "scidValue": "",
+          "redirectUrl": "/activity/payment/",
+          "orderVoidPXP": true,
+          "proTransaction": false,
+          "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+          "matchedTCodes": [
+            "T-0000",
+            "T0003",
+            "T-0007",
+            "T-0012"
+          ]
+        },
+        "grossAmount": {
+          "amount": "-61,01 EUR",
+          "amountUnformatted": -61.01,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-61,01 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "feeAmount": {
+          "amount": "0,00 EUR",
+          "amountUnformatted": "0.00",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "0,00 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": true,
+          "isAmountInCents": false
+        },
+        "netAmount": {
+          "amount": "-61,01 EUR",
+          "amountUnformatted": -61.01,
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "-61,01 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": true,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "balanceAmount": {
+          "amount": "1.062,11 EUR",
+          "amountUnformatted": "1062.11",
+          "currency": "EUR",
+          "defaultCurrency": "USD",
+          "amountInDefaultCurrency": null,
+          "amountInSymbolCurrencyCode": "1.062,11 EUR",
+          "amountInDefaultSymbolCurrencyCode": null,
+          "formatter": {
+            "language": "es-ES",
+            "country": "ES",
+            "metadata": {}
+          },
+          "amountInDefaultCurrencyUnformatted": null,
+          "negativeAmount": false,
+          "zeroAmount": false,
+          "isAmountInCents": false
+        },
+        "transactionNote": null,
+        "orderVoidPXP": true,
+        "NewNodeURL": true,
+        "proTransaction": false,
+        "redirectUrl": "/activity/payment/",
+        "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:",
+        "alertTooltipMessages": [],
+        "infoTooltipMessages": [],
+        "errorTooltipMessages": [],
+        "transactionDescription": {
+          "description": "Pago a",
+          "name": "Go Daddy Europe Limited"
+        }
+      }
+    ],
+    "hasMore": false,
+    "message": "",
+    "nextpageurl": null,
+    "dispFromdate": "3 de octubre de 2021",
+    "dispTodate": "24 de octubre de 2021",
+    "searchDuration": 21,
+    "searchKeyword": "undefined",
+    "is_next_page_fetch": false,
+    "supported_bulk_actions": [
+      "HIDE",
+      "SHOW"
+    ],
+    "pagination": {
+      "firstTransaction": "Primeras 30 transacciones",
+      "singleTransaction": "transacción",
+      "otherTransaction": "transacciones"
+    },
+    "updateTransactionMsg": {
+      "msg": "Hay transacciones nuevas o actualizadas.",
+      "show": "Mostrar"
+    },
+    "tempContent": {
+      "amount": "importe",
+      "desc": "descripción",
+      "date": "fecha",
+      "puiContent": "Instrucciones de pago"
+    },
+    "pxp": {
+      "HideBalance": false,
+      "bizlisting_muma_tabbed_browsering": true,
+      "FreeTextSearch": "navigation"
+    }
+  },
+  "sys": {
+    "links": {
+      "jsBaseUrl": "https://www.paypalobjects.com/web/res/aa7/3e77c23c7c0caac351c1ebd56509f/js",
+      "cssBaseUrl": "https://www.paypalobjects.com/web/res/aa7/3e77c23c7c0caac351c1ebd56509f/css",
+      "templateBaseUrl": "https://www.paypalobjects.com/web/res/aa7/3e77c23c7c0caac351c1ebd56509f/templates/ES/es",
+      "resourceBaseUrl": "https://www.paypalobjects.com/web/res/aa7/3e77c23c7c0caac351c1ebd56509f",
+      "originalTemplateBaseUrl": "https://www.paypalobjects.com/web/res/aa7/3e77c23c7c0caac351c1ebd56509f/templates"
+    },
+    "pageInfo": {
+      "date": "Oct 24, 2021 13:55:24 -07:00",
+      "hostName": "rZJvnqaaQhLn/nmWT8cSUjOx898qoYZ0AGWzD9UXmLtdIk4EgkB79qdnmneoWEzg",
+      "rlogId": "rZJvnqaaQhLn%2FnmWT8cSUvot7xhiATjrK07TYV7GbGC56zIMiSi3hOwoI%2BU7jBuCXiuWDyjLb9a3FSra51nWGQ_17cb4162d29",
+      "script": "node",
+      "debug": null
+    },
+    "locality": {
+      "timezone": {
+        "determiner": "viaUserProfile",
+        "value": "Europe/Berlin"
+      },
+      "country": "ES",
+      "locale": "es_ES",
+      "language": "es",
+      "directionality": "ltr"
+    },
+    "tracking": {
+      "fpti": {
+        "name": "pta",
+        "jsURL": "https://www.paypalobjects.com",
+        "serverURL": "https://t.paypal.com/ts",
+        "dataString": "pgrp=bizlistingnodeweb%2F.dust&page=bizlistingnodeweb%2F.dust&pgst=1635108924713&calc=f783240c9eb12&nsid=xeoYl8QeHOPgr7OhYH_fVXnx8YsxM-ba&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=473ca082b0714f82ad9c3f40c0f1001b&comp=bizlistingnodeweb&tsrce=bizlistingnodeweb&cu=1&ef_policy=ccpa&c_prefs=P%3D1%2CF%3D1%2Ctype%3Dimplicit&cust=22TLHVJV84Z82&party_id=22TLHVJV84Z82&acnt=business&aver=verified&rstr=unrestricted&cnac=ES&tssrq=1635108924798&xe=100027%2C101831%2C100666%2C101015%2C101496%2C101827%2C101903&xt=100062%2C106394%2C101776%2C102948%2C107469%2C106354%2C106728&tssrs=1635108925666"
+      }
+    }
+  }
+}

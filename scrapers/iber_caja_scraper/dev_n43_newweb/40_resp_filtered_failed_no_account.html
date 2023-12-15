@@ -1,0 +1,252 @@
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    </meta>
+
+</head>
+
+
+<script language="JavaScript" src="../js/browser.js"></script>
+
+<script language="JavaScript" src="../js/importes.js"></script>
+
+<script language="JavaScript" src="../js/General.js"></script>
+
+<script language="JavaScript" src="../js/Fechas.js"></script>
+
+<script language="JavaScript" src="../js/Norma43/SeleccionaRecibirN43.js"></script>
+
+
+<script>
+
+
+    <!--
+
+    var cont = 0;
+
+
+    if (is_nav4up) {
+
+
+        document.writeln('<LINK REL=STYLESHEET HREF=../css/be_iberc_n6.css TYPE=text/css>')
+
+
+    } else if (is_nav4) {
+
+
+        document.writeln('<LINK REL=STYLESHEET HREF=../css/be_iberc_n4.css TYPE=text/css>')
+
+
+    } else if (is_ie4up) {
+
+
+        document.writeln('<LINK REL=STYLESHEET HREF=../css/be_iberc_ie4.css TYPE=text/css>')
+
+
+    } else {
+
+
+        document.writeln('<LINK REL=STYLESHEET HREF=../../css/be_iberc_ie4.css TYPE=text/css>')
+
+
+    }
+
+
+    //-->
+
+
+    function activaEventosNetscape() {
+
+        if (is_nav) {
+
+            document.onkeydown = keyDown;
+
+            document.captureEvents(Event.keyDown);
+
+        }
+
+    }
+
+
+</script>
+
+
+<body bgcolor="white" marginheight="0" topmargin="0" marginwidth="2" leftmargin="2"
+      onload="javascript: activaEventosNetscape()">
+
+
+<center>
+
+    <form id="Formulario" name="Formulario" method="post">
+
+
+        <input type=hidden name=IdOperacion value="0076_1">
+
+        <input type=hidden name=Entidad value="2085">
+
+        <input type=hidden name=Canal value="IBE">
+
+        <input type=hidden name=Dispositivo value="INTR">
+
+        <input type=hidden name=Idioma value="ES">
+
+
+        <table border="0" cellspacing="2" width="100%">
+
+            <tr>
+
+                <td class="tit" height="25">
+
+                    <b>Recepción en el PC de extractos CSB 43</b>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+
+        <br>
+
+
+        <div id="capaError" class="textred"><b>
+
+            <!-- Miramos si nos viene error del componente -->
+
+            NO EXISTE NINGUNA CUENTA
+
+        </b></div>
+
+
+        <br>
+
+
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#6666FF"
+               background="../../imagenes/backtdmenu.gif">
+
+            <tr>
+
+                <td>
+
+                    <table border="0" cellspacing="1" cellpadding="1" width="100%">
+
+                        <tr>
+
+                            <td width="50%" class="datos"><b>Funciones disponibles:&nbsp;&nbsp;</b></td>
+
+                            <td width="50%" class="capt" valign="middle">&nbsp;&nbsp;
+
+                                <select name="funcseleccionada">
+
+
+                                    <option value="DesdeFecha">Captura de movimientos desde una fecha
+
+                                    <option value="NuevosMov">Nuevos movimientos
+
+                                    <option value="RepetirUltTransm">Repetir última transmisión
+
+                                    <option value="EntreFechas">Captura de movimientos entre dos fechas
+
+                                </select>
+
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td width="50%" class="datos"><b>Fecha desde:&nbsp;&nbsp;</b></td>
+
+                            <td width="50%" class="capt" valign="middle">&nbsp;&nbsp;
+
+                                <input type="text" name="fechainiciodia" value="11" maxlength=2 size=2
+                                       onkeypress="javascript: return SoloDigitos()">/
+
+                                <input type="text" name="fechainiciomes" value="03" maxlength=2 size=2
+                                       onkeypress="javascript: return SoloDigitos()">/
+
+                                <input type="text" name="fechainicioano" value="2022" maxlength=4 size=4
+                                       onkeypress="javascript: return SoloDigitos()">&nbsp;*
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td width="50%" class="datos"><b>Fecha hasta:&nbsp;&nbsp;</b></td>
+
+                            <td width="50%" class="capt" valign="middle">&nbsp;&nbsp;
+
+                                <input type="text" name="fechafindia" value="11" maxlength=2 size=2
+                                       onkeypress="javascript: return SoloDigitos()">/
+
+                                <input type="text" name="fechafinmes" value="03" maxlength=2 size=2
+                                       onkeypress="javascript: return SoloDigitos()">/
+
+                                <input type="text" name="fechafinano" value="2022" maxlength=4 size=4
+                                       onkeypress="javascript: return SoloDigitos()">&nbsp;**
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+
+        <br>
+
+
+        <div class="texto"><b><SUP>*</SUP>Sólo se toma en consideración en la función Captura de movimientos desde una
+            fecha y Captura de movimientos entre dos fechas</EM></b></div>
+
+
+        <br>
+
+
+        <div class="texto"><b><SUP>**</SUP>Sólo se toma en consideración en la función Captura de movimientos entre dos
+            fechas</EM></b></div>
+
+
+        <br>
+
+
+        <table border="0" height="30" width="100%" bgcolor="navy" cellspacing="0"
+               background="../imagenes/backtdmenu.gif">
+
+            <tr>
+
+                <td width="50%" align="center"><a href="javascript:ayuda('EXTP')"><img border=0
+                                                                                       src="../imagenes/bot_ayuda.gif"
+                                                                                       width="72" height="38"
+                                                                                       align="BOTTOM" border="0"
+                                                                                       value="Ayuda"></a></td>
+
+                <td width="50%" align="center"><input type="image" src="../imagenes/bot_aceptar.gif" align="BOTTOM"
+                                                      border="0" value="Aceptar"
+                                                      onclick="javascript:return ValidarDatos('Fecha Inicio Incorrecta.','Fecha Fin Incorrecta.','Intervalo de fechas incorrecto.','Las fechas deben ser anteriores al día de hoy','202171084','96A5855C331B49528428DF21CE88AC83ZB20220312083605IHEYK31B4952842ZLHF8DF21CE88AWRFC12FD82482594B1FRWA88EC12FD8FHLZ24882482594B133C5585A69FRWA88EC', 'IN')"
+                                                      id=image2 name=image2></a></td>
+
+            </tr>
+
+        </table>
+
+
+        <br>
+
+
+    </form>
+
+</center>
+
+</body>
+
+</html>

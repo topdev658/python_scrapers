@@ -1,0 +1,1817 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+
+<script>
+	var ua = 'UA-12835961-5';
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', ua, 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+
+<!--
+<title>BANCA INTERNET</title>
+-->
+<!-- -->
+
+<title>BANCA INTERNET</title>
+
+<meta HTTP-EQUIV="Cache-Control" CONTENT="No-cache">
+<META HTTP-EQUIV="Pragma" CONTENT="No-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Now">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+
+
+
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/ValidateTO.js"></script>
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/abreventana.js"></script>
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/pos_global.js"></script>
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script>
+<script language="javascript" >function ayuda(){var nuevaVentana=window.open('/es_ES/ayudas/E/cuentas/ay_CtaCon_posicion_global.htm','AYUDA','width=370,height=300 ,top=0, left=0,menubar=yes,scrollbars=yes');}</script>
+
+<script >
+
+
+
+
+
+	 function validarCampannaLateral(accionComercial, actuacionComercial, siguiente, canal, cliente, entidad, externo )
+     {
+    	document.FORM_RVIA_LATERAL.clavePagina.value 	 = "BDP_MULTICANAL_ACTUALIZAR_CONTENIDO";
+        document.FORM_RVIA_LATERAL.accionComercial.value       = accionComercial;
+        document.FORM_RVIA_LATERAL.actuacionComercial.value    = actuacionComercial;
+        document.FORM_RVIA_LATERAL.siguiente.value             = siguiente;
+        document.FORM_RVIA_LATERAL.canal.value                 = canal;
+        document.FORM_RVIA_LATERAL.cliente.value               = cliente;
+        document.FORM_RVIA_LATERAL.entidad.value               = entidad;
+ 	    if(externo == "si"){
+			var url = document.getElementById("urlExternaLateral").href;
+		    var win=window.open(url,"NEW","width=500,height=500,top=0,left=0,menubar=yes,scrollbars=yes,resizable=yes");
+	   	}else{
+			document.FORM_RVIA_LATERAL.submit();
+	   	}
+     }
+
+	function validarCampannaDestacado(accionComercial, actuacionComercial, siguiente, canal, cliente, entidad, externo )
+	{
+	   document.FORM_RVIA_DESTACADO.clavePagina.value 	 = "BDP_MULTICANAL_ACTUALIZAR_CONTENIDO";
+	   document.FORM_RVIA_DESTACADO.accionComercial.value       = accionComercial;
+	   document.FORM_RVIA_DESTACADO.actuacionComercial.value    = actuacionComercial;
+	   document.FORM_RVIA_DESTACADO.siguiente.value             = siguiente;
+	   document.FORM_RVIA_DESTACADO.canal.value                 = canal;
+	   document.FORM_RVIA_DESTACADO.cliente.value               = cliente;
+	   document.FORM_RVIA_DESTACADO.entidad.value               = entidad;
+	   if(externo == "si"){
+
+
+
+		   	//var url = document.getElementById("urlExternaDestacado").href;
+		    //var win=window.open(url,"NEW","width=500,height=500,top=0,left=0,menubar=yes,scrollbars=yes,resizable=yes");
+
+		   document.FORM_RVIA_DESTACADO.clavePagina.value 	 = "BDP_MULTICANAL_ACTUALIZAR_CONTENIDO_EXT";
+		   document.FORM_RVIA_DESTACADO.target = 'NEW';
+
+		   var win=window.open("","NEW","width=500,height=500,top=0,left=0,menubar=yes,scrollbars=yes,resizable=yes");
+		   if(win) document.FORM_RVIA_DESTACADO.submit();
+
+
+
+
+	   }else{
+		   document.FORM_RVIA_DESTACADO.submit();
+	   }
+	}
+
+
+
+	var pulsada=0;
+
+
+	var hoy = new Date("2020", "0", "31");
+
+	function restarMeses(meses)
+	{
+		var salida = new Date(hoy.getFullYear(),parseInt(hoy.getMonth(),10)-parseInt(meses,10) ,hoy.getDate());
+		return formatearFecha(salida);
+	}
+
+	function getFechaSistema()
+	{
+		return formatearFecha(hoy);
+	}
+
+	function restarDias(dias)
+	{
+		var salida = new Date(hoy.getFullYear(),hoy.getMonth(),parseInt(hoy.getDate(),10)-parseInt(dias,10));
+		return formatearFecha(salida);
+	}
+
+	function enviar_servicio_isum(formu,servicio){
+		document.location.href = 'https://bankoa.bankoaonline.com/isum'+servicio;
+	}
+
+	function enviar_servicio_isum_new(formu,servicio){
+		var url = 'https://bankoa.bankoaonline.com/isum'+servicio;
+	    var win=window.open(url,"_blank");
+	}
+
+	function enviar_pasivo(formu,clave)
+	{
+
+		if (pulsada == 0) {
+			pulsada = 1;
+			formu.clavePagina.value=clave;
+
+			formu.FechaDesde.value = restarMeses(1);
+
+			formu.FechaHasta.value = getFechaSistema();
+			formu.fechaDesde.value = restarMeses(3);
+			formu.fechaHasta.value = getFechaSistema();
+			formu.primeraVez.value      = "1";
+			formu.paginaActual.value    = "0";
+			formu.tamanioPagina.value   = "50";
+			formu.campoPaginacion.value = "lista";
+			formu.Nmovs.value = "50";
+			formu.descEstado.value = "TODOS";
+			formu.submit();
+		}
+
+	}
+
+	function enviar_deposito(formu,clave)
+	{
+		if (pulsada == 0) {
+			pulsada = 1;
+			formu.clavePagina.value =clave;
+			formu.fechaDesde.value = restarDias(7);
+			formu.fechaHasta.value = getFechaSistema();
+			formu.submit();
+		}
+
+	}
+
+
+	function enviar_fondo(formu,clave,gescoop)
+	{
+
+		if (pulsada == 0) {
+		    pulsada = 1;
+			formu.clavePagina.value=clave;
+			formu.fechaDesde.value = restarDias(7);
+			formu.fechaHasta.value = getFechaSistema();
+			formu.descripcionCuenta.value = formu.descripcionCuentaOperativas.value;
+			formu.gescoopPosGlobal.value = gescoop;
+			formu.target='_self';
+			formu.submit();
+		}
+
+	}
+
+
+
+	function enviar_fondo_ope(formu,clave)
+	{
+		formu.clavePagina.value=clave;
+		formu.fechaDesde.value = restarDias(7);
+		formu.fechaHasta.value = getFechaSistema();
+		formu.target='_blank';
+		formu.submit();
+	}
+
+
+	function enviar_formu(formu,clave)
+	{
+
+		if (pulsada == 0) {
+		    pulsada = 1;
+			formu.clavePagina.value=clave;
+			formu.submit();
+		}
+	}
+
+	function enviar_cartera(formu,clave)
+	{
+
+		if (pulsada == 0) {
+		    pulsada = 1;
+			formu.clavePagina.value =clave;
+			formu.fechaDesde.value = restarDias(7);
+			formu.fechaHasta.value = getFechaSistema();
+			formu.primeraVez.value      = "1";
+			formu.paginaActual.value    = "0";
+			formu.tamanioPagina.value   = "25";
+			formu.campoPaginacion.value = "lista";
+			formu.submit();
+		}
+
+	}
+
+
+  	function enviar_pensiones_movimientos(formu, clave)
+  	{
+  		if (pulsada == 0) {
+		    pulsada = 1;
+			formu.clavePagina.value =clave;
+
+			formu.primeraVez.value      = "1";
+    		formu.paginaActual.value    = "0";
+    		formu.tamanioPagina.value   = "25";
+    		formu.campoPaginacion.value = "lista";
+
+			formu.codigoFondo.value = formu.numeroPlan.value.substring(0,2);
+			formu.codigoPlan.value = formu.numeroPlan.value.substring(2,5);
+			formu.participe.value = formu.numeroPlan.value.substring(5);
+
+			formu.fechaDesde.value = restarMeses(6);
+			formu.fechaHasta.value = getFechaSistema();
+			formu.submit();
+		}
+  	}
+
+  	function enviar_pensiones_saldo(formu, clave)
+  	{
+  		if (pulsada == 0) {
+		    pulsada = 1;
+			formu.clavePagina.value =clave;
+
+			formu.codigoFondo.value = formu.numeroPlan.value.substring(0,2);
+			formu.codigoPlan.value = formu.numeroPlan.value.substring(2,5);
+			formu.participe.value = formu.numeroPlan.value.substring(5);
+
+			formu.submit();
+		}
+  	}
+
+	function enviar_tarjeta(formu,clave)
+	{
+		formu.clavePagina.value = clave;
+		if (clave == "BEL_TAR_CON_SALDO_DATOS_SAT")
+		{
+			formu.opcionSaldoUltMovs.value="S";
+		}
+		else if (clave == "BEL_TAR_CON_MOVS_FECHAS_SAT")
+		{
+			formu.opcionSaldoUltMovs.value="M";
+		}
+		else if (clave == "BEL_TAR_VIR_DEB_SAT")
+		{
+			formu.opcionDebitoCredito.value = "D";
+		}
+		else if (clave == "BEL_TAR_VIR_CRE_SAT")
+		{
+			formu.opcionDebitoCredito.value = "C";
+		}
+			if (pulsada == 0) {
+		    pulsada = 1;
+			formu.submit();
+		}
+
+	}
+
+	function alertaCierrePensiones() {
+		var hoy_tmp = new Date();
+		var dia_mes = hoy_tmp.getUTCDate()+'-'+ (hoy_tmp.getMonth() + 1);
+		if (("E"== "P") && ( dia_mes == '27-12' || dia_mes == '28-12' || dia_mes == '29-12'|| dia_mes == '30-12' || dia_mes == '31-12')) {
+		    if  ( ("138" != "3171") && ("138" != "3062") && ("138" != "3023") ) {
+					alert("Con el fin de ayudarle a planificar con tiempo sus aportaciones extraordinarias a los Planes de Pensiones para el ejercicio fiscal, le informamos que el plazo para poder realizarlas finaliza a las 14:00 horas (1 hora menos en Canarias) del día 31 de diciembre, hora en que quedará cerrada la operativa tanto en oficinas como a través de Bankoa.");
+			}
+		}
+		return;
+	}
+	function mensajePend()	{
+	  	document.location.href = document.getElementById('FORM_RVIA_0').urlGesCom.value;
+
+	}
+
+
+</script>
+
+
+
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/skin.css?id=001">
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/skin.css?id=001">
+
+
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/skin.css?id=001">
+
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/0138/skin.css?id=001">
+
+
+<NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script></NO_TRANSFORM>
+
+
+
+
+<NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/multicanalidad.js"></script></NO_TRANSFORM>
+
+
+
+<script language="JavaScript">
+<!--
+openMenuA = null;
+openMenuB = null;
+
+function cambiaKK(capa1, capa2){
+	oculta(capa1);
+	visualiza(capa2);
+	if (openMenuA != null){
+		oculta(openMenuB);
+		visualiza(openMenuA);
+	}
+	if (openMenuA == capa2){
+		openMenuA = null;
+		openMenuB = null;
+	}else{
+		openMenuA = capa1;
+		openMenuB = capa2;
+	}
+}
+
+function oculta(capaId){
+	capa = document.getElementById(capaId);
+	capa.style.display = 'none';
+	i = 0;
+	while (document.getElementById(capaId + "_" + i)){
+		caux = document.getElementById(capaId + "_" + i);
+		caux.style.display = 'none';
+		i++;
+	}
+}
+
+function visualiza(capaId){
+	capa = document.getElementById(capaId);
+	capa.style.display = 'block';
+	i = 0;
+	while (document.getElementById(capaId + "_" + i)){
+		caux = document.getElementById(capaId + "_" + i);
+		caux.style.display = 'block';
+		i++;
+	}
+}
+
+
+
+
+
+
+function pintarTablaMenu(texto)
+{
+	document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+	document.write("	<table cellpadding='0' cellspacing='0' border='0'>");
+	document.write("	<tr>");
+	document.write("		<td nowrap='true' id='opcion'>" + texto + "</td>");
+	document.write("	</tr>");
+	document.write("	</table>");
+	document.write("</td>");
+}
+
+function pintarTablaMenuSeleccionada(texto)
+{
+	document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+	document.write("			<table cellpadding='0' cellspacing='0' border='0'>");
+	document.write("			<tr>");
+	document.write("	 			<td class='izqFin' nowrap='true'></td>");
+	document.write("	 			<td class='centroFin' nowrap='true'>&nbsp;" + texto + "&nbsp;</td>");
+	document.write("				<td class='dchaFin' nowrap='true'>&nbsp;</td>");
+	document.write("			</tr>");
+	document.write("		 	</table>");
+	document.write("		</td>");
+
+
+}
+
+function pintarFinTablaMenu()
+{
+	document.write("<td class='fondoMenu' style='vertical-align: bottom; padding-top:5px;' width='100%'>");
+	document.write("<table cellpadding='0' cellspacing='0' border='0' width='100%'>");
+	document.write("	<tr>");
+	document.write("		<td id='opcion'>&nbsp;</td>");
+	document.write("	</tr>");
+	document.write("	</table>");
+	document.write("</td>");
+}
+
+//-->
+</script>
+<script language="Javascript">
+<!--
+ie4 = (document.all)? true:false;
+function pulsarTecla (e){
+	if ((ie4 && (event.keyCode == 13)) || (! ie4 && (e.which == 13))){
+			return false;
+		}
+}
+document.onkeydown = pulsarTecla;
+//-->
+
+</script>
+</head>
+
+<BODY>
+<DIV ID="RESOLUCION">
+
+<!--CABECERA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+	<!--
+	function resolucion(valor){
+	  if (valor == "TM1"){
+			var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a 800 x 600 píxeles.";
+			alert(tx);
+		}else{
+				var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a un resolución mínima de 1024 x 768 píxeles.";
+			alert(tx);
+		}
+		url = window.location.href;
+		if (url.indexOf("?") != -1){
+			indice = url.indexOf("?");
+			if (indice != -1){
+				window.location.href = url.substring(0, indice) + "?RES=" + valor;
+			}else{
+				window.location.href = url + "&RES=" + valor;
+			}
+		}else{
+			window.location.href = url + "?RES=" + valor;
+		}
+	}
+//-->
+
+function salirConfirmacion(url){
+	load(url);
+	//location.href="/isum/srv.BDP_EXCLUSIVE_SALIR_EMP.BDP_EXCLUSIVE_SALIR_EMP";
+}
+
+ var pgLogout = null ;
+
+ function load(url) {
+
+
+
+
+	url= 'https://bancaelectronica.evobanco.com'+url;
+
+
+    if (typeof window.ActiveXObject != 'undefined' ) {
+    	pgLogout = new ActiveXObject("Microsoft.XMLHTTP");
+    	pgLogout.onreadystatechange = process ;
+    }
+    else {
+    	pgLogout = new XMLHttpRequest();
+    	pgLogout.onload = process ;
+    }
+    pgLogout.open( 'POST', url, true );
+    pgLogout.send( null );
+  }
+
+  function process() {
+    if (pgLogout.readyState != 4 ) return ;
+    document.getElementById('CONTENIDO').innerHTML = pgLogout.responseText ;
+  }
+
+
+</script>
+
+<div class=CABECERA>
+
+	<div id=LOGO></div>
+	<div id=BARRALITERAL>
+
+
+
+
+			 	<a href="/isum/interfaces/ruralvia2005b/Logout.jsp?entidad=0138&modo_autenticacion=1" id="botonSalir" ></a>
+
+
+		<div id=CBLITERAL01>
+
+
+
+			<a href='Main?ISUM_ID=cabecera&ISUM_SCR=serviceScr&ISUM_CIPH=pJ277A9Y%2F9J1OIfWZ%2FMtIVcc3NTJEJReZQwhM0CrXO0%3D' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('desconectar','','/es_ES/img/desconectar_b.gif',1)"><img name="desconectar" border="0" src="/es_ES/img/desconectar_a.gif" alt="Desconectar" ></a>
+
+
+
+		</div> <!-- CBLITERAL01 -->
+
+
+
+
+
+
+
+						<div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=ulhPnZrQNBGomqn5TuEVrg%3D%3D" target="_blank">Seguridad</a>&nbsp;|&nbsp;</div>
+
+
+
+	<!--Adaptación Resoluciones-->
+
+
+
+		<!--***** P00009735 -- INICIO ***********-->
+
+		<!-- /*************************** P00017411 12/08/2013 INICIO *************************************** -->
+
+
+		<div id="CBLOGOTXT">
+				BANKOA
+
+
+				<div class="bix">BIC: BKOAES22XXX</div>
+
+		</div>
+	<!-- /*************************** P00017411 12/08/2013 FIN ****************************************** -->
+
+		<!--***** P00009735 -- FIN ***********-->
+
+
+			<div id=contrato_tit>
+				<p class=contrato><span>Contrato:  </span>00000000000195873997</p>
+				<p class=titular><span>Titular:  </span>ESERGUI DISTESER, S.L.                            </p>
+			</div>
+
+
+
+
+
+	</div> <!-- BARRALITERAL -->
+
+
+	<div id=ENTORNO>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+													<div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=%2Fo98bjs533DKGgWoj%2BJf6wHB9JhuNiT%2BljflDSunw2g%3D" id="BDP_RVIA05_COMERCIO_EMP">Comercio</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+													<div id=DESTACADOS><a class="link1" HREF="/isum/srv.EMPRESA.BDP_RVIA05_SERV_CABECERA_GEST_FICHEROS"  id="EMPRESA_IA">Gestión de Ficheros</a></div>
+
+												<INPUT type="hidden" name="EMPRESA_IA_REDIRECT" id="EMPRESA_IA_REDIRECT" value="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=pKZaDqyiRH3STnxxfZWgW38isPnQ%2FYIIdgTuICLnk0M%3D">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</DIV>
+
+
+
+
+
+
+
+<!--MENU SUPERIOR-->
+
+
+
+
+
+
+
+
+
+
+<!--	<DIV MENU> //-->
+<div id="menuHorizontal">
+	<table cellpadding="0" align="center" cellspacing="0" border="0" style="border-top: 1px solid #000000; border-left: 1px solid #949494;">
+	<tr>
+
+				<script>pintarTablaMenuSeleccionada('Inicio');</script>
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=ptR%2F3hY%2FZw3vqbdcpvqWb29ag2fwU2hLTT%2BdJD2m%2Bq0%3D">Cuentas</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=uW9i%2FjeY6eHGmCZa8c%2BUhf776hq3iEDOoNc0829hJ3o%3D">Transferencias</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=twSwrK98ne1V3E9Jb%2FmxynoqfevWQ2WrLE8JTFoMh44%3D">Tarjetas</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=HQfQYicbwHs5M6mQkHLFtFGOmCM%2FUA2Nou2WOQiODSg%3D">Ahorro/Inversión</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=Fz0i2xagakKFwwqMeJUNN9GxzOyd0yln1vHS680OAAk%3D">Financiación</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=6YbGp82Mwp7m880gN4RiyOxPAr4MtK3pKzuRXYVk82U%3D">Internacional</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=eq2Uv%2B8T%2FDVU%2BaNmNBwI1xo9GHfAfM0SfeFTbK3Iw1o%3D">Impuestos</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=RFWm0sltW3dEqOjVRY03O%2BJ9xTRSBqQ1gf3T8I6T32Q%3D">Ficheros</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=y9usQhdzOhXY3KyGoihc8hU2tqIoHx4Zt1bJU6xwCNs%3D">Servicios</a>');</script>
+
+
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=ZqmjVmLRi8DqEXBDnE8BkeoY3jwlSMrlBzXj2JdJPiE%3D">Buzón</a>');</script>
+
+
+		<script>pintarFinTablaMenu();</script>
+	</tr>
+	</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+	desplegar =  false;
+//-->
+</script>
+<DIV class="MENU2">
+
+
+
+
+					<div class="opcionSm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=LD0bGuf2fmglTYRHh7C0mCFMe%2BdCEzQQoJHHqeWrkCw%3D" >Documentos Pendientes de Firma</a></div>
+
+
+
+
+
+
+
+					<div class="opcionSm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=F7JGm16O3avbuLeVQeQpu%2BZdKgNKsW86FeUr9dzUxCw%3D" >Nombrar Cuentas</a></div>
+
+
+
+
+
+	<div class="opcionGm2">Operaciones Frecuentes</div>
+
+
+
+				<div class="fondopciones">
+					<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=m%2F6Duvioj01zZk0JlpNobxw%2BCWYr3Ns45yny%2Bbg55NU%3D" >Movimientos</a></div>
+				</div>
+
+
+
+
+
+	<div class="fondopciones">
+				<script language="JavaScript">
+				<!--
+				gName = 'Transferencias';
+				//-->
+				</script>
+				<div id="ga2304" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga2304', 'gb2304');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('ga2304', 'gb2304');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				<div id="gb2304" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb2304', 'ga2304');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb2304', 'ga2304');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+
+
+						<div id="gb2304_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=4Fd8C77gX0%2BAry6FDiD5%2BOYlbEDLZrZELY7k%2FYHn2j0%3D" >Entre mis cuentas</a></div>
+
+
+
+
+						<div id="gb2304_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ZrThwEB4BNq0pQppD7UMlypn%2FFTOZIfA4Y0mLMHgoGA%3D" >Transferencia</a></div>
+
+
+
+
+						<div id="gb2304_2" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=Ml37i2lYWAMkZYZRx0YhAi4aQsLLcvXD7cyaApx61yg%3D" >Transferencia</a></div>
+
+
+
+
+
+			</div>
+
+
+
+	<div class="fondopciones">
+
+
+							<div class="subopcionm2"><a  href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=YE3ZSJQHidD%2FmRZokMNwD6A84RU52gYUa4pNchSwrgc%3D" >Recarga de móviles</a></div>
+
+
+
+
+			</div>
+
+
+
+	<div class="fondopciones">
+				<script language="JavaScript">
+				<!--
+				gName = 'Correspondencia';
+				//-->
+				</script>
+				<div id="ga2305" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga2305', 'gb2305');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('ga2305', 'gb2305');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				<div id="gb2305" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb2305', 'ga2305');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb2305', 'ga2305');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+
+
+						<div id="gb2305_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=mkJYRhQl8uS0SjoTdk%2FkPSI6zuWc8e4QcQBO5YSWSUc%3D" >Consulta</a></div>
+
+
+
+
+						<div id="gb2305_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=j84ZPGkvWpo%2FYeYdlbooSrYDDHFS8YutCRz2YhCsgpI%3D" >Gestión de Correspondencia</a></div>
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+	<div class="opcionGm2">Consulta</div>
+
+
+
+				<div class="fondopciones">
+					<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=%2BKLLjw9ud5CpmtFXV3hrrpYp9E9cz7K%2F0Wr%2BSSQhReE%3D" >Ficheros</a></div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+					<div class="opcionSm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=nIynfHaIjBplKvbE8UkKvGEPLGV%2BMcB1F%2Bw6Sog6Mxk%3D" >Mis transferencias habituales</a></div>
+
+
+
+
+
+	<div class="opcionGm2">Operaciones Pendientes Firma</div>
+
+
+
+				<div class="fondopciones">
+					<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=k%2BLnl%2BfUrjPZ9m%2BP25UBgZtZuOaKJIyyfmZYZMeKerg%3D" >Órdenes Pendientes de Firma</a></div>
+				</div>
+
+
+
+
+				<div class="fondopciones">
+					<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ZstjTgkg3V%2B6nwBQeBkpZlGgdyU18XF19BK22ItNmgA%3D" >Operaciones pdtes firma resto titulares</a></div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</DIV>
+<script language="JavaScript">
+<!--
+	if (desplegar)
+		cambiaKK(toHide, toShow);
+//-->
+</script>
+
+
+
+
+
+
+
+
+<div id="AdminToolbar">
+
+</div>
+
+	<!--CONTENIDO-->
+	<DIV id="CONTENIDO" class="pos_global">
+
+
+
+
+
+  <!--div style="position: relative"-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+
+<style>
+#flashPG{
+	position:relative;
+	z-index:1;
+}
+#botonPG{
+	background-color:#0033CC;
+	height:110px;
+	margin-bottom:-110px;
+	opacity:0;
+	filter: alpha(opacity=0);
+	position:relative;
+	top:-110px;
+	width:770px;
+	z-index:100;
+
+}
+#botonPG a{
+	float:left;
+	height:100%;
+	width:100%;
+}
+</style>
+
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+        <form name="FORM_RVIA_DESTACADO" method="post" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="POST"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+
+            	<!-- CODIGO DE ERROR ORIGINAL DESTACADO 0 -->
+				<!-- TEXTO DE ERROR ORIGINAL DESTACADO 0 -->
+
+        		 <input type='hidden' name='accionComercial' value=''>
+                 <input type='hidden' name='actuacionComercial' value=''>
+                 <input type='hidden' name='canal' value=''>
+                 <input type='hidden' name='cliente' value=''>
+                 <input type='hidden' name='entidad' value=''>
+                 <input type='hidden' name='siguiente' value=''>
+                 <input type="hidden" name="clavePagina" value="">
+        </form>
+
+<div id="PORTLET-SECTION-HEADER">
+  <div id="HEADER">Posición Global</div>
+
+
+
+		<div class="ultimo_acc">
+		Fecha de último acceso: <b>31-01-2020 12:02:50</b>
+		</div>
+
+
+
+  <div id="HDBOT"><A href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="ayuda(); return false;" onMouseOut="window.status=' ';MM_swapImgRestore()" onMouseOver="MM_swapImage('ico_ay','','/es_ES/img/E/ico_ay_b.gif',1);window.status='ICO_AY';return true" ><img name="ico_ay" border="0" src="/es_ES/img/E/ico_ay_a.gif"> Ayuda</A></div>
+  <div id="HDBOT"><A href='' onClick='javascript:abrir(document.getElementById("url_imprimir").href); return false;' onMouseOut="window.status=' ';MM_swapImgRestore()" onMouseOver="MM_swapImage('ico_imp','','/es_ES/img/E/ico_imp_b.gif',1);window.status='ICO_IMP';return true"><img name="ico_imp" border="0" src="/es_ES/img/E/ico_imp_a.gif"> Imprimir</A><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1oJQdLf65c6b5TYW576EaEQZ2kOE3xKnKvJivfXhetpqAuzhOfjq8vLI16lZjgg4zzOFu1Ug7VQ1kDZ4TNUfXRE%3D" id="url_imprimir" name="campourl" ></a><A href='' onClick='javascript:abrir(document.getElementById("url_guardar").href); return false;' onMouseOut="window.status=' ';MM_swapImgRestore()" onMouseOver="MM_swapImage('ico_guardar','','/es_ES/img/E/ico_guardar_b.gif',1);window.status='ICO_GUARDAR';return true"><img name="ico_guardar" border="0" src="/es_ES/img/E/ico_guardar_a.gif"> Guardar</A><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1oJQdLf65c6b5TYW576EaEQZ2kOE3xKnKvJivfXhetpqs5J%2BmipcB6eUY0XOVbN3YQ%3D%3D" id="url_guardar" name="campourl2" ></a><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1oJQdLf65c6b5TYW576EaET7CZoVCnkDicIt1TFfXxQ0" id="url_guardarxls" name="campourl3" ></a></div>
+</div>
+	<!--xxxxxxxxxxxxx   BLOQUE de BANCOS EXTERNOS xxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+
+
+
+	<!--xxxxxxxxxxxxx  FIN BLOQUE de BANCOS EXTERNOS xxxxxxxxxxxxxxxxxxxxx -->
+<div id="EXPLICA">
+ Buenas tardes, <b>"JOSE MARIA MORALES GUTIERREZ"</b>, bienvenido a Bankoa el servicio de Banca Internet de BANKOA. A continuación se detallan los productos relacionados con el contrato <b>&nbsp;00000000000195873997</b>.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV id="PORTLET-MAX">
+
+
+	<div id="FOOTER">
+		<div height="20px"></div>
+		<div id="BOT"><a class="BOT" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:totalizar('Totalizar'); return false;" >
+		<span id="TOTALES_2" style="visibility:visible">Totalizar</span></a></div>
+		<span id="SIN_TOTALES_2" style="visibility:hidden">Ver sin totales</span>
+	</div>
+
+
+
+	<div id="HEADER_XA"><div id="HD_XA">
+		Cuentas
+	</div></div>
+	<div id="BODY_LISTA">
+		<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+		<tr >
+			<td class="cblistaF1C" width="165" nowrap="" >Código IBAN [1]</td>
+			<td class="cblistaF1C" width="100%" >Descripción</td>
+			<td class="cblistaF1C" width="65" nowrap="" >Saldo</td>
+			<td class="cblistaF1C" width="65" nowrap="" >Límite</td>
+			<td class="cblistaF1C" width="75" nowrap="" >Disponible [2]</td>
+			<td width="60" nowrap="" >&nbsp;</td>
+
+		</tr>
+		<tr height="3" ><td class="linea0" colspan="5" ></td></tr>
+
+			<form method="post" name="form_a_0" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+			<tr >
+				<td class="totlistaC" >
+
+
+
+
+
+						ES11 0138 0001 1201 9542 0021
+
+					</td>
+				<td class="totlistaI" >
+					CUENTA VISTA | Euro
+
+				</td>
+				<td class="totimplista" >
+
+					29.688,02
+				</td>
+				<td class="totimplista" >
+					-
+				</td>
+				<td class="totimplista" >
+					29.688,02
+
+				</td>
+				<td class="botlista" >
+					<div id="pos_cue_0" style="position:relative; visibility:hidden"></div>
+					<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('cuenta_irA_0','pos_cue_0');return false;" >Ir a</a>
+					<div id="cuenta_irA_0" style="position:absolute; visibility: hidden;">
+					<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+					<tr >
+						<td bgcolor="#E7E7E7" >
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+							<tr >
+								<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+								<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('cuenta_irA_0');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					<tr >
+						<td >
+
+							<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+							<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_pasivo(form_a_0,'PAS_MOV_CUENTAS_POSGLOB');ocultar_capa_irA('cuenta_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Movimientos</A></td></tr>
+							<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_pasivo(form_a_0,'PAS_CONSALDOS');ocultar_capa_irA('cuenta_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Saldo</A></td></tr>
+
+							<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_pasivo(form_a_0,'BEL_TRANS_TRANSFER');ocultar_capa_irA('cuenta_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Transferencias</A></td></tr>
+
+
+							<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_pasivo(form_a_0,'DOM_CONDOMIC');ocultar_capa_irA('cuenta_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Gestión de Recibos</A></td></tr>
+
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_a_0,'/srv.BDP_RVIA05_CUENTAS_EMP.BDP_RVIA05_CUEN_CONS_MOVIMIENTOS');ocultar_capa_irA('cuenta_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+
+							</table>
+						</td>
+					</tr>
+							</table>	</td></tr></table>
+					</div>
+				</td>
+			</tr>
+			<input type="hidden" name="clavePaginaVolver" value="BEL_FR_POS_GLOBAL_OPT_PORTAL">
+
+			<input type="hidden" name="cuenta" value="01380001120195420021">
+			<input type="hidden" name="descripcionCuenta" value="CUENTA VISTA">
+			<input type="hidden" name="clavePagina" value="">
+			<INPUT type="hidden" name="primeraVez" value="1">
+			<input type="hidden" name="campoPaginacion" value="lista">
+			<input type="hidden" name="opcion" value="1">
+			<input type="hidden" name="fechaDesde" value="0">
+			<input type="hidden" name="fechaHasta" value="0">
+			<input type="hidden" name="FechaDesde" value="0">
+			<input type="hidden" name="FechaHasta" value="0">
+
+			<input type="hidden" name="Nmovs" value="0">
+			<input type="hidden" name="TRANCODE" value="32">
+			<input type="hidden" name="paginaActual" value="0">
+			<input type="hidden" name="tamanioPagina" value="0">
+			<input type="hidden" name="campoPaginacion" value="0">
+			<input type="hidden" name="CUENTA" value="01380001120195420021">
+			<input type="hidden" name="descEstado" value="">
+			<input type="hidden" name="ENTIDAD_I" value="0138">
+			<input type="hidden" name="ACUERDO_I" value="0195420021">
+				<INPUT type='hidden' name='clavePaginaEjecutar' value='TRANSF_DETALLE_SIMULACION'>
+			<input type="hidden" name="DIVISA_COD" value="978">
+			<input type="hidden" name="CUENTASEL" value="01380001120195420021978CUENTA VISTA">
+
+
+		</form>
+
+		<tr height="1px" ><td bgcolor="#666666" colspan="5" ></td></tr>
+		<tr id="t_cuentas_0" style="visibility:hidden" >
+			<td colspan="2" ></td>
+			<td class="tot" >29.688,02</td>
+			<td class="tot" >0,00</td>
+			<td class="tot" >29.688,02</td>
+		</tr>
+
+		<tr >
+			<td class="datopc" colspan="10" >[1] El Código Internacional de Cuenta Bancaria (IBAN) es un número de identificación de cuentas bancarias que permite identificar internacionalmente y de manera única las cuentas que un cliente tiene en una entidad financiera. <a class="literales" href="#" onClick="Javascript:window.open('/pdf/RURALVIA/SEPA/IBAN_es_ES.pdf','_blank','width=800,height=600,top=0,left=0,resizable=no,menubar=no,scrollbars=yes');return false;" >Más Información</a></td>
+		</tr>
+		<tr >
+			<td class="datopc" colspan="10" >[2] Retenciones, si hubiera, no incluidas. Utilice la consulta de saldo para obtener el detalle completo.</td>
+		</tr>
+
+
+		</table>
+	</div>
+
+
+
+
+
+
+
+
+<!--xxxxx TABLA POLIZA GLOBAL  xxxxxxxxxx -->
+
+<!--xxxxx FIN TABLA POLIZA GLOBAL  xxxxxxxxxx -->
+
+
+
+
+
+
+
+
+<!--xxxxxxxxxxxxxxxxxx   TABLA de FINANCIACION xxxxxxxxxxxxxxxxxxxxx -->
+<!--xxxxxxxxxxxxx   INICIO TABLA de PENSIONES xxxxxxxxxxxxxxxxxxxxx -->
+<!--xxxxxxxxxxxxx   INICIO GRUPO de PLANES PENSIONES Y PREVISION xxxxxxxx -->
+
+		<!--xxxxxxxxxxxxx   FIN GRUPO de PLANES PENSIONES Y PREVISION xxxxxxxxxxxxxxxxxxxx -->
+
+
+		<!-- xxxxxxxxxxxxx FIN TABLA de PENSIONES xxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+				<!-- xxxxxxxxxxxxx TABLA SEGUROS GENERALES xxxxxxxxxxxxxxxxxxxxxx -->
+
+		<!-- xxxxxxxxxxxxx FIN TABLA de SEGUROS GENERALES xxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+	<div id="HEADER_XA"><div id="HD_XA">
+		Financiación
+	</div></div>
+	<div id="BODY_LISTA">
+		<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+		<tr >
+			<td class="cblistaF1C" width="165" nowrap="" >Número de Cuenta</td>
+			<td class="cblistaF1C" width="100%" >Descripción</td>
+			<td class="cblistaF1C" width="70" nowrap="" >Saldo</td>
+			<td class="cblistaF1C" width="70" nowrap="" >Límite</td>
+			<td class="cblistaF1C" width="70" nowrap="" >Disponible</td>
+			<td width="60" nowrap="" >&nbsp;</td>
+		</tr>
+		<tr height="3" ><td class="linea0" colspan="5" ></td></tr>
+
+		<!--xxxxxxxxxxxxx   TABLA PRESTAMOS   xxxxxxxxxxxxxxxxxxxxx -->
+
+		<!--xxxxxxxxxxxxx   TABLA CRoDITO xxxxxxxxxxxxxxxxxxxxx -->
+
+		<!--xxxxxxxxxxxxx   TABLA CONFIRMING xxxxxxxxxxxxxxxxxxxxx -->
+
+
+		<!--xxxxxxxxxxxxx   TABLA LEASING xxxxxxxxxxxxxxxxxxxxx -->
+
+
+				<form method="post" name="form_lea_0" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+				<tr >
+					<td class="totlistaC" >
+						0138 0001 11 0195424957
+					</td>
+					<td class="totlistaI" >LEASING MOBILIARIO</td>
+					<td class="totimplista" >
+						-60.502,14
+					<td class="totimplista" >
+						69.500,00
+					<td class="totimplista" >
+						-
+					<td class="botlista" >
+						<div id="pos_lea_0" style="position:relative"></div>
+						<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('leasing_irA_0','pos_lea_0');return false;" >Ir a</a>
+						<div id="leasing_irA_0" style="position:absolute; visibility: hidden;">
+						<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+						<tr >
+							<td bgcolor="#E7E7E7" >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+								<tr >
+									<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+									<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('leasing_irA_0');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr >
+							<td >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+								<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_formu(form_lea_0,'BDP_LEASING_SALDO');ocultar_capa_irA('leasing_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true" >Situación</A></td></tr>
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_lea_0,'/srv.BDP_RVIA05_LEASING_EMP.BDP_RVIA05_FINAN_LEASING_SITUACION');ocultar_capa_irA('leasing_irA_0');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+								</table>
+							</td>
+						</tr>
+								</table>	</td></tr></table>
+						</div>
+					</td>
+				</tr>
+				<input type="hidden" name="cuenta" value="01380001110195424957">
+				<input type="hidden" name="clavePagina" value="">
+				<input type="hidden" name="opcion" value="1">
+				<input type="hidden" name="fechaDesde" value="">
+				<input type="hidden" name="fechaHasta" value="">
+
+				<input type="hidden" name="descripcionCuenta" value="LEASING MOBILIARIO">
+				<input type="hidden" name="CUENTA" value="01380001110195424957">
+				</form>
+
+				<form method="post" name="form_lea_1" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+				<tr >
+					<td class="totlistaC" >
+						0138 0001 11 0200989754
+					</td>
+					<td class="totlistaI" >LEASING MOBILIARIO</td>
+					<td class="totimplista" >
+						-72.026,80
+					<td class="totimplista" >
+						77.000,00
+					<td class="totimplista" >
+						-
+					<td class="botlista" >
+						<div id="pos_lea_1" style="position:relative"></div>
+						<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('leasing_irA_1','pos_lea_1');return false;" >Ir a</a>
+						<div id="leasing_irA_1" style="position:absolute; visibility: hidden;">
+						<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+						<tr >
+							<td bgcolor="#E7E7E7" >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+								<tr >
+									<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+									<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('leasing_irA_1');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr >
+							<td >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+								<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_formu(form_lea_1,'BDP_LEASING_SALDO');ocultar_capa_irA('leasing_irA_1');return false;" onMouseOver="window.status='RURALVI@';return true" >Situación</A></td></tr>
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_lea_1,'/srv.BDP_RVIA05_LEASING_EMP.BDP_RVIA05_FINAN_LEASING_SITUACION');ocultar_capa_irA('leasing_irA_1');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+								</table>
+							</td>
+						</tr>
+								</table>	</td></tr></table>
+						</div>
+					</td>
+				</tr>
+				<input type="hidden" name="cuenta" value="01380001110200989754">
+				<input type="hidden" name="clavePagina" value="">
+				<input type="hidden" name="opcion" value="1">
+				<input type="hidden" name="fechaDesde" value="">
+				<input type="hidden" name="fechaHasta" value="">
+
+				<input type="hidden" name="descripcionCuenta" value="LEASING MOBILIARIO">
+				<input type="hidden" name="CUENTA" value="01380001110200989754">
+				</form>
+
+				<form method="post" name="form_lea_2" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+				<tr >
+					<td class="totlistaC" >
+						0138 0001 12 0195375159
+					</td>
+					<td class="totlistaI" >LEASING MOBILIARIO</td>
+					<td class="totimplista" >
+						-15.234,36
+					<td class="totimplista" >
+						17.500,00
+					<td class="totimplista" >
+						-
+					<td class="botlista" >
+						<div id="pos_lea_2" style="position:relative"></div>
+						<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('leasing_irA_2','pos_lea_2');return false;" >Ir a</a>
+						<div id="leasing_irA_2" style="position:absolute; visibility: hidden;">
+						<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+						<tr >
+							<td bgcolor="#E7E7E7" >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+								<tr >
+									<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+									<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('leasing_irA_2');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr >
+							<td >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+								<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_formu(form_lea_2,'BDP_LEASING_SALDO');ocultar_capa_irA('leasing_irA_2');return false;" onMouseOver="window.status='RURALVI@';return true" >Situación</A></td></tr>
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_lea_2,'/srv.BDP_RVIA05_LEASING_EMP.BDP_RVIA05_FINAN_LEASING_SITUACION');ocultar_capa_irA('leasing_irA_2');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+								</table>
+							</td>
+						</tr>
+								</table>	</td></tr></table>
+						</div>
+					</td>
+				</tr>
+				<input type="hidden" name="cuenta" value="01380001120195375159">
+				<input type="hidden" name="clavePagina" value="">
+				<input type="hidden" name="opcion" value="1">
+				<input type="hidden" name="fechaDesde" value="">
+				<input type="hidden" name="fechaHasta" value="">
+
+				<input type="hidden" name="descripcionCuenta" value="LEASING MOBILIARIO">
+				<input type="hidden" name="CUENTA" value="01380001120195375159">
+				</form>
+
+				<form method="post" name="form_lea_3" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+				<tr >
+					<td class="totlistaC" >
+						0138 0001 12 0195425657
+					</td>
+					<td class="totlistaI" >LEASING MOBILIARIO</td>
+					<td class="totimplista" >
+						-51.024,68
+					<td class="totimplista" >
+						58.613,00
+					<td class="totimplista" >
+						-
+					<td class="botlista" >
+						<div id="pos_lea_3" style="position:relative"></div>
+						<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('leasing_irA_3','pos_lea_3');return false;" >Ir a</a>
+						<div id="leasing_irA_3" style="position:absolute; visibility: hidden;">
+						<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+						<tr >
+							<td bgcolor="#E7E7E7" >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+								<tr >
+									<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+									<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('leasing_irA_3');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr >
+							<td >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+								<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_formu(form_lea_3,'BDP_LEASING_SALDO');ocultar_capa_irA('leasing_irA_3');return false;" onMouseOver="window.status='RURALVI@';return true" >Situación</A></td></tr>
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_lea_3,'/srv.BDP_RVIA05_LEASING_EMP.BDP_RVIA05_FINAN_LEASING_SITUACION');ocultar_capa_irA('leasing_irA_3');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+								</table>
+							</td>
+						</tr>
+								</table>	</td></tr></table>
+						</div>
+					</td>
+				</tr>
+				<input type="hidden" name="cuenta" value="01380001120195425657">
+				<input type="hidden" name="clavePagina" value="">
+				<input type="hidden" name="opcion" value="1">
+				<input type="hidden" name="fechaDesde" value="">
+				<input type="hidden" name="fechaHasta" value="">
+
+				<input type="hidden" name="descripcionCuenta" value="LEASING MOBILIARIO">
+				<input type="hidden" name="CUENTA" value="01380001120195425657">
+				</form>
+
+				<form method="post" name="form_lea_4" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1Hfh%2BUFYhh%2BTy6UtfeXbMw0Sxl1DCb0WL%2Fi6nMTdwVZ1rwmBl6Ikg3H6QuyS32y12GL1LZxRf315Yz9mS1K4TA%2BxMgWgggOZdibuAfTtvRfK1M%2FPUYnHujkBDCpZo3tWZu6yHnw5m7W%2BtzxA8fBBlD4ApfAu7qLauLMYqjL2JkBYFfLpCLYf0Zi7l7L8Dg9l02WFLjBU1KeL8CXxJQ5a%2BA6" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+				<tr >
+					<td class="totlistaC" >
+						0138 0001 19 0200990356
+					</td>
+					<td class="totlistaI" >LEASING MOBILIARIO</td>
+					<td class="totimplista" >
+						-21.514,52
+					<td class="totimplista" >
+						23.000,00
+					<td class="totimplista" >
+						-
+					<td class="botlista" >
+						<div id="pos_lea_4" style="position:relative"></div>
+						<a class="botlista" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:mostrar_capa_irA('leasing_irA_4','pos_lea_4');return false;" >Ir a</a>
+						<div id="leasing_irA_4" style="position:absolute; visibility: hidden;">
+						<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="170" ><tr >	<td align="center" >		<table bgcolor="#FFFFFF" border="0" cellpadding="1" cellspacing="1" width="100%" >
+						<tr >
+							<td bgcolor="#E7E7E7" >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+								<tr >
+									<td class="cbcapa" height="20" >&nbsp;Seleccione Operación</td>
+									<td align="center" width="15" ><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:ocultar_capa_irA('leasing_irA_4');return false;" ><img src="/es_ES/img/E/cerrar_posglobal.gif" width="14" height="15" border="0"></a></td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+						<tr >
+							<td >
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+								<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_formu(form_lea_4,'BDP_LEASING_SALDO');ocultar_capa_irA('leasing_irA_4');return false;" onMouseOver="window.status='RURALVI@';return true" >Situación</A></td></tr>
+
+
+									<tr ><td class="txtdato" height="18" ><A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onclick="javascript:enviar_servicio_isum(form_lea_4,'/srv.BDP_RVIA05_LEASING_EMP.BDP_RVIA05_FINAN_LEASING_SITUACION');ocultar_capa_irA('leasing_irA_4');return false;" onMouseOver="window.status='RURALVI@';return true;" >Más...</A></td></tr>
+
+
+								</table>
+							</td>
+						</tr>
+								</table>	</td></tr></table>
+						</div>
+					</td>
+				</tr>
+				<input type="hidden" name="cuenta" value="01380001190200990356">
+				<input type="hidden" name="clavePagina" value="">
+				<input type="hidden" name="opcion" value="1">
+				<input type="hidden" name="fechaDesde" value="">
+				<input type="hidden" name="fechaHasta" value="">
+
+				<input type="hidden" name="descripcionCuenta" value="LEASING MOBILIARIO">
+				<input type="hidden" name="CUENTA" value="01380001190200990356">
+				</form>
+
+
+		<!--xxxxxxxxxxxxx FIN TABLA LEASING  xxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+		<!--xxxxxxxxxxxxx FIN TABLA AVALES  xxxxxxxxxxxxxxxxxxxxx -->
+
+
+		<!--xxxxxxxxxxxxx   TABLA CARTERA xxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+		<tr height="1px" ><td bgcolor="#666666" colspan="5" ></td></tr>
+		<tr id="t_financiacion_0" style="visibility:hidden" >
+			<td colspan="2" ></td>
+			<td class="tot" >-220.302,50</td>
+			<td class="tot" >245.613,00</td>
+			<td class="tot" >0,00</td>
+		</tr>
+
+		<!--P00021555 01/06/2017 INICIO  -->
+
+		<!--P00021555 01/06/2017 FIN -->
+
+
+
+		</table>
+	</div>
+
+
+
+
+	<div id="FOOTER">
+	 	<div>&nbsp;</div>
+		<div id="BOT"><a class="bot" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" onClick="javascript:totalizar('Totalizar'); return false;" ><span id="TOTALES_1" style="visibility:visible">Totalizar</span></a></div>
+		<span id="SIN_TOTALES_1" style="visibility:hidden">Ver sin totales</span>
+	</div>
+
+	<!--xxxxxxxxxxxxx   BLOQUE de BANCOS EXTERNOS xxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+
+
+
+
+
+	<!--xxxxxxxxxxxxx  FIN BLOQUE de BANCOS EXTERNOS xxxxxxxxxxxxxxxxxxxxx -->
+</DIV>
+
+
+<form method="post" name="FORM_RVIA_0" id="FORM_RVIA_0" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+
+
+	<input type="hidden" id="visualizarTotal" name="visualizarTotal" value="hidden">
+	<input type="hidden" id="comentarioInicio" name="comentarioInicio" value="**--">
+	<input type="hidden" id="comentarioFin" name="comentarioFin" value="--**">
+
+
+
+		<input type="hidden" id="urlGesCom" name= "urlGesCom" value="https://bankoa.bankoaonline.com/isum/srv.BDP_RV05_GESTION_COMUNICADOS_EMP.BDP_RV05_GCO_MENU_RECIBIDOS">
+
+
+
+
+</form>
+
+
+
+<form method="post" name="alertaf" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=fif35a4EmE7FYaiiKghT4%2Fx6UiiCmYgJQGFtI3fyU1FPVfHORe4nDzvB2a9u71X3" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+	<INPUT type='hidden' name='FECHA_HOY' value=''>
+	<INPUT type='hidden' name='FECHA_FINALERT' value=''>
+</form>
+
+
+<script >
+	posicionarCapas();
+</script>
+
+<script language="javascript" >var URLtoPrinter = 'imprimir_inf.htm';var toPrinterCabecera =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'<div id=CABECERA_IMP>'+
+	'<div id=LOGOIMP><img src="/img/logoimp_0138.gif" border=0></div>'+
+	'<div id=FECHAIMP>'+
+		'<table border="0" cellspacing="0">'+
+         '<tr>'+
+         '<td class=datoI>Fecha:</td><td class=datoI>31-01-2020</td>'+
+         '<td class=anchoG>&nbsp;</td>'+
+         '<td class=datoI>Hora:</td><td class=datoI>13:41:02</td>'+
+         '</tr>'+
+        '</table>'+
+	'</div>'+
+'</div>'+
+
+
+''+
+''+
+''+
+
+
+''+
+''+
+''+
+
+''; var toPrinterCuerpo = '	<!--xxxxxxxxxxxxx   TABLA CUENTAS xxxxxxxxxxxxxxxxxxxxx -->	<div id="HEADER_XA"><div id="HD_XA">		Cuentas		</div></div>	<div id="BODY_LISTA">		<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%">		<tr>			<td class="cblistaF1C" width="165" nowrap>Código IBAN [1]</td>			<td class="cblistaF1C" width="100%">Descripción</td>			<td class="cblistaF1C" width="70" nowrap>Saldo</td>			<td class="cblistaF1C" width="70" nowrap>Límite</td>			<td class="cblistaF1C" width="70" nowrap>Disponible [2]</td>					</tr>		<tr height="3"><td class="linea0" colspan="5"></td></tr>					<tr>				<td class="totlistaC">																ES11 0138 0001 1201 9542 0021 												</td>							<td class="totlistaI">					CUENTA VISTA 					| Euro									</td>							<td class="totimplista">29.688,02</td> 				<td class="totimplista">-</td> 				<td class="totimplista">29.688,02</td> 			</tr>						<tr height="1px"><td bgcolor="#666666" colspan="5"></td></tr>		<tr id="t_cuentas_1" style="visibility:hidden">     	  				<td colspan="2"></td>			<td class="tot">29.688,02</td>			<td class="tot">0,00</td>			<td class="tot">29.688,02</td>		</tr>						<tr>  			<td class="datopc" colspan="10">[1] El Código Internacional de Cuenta Bancaria (IBAN) es un número de identificación de cuentas bancarias que permite identificar internacionalmente y de manera única las cuentas que un cliente tiene en una entidad financiera. </td>		</tr>		<tr>     			<td class="datopc" colspan="10">[2] Retenciones, si hubiera, no incluidas. Utilice la consulta de saldo para obtener el detalle completo.</td>		</tr>								</table>	</div> 		<!--xxxxxxxxxxxxx   TABLA POLIZA GLOBAL  xxxxxxxxxx --><!--xxxxxxxxxxxxx   TABLA de INVERSIONES xxxxxxxxxxxxxxxxxxxxx --><!--xxxxxxxxxxxxx   INICIO TABLA de PENSIONES xxxxxxxxxxxxxxxxxxxxx --><!--xxxxxxxxxxxxx   INICIO GRUPO de PLANES PENSIONES Y PREVISION xxxxxxxx -->					<!--xxxxxxxxxxxxx   FIN GRUPO de PLANES PENSIONES Y PREVISION xxxxxxxxxxxxxxxxxxxx -->						<!-- xxxxxxxxxxxxx FIN BLOQUE SEGUROS DE AHORRO INVERSION xxxxxxxxxxxxxxxxxxxxxx -->																	<!-- xxxxxxxxxxxxx TABLA SEGUROS GENERALES xxxxxxxxxxxxxxxxxxxxxx -->						<!-- xxxxxxxxxxxxx FIN TABLA de SEGUROS GENERALES xxxxxxxxxxxxxxxxxxxxxx -->			<!--xxxxxxxxxxxxx   TABLA de FINANCIACION xxxxxxxxxxxxxxxxxxxxx -->        			<div id="HEADER_XA"><div id="HD_XA">		Financiación	</div></div>	<div id="BODY_LISTA">		<TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%">		<tr>			<td class="cblistaF1C" width="165" nowrap>Número de Cuenta</td>			<td class="cblistaF1C" width="100%">Descripción</td>			<td class="cblistaF1C" width="70" nowrap>Saldo</td>			<td class="cblistaF1C" width="70" nowrap>Límite</td>			<td class="cblistaF1C" width="70" nowrap>Disponible</td>			<td width="60" nowrap>&nbsp;</td>		</tr>		<tr height="3"><td class="linea0" colspan="5"></td></tr>				<!--xxxxxxxxxxxxx   TABLA PRESTAMOS   xxxxxxxxxxxxxxxxxxxxx -->						<!--xxxxxxxxxxxxx   TABLA CREDITO xxxxxxxxxxxxxxxxxxxxx -->						<!--xxxxxxxxxxxxx   TABLA CONFIRMING xxxxxxxxxxxxxxxxxxxxx -->						<!--xxxxxxxxxxxxx   TABLA LEASING xxxxxxxxxxxxxxxxxxxxx -->										<tr>					<td class="totlistaC">						0138 0001 11 0195424957					</td>					<td class="totlistaI">LEASING MOBILIARIO</td>					<td class="totimplista">						-60.502,14					<td class="totimplista">						69.500,00					<td class="totimplista">						-									</tr>											<tr>					<td class="totlistaC">						0138 0001 11 0200989754					</td>					<td class="totlistaI">LEASING MOBILIARIO</td>					<td class="totimplista">						-72.026,80					<td class="totimplista">						77.000,00					<td class="totimplista">						-									</tr>											<tr>					<td class="totlistaC">						0138 0001 12 0195375159					</td>					<td class="totlistaI">LEASING MOBILIARIO</td>					<td class="totimplista">						-15.234,36					<td class="totimplista">						17.500,00					<td class="totimplista">						-									</tr>											<tr>					<td class="totlistaC">						0138 0001 12 0195425657					</td>					<td class="totlistaI">LEASING MOBILIARIO</td>					<td class="totimplista">						-51.024,68					<td class="totimplista">						58.613,00					<td class="totimplista">						-									</tr>											<tr>					<td class="totlistaC">						0138 0001 19 0200990356					</td>					<td class="totlistaI">LEASING MOBILIARIO</td>					<td class="totimplista">						-21.514,52					<td class="totimplista">						23.000,00					<td class="totimplista">						-									</tr>										<!--xxxxxxxxxxxxx FIN TABLA LEASING  xxxxxxxxxxxxxxxxxxxxx -->						<!--xxxxxxxxxxxxx FIN TABLA AVALES  xxxxxxxxxxxxxxxxxxxxx -->								<!--xxxxxxxxxxxxx   TABLA CARTERA xxxxxxxxxxxxxxxxxxxxx -->							<tr height="1px"><td bgcolor="#666666" colspan="5"></td></tr>		<tr id="t_financiacion_0" style="visibility:hidden">     	  				<td colspan="2"></td>			<td class="tot">-220.302,50</td>			<td class="tot">245.613,00</td>			<td class="tot">0,00</td>		</tr>				<!--P00021555 01/06/2017 INICIO -->				 			<!--P00021555 01/06/2017 FIN -->						</table>	</div>		<!--xxxxxxxxxxxxxxx CIERRE TABLA PRINCIPAL xxxxxxxxxxxxx -->' +
+
+
+
+
+
+
+
+
+
+
+
+
+
+'<div id=DATOSPIE>'+
+'<table border="0" cellspacing="0" cellpadding="0" align=right>'+
+'<tr>'+
+<!--*********P00018063 10-06-2015 COMENTAR TABLA INICIO******
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+   <!--*********P00009840 02-04-2008 INICIO******  -->
+
+
+<!--**********************************************************
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+   <!--*********P00009840 02-04-2008 FIN******  -->
+<!--*********P00018063 10-06-2015 COMENTAR TABLA  FIN*** -->
+'</tr>'+
+'</table><br><br>'+
+'</div>'
+;function abrir(url){win2=window.open(url,'Imprimir','width=650,height=450,top=0,left=0,menubar=yes,scrollbars=yes');win2.creator=self; 	if (win2.opener == null) {   win2.opener = self;  } }</script>
+
+
+
+
+
+
+
+
+  <!--/div-->
+
+
+
+
+
+	</DIV>
+
+
+
+
+
+					<DIV id=PORTLET-PUBLI>
+
+
+
+							<div id=PUBLI>
+								<div id=txt_publi>
+
+
+
+
+
+
+
+
+
+
+
+
+
+								</div>
+							</div>
+
+
+
+
+							<div id=PUBLI>
+								<div id=txt_publi>
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" >
+<!--
+var flag	= 0;
+var win		= null;
+
+function abrirEnlaceCarrusel()
+{
+	// Cuando abre una ventana crea una propiedad, para que se pueda referenciar desde la otra ventana.
+	if (!flag || win.closed)
+	{
+		win = window.open(enlaceCarr02, "gco_linkInterno", "width=100%,height=100%,top=25,left=25,scrollbars=1,resizable=yes");
+
+		if (win.opener != null)
+		{
+			win.opener = self;
+		}
+		flag = 1;
+		Gco_enviarPub(enlaceCarr01, "gco_linkInterno", 1, 0);
+	}
+	else if (win != null)
+	{
+		win.focus();
+	}
+}
+
+function Gco_enviarPub(destino, ventana, tipo, shortcut)
+{
+	document.forms["FORM_GCO_CAR"].action = destino;
+
+	// Enlace externo.
+	if (tipo == 1)
+	{
+		if (shortcut > 0)
+		{
+			document.location.href = document.getElementById('urlShort').value;
+		}
+		else
+		{
+			document.forms["FORM_GCO_CAR"].target = ventana;
+		}
+	}
+	else
+	{
+		document.forms["FORM_GCO_CAR"].target = '_self';
+	}
+
+	document.forms["FORM_GCO_CAR"].submit();
+}
+
+function Gco_urlShort()
+{
+	document.location.href = document.getElementById('urlShort').value;
+}
+//-->
+</script>
+
+
+<form name="FORM_GCO_CAR" method="post" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+	<input name="enlace" type="hidden" value="null">
+	<input name="tEnlaceId" type="hidden" value="null">
+
+	<input name="mensajeId" type="hidden" value="null">
+	<input name="buzonId" type="hidden" value="null">
+
+</form>
+
+<font id="identificadorEnlaceCarrusel01"><a href="/isum/Main?ISUM_ID=portlets_publicidad&ISUM_SCR=linkServiceScr&ISUM_CIPH=qvbZ0iEv40DyT4M1%2B9OqYRgUhZdia%2BqPG2X4zJhIqWQs5PPbOzBeifpIutNXK3UYnR6SokCbkd%2BiLnKbv6Hd3v2sS15wcz4v%2BTOBVwvZTCpWkrPZceyKVE%2FzZzq0QWwzwy9NTFJX9YQD5SGoywtMW5G6RBKZNqLbGDgWh0osp3Q%3D" ></a></font>
+<font id="identificadorEnlaceCarrusel02"><a href="/isum/Main?ISUM_ID=portlets_publicidad&ISUM_SCR=linkServiceScr&ISUM_CIPH=qvbZ0iEv40DyT4M1%2B9OqYRgUhZdia%2BqPG2X4zJhIqWQs5PPbOzBeifpIutNXK3UYnR6SokCbkd%2BiLnKbv6Hd3v2sS15wcz4v%2BTOBVwvZTCr4kxEkTPTnJFnNgRb7GV6q9HhoTRzCnTzZldXhZNU96w%3D%3D" ></a></font>
+
+<script language="JavaScript" type="text/javascript" >
+<!--
+	var enlaceCarr01	= document.getElementById("identificadorEnlaceCarrusel01").firstChild;
+	var enlaceCarr02	= document.getElementById("identificadorEnlaceCarrusel02").firstChild;
+
+	// Se mantiene para no tener que modificar el jsp de posición global.
+	var enlace02		= enlaceCarr01;
+
+//-->
+</script>
+
+
+
+
+
+
+								</div>
+							</div>
+
+
+					</DIV>
+
+
+
+</DIV>
+</BODY>
+</html>
+
+

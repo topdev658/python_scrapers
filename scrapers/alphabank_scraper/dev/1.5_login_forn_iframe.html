@@ -1,0 +1,113 @@
+<!-- https://secure.alpha.gr/Login/Login/IFramePartial/en/2 -->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <link href="/Login/content/css/styles?v=HJZoz5nho0Wm6nxyfO78HGF38LI4eunQh4nHWyW-Q-01" rel="stylesheet"/>
+
+    <link href="/Login/content/css/iframe-new?v=9g7S2pz2QaOQVwvN0zN2Mx6v4crVod8Sf7WFfyvSRDQ1" rel="stylesheet"/>
+
+    <!--[if lte IE 9]>
+      <link href="/Login/content/css/styl9s?v=lpFRwD8i1uY5p5jdPz3yAjcmEk2f5EoU_7g3K2k7_BY1" rel="stylesheet"/>
+
+    <![endif]-->
+    <meta name="Server" content="AlphaFarm08" />
+    <title>ALPHABANK LOGIN</title>
+</head>
+
+
+
+<body style="width:300px; min-height: 465px; max-height: 490px; bakground-color: #190703" class="grayBg">
+    <!--content-->
+    <div class="IframeLgnContentWrapper hidden">
+        <!--header-->
+            <div class="HeaderFrame" style="padding-top: 5px; padding-bottom: 5px;">
+                <h2 style="line-height: 1em;">myAlpha Web</h2>
+                <img src="/Login/Content/media/LoginIco.png" border="0" alt="LoginImg" class="headerFrameLoginImg" />
+                <h5 style="line-height: 1em;">Log in  – Sign up</h5>
+            </div>
+        <!--main form Content-->
+        <div class="IframeMainFormContent">
+            <!--main error-->
+            <div class="MainError hidden" id="genericValidationError">
+                <img src="/Login/Content/media/errorTop.png" border="0" /><span>Enter the User ID and Password.</span>
+            </div>
+            <div class="MainError hidden" id="wrongCredentialsValidationError">
+                <img src="/Login/Content/media/errorTop.png" border="0" /><span>Τhe sign-on codes you entered are not correct!</span>
+            </div>
+            <!--repeaters-->
+                <div style="" class="fieldWrapper MT20">
+                    <!--[if lte IE 9]>
+                    <label class="OTPLabel" for="Username">User ID</label>
+                    <![endif]-->
+                    <div class="field Large">
+                        <input type="text" placeholder="User ID:" id="Username" class="lnpt" minlength="7" maxlength="80" autocomplete="off" title="Type in your 15digit username" />
+                        <img src="/Login/Content/media/error1.png" border="0" />
+                    </div>
+                </div>
+                <!--repeaters-->
+                <div style="" class="fieldWrapper">
+                    <!--[if lte IE 9]>
+                    <label class="OTPLabel" for="Password">Password</label>
+                    <![endif]-->
+                    <div class="field Large">
+                        <input type="password" placeholder="Password:" id="Password" class="lnpt" autocomplete="off" title="Type in your secret password" />
+                        <img src="/Login/Content/media/error1.png" border="0" />
+                    </div>
+                </div>
+
+
+            <div class="fieldWrapper">
+                <input type="submit" class="submitBtn" id="submitButton" value="Log in" />
+            </div>
+
+                <div class="fieldWrapper">
+                        <a href="https://www.alpha.gr/el/epixeiriseis/support-center/e-banking/asfaleia-kai-kodikoi/ksexasa-tous-kodikous-kleidosa-tin-sundromi/" target="_blank" class="simpleLink reissue">Forgot your password?</a>
+                        <table border="0" cellpadding="2" cellspacing="0" style="width:100%; min-height:68px;">
+                            <tr>
+                                <td valign="middle">
+                                        <a class="simpleBlueLInk demoLink" href="" id="demoLink">Interactive demo</a>
+                                </td>
+                                <td valign="top" style="text-align: right;">
+                                    <script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=secure.alpha.gr&amp;size=XS&amp;use_flash=NO&amp;use_transparent=YES&amp;lang=en"></script>
+                                </td>
+                            </tr>
+                        </table>
+
+                </div>
+        </div>
+            <!--footer-->
+            <div style="" class="FooterFrame">
+
+
+                    <a target="_blank" href="https://www.alpha.gr/el/epixeiriseis/support-center/e-banking/eggrafi/eggrafi-sto-web-banking-gia-epixeiriseis/" class="MainregisterBtn">Sign up</a>
+            </div>
+
+
+    </div>
+<form action="/Login/Login/DoLogin" class="hidden" id="loginForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="KaiZ7ClR1AQr3rLPie5fha3yAB0pdJ43R8D7b25-SsOhzCF3K0l94JvBxesqR1Cj-3qEEGGGecei3rt4KyabvNcJi3vv9qUPdE2nOcurfCM1" />        <input id="hiddenUser" name="Username" type="hidden">
+        <input id="hiddenPass" name="Password" type="hidden">
+        <input id="E" name="E" type="hidden" value="010001">
+        <input id="N" name="N" type="hidden" value="AC558E34F783F63F296722E687C510D18EFC867887FDD2E98B5AAC0A56AD0A088A4A94677DDF03E4D30001716905AB1CF0A7D57B504C2C4CB3993CEA7052AD441D555070C2165BF947FFAEA847F2234F7422B112CC37CDE0C033A673123BE744678A889E2B02E9ABC385CD466F9C8BBB91819770B894102AD83B1F4165039299D762693440BBEF9E1C579300B079BC10643ACA3B476175E572591EF47D3BA7C5729181268BDF4901CC12398C202F016895BCC1FCC92BD0F41FFF7141D4EE29143926AF6D8D5A4E154721BCBF442113257D46411F8690EDC0B6D641BAEE43DD2BEFE1CD48B661B84BE30909C834F90248403499EA36910A162EAAC841487E5F0D">
+        <input id="A" name="ActivityDateTime" type="hidden" value="2019-07-03T06:57:47Z">
+        <input id="U" name="UniqueIdentifier" type="hidden" value="584990f1-f209-4d2c-bc40-459028a270dd">
+        <input id="hiddenPath" name="RedirectTo" type="hidden" />
+        <input id="loginType" name="LoginType" type="hidden" value="Corporate" />
+        <input id="iframeType" name="IFrameType" type="hidden" value="2" /> </form>    <script>
+        var loginSettings = loginSettings || {};
+        loginSettings.ShowPopupOnFocus = false;
+        loginSettings.LoginType = 2;
+
+
+        new Image().src = document.location.protocol + "//mon" + "sta" + "t.co" + "m/" + "alphabankIFrameEn" + ".p" + "ng?du=" + escape(document.location) + "&dr=" + escape(document.referrer) + "&rr=" + Math.random();
+    </script>
+    <script src="/Login/bundles/lib?v=BvBmTRLQwXOqOazlqQLpTZl7zw4d92MzYie8G_KPLEs1"></script>
+
+    <script src="/Login/bundles/rsa?v=YszIIcG7s6me4M8TzrSs2CgWZR9G-omZWgaddEMSukg1"></script>
+
+</body>
+
+</html>

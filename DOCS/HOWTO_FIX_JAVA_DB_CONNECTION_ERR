@@ -1,0 +1,24 @@
+ERR
+java.lang.Throwable: javax.net.ssl.SSLHandshakeException: The server selected protocol version TLS10 is not accepted by client preferences [TLS13, TLS12].
+
+REASON
+old TLS was disabled in a new Java version
+
+SOLUTION
+https://docs.oracle.com/cd/E66320_01/tools.11-2/EndecaCommerceMigrate/html/cifm_ssl_protocols.xmlsection_D8DEBBF578894C7CA3B607B40E9298F0.html
+
+    Open java.security file in %ENDECA_TOOLS_ROOT%/server/j2sdk/jre/lib/security.
+    Uncomment the jdk.tls.disabledAlgorithms property and disable all other protocols except TLSv1:
+    jdk.tls.disabledAlgorithms=SSLv3, TLSv1.1, TLSv1.2
+
+STEPS
+From home folder
+$ find . -name "java.security"
+...
+./idea-IU-203.5981.155/jbr/conf/security/java.security
+
+$ vim ./idea-IU-203.5981.155/jbr/conf/security/java.security
+# now comment existing jdk.tls.disabledAlgorithms
+# and add
+jdk.tls.disabledAlgorithms=""
+

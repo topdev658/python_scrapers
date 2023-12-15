@@ -1,0 +1,21 @@
+>>> POST  https://areaprivada.unicajabanco.es/univia/servlet/ConnectionServlet
+
+tipoPeticion=1
+&usuario=A48024434
+&password=ED..C2ED..C830D1
+&tipoTeclado=V
+&user=
+&clave=
+&oper=default
+&x=30
+&y=14
+&pag=1533643502465
+
+// ENCRYPTING
+
+// view-source:https://areaprivada.unicajabanco.es/univia/servlet/DisconnectionServlet
+// valor == password
+var claveDES = "TG>NM<?F";
+	function cifrar(valor) {
+		return MOD(claveDES, valor);
+	}

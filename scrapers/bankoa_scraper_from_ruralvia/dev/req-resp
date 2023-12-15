@@ -1,0 +1,58 @@
+SELECT CONTRACT STEP 1
+>>> POST  https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=pVg33C6FiYzYWYCb5lfnDf7xzCmWWA15GNQeJHijnlur2XrQEp294Mw6tO9PBp6syTXu3MCIhefF9nS2mE7mtEFLJ0qiOjXf5rZZAvAOK4CK7vyRDI90b88zIuwtlZId1SSn2Liko2pw6XRAaC26kAKA6Ar%2FB4qvZhrdtQmazuOZTdqy1vhCjHrwGVNGNCnf%2FNwnPxtzehDWAvdsy5IjMGl0Q7GuZZj6whzbtJJkARM%3D
+DATA
+ISUM_OLD_METHOD=POST
+ISUM_ISFORM=true
+clavePagina=BDP_PORTAL_SELCUEN
+NOMUSUPRAL=[ST]3nqHVJY6kUJUnL99q0ge0H/+fC1I4T6vrCK6WZzw64vXCDFHxoHqAus+UjzdqE7G7liMo/7OiTKokwIW9VSeug==
+NIFUSUPRAL=[ST]XPnbJbc8H4cL+ieEZtTLTw==
+NIPUSUPRAL=[ST]ttMljGP5me05BP1Aq0X80g==
+USUPRAL=[ST]L9Sk73Hy6udRNLV0DLJv4g==
+PERCON=[ST]xQEvVP1quCq57LhNmMY2Ww==
+PERUSU=[ST]xQEvVP1quCq57LhNmMY2Ww==
+PRITAR=[LO]QRr71b7PvMKj1Bz+PvZDzA==
+TRANSAC=[ST]X73Ch4FcYUk+dpyGplTzeQ==
+SELCON=[ST]4yaX5jwZShymSLzIEdvYwvc0+Kl7yC4sVYIMI7R2UmQ=
+NOMENT=[ST]GtaENkN/8uoPblR/Zf86ww==
+TOGAIRIS=[ST]PsvzVIN1GmWMEO5Kr84FPw==
+ENTID=[LO]puif1cRG/Mx37mH8EUuTIA==
+CODOFI=[LO]KiraV21dPhGTYSmIcmUvTw==
+TIPO_PERFIL=[ST]UQWQx/qnZuS8fGU7eXlvvg==
+NUMCON=3
+ESTUSR=A
+VENGO_DE_CAMBIO_PASS=[ST]G+E7hKwV4JWbY713VnuPGg==
+encriptado=si
+ALERTASCONTRATOS=null
+INDICADOR_AD
+
+LEASING ACCOUNT -> SITUATION
+
+>>> POST
+URL
+https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=apG5IgW5yU5K0h%2FCT8za0ScK9WVikdJuunbUGS8JXfYIynQUMdfg9tF8AVk2NHkYCkOLhA5bbvxBvQVsBl1Qe2Y9zDoAbQO90MxxE43DSQqkG9s2IrRhom0SfAk2HwMh3U3AdgOOQwu4WmPGa2sE7wwW1k3ls4FXNoIEEI9Y8oApXn9EfohX8fP38fo4CE7Iujt6lMxqU6KEfpvhYSRWwchAhyCyWiMrzPFCCVJkt%2BCmhZvEvzhSV%2FV9KpfeTL0%2B
+GET PARAMS
+ISUM_ID=portlets_area
+ISUM_SCR=linkServiceScr
+ISUM_CIPH=apG5IgW5yU5K0h%2FCT8za0ScK9WVikdJuunbUGS8JXfYIynQUMdfg9tF8AVk2NHkYCkOLhA5bbvxBvQVsBl1Qe2Y9zDoAbQO90MxxE43DSQqkG9s2IrRhom0SfAk2HwMh3U3AdgOOQwu4WmPGa2sE7wwW1k3ls4FXNoIEEI9Y8oApXn9EfohX8fP38fo4CE7Iujt6lMxqU6KEfpvhYSRWwchAhyCyWiMrzPFCCVJkt%2BCmhZvEvzhSV%2FV9KpfeTL0%2B
+
+POST PARAMS
+ISUM_OLD_METHOD=post
+ISUM_ISFORM=true
+cuenta=01380008310108672650
+clavePagina=BDP_LEASING_SALDO
+opcion=1
+fechaDesde
+fechaHasta
+descripcionCuenta=Cuenta de Leasing
+CUENTA=01380008310108672650
+
+<<< 020_resp_leasing_account.html
+
+>>> curl 'https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=4sPBAB3A5oOSiQAFSc5BNz0h4p4sfMlFCL6TMOGG1fycDYSYvCrRMhj3%2BFqjm45A%2FzW0TBvnGgzAXVs%2F5nMjV7r0GKI1MmV3Zl1YgQ6E0yoSpVkRJMl8x9a7eev1zX5oEZnrvca10B8c6Wiu%2FUFY0meUlclt%2F1nD06N4JdUxQRV8MsPrkLAHNaaFiI548Qu%2BGcxm1SjVLswVJ%2FF7PK5ZSZVyPF4zMhr49PC%2BQROvNqMfzqFAnsREBNTJ6774EL%2F9' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://bankoa.bankoaonline.com' -H 'Connection: keep-alive' -H 'Referer: https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=4sPBAB3A5oOSiQAFSc5BNz0h4p4sfMlFCL6TMOGG1fycDYSYvCrRMhj3%2BFqjm45A%2FzW0TBvnGgzAXVs%2F5nMjV7r0GKI1MmV3Zl1YgQ6E0yoSpVkRJMl8x9a7eev1zX5oEZnrvca10B8c6Wiu%2FUFY0meUlclt%2F1nD06N4JdUxQRV8MsPrkLAHNaaFiI548Qu%2BGcxm1SjVLswVJ%2FF7PK5ZSZVyPF4zMhr49PC%2BQROvNqMfzqFAnsREBNTJ6774EL%2F9' -H 'Cookie: portal=107; portal_rvia_cmp=bankoa; _ga=GA1.2.2033643037.1580242843; ISUMSESION=P8hoJ05AZZB5qgFK3G97ODXi-j6n6KR8M_B-fQRhXFnOPNIOH3Ou!442155101; BIGipServerPRO_WEBLOGIC_ISUM_RVIA2005=!bH+0YEWBA96uUpIXkZCHyZwA0aALoYaJyrw8UnqMIjyvzQjUH/GXwrFl/pSgAi/v6X76v2G09c+5LvA=; BIGipServerPRO_BANCA_HTTPS=!fbwNEfwwKmr75oUXkZCHyZwA0aALoQepCm0CWm65mTGNEcndQipnJhdQW+MveWrdbF3kNjpdbWQKcVQ=; _gid=GA1.2.836104313.1582295400; _gat=1' -H 'Upgrade-Insecure-Requests: 1' --data 'ISUM_OLD_METHOD=get&ISUM_ISFORM=true&SELCTA=01380001110195424957+++LEASING+MOBILIARIO&FECHADESDE=01-06-2019&FECHAHASTA=21-02-2020&cuenta=01380001110195424957&descripcionCuenta=+++LEASING+MOBILIARIO&clavePagina=BDP_FINAN_LEASING_LIQUID_LISTA&indicador=L&CUENTA_SELEC=01380001110195424957+++LEASING+MOBILIARIO&fechaLimite=01-06-2020&FECACTUAL=21-02-2020&clavePaginaVolver=BDP_FINAN_LEASING_LIQUID_ENTRADA&primeraVez=1&paginaActual=0&campoPaginacion=lista&tamanioPagina=25&IDIOMA=es_ES'
+
+<<< 050_resp_financiacion_leasing_liquidaciones_account.html
+
+
+>>> curl 'https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=4sPBAB3A5oOSiQAFSc5BNz0h4p4sfMlFCL6TMOGG1fycDYSYvCrRMhj3%2BFqjm45A%2FzW0TBvnGgzAXVs%2F5nMjV7r0GKI1MmV3Zl1YgQ6E0yoSpVkRJMl8x9a7eev1zX5oEZnrvca10B8c6Wiu%2FUFY0meUlclt%2F1nD06N4JdUxQRV8MsPrkLAHNaaFiI548Qu%2BGcxm1SjVLswVJ%2FF7PK5ZSZVyPF4zMhr49PC%2BQROvNqMfzqFAnsREBNTJ6774EL%2F9' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://bankoa.bankoaonline.com' -H 'Connection: keep-alive' -H 'Referer: https://bankoa.bankoaonline.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=4sPBAB3A5oOSiQAFSc5BNz0h4p4sfMlFCL6TMOGG1fycDYSYvCrRMhj3%2BFqjm45A%2FzW0TBvnGgzAXVs%2F5nMjV7r0GKI1MmV3Zl1YgQ6E0yoSpVkRJMl8x9a7eev1zX5oEZnrvca10B8c6Wiu%2FUFY0meUlclt%2F1nD06N4JdUxQRV8MsPrkLAHNaaFiI548Qu%2BGcxm1SjVLswVJ%2FF7PK5ZSZVyPF4zMhr49PC%2BQROvNqMfzqFAnsREBNTJ6774EL%2F9' -H 'Cookie: portal=107; portal_rvia_cmp=bankoa; _ga=GA1.2.2033643037.1580242843; ISUMSESION=P8hoJ05AZZB5qgFK3G97ODXi-j6n6KR8M_B-fQRhXFnOPNIOH3Ou!442155101; BIGipServerPRO_WEBLOGIC_ISUM_RVIA2005=!d285A6U3W0zw7pQXkZCHyZwA0aALoWAlGgTbT0jRKe46WBI3XQQ4kJipEEU0vTNFMV9q2Hv64dIFG1M=; BIGipServerPRO_BANCA_HTTPS=!fbwNEfwwKmr75oUXkZCHyZwA0aALoQepCm0CWm65mTGNEcndQipnJhdQW+MveWrdbF3kNjpdbWQKcVQ=; _gid=GA1.2.836104313.1582295400' -H 'Upgrade-Insecure-Requests: 1' --data 'ISUM_OLD_METHOD=POST&ISUM_ISFORM=true&primeraVez=1&paginaActual=0&tamanioPagina=25&campoPaginacion=lista&pagXpag=&clavePagina=BDP_FINAN_LEASING_LIQUID_DETALLE&indicador=L&cuenta=01380001110195424957&CUENTA_SELEC=01380001110195424957+++LEASING+MOBILIARIO&FECHADESDE=01-06-2019&FECHAHASTA=21-02-2020&SECUENCIA=1&FECHA_LIQ=29-07-2019&TIPO_LIQ=FACTURACION&SITUACION=IMPUTADO&IMPORT=1.450%2C19&PERIODO_LIQ_INI=29-06-2019&PERIODO_LIQ_FIN=29-07-2019&IDIOMA=es_ES'
+
+<<< 060_resp_financiacion_leasing_liquidaciones_account_receipt_constitucion.html

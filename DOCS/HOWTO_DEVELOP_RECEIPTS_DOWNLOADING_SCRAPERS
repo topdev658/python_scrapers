@@ -1,0 +1,62 @@
+HOWTO develop a scraper with receipts downloading method (with example on Bankia scraper)
+
+1. Create bankia_receipts_scraper.py
+
+
+2. Create a class with one method
+
+class BankiaReceiptsScraper(BankiaScraper):
+    def download_receipts(self, s: requests.Session,
+                          account_scraped: AccountScraped,
+                          movements_scraped: List[MovementScraped],
+                          movements_parsed: List[MovementParsed]):
+        ...
+        # the code to download receipt
+        ...
+
+        # the method allows to save the receipt attachment
+        # and update the DB 'Receipt' flag
+        # you don't need other actions to save the receipt and update the DB
+        self.basic_save_receipt_pdf_and_update_db(
+            account_scraped,
+            movement_scraped,
+            pdf_file_content
+        )
+
+
+
+3. Update the bankia_scraper.py (one line of code)
+
+class BankiaScraper(BasicScraper):
+    def process_account(self, ...):
+    	...
+    	# standard scraper's code
+    	...
+
+    	# The place, where you want to call download_receipts()
+    	# during the receipts scraping process.
+    	# When we call it from BankiaReceiptsScraper intance,
+    	# it points to BankiaReceiptsScraper.download_receipts()
+    	# but
+    	# when we call it from BankiaScraper instance,
+    	# it just points to BasicScraper.download_receipts() stub
+	    # Note: movements_parsed_corresponding contain necesary information to download receipts
+
+	    self.download_receipts(s, account_scraped, movements_scraped,
+	                           movements_parsed_corresponding)
+        return True
+
+
+4. Update main_launcher_receipts.py
+
+if __name__ == '__main__':
+	...
+	main_launcher.FIN_ENTITY_ID_TO_SCRAPER[fids.BANKIA] = BankiaReceiptsScraper
+	...
+
+
+Since this moment if you run `main_launcher.py`, then standard BankiaScraper instance is called
+but if you run `main_launcher_receipts.py`, then BankiaReceiptsScraper instance is called and scrapes receipts. Note, that `main_launcher_receipts.py` still uses the standard scrapers for other fin entities.
+You have to use BasicScraper version >= 14.0.0
+
+That's all.

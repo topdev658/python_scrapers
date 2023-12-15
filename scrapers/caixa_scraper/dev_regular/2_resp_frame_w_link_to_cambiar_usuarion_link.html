@@ -1,0 +1,882 @@
+<!--
+https://loc6.caixabank.es/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=GFI&PE=1&IMGCBDG=&URLCBDG=&FLAG_PE=E&FLAG_BORSA=false&FLAG_BANCA_PRIVADA=0&FLAG_BANCA_PERSONAL=0
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8"/>
+<title></title>
+<script language="JavaScript1.2" type="text/javascript" src="./js/EloGfiB000001.js?20161121"></script>
+<script language="JavaScript1.2" type="text/javascript" src="./js/EloGfiB000100.js?20161121"></script>
+<script language="JavaScript1.2" type="text/javascript" src="./js/EloGfiB000005.js?20161121"></script>
+<script language="JavaScript" type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui-1.9.2.custom.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="STYLESHEET" type="text/css" href="./css/ies.css"/>
+<script type="text/javascript" src="./js/tooltipsie.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./js/menu2016/frames_new.js?20161121"></script>
+<script type="text/javascript" src="./js/eloxtbbChatbotExterno.js"></script>
+<link rel="stylesheet" href="./css/menu2016/frames.css?20161121" type="text/css"/>
+<script language="JavaScript1.2" type="text/javascript">
+var pintaCambioConex = false;
+function quitaMiGestor(){
+if(document.getElementById('gestor')!=null && top.flagGestorVisto=="S"){
+document.getElementById('gestor').className='';
+}
+}
+function quitaMiOD(){
+if(document.getElementById('imgOD')!=null && top.flagGestorVisto=="S"){
+document.getElementById('imgOD').style.display='none'
+}
+}
+function lanza_mkt_cos(resultat, P_N, P_E, buffer, npe1tit, codmis, nummis, aceptar, imatge, idgrmis, url, origen, frame, PNdesplegar, PEdesplegar, entorno, rtd, popup, feedback, tickmis, mkt_origen) {
+if(feedback != null && feedback == 'S'){
+if(buffer!= null){
+buffer = "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}else{
+buffer = buffer + "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}
+}
+if (entorno != null && entorno != undefined && entorno != '') top.flagPE = entorno;
+
+if(popup != null && popup == 1)
+{
+mywin = openW('nfPNPEopenW','',800,600,1,0,1,0,0,1,1,1);
+mywin.location.href='/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN='+P_N+'&PE='+P_E+'&CLICK_ORIG='+origen+buffer;
+}
+
+if(imatge.substring(0,3)=="WEB"&&!top.flagPopUpRTD&&resultat!="099"&&"0"!="0"){
+}else{
+with (document.forms["MKT"]) {
+
+if(imatge.substring(0,3)=="WEB"&&top.flagPopUpRTD&&resultat!="099"){
+PE.value="141";
+top.flagPopUpRTD=false;
+}else if(rtd=="RTD"){
+PE.value="141";
+}else{
+PE.value="14";
+}
+
+if(popup!=null && popup==1)
+{
+PN_CAMP.value="GFI";
+PE_CAMP.value="7";
+BUFFER.value="";
+CARGA_PORTAL.value="";
+url='0';
+PNMENU.value = "";
+PEMENU.value = "";
+}else
+{
+
+PN_CAMP.value=P_N;
+PE_CAMP.value=P_E;
+BUFFER.value=buffer;
+CARGA_PORTAL.value=url;
+PNMENU.value = PNdesplegar;
+PEMENU.value = PEdesplegar;
+}
+CODRES.value=resultat;
+NPE1TIT.value=npe1tit;
+CODMIS.value=codmis;
+NUMMIS.value=nummis;
+TICKMIS.value=tickmis;
+ACEPTA.value=aceptar;
+MISSATGE_MKT_PERSON.value=imatge;
+DE_BORSA.value=0;
+IDGRMIS.value=idgrmis;
+MKT_ORIGEN.value=mkt_origen;
+if (origen == null || origen == undefined) CLICK_ORIG.value = "GFI_ERR_000";
+else CLICK_ORIG.value = origen;
+if (url == '0') {
+target="Oculto";
+} else {
+if (frame == null || frame =="null") target="Cos";
+else target = frame;
+}
+DESTI.value="";
+TIPO.value="";
+PN.value="GFI";
+submit();
+}
+}
+}
+function lanza_mkt_bo_cos(resultat,P_N,P_E,buffer,npe1tit,codmis,nummis,aceptar,imatge,idgrmis,origen,frame,PNdesplegar,PEdesplegar,rtd,feedback,tickmis, mkt_origen){
+if(feedback != null && feedback == 'S'){
+if(buffer!= null){
+buffer = "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}else{
+buffer = buffer + "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}
+}
+if(imatge.substring(0,3)=="WEB"&&!top.flagPopUpRTD&&resultat!="099"&&"0"!="0"){
+}else{
+with (document.forms["MKT"]){
+
+if(imatge.substring(0,3)=="WEB"&&top.flagPopUpRTD&&resultat!="099"){
+PE.value="141";
+top.flagPopUpRTD=false;
+}else if(rtd=="RTD"){
+PE.value="141";
+}else{
+PE.value="14";
+}
+PN.value="GFI"
+PN_CAMP.value=P_N
+PE_CAMP.value=P_E
+CODRES.value=resultat
+BUFFER.value=buffer
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+ACEPTA.value=aceptar
+MISSATGE_MKT_PERSON.value=imatge
+DE_BORSA.value=1
+IDGRMIS.value=idgrmis
+TICKMIS.value=tickmis
+var url = "1";
+CARGA_PORTAL.value=url
+PNMENU.value = PNdesplegar
+PEMENU.value = PEdesplegar
+if (origen == null || origen == undefined) CLICK_ORIG.value="GFI_ERR_000"
+else CLICK_ORIG.value=origen
+if (url == '0') target="Oculto"
+else {
+if (frame == null || frame =="null") target="Cos"
+else target = frame
+}
+DESTI.value=""
+TIPO.value=""
+MKT_ORIGEN.value=mkt_origen;
+submit()
+}
+}
+}
+function lanza_mkt_box_cos(resultat, P_N, P_E, buffer, npe1tit, codmis, nummis, aceptar, imatge, idgrmis, url, origen, frame, PNdesplegar, PEdesplegar, entorno, feedback, tickmis, mkt_origen) {
+if(feedback != null && feedback == 'S'){
+if(buffer!= null){
+buffer = "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}else{
+buffer = buffer + "&MKT_CODMIS="+codmis+"&MKT_NUMMIS="+nummis;
+}
+}
+with (document.forms["MKT"]) {
+PN.value="GFI";
+PE.value="14";
+PN_CAMP.value=P_N;
+PE_CAMP.value=P_E;
+CODRES.value=resultat;
+BUFFER.value=buffer;
+NPE1TIT.value=npe1tit;
+CODMIS.value=codmis;
+NUMMIS.value=nummis;
+ACEPTA.value=aceptar;
+MISSATGE_MKT_PERSON.value=imatge;
+DE_BORSA.value=0;
+if (entorno != null && entorno != undefined && entorno != '')
+DE_BOX.value=entorno;
+IDGRMIS.value=idgrmis;
+TICKMIS.value=tickmis;
+CARGA_PORTAL.value=url;
+PNMENU.value = PNdesplegar;
+PEMENU.value = PEdesplegar;
+MKT_ORIGEN.value=mkt_origen;
+if (origen == null || origen == undefined) CLICK_ORIG.value = "GFI_ERR_000";
+else CLICK_ORIG.value = origen;
+if (url == '0') {
+target="Oculto";
+} else {
+if (frame == null || frame =="null") target="Cos";
+else target = frame;
+}
+DESTI.value="";
+TIPO.value="";
+submit();
+}
+}
+function lanzarBanPer_URL(numcar,tipoRes, codres,npe1tit,codmis,nummis,idgrmis,buffer,origen,url){
+with (document.forms["MKT"]){
+PN.value="CAR"
+PE.value="2"
+NUMCAR.value=numcar
+TIPO_RESP.value=tipoRes
+CODRES.value=codres
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+IDGRMIS.value=idgrmis
+BUFFER.value=buffer
+CLICK_ORIG.value=origen
+URL.value=url
+if (tipoRes == '4') target = "Oculto"
+else target="Cos"
+submit()
+DESTI.value=""
+TIPO.value=""
+}
+}
+function lanzarBanPer_SI(numcar,tipoRes, codres,npe1tit,codmis,nummis,idgrmis,origen,desti,params,tipo){
+with (document.forms["MKT"]){
+PN.value="CAR"
+PE.value="2"
+NUMCAR.value=numcar
+TIPO_RESP.value=tipoRes
+CODRES.value=codres
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+IDGRMIS.value=idgrmis
+CLICK_ORIG.value=origen
+DESTI.value=desti
+PARAMS.value=params
+TIPO.value=tipo
+if (tipoRes == '5') target = "Oculto"
+else target="Cos"
+submit()
+}
+}
+function lanzarBanPer_WAX(numcar, tipoRes, codres, npe1tit, codmis, nummis, idgrmis, origen){
+with (document.forms["MKT"]){
+PN.value="CAR"
+PE.value="2"
+NUMCAR.value=numcar
+TIPO_RESP.value=tipoRes
+CODRES.value=codres
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+IDGRMIS.value=idgrmis
+CLICK_ORIG.value=origen
+target = "Oculto"
+submit()
+}
+}
+function lanza_mkt_sup(resultat,_URL,npe1tit,codmis,nummis,imatge,tickmis, mkt_origen){
+if(imatge.substring(0,3)=="WEB"&&!top.flagPopUpRTD&&resultat!="099"&&"0"!="0"){
+}else{
+PN.value="GFI"
+with (document.forms["MKT"]){
+
+if(imatge.substring(0,3)=="WEB"&&top.flagPopUpRTD&&resultat!="099"){
+PE.value="141";
+top.flagPopUpRTD=false;
+}else{
+PE.value="14";
+}
+CODRES.value=resultat
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+TICKMIS.value=tickmis
+URL.value=_URL
+MISSATGE_MKT_PERSON.value=imatge
+MKT_ORIGEN.value=mkt_origen;
+DESTI.value=""
+TIPO.value=""
+target="Sup"
+submit()
+}
+}
+}
+function lanza_mkt_SI(resultat,desti,params,tipo,npe1tit,codmis,nummis,aceptar,imatge,idgrmis,rtd,tickmis, mkt_origen){
+if(imatge.substring(0,3)=="WEB"&&!top.flagPopUpRTD&&resultat!="099"&&"0"!="0"){
+}else{
+PN.value="GFI"
+with (document.forms["MKT"]){
+
+if(imatge.substring(0,3)=="WEB"&&top.flagPopUpRTD&&resultat!="099"){
+PE.value="141";
+top.flagPopUpRTD=false;
+}else if(rtd=="RTD"){
+PE.value="141";
+}else{
+PE.value="14";
+}
+CODRES.value=resultat
+DESTI.value=desti
+PARAMS.value=params
+TIPO.value=tipo
+NPE1TIT.value=npe1tit
+CODMIS.value=codmis
+NUMMIS.value=nummis
+ACEPTA.value=aceptar
+MISSATGE_MKT_PERSON.value=imatge
+DE_BORSA.value=0
+IDGRMIS.value=idgrmis
+TICKMIS.value=tickmis
+MKT_ORIGEN.value=mkt_origen;
+if (tipo == '1')
+target="Oculto"
+else
+target="Cos"
+submit()
+}
+}
+}
+
+function init(){
+
+lineax()
+window.defaultStatus='la Caixa'
+
+if (navigator.appName=="Microsoft Internet Explorer"){
+
+}
+quitaMiGestor()
+quitaMiOD()
+
+}
+function cd(bl){
+if(bl){
+document.forms[0].CLICK_ORIG.value='EOC_GFI_1'
+formsubmit('_top','LGN','20')
+}else f2('_top','LGN','141','EOC_GFI_1')
+}
+function sat(who){
+switch (who){
+case 2:
+
+openW('https://portal.lacaixa.es/atencioclient/atencioncliente_es.html','acliente',750,400,1,1,1,1,0,1,1,1);
+
+break
+case 4:obtenerAyuda();break
+case 6:
+
+urlRed='https://www.lacaixa.es'
+
+top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,"GFI","7","&INICIO_LOGO=S","MNU_LOG_1","","","","LO");
+break
+case 7:
+document.forms["BOP"].submit()
+break
+}
+return void(null)
+}
+function lineax(){
+usuario();
+}
+function marcarMailbox(){$("#mailbox").addClass("activo");}
+function desmarcarMailbox(){$("#mailbox").removeClass("activo");}
+function noNuevoMailbox(){$("#mailbox").removeClass("nuevo");}
+function nuevoMailbox(){$("#mailbox").addClass("nuevo");}
+function mostrar_QGo(){}
+function invocaQGO(){
+var pn=top.Inferior.Cos.PNAjuda;
+var pe=top.Inferior.Cos.PEAjuda;
+if (pn==undefined){
+pn="GFI";
+pe="7";
+}
+if ("02"=="01"){
+window.open('/qgo/main.php?Usuario='+00782367302+'&PN='+pn+'&PE='+pe+'&vIdioma=cat','qgo','toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,width=725px,height=525px');
+}else{
+window.open('/qgo/main.php?Usuario='+00782367302+'&PN='+pn+'&PE='+pe+'&vIdioma=cas','qgo','toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,width=725px,height=525px');
+}
+}
+function desConx(){
+top.flagNetejaRefVal=true;
+cd(top.flagDemo);
+}
+function usuario(){
+if (top.nomUser==null || top.nomUser==""){
+document.getElementById('nombre').innerHTML='&nbsp;&nbsp;';
+document.getElementById('nombre').style.display='';
+}else if (top.nomUser!=null&&top.flagAbierto==0){
+
+if(top.flagDemo==true){
+introUsuDemo = "(usuario demo) Victor";
+
+document.getElementById('nombre').innerHTML=introUsuDemo;
+}else{
+document.getElementById('nombre').innerHTML=top.nomUser;
+}
+
+document.getElementById('nombre').style.display='';
+
+if (top.canviUsuari=='S'){
+document.getElementById('cmbusr').style.display='';
+}else if (top.flagDemo && top.flagPE=='E' && !top.flagBorsa){
+document.getElementById('cmbusr').style.display='';
+}
+
+}
+
+if(top.flagBorsa==true){
+document.getElementById('cnfprs').style.display='none';
+if(top.flagAbierto==1){
+document.getElementById('cmbusr').style.display='none';
+}
+}else{
+document.getElementById('cnfprs').style.display='';
+}
+
+}
+function fesTeClient(){
+openW('http://portal.lacaixa.es/general/nuevocliente_es.html?loce=demo-NA-lineabierta-haztecliente-general-subhome','fesclient',750,400,1,1,1,1,0,1,1,1);
+}
+
+
+var segundosRestantes=0;
+var timer=null;
+var campanyaLogoffInvocada=false;
+function cancelarCampanyaLogoff(){
+clearTimeout(timer);
+ocultaCampanyaLogoff();
+}
+function desconectar(){
+desConx();
+}
+function cuentaAtras(elemento){
+if(segundosRestantes>=0){
+if(segundosRestantes<10){
+segundosRestantes="0"+segundosRestantes;
+}
+elemento.innerHTML=segundosRestantes;
+segundosRestantes--;
+timer = setTimeout(function(){cuentaAtras(elemento)},1000);
+} else {
+desconectar();
+}
+}
+function ocultaCampanyaLogoff(){
+frameCos = obtenerCosCampanyaLogoff()
+if (frameCos != null) {
+Amaga_Intersticials()
+var capa = frameCos.document.getElementById("capa_campanya_logoff")
+if (capa != null){
+capa.parentNode.removeChild(capa)
+}
+var links = frameCos.document.getElementsByTagName("link");
+var long = links.length;
+for (i=0;i<long;i++){
+var hrefLink = links[i].getAttribute("href");
+if (hrefLink == "../css/lightboxlogoff.css"){
+links[i].parentNode.removeChild(links[i])
+break
+}
+}
+}
+}
+function campanyaLogoff(){
+var frameCos = obtenerCosCampanyaLogoff();
+var capa = frameCos.document.getElementById("capa_campanya_logoff");
+if (frameCos && capa == null && existeBodyEnFrame(frameCos) && !hayParticionFramesCos() && !campanyaLogoffInvocada ){
+var link = frameCos.document.createElement("link");
+link.type = "text/css";
+link.rel = "stylesheet";
+link.href = "../css/lightboxlogoff.css";
+frameCos.document.getElementsByTagName("head")[0].appendChild(link);
+var el0 = frameCos.document.createElement("div");
+el0.setAttribute('id', 'capa_campanya_logoff');
+$.ajax({
+url: '/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=CAR&PE=10',
+cache: false,
+success: function(datos) {
+if (datos != null) {
+datos = datos.replace('name="Map"','name="MapLibre"');
+datos = datos.replace('usemap="#Map"','usemap="#MapLibre"');
+datos = datos.replace('id="Map"','id="MapLibre"');
+el0.innerHTML = datos;
+frameCos.document.body.appendChild(el0);
+if (frameCos.document.getElementById("capaInformativaCosCallMe")){
+frameCos.document.getElementById("capaInformativaCosCallMe").style.height = calculaAlturaDivSombreado() + "px";
+frameCos.document.getElementById("capaInformativaCosCallMe").style.display='block';
+Mostra_Intersticials('#7f97a7',70);
+elemento = frameCos.document.getElementById('segundosAviso');
+segundosRestantes=12;
+cuentaAtras(elemento);
+campanyaLogoffInvocada=true;
+var scriptFeedbacks = frameCos.document.getElementById("scriptFeedbacks").getElementsByTagName("script")[0].innerHTML;
+incluyeJSCampanyaLogoff(scriptFeedbacks);
+if (datos.indexOf("elomktb000100")>-1) $.getScript("js/elomktb000100.js",function(data) {
+incluyeJSCampanyaLogoff(data);
+});
+if (datos.indexOf("elomktb000200")>-1) $.getScript("js/elomktb000200.js",function(data) {
+incluyeJSCampanyaLogoff(data);
+});
+if (datos.indexOf("elomktb000300")>-1) $.getScript("js/elomktb000300.js",function(data) {
+incluyeJSCampanyaLogoff(data);
+});
+if (datos.indexOf("elomktb000400")>-1) $.getScript("js/elomktb000400.js",function(data) {
+incluyeJSCampanyaLogoff(data);
+});
+} else {
+desConx();
+}
+}
+},
+error: function() { desConx(); }
+});
+} else {
+desConx();
+}
+return void(null)
+}
+function incluyeJSCampanyaLogoff(data){
+var script   = document.createElement("script");
+script.type  = "text/javascript";
+script.text  = data;
+obtenerCosCampanyaLogoff().document.body.appendChild(script);
+}
+var documentCampanyaLibre = null;
+var jsInsertadosCampanyaLibre = 0;
+
+function landingLightbox(pn_fic, pe_fic, buffer, documentC, anchuraLighbox, alturaLightbox){
+if (documentC == null){
+frameCosCampanyaLibre = obtenerCos();
+if (frameCosCampanyaLibre != null) {
+documentCampanyaLibre = frameCosCampanyaLibre.document
+}
+} else {
+documentCampanyaLibre = documentC
+}
+if (documentCampanyaLibre != null){
+var link = documentCampanyaLibre.createElement("link");
+link.type = "text/css";
+link.rel = "stylesheet";
+link.href = "../css/lightboxlibre.css";
+documentCampanyaLibre.getElementsByTagName("head")[0].appendChild(link);
+var el0 = documentCampanyaLibre.createElement("div");
+el0.setAttribute('id', 'capa_campanya_libre');
+$.ajax({
+url: '/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=CAR&PE=12&PN_FIC='+pn_fic+'&PE_FIC='+pe_fic+buffer,
+cache: false,
+success: function(datos) {
+if (datos != null) {
+datos = datos.replace('name="Map"','name="MapLibre"');
+datos = datos.replace('usemap="#Map"','usemap="#MapLibre"');
+datos = datos.replace('id="Map"','id="MapLibre"');
+el0.innerHTML = datos;
+documentCampanyaLibre.body.appendChild(el0);
+if (documentCampanyaLibre.getElementById("capaInformativaCosCampanyaLibre")){
+if(anchuraLighbox!=null && anchuraLighbox!='' && anchuraLighbox!='0'){
+documentCampanyaLibre.getElementById("divCampanyaLibre2").style.width = anchuraLighbox + "px";
+documentCampanyaLibre.getElementById("divLlamadaCampanyaLibre").style.width = anchuraLighbox + "px";
+}
+if(alturaLightbox!=null && alturaLightbox!='' && alturaLightbox!='0'){
+documentCampanyaLibre.getElementById("divCampanyaLibre3").style.height = alturaLightbox + "px";
+}
+documentCampanyaLibre.getElementById("capaInformativaCosCampanyaLibre").style.height = calculaAlturaDivSombreado() + "px";
+documentCampanyaLibre.getElementById("capaInformativaCosCampanyaLibre").style.display='block';
+Mostra_Intersticials('#7f97a7',70);
+if(top.Inferior.Cos.frames[1]){
+if(top.Inferior.Cos.frames[1].document.getElementById("callMeNowTLO")){
+top.Inferior.Cos.frames[1].document.getElementById("callMeNowTLO").style.display='block';
+}
+}
+if (datos.indexOf("elomktb000200")>-1) $.getScript("js/elomktb000200.js",function(data) {
+incluyeJSCampanyaLibre(data);
+jsInsertadosCampanyaLibre = jsInsertadosCampanyaLibre + 1;
+});
+var scriptFeedbacks = documentCampanyaLibre.getElementById("scriptFeedbacks").getElementsByTagName("script")[0].innerHTML;
+incluyeJSCampanyaLibre(scriptFeedbacks);
+jsInsertadosCampanyaLibre = jsInsertadosCampanyaLibre + 1;
+} else {
+documentCampanyaLibre = null;
+}
+}
+},
+error: function() { }
+});
+} else {}
+return void(null)
+}
+function ocultaCampanyaLibre(){
+if (documentCampanyaLibre != null) {
+Amaga_Intersticials()
+if(top.Inferior.Cos.frames[1]){
+if(top.Inferior.Cos.frames[1].document.getElementById("callMeNowTLO")){
+top.Inferior.Cos.frames[1].document.getElementById("callMeNowTLO").style.display='none';
+}
+}
+var capa = documentCampanyaLibre.getElementById("capa_campanya_libre")
+if (capa != null){
+capa.parentNode.removeChild(capa)
+}
+var links = documentCampanyaLibre.getElementsByTagName("link");
+var num_links = links.length;
+for (i=0;i<num_links;i++){
+var hrefLink = links[i].getAttribute("href");
+if (hrefLink == "../css/lightboxlibre.css"){
+links[i].parentNode.removeChild(links[i])
+break
+}
+}
+for (i=0;i<jsInsertadosCampanyaLibre;i++){
+head = documentCampanyaLibre.getElementsByTagName('head')[0]
+head.removeChild(head.firstChild)
+}
+jsInsertadosCampanyaLibre = 0;
+documentCampanyaLibre = null;
+}
+}
+function incluyeJSCampanyaLibre(data){
+var scriptCampanyaLibre = document.createElement("script");
+scriptCampanyaLibre.type  = "text/javascript";
+scriptCampanyaLibre.text  = data;
+head = documentCampanyaLibre.getElementsByTagName('head')[0]
+head.insertBefore(scriptCampanyaLibre, head.firstChild);
+}
+function recargaAvatar(ticket){
+if (typeof ticket == 'undefined'){
+ticket = ''
+}
+d = new Date();
+document.getElementById('avatarimg').src="../jsp/elogfip999999.jsp;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?TICKET="+ticket+"&cache="+d.getTime();
+}
+function lanzarGFM600(configDefecto){
+top.Inferior.Menu.mostrarLightboxGestPerfiles();
+
+}
+function lanzarMPL31(){
+top.Inferior.Menu.lanzarGestionPerfiles();
+}
+function actualizaBox(box){
+with (document.forms["BOXCABECERA"]){
+PN.value="GFM"
+PE.value="10"
+BOX.value=box;
+CLICK_ORIG.value="FLX_MEN_BOX";
+submit()
+}
+}
+function testSuri()
+{
+
+if(typeof top.Inferior.Cos.existeSuri == 'function'){
+
+if (top.Inferior.Cos.existeSuri()){
+
+if (typeof top.Inferior.Cos.fDespliegaSuri == 'function') {
+
+top.Inferior.Cos.fDespliegaSuri();
+}else{
+
+loadChatbot();
+}
+}else{
+
+loadChatbot();
+}
+}else{
+
+loadChatbot();
+}
+}
+</script>
+<script> function Mostra_Intersticials(myColor,myOpacity){ top.Inferior.Niveles.Mostra_Intersticials(myColor,myOpacity); } function Amaga_Intersticials(){ top.Inferior.Niveles.Amaga_Intersticials(); } </script>
+</head>
+<body onload="init()" bgcolor="#ffffff">
+<div id="cabeceratop">
+<div class="logos lfloat dtable">
+
+<a onclick="javascript:top.Titol.actualizaBox('LO');" href="javascript:sat(6);" title="CaixaBank" class="dtcell pdt5">
+<img class="" onerror="this.src='../imatge/menu2016/logo_empreses_cast.png'" src="../imatge/menu2016/logo_empreses_cast.svg" alt="CaixaBank" />
+</a>
+
+
+
+
+
+
+
+<div class="titol dtcell">
+<img src="../c-images/html-images/logo_caixabanknow.svg" alt="logo Now" />
+</div>
+</div>
+<div class="usuaris ">
+
+<ul class="dtable rfloat">
+<li class="enlace dtcell cab__user">
+
+<a id="avatarlink" href="javascript:lanzarLO(top.flagPE,'COP','2','','MNU_COP_2','','','','LO');" title="¡Añada su foto!" class="cab__user__link__primary"></a>
+<img id="avatarimg" class="cab__user__image" src="../jsp/elogfip999999.jsp;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?TICKET=&cache=1545473404961" alt="">
+
+<span id="nombre" class="cab__user__name"></span>
+<span id="cmbusr" style="display:none">
+<a href="javascript:lanzarLO(top.flagPE,'LGU','1','&REMOVE_REFVAL=1','EIN_BPE_000','','','','LO')"  class="cab__user__link__secondary">Cambiar usuario</a>
+<!-- this link converts to
+https://loc6.caixabank.es/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=GFI&PE=2&FLAG_PE=&FLAG_PART_EMPR=E&FLAG_DEMO=0&FLAG_BUSTIA=1&FLAG_BORSA=0&FLAG_TIPO_BORSA=B&FLAG_GESTORIA=0&FLAG_NIVEL=3&FLAG_CONFIGURACION_ENTORNO=E0&INICI=true&INICIAL_PN=LGU&INICIAL_PE=1&PNMENU=&PEMENU=&FLAG_MKT_PERSON=false&MISSATGE_MKT_PERSON=&IMGCBDG=&URLCBDG=&ADVORIGNEGOCI=GFI&ADVORIGPETICIO=7&WELLCOME=&BUFFER=%26REMOVE_REFVAL%3D1&FLAG_BKONLINE=0&POPUP=0&CLICK_ORIG=MNU_EMP_999&CLORIG=EIN_BPE_000&REMOVE_REFVAL=&GFIABSIS=&PN_BOX=&PE_BOX=&BUFFER_BOX=&CARGA_MENUS=&ENTORNOBOX=LO
+-->
+</span>
+<div class="info_aviso hide">
+<span>Configuración personal</span>
+</div>
+</li>
+
+
+<li class="enlace dtcell migestor tooltip-new">
+<a href="javascript:lanzarLO(top.flagPE,'MIG','1','','EIN_MIG_000','','','','LO');" title="Mi gestor">Mi gestor</a>
+</li>
+
+
+
+
+
+
+<li class="icobtn aviso dtcell tooltip-new" id="campana">
+<div class="info_aviso hide">
+<span>Tiene operaciones pendientes</span>
+
+</div>
+<a href="javascript:top.Inferior.Niveles.boton(3);" title=""></a>
+</li>
+
+
+
+<li id="mailbox" class="icobtn mail nuevo dtcell tooltip-new">
+<a href="javascript:top.Inferior.Niveles.boton(2);noNuevoMailbox();" title="MailBox"></a>
+</li>
+
+
+<li id="cnfprs" class="icobtn settings dtcell tooltip-new">
+<a href="javascript:lanzarLO(top.flagPE,'COP','2','','MNU_COP_2','','','','LO');" title="Configuración"></a>
+</li>
+
+<li id="help" class="icobtn ayuda dtcell tooltip-new">
+<a onclick="javascript:actualizaBox('LO');" href="javascript:obtenerAyuda();" title="Atención al cliente"></a>
+</li>
+
+
+<li class="icobtn login activo dtcell tooltip-new">
+<a href="javascript:desConx();" title="Desconectar"></a>
+</li>
+
+</ul>
+</div>
+<div class="clearfix"></div>
+</div>
+<form action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Cos">
+<input type="hidden" name="PN" value=""/>
+<input type="hidden" name="PE" value=""/>
+<input type="hidden" name="FLAG_PE" value=""/>
+<input type="hidden" name="FLAG_PART_EMPR" value=""/>
+<input type="hidden" name="FLAG_DEMO" value=""/>
+<input type="hidden" name="FLAG_BUSTIA" value=""/>
+<input type="hidden" name="FLAG_BORSA" value=""/>
+<input type="hidden" name="FLAG_TIPO_BORSA" value=""/>
+<input type="hidden" name="FLAG_GESTORIA" value=""/>
+<input type="hidden" name="FLAG_NIVEL" value=""/>
+<input type="hidden" name="FLAG_CONFIGURACION_ENTORNO" value=""/>
+<input type="hidden" name="INICI" value="true"/>
+<input type="hidden" name="INICIAL_PN" value=""/>
+<input type="hidden" name="INICIAL_PE" value=""/>
+<input type="hidden" name="PNMENU" value=""/>
+<input type="hidden" name="PEMENU" value=""/>
+<input type="hidden" name="FLAG_MKT_PERSON" value=""/>
+<input type="hidden" name="MISSATGE_MKT_PERSON" value=""/>
+<input type="hidden" name="IMGCBDG" value=""/>
+<input type="hidden" name="URLCBDG" value=""/>
+<input type="hidden" name="ADVORIGNEGOCI" value="GFI"/>
+<input type="hidden" name="ADVORIGPETICIO" value="7"/>
+<input type="hidden" name="WELLCOME" value=""/>
+<input type="hidden" name="BUFFER" value=""/>
+<input type="hidden" name="FLAG_BKONLINE" value=""/>
+<input type="hidden" name="POPUP" value="0"/>
+<input type="hidden" name="CLICK_ORIG" value=""/>
+<input type="hidden" name="CLORIG" value=""/>
+<input type="hidden" name="REMOVE_REFVAL" value=""/>
+<input type="hidden" name="GFIABSIS" value=""/>
+<input type="hidden" name="PN_BOX" value=""/>
+<input type="hidden" name="PE_BOX" value=""/>
+<input type="hidden" name="BUFFER_BOX" value=""/>
+<input type="hidden" name="CARGA_MENUS" value=""/>
+<input type="hidden" name="ENTORNOBOX" value=""/>
+</form>
+<form id="ayuda" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post">
+<input type="hidden" name="PN" value=""/>
+<input type="hidden" name="PE" value=""/>
+<input type="hidden" name="PNAJUDA" value=""/>
+<input type="hidden" name="PEAJUDA" value=""/>
+<input type="hidden" name="SPEAJUDA" value=""/>
+<input type="hidden" name="AMBIT" value=""/>
+<input type="hidden" name="TOPICO" value=""/>
+<input type="hidden" name="TIPO_AYUDA" value=""/>
+<input type="hidden" name="ENCODE_URL" value=""/>
+<input type="hidden" name="FLAG_BORSA" value=""/>
+<input type="hidden" name="NOMBRE_AYUDA" value=""/>
+<input type="hidden" name="URL_ATCLIENTE" value=""/>
+<input type="hidden" name="CLICK_ORIG" value=""/>
+</form>
+<form id="MKT" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post">
+<input type="hidden" name="PN" value="GFI"/>
+<input type="hidden" name="PE" value="14"/>
+<input type="hidden" name="PN_CAMP" value=""/>
+<input type="hidden" name="PE_CAMP" value=""/>
+<input type="hidden" name="CODRES" value=""/>
+<input type="hidden" name="NUMCAR" value=""/>
+<input type="hidden" name="TIPO_RESP" value=""/>
+<input type="hidden" name="BUFFER" value=""/>
+<input type="hidden" name="NPE1TIT" value=""/>
+<input type="hidden" name="CODMIS" value=""/>
+<input type="hidden" name="NUMMIS" value=""/>
+<input type="hidden" name="TICKMIS" value=""/>
+<input type="hidden" name="ACEPTA" value=""/>
+<input type="hidden" name="URL" value=""/>
+<input type="hidden" name="DE_BORSA" value=""/>
+<input type="hidden" name="DE_BOX" value="0"/>
+<input type="hidden" name="MISSATGE_MKT_PERSON" value=""/>
+<input type="hidden" name="PNMENU" value=""/>
+<input type="hidden" name="PEMENU" value=""/>
+<input type="hidden" name="IDGRMIS" value=""/>
+<input type="hidden" name="CARGA_PORTAL" value="0"/>
+<input type="hidden" name="CLICK_ORIG" value="xxx"/>
+<input type="hidden" name="CLORIG" value=""/>
+<input type="hidden" name="DESTI" value=""/>
+<input type="hidden" name="PARAMS" value=""/>
+<input type="hidden" name="TIPO" value=""/>
+<input type="hidden" name="MKT_ORIGEN" value=""/>
+</form>
+<form id="BOP" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Cos">
+<input type="hidden" name="PN" value="CBO"/>
+<input type="hidden" name="PE" value="1"/>
+<input type="hidden" name="CLICK_ORIG" value="EOC_GFI_1"/>
+</form>
+<form id="PRELANZAR" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Oculto">
+<input type="hidden" name="PN" value="GFI"/>
+<input type="hidden" name="PE" value="21"/>
+<input type="hidden" name="PRELANZA_PN" value=""/>
+<input type="hidden" name="PRELANZA_PE" value=""/>
+<input type="hidden" name="POSICION_ORIGEN" value=""/>
+<input type="hidden" name="TIPO_PRELANZA" value=""/>
+<input type="hidden" name="NIVEL_PRELANZA" value=""/>
+<input type="hidden" name="CLICK_ORIG" value="EOC_GFI_1"/>
+</form>
+<form id="CID" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Cos">
+<input type="hidden" name="PN" value="CID"/>
+<input type="hidden" name="PE" value="1"/>
+<input type="hidden" name="PN_ORIGEN" value=""/>
+<input type="hidden" name="PE_ORIGEN" value=""/>
+</form>
+
+<form id="BOX" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Cos">
+<input type="hidden" name="PN" value=""/>
+<input type="hidden" name="PE" value=""/>
+<input type="hidden" name="PNMENU" value=""/>
+<input type="hidden" name="PEMENU" value=""/>
+<input type="hidden" name="BUFFER" value=""/>
+<input type="hidden" name="CLICK_ORIG" value=""/>
+<input type="hidden" name="PN_BOX" value=""/>
+<input type="hidden" name="PE_BOX" value=""/>
+<input type="hidden" name="BUFFER_BOX" value=""/>
+</form>
+<form name="AFTERCHAT" target="Oculto" method="post" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214">
+<input type="hidden" name="PN" value="CMN" />
+<input type="hidden" name="PE" value="4" />
+</form>
+<form name="BOXCABECERA" action="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214" method="post" target="Oculto">
+<input type="hidden" name="PN" value="">
+<input type="hidden" name="PE" value="">
+<input type="hidden" name="CLICK_ORIG" value="">
+<input type="hidden" name="BOX" value="">
+</form>
+<script language="JavaScript1.2" type="text/javascript">
+var esta=true
+var esta2016=true
+</script>
+<div id="DIV_intersticials" style="display:none;align: right; position: absolute; z-index:200; width: 100%; height: 100%; top: 0px; left: 0px;background-color:blue; filter: alpha(opacity=10); opacity:.1;"></div>
+</body>
+</html>

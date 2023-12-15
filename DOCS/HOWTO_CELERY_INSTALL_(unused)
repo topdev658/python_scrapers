@@ -1,0 +1,23 @@
+UNUSED since celery has been remved from the project
+
+$ sudo apt-get install build-essential libssl-dev libffi-dev python3-dev python3-pip
+
+$ sudo apt-get install rabbitmq-server
+if errors (can't get esl-erlang)
+download and install package from https://www.erlang-solutions.com/resources/download.html
+then again
+$ sudo apt-get install rabbitmq-server
+
+==== still problems?
+
+I changed  /etc/rabbitmq/rabbitmq-env.conf to
+NODENAME=rabbit
+NODE_IP_ADDRESS=0.0.0.0
+NODE_PORT=5672
+
+
+
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get -f install -- if more errors
+
+

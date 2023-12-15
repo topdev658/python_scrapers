@@ -1,0 +1,509 @@
+Tesoralia scrapers documentation
+
+
+Terms
+-----
+
+Frontend - client side of the web application (web browser customer interface)
+Backend - server side of the web application (DB, server code)
+UI - client web application. Contains 2 parts: frontend and backend
+Main server - the server with the main DB and the UI
+Scraping server - the server which contains all scrapers and web server to interact with exteranl callers (see below)
+Scraper's web API - the web server which provides interaction with external callers. It starts new sctaping job on demand if called with correct credentials. Placed on the Scraping server
+
+
+Business requirements
+---------------------
+
+Implement scrapers to extract the information of:
+ - accounts (IBAN, balance, currency, account type);
+  -movements (dates, amounts, description).
+
+The time targets:
+ - scrape the accounts balances of a specific user in 10 seconds;
+ - scrape payment history (movements) of a specific user in 30 seconds.
+
+Parallel scraping of all financial entities accesses of specific customer to achive time targets.
+Instant delivery of scraping results to the customer (cusomter wants to see updated data immediately)
+Parallel scrping for several users at same time
+Launch scraping processeses on 2 events:
+ - on demand for specific customer
+ - periodically (daily) for all customers
+
+Scrape only new movements with specific initial depth (2 weeks by default)
+
+
+Technical requirements
+----------------------
+
+Dedicated scraping server
+Integration with existing database (MS SQL Server)
+Uptime 24/7/365
+
+
+Basic architecture
+------------------
+
+OS: Linux
+pros:
+ - free OS (Ubuntu)
+ - many opensource and free solutions
+ - great for web development
+
+Programming language: Python
+pros:
+ - an interpreted multiparadigm language with strong dynamic type system and with optional type annotations
+ - one of the most popular programming languages
+ - clear and minimal syntax
+ - easy to start
+ - rich standard library
+ - Linux/Windows/OS X support
+ - classic implementation of the OOP paradigm
+ - strong development principles, promoting approaches that facilitate the productive development and maintenance of projects
+ - large community
+ - great for web development, web scrapers development, machine learnin
+ All these pros allows to:
+  - develop scrapers on any platform with rapid loop of development-testing-deployment
+  - envolve more developers
+ To take advantage of languages with static typing, in this project we widely use:
+  - the type annotations to obtain type checking at the development stage
+  - strict data structures (namedtuples), to corresponding DataClass or struct in other programming languages
+
+Scraping technology: low-level http requests and responses handlers
+pros:
+ - low CPU and RAM usage - easy to scale
+ - easy to implement parallel (asyncronious) calls
+ - easy to implement complex execution logic
+ - quick start time for each scraping job
+ - availabilty to implement complex proxy behavior
+
+ Notes why scraping frameworks and web automation tools are not used:
+
+ - scraping frameworks:
+  cons:
+   Despite that there are specific frameworks for web scrapers (most popular - Scrapy), decided not to use them, because:
+    - the main aim of them to provide rapid development of the scrapers to scrape large data sets
+    - hard to implement complex execution flow with keeping the simple project structure
+    - slow start time for each scraping job
+
+ - web automation frameworks:
+  cons:
+   Despite that there are specific tools for web automation jobs, based on regular web browsers (most popular - Selenium), decided not to use them, because:
+    - extremely large (for the purposes of the project) CPU and RAM (up to 300 MB) usage for the opened web page, so, it's hard to scale solutions build on this technology
+    - restricted list of allowed methods to interact with the web site (low-level methods are not allowed)
+    - unstable behavior if many laucnhed instances
+    - very slow start time for each scraping jobs
+
+Servers: production server and test server
+
+
+Use cases
+---------
+
+The high-level process
+
+Conditions
+1. The customer is logged into the UI
+2. UI server is started and waits for user actions
+3. Scraper's web API server is started and waits for requests
+
+Scenario
+1. The user in the UI clicks on "update accounts and movements" button.
+2. The UI forntend sends the AJAX request to the UI backend.
+3. UI backend sends the HTTP request to the Scraper's web API with argument "customer to scrape".
+4. UI frontend starts to send AJAX requests in the loop to the UI backend to get updated information and updates the view until get response with "all updated" flag.
+5. Upon successful validation, Scraper's web API calls MainLauncher to start scraping process for the specific customer and immediately returns result "the scraping is started" to the UI backend.
+7. The MainLauncher retrieves all necessary information from the DB (customer's finacial entities accesses to process) from
+the DB, updates scraping statuses in the DB and launches the scrapers with financial entity access credentials information as arguments in parallel mode - one scraper for one financial entity access.
+8. Each scraper does its scraping job with provided credentials details and retrieves information about cotracts, accounts and movements in parallel mode.
+9. As soon as new batch of data are extracted (got accounts information, got all movements of the account), the scraper updates the main DB with extracted data, using DB queue manager.
+10. When the scraping job is done, the scraper returns result code to the MainLauncher.
+11. MainLauncher updates the DB with result code for the current finacial entity access.
+12. When all scrapers are finished, the MainLauncher marks the DB with "all updated" flag for the specific customer
+13. The MainLauncher finishes.
+14. If for some reason the scraping of any financial entity or account is not finished normally (hangs/failed with unhandled exception) and DB state is not updated (still marked as "scraping in progress"), the monitoring tool scraping_state_observer will reset the states by timing.
+
+
+
+Project structure
+-----------------
+
+project_root
+.
+├── db_api
+│   ├── db_connector_for_scraper.py
+│   └── db_funcs.py
+├── DOC
+│   ├── DEPLOYMENT
+│   ...
+│   └── DOC.md
+├── js_helpers
+│   ├── bankia_encrypter.js
+│   ...
+│   └── popular_encrypter.js
+├── custom_libs
+│   ├── account_no_format_detector.py
+│   ├── account_no_legal_format_per_country_detector.py
+│   ├── check_ip.py
+│   ├── check_resp.py
+│   ├── convert.py
+│   ├── country_code_converter.py
+│   ├── date_funcs.py
+│   ├── extract.py
+│   ├── iban_builder.py
+│   ├── log.py
+│   ├── myrequests.py
+│   ├── queue.py
+│   ├── raw_http.py
+│   ├── requests_helpers.py
+│   ├── scrape_logger.py
+│   ├── send_email.py
+│   └── state_reset.py
+├── logs
+│   ├── main_launcher_106458__2017_08_22__22_21_44.log
+│   ...
+│   └── main_launcher_97716__2017_10_10__08_06_26.log
+├── node_modules
+│   └── crypto-js
+│         ├── ...
+├── project
+│   ├── custom_types.py
+│   ├── fin_entities_ids.py
+│   ├── result_codes.py
+│   ├── settings.py
+│   └── structs.py
+├── scrapers
+│   ├── _basic_scraper
+│   │   ├── basic_scraper.py
+│   ├── abanca_scraper
+│   │   ├── abanca_scraper.py
+│   │   └── parse_helpers.py
+│   ├── bankia_scraper
+│   │   ├── bankia_scraper.py
+│   │   └── parse_helpers.py
+│   ...
+│   └── triodos_scraper
+│       ├── parse_helpers.py
+│       └── triodos_scraper.py
+├── test_launchers
+│   ├── test_abanca_scraper_dont_add_to_vcs.py
+│   ├── test_bankia_scraper_dont_add_to_vcs.py
+│   ...
+│   └── test_triodos_scraper_dont_add_to_vcs.py
+├── tinyproxy
+│   ├── 115.conf
+│   ...
+│   ├── tinyALL.sh
+│   └── tinyproxy
+├── machine_statistics_collector.py
+├── main_launcher.py
+├── scraping_state_observer.py
+└── server_for_scraping_on_demand.py
+
+
+Details:
+db_api/ - contains all functions to interact with the DB.
+js_helpers/ - contains JavaScript files which provides exact functions, which financial entities uses to encrypt user credentials at client side.
+custom_libs/ - contains modules, used by scrapers to scrape and parse information.
+logs/ - folder to save logs. One log file per scraping launch with basic information in the name.
+node_modules/ - locally saved Node.js dependencies to obtain correct work of js_helpers
+project/ - contains project-level settings, constants and data structures
+scrapers/ - contains all scrapers
+scrapers/_basic_scraper/ - contains basic class for all scrapes, provides generic methods
+test_launchers/ - custom lauchers for specific scrapers and customers
+tinyproxy/ - executable and conf files of tinyproxy, which provides proxy mapping of private IPs to ports
+main_launher.py - the module contains class MainLauncher
+scraping_state_observer.py - the module which controls execution time for each scraping process and reset scraping state if it takes too long time due to abnormal interruption or exception.
+server_for_scraping_on_demand.py - the module with implemented Scraper's web API
+
+
+Problems and solutions
+----------------------
+
+Problem:
+- the project requires a large number of parallel (concurrent) requests for quick scraping
+Solution:
+- use low level requests that can be scaled and paralleled
+
+Problem:
+- many financial entities encrypts the password and the user name on the client side using JavaScript
+Solution:
+- to repeat this behavior on the server side, we call downloaded and saved locally JS files, using the interaction between Python and Node.js
+
+Problem:
+- with a large number of parallel processes (coroutines), as well as a many calls between Python and Node.js, sometimes it is possible to get segmentaton fault system error (as a result of violations of integrity of a memory)
+Solution:
+- allocate additional cache size for the main process;
+- limit the number of concurrent processed financial entity accesses without affecting total scraping time;
+- use a SSD.
+
+Problem:
+- DB deadlock errors while trying to update the DB from large number of parallel scrapers
+Solution:
+- all calls, which updates DB, provides queue manager (custom_libs/queue.py) that limit the number of concurrent calls to the DB with keepinfg the update speed;
+- use a SSD.
+
+Problem:
+- some web sites can block IP as the fight against bots and DDoS-attacks
+Solution:
+- use a pool of private proxies;
+- smart IP rotation: change the IP only in case of several unsuccessful request from another IP (in contrast to the standard practice to rotate IP on each request)
+
+
+General structure of a scraper class (Python-based pseudocode)
+---------------------------------------------------------------
+
+class FinEntScraper(BasicScraper):
+	"""
+	Specific scraper for the FinEnt
+	Note: self.basic_... methods implemented in BasicScraper
+	"""
+
+    def __init__(self, scraper_params: ScraperParamsCommon, proxies):
+        super().__init__(scraper_params, proxies)
+
+    def login(self):
+        """Login into private user area"""
+
+        # Encrypt credentials like website
+        encrypted_credentials = js_encrypt(username, password)
+
+        # Make authorization request
+        session, response = make_login_request(encrypted_credentials)
+
+        # Check state
+        is_logged = AUTH_FLAGS in response
+        is_credentials_error = CREDENTIALS_ERROR_FLAGS in respnse
+
+        return session, response, is_logged, is_credentials_error
+
+    def process_contract(self, session, contract):
+        """Get accounts of the contract, save them and then call process_account"""
+
+        # Open contract home (initial) page with accounts
+        response_contract_home = open_contract_home_page(session, contract)
+
+        # Parse accounts information (IBAN, balance, curency)
+        accounts = parse_helpers.get_accounts(response_contract_home)
+
+        # Save accounts (queue manager will be used)
+        self.basic_upload_accounts(accounts)
+
+        # Process each account in parallel (concurrent) mode
+        with futures.ThreadPoolExecutor(max_workers=len(accounts)) as executor:
+            accounts_futures = {
+                executor.submit(self.process_account, session, account): account
+                for account in accounts
+            }
+            self.logger.log_futures_exception(accounts_futures)
+
+        return True
+
+    def process_account(self, session, account):
+        """Get movement of the account and save them"""
+
+        # Get date to extract movements from for the account
+        date_from = self.basic_get_date_from(account)
+
+        # Open page (download excel with filtered movements)
+        response_movements_filtered = open_movements_filtered(session, account, date_from)
+
+        # Parse movements information (dates, description, amount, temp account balance)
+        movements = parse_helpers.get_movements(response_movements_filtered)
+
+        # Save movements (queue manager will be used)
+        self.basic_upload_movements(account, movements)
+
+        return True
+
+    def main(self):
+        """Entry point"""
+
+        # Log in
+        session, response_logged_in, is_logged, is_credentials_error = self.login()
+
+        # Check auth flags
+        # Return 'failed' results
+        if is_credentials_error:
+            return self.basic_result_credentials_error()
+        if not is_logged:
+            return self.basic_result_not_logged_in_due_unknown_reason(response_logged_in.url, response_logged_in.text)
+
+        # Get contracts info from the page
+        contracts = parse_helpers.get_contracts(response_logged_in.text)
+
+        # Process each contract in parallel (concurent) mode
+        with futures.ThreadPoolExecutor(max_workers=len(contracts)) as executor:
+            contracts_futures = {
+                executor.submit(self.process_contract,
+                                session, response_logged_in, contract): contract
+                for contract in contacts
+            }
+            self.logger.log_futures_exception(contracts_futures)
+
+        # Log total time
+        self.basic_log_time_spent('GOT ALL BALANCES AND MOVEMENTS')
+        # Return 'success' result
+        return self.basic_result_success()
+
+
+================
+
+Could you give me 4 main Python funtions or libraries that we are using recurrently in the scrapers?
+
+·         How do we used to execute requests?
+
+·         How do we decrypt encrypted files? -> How do we send correctly encrypted values (username, passord)
+
+·         How do we execute javascript client side code? NodeJS
+
+·         Any other thing to consider? -> How do we provide concurrency (not related to NodeJS)
+
+
+
+1. How do we use to execute requests?
+
+If you are talking about HTTP requests basically, we send GET or POST requests built from scratch, and we send all necessary headers and POST parameters. To keep coookies, first we initialize session for it.
+Let consider Popular scraper (simplified).
+
+
+Example:
+
+# file popular_scraper.py
+
+# import module to provide HTTP requests
+import requests
+
+
+class PopularScraper(BasicScraper):
+    ...
+    def login(self):
+        # new session to save cookies
+        # we need cookies to keep logged in session
+        session = requests.session()
+
+        # common and custom HTTP headers as dictioanary
+        req_headers = {'User-Agent': 'Mozilla Firefox 5.0'}
+
+        req_initial_url = 'https://www4.bancopopular.es/.../gbplogon?tipo_btt=em'
+        resp_initial = session.get(
+            url=req_initial_url,
+            headers=req_headers,
+            proxies=self.req_proxies,  # our rotating on demand proxies
+        )
+
+
+        # get encrypted password by calling JS, will show later
+        passw_encrypted = _get_encrypted(self.userpass)
+
+        # parse html form to get params from html
+        _, req_login_params = extract.build_req_params_from_form_html(resp0.text, 'identifica')
+
+        req_login_url = 'https://www4.bancopopular.es/..../EstablishSession?id=login'
+
+        # update necessary values manually
+        # note that we use passw_encrypted instead of raw password
+        req_login_params['username'] = self.username
+        req_login_params['userpass'] = passw_encrypted
+
+        resp_login = session.post(
+            req_login_url,  # url
+            data=req_login_params,  # post parameters
+            headers=req_headers,
+            proxies=self.req_proxies
+        )
+
+        # check login state
+        is_logged = 'Your login was successful' in resp.text
+        is_credentials_error = 'Wrong username/password' in resp.text
+
+        # return logged in session, latest response,
+        return session, resp, is_logged, is_credentials_error
+
+2. How do we send correctly encrypted values (username, passord)
+
+To provide it, we investigate the website behavior at login step and checking all calling functions to get those, which provide encryption process.
+Then we save locally (or download each time) necessary JS file(s). This file could be obfuscated (mess of names to do it unreadable) - doesn't matter, because we will call encrypt functions in same way as the web browser.
+At each execution we will call these functions in locally saved JS files with necessarry arguments using NodeJS. Example provided below.
+
+
+3. How do we execute javascript client side code?
+
+To execute JS functions we interop between Python and NodeJS using system calls
+
+
+# file popular_encrypter.js
+
+// encrypting function from the web site
+function encriptar(c) {
+  for (var h = function (c) {
+    for (c = 999 - c + ''; 3 > c.length; ) c = '0' + c;
+    return c
+  }, m = ~~(9 * Math.random() + 1), t = ..... t += h(c.charCodeAt(u) + m);
+  return t
+}
+
+/**
+ * our Immediately Invoked Function Expression (IIFE)
+ * to call encriptar() from the command line
+ * usage example: $ node popular_encrypter.js 12345678
+ */
+(function () {
+    // parse command line arguments
+    var userpass = process.argv[2];
+    // get encrypted value
+    var encrypted = encriptar(userpass);
+    // write result to standard output (will be intercepted from Python then)
+    console.log(encrypted);
+})();
+
+
+# file popular_scraper.py
+
+JS_ENCRYPT_CALL_PATH = 'node popular_encrypter.js'
+
+
+def _get_encrypted(userpass) -> str:
+    # build command to call "encrypter" with necessary argument
+    cmd = '{} "{}"'.format(JS_ENCRYPT_CALL_PATH, userpass)
+    # system call. read the stdout to str variable
+    # it is encrypted password as result of interop
+    # between Python and Javascript
+    encrypted = subprocess.check_output(cmd, shell=True).decode().strip()
+    return encrypted
+
+
+ class PopularScraper(BasicScraper):
+    ....
+    <previous code above>
+
+4. How do we provide concurrency
+
+To execute the code concurrently, which means that we can execute several IO operations at the same time (and HTTP request is IO operation), we use ThreadPoolExecutor, that allows us to control a number of concurrent requests and provide them the same way as a simple iterator. This allows to speed up scraping time with a good readability of the code for better development and maintenance.
+
+
+class PopularScraper(BasicScraper):
+    ...
+
+    def main(self):
+        ...
+        # will be used also to set number of concurrent requests
+        # we can reduce it for more smooth scraping
+        contracts = self._get_contracts()
+
+        # process all contract concurrently
+        with futures.ThreadPoolExecutor(len(contracts)) as executor:
+            futures_dict = {
+                executor.submit(
+                    # the function to process
+                    self.process_contract,
+                    # arguments, mean self.process_contract(session, contract) for each future
+                    session,
+                    contract
+                ): contract.id
+                for contract in contracts)
+            }
+
+
+
+

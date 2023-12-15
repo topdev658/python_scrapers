@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+    <link rel="stylesheet" type="text/css"
+          href="/ibeweb/javax.faces.resource/primefaces.css.xhtml?ln=primefaces&amp;v=4.0"/>
+    <script type="text/javascript"
+            src="/ibeweb/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=4.0"></script>
+    <script type="text/javascript"
+            src="/ibeweb/javax.faces.resource/primefaces.js.xhtml?ln=primefaces&amp;v=4.0"></script>
+    <script type="text/javascript"
+            src="/ibeweb/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=4.0"></script>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"/>
+    <meta name="author"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <link type="text/css" rel="stylesheet" href="/ibeweb/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/ibeweb/css/styleNovo.css"/>
+    <link type="text/css" rel="stylesheet" href="/ibeweb/css/icones/font-awesome.css"/>
+    <link rel="shortcut icon" href="/ibeweb/images/icones/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/ibeweb/css/icones/icones.css"/>
+    <link type="text/css" rel="stylesheet" href="/ibeweb/css/coachMarkPDI.css"/>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || []
+        dataLayer.push({
+            "user": {
+                "clientId": "8278596",
+                "deviceId": "QR Code",
+                "accountType": "PJ",
+                "accountant": true,
+                "primarySegment": "EMPRESAS 3 - NUCLEO",
+                "secondarySegment": ""
+            }
+        })
+        // Para Paginas do Menu / Nao possuem URLs individuais
+        var menuPageTitle = 'Conta Corrente'
+    </script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/gtm.helper.pj/gtm.helper.pj.js"
+            async="async"></script>
+
+    <script type="text/javascript">var AppVersion = 20181215</script>
+    <script type="text/javascript" id="ca_eum_ba_ext" src="/ibeweb/js/apm/BAExt.js"></script>
+    <script type="text/javascript" id="ca_eum_ba" agent="browser" src="/ibeweb/js/apm/BA.js"
+            data-profileUrl="/ibeweb/js/apm/profile-pro.json" data-tenantID="BC29C563-BF1A-0C3F-DEAF-DA298DF53346"
+            data-appID="Novo IBPJ" data-appKey="671c44e7-94ca-11e7-aad9-6fbcfcb2d7d7"></script>
+    <script type="text/javascript" src="/ibeweb/js/apm/apm.js"></script>
+
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/acc-rec.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/utils.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/default.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/bowser.js"></script>
+
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/ie10-viewport-bug-workaround.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/aes.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/Clumpy.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/DLECC.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/ec.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/jsbn.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/jsbn2.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/pad-nopadding-min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/pbkdf2.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/prng4.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/rng.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/sec.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/sha256.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/codeDL.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/blockUI.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/moment-with-locales.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/daterangepicker.js"></script>
+    <script language="JavaScript">
+        if (((bowser.android && bowser.mobile) || (bowser.ios && bowser.mobile)) && false) {
+            window.location = "/ibeweb/pages/login/loginRedirectMobile.xhtml"
+        }
+    </script>
+    <title>Internet Banking</title></head>
+<body><input type="hidden" id="isHabilitado" name="isHabilitado" value="N"/>
+
+
+<div class="slideshow-container">
+
+    <div class="mySlides "><img id="j_id_a" src="/ibeweb/images/coachMark/meusInvestimentos-1.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach1"/>
+        <map name="coach1">
+            <area shape="rect" coords="551,298,418,253" href="#" onclick="stopProx(); plusSlides(1);"/>
+            <area shape="rect" coords="1182,551,1319,594" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+    </div>
+
+    <div class="mySlides "><img id="j_id_c" src="/ibeweb/images/coachMark/meusInvestimentos-2.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach2"/>
+        <map name="coach2">
+            <area shape="rect" coords="509,365,646,408" href="#" onclick="stopProx(); plusSlides(1);"/>
+            <area shape="rect" coords="389,363,506,405" href="#" onclick="stopProx(); plusSlides(-1);"/>
+            <area shape="rect" coords="1182,551,1319,594" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+    </div>
+
+    <div class="mySlides "><img id="j_id_e" src="/ibeweb/images/coachMark/meusInvestimentos-3.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach3"/>
+        <map name="coach3">
+            <area shape="rect" coords="704,632,847,671" href="#" onclick="stopProx(); plusSlides(1);"/>
+            <area shape="rect" coords="588,631,703,670" href="#" onclick="stopProx(); plusSlides(-1);"/>
+            <area shape="rect" coords="1179,552,1320,590" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+    </div>
+
+    <div class="mySlides "><img id="j_id_g" src="/ibeweb/images/coachMark/meusInvestimentos-4.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach4"/>
+        <map name="coach4">
+            <area shape="rect" coords="442,179,581,223" href="#" onclick="stopProx(); plusSlides(1);"/>
+            <area shape="rect" coords="322,181,442,222" href="#" onclick="stopProx(); plusSlides(-1);"/>
+            <area shape="rect" coords="1178,548,1319,590" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+
+    </div>
+
+    <div class="mySlides "><img id="j_id_i" src="/ibeweb/images/coachMark/meusInvestimentos-5.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach5"/>
+        <map name="coach5">
+            <area shape="rect" coords="165,326,301,365" alt="Sun" href="#" onclick="stopProx(); plusSlides(1);"/>
+            <area shape="rect" coords="43,324,162,362" alt="Sun" href="#" onclick="stopProx(); plusSlides(-1);"/>
+            <area shape="rect" coords="1180,551,1322,589" alt="Sun" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+    </div>
+
+    <div class="mySlides "><img id="j_id_k" src="/ibeweb/images/coachMark/meusInvestimentos-6.png?pfdrid_c=true"
+                                alt="logo" usemap="#coach6"/>
+        <map name="coach6">
+            <area shape="rect" coords="1049,431,1190,476" href="#"
+                  onclick="stopFecha(); stopProx(); closeCoachMarkPDI();"/>
+        </map>
+    </div>
+
+
+</div>
+
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9GS8JK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<h:outputText value="4001" id="idItemMenu" style="display:none"/>
+<h:outputText value="/ibeweb" id="requestContextPath" style="display:none"/>
+ -->
+
+
+<!-- <p:outputPanel id="divCoachMark" style="visibility:hidden; background-color:#3f3223; z-index:20000; min-width:100%; min-height:120%; position: fixed; margin-top:-80px; opacity:0">
+
+    <p:outputPanel styleClass="row">
+        <p:outputPanel styleClass="col-md-12" style="top:0; margin-top: 20px; left: -135px; position: fixed;">
+            <p:commandButton id="closeCoachMark" styleClass="btn btn-link" style=" float:right; color: #fff; border: 1px solid; border-radius: 15px; padding: padding: 5px 5px; text-decoration: none;" value="OK, entendi" onclick="closeCookieCoachMark();" />
+        </p:outputPanel>
+    </p:outputPanel>
+
+    <p:outputPanel styleClass="row">
+        <p:outputPanel styleClass="col-md-12" style="bottom:0; margin-bottom: 10px; position: fixed;">
+            <ol class="carousel-indicators" id="indCarousel" style="bottom: -10px;"></ol>
+            <p:commandButton id="btnProximo" styleClass="btn btn-link" style="outline: none; float:right; color: #41555E; border: 1px solid; border-radius: 15px; padding: 5px 5px; background-color:#FFF; text-decoration: none;" value="Próximo" />
+            <p:commandButton id="btnVoltar" styleClass="btn btn-link" style="outline: none; margin-left:30px; float:left; color: #fff; border: 1px solid; border-radius: 15px; padding: 5px 5px; text-decoration: none;" value="Voltar"  />
+        </p:outputPanel>
+    </p:outputPanel>
+</p:outputPanel>
+ -->
+<div id="topo" class="ui-outputpanel ui-widget topo">
+    <div id="j_id_r" class="ui-outputpanel ui-widget container-fluid">
+        <div id="j_id_s" class="ui-outputpanel ui-widget row">
+            <div id="j_id_t" class="ui-outputpanel ui-widget col-xs-12">
+                <div id="j_id_u" class="ui-outputpanel ui-widget div-header-logo">
+                    <div id="logo" class="ui-outputpanel ui-widget logo"><a id="logoHome" href="#"
+                                                                            class="ui-commandlink ui-widget"
+                                                                            onclick="PrimeFaces.ab({source:'logoHome',onstart:function(cfg){openLoad();},onerror:function(xhr,status,error){closeLoad();}});return false;"><img
+                            id="j_id_x" src="/ibeweb/images/logo-login.png?pfdrid_c=true" alt="logo"/></a></div>
+                </div>
+                <form id="formPainelNotificacoes" name="formPainelNotificacoes" method="post"
+                      action="/ibeweb/pages/menu/menuNovo.xhtml" enctype="application/x-www-form-urlencoded">
+                    <div id="formPainelNotificacoes:painelNotificacoes"
+                         class="ui-outputpanel ui-widget div-header-info">
+                        <div id="formPainelNotificacoes:j_id_10" class="ui-outputpanel ui-widget iconsHeader">
+                            <div id="formPainelNotificacoes:j_id_11" class="ui-outputpanel ui-widget row">
+                                <div id="formPainelNotificacoes:j_id_12" class="ui-outputpanel ui-widget col-xs-12"><a
+                                        id="formPainelNotificacoes:iconeHome" href="#" class="ui-commandlink ui-widget"
+                                        onclick="PrimeFaces.ab({source:'formPainelNotificacoes:iconeHome',onstart:function(cfg){openLoad();},onerror:function(xhr,status,error){closeLoad();}});return false;">
+                                    <i class="ic icon-home" title="Home" aria-hidden="true"></i></a><a
+                                        id="formPainelNotificacoes:iconeSaldo" href="#"
+                                        class="ui-commandlink ui-widget homeCoachMark8"
+                                        onclick="PrimeFaces.ab({source:'formPainelNotificacoes:iconeSaldo',update:'formPainelNotificacoes:iconeSaldo',onstart:function(cfg){openLoad();},oncomplete:function(xhr,status,args){closeLoad();}});return false;">
+                                    <i class="ic icon-conta-corrente" title="Saldo" aria-hidden="true"></i></a><a
+                                        id="formPainelNotificacoes:iconeNotificacoes" href="#"
+                                        class="ui-commandlink ui-widget homeCoachMark6"
+                                        onclick="PrimeFaces.ab({source:'formPainelNotificacoes:iconeNotificacoes'});return false;">
+
+                                    <input type="hidden" class="textCoachMark"
+                                           value="Clique no ícone e confira seus Alertas."/>
+                                    <input type="hidden" class="posicaoPainel"
+                                           value="text-align: left; width: 250px; left: -310px; top:70px; display: block; position: absolute; z-index: 1;"/>
+                                    <div id="formPainelNotificacoes:j_id_1g"
+                                         class="ui-outputpanel ui-widget imagemPainel"
+                                         style="left: -106px; top:-18px; position: absolute; z-index: 1; transform: rotate(180deg); -webkit-transform: rotate(180deg); -moz-transform:rotate(180deg);">
+                                        <img style="display: none;" src="/ibeweb/images/arrowCoachMark.png"/></div>
+                                    <i class="ic icon-alerta" title="Notificações" aria-hidden="true"></i></a></div>
+                            </div>
+                        </div>
+                        <div id="formPainelNotificacoes:j_id_1q" class="ui-outputpanel ui-widget userInfo">
+                            <div id="formPainelNotificacoes:j_id_1r" class="ui-outputpanel ui-widget row userName">
+                                <div id="formPainelNotificacoes:j_id_1s" class="ui-outputpanel ui-widget col-xs-12">
+                                    <span class="space">Olá,</span>USTES
+                                </div>
+                            </div>
+                            <div id="formPainelNotificacoes:j_id_1v" class="ui-outputpanel ui-widget row lastAcess">
+                                <div id="formPainelNotificacoes:j_id_1w" class="ui-outputpanel ui-widget col-xs-12">
+                                    <label class="space" for="formPainelNotificacoes:agencia">Agência</label><span
+                                        id="formPainelNotificacoes:agencia" class="space-r">3985</span><label
+                                        class="space" for="formPainelNotificacoes:conta">Conta</label><span
+                                        id="formPainelNotificacoes:conta">130003121</span></div>
+                            </div>
+                        </div>
+                        <div id="formPainelNotificacoes:j_id_21"
+                             class="ui-outputpanel ui-widget btnSair btnSairInterna"><a
+                                id="formPainelNotificacoes:j_id_22" href="#" class="ui-commandlink ui-widget sair"
+                                aria-label="Sair"
+                                onclick="PrimeFaces.ab({source:'formPainelNotificacoes:j_id_22',partialSubmit:true});return false;"
+                                title="Sair">Sair</a></div>
+                    </div>
+                    <div id="formPainelNotificacoes:j_id_23" class="ui-outputpanel ui-widget div-header-search">
+                        <div id="formPainelNotificacoes:j_id_24" class="ui-outputpanel ui-widget row">
+                            <div id="formPainelNotificacoes:j_id_25" class="ui-outputpanel ui-widget col-xs-12"><span
+                                    id="formPainelNotificacoes:acSimple" class="ui-autocomplete"><input
+                                    id="formPainelNotificacoes:acSimple_input"
+                                    name="formPainelNotificacoes:acSimple_input" type="text"
+                                    class="ui-autocomplete-input ui-inputfield ui-widget ui-state-default ui-corner-all"
+                                    autocomplete="off" value=""
+                                    placeholder="O que podemos fazer pela sua Empresa?"/><input
+                                    id="formPainelNotificacoes:acSimple_hinput"
+                                    name="formPainelNotificacoes:acSimple_hinput" type="hidden" autocomplete="off"/><div
+                                    id="formPainelNotificacoes:acSimple_panel"
+                                    class="ui-autocomplete-panel ui-widget-content ui-corner-all ui-helper-hidden ui-shadow"></div></span>
+                                <script id="formPainelNotificacoes:acSimple_s" type="text/javascript">$(function () {
+                                    PrimeFaces.cw('AutoComplete', 'widget_formPainelNotificacoes_acSimple', {
+                                        id: 'formPainelNotificacoes:acSimple',
+                                        minLength: 3,
+                                        behaviors: {
+                                            itemSelect: function (event, ext) {
+                                                PrimeFaces.bc(this, event, ext, ['PrimeFaces.ab({source:\'formPainelNotificacoes:acSimple\',event:\'itemSelect\',process:\'formPainelNotificacoes:acSimple\',onstart:function(cfg){openLoad();},onerror:function(xhr,status,error){closeLoad();}}, arguments[1]);'])
+                                            }
+                                        }
+                                    })
+                                })</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="formPainelNotificacoes:painelAutorizacoesHome"
+                         class="ui-overlaypanel ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow Notificacao notif">
+                        <div class="ui-overlaypanel-content"></div>
+                    </div>
+                    <script id="formPainelNotificacoes:painelAutorizacoesHome_s" type="text/javascript">$(function () {
+                        PrimeFaces.cw('OverlayPanel', 'painelAutorizacoesHomeVar', {
+                            id: 'formPainelNotificacoes:painelAutorizacoesHome',
+                            target: 'formPainelNotificacoes:iconeAutorizacoes',
+                            dynamic: true
+                        })
+                    })</script>
+                    <div id="formPainelNotificacoes:painelNotificacoesHome"
+                         class="ui-overlaypanel ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow Notificacao notif">
+                        <div class="ui-overlaypanel-content">
+                            <div id="formPainelNotificacoes:j_id_2m"
+                                 class="ui-outputpanel ui-widget row tituloNotificacao">
+                                <div id="formPainelNotificacoes:j_id_2n" class="ui-outputpanel ui-widget col-xs-12">
+                                    <i class="ic icon-alerta"></i>
+                                    <span>Santander Notificações</span></div>
+                            </div>
+                            <div id="formPainelNotificacoes:j_id_2p"
+                                 class="ui-outputpanel ui-widget row conteudoNotificacao notif">
+                                <div id="formPainelNotificacoes:j_id_2q" class="ui-outputpanel ui-widget col-xs-12">
+                                    <div id="formPainelNotificacoes:j_id_3l"
+                                         class="ui-outputpanel ui-widget text-center space-t">
+                                        <div id="formPainelNotificacoes:j_id_3m" class="ui-outputpanel ui-widget"><label
+                                                id="formPainelNotificacoes:j_id_3n" class="ui-outputlabel ui-widget">Não
+                                            existem notificações a serem exibidas.</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script id="formPainelNotificacoes:painelNotificacoesHome_s" type="text/javascript">$(function () {
+                        PrimeFaces.cw('OverlayPanel', 'painelNotificacoesHomeVar', {
+                            id: 'formPainelNotificacoes:painelNotificacoesHome',
+                            target: 'formPainelNotificacoes:iconeNotificacoes'
+                        })
+                    })</script>
+                    <div id="formPainelNotificacoes:painelSaldoHome"
+                         class="ui-overlaypanel ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow Notificacao notif">
+                        <div class="ui-overlaypanel-content"></div>
+                    </div>
+                    <script id="formPainelNotificacoes:painelSaldoHome_s" type="text/javascript">$(function () {
+                        PrimeFaces.cw('OverlayPanel', 'painelSaldoHomeVar', {
+                            id: 'formPainelNotificacoes:painelSaldoHome',
+                            target: 'formPainelNotificacoes:iconeSaldo',
+                            dynamic: true
+                        })
+                    })</script>
+                    <input type="hidden" name="formPainelNotificacoes_SUBMIT" value="1"/><input type="hidden"
+                                                                                                name="javax.faces.ViewState"
+                                                                                                id="j_id__v_0:javax.faces.ViewState:1"
+                                                                                                value="SzvtARC98yNsVDoz3PJ+AonokLguL8tKBtikkbgmAI/gVw1k"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Data/Hora/Agencia/Conta/Trocar Conta -->
+<div id="j_id_45" class="ui-outputpanel ui-widget row homeNova">
+    <div class="sub-menu-header home">
+        <div id="j_id_47" class="ui-outputpanel ui-widget row">
+            <div id="j_id_48" class="ui-outputpanel ui-widget col-xs-6 dataHora">
+                <form id="formData" name="formData" method="post" action="/ibeweb/pages/menu/menuNovo.xhtml"
+                      enctype="application/x-www-form-urlencoded">
+                    <p><span id="formData:idDataHora">Terça-feira, <b>22 de janeiro de 2019</b> - 17h16 (horário de Brasília)</span>
+                        <script id="formData:j_id_4c_s" type="text/javascript">$(function () {
+                            PrimeFaces.cw('Poll', 'widget_formData_j_id_4c', {
+                                id: 'formData:j_id_4c',
+                                frequency: 60,
+                                autoStart: true,
+                                fn: function () {
+                                    PrimeFaces.ab({
+                                        source: 'formData:j_id_4c',
+                                        formId: 'formData',
+                                        update: 'formData:idDataHora'
+                                    })
+                                }
+                            })
+                        })</script>
+                    </p>
+                    <input type="hidden" name="formData_SUBMIT" value="1"/><input type="hidden"
+                                                                                  name="javax.faces.ViewState"
+                                                                                  id="j_id__v_0:javax.faces.ViewState:2"
+                                                                                  value="SzvtARC98yNsVDoz3PJ+AonokLguL8tKBtikkbgmAI/gVw1k"/>
+                </form>
+            </div>
+            <div id="j_id_4e" class="ui-outputpanel ui-widget col-xs-6 text-right">
+                <div id="j_id_4f" class="ui-outputpanel ui-widget agenciaConta"><label class="space fontNormal"
+                                                                                       for="ultimoAcesso">Último acesso
+                    em</label><span id="ultimoAcesso">22/01/2019 - 17h15</span>
+                    <div id="j_id_4i" class="ui-outputpanel ui-widget panelTrocaConta space-l">
+                        <form id="j_id_4j" name="j_id_4j" method="post" action="/ibeweb/pages/menu/menuNovo.xhtml"
+                              enctype="application/x-www-form-urlencoded">
+                            <div id="j_id_4j:painelTrocaContaHome"
+                                 class="ui-overlaypanel ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow Notificacao notif"
+                                 style="width:600px">
+                                <div class="ui-overlaypanel-content"></div>
+                            </div>
+                            <script id="j_id_4j:painelTrocaContaHome_s" type="text/javascript">$(function () {
+                                PrimeFaces.cw('OverlayPanel', 'painelTrocaContaHomeVar', {
+                                    id: 'j_id_4j:painelTrocaContaHome',
+                                    target: 'j_id_4j:iconeTrocaConta',
+                                    dynamic: true
+                                })
+                            })</script>
+                            <a id="j_id_4j:iconeTrocaConta" href="#" class="ui-commandlink ui-widget btnTrocarConta"
+                               onclick="PrimeFaces.ab({source:'j_id_4j:iconeTrocaConta',update:'j_id_4j:iconeTrocaConta',onstart:function(cfg){openLoad();},oncomplete:function(xhr,status,args){closeLoad();}});return false;">TROCAR
+                                CONTA</a><input type="hidden" name="j_id_4j_SUBMIT" value="1"/><input type="hidden"
+                                                                                                      name="javax.faces.ViewState"
+                                                                                                      id="j_id__v_0:javax.faces.ViewState:3"
+                                                                                                      value="SzvtARC98yNsVDoz3PJ+AonokLguL8tKBtikkbgmAI/gVw1k"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="edicao-coluna homeNova">
+    <div id="container-fluid" class="ui-outputpanel ui-widget container home">
+        <div id="row" class="ui-outputpanel ui-widget row">
+            <form id="formGeral" name="formGeral" method="post" action="/ibeweb/pages/menu/menuNovo.xhtml"
+                  enctype="application/x-www-form-urlencoded">
+                <div id="formGeral:j_id_5r" class="ui-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden"
+                     data-widget="widget_formGeral_j_id_5r">
+                    <div id="formGeral:j_id_5r_content" class="ui-panel-content ui-widget-content">
+                        <script type="text/javascript">encerrarSession = function () {
+                            PrimeFaces.ab({source: 'formGeral:j_id_5s', formId: 'formGeral', params: arguments[0]})
+                        }</script>
+                        <a href="https://www.santander.com.br" id="formGeral:btnSair" name="formGeral:btnSair"
+                           onclick="encerrarSession()" class="no-visible no-print"></a></div>
+                </div>
+                <script id="formGeral:j_id_5r_s"
+                        type="text/javascript">PrimeFaces.cw('Panel', 'widget_formGeral_j_id_5r', {id: 'formGeral:j_id_5r'})</script>
+                <div id="formGeral:menuEsquerdo"
+                     class="ui-outputpanel ui-widget ui-menu ui-tieredmenu ui-widget ui-widget-content ui-corner-all ui-helper-clearfix col-xs-1 menu-lateral homeCoachMark1 radius1">
+
+                    <input type="hidden" class="textCoachMark" value="O menu agora está do lado esquerdo."/>
+                    <input type="hidden" class="posicaoPainel"
+                           value="width: 200px; left: 240px; top:20px; display: block; position: absolute;"/>
+                    <div id="formGeral:j_id_5x" class="ui-outputpanel ui-widget imagemPainel"
+                         style="left: 240px; top:75px; position: absolute; z-index: 1;">
+                        <img style="display: none;" src="/ibeweb/images/arrowCoachMark.png"/></div>
+                    <div id="formGeral:j_id_5z"
+                         class="ui-menu ui-tieredmenu ui-widget ui-widget-content ui-corner-all ui-helper-clearfix"
+                         role="menubar">
+                        <div tabindex="0" class="ui-helper-hidden-accessible"></div>
+                        <ul class="ui-menu-list ui-helper-reset">
+                            <li class="ui-menuitem ui-widget ui-corner-all" role="menuitem"><a tabindex="-1"
+                                                                                               class="ui-menuitem-link ui-corner-all"
+                                                                                               href="#"
+                                                                                               onclick="PrimeFaces.ab({source:'formGeral:j_id_5z',update:'formGeral:idFormGeral',global:false,onstart:function(cfg){openLoad();},onerror:function(xhr,status,error){closeLoad();},params:[{name:'idItemMenu',value:'4001'},{name:'formGeral:j_id_5z_menuid',value:'0'}],formId:'formGeral'});return false;"><span
+                                    class="ui-menuitem-icon ui-icon ic icon-conta-corrente"></span><span
+                                    class="ui-menuitem-text">Conta Corrente</span></a></li>
+                        </ul>
+                    </div>
+                    <script id="formGeral:j_id_5z_s" type="text/javascript">$(function () {
+                        PrimeFaces.cw('TieredMenu', 'widget_formGeral_j_id_5z', {
+                            id: 'formGeral:j_id_5z',
+                            autoDisplay: true
+                        })
+                    })</script>
+                </div>
+                <div id="formGeral:idFormGeral" class="ui-outputpanel ui-widget col-xs-12 miolo home">
+                    <div id="formGeral:idSubMenu" class="ui-outputpanel ui-widget row menuPrinc"><span
+                            class="titulo-submenu">Conta Corrente</span>
+
+                        <style type="text/css">
+                            .bkimg {
+                                background-image: url("");
+                                min-width: ;
+                                min-height:;
+                                display: inline-block;
+                            }
+                        </style>
+                        <div id="formGeral:j_id_75" class="ui-outputpanel ui-widget col-xs-4">
+                            <ul class="links-submenu">
+                                <li class="menu-title">Consultas</li>
+                                <li><span>&gt;</span>
+                                    <script type="text/javascript"
+                                            src="/ibeweb/javax.faces.resource/oamSubmit.js.jsf?ln=org.apache.myfaces"></script>
+                                    <script type="text/javascript"
+                                            src="/ibeweb/javax.faces.resource/jsf.js.xhtml?ln=javax.faces"></script>
+                                    <a href="#"
+                                       onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:1:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:1:j_id_7c\',\'\',[[\'redirectPage\',\'goContaCorrenteConsultasPosicaoConsolidada\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Posição Consolidada\'],[\'idItemMenu\',\'4003\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/contacorrente/posicao-consolidada.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                       id="formGeral:j_id_77:1:j_id_7c" name="formGeral:j_id_77:1:j_id_7c">Posição
+                                        Consolidada</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:2:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:2:j_id_7c\',\'\',[[\'redirectPage\',\'goSaldoContaCorrente\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Saldo\'],[\'idItemMenu\',\'4004\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/contacorrente/posicao-conta-corrente.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:2:j_id_7c"
+                                                        name="formGeral:j_id_77:2:j_id_7c">Saldo</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:3:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:3:j_id_7c\',\'\',[[\'redirectPage\',\'goSaldoBloqueadoContaCorrente\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Saldo Bloqueado\'],[\'idItemMenu\',\'4005\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/contacorrente/saldo-bloqueado.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:3:j_id_7c"
+                                                        name="formGeral:j_id_77:3:j_id_7c">Saldo Bloqueado</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:4:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:4:j_id_7c\',\'\',[[\'redirectPage\',\'goSaldoPorPeriodo\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Saldo por Período\'],[\'idItemMenu\',\'4006\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/ContaCorrente/saldo-periodo.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:4:j_id_7c"
+                                                        name="formGeral:j_id_77:4:j_id_7c">Saldo por Período</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:5:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:5:j_id_7c\',\'\',[[\'redirectPage\',\'goConsultaTipoLacamento\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Tipo de Lançamento\'],[\'idItemMenu\',\'4007\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/ContaCorrente/consulta-tipo-lanc.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:5:j_id_7c"
+                                                        name="formGeral:j_id_77:5:j_id_7c">Tipo de Lançamento</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:6:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:6:j_id_7c\',\'\',[[\'redirectPage\',\'goContaCorrenteDepositos\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Depósitos\'],[\'idItemMenu\',\'4008\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/ContaCorrente/depositos.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:6:j_id_7c"
+                                                        name="formGeral:j_id_77:6:j_id_7c">Depósitos</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:7:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:7:j_id_7c\',\'\',[[\'redirectPage\',\'goLancamentosPendentesOuFuturos\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Lançamentos Pendentes e/ou Futuros\'],[\'idItemMenu\',\'4009\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'Paginas/ContaCorrente/LctosFuturos.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:7:j_id_7c"
+                                                        name="formGeral:j_id_77:7:j_id_7c">Lançamentos Pendentes e/ou
+                                    Futuros</a>
+                                </li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:8:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:8:j_id_7c\',\'\',[[\'redirectPage\',\'goSaldoConsolidado\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Saldo todas as contas\'],[\'idItemMenu\',\'4933\'],[\'idItemMenuPai\',\'4002\'],[\'redirectPageIBPJClassico\',\'NOVOIBPJ\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:8:j_id_7c"
+                                                        name="formGeral:j_id_77:8:j_id_7c">Saldo todas as contas</a>
+                                </li>
+                                <li class="menu-title">Limites</li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_77:10:j_id_7c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_77:10:j_id_7c\',\'\',[[\'redirectPage\',\'goChequeEmpresaPlus\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Santander Master\'],[\'idItemMenu\',\'4012\'],[\'idItemMenuPai\',\'4010\'],[\'redirectPageIBPJClassico\',\'Paginas/SuperCheque/supercheque-consulta.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_77:10:j_id_7c"
+                                                        name="formGeral:j_id_77:10:j_id_7c">Santander Master</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="formGeral:j_id_7n" class="ui-outputpanel ui-widget col-xs-4">
+                            <ul class="links-submenu">
+                                <li class="menu-title"><strong>Extratos</strong></li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_7p:1:j_id_7u'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_7p:1:j_id_7u\',\'\',[[\'redirectPage\',\'goConsultarContaCorrenteExtratos\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Consultar Extrato\'],[\'idItemMenu\',\'4928\'],[\'idItemMenuPai\',\'4026\'],[\'redirectPageIBPJClassico\',\'NOVOIBPJ\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_7p:1:j_id_7u"
+                                                        <!-- TODO: THIS ONE -->
+                                                        name="formGeral:j_id_7p:1:j_id_7u">Consultar Extrato</a><span
+                                        class="novoInterno">novo</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="formGeral:j_id_85" class="ui-outputpanel ui-widget col-xs-4">
+                            <ul class="links-submenu">
+                                <li class="menu-title"><strong>ContaMax Empresarial</strong></li>
+                                <li><span>&gt;</span><a href="#"
+                                                        onclick="return jsf.util.chain(document.getElementById('formGeral:j_id_87:1:j_id_8c'), event,'panelMenu_block(\'idSubMenu\', \'\');openLoadMenu(\'\')', 'return myfaces.oam.submitForm(\'formGeral\',\'formGeral:j_id_87:1:j_id_8c\',\'\',[[\'redirectPage\',\'goConsultaContaMaxSaibaMais\'],[\'descricaoMenuPai\',\'Conta Corrente\'],[\'descricaoMenu\',\'Conheça\'],[\'idItemMenu\',\'4059\'],[\'idItemMenuPai\',\'4058\'],[\'redirectPageIBPJClassico\',\'AJpaginas/ajuda/pop_ContaMaxSaibaMais.asp\'],[\'fluxoCapAssinatura\',\'N\']]);');"
+                                                        id="formGeral:j_id_87:1:j_id_8c"
+                                                        name="formGeral:j_id_87:1:j_id_8c">Conheça</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script type="text/javascript">esconderJanela = function () {
+                        PrimeFaces.ab({source: 'formGeral:j_id_8n', formId: 'formGeral', params: arguments[0]})
+                    }</script>
+                    <div id="formGeral:contaMax"
+                         class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow modal-box modalPageSemWizard">
+                        <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span
+                                id="formGeral:contaMax_title" class="ui-dialog-title">ContaMax Empresarial</span><a
+                                href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span
+                                class="ui-icon ui-icon-closethick"></span></a></div>
+                        <div class="ui-dialog-content ui-widget-content"></div>
+                    </div>
+                    <script id="formGeral:contaMax_s" type="text/javascript">$(function () {
+                        PrimeFaces.cw('Dialog', 'contaMax', {
+                            id: 'formGeral:contaMax',
+                            draggable: false,
+                            resizable: false,
+                            modal: true,
+                            width: '891',
+                            dynamic: true,
+                            onHide: function () {
+                                esconderJanela()
+                            }
+                        })
+                    })</script>
+                </div>
+
+                <div id="wait" class="no-visible no-print"
+                     style="position:fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; overflow:hidden; background-color:rgb(0,0,0); opacity: 0.7; display:none;">
+                    <img src="/ibeweb/images/aguarde.gif" style="margin: 25% 50%; width:50px;"/>
+                </div>
+                <div id="formGeral:rodape" class="ui-outputpanel ui-widget rodape home text-center"><label
+                        id="formGeral:j_id_ac" class="ui-outputlabel ui-widget">Banco Santander (Brasil) S.A - CNPJ:
+                    90.400.888/0001-42 Instituição financeira autorizada a funcionar pelo Banco Central do
+                    Brasil.</label><br/><label id="formGeral:j_id_ae" class="ui-outputlabel ui-widget">Av Presidente
+                    Juscelino Kubitschek, 2041/ 2235 - Bloco A, Vila Olímpia, São Paulo /SP - CEP 04543-011</label>
+                </div>
+
+                <script type="text/javascript" language="javascript">
+                    jQuery(window).load(function () {
+                        validarSessao()
+                    })
+                </script>
+                <script type="text/javascript">validarSessao = function () {
+                    PrimeFaces.ab({source: 'formGeral:j_id_ag', formId: 'formGeral', params: arguments[0]})
+                }</script>
+                <div id="formGeral:statusLoading"
+                     class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow loading no-visible">
+                    <div class="ui-dialog-content ui-widget-content">
+                        <div id="formGeral:j_id_ai" class="ui-outputpanel ui-widget btn-add-loading-text hidden">Por
+                            favor, aguarde a finalização da operação.<br/>Não atualize seu navegador
+                        </div>
+                        <img id="formGeral:j_id_ak" src="/ibeweb/images/aguarde.gif?pfdrid_c=true" alt=""/></div>
+                </div>
+                <script id="formGeral:statusLoading_s" type="text/javascript">$(function () {
+                    PrimeFaces.cw('Dialog', 'statusLoading', {
+                        id: 'formGeral:statusLoading',
+                        draggable: false,
+                        resizable: false,
+                        modal: true
+                    })
+                })</script>
+
+                <script>
+                    var scripts = document.getElementsByClassName('btn-default')
+                    var i = scripts.length
+                    var contAddText = document.getElementsByClassName('btn-loading-text')
+                    var j = contAddText.length
+
+                    while (j--) {
+                        contAddText[j].addEventListener('click', openLoadText, false)
+                    }
+
+                    while (i--) {
+                        if (scripts[i].textContent == 'Voltar' || scripts[i].textContent == 'Continuar' || scripts[i].textContent == 'Cancelar' || scripts[i].textContent == 'Home') {
+                            scripts[i].addEventListener('click', blockButton(scripts[i].id), false)
+                            scripts[i].addEventListener('click', openLoad, false)
+                        }
+                    }
+
+                </script>
+                <input type="hidden" id="formGeral:drunningMode" name="formGeral:drunningMode" value="prod4"/>
+                <input type="hidden" id="nivelUsuario" value="S"/><input type="hidden" id="formGeral:segmento"
+                                                                         name="formGeral:segmento" value="228"/><input
+                    type="hidden" id="formGeral:autenticacao" name="formGeral:autenticacao" value=""/><input
+                    type="hidden" id="formGeral:oferta" name="formGeral:oferta" value=""/>
+                <script type="text/javascript">
+                    var utag_data = {}
+                </script>
+                <!-- Loading script asynchronously -->
+                <script type="text/javascript">
+                    (function (a, b, c, d) {
+                        var drunningMode = document.getElementById("formGeral:drunningMode").value
+                        if (drunningMode != 'local-tomcat' && drunningMode != 'local' && drunningMode != 'tomcat') {
+                            if (drunningMode == 'pi') {
+                                drunningMode = 'dev'
+                            } else if (drunningMode == 'ocu' || drunningMode == 'ocu2' || drunningMode == 'prod1' || drunningMode == 'prod2' || drunningMode == 'prod3' || drunningMode == 'prod4') {
+                                drunningMode = 'prod'
+                            } else if (drunningMode == 'hml' || drunningMode == 'sus') {
+                                drunningMode = 'qa'
+                            }
+                            a = '//tags.tiqcdn.com/utag/santander/br-internet-banking-pj/' + drunningMode + '/utag.js'
+                            b = document
+                            c = 'script'
+                            d = b.createElement(c)
+                            d.src = a
+                            d.type = 'text/java' + c
+                            d.async = true
+                            try {
+                                a = b.getElementsByTagName(c)[0]
+                                a.parentNode.insertBefore(d, a)
+                            } catch (e) {
+                                console.log(e)
+                            }
+                        }
+                    })()
+                </script>
+
+                <script>
+                    var objectBotaoContinuar = document.getElementById("formGeral:btnContinuar")
+                    if (objectBotaoContinuar == null) {
+                        objectBotaoContinuar = document.getElementById("formGeral:btnConfirmar")
+                    } else if (objectBotaoContinuar == null) {
+                        objectBotaoContinuar = document.getElementById("formGeral:btnContinuarDialog")
+                    }
+                    var objectBotaoVoltar = document.getElementById("formGeral:btnVoltar"),
+                        objectBotaoVoltarVideo = document.getElementById("formGeral:panelTokens:btnVoltar"),
+                        tokenOpticoVisivel = false, tokenOpticoUnicoVisivel = false
+
+                    function desabilitarBotao() {
+                        if (tokenOpticoVisivel = !0)
+                            for (var t = document.getElementsByClassName("btn-default"), e = document.getElementsByClassName("ui-state-active"), o = e.length, n = t.length, l = t.length, a = !1; o--;)
+                                if ("Token ID" == e[o].textContent) {
+                                    for (; n--;) "Gerar Token ID" == t[n].textContent && (a = !0)
+                                    for (; l--;) "Continuar" == t[l].textContent && 1 == a && (document.getElementById(t[l].id).setAttribute("onClick", "closeLoad()"), document.getElementById(t[l].id).parentNode.removeChild(document.getElementById(t[l].id)))
+                                    0 == a && null != document.getElementById("formGeral:btnVoltar") && (null == document.getElementById("formGeral:btnContinuar") && null == document.getElementById("formGeral:btnConfirmar") && null == document.getElementById("formGeral:btnContinuarDialog")) && document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar), null != document.getElementById("formGeral:panelTokens:btnVoltar") && (null == document.getElementById("formGeral:btnContinuar") && null == document.getElementById("formGeral:btnConfirmar") && null == document.getElementById("formGeral:btnContinuarDialog")) && 0 == a && (document.getElementById("formGeral:panelTokens:btnVoltar").setAttribute("onClick", "closeLoad()"), document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.appendChild(objectBotaoContinuar), 0 == tokenOpticoUnicoVisivel && (document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.insertBefore(objectBotaoVoltar, document.getElementById("formGeral:panelTokens:btnVoltar")), document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:panelTokens:btnVoltar"))))
+                                }
+                        if (tokenOpticoUnicoVisivel == !1 && document.getElementById("formGeral:panelTokens:btnVoltar") == null && document.getElementById("formGeral:panelTokens:btnGerarVideo") == null) {
+                            document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo, document.getElementById("formGeral:btnVoltar"))
+                            if (document.getElementById("formGeral:btnVoltar") != null) {
+                                document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))
+                            }
+                        }
+                    }
+
+                    function habilitarBotao() {
+                        if (tokenOpticoVisivel = !0)
+                            for (var t = document.getElementsByClassName("btn-default").length; t--;) null != document.getElementById("formGeral:btnVoltar") && (null == document.getElementById("formGeral:btnContinuar") && null == document.getElementById("formGeral:btnConfirmar") && null == document.getElementById("formGeral:btnContinuarDialog")) && (document.getElementById("formGeral:btnVoltar").setAttribute("onClick", "closeLoad()"), document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar), 0 == tokenOpticoUnicoVisivel && (document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo, document.getElementById("formGeral:btnVoltar")), document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))))
+                        if (tokenOpticoUnicoVisivel == !1) {
+                            document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.insertBefore(objectBotaoVoltar, document.getElementById("formGeral:panelTokens:btnVoltar")), document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:panelTokens:btnVoltar"))
+                        }
+                    }
+
+                    $(function () {
+                        if (1 == tokenOpticoVisivel)
+                            for (var t = document.getElementsByClassName("btn-default"), e = document.getElementsByClassName("ui-state-active"), o = e.length, n = t.length, l = !1; o--;)
+                                if ("Token ID" == e[o].textContent) {
+                                    for (; n--;) "Gerar Token ID" == t[n].textContent && (l = !0)
+                                    (null != document.getElementById("formGeral:btnContinuar") || null != document.getElementById("formGeral:btnConfirmar") || null != document.getElementById("formGeral:btnContinuarDialog")) && 1 == l && (objectBotaoContinuar.setAttribute("onClick", "closeLoad()"), objectBotaoContinuar.parentNode.removeChild(objectBotaoContinuar)), null != document.getElementById("formGeral:btnVoltar") && 0 == l && (document.getElementById("formGeral:btnVoltar").setAttribute("onClick", "closeLoad()"), document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar), 0 == tokenOpticoUnicoVisivel && (document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo, document.getElementById("formGeral:btnVoltar")), document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))))
+                                }
+                    })
+
+
+                    function addVideo() {
+                        var timeout = 3000
+                        $('#btn-play').hide()
+                        $('.video-player-container').show()
+                        var $counterAnim = $('.video-player-counter-animation')
+                        loading($counterAnim, {
+                            duration: timeout
+                            , end: function () {
+                                $('.video-player-container').hide()
+                                var iframe = document.getElementById('idVideoTokenOptico')
+                                iframe.contentWindow.document.getElementById("idVideo").setAttribute("src", '')
+                            }
+                        })
+
+                    }
+
+                    function loading(element, inOpts) {
+                        var DEFAULTS = {
+                            percent: 100,
+                            duration: 3000,
+                            end: null
+                        }
+
+                        inOpts = $.extend(DEFAULTS, inOpts)
+
+                        $(element).each(function () {
+                            var $target = $(this)
+
+                            var opts = {
+                                percent: $target.data('percent') ? $target.data('percent') : inOpts.percent,
+                                duration: $target.data('duration') ? $target.data('duration') : inOpts.duration
+                            }
+
+                            var totalSteps = opts.duration / 1000
+
+                            var $rotate = $target.find('.rotate')
+
+                            if ($rotate.length == 0) {
+                                $target.append('<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div><span class="counter">' + totalSteps + '</span></div>')
+                            }
+
+                            $rotate = $target.find('.rotate')
+
+                            var counter = $target.find('.counter')
+                            counter.html(totalSteps)
+
+                            $rotate.css('transform', 'rotate(0deg)')
+
+                            $target.find('.right').css({
+                                animation: '',
+                                opacity: 0
+                            })
+                            $target.find('.left').css({
+                                animation: '',
+                                opacity: 1
+                            })
+
+                            function animateRotate(elements, angle, duration, easing, complete) {
+                                return $(elements).each(function () {
+                                    var $elem = $(this)
+
+                                    $({deg: 0}).animate({deg: angle}, {
+                                        duration: duration,
+                                        easing: easing,
+                                        step: function (now) {
+                                            $elem.css({
+                                                transform: 'rotate(' + now + 'deg)'
+                                            })
+                                        },
+                                        complete: complete || $.noop
+                                    })
+                                })
+                            }
+
+                            setTimeout(function () {
+
+                                $rotate.css({
+                                    'transition': 'transform ' + opts.duration + 'ms linear',
+                                    'transform': 'rotate(' + opts.percent * 3.6 + 'deg)'
+                                })
+
+                            }, 1)
+
+                            var step = totalSteps
+
+                            var interval = setInterval(function () {
+                                step--
+                                counter.html(step)
+
+                                if (step === 0) {
+                                    clearInterval(interval)
+                                    if (inOpts.end) {
+                                        inOpts.end()
+                                    }
+                                }
+                            }, 1000)
+
+                            if (opts.percent > 50) {
+
+                                var animationRight = 'toggleOpacity ' + (opts.duration / opts.percent * 50) + 'ms step-end'
+                                var animationLeft = 'toggleOpacity ' + (opts.duration / opts.percent * 50) + 'ms step-start'
+                                $target.find('.right').css({
+                                    animation: animationRight,
+                                    opacity: 1
+                                })
+                                $target.find('.left').css({
+                                    animation: animationLeft,
+                                    opacity: 0
+                                })
+
+                            }
+                        })
+                    }
+
+                    function removeVideo() {
+                        $('#btn-play').show()
+                        var iframe = document.getElementById('idVideoTokenOptico')
+                        iframe.contentWindow.document.getElementById("idVideo").setAttribute("src", '')
+                    }
+
+                </script>
+                <input type="hidden" name="formGeral_SUBMIT" value="1"/><input type="hidden"
+                                                                               name="javax.faces.ViewState"
+                                                                               id="j_id__v_0:javax.faces.ViewState:4"
+                                                                               value="SzvtARC98yNsVDoz3PJ+AonokLguL8tKBtikkbgmAI/gVw1k"/>
+            </form>
+        </div>
+    </div>
+</section>
+<div id="j_id_aw" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow">
+    <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_aw_title"
+                                                                                            class="ui-dialog-title"></span><a
+            href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span
+            class="ui-icon ui-icon-closethick"></span></a></div>
+    <div class="ui-dialog-content ui-widget-content"></div>
+</div>
+<script id="j_id_aw_s" type="text/javascript">$(function () {
+    PrimeFaces.cw('Dialog', 'widDlgConfirmation', {
+        id: 'j_id_aw',
+        resizable: false,
+        modal: true,
+        dynamic: true,
+        position: 'center'
+    })
+})</script>
+<div id="j_id_b9" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow">
+    <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_b9_title"
+                                                                                            class="ui-dialog-title"></span><a
+            href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span
+            class="ui-icon ui-icon-closethick"></span></a></div>
+    <div class="ui-dialog-content ui-widget-content"></div>
+</div>
+<script id="j_id_b9_s" type="text/javascript">$(function () {
+    PrimeFaces.cw('Dialog', 'widDlgConfirmationLogout', {
+        id: 'j_id_b9',
+        resizable: false,
+        modal: true,
+        dynamic: true,
+        position: 'center'
+    })
+})</script>
+<div id="j_id_co" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow">
+    <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_co_title"
+                                                                                            class="ui-dialog-title"></span><a
+            href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span
+            class="ui-icon ui-icon-closethick"></span></a></div>
+    <div class="ui-dialog-content ui-widget-content"></div>
+</div>
+<script id="j_id_co_s" type="text/javascript">$(function () {
+    PrimeFaces.cw('Dialog', 'widDlgMessagem', {
+        id: 'j_id_co',
+        resizable: false,
+        modal: true,
+        dynamic: true,
+        position: 'center'
+    })
+})</script>
+
+<!--  <h:panelGroup rendered="false">
+    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/coachMarkHome.js"/>
+</h:panelGroup>
+        <h:panelGroup rendered="true">
+    <script language="JavaScript" charset="UTF-8">
+        if("4001" == "0" || "4001" == ""){
+            habilitarDialog();
+        }
+    </script>
+</h:panelGroup>--></body>
+</html>

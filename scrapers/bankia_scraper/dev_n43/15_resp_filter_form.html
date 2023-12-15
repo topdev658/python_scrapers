@@ -1,0 +1,949 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<script>var ctx = "/sib-war-1.0"</script>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+    <title></title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet" type="text/css">
+    <link rel="Shortcut Icon" href="https://oi.bankia.es/_imagenes/2038bankia/favicon.ico" type="image/x-icon">
+    <link type="text/css" href="/sib-war-1.0/envs/gf3/css/argusErrors.css?Wed Jan 27 13:34:20 CET 2021" rel="stylesheet" />
+    <link type="text/css" href="/sib-war-1.0/envs/gf3/css/pruebaBANKIA.css?Wed Jan 27 13:34:20 CET 2021" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/api/api.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/iban.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/utils.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/bankiaDom.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/dataFormatter.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/datepickerConfig.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/localeFormatter.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/progressBar.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/table.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/dialog.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/webSession.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/util/helpContext.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/receivedFileTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/receivedFileTableN43C.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/mandateClientTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/payment/paymentConfirmingNacional.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailCharge19SEPA.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailChargeCINTERN.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment34SEPA.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment34NOM.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPaymentINTERN.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailPayment67.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/order/orderDetailNationalCONFNACIONAL.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittance/remittanceProductName.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/paymentTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/orderDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/orderTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton/OrderTableDialog.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton/GenerateDialog.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/conceptTemplateDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/emisoresDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceSearchFilter.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableDuplicate.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/remittanceTableTrace.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/clientTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/mandateTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/creditorTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/view/creditorDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/receivedFileTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/receivedFileTableN43C.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/conceptTemplateTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/emisoresTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/mandateClientTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/paymentTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/conceptTemplateTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/clientTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/emisoresTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceSearchFilter.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/clientTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/mandateTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/menu.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/remittanceTableTrace.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/creditorTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/creditorDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/controller/orderSearchFilter.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/gf3/js/events/onWindowLoad.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <!-- INFOCORPORATE -->
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admUsuariosDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admUsuariosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admUsuariosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admTarjetasDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admTarjetasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admTarjetasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admDepartamentosTarjetasDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTarjetasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admDepartamentosTarjetasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/admSectoresDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admSectoresTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/admSectoresTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infFavoritosDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infFavoritosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infFavoritosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/infPersonalizadosDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infPersonalizadosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/infPersonalizadosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGestionDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGestionTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGestionTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/aleGeneradasDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGeneradasTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/aleGeneradasTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/view/resultadosDetail.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/resultadosTable.js?Wed Jan 27 13:34:20 CET 2021"></script>
+    <script type="text/javascript" src="/sib-war-1.0/envs/infocorporate/controller/resultadosTableButton.js?Wed Jan 27 13:34:20 CET 2021"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="//assets.adobedtm.com/3f100fde332348f1ba97dff0fe024576cbd52b42/satelliteLib-df8e363ea838735556d80afc34a66c17eff87545.js"></script>
+
+    <script type="text/javascript" src="/ruxitagentjs_ICA2SVfjqru_10205201218101503.js" data-dtconfig="rid=RID_907921814|rpid=1917654630|domain=bankia.es|reportUrl=/rb_4121dd1a-06a2-4093-aecd-7106d5367789|app=ea7c4b59f27d43eb|ssc=1|featureHash=ICA2SVfjqru|rdnt=1|uxrgce=1|bp=2|cuc=l23lt2f8|mel=100000|dpvc=1|lastModification=1611713290823|dtVersion=10205201218101503|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/ruxitagentjs_ICA2SVfjqru_10205201218101503.js"></script></head>
+<body>
+
+
+
+<div id="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="globalMenuId" style="display: none" >menu_global_consult</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            $(".bki-schedule").datepicker({
+                buttonImage: "/sib-war-1.0/envs/gf3/img/calendar.gif",
+                buttonImageOnly: true,
+                buttonText: 'Calendar',
+                firstDay: 1,
+                dateFormat: 'dd/mm/yy',
+                showOn: 'button',
+                onSelect: function(dateText, inst) {
+                    var id = "#" + $(this).attr("id");
+                    $(id + "anyo").val(dateText.substr(6,4));
+                    $(id + "mes").val(dateText.substr(3,2));
+                    $(id + "dia").val(dateText.substr(0,2));
+                }
+            });
+            $('.bki-schedule').datepicker($.datepicker.regional['es']);
+            $('.bki-schedule').datepicker({ constrainInput: false });
+
+
+
+
+            if( $('#argusOrderCINTERNBean_order_fechaVenc_') != undefined ){
+                // date from db to input
+                var vDia =  $('#argusOrderCINTERNBean_order_fechaVenc_dia').val();
+                var vMes =  $('#argusOrderCINTERNBean_order_fechaVenc_mes').val();
+                var vAnyo =  $('#argusOrderCINTERNBean_order_fechaVenc_anyo').val();
+
+                if($('#argusOrderCINTERNBean_order_fechaVenc_dia').val() != undefined ){
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').val(vDia + "/" + vMes + "/" + vAnyo);
+                }else{
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').val("");
+                    $('#argusOrderCINTERNBean_order_fechaVenc_').attr('placeholder', 'dd/mm/aaaa');
+                }
+                // date from input to db
+                $('#argusOrderCINTERNBean_order_fechaVenc_').keyup(function(){
+                    var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                    if($('#argusOrderCINTERNBean_order_fechaVenc_').val().match(dateReg)){
+
+                        $('#argusOrderCINTERNBean_order_fechaVenc_dia').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(0, 2));
+                        $('#argusOrderCINTERNBean_order_fechaVenc_mes').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(3, 2));
+                        $('#argusOrderCINTERNBean_order_fechaVenc_anyo').val($('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(6, 4));
+
+                        $('#argusOrderCINTERNBean_order_fechaVenc_').val(
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(0, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(3, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaVenc_').val().substr(6, 4)
+                        );
+                    }
+                });
+            }
+
+            if( $('#argusOrderCINTERNBean_order_fechaEmi_') != undefined ){
+                // date from db to input
+                var eDia =  $('#argusOrderCINTERNBean_order_fechaEmi_dia').val();
+                var eMes =  $('#argusOrderCINTERNBean_order_fechaEmi_mes').val();
+                var eAnyo =  $('#argusOrderCINTERNBean_order_fechaEmi_anyo').val();
+                if($('#argusOrderCINTERNBean_order_fechaEmi_dia').val() != undefined || $('#argusOrderCINTERNBean_order_fechaEmi_dia').val() != 'undefined' ){
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').val(eDia + "/" + eMes + "/" + eAnyo);
+                    if( $('.bki-schedule').val() == now()  || $('.bki-schedule').val() == "//" ){
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').val("");
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').attr('placeholder', 'dd/mm/aaaa');
+                    }
+                }else{
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').val("");
+                    $('#argusOrderCINTERNBean_order_fechaEmi_').attr('placeholder', 'dd/mm/aaaa');
+                }
+                // date from input to db
+                $('#argusOrderCINTERNBean_order_fechaEmi_').keyup(function(){
+                    var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                    if($('#argusOrderCINTERNBean_order_fechaEmi_').val().match(dateReg)){
+                        $('#argusOrderCINTERNBean_order_fechaEmi_dia').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(0, 2));
+                        $('#argusOrderCINTERNBean_order_fechaEmi_mes').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(3, 2));
+                        $('#argusOrderCINTERNBean_order_fechaEmi_anyo').val($('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(6, 4));
+                        var dt =  $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(0, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(3, 2) + "/" +
+                            $('#argusOrderCINTERNBean_order_fechaEmi_').val().substr(6, 4);
+                        $('#argusOrderCINTERNBean_order_fechaEmi_').val(dt);
+                    }
+                });
+            }
+
+            var parent = $('.bki-schedule').parent();
+
+            if(parent.length > 1){
+                for(i=0; i<parent.length; i++) {
+                    if (parent[i] != undefined) {
+                        //if ($('.bki-schedule')[i].value == now() || $('.bki-schedule')[i].value == "//") {
+                        if(parent[i].parentElement.childNodes[1].childNodes[4].value == "" || $('.bki-schedule')[i].value == "//"){
+                            if("false" == "false"){
+                                parent[i].parentElement.childNodes[1].childNodes[4].value = "";
+                                parent[i].parentElement.childNodes[2].childNodes[1].value = "";
+                                parent[i].childNodes[1].value = "";
+                                parent[i].childNodes[2].value = "";
+                                $('.bki-schedule')[i].setAttribute("placeholder", "dd/mm/aaaa");
+                            }
+                        }
+                        parent[i].addEventListener("keyup", function () {
+                            var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                            if (this.childNodes[2].value.match(dateReg)) {
+                                var d, m, a;
+                                d = this.childNodes[2].value.substr(0, 2);
+                                m = this.childNodes[2].value.substr(3, 2);
+                                a = this.childNodes[2].value.substr(6, 4);
+
+                                this.parentElement.childNodes[1].childNodes[4].value = d;
+                                this.parentElement.childNodes[2].childNodes[1].value = m;
+                                this.childNodes[1].value = a;
+
+                            } else {
+                                this.parentElement.childNodes[1].childNodes[4].value = "";
+                                this.parentElement.childNodes[2].childNodes[1].value = "";
+                                this.childNodes[1].value = "";
+                            }
+                        });
+                    }
+                }
+
+            }else {
+
+                if (parent[0] != undefined) {
+                    //if ($('.bki-schedule').val() == now() || $('.bki-schedule').val() == "//") {
+                    if(parent[0].parentElement.childNodes[1].childNodes[4].value == "" || $('.bki-schedule').val() == "//") {
+                        parent[0].parentElement.childNodes[1].childNodes[4].value = "";
+                        parent[0].parentElement.childNodes[2].childNodes[1].value = "";
+                        parent[0].childNodes[1].value = "";
+                        parent[0].childNodes[2].value = "";
+                        $('.bki-schedule').attr('placeholder', 'dd/mm/aaaa');
+                    }
+                    parent[0].addEventListener("keyup", function () {
+                        var dateReg = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                        if (parent[0].childNodes[2].value.match(dateReg)) {
+                            var d, m, a;
+                            d = parent[0].childNodes[2].value.substr(0, 2);
+                            m = parent[0].childNodes[2].value.substr(3, 2);
+                            a = parent[0].childNodes[2].value.substr(6, 4);
+
+                            parent[0].parentElement.childNodes[1].childNodes[4].value = d;
+                            parent[0].parentElement.childNodes[2].childNodes[1].value = m;
+                            parent[0].childNodes[1].value = a;
+
+                        } else {
+                            parent[0].parentElement.childNodes[1].childNodes[4].value = "";
+                            parent[0].parentElement.childNodes[2].childNodes[1].value = "";
+                            parent[0].childNodes[1].value = "";
+                        }
+                    });
+                }
+            }
+        });
+
+        function now() {
+            var d = new Date();
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+
+            var output = (day<10 ? '0' : '') + day + "/"
+                + (month<10 ? '0' : '') + month + '/'
+                + d.getFullYear();
+
+            return output;
+        }
+
+        function addIconCalendarStyleHiddenOrders() {
+            var currentCalendarIcons = $('.ui-datepicker-trigger');
+            for(var i = 0; i <= currentCalendarIcons.length - 1; i +=1){
+                if(currentCalendarIcons[i].parentElement.className != 'iconoCalendario') {
+                    $(currentCalendarIcons[i]).wrap('<span class=\"iconoCalendario\"></span>');
+                }
+            }
+        }
+
+    </script>
+
+    <section id="main-layout" class="oie2-main-layout oie2-main-layout--header ng-scope">
+        <div class="oie2-main-grid">
+
+            <header id="oie2-layout-header">
+                <div class="ng-isolate-scope">
+                    <div class="path bk-breadcrumbs">
+                        <h1>Petici&oacute;n N43-Aperi&oacute;dica</h1>
+                    </div>
+                </div>
+            </header>
+
+            <aside id="oie2-layout-aside">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <style>
+                    #liPreFre {display: none}
+                    #help_common {display: none}
+                </style>
+                <div id="help_common" class="fixed-content">
+                    <span class="aside-help-menu bk-combo bk-active">
+                        <button type="button" id="mostrarAyuda" class="dropdown-button ng-scope" aria-pressed="true">
+                            <span class="sr-only">
+                                <span aria-hidden="true" class="toggle-show">Mostrar</span>
+                                <span aria-hidden="false" class="toggle-hide">Ocultar</span>
+                                Ayuda
+                            </span>
+                          <span class="text">Ayuda</span>
+                          <span id="arrowHelp" class="bki-month-down"></span>
+                        </button>
+                        <div id="bk-relational" class="ng-scope" role="region" tabindex="-1" aria-hidden="false" aria-expanded="true" style="display: none;">
+                          <div class="bk-relational ng-isolate-scope" style="width:100%">
+                            <div class="">
+                              <h1 class="header-relational"></h1>
+                              <ul id="listliPreFre">
+                                <li id="liPreFre" class="ng-scope collapsed">
+                                 <button id="help-preguntas-frecuentes" type="button" class="icon-show-detail ng-scope">
+                                     <div style="width:10%"> <span id="arrowPregFre" class="bki-month-down"></span>
+                                                <span class="sr-only">
+                                                    <span aria-hidden="true">Desplegar</span>
+                                                    <span aria-hidden="false">Plegar</span>
+                                                </span></div>
+                                      <div style="width:90%"><span id="textkey" class="text ng-binding"></span></div>
+                                  </button>
+
+                                  <div id="verPreguntas" class="bk-relational-content ng-binding" style="display: none;" >
+                                      <div ><span id="textValue" class="text ng-binding"></span></div>
+                                      <div>&nbsp;</div>
+                                      <div>&nbsp;</div>
+                                      <p><a id="link" target="_blank">Preguntas Frecuentes</a></p>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <section class="oie2-main-grid" id="likeGF3">
+        <article id="oie2-layout-content">
+            <section id="section1" class="sg-section">
+
+                <form id="form" class="cssform" action="/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s1" method="post">
+
+
+
+
+
+
+
+                    <h2 class="oie2-form-header oie2-border-bottom mB21">Ficheros de N43 Aperi&oacute;dica generados </h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+
+                        });
+                    </script>
+
+
+
+
+
+                    <div class="oie2-form marginBottom20" >
+
+                        <dl class="dtInline">
+                            <dt>
+
+                                Cuenta
+
+
+                            </dt>
+
+                            <span bk-select="">
+                                            <select id="cuenta" name="peticionSelected.cuentaCargo" style="width: 250px">
+
+
+
+
+                                                            <option value="ES0420381830136000255776">ES0420381830136000255776</option>
+
+
+
+
+
+
+                                                            <option value="ES0620381830196000110916">ES0620381830196000110916</option>
+
+
+
+
+
+
+                                                            <option value="ES0720381080716000313951">ES0720381080716000313951</option>
+
+
+
+
+
+
+                                                            <option value="ES0820381830156000185378">ES0820381830156000185378</option>
+
+
+
+
+
+
+                                                            <option value="ES1020381830126000265708">ES1020381830126000265708</option>
+
+
+
+
+
+
+                                                            <option value="ES2220381166386000837514">ES2220381166386000837514</option>
+
+
+
+
+
+
+                                                            <option value="ES2220381830106000233386">ES2220381830106000233386</option>
+
+
+
+
+
+
+                                                            <option value="ES2320381166386000862813">ES2320381166386000862813</option>
+
+
+
+
+
+
+                                                            <option value="ES2520381830126000129056">ES2520381830126000129056</option>
+
+
+
+
+
+
+                                                            <option value="ES3720381830156000197854">ES3720381830156000197854</option>
+
+
+
+
+
+
+                                                            <option value="ES3820381046503001248976">ES3820381046503001248976</option>
+
+
+
+
+
+
+                                                            <option value="ES3820381080706000077635">ES3820381080706000077635</option>
+
+
+
+
+
+
+                                                            <option value="ES5120381830146000243435">ES5120381830146000243435</option>
+
+
+
+
+
+
+                                                            <option value="ES5120381830196000018441">ES5120381830196000018441</option>
+
+
+
+
+
+
+                                                            <option value="ES5320381830126000110898">ES5320381830126000110898</option>
+
+
+
+
+
+
+                                                            <option value="ES5820381046596000512522">ES5820381046596000512522</option>
+
+
+
+
+
+
+                                                            <option value="ES6020381830176000238567">ES6020381830176000238567</option>
+
+
+
+
+
+
+                                                            <option value="ES7120381798683000625960">ES7120381798683000625960</option>
+
+
+
+
+
+
+                                                            <option value="ES7920381830123001078883">ES7920381830123001078883</option>
+
+
+
+
+
+
+                                                            <option value="ES9220381798656000035382">ES9220381798656000035382</option>
+
+
+
+
+
+
+                                                            <option value="ES9220381830126000213792">ES9220381830126000213792</option>
+
+
+
+
+
+
+                                                            <option value="ES9420381046586000042734">ES9420381046586000042734</option>
+
+
+
+
+
+
+                                                            <option value="ES9520381046586000065802">ES9520381046586000065802</option>
+
+
+
+
+
+
+                                                            <option value="ES9520381046593000497796">ES9520381046593000497796</option>
+
+
+
+
+
+
+                                                            <option value="ES6520381046506000576275">ES6520381046506000576275</option>
+
+
+
+                                            </select>
+                                        </span>
+
+
+                        </dl>
+                        <dl class="dtInline">
+                            <dt>
+                                Tipo de fichero
+                            </dt>
+                            <span bk-select="">
+                                            <select id="fileType" name="downloadFileType" class="em16" style="width: 140px">
+
+
+
+
+                                                            <option value="txt">Texto Plano</option>
+
+
+
+
+
+
+                                                            <option value="xls">Excel</option>
+
+
+
+                                            </select>
+                                     </span>
+                        </dl>
+
+                        <dl class="dtInline">
+                            <dt>
+                                Desde
+                            </dt>
+                            <dd>
+                                <div class="inline bk-date form-inline ng-isolate-scope ng-valid ng-valid-required ng-valid-date ng-valid-date-of-birth ng-valid-past-date ng-valid-future-date ng-valid-min-date ng-valid-max-date ng-valid-range-date ng-dirty"> <div class="form-group calendario" style="display: none;">  <input id="fromDate_date-box"  numbers-only="" type="hidden" maxlength="10" placeholder="dd/mm/aaaa" class="date-box1 form-control text-right year-input ng-pristine ng-valid hasDatepicker ng-valid-maxlength calendario"name="date-box" onblur="fillHiddenInputs()"  value=""> <label for="fromDate_.dia"></label><input numbers-only="" type="hidden" maxlength="2" placeholder="dd"class="form-control text-right day-input ng-pristine ng-valid ng-valid-maxlength"id="fromDate_dia" name="fromDate.dia" value="""></div><div class="form-group"><label class="" for="fromDate_.mes"></label><input numbers-only="" type="hidden" maxlength="2" placeholder="mm"class="form-control text-right month-input ng-pristine ng-valid ng-valid-maxlength"id="fromDate_mes" name="fromDate.mes" value="""></div> <div class="form-group calendario"><label  for="fromDate_.anyo"></label><input numbers-only="" type="hidden" maxlength="4" placeholder="aaaa"class="form-control text-right year-input ng-pristine ng-valid hasDatepicker ng-valid-maxlength"id="fromDate_anyo" name="fromDate.anyo" value="""><input type="text" id="fromDate_"   class="bki-schedule" value="27/01/2021" maxlength="10"/></div></div>
+
+                                <script></script>
+
+                            </dd>
+                        </dl>
+
+                        <dl class="dtInline">
+                            <dt>
+                                Hasta
+                            </dt>
+                            <dd>
+                                <div class="inline bk-date form-inline ng-isolate-scope ng-valid ng-valid-required ng-valid-date ng-valid-date-of-birth ng-valid-past-date ng-valid-future-date ng-valid-min-date ng-valid-max-date ng-valid-range-date ng-dirty"> <div class="form-group calendario" style="display: none;">  <input id="toDate_date-box"  numbers-only="" type="hidden" maxlength="10" placeholder="dd/mm/aaaa" class="date-box1 form-control text-right year-input ng-pristine ng-valid hasDatepicker ng-valid-maxlength calendario"name="date-box" onblur="fillHiddenInputs()"  value=""> <label for="toDate_.dia"></label><input numbers-only="" type="hidden" maxlength="2" placeholder="dd"class="form-control text-right day-input ng-pristine ng-valid ng-valid-maxlength"id="toDate_dia" name="toDate.dia" value="""></div><div class="form-group"><label class="" for="toDate_.mes"></label><input numbers-only="" type="hidden" maxlength="2" placeholder="mm"class="form-control text-right month-input ng-pristine ng-valid ng-valid-maxlength"id="toDate_mes" name="toDate.mes" value="""></div> <div class="form-group calendario"><label  for="toDate_.anyo"></label><input numbers-only="" type="hidden" maxlength="4" placeholder="aaaa"class="form-control text-right year-input ng-pristine ng-valid hasDatepicker ng-valid-maxlength"id="toDate_anyo" name="toDate.anyo" value="""><input type="text" id="toDate_"   class="bki-schedule" value="27/01/2021" maxlength="10"/></div></div>
+
+                                <script></script>
+
+                            </dd>
+                        </dl>
+                    </div>
+
+
+                    <ul class="oie2-buttonbar">
+                        <li>
+
+
+
+                            <button type="submit" style="font-size: 1.6rem; margin-right:1rem;" class="oie2-btn btn-green" id="_eventId_search" name="_eventId_search" >Aceptar</button>
+
+
+
+
+                        </li>
+                    </ul>
+
+                </form>
+            </section>
+        </article>
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img class="img0" src="" width="0" height="0" alt="refresco" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    // Add _satellite.pageBottom() before </body>
+    $(document).ready(function()
+    {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.innerHTML ="_satellite.pageBottom();";
+        document.body.appendChild(s);
+    });
+</script>
+
+
+</body>
+<!--  BUILD 20180509-1138 -->
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,197 @@
+>>> POST https://api.openbank.es/authenticationcomposite/login
+
+(Request-Line)	POST /authenticationcomposite/login HTTP/1.1
+Host	api.openbank.es
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	application/json
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+Referer	https://www.openbank.es/
+Content-Type	application/json
+version	3
+Content-Length	4491
+Origin	https://www.openbank.es
+Connection	keep-alive
+
+>>> OPTIONS
+(Request-Line)	OPTIONS /authenticationcomposite/login HTTP/1.1
+Host	api.openbank.es
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+Access-Control-Request-Method	POST
+Access-Control-Request-Headers	content-type,version
+Origin	https://www.openbank.es
+Connection	keep-alive
+
+
+
+{"document":"14867027B","password":"<PASS>","osVersion":"X11","documentType":"N","userIpAddress":"83.40.205.30","context":"{\"jvqtrgQngn\":{\"oq\":\"1366:584:1366:717:1366:742\",\"wfi\":\"flap-89366\",\"oc\":\"700\",\"fe\":\"1366k768 24\",\"qvqgm\":\"-240\",\"jxe\":918730,\"syi\":\"snyfr\",\"si\":\"si,btt,zc4,jroz\",\"sn\":\"sn,zcrt,btt,jni\",\"us\":\"732p7r3n15s1143\",\"cy\":\"Yvahk k86_64\",\"sg\":\"{\\\"zgc\\\":\\\"AN\\\",\\\"gf\\\":snyfr,\\\"gr\\\":snyfr}\",\"sp\":\"{\\\"gp\\\":gehr,\\\"ap\\\":gehr}\",\"sf\":\"gehr\",\"jt\":\"14010r44q4189r94\",\"sz\":\"o58o3733742s6p48\",\"vce\":\"apvc,0,5oq8o05q,2,1;fg,0,cebqhpg-frnepu,0,anzr_pnyyzronpx,0,cubar_pnyyzronpx,0,ybtvaPbzcbaragHfreAhzoreVachg,0,bxAhzcnqCnffjbeqUbyqre,0;zz,8q6,2ss,325,;zzf,3sn,0,n,0 102,4s6s 67p8,119n,1191,-40rsq,277q,-8ps6;zp,155,47q,228,;zzf,295,3rn,n,48 0,927 2296,61r,61r,-2q7,so36,23p6;zzf,441,441,n,0 82,2o0 24s4,85n,95n,-rpn4,136oo,-1711;xx,2s8,0,ybtvaPbzcbaragHfreAhzoreVachg;ss,0,ybtvaPbzcbaragHfreAhzoreVachg;zp,14,40p,251,;zz,1n4,3qp,257,sezYbtva;zzf,1r,4pr,n,2q 51,1pr0 n79,3n1,3s5,-5383,12q20,14n6;zzf,3sq,3sq,n,0 80,4sq8 3p6r,roq,rsr,-31366,2ns4r,-1s2s;so,142,ybtvaPbzcbaragHfreAhzoreVachg;zzf,2p0,402,n,ABC;zzf,417,417,n,ABC;zzf,3sp,3sp,n,ABC;zzf,3sq,3sq,n,ABC;xx,17o,0,ybtvaPbzcbaragHfreAhzoreVachg;ss,0,ybtvaPbzcbaragHfreAhzoreVachg;zz,63,2so,32o,;zzf,229,407,n,229 547,5731 7132,195p,19q9,-52ro2,31s77,r15;so,1o0,ybtvaPbzcbaragHfreAhzoreVachg;zp,6q,478,21s,;xx,51o,0,ybtvaPbzcbaragHfreAhzoreVachg;ss,0,ybtvaPbzcbaragHfreAhzoreVachg;zp,10,41n,27p,;zz,7n0,21r,rr,;gf,0,40p7;so,505,ybtvaPbzcbaragHfreAhzoreVachg;zzf,1356,2742,32,0 41,64o 7439,5s1,3osp,-23q5n,244ns,-186;zzf,2731,2732,32,ABC;gf,0,8053;zzf,2742,2742,32,ABC;xx,20pq,0,ybtvaPbzcbaragHfreAhzoreVachg;gf,0,p862;ss,8,ybtvaPbzcbaragHfreAhzoreVachg;zz,1p4,33r,312,;xq,2op;xq,141;zzf,qp,2772,32,23ss p25,24os 26q3,1q4,12o3,-10o49,opss,-12;so,6qs,ybtvaPbzcbaragHfreAhzoreVachg;xx,1pn4,9,ybtvaPbzcbaragHfreAhzoreVachg;ss,2,ybtvaPbzcbaragHfreAhzoreVachg;zz,59,310,329,;zzf,367,2744,32,o6 82,2652 3463,481,2q48,-on78,q803,81;so,36q,ybtvaPbzcbaragHfreAhzoreVachg;xx,p,0,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,5s,3ss,2p2,bxAhzcnqCnffjbeqUbyqre;so,s6r,bxAhzcnqCnffjbeqUbyqre;gf,0,10992;zz,10po,3o5,1p1,;zzf,35r,276s,32,24 0,100 59p6,5q2,3n83,-1p0r3,r5so,-47;xx,p3,0,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,4r,3s8,37r,bxAhzcnqCnffjbeqUbyqre;zz,po1,553,464,;so,5os,bxAhzcnqCnffjbeqUbyqre;zp,84,541,3r9,;zp,p75,53o,3r4,;zz,2n9,539,3r4,;zp,o5p,4s6,405,;gf,0,14p3n;zz,6op,406,4qp,;xx,30r,0,bxAhzcnqCnffjbeqUbyqre;ss,2,bxAhzcnqCnffjbeqUbyqre;zp,76,3s3,586,bxAhzcnqCnffjbeqUbyqre;so,688,bxAhzcnqCnffjbeqUbyqre;xx,73,1,bxAhzcnqCnffjbeqUbyqre;ss,1,bxAhzcnqCnffjbeqUbyqre;zp,19,4q7,5qr,;so,4np,bxAhzcnqCnffjbeqUbyqre;xx,6q,2,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,n,47s,62n,;so,3q8,bxAhzcnqCnffjbeqUbyqre;xx,7o,3,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,9,48p,5qr,;zz,p3,48o,5qr,;so,35n,bxAhzcnqCnffjbeqUbyqre;zp,57,429,5o4,;zz,14o1,26r,60n,;zp,89r,464,5qp,ogaNpprff;gf,0,188q3;zz,13on,475,57s,;zp,5q2,44o,50r,;xx,3q5,0,ybtvaPbzcbaragHfreAhzoreVachg;ss,0,ybtvaPbzcbaragHfreAhzoreVachg;zp,16,40r,544,;so,r1n,ybtvaPbzcbaragHfreAhzoreVachg;xx,33so,0,ybtvaPbzcbaragHfreAhzoreVachg;gf,0,1r85s;ss,3,ybtvaPbzcbaragHfreAhzoreVachg;zz,5s,2q6,63q,;xq,423;xq,1n1;so,599,ybtvaPbzcbaragHfreAhzoreVachg;xx,4,0,bxAhzcnqCnffjbeqUbyqre;ss,1,bxAhzcnqCnffjbeqUbyqre;zp,60,3rr,584,bxAhzcnqCnffjbeqUbyqre;zz,59n,44n,605,;so,4op,bxAhzcnqCnffjbeqUbyqre;xx,67,1,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,o,4r5,5q8,;so,388,bxAhzcnqCnffjbeqUbyqre;xx,6o,2,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,16,47n,631,;so,3q7,bxAhzcnqCnffjbeqUbyqre;xx,6r,3,bxAhzcnqCnffjbeqUbyqre;ss,0,bxAhzcnqCnffjbeqUbyqre;zp,10,485,5r1,;zzf,97,rn86,1r,4 0,3n9 9p4,25s,8r63,-355,45s,6;so,56r,bxAhzcnqCnffjbeqUbyqre;zp,85,42o,5o8,;zz,16p,42o,5o7,sezYbtva;zz,118n,3rp,55q,sezYbtva;zz,138n,447,462,;gf,0,234o3;zp,674,46p,5qo,ogaNpprff;\",\"ns\":\"\"},\"jg\":\"1.j-766580.1.2.6A3SxTc7u-HJz0wJXq6jDj,,.Sb_0yly6CepNlgso8yz-sDwbfDFNYl3GrqKi5gZpilAL2yEyYvgHi7OrdCvSg84YAQYa-9l_bNzX7Gkqk3Lsg0vp3_Ndu24P3gNcY1_BTNCY5tPx5grZ-8XwgZOvFWgy6ageWFGbzLEN28wOcV3HfY2NuSK0KhK5vUsB3Yvm9IJkrSUyX1gBbe7QgqZdOF-9r3zEejcmcnZ8QXVBVLwD8zGBFd9AOI-kDDpPeAZarGY5zrqdxi9Kf_VAtuJ2HQ-l\"}","nuDataSession":"ndsaas6amqyhow6jnw4hvd3","uuid":"925446813","webDeviceInfo":{"version":"Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0"},"force":true}
+
+
+encoded js: https://www.openbank.es/_bm/abd-1-30
+
+
+
+b'{"tokenCredential":"eyJ0b2tlbiI6InB2anBDUXc4dVgwYTZIYjk3aFRKbVdLbkMwYjJ4VHB2WVdLMUVFS0pUZFFKZmJ4WkhnVGNXTGFQb1ZZR0lrRUdvZG1vRzhRWGxtTEF2ZEl3MTNRR0xNWG9Zck1yNm03Y2tlQmI5YWdHeFdFdW91L1k5MlJFQytZdnk4VXViaTF6SkluZHlieEFhWnNVaWdHUHVCY0NBL3JSUThmVk54Rkt4YlU0cXRmdFlCcThGTi8reGFyMVdyUWtVaUh1UTU3bzBKNGVvZnd2YUR6TDM5UzRkTmJjd1BFSm8yUDRocXh5L1VyL1IyZUdXd0tDNGtwVjVmQlE2cTRsbDVvQ1pTTFoxN3d4WXB3RHhtQ2lFVUxrRTg1YmZOTVdLUWY5aXVBeE5seHA5MExwSHFQODBiYURpUFV4eGhFM3VYK3J2aHFpVVJRMld2UFM5M1orNFk1c3gxaGFXWjVoaE9TcDdKV0kxUVBIY1F0UWFDWnIzaG1oRGtab0VLaElYeTBHMFhmdk9maHdvZFMwTWd4R1BSdlVTWkhBRHpjTWZEMEJ5bzZUamwreXcraE90WW54VEtaQUlpSlRXdVltd3FZQVhWNm9CZnlFQWVTUDk3S0ROTkRBM3FodjF2cUo1RjFVYVBaTHluQW9FaHdlajdXTjVJNUJtc3FqYWlyek9HbklYTVl5NGJDdS9McmJKa2NQdUZ4cnV4S04yYkNzOUt2S1EyZTNYQTRxcS9jaWpJcFI5SkgrcUVic2RnOG9tamxFMlVDektHVjFGZ21mUlhmajlLS2FtN3dPMkFqTEg1Q1psVjRRYklUTFNDSHpXRGM5ajk0NnRjMVpoWVp1STkwc2NzUEJOZ0RDZ1VVRlBRdjFXYzk0M1Fya1IvSUxJeEVVK1R3RlcvMDhSZklXNlU1dDVQRFJIMXl6alV2TVlubFIzdUZpYmp2a2J6RGs3NE96UWUzclFwNzkxSmE4YmhCamFEcnZYOVRzMUtiU3B5YnRZQll0TWhOMEJtN0xzRi9TYk52K2h0ZTJnQjF3di9qS0ptZkU5Nzd6NVFhYlRjNDQrZWlyaml1REZRMXZHaUE9IiwiY29kaWdvUGVyc29uYSI6NTc4MjM3LCJ0aXBvUGVyc29uYSI6IkYiLCJjb250cmF0b011bHRpY2FuYWwiOnsiY29udHJhdG8iOiJjeGtFM0c3SG9RRGtBbU1LMW9SYmw3S3pHNmI4eWR3c3dSZGszQnpJNG5vRU01VT0iLCJwcm9kdWN0byI6ImFvUk1aVUdEMHlSRmN4UHhGWUJmcXMxWUZIZzJsU25KL1M5YTlUOE5BZz09In0sImRvY3VtZW50IjoiWGU4c3ZIck1xeFhTbTNlYmsrZVVkRFJtSUxac2NKUFNjOGcwV3FxVFBoZFJhS2ZFbFE9PSIsImRvY3VtZW50VHlwZSI6InZNWll6T1lwZklRSDNSNEk0QUovQTJmVUk2bHNOWjQ0d1ZWdGgyQT0iLCJyZWFkT25seSI6ImxKMTArcU1YWktOaHJuUERVaEJtTDZrS1VDSFhJdEs4QXNva1ZwVT0ifQ==","application":"api"}'
+
+
+
+>>> GET https://clientes.openbank.es/
+
+
+cookieHash <- ok-cookiebite
+ok-cookiebite  = 1767871613-20181031-000001-1540967113856
+
+1767871613 - user ID cookieBite.getUserID() - the same for same browser?
+20181031 - %Y%m%d
+000001 - session id
+1540967113856 - ts
+
+
+
+
+(function($) {
+    'use strict';
+    cookieBite.settings = {
+        hashSalt: 510364800,
+        cookieName: 'ok-cookiebite',
+        sessionExpiryTime: 30,
+        debugMode: drupalSettings.cookieHash.logs || false
+    };
+    cookieBite.getDailyID = function() {
+        var currentDate = new Date();
+        return currentDate.getUTCFullYear().toString() + cookieBite.padLeft(currentDate.getUTCMonth() + 1, 2) + cookieBite.padLeft(currentDate.getUTCDate(), 2)
+    }
+    ;
+    cookieBite.getExpiryTime = function() {
+        var expiryTime = Date.now() + (cookieBite.settings.sessionExpiryTime * 60 * 1e3);
+        cookieBite.logMessage('Expiration time: ' + expiryTime);
+        return expiryTime
+    }
+    ;
+    cookieBite.getFingerprint = function() {
+        var nav = window.navigator
+          , screen = window.screen
+          , fingerprint = nav.mimeTypes.length;
+        fingerprint += nav.userAgent.replace(/\D+/g, '');
+        fingerprint += nav.plugins.length;
+        fingerprint += nav.hardwareConcurrency || '';
+        fingerprint += screen.height || '';
+        fingerprint += screen.width || '';
+        fingerprint += screen.pixelDepth || '';
+        return fingerprint
+    }
+    ;
+    cookieBite.getSessionData = function() {
+        var rawData = $.cookie(cookieBite.settings.cookieName).split('-')
+          , processedData = {
+            id: rawData[0] || 0,
+            dailyId: parseInt(rawData[1]) || 0,
+            session: parseInt(rawData[2]) || 0,
+            expiration: new Date(parseInt(rawData[3]))
+        };
+        cookieBite.logMessage('Session data:', processedData);
+        return processedData
+    }
+    ;
+    cookieBite.getStringHash = function(string, seed) {
+        var hash = seed || 5381
+          , i = string.length;
+        while (i)
+            hash = (hash * 33) ^ string.charCodeAt(--i);
+        return hash >>> 0
+    }
+    ;
+    cookieBite.getUserID = function() {
+        var userID = cookieBite.getStringHash(cookieBite.getFingerprint(), cookieBite.settings.hashSalt);
+        cookieBite.logMessage('Generated User ID: ' + userID);
+        return userID
+    }
+    ;
+    cookieBite.initialize = function() {
+        var sessionData = {
+            id: cookieBite.getUserID(),
+            dailyId: cookieBite.getDailyID(),
+            session: 1,
+            expiration: cookieBite.getExpiryTime()
+        };
+        cookieBite.setCookie(sessionData)
+    }
+    ;
+    cookieBite.logMessage = function(message, data) {
+        if (cookieBite.settings.debugMode)
+            console.log(' %cCOOKIEBITE%c ' + message, 'background-color: #A0522D; color: white;', 'background-color: white; color: #A0522D;', data ? data : '')
+    }
+    ;
+    cookieBite.padLeft = function(val, quantity, character) {
+        return Array(quantity - String(val).length + 1).join(character || '0') + val
+    }
+    ;
+    cookieBite.renewSession = function(sessionData) {
+        var session = sessionData || cookieBite.getSessionData();
+        session.session = session.session + 1;
+        session.expiration = cookieBite.getExpiryTime();
+        cookieBite.setCookie(session);
+        cookieBite.logMessage('Session renewed...')
+    }
+    ;
+    cookieBite.setCookie = function(sessionData) {
+        var cookieValue = sessionData.id + '-' + sessionData.dailyId + '-' + cookieBite.padLeft(sessionData.session, 6) + '-' + sessionData.expiration;
+        $.cookie(cookieBite.settings.cookieName, cookieValue, {
+            path: '/',
+            expires: 365,
+            secure: true
+        });
+        cookieBite.logMessage('Cookie created/updated with values: ', sessionData)
+    }
+    ;
+    cookieBite.updateExpirationTime = function(sessionData) {
+        var session = sessionData || cookieBite.getSessionData();
+        session.expiration = cookieBite.getExpiryTime();
+        cookieBite.setCookie(session);
+        cookieBite.logMessage('Session time updated...')
+    }
+    ;
+    cookieBite.logMessage('Settings:', cookieBite.settings);
+    if (typeof $.cookie(cookieBite.settings.cookieName) === 'undefined') {
+        cookieBite.initialize()
+    } else {
+        var currentDate = new Date()
+          , sessionData = cookieBite.getSessionData()
+          , timeDiff = sessionData.expiration.getTime() - currentDate.getTime();
+        if (sessionData.expiration.toDateString() !== currentDate.toDateString()) {
+            $.removeCookie(cookieBite.settings.cookieName);
+            cookieBite.initialize();
+            cookieBite.logMessage('Session expired by end of day...');
+            return
+        }
+        ;if (timeDiff < 0) {
+            cookieBite.logMessage('Session expired, creating new session...');
+            cookieBite.renewSession(sessionData)
+        } else {
+            cookieBite.logMessage('Session still alive (' + Math.round((timeDiff / 1e3 / 60) * 100) / 100 + ' minutes left), reseting expiration time...');
+            cookieBite.updateExpirationTime(sessionData)
+        }
+    }
+}
+
+
+
+
+cookieBite.getUserID = function() {
+        var userID = cookieBite.getStringHash(cookieBite.getFingerprint(), cookieBite.settings.hashSalt);
+        cookieBite.logMessage('Generated User ID: ' + userID);
+        return userID
+    } -> 67102424
+
+
+
+
+
+// get movements since date till today
+GET https://api.openbank.es/my-money/cuentas/movimientos?fechaDesde=2016-10-31&numeroContrato=4385403&producto=044
+
+// download excel
+GET https://api.openbank.es/cuentas/movimientos/descarga?digitoControl=50&producto=044&contrato=4385403&numeroCuenta=0444385403&tipoMovimiento=%20&tipoArchivo=t&concepto=000&titular=ECHEVARRI%20TURISMOS%20SA&fechaDesde=2016-10-31&fechaHasta=2018-10-31

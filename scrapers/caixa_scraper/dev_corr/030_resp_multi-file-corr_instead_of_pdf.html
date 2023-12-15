@@ -1,0 +1,182 @@
+<script type='text/javascript'>
+    var ID_TABLA_CORRESPONDENCIA = 'tablacorresp';
+    var ID_MARCAR_COMO_NO_LEIDO = 'marcarComoNoLeido';
+    var ID_MARCAR_COMO_LEIDO = 'marcarComoLeido';
+    var PN_PE_PERSONALIZAR = 'PN=COX&PE=5';
+    var JS_AJAX_CALLBACK_LEIDO_NO_LEIDO = 'ajaxCallbackLeidoNoLeido';
+    var ID_TABLA_CORRESPONDENCIA_MARGEN = 'tablacorrespMargen';
+    var JS_AJAX_CALLBACK_TABLE = 'ajaxCallbackTable';
+    var NAME_DETALLE_COMUNICADO_FORM = 'detalleComunicado';
+    var JS_AJAX_CALLBACK_FAVORITOS = 'ajaxCallbackFavoritos';
+    var JS_AJAX_CALLBACK_ERROR = 'ajaxCallbackError';
+    var JS_AJAX_CALLBACK_GRAFICOS = 'callBackGraficos';
+    var LISTA_CLAVE_COMUNICADO = 'LISTA_CLAVE_COMUNICADO';
+    var LISTA_LEIDO = 'LISTA_LEIDO';
+    var LISTA_FAVORITO = 'LISTA_FAVORITO';
+    var sepIds = '#~$#';
+    var sepIdsRegExp = '\Q#~$#\E';
+    var GRAFICO_TARTA = 'GRAFICO_TARTA';
+    var GRAFICO_DONUT = 'GRAFICO_DONUT';
+    var GRAFICO_BARRAS = 'GRAFICO_BARRAS';</script>
+<script type='text/javascript'>
+    var debug = true;
+    var loadingImg = true;
+    var myAjaxBaseUrl = '/GPeticiones;WebLogicSession=VH8RE3nLS7pk2maekciefgUZP5qwQd33X-L_gwg1Uf6rQHIbG1c2!-1133405935!727103608';
+    var sepIds = '#~$#';
+    var sepIdsRegExp = '\Q#~$#\E';
+</script>
+<script language='JavaScript' type='text/javascript' src='./js/jquery.blockUI-2.57.0.js'></script>
+<script language='JavaScript' type='text/javascript' src='./js/utilidadesMailbox.js'></script>
+<script language='JavaScript' type='text/javascript' src='./js/EloGenB001100.js'></script>
+<script language='JavaScript' type='text/javascript' src='./js/elocoxp000100.js'></script>
+<script type="text/javascript" language="JavaScript">
+    var LIT_ERROR_NO_DISPONIBLE = "En estos momentos no está disponible.";
+
+    function paginacionPDFs(paginaDocumentosSolicitada) {
+
+        with (document.forms["formPaginacionPDFs"]) {
+            PAGINA_DOCUMENTOS_SOLICITADA.value = paginaDocumentosSolicitada;
+            if (paginaDocumentosSolicitada != "1") IS_INICIO_DOCUMENTOS.value = 1;
+            else IS_INICIO_DOCUMENTOS.value = 0;
+            CLICK_ORIG.value = "PAG_COX_12";
+        }
+
+        var parametros = $("form[name=formPaginacionPDFs]").serialize();
+
+        var contenedorOrigen = '#divListadoPaginadoPDFsAjax';
+
+        var contenedorDestino = '#divListadoPaginadoPDFsAjax';
+
+        myAjaxCall(parametros, contenedorOrigen, contenedorDestino, "ajaxCallbackPaginacionPDFs", null, "ajaxCallbackPaginacionPDFsError", true, true);
+    }
+
+    function ajaxCallbackPaginacionPDFs(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+        if (hasErrors(data)) {
+            showErrors(data);
+        } else {
+            $("#divListadoPaginadoPDFsAjax").html(data);
+        }
+        desbloqueaPantalla();
+    }
+
+    function ajaxCallbackPaginacionPDFsError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+        var html = '';
+
+        if (data == null || data == "") {
+
+            html = getHTMLError(null);
+
+        } else {
+            html = $("<div/>").html(data).find("div#div_Error02").html();
+        }
+        $("#showErrors").html(html);
+
+        desbloqueaPantalla();
+    }
+
+    function abrirPDF(ini, fin) {
+        f = document.forms["formAbrirPDF"];
+        f.PN.value = "COX";
+        f.PE.value = "12";
+        f.BLOQUE_PAGINAS_INICIAL.value = ini;
+        f.BLOQUE_PAGINAS_FINAL.value = fin;
+        f.submit();
+    }
+</script>
+<div className="blockMe">
+    <div className="mostrar">
+        <div className="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa"/></div>
+        <div className="rfloat">Fecha impresión: <strong>17/01/2021</strong>&nbsp;</div>
+        <div className="limpiar"></div>
+    </div>
+    <div className=""><h1 className="corresp inferior20">
+        <img src="./imatge/mail.png" width="24" height="16"/>
+        <span>Correspondencia</span> <span>-</span> <span>Liquidación cuenta de crédito</span> <span>-</span> <span>Abrir comunicado en pdf</span>
+    </h1>
+    </div>
+
+    <p className=""><span>Debido al volumen del comunicado,</span> <span>15</span> <span>páginas, se generarán varios documentos que deberán abrir de uno en uno.</span>
+    </p>
+    <div id="showErrors" className="limpiar"></div>
+    <div id="divListadoPaginadoPDFsAjax">
+        <div id="ListaDocumentosMargen" className="inbox mesample ">
+            <table className="table_generica" id="ListaDocumentos">
+                <thead>
+                <tr id="" className="" style="">
+                    <th scope="col" className="    ltxt">Documento</th>
+                    <th scope="col" className="    ">Páginas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="1" name="1" className="" style="">
+                    <th scope="row" className=" vamid"><a href="Javascript:abrirPDF('1','12')" id="enlaceAbrirPDF"
+                                                          className="icon_pdf" title=""><span>Documento</span>
+                        <span>1</span></a></th>
+                    <td className=" vamid">De la&nbsp;1&nbsp;a la&nbsp;12</td>
+                </tr>
+                <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="2" name="2" className="" style="">
+                    <th scope="row" className=" vamid"><a href="Javascript:abrirPDF('13','15')" id="enlaceAbrirPDF"
+                                                          className="icon_pdf" title=""><span>Documento</span>
+                        <span>2</span></a></th>
+                    <td className=" vamid">De la&nbsp;13&nbsp;a la&nbsp;15</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div className="">
+            <ul className="paginacion_list "></ul>
+            <div className="limpiar"></div>
+        </div>
+    </div>
+    <form action="/GPeticiones;WebLogicSession=VH8RE3nLS7pk2maekciefgUZP5qwQd33X-L_gwg1Uf6rQHIbG1c2!-1133405935!727103608"
+          method="POST" name="formAbrirPDF">
+        <input type="hidden" name="PNalBody" value="COX">
+        <input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+        <input type="hidden" name="DIVISA_IMPORTE_COMUNICADO" value="200">
+        <input type="hidden" name="TIPO_COMUNICADO" value="01523">
+        <input type="hidden" name="TORNA_PN" value="COX">
+        <input type="hidden" name="INDICADOR_DUPLICADO_COMUNICADO" value="S">
+        <input type="hidden" name="CLICK_ORIG" value="">
+        <input type="hidden" name="DESCRIPCION_COMUNICADO" value="Liquidaci%C3%B3n+cuenta+de+cr%C3%A9dito">
+        <input type="hidden" name="PEalBody" value="12">
+        <input type="hidden" name="OPCION" value="">
+        <input type="hidden" name="TIPO_CUENTA_COMUNICADO" value="ES">
+        <input type="hidden" name="FLUJO" value="COX,2,:COX,1,:GFI,7,''">
+        <input type="hidden" name="FORMATO_COMUNICADO" value="G">
+        <input type="hidden" name="RESOLUCION" value="300">
+        <input type="hidden" name="CANAL_MOVIMIENTO" value="INT">
+        <input type="hidden" name="CATEGORIA_COMUNICADO" value="6">
+        <input type="hidden" name="TORNA_PE" value="1">
+        <input type="hidden" name="FAVORITO_COMUNICADO" value="N">
+        <input type="hidden" name="CLAVE_COMUNICADO" value="20210101002850000327">
+        <input type="hidden" name="FLAG_JURIDICA" value="J">
+        <input type="hidden" name="NUMERO_MAXIMO_PAGINAS_PDF" value="12">
+        <input type="hidden" name="REFVAL_SIMPLE_CLAVE_COMUNICADO" value="xg~84PrnmD3GD7zg~ueYPQAAAXcRHOVRSA7ktLVwjKk">
+        <input type="hidden" name="NUMERO_PAGINAS" value="00015">
+        <input type="hidden" name="REFCLAVECOMUNICADO" value="xg~84PkHyfLGD7zg~QfJ8gAAAXcRHOVBCXFRsrQqb~Y:COX:2">
+        <input type="hidden" name="RefInformacionComunicado" value="xg~84PkMCIfGD7zg~QwIhwAAAXcRHOlK3HkeYJZVkTY:COX:2">
+        <input type="hidden" name="CODIGO_CUENTA_COMUNICADO" value="0012100381020020600000030647">
+        <input type="hidden" name="IMPORTE_COMUNICADO" value="2.639,60">
+        <input type="hidden" name="presentacion" value="/jsp/elocoxp001300.jsp">
+
+        <input type="Hidden" name="PN" value="">
+        <input type="Hidden" name="PE" value="">
+        <input type="Hidden" name="IS_INICIO_DOCUMENTOS" value="">
+        <input type="Hidden" name="PAGINA_DOCUMENTOS_SOLICITADA" value="">
+        <input type="Hidden" name="BLOQUE_PAGINAS_INICIAL" value="">
+        <input type="Hidden" name="BLOQUE_PAGINAS_FINAL" value="">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=VH8RE3nLS7pk2maekciefgUZP5qwQd33X-L_gwg1Uf6rQHIbG1c2!-1133405935!727103608"
+          method="POST" name="formPaginacionPDFs">
+        <input type="hidden" name="PN" value="COX">
+        <input type="hidden" name="PE" value="13">
+        <input type="hidden" name="PETICION_AJAX" value="S">
+        <input type="hidden" name="NUMERO_PAGINAS" value="00015">
+        <input type="hidden" name="NUMERO_MAXIMO_PAGINAS_PDF" value="12">
+        <input type="hidden" name="NUMERO_ITERACIONES_LISTA_PDFS" value="10">
+        <input type="hidden" name="IS_INICIO_DOCUMENTOS" value="0">
+        <input type="hidden" name="PAGINA_DOCUMENTOS_SOLICITADA" value="">
+        <input type="hidden">
+        <input type="hidden" name="DESCRIPCION_COMUNICADO" value="Liquidaci%C3%B3n+cuenta+de+cr%C3%A9dito">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>

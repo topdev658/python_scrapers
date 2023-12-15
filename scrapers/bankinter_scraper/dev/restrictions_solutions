@@ -1,0 +1,25 @@
+mobile app can be used for personal access only
+for company only website can be used
+
+several tabs for session not allowed. at least, each session remembers last position at the website (try to clone the session?)
+
+
+you can change IP during the session
+
+multiple sessions are allowed
+
+== SOLUTION ==
+
+step1
+log in using selenium
+get balances overview for each company (or even just list of companies)
+then log in to process each account to get movements (before try to copy session and make requests using copied sessions)
+
+step2
+if there are no possibility to successfully clone session and process several accounts from one session, log in using requests + external js to generate ecrypted tokens
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+>>>> GET https://www.deutschebank-dbdirect.com/portalserver/dbdirect/inicio
+>>>> POST https://www.deutschebank-dbdirect.com/portalserver/j_spring_security_check
+POST_DATA
+customerId=n.g.sarrouf%40markennovy.pers1.eu
+&customWord=PASSWORD
+&customWordNew=
+&customWordConfirm=
+&action=normal
+
+<<<<
+// PREVIOUS SESSION STILL ACTIVE OR CLOSED INCORRECTLY
+'{"error":"H843: SESION BLOQUEADA POR SEGURIDAD","code":"H843","message":"Su sesión anterior no se ha finalizado correctamente. Inténtelo de nuevo en unos instantes o llame a nuestro servicio de Atención al Cliente."}
+'
+
+?? b$.portal.loggedInUserId = 'a.garcia\x40afinox.bertrand.eu';
+
+>>>> GET https://www.deutschebank-dbdirect.com/portalserver/dbdirect/dbdirectpage
+
+Should contain
+ b$.portal.loggedInUserId = 'm.a.pimienta\x40aplitest.solutio.eu';
+
+ OR IF NOT LOGGED IN
+ loggedInUserId=''
+
+=====
+
+LOGOUT
+>>> 00:00:25.107	0.852	750	264	DELETE	500	text/plain	https://www.deutschebank-dbdirect.com/portalserver/services/rest/dbdirect/session
+<<< 500
+>>> 00:00:25.157	0.464	812	763	GET	200	application/json	https://www.deutschebank-dbdirect.com/portalserver/rest/utils/checkWindow/delete/FAB_PORTAL_ID-d01d884a8d6dd79afdd8f71f9f34fe5778de?_=1539193472446
+<<< 200 {"result":"ok","name":"FAB_PORTAL_ID-d01d884a8d6dd79afdd8f71f9f34fe5778de","message":"Current window was FAB_PORTAL_ID-d01d884a8d6dd79afdd8f71f9f34fe5778de. Delete done. Result ok"}
+
+>>> 00:00:25.675	0.283	616	(0)	DELETE	(Cache)	text/plain	https://www.deutschebank-dbdirect.com/portalserver/rest/loginLogout
+
+=====
+
+CORRESPONDENCE
+
+// Open Filter form (Justificantes) PRE
+>>> POST  https://www.deutschebank-dbdirect.com/portalserver/services/rest/postEventInteract
+DATA
+{"requestIdentifier":{"logId":"","requester":"","operation":"","userId":""},"requestData":{"eventName":"supportingDocuments","eventParameters":[{}]}}
+
+
+// Open Filter form (Justificantes) (TO GET COMPANIES)
+>>> GET https://www.deutschebank-dbdirect.com/dbDirectServerApp/ECDL?ACCION=DBDIRECT.DESCAPDF.INICIO
+
+
+
+// Correspondence filtered for company
+>>> POST https://www.deutschebank-dbdirect.com/dbDirectServerApp/ECDL?ACCION=DBDIRECT.DESCAPDF.CONSULTA&PORTAL_LANGUAGE=ES
+DATA
+CIA=3253688GAMBASTAR, S.CIA=3253688GAMBASTAR, S.L
+CIA_GRUPO=3253688GAMBASTAR, S.L
+FECHADES=01.06.2019
+FECHAHAS=03.07.2020
+IMPORDES
+IMPORHAS
+SELECCION=1
+FORMULARIO
+DOCUMENTO
+PRODUCTO
+DOCUID_SP
+DETALLE_OCULTO=Abrir pdf
+POS
+VISIBLE
+TRANSID=000000000000000000
+DATCIA
+DATFORM
+AQNUPGDE
+FRM_DISABLEDL
+CIA_GRUPO=3253688GAMBASTAR, S.L
+FECHADES=20.05.2020
+FECHAHAS=30.06.2020
+IMPORDES
+IMPORHAS
+SELECCION=1
+FORMULARIO
+DOCUMENTO
+PRODUCTO
+DOCUID_SP
+DETALLE_OCULTO=Abrir pdf
+POS
+VISIBLE
+TRANSID=000000000000000000
+DATCIA
+DATFORM
+FRM_DISABLED
+
+
+NEXT PAGE CORRESP (equal for all 'next pages', TECLA=F8 means 'next')
+>>> https://www.deutschebank-dbdirect.com/dbDirectServerApp/ECDL?ACCION=DBDIRECT.DESCAPDF.PAGINAR&TECLA=F8&PORTAL_LANGUAGE=ES&PORTAL_LANGUAGE=ES&PORTAL_LANGUAGE=ES
+>>> POST
+CIA=3253688GAMBASTAR, S.L
+CIA_GRUPO=3253688GAMBASTAR, S.L
+FECHADES=01.06.2019
+FECHAHAS=03.07.2020
+IMPORDES
+IMPORHAS
+SELECCION=1
+FORMULARIO
+DOCUMENTO
+PRODUCTO
+DOCUID_SP
+DETALLE_OCULTO=Abrir pdf
+POS
+VISIBLE
+TRANSID=000000000000000000
+DATCIA
+DATFORM
+AQNUPGDE
+FRM_DISABLED
+
+
+DOWNLOAD PDF STEP 1 (DOCID=202006302000205608) is the doc param
+>>> POST https://www.deutschebank-dbdirect.com/dbDirectServerApp/ECDL?ACCION=DBDIRECT.DESCAPDF.DETALLE&DOCID=202006302000205608&PORTAL_LANGUAGE=ES
+POST FROM `Correspondence filtered for company` with VISIBLE=V
+<<< html
+
+DOWNLOAD PDF STEP 2
+>>> GET https://www.deutschebank-dbdirect.com/dbDirectServerApp/ECDL?ACCION=DBDIRECT.DESCAPDF.ABRIRPDF&DOCUID_SP=&PORTAL_LANGUAGE=ES
+HEADERS
+Referer: URL of step 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+

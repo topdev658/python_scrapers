@@ -1,0 +1,124 @@
+$ sudo apt install unixodbc unixodbc-dev
+$ sudo pip3 install pyodbc
+$ sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-xenial-release/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
+$ sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+$ sudo apt update
+$ sudo apt install libodbc1-utf16
+$ sudo apt install msodbcsql unixodbc-dev-utf16
+
+
+======================= v.2 updated =======================
+
+$ curl https://packages.microsoft.com/keys/microsoft.asc > mskey.txt
+$ cat mskey.txt | sudo apt-key add -
+$ curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list
+# fill str below from result above
+$ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod" > /etc/apt/sources.list.d/mssql-release.list'
+$ sudo apt-get update
+$ sudo ACCEPT_EULA=Y apt-get install msodbcsql i
+$ sudo apt-get install unixodbc-dev
+
+
+== FIX INSTALLATION PROBLEMS ==
+
+https://github.com/Microsoft/msphpsql/issues/287
+https://stackoverflow.com/questions/42093259/error-apt-get-install-msodbcsql
+
+Q:
+$ sudo apt-get install msodbcsql
+I get the following error:
+
+`Installation Failed, ODBC Driver 11 for SQL Server Detected!`
+
+A:
+I'm using Debian with Ubuntu packages for mssql server. I had the same problem trying to reinstall mssql-tools, the message:
+
+Installation Failed, ODBC Driver 13 for SQL Server Detected!
+The solution: In file /etc/odbcinst.ini delete the following lines:
+
+[ODBC Driver 13 for SQL Server]
+Description=Microsoft ODBC Driver 13 for SQL Server
+Driver=/opt/microsoft/msodbcsql/lib64/libmsodbcsql-13.1.so.8.0
+UsageCount=1
+Finally, I did apt -f install and problem solved.
+
+
+
+======================= v.3 updated =======================
+if OS >= Ununtu 18.04
+// change local settings to  DB_CONN_STR = ('Driver={ODBC Driver 17 for SQL Server}...
+
+$ sudo su
+$ curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+$ curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release18.list
+$ exit
+$ sudo apt update
+$ sudo ACCEPT_EULA=Y  apt install unixodbc // add missed packages basing on messages
+$ sudo apt install msodbcql17
+! IF getting error like '/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.3.so.1.1 file not found'
+then go to /opt/microsoft/msodbcsql17/lib64/
+try $ ldd libmsodbcsql-17.3.so.1.1
+and map to absent libraries (should be available in the sys)
+to map, do
+$ sudo ln -s /existing/path /necessary path
+$ sudo updatedb
+check again
+$ ldd *
+profit
+
+
+======================= v.4 updated =======================
+if OS >= Ununtu 20.04
+
+see
+    https://stackoverflow.com/questions/42093259/error-apt-get-install-msodbcsql
+do
+    sudo su
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release20.list
+    exit
+    sudo apt update
+    sudo apt upgrade
+    OR
+    sudo apt install mssql-tools
+
+or REPEAT FROM v3
+
+
+== FIX ERRS for v4 ==
+
+IF GETTING
+SSL connection error: error:1425F102:SSL routines:ssl_choose_client_version:unsupported protoco
+THEN install new openssl because 1.1.1f is broken
+you can compare:
+do
+    nmap --script ssl-enum-ciphers localhost
+    nmap --script ssl-enum-ciphers <DB SERVER IP>
+
+see https://techlist.top/upgrade-openssl-version-1-1-0-ubuntu-server/
+    https://coderoad.ru/51560964/
+do
+    wget https://www.openssl.org/source/latest.tar.gz -O openssl-1.1.1h.tar.gz <-- check
+    tar -zxvf openssl-1.1.1h.tar.gz
+    cd openssl-1.1.1h
+    ./config
+    make
+    sudo make install
+    openssl version
+
+If now getting OPENSSL_1_1_1' not found (required by openssl),
+see https://github.com/openssl/openssl/issues/5845
+do
+    export LD_LIBRARY_PATH=/usr/local/lib
+
+
+MORE PROTOCOL ISSUES
+https://github.com/mkleehammer/pyodbc/issues/610
+
+Hi,
+I was experiencing the same problem, and fixed thanks to @v-chojas comment above. Just edited /etc/ssl/openssl.cnf and changed:
+
+MinProtocol = TLSv1.0
+CipherString = DEFAULT@SECLEVEL=1
+
+

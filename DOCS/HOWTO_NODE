@@ -1,0 +1,25 @@
+DEPLOYED
+Use unzipped installation under proj folder like
+`node/node-v16.13.1/bin/node`
+This option must be configured in the specific scraper (see BancoCaminos)
+Or system-wide 'node' will be used
+
+LOCAL
+# 1. install asdf version manager, use http://asdf-vm.com/guide
+$ git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+# asdf-nodejs deps
+$ apt install dirmngr gpg gawk
+$ asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+# 2. Need > v15.0 to get 'crypto' module
+$ asdf install node 16.13.0
+$ asdf global node 16.13.0
+$ which node
+/home/vladimirb/.asdf/shims/node
+$ node -v
+v16.13.0
+# FOR IDE (JetBrains doesn't read env vars)
+$ sudo ln -s `which node` /usr/bin/node
+$ ls -alh /usr/bin/node*
+lrwxrwxrwx 1 root root 32 дек  1 23:21 /usr/bin/node -> /home/vladimirb/.asdf/shims/node
+
+

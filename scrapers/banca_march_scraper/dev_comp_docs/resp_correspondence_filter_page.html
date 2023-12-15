@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- URLs -->
+
+
+
+    <!-- Meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
+    <meta http-equiv="Refresh" content="1200; URL=/htmlVersion/XTransManager?tr=OP&amp;num=logout" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"/>
+
+    <!-- Title -->
+    <title>Banca March / Servicio de Banca a Distancia</title>
+
+    <!-- Estilos CSS -->
+    <!-- (jquery.ui.css) Migrado a jquery.jsp -->
+
+
+
+
+    <link rel="stylesheet" href="/htmlVersion/home/css/style.css?version=201911050000" type="text/css" media="screen, print" />
+
+
+
+    <link rel="stylesheet" href="/htmlVersion/home/css/mensajeria.css?version=201911050000" type="text/css" media="screen" />
+
+    <!-- Scripts javascript -->
+    <!--Migrado a jquery.jsp -->
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/htmlVersion/home/css/custom-theme/jquery-ui-1.10.0.custom.min.css" type="text/css" media="all" />
+
+    <script type="text/javascript" src="/htmlVersion/home/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/htmlVersion/home/js/jqueryui/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="/htmlVersion/home/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/htmlVersion/home/js/bm.jquery.tablesorter.js?version=201911050000"></script>
+
+
+    <script type="text/javascript" src="/htmlVersion/home/js/menuprincipal_v2.js?version=201911050000"></script>
+    <script type="text/javascript" src="/htmlVersion/home/js/functions_v2.js?version=201911050000"></script>
+    <script type="text/javascript" src="/htmlVersion/JavaScriptServlet" ></script>
+    <script type="text/javascript">
+        GestorMenuPrincipalJS.setOperacion("299");
+        GestorMenuPrincipalJS.setIdiomaPagina("0");
+        GestorMenuPrincipalJS.setEntornoPagina("2");
+        GestorMenuPrincipalJS.setRefrescar(true);
+        var urlBuscador = "/htmlVersion/XTransManager?tr=OP&num=buscadoroperaciones";
+    </script>
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        GestorMenuPrincipalJS.setEsIE7(true);
+    </script>
+    <![endif]-->
+</head>
+<body id="contenedorcuerpo">
+<!-- Variables -->
+
+
+
+<!-- Cabecera con menú -->
+<!--MenuFlag 0: Cabecera sin menu de operaciones, con logo, usuario conexion y boton salir. Ejemplo pagos ATIB -->
+<!--MenuFlag 1: Cabecera Menu completo -->
+<!--MenuFlag 2: Cabecera sin menu, sin conexion, sin usuario conexion y sin boton salir-->
+
+
+
+
+
+
+
+<!-- URLs -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="cabeceraFilas" >
+
+    <div class="dimensiones" id="cabeceraHome1">
+
+        <a class="bloqueCabecera left" id="ayuda" href="/htmlVersion/XTransManager?tr=op&amp;num=ayuda"
+        >Ayuda &gt;</a>
+
+        <a class="bloqueCabecera bloqueCabeceraRight" id="linkCerrar" href="/htmlVersion/XTransManager?tr=OP&amp;num=logout"
+        >Desconectar</a>
+
+
+
+        <div class="bloqueCabecera bloqueCabeceraRight separadorCabecera" id="miperfil1">
+            <div class="dd-container">
+                <div class='dd-select'>
+                    <span>Mi perfil</span>
+                    <img alt="Mostrar menú" src="/htmlVersion/images/desplegable_10.png">
+                </div>
+                <ul class='ulMenu dd-options' style='display:none;'>
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03101&idopmenu=13&origen=miperfil'
+                        ><img src="/htmlVersion/images/llave_negro_16.png">Cambio de clave</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03104&idopmenu=11&origen=miperfil'
+                        ><img src="/htmlVersion/images/handshake_16.png">Condiciones Banca Online</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03105&idopmenu=10&origen=miperfil'
+                        ><img src="/htmlVersion/images/lista_negro_16.png">Consulta de operaciones</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03170&idopmenu=9&origen=miperfil'
+                        ><img src="/htmlVersion/images/sandclock_negro_16.png">Operaciones pendientes</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03154&idopmenu=8&origen=miperfil'
+                        ><img src="/htmlVersion/images/group_negro_16.png">Gestión de delegados</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03014&idopmenu=4&origen=miperfil'
+                        ><img src="/htmlVersion/images/document_16_black.png">Test de conveniencia</a>
+                    </li>
+
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc' href='/htmlVersion/XTransManager?ts=1591858373796&tr=OP&testnw=H&idioma=0&num=03323&idopmenu=3&origen=miperfil'
+                        ><img src="/htmlVersion/images/document_16_black.png">Test de idoneidad</a>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="fechaHoraActual1" class="bloqueCabecera bloqueCabeceraRight separadorCabecera">
+
+            11/06/20 08:52:53 CEST
+        </div>
+
+
+        <div class="bloqueCabecera bloqueCabeceraRight separadorCabecera" id="usuariologueado1">
+            MANUEL PUIG ROCHA
+        </div>
+
+
+
+        <div class="bloqueCabecera bloqueCabeceraRight separadorCabecera" id="idiomas1">
+            <div class="dd-container">
+                <div class='dd-select'>
+					<span>
+
+
+
+
+							ES
+
+					</span>
+                    <img src="/htmlVersion/images/desplegable_10.png">
+                </div>
+                <ul class='ulMenu dd-options selectable' style='display:none;width:60px !important;'>
+                    <li class='dd-link selected'><a class='dd-option linkOpc' href='/htmlVersion/XTransManager?tr=ID&amp;accion=home&amp;idioma=es'>ES</a></li>
+                    <li class='dd-link '><a class='dd-option linkOpc' href='/htmlVersion/XTransManager?tr=ID&amp;accion=home&amp;idioma=ca'>CA</a></li>
+                    <li class='dd-link '><a class='dd-option linkOpc' href='/htmlVersion/XTransManager?tr=ID&amp;accion=home&amp;idioma=en'>EN</a></li>
+                    <li class='dd-link '><a class='dd-option linkOpc' href='/htmlVersion/XTransManager?tr=ID&amp;accion=home&amp;idioma=de'>DE</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <ul class="bloqueCabecera bloqueCabeceraRight separadorCabecera" id="entorno1">
+            <li>Cambiar a: </li>
+
+            <li><a href="/htmlVersion/XTransManager?tr=ENTORNO&amp;num=03080&amp;idioma=0&amp;entorno=particular">Particulares</a></li>
+
+
+        </ul>
+
+
+    </div>
+
+
+
+
+
+
+    <div id="segundaFila" class="dimensiones">
+
+
+        <a id="imgLogo" href="/htmlVersion/XTransManager"><img src="/htmlVersion/images/LogoBM90_es.png" alt="Banca March"/></a>
+
+
+        <div id="divOpciones">
+
+					<span class="ui-widget" style="position:relative;top:-12px;">
+						<input id="inputbuscador" class="searchBox" placeholder="Buscar operación" />
+					</span>
+
+
+
+            <a class="opcion link" href="/htmlVersion/XTransManager?tr=OP&idioma=0&num=mensajeria"
+            ><img src="/htmlVersion/images/migestor_24_v.png" alt="Mi gestor"
+            /><br/>Mi gestor</a>
+
+
+
+
+
+
+
+            <a class="opcion link"
+               href="/htmlVersion/XTransManager?tr=OP&num=03112&op=corrListado&salida=pant&tipoDocumento3=1&conFechas=0"><img src="/htmlVersion/images/sobre_r_24.png" alt="Correspondencia"
+                                                                                                                              title="Tiene correspondencia nueva"/><br/>Correspondencia</a>
+
+
+            <a class="opcion link" href="/htmlVersion/XTransManager?tr=OP&num=inversisWeb"
+            ><img src="/htmlVersion/images/broker_24.png" alt="Mi inversión"
+            /><br/>Mi inversión</a>
+            <!-- Favoritos -->
+            <a class="opcion link" href="/htmlVersion/XTransManager?tr=OP&idioma=0&num=favoritos"><img src="/htmlVersion/images/favoritos_24.png" alt="Favoritos"/><br/>Favoritos</a>
+
+
+            <div class="dd-container">
+                <div class='dd-select opcion'>
+                    <img src="/htmlVersion/images/mobile_24.png" alt="Móvil"/><br/>Móvil
+                    <img alt="Mostrar menú" src="/htmlVersion/images/desplegable_10.png">
+                </div>
+                <ul class='ulMenu dd-options' style='display:none;top:40px;'>
+
+
+                    <li class='dd-link'>
+                        <a class='dd-option linkOpc'
+                           href='/htmlVersion/appDownload.jsp?lang=es'
+                           target="_blank"
+                        >Descarga App dispositivos móviles</a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="terceraFila" > <!-- Menú principal -->
+        <div class="dimensiones">
+
+            <ul id="n1" class="n1-ul">
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Posición</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_314">
+
+
+
+
+                                <a href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03239&amp;idopmenu=314&amp;origen=principal" >
+                                    <span>Resumen</span>
+                                </a>
+
+
+
+                            </li>
+
+                            <li class="opid_313">
+
+
+
+
+                                <a href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03239_Posiciones&amp;idopmenu=313&amp;origen=principal" >
+                                    <span>Contratos</span>
+                                </a>
+
+
+
+                            </li>
+
+                            <li class="opid_309">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Otros productos</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_312">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03216&amp;idopmenu=312&amp;origen=principal">
+                                                    Detalle seguros
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Cuentas</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_289">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Cuentas a la vista</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_307">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03252_CuentasVista&amp;idopmenu=307&amp;origen=principal">
+                                                    Información de contrato
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_306">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03001_CuentasVista&amp;idopmenu=306&amp;origen=principal">
+                                                    Consulta de saldo disponible
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_305">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03043_EUR&amp;idopmenu=305&amp;origen=principal">
+                                                    Consulta de retenciones
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_304">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03007_CuentasVista&amp;idopmenu=304&amp;origen=principal">
+                                                    Consulta de liquidaciones
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_302">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03008_CuentasVista&amp;idopmenu=302&amp;origen=principal">
+                                                    Consulta de información fiscal
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_301">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03116_CuentasVista&amp;idopmenu=301&amp;origen=principal">
+                                                    Consulta de IBAN
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_300">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03252_Condiciones&amp;idopmenu=300&amp;origen=principal">
+                                                    Condiciones de liquidación
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_299">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112_CuentasVista&amp;idopmenu=299&amp;origen=principal">
+                                                    Consultar correspondencia
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Operativas</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_297">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03290&amp;idopmenu=297&amp;origen=principal">
+                                                    Contratación de cuenta corriente
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_296">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03002_CuentasVista&amp;idopmenu=296&amp;origen=principal">
+                                                    Extracto de movimientos
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Cheques</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_294">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03004_CuentasVista&amp;idopmenu=294&amp;origen=principal">
+                                                    Consulta talonario
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_293">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373797&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03005_CuentasVista&amp;idopmenu=293&amp;origen=principal">
+                                                    Consulta estado cheque
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                            <li class="opid_275">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Cuentas moneda extranjera</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_285">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03027&amp;idopmenu=285&amp;origen=principal">
+                                                    Consulta tipos de cambios
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Pagos</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_198">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Transferencias</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Transferencias</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_215">
+
+
+                                                <span class="inactivo4">A través del Banco de España</span>
+
+
+
+                                            </li>
+
+                                            <li class="opid_213">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03214&amp;idopmenu=213&amp;origen=principal">
+                                                    Plantillas
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Operativa</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_211">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03333&amp;idopmenu=211&amp;origen=principal">
+                                                    Consulta de transferencias
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_209">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03106&amp;idopmenu=209&amp;origen=principal">
+                                                    Anulación
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_208">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03093&amp;idopmenu=208&amp;origen=principal">
+                                                    Consulta de entidades
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_207">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03094&amp;idopmenu=207&amp;origen=principal">
+                                                    Consulta código de oficina
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_206">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112_Transferencias&amp;idopmenu=206&amp;origen=principal">
+                                                    Consultar correspondencia
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_205">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03116&amp;idopmenu=205&amp;origen=principal">
+                                                    Consulta de IBAN
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                            <li class="opid_188">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Tributos</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_197">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03063&amp;idopmenu=197&amp;origen=principal">
+                                                    Consulta de tributos AEAT
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_196">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112_Tributos&amp;idopmenu=196&amp;origen=principal">
+                                                    Consultar correspondencia
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Inversión</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_131">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Valores, fondos y otros activos</span></a>
+                                <ul class="n3">
+
+
+
+
+
+                                    <li class="opcionsuelta opid_137">
+                                        <a href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=PosicionCarteraValores&amp;idopmenu=137&amp;origen=principal" >
+                                            Consulta de posición de valores
+                                        </a>
+                                    </li>
+
+
+
+
+
+
+
+
+                                    <li class="opcionsuelta opid_135">
+                                        <a href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112_Bolsa&amp;idopmenu=135&amp;origen=principal" >
+                                            Consultar correspondencia
+                                        </a>
+                                    </li>
+
+
+
+
+
+
+
+
+                                    <li class="opcionsuelta opid_133">
+                                        <a href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=inversisFrontalEmpresas&amp;idopmenu=133&amp;origen=principal" >
+                                            Mi inversión
+                                        </a>
+                                    </li>
+
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Financiación</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_122">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Préstamos</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_129">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03249&amp;idopmenu=129&amp;origen=principal">
+                                                    Información de contrato
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_128">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03021&amp;idopmenu=128&amp;origen=principal">
+                                                    Consulta cuadro de amortización
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_127">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03249_Condiciones&amp;idopmenu=127&amp;origen=principal">
+                                                    Condiciones de liquidación
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_125">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03025&amp;idopmenu=125&amp;origen=principal">
+                                                    Consulta de información fiscal
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_124">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112_Prestamos&amp;idopmenu=124&amp;origen=principal">
+                                                    Consultar correspondencia
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+                <li class="pmcon n1-li">
+
+
+
+
+                    <!-- item.usuarioTienePermisos and not empty item.submenu -->
+                    <a class="n1-a" href="#">
+                        <span class="titn1">Servicios</span>
+                    </a>
+                    <div class="white">
+                        <ul class="mega-menu">
+
+                            <li class="opid_15">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Correspondencia</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_19">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373798&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03112&amp;idopmenu=19&amp;origen=principal">
+                                                    Consultar correspondencia
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                            <li class="opid_5">
+
+
+
+                                <!-- subitem.usuarioTienePermisos and not empty subitem.submenu -->
+                                <a href="#"><span>Datos de usuario</span></a>
+                                <ul class="n3">
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Información</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_13">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373799&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03104&amp;idopmenu=13&amp;origen=principal">
+                                                    Contrato banca distancia
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_12">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373799&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03105&amp;idopmenu=12&amp;origen=principal">
+                                                    Consulta operaciones
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+
+
+
+                                    <!-- subsubitem.usuarioTienePermisos and not empty subsubitem.submenu -->
+                                    <li>
+                                        <a href="#">Operativas</a>
+                                        <ul class="n4">
+
+                                            <li class="opid_10">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373799&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03170&amp;idopmenu=10&amp;origen=principal">
+                                                    Operaciones pendientes
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_9">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373799&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03101&amp;idopmenu=9&amp;origen=principal">
+                                                    Cambio de la clave de acceso
+                                                </a>
+
+
+                                            </li>
+
+                                            <li class="opid_8">
+
+
+
+
+                                                <a class="link4" href="/htmlVersion/XTransManager?ts=1591858373799&amp;tr=OP&amp;testnw=H&amp;idioma=0&amp;num=03154&amp;idopmenu=8&amp;origen=principal">
+                                                    Gestión de delegados
+                                                </a>
+
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+
+            </ul>
+            <div id="finMenu" style="clear: both"></div>
+        </div>
+    </div>
+    <div id="cuartaFila" class="dimensiones"></div>
+</div>
+
+
+
+
+<!-- Contenido -->
+
+
+
+<div id="envoltura">
+    <div class="dimensioncuerpo">
+        <div class="cuerpo"  >
+            <div id="recurso">
+                <div id="operativa">
+
+
+                    <div>
+                        <form method="get" id="frm3112" name="frm3112" action="/htmlVersion/XTransManager" >
+                            <input type="hidden" name="frmId" value="frmConsultaCorresponencia" />
+                            <input type="hidden" name="tr" value="OP" />
+                            <input type="hidden" name="num" value="03112_CuentasVista"/>
+                            <input type="hidden" name="op" value="corrListado"/>
+                            <input type="hidden" name="bb" value="1" />
+
+
+
+
+
+                            <span id="tagFavorito">
+	<a class="light-green-btn" id="btnFavoritos" onclick='GestorFavoritosJS.mostrarPopUpGuardarFavorito("03112_CuentasVista","")'><span>Guardar favorito</span></a>
+	<img id="ajaxLoader" style="display: none;" src="/htmlVersion/images/ajax-loader.gif" alt="Cargando" />
+	<img id="ajaxOk" style="display: none;" src="/htmlVersion/home/img/ajax-ok.png" alt="Operación realizada correctamente" />
+	<img id="ajaxError" style="display: none;" src="/htmlVersion/home/img/ajax-error.png" alt="Se ha producido un error" />
+</span>
+
+                            <!-- Botón volver -->
+
+
+
+
+                            <!-- Comentario para usarlo:
+                                1º import controlFavoritos (si hay),
+                                2º include btnVolver o btnVolverPosicion,
+                                3º h2 (titulo)
+                            -->
+
+
+                            <h2 class="titulo">Consultar correspondencia</h2>
+
+                            <div class="form-content">
+                                <div class="form-subtitle">
+				<span class="subtitle">
+					<label for='claveContratoSip' class='lblObligatoria hand' id='lblContrato' >Cuenta</label>
+				</span>
+                                </div>
+                                <div class="input-line">
+                                    <select class='controlCuenta' id='claveContratoSip' name='claveContratoSip' ><option value=''>Todas las cuentas</option><optgroup label='Cuentas a la vista'><option class='contrato' value='01001003730110001009'>ES68 0061 0373 1100 1009 0113 - MAVEINN INVERSIONES INMOBILIARIAS, S.L.</option><option class='contrato cancelado' value='01001003730110001010'>ES78 0061 0373 1100 1010 0118 - MAVEOR, S.L.</option><option class='contrato' value='01001003730110001271'>ES50 0061 0373 1100 1271 0116 - BANELANA SL</option></optgroup></select>
+                                </div>
+                            </div>
+
+                            <div class="form-content">
+                                <div class="form-subtitle">
+				<span class="subtitle">
+					<label for='tipoDocumento3' class='lblObligatoria hand' id='lblTipoDocumento' >Tipo de documento</label>
+				</span>
+                                </div>
+                                <div class="input-line">
+                                    <select name="tipoDocumento3" id="tipoDocumento3" class="xxlarge">
+
+
+                                        <option value="10"
+
+
+
+
+                                        >CONTRATOS</option>
+
+                                        <option value="4"
+
+
+
+
+                                        >EXTRACTOS DE CUENTA</option>
+
+                                        <option value="5"
+
+
+
+
+                                        >INFORMACION FISCAL</option>
+
+                                        <option value="8"
+
+
+
+
+                                        >JUSTIF. OPERACION</option>
+
+                                        <option value="7"
+
+
+
+
+                                        >MIFID</option>
+
+                                        <option value="11"
+
+
+
+
+                                        >ORDENES A DISTANCIA</option>
+
+                                        <option value="9"
+
+
+
+
+                                        >OTROS</option>
+
+                                        <option value="2"
+
+
+
+
+                                        >RECIBOS DOMICILIADOS</option>
+
+                                        <option value="6"
+
+
+
+
+                                        >TARJETAS</option>
+
+                                        <option value="1"
+
+
+
+                                                selected="selected"
+
+
+                                        >TODOS</option>
+
+                                        <option value="3"
+
+
+
+
+                                        >TRANSFERENCIAS</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-content">
+                                <div class="form-subtitle">
+				<span class="subtitle">
+					<label  class='lblObligatoria' id='lblPeriodo' >Periodo</label>
+				</span>
+                                </div>
+                                <div class="input-line">
+                                    <div style="margin-bottom:6px;">
+                                        <span id="ttUltimos" class="info infoCoordenada reltooltip" title="Seleccionado esta opción se muestran los últimos documentos no vistos"></span>
+                                        <input
+                                                type="radio"
+                                                class="radio"
+                                                name="conFechas"
+                                                id="conFechas1"
+                                                value="0" checked="checked"
+                                        />
+                                        <label for='conFechas1' class='lblObligatoria hand' id='lblUltimos' >&Uacute;ltimos documentos incorporados</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" class="radio" name="conFechas" id="conFechas2" value="1"  />
+                                        <label for='conFechas2' class='lblObligatoria hand' id='lblFechas' >Documentos en un periodo</label>
+                                        <div style="margin-left:21px;">
+                                            <label for='fechaDesde' class='lblOptional hand' id='lblFechaDesde' >Fecha inicial</label>
+                                            <script type="text/javascript">
+                                                $(function(){
+                                                    aplicarDatePicker();
+                                                });
+                                            </script><input type="text"
+                                                            class="medium datepicker"
+                                                            id="fechaDesde"
+                                                            name="fechaDesde"
+                                                            maxlength="10"
+                                                            placeholder="(Opcional)"
+                                                            data-defaultvalue=""
+                                                            data-maxdate="11&#x2f;06&#x2f;2020"
+                                                            data-mindate="01&#x2f;05&#x2f;2007"
+                                                            data-locale="es"
+                                                            data-radioid="conFechas2"
+                                        />
+
+
+                                            <span style="margin-left:40px;">
+							<label for='fechaHasta' class='lblOptional hand' id='lblFechaHasta' >Fecha final</label>
+							<input type="text"
+                                   class="medium datepicker"
+                                   id="fechaHasta"
+                                   name="fechaHasta"
+                                   maxlength="10"
+                                   placeholder="(Opcional)"
+                                   data-defaultvalue=""
+                                   data-maxdate="11&#x2f;06&#x2f;2020"
+                                   data-mindate="01&#x2f;05&#x2f;2007"
+                                   data-locale="es"
+                                   data-radioid="conFechas2"
+                            />
+
+
+						</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-content">
+                                <div class="form-subtitle">
+				<span class="subtitle">
+					<label  class='lblObligatoria' id='lblFormatoSalida' >Formato de salida</label>
+				</span>
+                                </div>
+                                <div class="input-line">
+                                    <div>
+                                        <input type="radio" name="salida" id="salida0" value="pant" checked="checked"/>
+                                        <label for='salida0' class='lblObligatoria hand' id='lblPantalla' >Selecci&oacute;n por pantalla de los documentos que desee descargar</label>
+                                    </div>
+                                    <div style="margin-top:10px;">
+                                        <input type="radio" name="salida" id="salida1" value="pdf"  />
+                                        <label for='salida1' class='lblObligatoria hand' id='lblDescarga' >Descarga directa de todos los documentos</label>
+                                    </div>
+                                    <div style="margin-top:10px;margin-left:20px;">
+                                        <input type="radio" name="inZip" id="inZip0" value="false" checked="checked"/>
+                                        <label for='inZip0' class='lblObligatoria hand' id='lblpdf' >Documentos seleccionados agrupados en un solo archivo PDF</label>
+                                    </div>
+                                    <div style="margin-top:10px;margin-left:20px;">
+                                        <input type="radio" name="inZip" id="inZip1" value="true"  />
+                                        <label for='inZip1' class='lblObligatoria hand' id='lblZip' >Documentos seleccionados en archivos PDF individuales, empaquetados en un archivo ZIP</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="confirm-box">
+                                <div class="confirm-btn">
+                                    <input type="submit" name="btnOk" value="Aceptar"/>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <!-- Creamos las variables de los textos para poder introducir traducciones en javascript sin errores de formato (comillas o apóstrofes en catalán etc.) -->
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript">
+                        var urlFavoritos = '/htmlVersion/XTransManager';
+                        // Declaramos los textos de error que se utilizarán después en el pop-up de favoritos
+                        var txtMisfavoritos = 'Mis\x20favoritos';
+                        var txtErrorNombreCarpeta = 'Debe\x20indicar\x20un\x20nombre\x20para\x20la\x20nueva\x20carpeta.';
+                        var txtError2Niveles = 'No\x20se\x20pueden\x20crear\x20m\xE1s\x20de\x202\x20niveles\x20de\x20carpeta.';
+                        var txtErrrorYaExisteCarpeta = 'Ya\x20existe\x20una\x20carpeta\x20con\x20el\x20mismo\x20nombre.';
+                        var txtErrrorCrearCarpeta = 'Se\x20ha\x20producido\x20un\x20error\x20al\x20crear\x20la\x20carpeta.';
+                        var txtErrorFaltaNombre = 'Debe\x20indicar\x20un\x20nombre\x20para\x20el\x20nuevo\x20favorito.';
+                        var txtError3Niveles = 'No\x20se\x20pueden\x20crear\x20m\xE1s\x20de\x203\x20niveles.';
+                        var txtErrorCrearFavorito = 'Se\x20ha\x20producido\x20un\x20error\x20al\x20crear\x20favorito.';
+                    </script>
+
+                    <script type="text/javascript" src="/htmlVersion/home/js/favoritos_v2.js?version=201911050000"></script>
+                    <link rel="stylesheet" href="/htmlVersion/home/css/menucontextualdialog.css?version=201911050000" type="text/css" media="screen" />
+
+                    <!-- Pop-up formulario Guardar favorito -->
+                    <div id="parent" class="lightbox-content" style="display: none;">
+                        <form id="formGuardarFavorito">
+                            <div class="header">Agregar favorito</div>
+                            <div class="body">
+                                <div class="field">
+                                    <label for='nombreFavorito' class='labelFavoritos hand' id='lblnombreFavorito' >Nombre</label>
+                                    <input type="text" name="nombreFavorito" id="nombreFavorito" class="xxlarge" maxlength="40" autocomplete="off">
+                                </div>
+                                <div class="field">
+                                    <label for='nombreCarpetaF' class='labelFavoritos hand' id='lblnombreCarpetaLbl' style='margin-top&#x3a;12px&#x3b;' >Crear en</label>
+                                    <input type="text" readonly="readonly" class="xxlarge" name="nombreCarpetaF" id="nombreCarpetaF" maxlength="40"/>
+                                    <input type="hidden" id="rutaCarpetaF" value="0" class="dd-selected-value" />
+                                    <span class="dd-container-favoritos">
+						<span id="divSelectMenu" class="dd-select-favoritos" onclick="GestorFavoritosJS.desplegarMenuFavoritos(this);">
+							<img src="home/img/mdesplegable.png" class="dd-image-favoritos" alt="Desplegar"  />
+						</span>
+						<ul id="ulMenu" class="dd-options-favoritos" style="display: none;"></ul>
+					</span>
+                                </div>
+                                <a id="btnNuevaCarpeta" class="light-green-btn"><span>Nueva carpeta</span></a>
+                                <div class="last-buttons">
+                                    <span id="btnCancelarFavorito" class="cancel-btn" style="display: inline-block; margin-right: 16px; *margin-right:0px;"><input type="button" value="Cancelar" /></span>
+                                    <span id="btnConfirmarFavorito" class="confirm-btn" style="display: inline-block; margin-right: 16px;"><input type="button" onclick="GestorFavoritosJS.crearFavoritoEnHost();" value="Aceptar" /></span>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="formNuevaCarpeta" style="display: none;">
+                            <div class="header">Nueva carpeta</div>
+                            <div class="body">
+                                <div class="field">
+                                    <label for='nombreCarpeta' class='labelFavoritos hand' id='lblnombreCarpetaLbl2' >Nombre carpeta</label>
+                                    <input type="text" class="xxlarge" onkeydown="return sinPunto(event);" name="nombreCarpeta" id="nombreCarpeta" maxlength="40" autocomplete="off"/>
+                                </div>
+                                <div class="field">
+                                    <label for='rutaCarpeta' class='labelFavoritos hand' id='lblrutaCarpeta' style='margin-top&#x3a;12px&#x3b;' >Crear en</label>
+                                    <input type="text" readonly="readonly" class="xxlarge" name="rutaCarpeta" id="rutaCarpeta" maxlength="40"/>
+                                    <input type="hidden" id="rutaCarpetaSeleccionada" value="0" class="dd-selected-value" />
+                                    <span class="dd-container-favoritos">
+						<span id="divSelectMenuCarpeta" class="dd-select-favoritos" onclick="GestorFavoritosJS.desplegarMenuFavoritos(this);">
+							<img src="home/img/mdesplegable.png" class="dd-image-favoritos" alt="Desplegar" />
+						</span>
+						<ul id="ulMenuCarpeta" class="dd-options-favoritos" style="display: none;"></ul>
+					</span>
+                                </div>
+                                <div class="last-buttons">
+                                    <span id="btnCancelarNuevaCarpeta" class="cancel-btn" style="display: inline-block; margin-right: 16px; *margin-right:0px;"><input type="button" value="Cancelar" /></span>
+                                    <span id="btnConfirmarNuevaCarpeta" class="confirm-btn" style="display: inline-block; margin-right: 16px;"><input type="button" onclick="GestorFavoritosJS.crearCarpetaEnHost();" value="Aceptar" /></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div id="dialog" title="Favorito no aplicable" style="display: none;">
+                        <p>No se han podido aplicar los datos guardados.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

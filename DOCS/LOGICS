@@ -1,0 +1,135 @@
+---
+todo: check actuality. VB 2017-05-05
+// ? account ScrapeTime == 01/01/1900 (NEVER_SCRAPED_DATE) means that account wasn't scraped yet
+// ?set ScrapeTime = 01/01/1900 (NEVER_SCRAPED_DATE) in db_funcs.AccountFuncs.add_account because scraper doesn't know is it new account or old
+
+
+---
+use main_runner main() for scheduled scraping for all customers
+use main_runner from celery for scraping for specific customer
+---
+I'll be using the approach for new accounts of already scraped financial entity: if scrape_date_from passed, I'll use it for new account (for already scraped I'll use last_scraped_date), if scrape_date_from not passed - will scrape new account from the begging of a current month.
+---
+date_to always today by default, it is impossible to redefine it because current logic with last_scrape become useless (and buggy)
+---
+
+
+value_date > operational_date
+{'operation_date': '23/05/2017', 'value_date': '24/05/2017', 'description': 'TRANSFERENCIA DE ROJAS MOTOR S.L., CONCEPTO PAGO SPORTAGE BAST.: U5YPG814AHL286879', 'temp_balance': 369100.35, 'amount': 21347.61}
+
+
+----
+
+
+Balances integrity logic
+
+Basic position:
+    we upload all new movements since date for one account at same time
+    if more than 100 movements has been extrcted, they will be split to batches in db_funcs updater
+    it is possible when scraper uploads same movements from different threads because same account could be scraped from different accesses/contracts in parallel mode
+
+
+1. The aim is to extract all movements or inform if balance integrity error found (some movements were lost)
+
+2. There are several reasons
+
+
+Situation 1
+
+last scraping date: 2017-10-10
+
+were
+2017-10-10    mov 20171010-2   +1000 2100
+2017-10-10    mov 20171010-1   +100  1100
+2017-10-09    mov 20171009-2   +10   1000
+2017-10-09    mov 20171009-1   +1    990
+
+should be after scraping
+2017-10-10    mov 20171010-2   +1000 2600  <-- balance integrity error (2100 in the DB)
+2017-10-10    mov 20171010-10  +500  1600  <-- added movement of the day
+2017-10-10    mov 20171010-1   +100  1100
+2017-10-09    mov 20171009-2   +10   1000
+2017-10-09    mov 20171009-1   +1    990
+
+handling:
+
+Raise balance integrity error and not upload
+
+will be after scraping (same as before)
+2017-10-10    mov 20171010-2   +1000 2100
+2017-10-10    mov 20171010-1   +100  1100
+2017-10-09    mov 20171009-2   +10   1000
+2017-10-09    mov 20171009-1   +1    990
+
+<REPORT 1 (if check all movements)>
+	Error notification
+
+	Got balance integrity error:
+
+	Exisitng movements in the DB of 2017-10-10 (display several if too long):
+	2017-10-10    mov 20171010-2   +1000 2100
+	2017-10-10    mov 20171010-1   +100  1100
+
+	Extracted movements from the web site (display several if too long):
+	2017-10-10    mov 20171010-2   +1000 2600
+	2017-10-10    mov 20171010-10  +500  1600
+	2017-10-10    mov 20171010-1   +100  1100
+
+	New movements of extracted just now (detected by unique combination of dates + descr + amount + bal):
+	NOTE: need to detect as minus of sets of just scraped and existing
+	2017-10-10    mov 20171010-2   +1000 2600
+	2017-10-10    mov 20171010-10  +500  1600
+	Can't upload:
+	2017-10-10    mov 20171010-2   +1000 2100 (last mov in the DB) + 500 (amount of first of new) != 1600 (bal of first of new)
+</REPORT>
+
+
+<REPORT 2 (if check one last movement)>
+	Error notification
+
+	Got balance integrity error:
+
+	Last movement in the DB of 2017-10-10:
+	2017-10-10    mov 20171010-2   +1000 2100
+
+	Extracted movements from the web site (display several if too long):
+	2017-10-10    mov 20171010-2   +1000 2600
+	2017-10-10    mov 20171010-10  +500  1600
+	2017-10-10    mov 20171010-1   +100  1100
+
+	Next movement to insert from:
+	2017-10-10    mov 20171010-1   +100  1100 <-- next after
+
+	Can't insert, balance inconsitency:
+	2100 (balance of last) + 100 (amount of next) != 1100 (bal of next)
+
+	(NOTE: mov <2017-10-10 20171010-1 (+100  1100)> is $next because we took first of extracted because
+	<2017-10-10    mov 20171010-2   +1000 2100> not found)
+
+	!!!! simple way to detect balance inconsistency: if $last not in $all_new_scraped
+
+</REPORT>
+
+
+
+NOTE:
+1. when parallel scraping, then one of the accounts can update DB with correct movements, and during this operation another account WILL NOT detect false positive integrity error because no new movements will find (all in the DB = just scraped)
+
+Think:
+    how it will be working if:
+        more than 100 movements extracted (will split to several batches per 100 movements)
+        updating same movements in same time for same account from different threads
+        one of the thead starts checking when another threads alreade uploaded part of all movements
+
+        --> one way: compare all movements (saved and pending) to find balance inconsistency
+
+        OR --> compare only one movement:
+            get $last of saved
+            find it in list of movs_to_save
+            get $next: next since last saved or first of $movs_to_save
+            compare balances of $last and $next
+            !stop if failed
+            upload movements since $next
+
+
+

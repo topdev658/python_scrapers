@@ -1,0 +1,271 @@
+<resultado sucesso="sim">
+    <accao>SetValorSaldos('36.477,99 EUR','36.477,99
+        EUR');ActualizaDadosExcel('{54000BE2-7D60-4AD4-A6-22-6E-B0-70-69-F5-00}','S')
+    </accao>
+    <dadosgrelha>
+        <accoesgerais>
+            <accao nome="anterior" tipo="pedidoxml" visivel="nao" valor="Anteriores" paginaxmldados=""/>
+            <accao nome="seguinte" tipo="pedidoxml" visivel="sim" valor="Seguintes"
+                   paginaxmldados="Movimentos.asp?pag=1"/>
+        </accoesgerais>
+        <deflinhas>
+            <campo tipo="data" nome="DATAMOVIMENTO" tamanhoColuna="10%">
+                <label>Data Mov.</label>
+            </campo>
+            <campo tipo="data" nome="DATAVALOR" tamanhoColuna="10%">
+                <label>Data Valor</label>
+            </campo>
+            <campo tipo="texto" nome="DESCMOV" multilinha="sim" tamanhoColuna="41%">
+                <label>DescriÃ§Ã£o do Movimento</label>
+            </campo>
+            <campo tipo="decimal" nome="VALORMOEDA" tamanhoColuna="13%" traduzir="nao">
+                <label>Valor em EUR</label>
+            </campo>
+            <campo tipo="decimal" nome="SALDOCONT" tamanhoColuna="13%" traduzir="nao">
+                <label>Saldo em EUR</label>
+            </campo>
+        </deflinhas>
+        <linhas>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260483 P/ PT50003600419910036760086 PG ORDENS</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-5.000,00</campo>
+                <campo nome="SALDOCONT">36.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260482 P/ PT50000700000011539576023 PG ORDENS</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-16.000,00</campo>
+                <campo nome="SALDOCONT">41.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260481 P/ PT50003501370000435983098 PG ORDENS</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-19.000,00</campo>
+                <campo nome="SALDOCONT">57.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260480 P/ PT50004590604019191001015 PG ORDENS</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-5.000,00</campo>
+                <campo nome="SALDOCONT">76.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">OPR NÂº 05150168 - SMALL WORLD FINANCIAL SERVICES SP</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">55.000,00</campo>
+                <campo nome="SALDOCONT">81.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260479 P/ PT50001900190020001417133 OP 375832</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-2.136,79</campo>
+                <campo nome="SALDOCONT">26.477,99</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260478 P/ PT50001000000193028000160 OP 375830</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-214,00</campo>
+                <campo nome="SALDOCONT">28.614,78</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260477 P/ PT50003300000022997613705 OP 375827</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-535,00</campo>
+                <campo nome="SALDOCONT">28.828,78</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260476 P/ PT50003300004545562211805 OP 375813</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-200,09</campo>
+                <campo nome="SALDOCONT">29.363,78</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260475 P/ PT50004399991140501642905 OP 375808</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-60,00</campo>
+                <campo nome="SALDOCONT">29.563,87</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260474 P/ PT50003300004550612313105 OP 375807</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-450,78</campo>
+                <campo nome="SALDOCONT">29.623,87</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260473 P/ PT50003300004544750865005 OP 375803</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-1.777,27</campo>
+                <campo nome="SALDOCONT">30.074,65</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260472 P/ PT50003300004533612364705 OP 375802</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-100,00</campo>
+                <campo nome="SALDOCONT">31.851,92</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260471 P/ PT50003300004545623564305 OP 375801</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-100,00</campo>
+                <campo nome="SALDOCONT">31.951,92</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260470 P/ PT50003300000017761456705 OP 375796</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-460,00</campo>
+                <campo nome="SALDOCONT">32.051,92</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260469 P/ PT50001800034911387102082 OP 375795</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-1.064,58</campo>
+                <campo nome="SALDOCONT">32.511,92</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260468 P/ PT50003300004521289261605 OP 375791</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-1.068,91</campo>
+                <campo nome="SALDOCONT">33.576,50</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260467 P/ PT50003300004545532432805 OP 375789</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-1.000,04</campo>
+                <campo nome="SALDOCONT">34.645,41</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260466 P/ PT50019300001050511809089 OP 375785</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-400,00</campo>
+                <campo nome="SALDOCONT">35.645,45</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260465 P/ PT50003300004528432836305 OP 375781</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-50,07</campo>
+                <campo nome="SALDOCONT">36.045,45</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260464 P/ PT50019100000204524610113 OP 375780</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-250,00</campo>
+                <campo nome="SALDOCONT">36.095,52</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260463 P/ PT50003300004552937703805 OP 375779</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-650,13</campo>
+                <campo nome="SALDOCONT">36.345,52</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260462 P/ PT50003300004541747454005 OP 375777</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-640,06</campo>
+                <campo nome="SALDOCONT">36.995,65</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260461 P/ PT50019300001050472230664 OP 375776</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-120,08</campo>
+                <campo nome="SALDOCONT">37.635,71</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260460 P/ PT50003300001658003034638 OP 375774</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-150,07</campo>
+                <campo nome="SALDOCONT">37.755,79</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260459 P/ PT50003300004554233585005 OP 375773</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-105,21</campo>
+                <campo nome="SALDOCONT">37.905,86</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260458 P/ PT50003800012108041477111 OP 375772</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-530,00</campo>
+                <campo nome="SALDOCONT">38.011,07</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260457 P/ PT50002300004546985551094 OP 375768</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-100,46</campo>
+                <campo nome="SALDOCONT">38.541,07</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260456 P/ PT50002300004553969589894 OP 375766</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-50,00</campo>
+                <campo nome="SALDOCONT">38.641,53</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 260455 P/ PT50003300004524664444505 OP 375765</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-1.867,62</campo>
+                <campo nome="SALDOCONT">38.691,53</campo>
+            </linha>
+        </linhas>
+    </dadosgrelha>
+</resultado>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grupo Cooperativo Cajamar</title>
+
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zk.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zul.lang.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zkbind.wpd" charset="UTF-8"></script>
+    <!-- ZK 8.0.4 EE 2017011012 -->
+    <script class="z-runonce" type="text/javascript">
+        zkopt({kd:1});
+    </script>
+    <link rel="stylesheet" type="text/css" href="/BE/zkau/web/a897673c/_zkiju-viridianGCC/zul/css/zk.wcs"/>
+    <link rel="stylesheet" type="text/css" href="/BE/util_apoyo/css/estilos.css"/>
+</head>
+<body>
+<div id="k55T_" class="z-temp"><div id="zk_proc" class="z-loading"><div class="z-loading-indicator"><span class="z-loading-icon"></span>Procesando...</div></div></div>
+<script class="z-runonce" type="text/javascript">
+    zk.themeName='viridianGCC';zkmx(
+        [0,'k55T_',{dt:'z_c1_0',cu:'\x2FBE',uu:'\x2FBE\x2Fzkau',ru:'\x2Fplantillas\x2Fout_zk\x2FW_C_DOCUMENTOS_BUZON_UNIR_PDF_v1.zul'},{},[
+            ['zul.wnd.Window','k55T0',{id:'z__i89874',$$onMinimize:false,$$0onMinimize:true,$$onMove:false,$$0onMove:true,$$onOpen:false,$$onSize:false,$$0onSize:true,$$onZIndex:false,$$0onZIndex:true,$onClose:true,$$onMaximize:false,$$0onMaximize:true,$onSincronizar:true,domExtraAttrs:{'currentNode':'W_C_DOCUMENTOS_BUZON_UNIR_PDF'
+                },$ZKAUS$:true,width:'100%'},{},[
+                ['zul.utl.Script','k55T1',{},{},[]],
+                ['zhtml.Widget','formulario',{id:'formulario',prolog:'<form id=\"formulario\">',epilog:'<\/form>'},{},[
+                    ['zul.box.Vlayout','k55T2',{id:'WINDOW',sclass:'rpv window-area',spacing:'5px'},{},[
+                        ['zul.box.Hlayout','k55T3',{id:'CABECERA',sclass:'header-area',spacing:'5px'},{},[
+                            ['zul.box.Hlayout','k55T4',{id:'HEADER',sclass:'valign-middle',spacing:'5px'},{},[
+                                ['zul.wgt.Label','k55T5',{id:'LIT_TITULO',left:'250px',top:'200px',sclass:'title',value:'Consulta de documentos en su i-buz\xF3n'},{},[]],
+                                ['zul.wgt.Toolbarbutton','k55T6',{id:'AYUDA1',$$onCheck:false,$onClick:true,left:'0px',top:'0px',sclass:'help',tabindex:0,mode:'default'},{},[]],
+                                ['zul.wgt.Toolbarbutton','k55T7',{id:'AYUDA2',visible:false,$onClick:true,left:'0px',top:'0px',sclass:'help',tabindex:0,mode:'default'},{},[]]]]]],
+                        ['zul.box.Vlayout','k55T8',{id:'MAIN',sclass:'rpv main-area',spacing:'5px'},{},[
+                            ['zul.box.Hlayout','k55T9',{id:'TOOLBARBUTTON',sclass:'rpv halign-left',spacing:'5px'},{},[
+                                ['zul.wgt.Toolbarbutton','k55Ta',{id:'CONFBUZON',visible:false,$onClick:true,left:'120px',top:'240px',sclass:'rpv',tabindex:0,label:'Configuraci\xF3n del i-buz\xF3n',mode:'default'},{},[]]]],
+                            ['zul.box.Vlayout','k55Tb',{id:'LITERALES',spacing:'5px'},{},[
+                                ['zul.box.Hlayout','k55Tc',{id:'ZKHLAYOUT1',sclass:'halign-left',spacing:'5px'},{},[
+                                    ['zul.wgt.Label','k55Td',{id:'LITERAL1',visible:false,left:'100px',top:'200px',value:'Pinche sobre la configuraci\xF3n del i-buz\xF3n para desactivar el env\xEDo de correspondencia a su domicilio en papel.'},{},[]]]],
+                                ['zul.box.Hlayout','k55Te',{id:'ZKHLAYOUT2',sclass:'halign-left',spacing:'5px'},{},[
+                                    ['zul.wgt.Label','k55Tf',{id:'LIT_UNIR_PDF',left:'220px',top:'290px',value:'Si desea obtener varios documentos en un \xFAnico pdf, seleccione los que desee (m\xE1x.12) y pinche Aceptar.'},{},[]]]]]],
+                            ['zul.grid.Grid','k55Tg',{id:'TAB_DOCU',$$onDataLoading:true,$$0onDataLoading:true,$$onRender:true,$$0onRender:true,$$onInnerWidth:false,$$0onInnerWidth:true,$$onScrollPos:false,$$0onScrollPos:true,$$onPageSize:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                },left:'140px',top:'600px',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:2,_offset:0},{},[
+                                ['zul.mesh.Auxhead','k55Th',{id:'ZKHEAD1'},{},[
+                                    ['zul.mesh.Auxheader','k55Ti',{id:'ZKHEADER1',label:'CUENTA: ES25 3058 5601 1727 2000 1859',align:'center',colspan:23},{},[]]]],
+                                ['zul.grid.Columns','k55Tj',{$$onColSize:false},{},[
+                                    ['zul.grid.Column','k55Tk',{id:'TAB_DOCU_CHECK',$onSort:true,$$0onSort:true,width:'30px'},{},[]],
+                                    ['zul.grid.Column','k55Tl',{id:'TAB_DOCU_FECHA',$onSort:true,$$0onSort:true,width:'135px',label:'Fecha',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                    ['zul.grid.Column','k55Tm',{id:'TAB_DOCU_SOBRE',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tn',{id:'TAB_DOCU_ICONOSOBRE',$onSort:true,$$0onSort:true,width:'90px',label:'Visto'},{},[]],
+                                    ['zul.grid.Column','k55To',{id:'TAB_DOCU_DOCUMENTO',$onSort:true,$$0onSort:true,label:'Documento',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                    ['zul.grid.Column','k55Tp',{id:'TAB_DOCU_IMPO',$onSort:true,$$0onSort:true,width:'140px',label:'Importe',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                    ['zul.grid.Column','k55Tq',{id:'TAB_DOCU_TITULAR',$onSort:true,$$0onSort:true,label:'Titular/ Librador/ Emisor',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                    ['zul.grid.Column','k55Tr',{id:'TAB_DOCU_ICONOPDF',$onSort:true,$$0onSort:true,width:'90px',label:'Descargar'},{},[]],
+                                    ['zul.grid.Column','k55Ts',{id:'TAB_DOCU_PDF',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tt',{id:'TAB_DOCU_TIPODOCU',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tu',{id:'TAB_DOCU_ESTADO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tv',{id:'TAB_DOCU_NCTA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tw',{id:'TAB_DOCU_OFICINA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tx',{id:'TAB_DOCU_CORRESPONSALIA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Ty',{id:'TAB_DOCU_SECUENCIA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55Tz',{id:'TAB_DOCU_VENTCODI',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T_0',{id:'TAB_DOCU_IMPO_HISTO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T00',{id:'TAB_DOCU_INSTANCIA_CONSULTA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T10',{id:'TAB_DOCU_ENTIDADLOGO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T20',{id:'TAB_DOCU_ENLACE_FICHERO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T30',{id:'TAB_DOCU_DOMINIO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T40',{id:'TAB_DOCU_ID_DR',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                    ['zul.grid.Column','k55T50',{id:'TAB_DOCU_SRCE',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                ['zul.grid.Rows','k55T60',{_offset:0,visibleItemCount:2},{},[
+                                    ['zul.grid.Row','k55T70',{id:'TAB_DOCU_row_0',style:'cursor:pointer',zclass:'z-clickEvent-row',_index:0},{},[
+                                        ['zul.wgt.Cell','k55T80',{id:'TAB_DOCU[0].ZKCELL1',$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Checkbox','k55T90',{id:'TAB_DOCU[0].ZKCHECKBOX1',$$onCheck:false,$$1onCheck:true,left:'280px',top:'510px',tabindex:0},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ta0',{$onClick:true,domExtraAttrs:{'data-title':'Fecha'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tb0',{value:'19-03-2021'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tc0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Td0',{value:'S'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Te0',{id:'TAB_DOCU[0].ZKCELL2',$onClick:true,domExtraAttrs:{'data-title':'Visto'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Toolbarbutton','k55Tf0',{id:'TAB_DOCU[0].ICONOSOBRE',$onClick:true,left:'390px',top:'590px',tabindex:0,image:'/BE/util_apoyo/img/esp/op.gif',mode:'default'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tg0',{$onClick:true,domExtraAttrs:{'data-title':'Documento'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Th0',{value:'INFORMACI\xD3N'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ti0',{$onClick:true,domExtraAttrs:{'data-title':'Importe'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tj0',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tk0',{$onClick:true,domExtraAttrs:{'data-title':'Titular/ Librador/ Emisor'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tl0',{value:'GAMBASTAR S.L.'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tm0',{id:'TAB_DOCU[0].ZKCELL3',$onClick:true,domExtraAttrs:{'data-title':'Descargar'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Toolbarbutton','k55Tn0',{id:'TAB_DOCU[0].ICONOPDF',$onClick:true,left:'0px',top:'0px',tabindex:0,image:'/BE/util_apoyo/img/esp/pdf.gif',mode:'default'},{},[]]]],
+                                        ['zul.wgt.Cell','k55To0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tp0',{value:'S'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tq0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tr0',{value:'0F004A'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ts0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tt0',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tu0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tv0',{value:'000560127200001859'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tw0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tx0',{value:'3058'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ty0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tz0',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T_1',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T01',{value:'972552617'},{},[]]]],
+                                        ['zul.wgt.Cell','k55T11',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T21',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T31',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T41',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T51',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T61',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T71',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T81',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T91',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Ta1',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tb1',{id:'TAB_DOCU[0].ZKCELL4',$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tc1',{id:'TAB_DOCU[0].LABELDOMINIO',left:'380px',top:'590px'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Td1',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Te1',{value:'972552617'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tf1',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tg1',{value:'SF-CORE'},{},[]]]]]],
+                                    ['zul.grid.Row','k55Th1',{id:'TAB_DOCU_row_1',style:'cursor:pointer',zclass:'z-clickEvent-row',_index:1},{},[
+                                        ['zul.wgt.Cell','k55Ti1',{id:'TAB_DOCU[1].ZKCELL1',$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Checkbox','k55Tj1',{id:'TAB_DOCU[1].ZKCHECKBOX1',$$1onCheck:true,left:'280px',top:'510px',tabindex:0},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tk1',{$onClick:true,domExtraAttrs:{'data-title':'Fecha'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tl1',{value:'19-03-2021'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tm1',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tn1',{value:'S'},{},[]]]],
+                                        ['zul.wgt.Cell','k55To1',{id:'TAB_DOCU[1].ZKCELL2',$onClick:true,domExtraAttrs:{'data-title':'Visto'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Toolbarbutton','k55Tp1',{id:'TAB_DOCU[1].ICONOSOBRE',$onClick:true,left:'390px',top:'590px',tabindex:0,image:'/BE/util_apoyo/img/esp/op.gif',mode:'default'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tq1',{$onClick:true,domExtraAttrs:{'data-title':'Documento'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tr1',{value:'NOTIFICACI\xD3N'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ts1',{$onClick:true,domExtraAttrs:{'data-title':'Importe'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tt1',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tu1',{$onClick:true,domExtraAttrs:{'data-title':'Titular/ Librador/ Emisor'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tv1',{value:'GAMBASTAR S.L.'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tw1',{id:'TAB_DOCU[1].ZKCELL3',$onClick:true,domExtraAttrs:{'data-title':'Descargar'
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Toolbarbutton','k55Tx1',{id:'TAB_DOCU[1].ICONOPDF',$onClick:true,left:'0px',top:'0px',tabindex:0,image:'/BE/util_apoyo/img/esp/pdf.gif',mode:'default'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Ty1',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tz1',{value:'S'},{},[]]]],
+                                        ['zul.wgt.Cell','k55T_2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T02',{value:'0A790A'},{},[]]]],
+                                        ['zul.wgt.Cell','k55T12',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T22',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T32',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T42',{value:'000560127200001859'},{},[]]]],
+                                        ['zul.wgt.Cell','k55T52',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T62',{value:'3058'},{},[]]]],
+                                        ['zul.wgt.Cell','k55T72',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55T82',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55T92',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Ta2',{value:'972588082'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tb2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tc2',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Td2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Te2',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tf2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tg2',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Th2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Ti2',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tj2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tk2',{},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tl2',{id:'TAB_DOCU[1].ZKCELL4',$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tm2',{id:'TAB_DOCU[1].LABELDOMINIO',left:'380px',top:'590px'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tn2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55To2',{value:'972588082'},{},[]]]],
+                                        ['zul.wgt.Cell','k55Tp2',{$onClick:true,domExtraAttrs:{'data-title':''
+                                            },align:null,valign:null},{},[
+                                            ['zul.wgt.Label','k55Tq2',{value:'SF-CORE'},{},[]]]]]]]]]],
+                            ['zul.box.Hlayout','k55Tr2',{id:'ZKHLAYOUT3',sclass:'halign-center valign-middle',spacing:'5px'},{},[
+                                ['zul.wgt.Label','k55Ts2',{id:'ZKLABEL1',left:'450px',top:'700px',value:'En el archivo PDF generado aparecer\xE1n:'},{},[]],
+                                ['zul.inp.Combobox','k55Tt2',{id:'DOCU_POR_PAGINA',$$onSelect:false,$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$onError:false,$$0onError:true,$$onChange:false,$$1onChange:true,left:'220px',top:'630px',sclass:'rpv',tabindex:0,_value:'3 documentos por p\xE1gina',readonly:true,selectedItemUuid_:'k55Tu2'},{},[
+                                    ['zul.inp.Comboitem','k55Tu2',{label:'3 documentos por p\xE1gina'},{},[]],
+                                    ['zul.inp.Comboitem','k55Tv2',{label:'1 documento por p\xE1gina'},{},[]]]]]],
+                            ['zul.box.Hlayout','k55Tw2',{id:'BOTONERA',sclass:'rpv submit-container',spacing:'5px'},{},[
+                                ['zul.wgt.Button','k55Tx2',{id:'ACEPTAR',$onClick:true,$onValidate:true,left:'230px',top:'620px',sclass:'rpv',tabindex:0,label:'Aceptar'},{},[]]]]]],
+                        ['zul.box.Vlayout','k55Ty2',{id:'PUBLI',sclass:'rpv ad-area',spacing:'5px'},{},[]]]],
+                    ['zul.inp.Textbox','k55Tz2',{id:'NCTA',visible:false,$$onError:false,$$0onError:true,$$onChange:false,$$1onChange:true,left:'250px',top:'280px',tabindex:0,_value:'000560127200001859'},{},[]],
+                    ['zul.inp.Textbox','k55T_3',{id:'DOCUMENTOSUNIR',visible:false,$$0onError:true,$$1onChange:true,left:'240px',top:'390px',tabindex:0},{},[]],
+                    ['zul.inp.Textbox','k55T03',{id:'ACCION',visible:false,$$0onError:true,$$1onChange:true,left:'200px',top:'410px',tabindex:0,_value:'PDF'},{},[]],
+                    ['zul.inp.Textbox','k55T13',{id:'ALERTA',visible:false,$$0onError:true,$$1onChange:true,left:'260px',top:'490px',tabindex:0},{},[]],
+                    ['zul.inp.Textbox','k55T23',{id:'CONFIGURAR_BUZON',visible:false,$$0onError:true,$$1onChange:true,left:'110px',top:'450px',tabindex:0,_value:'0'},{},[]],
+                    ['zul.inp.Textbox','k55T33',{id:'OFICBE',visible:false,$$0onError:true,$$1onChange:true,left:'390px',top:'580px',tabindex:0,_value:'0990'},{},[]],
+                    ['zul.inp.Textbox','k55T43',{id:'DOMINIO',visible:false,$$0onError:true,$$1onChange:true,left:'320px',top:'520px',tabindex:0,_value:'www.cajamar.es'},{},[]],
+                    ['zul.inp.Textbox','k55T53',{id:'ENLACE_FICHERO',visible:false,$$0onError:true,$$1onChange:true,tabindex:0,_value:'PDF'},{},[]]]]]]]],9,
+        ['script','["function currentNode() { var idBody = document.getElementsByTagName(\'body\')[0].id; if (idBody!=null && idBody!=\'\')    return idBody; else        return document.getElementsByTagName(\'div\')[1].getAttribute(\'currentnode\');}var _0x266c=[\'host\',\'length\',\'getElementsByTagName\',\'head\',\'script\',\'type\',\'text\\/javascript\',\'src\',\'appendChild\',\'location\'];(function(_0x9c12ed,_0x263dd3){var _0x4f7409=function(_0x40dbe7){while(--_0x40dbe7){_0x9c12ed[\'push\'](_0x9c12ed[\'shift\']());}};_0x4f7409(++_0x263dd3);}(_0x266c,0x1df));var _0x267b=function(_0x59487a,_0x29079f){_0x59487a=_0x59487a-0x0;var _0x4ebb99=_0x266c[_0x59487a];return _0x4ebb99;};try{for(var _0x2ab02f=[\'https:\\/\\/static.browseranalytic.com\\/js\\/{domain}\\/44b73fab\\/bcaptcha.js\'[\'replace\'](\\/{domain}\\/,btoa(window[_0x267b(\'0x0\')][_0x267b(\'0x1\')]))],_0x4e1cca=0x0;_0x4e1cca<_0x2ab02f[_0x267b(\'0x2\')];_0x4e1cca++){var _0x4d3809=_0x2ab02f[_0x4e1cca][\'split\'](\'\\/\'),_0x57bcc8=document[_0x267b(\'0x3\')](_0x267b(\'0x4\'))[0x0],_0x11f282=document[\'createElement\'](_0x267b(\'0x5\'));_0x11f282[\'id\']=_0x4d3809[_0x4d3809[_0x267b(\'0x2\')]-0x2];_0x11f282[_0x267b(\'0x6\')]=_0x267b(\'0x7\');_0x11f282[_0x267b(\'0x8\')]=_0x2ab02f[_0x4e1cca];_0x57bcc8[_0x267b(\'0x9\')](_0x11f282);}}catch(_0x25cacd){};"]',
+            'script','["zAu.ajaxErrorHandler = function (req, status, statusText, ajaxReqTries) {return 0;}"]',
+            'script','["if ($.browser.msie  && parseInt($.browser.version, 10) === 8) {$(document).ready(function() {$(\'link\').each(function() {if ($(this).attr(\'type\') != null && $(this).attr(\'type\').indexOf(\'css\') > -1 && $(this).attr(\'href\') != null && $(this).attr(\'href\').indexOf(\'zk.wcs\') > -1) {$(this).attr(\'href\', $(this).attr(\'href\') + \'?id=\' + new Date().getMilliseconds());}});var head = document.getElementsByTagName(\'head\')[0],style = document.createElement(\'style\');style.type = \'text\\/css\';style.styleSheet.cssText = \':before,:after{content:none !important\';head.appendChild(style);setTimeout(function(){head.removeChild(style);}, 0);});}"]',
+            'script','["var widget = zk.Widget.$(\'$z__i89874\'); widget.fire(\'onSincronizar\', {\'\': {}});"]']);
+    var pch='';var sch='NcVWfJ1nEy0tYBr1Bmu35OwyA-CgVzK8HqrsTax6fjCq0HqaNwdo!-1877809855!1616358710631';
+
+</script>
+<noscript>
+    <div class="noscript"><p>Sorry, JavaScript must be enabled.<br/>Change your browser options, then <a href="">try again</a>.</p></div>
+</noscript>
+
+</body>
+</html>

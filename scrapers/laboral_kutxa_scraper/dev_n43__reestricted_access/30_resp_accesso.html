@@ -1,0 +1,242 @@
+
+<HTML>
+<HEAD>
+ <TITLE>Acceso Restringido</TITLE>
+ <SCRIPT language="JavaScript">
+ <!--
+ var sincargar = true;
+
+ function IniciaPag() 
+ {
+	document.formmenu.submit();
+   
+	return true;
+ }
+
+ function FinPag(){
+	self.defaultStatus = "";
+	return true;
+ }
+
+ function CallDetalle(cuenta, frmaction){
+	document.formDetalle.lcuenta.value = cuenta;
+	document.formDetalle.action = "https://lknet.laboralkutxa.com/Consultas/" + frmaction;
+	return true;
+ }
+	
+ function CallMovs(cuenta, frmaction){
+	document.formMovs.lcuenta.value = cuenta;	
+	document.formMovs.action = "https://lknet.laboralkutxa.com/" + frmaction;	
+	return true;
+ }
+
+ function CallIntervinientes(cuenta){
+	document.formInter.lcuenta.value = cuenta;
+    document.formInter.DESC.value = document.formInter.lcuenta.value.substr(document.formInter.lcuenta.value.lastIndexOf("@")+1,13);
+    return true;
+ }
+ 
+ function CargarImg(obj, camino){
+	obj.src = camino;
+ }
+ 
+ function Seguros() {	
+	window.parent.frames['menu'].clikSeguros();
+ }
+// -->
+</SCRIPT>
+<!--hoja de estilos-->
+<link rel="stylesheet" href="/FicherosGenerales/estilosKFF.css" type="text/css">
+
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="XMY5M-CDLQL-U7A82-5B34U-RGB42",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"XMY5M-CDLQL-U7A82-5B34U-RGB42";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="xejqmnacccwjqy2wndbq-f-607efbe6b-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"33","ak.cp":"1332309","ak.ai":parseInt("799595",10),"ak.ol":"0","ak.cr":42,"ak.ipv":4,"ak.proto":"h2","ak.rid":"28ce357f","ak.r":30628,"ak.a2":n,"ak.m":"b","ak.n":"essl","ak.bpcip":"185.19.6.0","ak.cport":40560,"ak.gh":"2.16.172.148","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1666607299","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==part7wb7hm/wBeC98cViQefi9/bhjWTfW3opL48VPO9EKbe0FBJtlYpGXYs8PVisodvHrtJJLvuZb0QJu+g5QATQcV83YzSvRiuAAE++8PvWpf0FB3xjvYS+OzFG85TAdBN3Ov7TOLBOcf599+zDxAAlzQQCecP/LGVDGjxKG8EFVcG+3nrFAM0WZceDDJ9RLnM76BbEm4QReH0E7vUDb6uBIbagescIKT5aEEk2Am+/QGgWBSfdMseiVCVge/YcmFCy6IZeVvpP/CROuLnEjtgNW4sbcsYXuUdZbWExkDuEMNxetdvBCVgxo/H2XcW2D4c4s1lTK0wIu4795WTtpJFgCStMD+/CCHE2pxbUfyaaMv9WDkov+3Caha+oxOgaZ4d5ZUpecuP+eT1YWyb2pqy+pwVABT3a+LqUoavSokM=","ak.pv":"22","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></HEAD>
+<BODY bgcolor="white" text="#000000" link="#666666" vlink="#666666" alink="#666666" onLoad="return IniciaPag()" onUnload="return FinPag()">
+<a name="toppage"></a> 
+<DIV style="width:100%; height:100%; background-color:#fff; border:0px SOLID BLUE; margin:0px; padding:0px;">
+  <TABLE width="100%" cellspacing="0" cellpadding="0" border=0 style="width:100%; background-color:#fff; border:0px SOLID black; margin:0px; padding:0px;">
+   <tr style="width:100%; height:10px;" height="10" class="ScreenOnly">
+    <td width="10" height="10" style="width:10px;height:10px;" class="ScreenOnly"><img src="/imk/ai.gif" width="10" height="10" style="width:10px;height:10px;"></td>
+    <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+    <td width="10" height="10" style="width:10px; height:10px;" class="ScreenOnly"><img src="/imk/ad.gif" width="10" height="10" style="width:10px; height:10px;"></td>
+   </tr>
+   <tr>
+		<td width="10" style="width:10px;"><img src="/imk/pb.gif" width="10" style="width:10px;"></td>
+		<td valign="top" style="position:relative;top:0px;">
+
+<!-- include virtual="/FicherosGenerales/Includes/TC012.asp" -->
+
+<!--<TABLE border="0" cellspacing="0" cellpadding="0" width='550'>
+  <TR>
+	<TD class="txtazul4" height='18' width='110'>NIF: B75019281</TD>
+	<TD class="txtazul4" width='440'>IPARCOFFEE 2008, SLU</TD>
+  </TR>
+  <TR>
+	<TD colspan='2' width='100%'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></TD>
+  </TR>
+</TABLE>
+<br />-->
+<BR><BR><BR><BR><center><TABLE bordercolor='#D12176' border='1' cellspacing='0' cellpadding='25' width='550'><TR><TD class='txtazul4' height='18' width='110'><font  size='4' name='Verdana, Arial, Helvetica, sans-serif'>Para poder operar selecciona una opción de las disponibles en el menú.<BR>En caso de que no localices la opción que necesitas, llámanos al 946 463 333.</font></td></tr></table></center>
+<FORM NAME="formDetalle" ACTION="" METHOD="POST">
+	<INPUT TYPE="hidden" NAME="Id" value="740611660">
+	<INPUT TYPE=hidden name=lcuenta value="-1">
+ 	<INPUT TYPE="hidden" NAME="CODACT" VALUE="00">
+ 	<INPUT TYPE="hidden" NAME="NUMBOL" VALUE="000000">
+ 	<INPUT TYPE="hidden" NAME="CODIGOVALOR" VALUE="999999999">
+ 	<INPUT TYPE="hidden" NAME="TIPOCON" VALUE="G">
+ 	<INPUT TYPE="hidden" NAME="CONSUL" VALUE="A">
+ 	<INPUT TYPE="hidden" NAME="TOTPAR" VALUE="00000000000000">
+ 	<INPUT TYPE="hidden" NAME="NORDEN" VALUE="000">
+ 	<INPUT TYPE="hidden" NAME="FECHAVTO" VALUE="00000000">
+ 	<INPUT TYPE="hidden" NAME="REFERENCIA" VALUE=" ">
+	<INPUT TYPE="hidden" NAME="TFINAN" VALUE="0">
+	<INPUT TYPE="hidden" NAME="TCREDI" VALUE="0">
+	<INPUT TYPE="hidden" NAME="REMESA" VALUE="000000"> 	
+	<INPUT TYPE="hidden" NAME="IMPORTEPARCIAL" VALUE="00000000000000"> 			 	
+</FORM>
+
+
+<FORM NAME="formMovs" ACTION="" METHOD="POST">
+	<INPUT TYPE="hidden" NAME="Id"		value="740611660">
+	<INPUT TYPE="hidden" name="lcuenta">
+
+	<INPUT TYPE="hidden" name="norden"	value = "9999999999">
+
+	<INPUT type="hidden" name="NRegOpe"    value="0000000">
+	<INPUT type="hidden" name="NumRec"     value="00000">
+	<INPUT type="hidden" name="SubNum"     value="00">
+	<INPUT type="hidden" name="NumDis"     value="00">
+	<INPUT type="hidden" name="CapAmorPag" value="00000000000000">
+	<INPUT type="hidden" name="ImpIntPag"  value="00000000000000">
+	<INPUT type="hidden" name="ImpSubPag"  value="00000000000000">
+	<INPUT type="hidden" name="ImpMorPag"  value="00000000000000">
+	<INPUT type="hidden" name="TotalPag"   value="00000000000000">
+	<INPUT type="hidden" name="CapAmorImp" value="00000000000000">
+	<INPUT type="hidden" name="ImpIntImp"  value="00000000000000">
+	<INPUT type="hidden" name="ImpMorImp"  value="00000000000000">
+	<INPUT type="hidden" name="TotalImp"   value="00000000000000">
+
+	<INPUT TYPE="hidden" NAME="FECHAVTO" VALUE="00000000">
+	<INPUT TYPE="hidden" NAME="REFERENCIA" VALUE=" ">
+	<INPUT TYPE="hidden" NAME="TFINAN" VALUE="0">
+	<INPUT TYPE="hidden" NAME="TCREDI" VALUE="0">
+
+	<INPUT TYPE="hidden" NAME="IDENTIFICADORDEUDORFIN" VALUE="         ">
+
+	<INPUT TYPE="hidden" NAME="TOTPAR" VALUE="00000000000000"> 	
+</FORM>
+
+<!---->
+<!--<FORM NAME="formInter" ACTION="https://lknet.laboralkutxa.com/Consultas/C013_Intervinientes.asp" METHOD="POST">-->
+	<!--<INPUT TYPE="hidden" NAME="Id"		value="740611660">-->
+	<!--<INPUT TYPE="hidden" name=lcuenta	value="-1">-->
+	<!--<INPUT TYPE="hidden" NAME="NIF"		value="         ">-->
+	<!--<INPUT TYPE="hidden" NAME="DESC">-->
+<!--</FORM>-->
+
+
+<FORM name = "formmenu" ACTION="https://lknet.laboralkutxa.com/menu/menuR.asp" METHOD="POST" TARGET="menu">
+	<INPUT TYPE="hidden" NAME="Id"		value="740611660">
+	<INPUT TYPE="hidden" NAME="cfrm" value="sup">
+	<input type="hidden" name="codreducida" value="71659235K">
+	<input type="hidden" name="MenuNuevoCtas" value="False">
+</FORM>
+<!-- include virtual="/FicherosGenerales/Includes/Pie.asp" -->
+
+<!-------------------------------------------------------------------
+Pantalla espera
+-------------------------------------------------------------------->
+
+<div id="loadingBackground"></div>
+<div id="loading">
+    <div class="box-wrapper">
+        <div class="center-text row">
+            <img alt="loading" src="/imk/loading.gif" width ="32" height ="32"/>
+        </div>
+        <div class="row">
+            <p class="center-text garnet">Cargando...</p>
+        </div>
+    </div>                           
+</div>
+
+
+<SCRIPT language="JavaScript">
+<!--
+function Cargando(url) {
+  var t = document.getElementById("loading");
+  var n = document.getElementById("loadingBackground");
+  n.style.display = "block";
+  n.style.visibility = "visible";
+  t.style.display = "block";
+  t.style.visibility = "visible";
+  self.location="#toppage";  
+  self.location=url;
+}
+ sincargar = false;
+-->
+</SCRIPT>
+<style>
+#loadingBackground {
+    background:#fff;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    display: none;
+		width:99%;    
+		height: 100%;
+	  position: absolute;
+    left: 10px;
+    top: 10px;
+    visibility: hidden;
+    z-index: 1;
+}
+
+#loading {
+    display: none;
+    margin: 0 auto !important;
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -30%);
+    -moz-transform: translate(-50%, -30%);
+    -o-transform: translate(-50%, -30%);
+    -ms-transform: translate(-50%, -30%);
+    transform: translate(-50%, -30%);
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')";
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0,
+            M22=1,
+            SizingMethod='auto expand');
+    visibility: hidden;
+    width: 120px;
+    height: 40px;
+    z-index: 5;
+    background:#fff;
+}
+#loading .box-wrapper img{
+				background: #fff;
+        clear: both;
+        display: block;
+        margin: 0 auto !important;
+        padding-top: 1em;
+        width: 32px !important;
+}
+.row {
+    clear: both;
+    display:block;
+}
+.center-text {
+    float: none;
+    text-align: center !important;
+}
+.garnet{ 
+    color: #A8034F;
+    font-weight: 600;
+}
+</style>
+
+
+</BODY>
+<SCRIPT>
+ sincargar = false;
+</SCRIPT>
+</HTML>

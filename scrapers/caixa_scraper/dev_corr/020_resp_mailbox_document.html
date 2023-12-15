@@ -1,0 +1,1038 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+    <script type="text/javascript" src="./js/arq/elevatezoom/jquery.elevateZoom-2.5.5.min.js"></script>
+    <script type="text/javascript" src="./js/arq/init/jsHandlerZoom.js"></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+
+    <script type='text/javascript'>
+        var ID_TABLA_CORRESPONDENCIA = 'tablacorresp';
+        var ID_MARCAR_COMO_NO_LEIDO = 'marcarComoNoLeido';
+        var ID_MARCAR_COMO_LEIDO = 'marcarComoLeido';
+        var PN_PE_PERSONALIZAR = 'PN=COX&PE=5';
+        var JS_AJAX_CALLBACK_LEIDO_NO_LEIDO = 'ajaxCallbackLeidoNoLeido';
+        var ID_TABLA_CORRESPONDENCIA_MARGEN = 'tablacorrespMargen';
+        var JS_AJAX_CALLBACK_TABLE = 'ajaxCallbackTable';
+        var NAME_DETALLE_COMUNICADO_FORM = 'detalleComunicado';
+        var JS_AJAX_CALLBACK_FAVORITOS = 'ajaxCallbackFavoritos';
+        var JS_AJAX_CALLBACK_ERROR = 'ajaxCallbackError';
+        var JS_AJAX_CALLBACK_GRAFICOS = 'callBackGraficos';
+        var LISTA_CLAVE_COMUNICADO = 'LISTA_CLAVE_COMUNICADO';
+        var LISTA_LEIDO = 'LISTA_LEIDO';
+        var LISTA_FAVORITO = 'LISTA_FAVORITO';
+        var sepIds = '#~$#';
+        var sepIdsRegExp = '\Q#~$#\E';
+        var GRAFICO_TARTA = 'GRAFICO_TARTA';
+        var GRAFICO_DONUT = 'GRAFICO_DONUT';
+        var GRAFICO_BARRAS = 'GRAFICO_BARRAS';</script>
+    <script type='text/javascript'>
+        var debug = true;
+        var loadingImg = true;
+        var myAjaxBaseUrl = '/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006';
+        var sepIds = '#~$#';
+        var sepIdsRegExp = '\Q#~$#\E';
+    </script>
+    <script language='JavaScript' type='text/javascript' src='./js/jquery.blockUI-2.57.0.js'></script>
+    <script language='JavaScript' type='text/javascript' src='./js/utilidadesMailbox.js'></script>
+    <script language='JavaScript' type='text/javascript' src='./js/EloGenB001100.js'></script>
+    <script language='JavaScript' type='text/javascript' src='./js/elocoxp000100.js'></script>
+    <script type="text/javascript" src="./js/popup.js"></script>
+    <script type="text/javascript" src="./js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.metadata.js"></script>
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/slider.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <script type="text/javascript">
+        var escribaAnotacion = "Escriba aquí sus notas privadas sobre este comunicado";
+        var MAX_LENGTH_ANOTACION_DETALLE = 50;
+        var LIT_ERROR_NO_DISPONIBLE = "En estos momentos no está disponible.";
+
+        var lupaActivada = true;
+
+        function init() {
+
+            $('#enlaceLupaMenos').attr('style', 'display: none !important;');
+            $('#enlaceLupaMas').attr('style', 'display: none !important;');
+            bloqueaPantallaTransparente();
+            setTimeout(function () {
+                initLupa();
+            }, 100);
+            desbloqueaPantalla();
+
+        }
+
+        function peticionDuplicado(claveComunicado, cuenta, fechaEnvio) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("L_SolicitarDuplicado");
+            }
+            document.forms["pn_pe"].PN.value = "COX";
+            document.forms["pn_pe"].PE.value = "18";
+            $('form[name=pn_pe]').append('<input type="hidden" name= "TORNA_PN_BACKUP" value="MBX">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "TIPO_COMUNICADO" value="02477">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "CLAVE_CONTINUACION_LISTA_COMUNICADOS" value="">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "CONTRATO_VINCULADO" value="">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "PDF_MULTIPAGINA" value="N">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "IMAGEN_COMUNICADO" value="/jsp/arq/elocomp000001.jsp?URI=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!161590750061030">'); // TODO IMAGE LINK
+            $('form[name=pn_pe]').append('<input type="hidden" name= "TORNA_PE_BACKUP" value="1">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "TIPO_CUENTA_COMUNICADO" value="ES">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "FORMATO_COMUNICADO" value="G">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "TOTAL_PAGINAS" value="1">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "FAVORITO_COMUNICADO" value="N">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "CLAVE_COMUNICADO" value="20200527001990022842">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "FLAG_JURIDICA" value="J">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "REFVAL_SIMPLE_NUMERO_CUENTA" value="">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "NUMERO_MAXIMO_PAGINAS_PDF" value="12">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "REFVAL_COMPLEJO_1474" value="HD2pjRqG1Z0cPamNGobVnQAAAXJgFjLgIzasWNFQoIM">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "FECHA_DESDE" value="20190501">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "NUMERO_PAGINAS" value="00001">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "RefInformacionComunicado" value="HD2pjRzgGW4cPamNHOAZbgAAAXJgF~OqfxjSSyIC3yw:COX:2">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "IND_CTA_FORZADA" value="N">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "FECHA_HASTA" value="20200529">');
+            $('form[name=pn_pe]').append('<input type="hidden" name= "presentacion" value="/jsp/elocoxp000200.jsp">');
+
+            var pagina = document.forms["formAbrirPDF_COX2"].PAGINA_SOLICITADA.value;
+            $("form[name=pn_pe]").append('<input name="PAGINA_SOLICITADA" value="' + pagina + '" type="hidden">');
+
+            $("form[name=pn_pe]").append('<input name="CLICK_ORIG" value="FLX_COX_2" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="OPCION" value="" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="FECHA_ENVIO" value="' + fechaEnvio + '" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="PN_ORIGEN" value="COX" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="PE_ORIGEN" value="2" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="TORNA_PN" value="COX" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="TORNA_PE" value="1" type="hidden">');
+            var divisa = document.forms["formAbrirPDF_COX2"].DIVISA_IMPORTE_COMUNICADO.value;
+            $("form[name=pn_pe]").append('<input name="DIVISA" value="' + divisa + '" type="hidden">');
+            var descripcion = document.forms["formAbrirPDF_COX2"].DESCRIPCION_COMUNICADO.value;
+            $("form[name=pn_pe]").append('<input name="DESCRIPCION" value="' + descripcion + '" type="hidden">');
+            var importe = document.forms["formAbrirPDF_COX2"].IMPORTE_COMUNICADO.value;
+            importe = importe.replace(".", "").replace(",", "").replace(" ", "");
+            if (importe == '')
+                importe = "000";
+            $("form[name=pn_pe]").append('<input name="IMPORTE" value="' + importe + '" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="REFCUENTA" value="' + cuenta + '" type="hidden">');
+            var flujo = document.forms["formAbrirPDF_COX2"].FLUJO.value;
+            $("form[name=pn_pe]").append('<input name="FLUJO" value="' + flujo + '" type="hidden">');
+            $("form[name=pn_pe]").append('<input name="REFCLAVECOMUNICADO" value="' + claveComunicado + '" type="hidden">');
+            var canal = document.forms["formAbrirPDF_COX2"].CANAL_MOVIMIENTO.value;
+            $("form[name=pn_pe]").append('<input name="CANAL_MOVIMIENTO" value="' + canal + '" type="hidden">');
+            document.forms["pn_pe"].submit();
+        }
+
+        function paginacionComunicado(paginaSolicitada, tagOmniture, totalPaginas) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                if (tagOmniture != null) {
+                    OmnitureClicatElement(tagOmniture);
+                }
+            }
+
+            with (document.forms["formPaginacionComunicado"]) {
+                PAGINA_SOLICITADA.value = paginaSolicitada;
+                CLICK_ORIG.value = "PAG_COX_2";
+            }
+
+            removeFormField("formPaginacionComunicado", "TOTAL_PAGINAS");
+            addFormField("formPaginacionComunicado", "TOTAL_PAGINAS", totalPaginas);
+
+            var parametros = $("form[name=formPaginacionComunicado]").serialize();
+
+            var contenedorOrigen = '#paginacionComunicado';
+
+            var contenedorDestino = '#divImagenComunicadoAjax';
+
+            myAjaxCall(parametros, contenedorOrigen, contenedorDestino, "ajaxCallbackPaginacionDetalle", null, "ajaxCallbackPaginacionDetalleError", true, true);
+        }
+
+        function ajaxCallbackPaginacionDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var elemento = document.getElementById("divImagenComunicadoAjax");
+            elemento.innerHTML = data;
+
+            ejecutaScript(data, "divImagenComunicadoAjax");
+
+            if (lupaActivada) {
+                initElevateZoom("idImagenComunicadoLupa", 300);
+            } else {
+                destroyElevateZoom("idImagenComunicadoLupa");
+            }
+            if (document.getElementById("EvaluaScript_COX202")) {
+                eval(document.getElementById("EvaluaScript_COX202").innerHTML);
+            }
+            desbloqueaPantalla();
+        }
+
+        function ejecutaScript(textoAsincrono, id_container) {
+            var scripts = new Array();
+            var scriptsJS = new Array();
+            var p = textoAsincrono.indexOf("<script");
+            var j = 0;
+            while (p != -1) {
+                var f = textoAsincrono.indexOf("</script",p);
+            if(f>p){
+            var p1=textoAsincrono.indexOf('>',p);
+            if(p1+1
+    <f
+    ) {
+    var texAux=textoAsincrono.substring(p,p1);
+    if (texAux.indexOf("EvaluaScript_COX202") < 0) {
+    scripts.push(textoAsincrono.substring(p1+1, f));
+    }
+    }else if (p1+1==f){
+    var j=textoAsincrono.indexOf("js/",p);
+    var j1=textoAsincrono.indexOf(".js",p);
+    scriptsJS.push(textoAsincrono.substring(j,j1+3));
+    }
+    p=textoAsincrono.indexOf("
+    <script
+    ",f+1);
+    }else{
+    p=-1;
+    }
+    }
+
+    for(var i=0; i
+    <scriptsJS.length
+    ; i++) {
+    $.ajax({
+    url: "./"+scriptsJS[i],
+    async: false,
+    dataType: "script"
+    })
+    }
+    }
+    function ajaxCallbackPaginacionDetalleError(data, textStatus, jqXHR, params, objOrigen, objDestino,
+    objDestinoEvalScript) {
+    var html = '';
+
+    if (data==null || data=="") {
+
+    html = getHTMLError(null);
+
+    } else {
+    html = $("
+    <div/>
+    ").html(data).find("div#div_Error02").html();
+    }
+    $("#divImagenComunicadoAjax").html(html);
+    $("#listadoEnlacesPDF").hide();
+
+    desbloqueaPantalla();
+    }
+    function imprimirComunicado() {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("L_Imprimir");
+    }
+    with (document.forms["formImprimirComunicado"]){
+    CLICK_ORIG.value="EOC_COX_2";
+    target="Oculto";
+    submit();
+    }
+    }
+    function abrirEnPDF() {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("L_AbrirPdf");
+    }
+
+    with (document.forms["formAbrirPDF_COX2"]){
+    CLICK_ORIG.value="FLX_COX_2";
+    target="Cos";
+    submit();
+    }
+
+    }
+    function getPopUpUrl(obj) {
+    var url = myAjaxBaseUrl;
+    var parametros=$("form[name=formAbrirPDF_COX2]").serialize();
+    url += "?"+parametros;
+    return url;
+    }
+    function getMensajeProcesando() {
+
+    return '
+    <div style="margin: 0 auto; width: 65px"><img style="border: 0px !important; margin-top:250px;"
+                                                  src="../imatge/loading.gif"/></div>
+    ';
+    }
+    var objOrigenHtml=null;
+    function marcarDestacado(marcadoTexto, desmarcadoTexto) {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("Ch_MarcarDestacado");
+    }
+
+    with (document.forms["formPersFavoritoComunicado"]) {
+    if ($('img', '#enlaceMarcarDestacado').attr("src").indexOf("actiu")!=-1) {
+    LISTA_FAVORITO.value = "N";
+    $('span', '#enlaceMarcarDestacado')[0].innerHTML = marcadoTexto;
+    } else {
+    LISTA_FAVORITO.value = "S";
+    $('span', '#enlaceMarcarDestacado')[0].innerHTML = desmarcadoTexto;
+    }
+    CLICK_ORIG.value="FLX_COX_2";
+    }
+
+    var parametros=$("form[name=formPersFavoritoComunicado]").serialize();
+
+    var contenedorOrigen='#enlaceMarcarDestacado';
+
+    var contenedorDestino='#enlaceMarcarDestacado';
+
+    objOrigenHtml=$(contenedorOrigen).html();
+    myAjaxCall(parametros,contenedorOrigen,contenedorDestino,"ajaxCallbackMarcarDestacadoDetalle",null,"ajaxCallbackPersonalizarError",true,false);
+    }
+    function ajaxCallbackMarcarDestacadoDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino,
+    objDestinoEvalScript) {
+    $(objOrigen).html(objOrigenHtml);
+    if (hasErrors(data)) {
+    showErrors(data);
+    } else {
+    if ($('#enlaceMarcarDestacado').children('img').attr("src").indexOf("actiu")!=-1) {
+    $('#enlaceMarcarDestacado').children('img').attr("src","imatge/ico-favorits.png");
+    } else {
+    $('#enlaceMarcarDestacado').children('img').attr("src","imatge/ico-favorits-actiu.png");
+    }
+    }
+    desbloqueaPantalla();
+    }
+    function ajaxCallbackPersonalizarError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript)
+    {
+    var html = '';
+
+    if (data==null || data=="") {
+
+    html = getHTMLError(null);
+
+    } else {
+    html = $("
+    <div/>
+    ").html(data).find("div#div_Error02").html();
+    }
+    $("#showErrors").html(html);
+
+    desbloqueaPantalla();
+    }
+    function marcarLeido(marcarLeido, marcarNoLeido) {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("Ch_MarcarNoLeido");
+    }
+
+    with (document.forms["formPersLeidoComunicado"]) {
+    if ($('span', '.marcar')[1].innerHTML == marcarNoLeido){
+    LISTA_LEIDO.value = "N";
+    $('span', '.marcar')[1].innerHTML = marcarLeido;
+    } else {
+    LISTA_LEIDO.value = "S";
+    $('span', '.marcar')[1].innerHTML = marcarNoLeido;
+    }
+    CLICK_ORIG.value="FLX_COX_2";
+    }
+
+    var parametros=$("form[name=formPersLeidoComunicado]").serialize();
+
+    var contenedorOrigen='#checkboxMarcarLeido';
+
+    var contenedorDestino='#checkboxMarcarLeido';
+
+    objOrigenHtml=$(contenedorOrigen).html();
+    myAjaxCall(parametros,contenedorOrigen,contenedorDestino,"ajaxCallbackMarcarLeidoDetalle",null,"ajaxCallbackPersonalizarError",true,false);
+    $("#checkboxMarcarLeido")[0].checked = false;
+    }
+    function ajaxCallbackMarcarLeidoDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino,
+    objDestinoEvalScript) {
+    $(objOrigen).html(objOrigenHtml);
+    if (hasErrors(data)) {
+    showErrors(data);
+    if($("#checkboxMarcarLeido").is(':checked')) {
+    $("#checkboxMarcarLeido").attr('checked', false);
+    } else {
+    $("#checkboxMarcarLeido").attr('checked', true);
+    }
+    }
+    desbloqueaPantalla();
+    }
+    function tratarTextAreAnotacion() {
+    var tmp = $("#txtareaAnotacion").val().substr(0,49);
+    if ($("#txtareaAnotacion").val().length > 50) {
+
+    with (document.forms["formPersComentarioComunicado"]) {
+
+    $("#txtareaAnotacion").html(tmp);
+    $("#txtareaAnotacion").val(tmp);
+    }
+    }
+    }
+    function guardarAnotacion() {
+
+    if ($.trim($("#txtareaAnotacion").val()) == $.trim(escribaAnotacion)) {
+    return;
+    }
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("B_GuardarAnotacion");
+    }
+
+    with (document.forms["formPersComentarioComunicado"]) {
+    LISTA_COMENTARIO.value = $("#txtareaAnotacion").val();
+    CLICK_ORIG.value="FLX_COX_2";
+    LISTA_COMENTARIO.value = encodeURI(LISTA_COMENTARIO.value);
+    }
+
+    var parametros=$("form[name=formPersComentarioComunicado]").serialize();
+
+    var contenedorOrigen='#botonGuardar';
+
+    var contenedorDestino='#txtareaAnotacion';
+
+    objOrigenHtml=$(contenedorOrigen).html();
+    myAjaxCall(parametros,contenedorOrigen,contenedorDestino,"ajaxCallbackGuardarAnotacionDetalle",null,"ajaxCallbackPersonalizarError",true,true);
+    }
+    function ajaxCallbackGuardarAnotacionDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino,
+    objDestinoEvalScript) {
+    $(objOrigen).html(objOrigenHtml);
+    if (hasErrors(data)) {
+    showErrors(data);
+    } else {
+    }
+    desbloqueaPantalla();
+    }
+    function hasErrors(data) {
+    var errors=$("
+    <div/>
+    ").html(data).find("div#errorItem");
+    if ($(errors).length==0)
+    return false;
+    return true;
+    }
+    function showErrors(data) {
+    $("#showErrors").html($("
+    <div/>
+    ").html(data).find("div#errorItem"));
+    }
+    function volver() {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("B_Volver");
+    }
+    with (document.forms["formVolver"]) {
+    removeFormField("formVolver", "TORNA_PN");
+    removeFormField("formVolver", "TORNA_PE");
+    var tornapnbackup=document.forms["formVolver"].TORNA_PN_BACKUP.value;
+    var tornapebackup=document.forms["formVolver"].TORNA_PE_BACKUP.value;
+    if (tornapnbackup!="" && tornapebackup!="") {
+    $("form[name=formVolver]").append('<input name="TORNA_PN" value="'+tornapnbackup+'" type="hidden">');
+    $("form[name=formVolver]").append('<input name="TORNA_PE" value="'+tornapebackup+'" type="hidden">');
+    }
+    submit();
+    }
+    }
+    function initLupa() {
+    if (lupaActivada) {
+    $('#enlaceLupaMenos').attr('style','display: block !important;');
+    $('#enlaceLupaMas').attr('style','display: none !important;');
+    initElevateZoom("idImagenComunicadoLupa", 300);
+    } else {
+    $('#enlaceLupaMenos').attr('style','display: none !important;');
+    $('#enlaceLupaMas').attr('style','display: block !important;');
+    destroyElevateZoom("idImagenComunicadoLupa");
+    }
+    }
+    function configurarLupa () {
+
+    if (lupaActivada) {
+    lupaActivada=false;
+    $('#enlaceLupaMenos').attr('style','display: none !important;');
+    $('#enlaceLupaMas').attr('style','display: block !important;');
+    destroyElevateZoom("idImagenComunicadoLupa");
+
+    } else {
+    lupaActivada=true;
+    $('#enlaceLupaMenos').attr('style','display: block !important;');
+    $('#enlaceLupaMas').attr('style','display: none !important;');
+    initElevateZoom("idImagenComunicadoLupa", 300);
+    }
+    }
+    </script>
+    <
+    /head>
+
+    < div
+    class
+    = "apple_overlay "
+    id = "overlay" >
+        < div
+    class
+    = "capa_liquida" >
+        < div
+    class
+    = "top" > < span > < /span></
+    div >
+    < div
+    class
+    = "center-content2" >
+        < div
+    class
+    = "center-content clearfix" >
+        < div
+    id = "infoCont"
+    class
+    = "contentWrap clearfix" > < /div>
+        < /div>
+        < div
+    class
+    = "limpiar" > < /div>
+        < /div>
+        < div
+    class
+    = "bottom_liq" > < span > < /span></
+    div >
+    < /div>
+    < /div>
+
+    < body
+    id = "cos"
+    class
+    = "margen_top5 "
+    onload = "init()" >
+        < script >
+    var PNLomilu = 'COX';
+    var PELomilu = '2';</script>
+    <script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+    <div id="lo_contenido">
+        <div class="correspondencia">
+
+            <div class="blockMe">
+                <a href="javascript:volver()" class="icon_volver ocultar"><span>Volver</span></a>
+                <br>
+                <br>
+                <div class="mostrar">
+                    <div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa"/></div>
+                    <div class="rfloat">Fecha impresión: <strong>29/05/2020</strong>&nbsp;</div>
+                    <div class="limpiar"></div>
+                </div>
+                <div class="">
+                    <ul class="ul_horiz_sepa rfloat rtxt medida40 " id="">
+                        <li class="rtxt fnone dinb"><a
+                                href="javascript:pasadorDetalleComunicado('-1','20200528003690006824-1','L_PagAnterior','REFVAL_COMPLEJO_879=HD2pjR9CnTAcPamNH0KdMAAAAXJgF94NBX1h81EWPHI');"
+                                class="no_subrayado" title="" onClick="this.blur();"><span>&laquo;</span> <span>Comunicado anterior</span></a>
+                        </li>
+                        <li class="rtxt fnone dinb last"><a
+                                href="javascript:pasadorDetalleComunicado('-1','20200526003880264662-1','L_PagSiguiente','REFVAL_COMPLEJO_908=HD2pjR8wtJ0cPamNHzC0nQAAAXJgF94NlE6atin0kTs');"
+                                class="no_subrayado" title="" onClick="this.blur();"><span>Siguiente comunicado</span>
+                            <span>&raquo;</span></a></li>
+                    </ul>
+                    &nbsp;
+                    <ul class="ultit lfloat">
+                        <li><p class=""><span>Recibos de préstamos</span></p></li>
+                        <li><p class=""><span>Mayo</span> <span> </span> <span>2020</span></p></li>
+                        <li class="last"><p class=""><span>937,50 euros</span></p></li>
+                    </ul>&nbsp;
+                </div>
+                <br>
+                <div class="limpiar"></div>
+                <span>Comunicado vinculado a la cuenta:</span> <span class="blau ">ES24 2100 3692 8722 1000 0126</span>
+                <br>
+                <br>
+                <div id="showErrors" class="limpiar"></div>
+                <div class="detall">
+                    <div class="esq"><a
+                            href="javascript:peticionDuplicado('HD2pjR7HBeEcPamNHscF4QAAAXJgF94MPa65IYwpPXM:COX:2','HD2pjR6boFUcPamNHpugVQAAAXJgF94NMkL27XfHRWQ:COX:2','27052020')"
+                            class="icon_mes_info no_subrayado dinb inferior10" title=""><span>Solicitar un duplicado por correo postal</span></a>
+                        <div class="limpiar"></div>
+                        <div class="box_blau ">
+                            <ul class="ul_horiz_sepa rfloat rtxt superior5 " id="listadoEnlacesPDF">
+                                <li class="rtxt fnone dinb"><a href="javascript:configurarLupa()" id="enlaceLupaMenos"
+                                                               class="pdf_top no_subrayado  dnone" title=""><img
+                                        src="imatge/icon_lupa_menos.png"
+                                        class="vamid derecha5"><span>Desactivar lupa</span></a> <a
+                                        href="javascript:configurarLupa()" id="enlaceLupaMas"
+                                        class="pdf_top no_subrayado dnone" title=""><img src="imatge/icon_lupa.png"
+                                                                                         class="vamid derecha5"><span>Activar lupa</span></a>
+                                </li>
+                                <li class="rtxt fnone dinb"><a href="javascript:abrirEnPDF()" id="enlaceAbrirPDF"
+                                                               class="icon_pdf" title=""><span>Abrir en PDF</span></a>
+                                </li>
+                                <li class="rtxt fnone dinb last"><a href="javascript:imprimirComunicado()"
+                                                                    id="enlaceImprimir" class="printgreen2 no_subrayado"
+                                                                    title=""><img class="vamid derecha5" height="21"
+                                                                                  width="37"
+                                                                                  src="../imatge/icon_printgreen.gif"/><span>Imprimir esta página</span></a>
+                                </li>
+                            </ul>
+                            <div class="limpiar"></div>
+                            <div class="imatge" id="divImagenComunicado">
+                                <a href="javascript:void(0);"><img id="idImagenComunicadoLupa" class=" zoomx100  "
+                                                                   src="/jsp/arq/elocomp000001.jsp;WeblogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006!1590749078118?URI=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!161590750061030"
+                                                                   data-zoom-image="/jsp/arq/elocomp000001.jsp;WeblogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006!1590749078118?URI=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!161590750061030"
+                                                                   title="" alt="" onclick=""/>
+                                    <script id="idImagenComunicadoLupaEvalScript" type="text/javascript">
+                                        $(document).ready(function () {
+                                            initElevateZoom('idImagenComunicadoLupa', 300);
+                                        });
+                                    </script>
+                                </a></div>
+                            <div class="limpiar"></div>
+                        </div>
+                    </div>
+                    <div class="dre">
+                        <div class="marcar">
+                            <a class="no_subrayado negro  lfloat derecha10" id="enlaceMarcarDestacado" href="#"
+                               onclick="javascript:marcarDestacado('Marcar como destacado', 'Desmarcar como destacado')"
+                               title="Marcar como destacado"><img src="imatge/ico-favorits.png" width="15" height="14"/>&nbsp;<span>Marcar como destacado</span></a><label
+                                class=""><input type="checkbox" title="" value="null" name="null"
+                                                id="checkboxMarcarLeido" class="derecha5"
+                                                onclick="javascript:marcarLeido('Marcar como leído', 'Marcar como no leído')">
+                            <span>Marcar como no leído</span></label>
+                        </div>
+                        <div class="mensaje">
+                            <h3 class="tit bggris">
+                                <span>Datos del mensaje</span></h3>
+                            <div class="content">
+                                <table class="table_dades" id="">
+                                    <tr id="" name="" class="" style="">
+                                        <th width="80" class="rtxt nobold">Concepto:</th>
+                                        <td class="">Recibos de préstamos</td>
+                                    </tr>
+                                    <tr id="" name="" class="" style="">
+                                        <th width="80" class="rtxt nobold">Fecha:</th>
+                                        <td class="">27/05/2020</td>
+                                    </tr>
+                                    <tr id="" name="" class="" style="">
+                                        <th width="80" class="rtxt nobold">Tipo:</th>
+                                        <td class="">Préstamos</td>
+                                    </tr>
+                                    <tr id="" name="" class="" style="">
+                                        <th width="80" class="rtxt nobold">Importe:</th>
+                                        <td class="">937,50 euros</td>
+                                    </tr>
+                                    <tr id="" name="" class="" style="">
+                                        <th width="80" class="rtxt nobold">Comentario:<a href="javascript:void(0)"
+                                                                                         id="tooltip_anotacion"
+                                                                                         class="info_vinculada_sol3 dinb vatop iefnone nodeco tooltip_activen"
+                                                                                         data-tooltip-position="bottom"
+                                                                                         title="Las anotaciones le permiten añadir un texto descriptivo debajo del concepto de cada comunicado en la lista de comunicados"><span></span></a>
+                                            <script type="text/javascript">
+                                                $(document).ready(function () {
+                                                    initMailboxTooltip("tooltip_anotacion");
+                                                });
+                                            </script>
+                                        </th>
+                                        <td class=""><textarea class="gris ancho-400 altura160" id="txtareaAnotacion"
+                                                               rows="0" cols="0">Escriba aquí sus notas privadas sobre este comunicado
+</textarea>
+                                            <br/>
+                                            <p class="gris smaller superior5 dinb lfloat">
+                                                <span>Máximo 50 caracteres</span></p><a
+                                                    href="javascript:guardarAnotacion()"
+                                                    class="boton boton_26 botonsinicon superior5 ocultar"><span>Guardar</span></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="mensaje">
+                            <div class="content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="limpiar"></div>
+                <br>
+                <br>
+                <a href="javascript:volver()" class="icon_volver ocultar"><span>Volver</span></a>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formPaginacionComunicado">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="2">
+                    <input type="hidden" name="FLAG_OPERATIVA_CORRESPONDENCIA" value="">
+                    <input type="hidden" name="PETICION_AJAX" value="S">
+                    <input type="hidden" name="REFVAL_SIMPLE_CLAVE_COMUNICADO"
+                           value="HD2pjR6KOyAcPamNHoo7IAAAAXJgF94dMCRp64tpz08">
+                    <input type="hidden" name="TIPO_COMUNICADO" value="02477">
+                    <input type="hidden" name="FORMATO_COMUNICADO" value="G">
+                    <input type="hidden" name="PAGINA_SOLICITADA" value="">
+                    <input type="hidden" name="FLUJO" value="">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formImprimirComunicado">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="7">
+                    <input type="hidden" name="REFVAL_SIMPLE_CLAVE_COMUNICADO"
+                           value="HD2pjR6G9FwcPamNHob0XAAAAXJgF94dEq6WgwoJT6g">
+                    <input type="hidden" name="TIPO_COMUNICADO" value="02477">
+                    <input type="hidden" name="FORMATO_COMUNICADO" value="G">
+                    <input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+                    <input type="hidden" name="RESOLUCION" value="300">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formAbrirPDF_COX2">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="12">
+                    <input type="hidden" name="FORMATO_COMUNICADO" value="G">
+                    <input type="hidden" name="REFCLAVECOMUNICADO"
+                           value="HD2pjR7HBeEcPamNHscF4QAAAXJgF94MPa65IYwpPXM:COX:2">
+                    <input type="hidden" name="RefInformacionComunicado"
+                           value="HD2pjRzgGW4cPamNHOAZbgAAAXJgF~OqfxjSSyIC3yw:COX:2">
+                    <input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+                    <input type="hidden" name="RESOLUCION" value="300">
+                    <input type="hidden" name="CANAL_MOVIMIENTO" value="INT">
+                    <input type="hidden" name="FLAG_PDF_INICIAL" value="S">
+                    <input type="hidden" name="OPCION" value="">
+                    <input type="hidden" name="FLUJO" value="COX,2,:COX,1,:GFI,7,''">
+                    <input type="hidden" name="NUMERO_PAGINAS" value="00001">
+
+                    <input type="hidden" name="TORNA_PN" value="COX">
+                    <input type="hidden" name="TORNA_PE" value="1">
+
+                    <input type="hidden" name="REFVAL_SIMPLE_CLAVE_COMUNICADO"
+                           value="HD2pjR88PKQcPamNHzw8pAAAAXJgF94eQBL6BzdYzys">
+                    <input type="hidden" name="TIPO_COMUNICADO" value="02477">
+                    <input type="hidden" name="CATEGORIA_COMUNICADO" value="6">
+                    <input type="hidden" name="IMPORTE_COMUNICADO" value="937,50">
+                    <input type="hidden" name="DIVISA_IMPORTE_COMUNICADO" value="200">
+                    <input type="hidden" name="INDICADOR_DUPLICADO_COMUNICADO" value="S">
+                    <input type="hidden" name="CODIGO_CUENTA_COMUNICADO" value="0012100369220220600010000126">
+                    <input type="hidden" name="TIPO_CUENTA_COMUNICADO" value="ES">
+                    <input type="hidden" name="FAVORITO_COMUNICADO" value="N">
+                    <input type="hidden">
+                    <input type="hidden" name="DESCRIPCION_COMUNICADO" value="Recibos+de+pr%C3%A9stamos">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="detalleComunicado" target="Cos">
+                    <input type="hidden" id="PN" name="PN" value="COX">
+                    <input type="hidden" id="PE" name="PE" value="2">
+                    <input type="hidden" name="CLICK_ORIG" value="FLX_COX_2">
+                </form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formPersFavoritoComunicado">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="5">
+                    <input type="hidden" name="LISTA_CLAVE_COMUNICADO"
+                           value="HD2pjR7mnnUcPamNHuaedQAAAXJgF94M6NrzBr21qlc">
+                    <input type="hidden" name="LISTA_FAVORITO" value="">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formPersLeidoComunicado">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="5">
+                    <input type="hidden" name="LISTA_CLAVE_COMUNICADO"
+                           value="HD2pjR7mnnUcPamNHuaedQAAAXJgF94M6NrzBr21qlc">
+                    <input type="hidden" name="LISTA_LEIDO" value="">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formPersComentarioComunicado">
+                    <input type="hidden" name="PN" value="COX">
+                    <input type="hidden" name="PE" value="5">
+                    <input type="hidden" name="LISTA_CLAVE_COMUNICADO"
+                           value="HD2pjR7mnnUcPamNHuaedQAAAXJgF94M6NrzBr21qlc">
+                    <input type="hidden" name="LISTA_COMENTARIO" value="">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="formVolver" target="Cos">
+                    <input type="hidden" name="PN" value="MBX">
+                    <input type="hidden" name="PE" value="1">
+                    <input type="hidden" name="TORNA_PN_BACKUP" value="MBX">
+                    <input type="hidden" name="TORNA_PE_BACKUP" value="1">
+                    <input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="VOL_COX_2">
+                    <input type="hidden" name="PNalBody" value="COX">
+                    <input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+                    <input type="hidden" name="TIPO_COMUNICADO" value="02477">
+                    <input type="hidden" name="CLAVE_CONTINUACION_LISTA_COMUNICADOS" value="">
+                    <input type="hidden" name="TORNA_PN" value="MBX">
+                    <input type="hidden" name="PEalBody" value="02">
+                    <input type="hidden" name="CONTRATO_VINCULADO" value="">
+                    <input type="hidden" name="PDF_MULTIPAGINA" value="N">
+                    <input type="hidden" name="IMAGEN_COMUNICADO"
+                           value="/jsp/arq/elocomp000001.jsp?URI=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!161590750061030">
+                    <input type="hidden" name="TIPO_CUENTA_COMUNICADO" value="ES">
+                    <input type="hidden" name="FORMATO_COMUNICADO" value="G">
+                    <input type="hidden" name="TOTAL_PAGINAS" value="1">
+                    <input type="hidden" name="FAVORITO_COMUNICADO" value="N">
+                    <input type="hidden" name="TORNA_PE" value="1">
+                    <input type="hidden" name="CLAVE_COMUNICADO" value="20200527001990022842">
+                    <input type="hidden" name="FLAG_JURIDICA" value="J">
+                    <input type="hidden" name="NUMERO_CUENTA" value="">
+                    <input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="">
+                    <input type="hidden" name="NUMERO_MAXIMO_PAGINAS_PDF" value="12">
+                    <input type="hidden" name="REFVAL_COMPLEJO_1474"
+                           value="HD2pjRqG1Z0cPamNGobVnQAAAXJgFjLgIzasWNFQoIM">
+                    <input type="hidden" name="FECHA_DESDE" value="20190501">
+                    <input type="hidden" name="NUMERO_PAGINAS" value="00001">
+                    <input type="hidden" name="REFCLAVECOMUNICADO"
+                           value="HD2pjRwiJWIcPamNHCIlYgAAAXJgF~MkXEyVkzEn3ho:COX:2">
+                    <input type="hidden" name="RefInformacionComunicado"
+                           value="HD2pjRzgGW4cPamNHOAZbgAAAXJgF~OqfxjSSyIC3yw:COX:2">
+                    <input type="hidden" name="IND_CTA_FORZADA" value="N">
+                    <input type="hidden" name="FECHA_HASTA" value="20200529">
+                    <input type="hidden" name="presentacion" value="/jsp/elocoxp000200.jsp">
+
+                </form>
+                <form action="/GPeticiones;WebLogicSession=2pZgCKJmo0bNLQPeUL6HOoTKvO8zKp_xh2iMQ3GrmEhRSDpD_eO2!165688267!-802306006"
+                      method="POST" name="pn_pe" target="Cos">
+                    <input type="hidden" id="PN" name="PN">
+                    <input type="hidden" id="PE" name="PE">
+                    <input type="hidden" name="CLICK_ORIG" value=""></form>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+
+                        if (isDefined(window.top.Inferior.Niveles.informaBuzon)) {
+                            top.Inferior.Niveles.informaBuzon("");
+                        }
+
+                        if (isDefined(window.top.Inferior.Menu.fijarCoordenadasMenu)) {
+                            top.Inferior.Menu.fijarCoordenadasMenu('COX', '1');
+                        }
+                        $("#txtareaAnotacion").focus(function () {
+                            if ($.trim(this.value) == $.trim(escribaAnotacion))
+                                this.value = '';
+                        });
+                        $("#txtareaAnotacion").change(function () {
+                            if (typeof OmnitureClicatElement != "undefined") {
+                                OmnitureClicatElement("T_Anotacion");
+                            }
+                            var cursorPosition = 0;
+                            if (this.setSelectionRange) {
+                                cursorPosition = $(this).prop("selectionStart");
+                            } else {
+                                var rango = getInputSelection(this);
+                                cursorPosition = rango.start;
+                            }
+                            compruebaLongitudTextarea(this, cursorPosition);
+                        });
+                        $("#txtareaAnotacion").keyup(function () {
+                            if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+                                var cursorPosition = 0;
+                                if (this.setSelectionRange) {
+                                    cursorPosition = $(this).prop("selectionStart");
+                                } else {
+                                    var rango = getInputSelection(this);
+                                    cursorPosition = rango.start;
+                                }
+                                compruebaLongitudTextarea(this, cursorPosition);
+                            }
+                        });
+                        $("#txtareaAnotacion").mousemove(function () {
+                            if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+                                var cursorPosition = 0;
+                                if (this.setSelectionRange) {
+                                    cursorPosition = $(this).prop("selectionStart");
+                                } else {
+                                    var rango = getInputSelection(this);
+                                    cursorPosition = rango.start;
+                                }
+                                compruebaLongitudTextarea(this, cursorPosition);
+                            }
+                        });
+                        $("#txtareaAnotacion").mouseout(function () {
+                            if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+                                var cursorPosition = 0;
+                                if (this.setSelectionRange) {
+                                    cursorPosition = $(this).prop("selectionStart");
+                                } else {
+                                    var rango = getInputSelection(this);
+                                    cursorPosition = rango.start;
+                                }
+                                compruebaLongitudTextarea(this, cursorPosition);
+                            }
+                        });
+
+                    });
+
+                    function compruebaLongitudTextarea(ta, cursorPosition) {
+
+                        var valor_ta = ta.value;
+                        var lantes = valor_ta.length;
+                        var regexp = /(\r\n|\n|\r)/gm
+                        valor_ta = valor_ta.replace(regexp, "");
+                        var ldespues = valor_ta.length;
+                        if (lantes != ldespues) {
+                            ta.value = ta.value.replace(regexp, "");
+                            if (ta.setSelectionRange) {
+                                ta.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+                            } else if (ta.createTextRange) {
+                                var range = ta.createTextRange();
+                                range.collapse(true);
+                                range.moveEnd('character', cursorPosition - 2);
+                                range.moveStart('character', cursorPosition - 2);
+                                range.select();
+                            }
+                            return;
+                        }
+
+                        var tmp = ta.value;
+                        if (tmp.length > MAX_LENGTH_ANOTACION_DETALLE) {
+                            ta.value = ta.value.replace(regexp, "");
+                            ta.value = ta.value.substr(0, MAX_LENGTH_ANOTACION_DETALLE);
+                            if (ta.setSelectionRange) {
+                                ta.setSelectionRange(cursorPosition, cursorPosition);
+                            } else if (ta.createTextRange) {
+                                var range = ta.createTextRange();
+                                range.collapse(true);
+                                range.moveEnd('character', cursorPosition);
+                                range.moveStart('character', cursorPosition);
+                                range.select();
+                            }
+                        }
+                    }
+
+                    function getInputSelection(el) {
+                        var start = 0, end = 0, normalizedValue, range,
+                            textInputRange, len, endRange;
+                        if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+                            start = el.selectionStart;
+                            end = el.selectionEnd;
+                        } else {
+                            range = document.selection.createRange();
+                            if (range && range.parentElement() == el) {
+                                len = el.value.length;
+                                normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+                                textInputRange = el.createTextRange();
+                                textInputRange.moveToBookmark(range.getBookmark());
+
+
+                                endRange = el.createTextRange();
+                                endRange.collapse(false);
+                                if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+                                    start = end = len;
+                                } else {
+                                    start = -textInputRange.moveStart("character", -len);
+                                    start += normalizedValue.slice(0, start).split("\n").length - 1;
+                                    if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+                                        end = len;
+                                    } else {
+                                        end = -textInputRange.moveEnd("character", -len);
+                                        end += normalizedValue.slice(0, end).split("\n").length - 1;
+                                    }
+                                }
+                            }
+                        }
+                        return {
+                            start: start,
+                            end: end
+                        };
+                    }
+                </script>
+            </div>
+            <div id='OmnitureDIV' style="display:none;visibility:hidden"></div>
+            <div style="display:none;visibility:hidden">
+
+                <script language="JavaScript" type="text/javascript" src="./js/s_code_basic.js"></script>
+
+                <script language="JavaScript" type="text/javascript">
+
+                    function setTrackerHTML(code) {
+                        document.getElementById('OmnitureDIV').innerHTML = code;
+                    };
+
+                    function OmnitureClicatElement(pQuin) {
+                        try {
+                            if (typeof window.top.sendLink === 'function') {
+                                window.top.sendLink({
+                                    event_category: '',
+                                    event_action: '',
+                                    event_label: '',
+                                    event_description: pQuin
+                                })
+                            }
+                        } catch (err) {
+                            console.log(err);
+                        }
+                        ;
+                    };
+
+                    var sendLink = function (objeto) {
+                        if (typeof window.top.sendLink === 'function') {
+                            try {
+                                window.top.sendLink(objeto);
+                            } catch (e) {
+                            }
+                        }
+                    }
+
+
+                    function testHuella() {
+
+                        try {
+
+                            s.channel = "Linea Abierta"
+                            s.pageName = "Linea Abierta:MailBox:Correspondencia"
+
+                            s.events = "event24"
+                            s.prop1 = "MailBox"
+
+                            s.prop5 = "Correspondencia"
+                            s.prop17 = "es"
+                            s.eVar17 = s.prop17
+                            s.prop18 = "Cliente"
+                            s.eVar18 = s.prop18
+
+
+                            if (typeof digitalData != "object") {
+                                digitalData = {
+                                    client_login_status: 'logado',
+                                    page_typology: 'pagina',
+                                    device: 'desktop',
+                                    page_language: 'es',
+                                    page_area: 'privada',
+                                    page_environment: 'produccion',
+                                    client_id: 'FEDA19C83878170A14D0D440F44EA738',
+                                    client_type: 'cliente',
+                                    client_segment: 'empresas',
+                                    heavy_digital: 'no',
+                                    ind_holabank: 'false',
+                                    ind_autonomo: 'false',
+                                    ind_negocios: 'false',
+                                    treatment_online: 'false',
+                                    consent_ccee: 'false',
+                                    consent_profiling: 'true',
+                                    form_maxloan_limit: '0'
+                                };
+                                if (top && typeof top.CookiePolicy === 'object') digitalData.gdpr_facebook = '' + top.CookiePolicy.isAllowedComponent('facebook');
+                            }
+
+                            if (typeof window.top.sendView === 'function') {
+                                window.top.sendView(digitalData, s);
+                            }
+                            if (navigator.appVersion.indexOf('MSIE') >= 0) setTrackerHTML(unescape('%3C') + '\!-' + '-')
+                        } catch (err) {
+                            console.log(err);
+                        }
+                        ;
+
+                    }
+
+                    function OmnitureAddLoadEvent(func) {
+                        var oldonload = window.onload;
+                        if (typeof window.onload != 'function') {
+                            window.onload = func;
+                        } else {
+                            window.onload = function () {
+                                oldonload();
+                                func();
+                            };
+                        }
+                    }
+
+
+                    OmnitureAddLoadEvent(new Function('setTimeout("testHuella();",50)'));
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div class="limpiar"></div>
+
+    </body>
+</html>

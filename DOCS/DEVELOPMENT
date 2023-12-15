@@ -1,0 +1,746 @@
+SENTRY FILTERS
+
+can't rollback // execution flow collision
+wrong credentials
+scraping exception
+handled exception
+balance integrity
+db exception
+unknown reason // can't log in due to unknown reason
+detected reason // can't log in due to detected reason
+double auth // specific reason
+wrong layout
+MassWrongCredentialsDetector
+exception !!!
+MYREQUESTS
+ODBC // db errs
+OperationalError custom_libs.db.db_funcs in new_conn // db conn err, filter as unresolved
+
+is:unresolved level:error  server_name:ubu  !message:"DOUBLE AUTH"  !message:"Unimplemented"  !message:"unsupported"  !message:"detected reason" !message:"No scraper found" !message:"wrong credentials"
+is:unresolved is:for_review assigned_or_suggested:[me]
+
+DOUBLE AUTH ALIGN
+
++ abanca_scraper -- common
++ arquia_banka_red_scraper -- common
++ banco_caminos_scraper -- cookie
++ bankinter_scraper -- common
++ bankoa_leasing_scraper -- otp
++ bbva_netcash_scraper -- common
++ caixa_geral_scraper -- common
++ caixa_regular_scraper -- cookie
++ caja_espana_scraper -- common
++ credito_agricola_scraper -- common
++ deutsche_bank_scraper -- otp
++ ruralvia_scraper -- common + otp
++ santander_brasil_novo_scraper -- common
++ santander_org_w_filiales_scraper__nuevo.py -- otp
++ triodos_scraper -- common
++ targo_scraper -- cookie
+
+
+CHECK DUPL MOVS with DIFFERENT INITIAL ID
+
+SELECT AccountId, KeyValue, COUNT(KeyValue) as count FROM dbo._TesoraliaStatements
+WHERE AccountId is not null
+GROUP BY AccountId, KeyValue
+HAVING COUNT(KeyValue) > 1
+
+
+Valdemira           171853
+MEIFUS MACHINERY    188172
+AVANSIS             106458 +Santander
+Altuna              240685 +SABADELL(Usuario (DNI) 3623)
+Meuri               111059 +ING(user access) -- accesso cliente
+DEPOROCIO           158372
+CORP                158735 +SABADELL(T.secundaria 6232)
+97194 +ING(comp access) -- accesso firma +Santander (credit acc)
+CALCONUT            179629
+INCLAM              191510
+GRUPO AZARBE        128489
+CAFES Y ZUMOS       179356
+Mundomovil          111012
+Mundomovil Online   196901
+ALFATEC             102230
+SMALL WORLD         304902
+ROTONDA             198549
+
+
+NIGHTLY SCRAPING
+    should scrape
+        -u 222222 -u 10819
+
+
+CORRESPONDENCE DEV
+    ABANCA -u 395518 -a 24439 -- GAMBAFRESH @1103
+    BANCA MARCH -u 392862 -a 22905 -- EXEA EMPRESARIAL @ 501
+    BANKIA -u 395518 -a 22951 -- GAMBAFRESH @ 302
+    BANKIA -a -a 17721
+    CIAXA -u 395518 -a 22952 -- GAMBAFRESH @ 103
+    CAIXA -a 6923 - many orgs (about 50), many corrs for AUGEMATIC ALBACETE SOCIEDAD LIMITADA (224 docs on 50 pages in 7 days) - custom conf
+    DEUTSCHEBANK -u 335942 -a 19507 -- FERSA @ 301 -- FAILED (2fa)
+    DEUTSCHEBANK -u 395518 -a 24433 -- GAMBAFRESH @ 301 -- FAILED (2fa)
+    IBER CAJA -u 395518 -a 24438 -- GAMBAFRESH @ 502
+    LABORAL KUTXA -u 395518 -a 24431 -- GAMBAFRESH @ 1402
+    LIBERBANK -u 395518 -a 24432 -- GAMBAFRESH @ 1104
+              -u 240685 -a 11129 -- ALTUNA Y URIA @ 1104 <- receipts
+    UNICAJA -u 395518 -a 24435 -- GAMBAFRESH @ 801
+    BANKINTER -u 395518 -a 24430 --  GAMBAFRESH @ 202
+    CAJAMAR -u 395518 -a 24440 -- GAMBAFRESH @ 401
+    BBVA NETCASH -u 395518 -a 24437 -- GAMBAFRESH @ 1
+    RURALVIA -u 395518 -a 24436 -- GAMBAFRESH @ 1101
+    KUTXA -u 395605 -a 22962 -- ECENARRO @ 701
+    CAJA RURAL DE NAVARRA (from RURALVIA) -u 395605 -a 22963 -- ECENARRO @ 3902
+
+    SANTANDER -a 24434 (check 'nuevo' for -a 3626 -- no acc ..5 in nuevo) @ 201
+    CAJASUR -u 389929 -a 22617 (from KUTXA)
+
+N43 dev
+    RURALVIA -a 22940
+    BANKINTER -a 3513
+    SANTANDER -a 22968
+    BANKIA -a 2206
+    IBERCAJA -a 22707
+    CAJAMAR -a 17710
+    BBVA -a 21158
+    CAIXA -a 21402
+
+
+KEEP EXPORT TIMESTAMP
+    -a 3442
+
+PAYPAL
+    -a 31902
+
+ABANCA
+    -u 240685 -a 6153 - multi-contract
+    -u 149727 -a 6402
+    -u 111059 -a 4802 - many accounts
+    -u 209470 -a 10109 -- fix current mov errors
+    -u 242841 -a 12626 -- hardware token required
+    -u 222222 -a 11432 -- huge amount of movements
+    -u 318793 -a 20114 -- several contracts, '/' date separator, one account in several contracts
+
+ALPHA BANK
+    -u 340332 -a 20001
+    -u 340332 -a 20002
+    -u 290483 -a 20216
+
+BANKIA
+    -u 240685 -a 3442 (Contrato)
+    -u 58056 -a 1316 (Seudonimo)
+    -u 163034 -a 6934 - movements attachments (receipts) -> now -u 198549 -a 6934
+    -u 198549 -a 6934 - failed due to event_number at account 20384123686000042223 and then at 20384123636000042826
+    -a 3442 - multicontract
+    -a 2206 - n43 initial target
+
+BANKINTER
+    -u 240685 -a 3628
+    138397 - wrong balance of credit accounts
+    179629 - check credit accounts // not available now
+    -u 227835 -a 11702 -- position global/position multiempresa
+    Receipts
+        -u 198549 -a 6918 - 1 acc
+        -u 198504 -a 6223 - many companies, multicurrency accs
+    -u 128489 -a 4537 - AZARBE (many companies, can't switch)
+
+BANCOFAR
+  -u 132360 -a 10511 (1 account)
+  -u 358682 -a 20835 (2 accounts)
+  -u 358682 -a 20720
+  -u 358682 -a 20900
+  -u 358682 -a 20875
+  -u 358682 -a 20892
+  -u 358682 -a 20869
+  -u 358682 -a 20849
+
+BPI
+  -u 308997 -a 21147
+  -u 340332 -a 20103
+  -u 340332 -a 20104
+
+BRADESCO
+  -u 290483 -a 20717
+  -u 340332 -a 20003
+
+KUTXA
+    -u 222222 -a 11430 - additional step (select all companies)
+    -u 240685 -a 3439
+    -u 189397 -a 4030 - additional step (select all companies)
+
+CAJASUR
+    -u 233508 -a 11507
+    -u 294116 -a 17004 - additional step (select all companies: Todo el grupo de empresas)
+    -a a 22617 -- correspondence
+
+CAIXA GERAL
+    -u 173943 -a 3834
+    -u 193218 -a 2403  // can't log in unknown reason
+    -u 97194 -a 4515
+    166001: fin_entity_access 7207 - should skip "Financiaciones Export/Import"
+
+CAIXA GERAL DEPOSITOS
+    -u 304902 -a 20530
+    -u 340332 -a 20107
+    -u 340332 -a 20108
+
+CAIXA
+    To toggle empresas/particulares view click on username and select necessary view from right slider
+    Empresas: dark gray (almost dark) header
+    Particulares: light blue header
+    -a 20111 - particulares movements (ES5021008198610200151457)
+    -a 23501, 22952 - foreign currency accounts from 'tesoreria' view
+    -u -a 16807 - very many movements at ES0821003450222200076885 (over 1600 in 2 days)
+    -u 149727 -a 6033 - many accounts (pagination, Particulares (with 'tesoreria' view))
+    -a 20312 - many accs (pagination, Empresas (with 'cuentas' view))
+    -u 203070 -a 9422 - Can't switch to company L' ARTE DI MANGIARE SL. Unknown reason. Skip now
+    -u 222222 -a 10819 - can't switch accounts - fixed
+    -u 264489 -a 14809 - PLN account ES2121008654797200305569 ZLOTY POLACO
+    -u 223756 -a 10919 - USD account ES2321005376447200000795 DÓLAR USA
+    -u 264489 -a 14809 - company title with dash
+    -u 191510 -a 8808 - company title with dash, USD account
+    -u 229664 -a 11213 - credit account 'EUR2' currency means 'EUR'
+    -u 264489 -a 14537 - company title failed - banner on start page
+    -u 131794 -a 4748 - redirects to another subdomain
+    -u 265510 -a 14503 - 60+ contracts(!) on several pages (handle pagination) - not available any more
+    -u 198549 -a  6923 - hanged movements - several companies
+        - company 'STIN SA'
+            - Cuentas men, not Tesoreria
+            - has credit acc ES9321008663100200023523 - passed without specific implementation for "cuentas" menu
+    -u 240685 -a 3630
+    -u 240685 -a 3631
+    -u 240685 -a 3632
+
+    // fixed 2019-01-29 (1.5.0 CaixaRegular)
+    -u 232339 -a 11414 - balance integrity error (failed pagination ES5721008649230200003864 - credit acc)
+    -u 224713 -a 14821 - failed pagination: ES9721003012882200598058 - credit acc
+                         ES2721001185200200061143 - hanged pagination loop (20190129-20190125)
+    -u 196901 -a 9112: ES3721009141122200069335 balance integrity err (failed pag)
+    -u 197322 -a 9137: ES7421008947400200066686 balance integrity err (failed pag)
+    -u 154853 -a 6132: ES6121008483752200109192 inconsistent mov
+
+    // 2019-01-30
+    -u 198549 -a  6923: ES1021005858760200007027: - can't parse mov, balance integr err (+ ext descr)
+
+    ext desr test:
+    -u 198549 -a  6923 - should
+
+DEUTSCHEBANK
+    -u 132360 -a 11701 - Particulares access type (unimplemented)
+    -u 92282 -a 2706
+    -u 226367 -a 3607
+    -u 97508 -a 3820
+    -u 173761 -a 4034 (several accs)
+
+
+ING (user access check):
+    -129355 (no user found in the db)
+    +166001 (one acc, no mov since 27/08 - check)
+    -179629 (multi-contract with several accounts per contract)
+
+    -u 247836 -a 12110 - multicontract (1st contact w/o accounts, 2nd w/ one account)
+    -u 188172 -a 8701 - one contract, several accounts (2nd is not a cuenta)
+    -u 166001 -a 7211 - one contract
+    -u 188172 -a 8321 - one contract, one acc
+    -u 97194 -a 3501 - one contract, usuarios sin firma access
+    -u 111059 -a 4045 - one contract, one acc
+
+TRIODOS
+    -u 239163 -a 11808
+    179629
+    127942 - multicontrac
+
+NOVOBANCO
+    NBnetwork access type
+        97508 - one contract (ZEMZANIA), several accounts per contract
+        -u 97508 -a 3824 - correct log in
+        -u 226541 -a 11112 - another ptew login steps
+        188172 - muticontract, one account per contract
+        -u 340332 -a 20004 - new, PORTUGAL, many movements
+        -a 3824
+        -a 8317
+    NBnet access type
+        97244 -- not implemented
+        -a 26914
+        -a 28167 - confirmed env
+
+
+POPULAR
+    Usuario delegado access type
+        179833 - credit accounts
+    Usuario
+        97244 (acc 3420) - 26914multicontract (!!! same accounts at different contracts of same fin ent access)
+        240685 - multicontract, many movements, no accounts for contracts, minus balances
+        107978 - multicontract
+        209470 accs 10106 - accounts aliases
+
+    -u 179356 -a 8426
+
+    -u 203070 -a 9417 - additional login step, user action required
+    -u 264489 -a 14519 - additional login step, user action required
+
+
+LIBERBANK
+    -u 173761 -a 4044 - many accs
+    -a 11129 - receipts
+
+BANCO CAMINOS
+    191510
+    -u 264489 -a 14802 - different prefixes in account_no param (ES3802340001072400980040 - new acc)
+    -u 264489 -a 14511 - USD acc
+    -u 264489 -a 20813
+    -u 264489 -a 21122
+
+
+BANCA MARCH
+    128489 - GRUPO AZARBE - main test (debit accs only)
+    -u 92282 -a 2710 - halcon ceramicas - has USD account (but amount in EUR...)
+    89911 - Altafit - several accounts
+    97508 - zemsania - no accounts (cuentas)
+    -u 189397 -a 9314 - new layout (credit accs only)
+    -u 226491 -a 11121 - another layout - no 'Resumen' page
+    -u 318793 -a 20115 - EUR and USD debit accounts
+
+BANCO MARE NOSTRUM
+    179356 CAFES Y ZUMOS SL -a 8429
+    179629 CALCONUT
+
+CASTILLA LA MANCHA LIBERBANK
+    -u 242478 -a 12007
+    -u 198549 -a 7003 ROTONDA
+
+CAJA DEURO
+    198075 -> https://www.espanaduero.es/PortalServlet?pag=1110902071492 == caja_espana_scraper
+    -u 158529 -a 6228
+
+CAJA ESPANA
+    -a 193218 -a 2405
+    -u 111059 -a 4043 -- Meuri
+
+UNICAJA
+    138442  (multicontract access 5219)
+    -u 73443 -a 2405
+    -a 24435 -- correspondence
+
+VOLKSWAGENBANK
+    111059
+    196901 access 9114  # deleted
+    -u 261615 -a 14140 -- multicontract (2 contacts)
+    -u 261615 -a 14141 -- multicontract (3 contacts, 1st hasn't movs)
+    -u 173761 -a 4061 -- one contract
+
+SANTANDER
+    -u 196901 -a 9123 (+ filiales w/o cuentas)
+    -u 204531 -a 9603 (huge list of accounts - 70)
+    -u 171853 -a 7468 lower case letters in username/pass
+    -u 201870 -a 9602 filiales should be processed and have filiales-only accounts
+    -u 261615 -a 14123 - ES00491884802110304698 - balance integrity error (saved already with errs?)
+
+    -u 291733 -a 16916 - NUEVO login method, one contract (no receipts found)
+    -u 286616 -a 18101 - NUEVO with MULTICONTRACT
+    -a 11122 - no permissions to extract contracts
+    -a 18013  - acc id 9204: 0030 1512 31 0000772271 many movs, good to test future movs
+
+TARGO
+    -u 111059 -a 4054  # > 50 movs in 15 days, need to impl 'more movs' - fixed
+    -u 111059 -a 4055
+    -u 111059 -a 7445
+    -u 240685 -a 8324 # 02162899638200166123EUR has no IBAN submenu, but should be scraped
+    -u 191510 -a 8718
+    -u 191510 -a 8807
+    -u 206949 -a 7204  # should calculate IBAN for acc 0500010251 due to there is no IBAN submenu
+
+CAJA RURAL DEL SUR
+    156239
+
+ArquiaBanca
+    -u 180918 -a 10901
+    -u 223116 -a 14101 -- multicontract
+    -u 239163 -a 19006 (nuevo login) -- multicontract
+
+LLAMADA param
+    used by
+        CAIXA GERAL
+        LIBERBANK
+        and old BMN
+        CAJA INGENIEROS
+
+
+VOLKSWAGEN NEW from caixa geral
+    use caixa geral as parent
+    use credentials of customer
+        -u 111059 -a 4061 (TEST DB only, is it inactive in prod DB. table accessos_AccClientes)
+
+CAJAMAR
+    -u 193218 -a 2306
+
+CAIXALTEA (from CAJAMAR)
+    -u 101658 -a 11420
+
+CaixaCallosa (from CAJAMAR)
+    -u 427822 -a 26205
+
+BBVA NetCash
+    -u 218347 -a 7437
+    -u 261574 -a 14104 - 92 accounts (prev version scraped 91 acc) -- now -u 264419 -a 14104
+    -u 111059 -a 4037 (extended movements)
+    -u 92282 -a 2701 (connection error)
+    -u 239949 -a 11906 - too many movements,
+        ES2201825699660010101079 has 300 movements in 15 days (20190129-20190114).
+        ES5401825699620201504494 has 380 movs
+        fails on extended descriptions (backend error)
+    // 20190130 rescraped
+    -u 264489 -a 14508
+    -u 223756 -a 10923
+    -u 239949 -a 11830 - CHECKS downloading
+    -u 239949 -a 11906 - RECEIPTS downloading (ES2601822355260208000593; ES2201825699660010101079 dev only)
+    -u 239949 -a 11906 -f 01/12/2020 - TRANSFERS
+
+LABORAL KUTXA
+    -a 24431 -- GAMBAFRESH, corespondence
+    -a 4041 -- several companies
+    -a 28801 -- only new web
+
+BBVA Particulares
+    -u 226367 -a 8434
+    -u 226367 -a 11601 -- another offset for acc position
+
+CAJA DE INGENIEROS
+    -u 239163 -a 11809
+    -u 239163 -a 11810 - not available (2019-01)
+    -u 239163 -a 11811 - not available (2019-01)
+    -u 239163 -a 11812 - not available (2019-01)
+
+RURALVIA (caja rural)
+ -u 240685 -a 3441 - multi-contract (was -u 240685)
+
+
+BANKOA (from ruralvia)
+    -u 240685 -a 3842
+    -u 291596 -a 16907  // marked as cred err
+    -u 239949 -a 22632 (leasing)
+
+
+EUROBIC
+    -u 290483 -a 20403
+    -u 340332 -a 20105
+
+
+CREDITO AGRICOLA
+    -a 340332 -a 20106
+
+
+SANTANDER PARTICULARES
+    -u 132360 -a 10527
+    -u 132360 -a 10532
+    -u 132360 -a 11404
+    -u 132360 -a 11459
+    -u 132360 -a 11461
+
+    -u 101658 -a 11602 - can't log in
+
+RENTA4BANCO
+    -u 239163 -a 11807
+    -u 133943 -a 5208
+    -u 97194 -a 7001 -- credit acc
+
+
+SABADELL
+    -u 105371 (CAL 3801)
+    -u 240985 -a 11925 -- many accounts (80), many companies
+        need to use batches to avoid DB losses (last accounts will not be uploaded due to large Db query)
+    -u 198549 -a 6931 - receipts
+    // re-scraped 20190131
+    173943: fin_entity_access 3833: ES4000810469430001551956:
+        backend returns response without 'more movements'
+        need to try to do additional req if got 200 o 20 movs
+        even if there is no 'more movs' link
+    245101: fin_entity_access 12068 - serial mode, no errs
+
+
+SABADELL MIAMI
+    -u 92282 -a 5702  - one account
+    -u 333199 -a 19304 - one account
+    -u 335942 -a 19511 - one account
+
+SABADELL UK
+    -a 22906 -- severall accounts, the child of SABADELL MIAMI
+
+SOCIETE GENERALE
+    -u 222715 -a 13618
+
+
+BNP Paribas
+    -u 261615 -a 14201
+
+BBVA Continental
+    DB customer 154379: fin_entity_access 6124 -- correct credentials
+    DB customer 154379: fin_entity_access 6125 -- correct credentials
+    -u 244304 -a 12045 -- need to change password
+    DB customer 264419: fin_entity_access 14504 -- correct credentials, many accounts, passed
+
+SANTANDER BRASIL
+    -u 173943 -a 8301
+    -u 164760 -a 7114
+    -u 164760 -a 7201
+
+    -u 244304 -a 12044 - Pessoa Juridica (Novo)
+
+
+SANTANDER CHILE
+  -u 264419 -a 14701 - ok
+  -u 264419 -a 14702 - ok
+  -u 264419 -a 14703 - ok
+  -u 264419 -a 14704 - ok
+
+
+CAJA RURAL DE NAVARRA
+    -u 268424 -a 14839
+
+CAJA RURAL SORIA
+    -u 268424 -a 14841
+
+
+CAJA Almendralejo
+  -u 242841 -a 20316
+
+
+BANK OF AMERICA
+  -u 102230 -a 16003 JuanLanzarote (the secret answer is “accessThirdLoginValue”)
+  -u 128489 -a 16527 ElenaMiraAlmond (elenamiraalmond)
+
+
+POPULAR DOMINICANO
+  -u 190857 -a 16521
+
+
+SANTANDER TOTTA
+  -u 286616 -a 16517
+  -u 164760 -a 7109
+
+
+IberCaja
+  -u 208072 -a 10408
+  -u 206949 -a 7216
+  -u 206817 -a 10013
+  -u 206817 -a 10302
+  -u 222222 -a 11431
+  -a 24438 -- correspondence
+
+RBS
+  -u 318380 -a 18662
+  -u 290483 -a 17702
+
+BANCO COOPERATIVO
+ -u 287820 -a 17907
+
+
+EUROCAJA Rural
+  -u 198549 -a 11309 -- multi-contract -- NOT IMPLEMENTED
+
+
+BANCO MONTEPIO:
+    -u 304902 -a 20402
+    -u 340332 -a 20102
+
+  CAJA_RURAL (RuarlviaScraper)
+   -u 226770 -a 16536
+   -u 242478 -a 12006
+   -u 240685 -a 3441 -- multicontract
+
+  GLOBAL_CAJA
+  -u 198549 -a 6929
+
+  CAJA_RURAL_CASTILLA_LA_MANCHA
+  -u 132360 -a 15013
+
+  CAIXA_POPULAR
+  -u 189397 -a 9409
+
+  PICHINCA
+  -u 111059 -a 4407
+
+  BANTIERRA
+  -u 268424 -a 14840
+
+  CAJA_RURAL_GRANADA
+  -u 309847 -a 17912
+
+  CAJA_RURAL_DEL_SUR
+  -u 228481 -a 11448
+
+  FIARE_BANCA_ETICA
+  -u 239163 -a 11823
+
+  BANKOA
+  -u 291596 -a 16907
+
+  CAJA_RURAL_DE_NAVARRA
+  -u 240685 -a 16202
+
+  CAJA_RURAL_SORIA
+  -u 268424 -a 14841
+
+  CAJA_RURAL_SALAMANCA
+  -u 272688 -a 15011
+
+  CAJA_RURAL_ZAMORA
+  -u 272688 -a 15012
+
+  BANCO_COOPERATIVO
+  -u 287820 -a 17907
+
+  EUROCAJA_RURAL (also basic ruralvia)
+  -u 198549 -a 11309
+
+OPENBANK
+    -u 173761 -a 10104 - w/ pagination
+    -u 154853 -a 6137 - w/ pagination
+
+
+POSTFINANCE
+    -u 340332 -a 21804
+
+CAJA RURAL CENTRAL
+    -u 190857 -a 22405
+
+
+LEASING
+    -u 239949
+
+REPEATING ACCOUNTS
+0049 4711 56 2010095250
+
+
+Customer @CustomerId=196901
+
+SELECT * FROM dbo.accesos_AccClientes WHERE accesosClienteId=9122
+UPDATE dbo.accesos_AccClientes SET Inactive = 0 WHERE accesosClienteId=8001
+
+delete from [lportal-prep].dbo._TesoraliaStatements;
+delete from [lportal-prep].dbo._TesoraliaAccounts;
+delete from [lportal-prep].dbo._TesoraliaOrganizations;
+
+
+
+SELECT * FROM [lportal].[dbo].[PosicionDiariaOnlineCustomer] WHERE id = 158372
+
+
+select COUNT(Id) as Unmarked from _TesoraliaStatements where OperationalDatePosition is null
+
+
+NIGHTLY SCRAPING
+
+07:00 in DB = 09:00 on server = 10:00 MSK
+05:00 in DB = 07:00 on server
+
+check nightly scraping
+wake up 03:55 MSK
+the scraping will start at 4:00 MSK (=3:00 server = 1:00 DB)
+check the progress
+whole scraping for 50 customers takes 2 hrs
+
+the scraping also starts at 9:00 at server?? -- not cronjob
+
+
+all updated nightly accesses
+
+-- all accesses for all nightly scraping customers
+
+SELECT COUNT(*) as Updated
+FROM
+  -- accesses
+  (
+    SELECT
+      accCli.accesosClienteId                AS [Id],
+      accEnt.accessDescription               AS [FinancialEntityAccessName],
+      accEnt.accessUrl                       AS [FinancialEntityAccessUrl],
+      accEnt.accessFirstLoginName            AS [FinancialEntityAccessFirstLoginLabel],
+      accCli.accessFirstLoginValue           AS [AccessFirstLoginValue],
+      accEnt.accessSecondLoginName           AS [FinancialEntityAccessSecondLoginLabel],
+      CASE WHEN accEnt.accessSecondLoginName = ''
+        THEN ''
+      ELSE accCli.accessSecondLoginValue END AS [AccessSecondLoginValue],
+      accEnt.accessPasswordLoginName         AS [FinancialEntityAccessPasswordLoginLabel],
+      accCli.accessPasswordLoginValue        AS [AccessPasswordLoginValue],
+      accCli.accesoId                        AS [FinancialEntityAccessId],
+      accCli.accesoClienteEntidadId          AS [FinancialEntityId],
+      accCli.groupId                         AS [CustomerId],
+      cust.[ScrapingInProgress],
+      cust.[LastScrapingStartedTimeStamp],
+      cust.[LastScrapingFinishedTimeStamp],
+      cust.[CreateTimeStamp],
+      cust.[LastUpdateTimeStamp],
+      cust.[LastResponseTesoraliaDescription]
+    FROM [dbo].[accesos_AccClientes] AS accCli
+      INNER JOIN [dbo].[accesos_AccEntidades] AS accEnt ON accCli.accesoId = accEnt.accesoId
+      INNER JOIN [dbo].[_TesoraliaCustomerFinancialEntityAccess] AS cust ON accCli.accesosClienteId = cust.[LiferayId]
+    WHERE inactive = 0
+  ) AS Access
+
+  RIGHT JOIN
+
+  -- nightly scraping customers
+  (
+    SELECT grp.groupId AS [CustomerId]
+    FROM [dbo].[Group_] AS grp
+      INNER JOIN [dbo].[Organization_] AS org ON grp.classPK = org.organizationId
+      INNER JOIN [dbo].[_TesoraliaCustomers] AS cust ON grp.groupId = cust.[LiferayId]
+    WHERE groupID IN (SELECT groupId
+                      FROM [dbo].[accesos_AccClientes]
+                      WHERE inactive = 0)
+          AND cust.[LastScrapingFinishedTimeStamp] IS NOT NULL
+          AND cust.[LastScrapingFinishedTimeStamp] >= CONVERT (date, GETDATE())
+
+  ) AS NightlyCustomers
+
+    ON Access.CustomerId = NightlyCustomers.CustomerId;
+
+
+
+=== FIXES ===
+= 20190201 =
+
+SabadellReceiptsScraper
+198549: fin_entity_access 6931: - rescraped successfully
+
+BANKINTER
+Not logged in while trying to log in for the company processing
+-u 128489 -a 4537
+-u 253573 -a 13501
+-u 253532 -a 13406
+-u 253862 -a 13305
+-u 240685 -a 3628
+-u 73443 -a 7413
+-u 253656 -a 13401
+-u 253697 -a 13402
+
+= 20190204 =
+
+BBVA NetCash
+re-scraped with
+2.14.0 more MOV_EXTRA_DETAILS_NON_CRITICAL_ERR_MARKERS
+
+-u 111059 -a 4037
+-u 239949 -a 11906
+-u 101658 -a 3601
+-u 188172 -a 8308
+-u 223756 -a 10910
+-u 154853 -a 6127
+-u 128489 -a 4738
+-u 149727 -a 10501
+-u 112467 -a 4063
+-u 224713 -a 14816
+
+= 20190207 =
+
+SantanderEmpresasScraper
+
+fixed balance integr err
+-u 286616 -a 16514
+-u 203070 -a 9418
+
+-u 261615 -a 14123  0049 1884 80 2110304698 - inconsistent movs in the DB, fixed (duplicates)
+-u 261615 -a 14129  0049 1884 80 2110304698 -- same account, many movements - DB upd error (duplicates)
+-u 261615 -a 14134  0049 1884 80 2110304698 -- same account, many movements - DB upd error (duplicates)
+

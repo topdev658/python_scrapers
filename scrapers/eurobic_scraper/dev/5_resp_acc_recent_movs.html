@@ -1,0 +1,1786 @@
+
+
+
+
+<HTML>
+
+  <HEAD>
+
+		
+
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+
+
+		<meta http-equiv='Cache-Control' content='no-cache, must-revalidate' />
+
+		<meta http-equiv="Expires" content="0" />
+
+		<meta http-equiv="Pragma" content="no-cache" />
+
+<TITLE>Banco BIC Português</TITLE>
+
+<link rel="stylesheet" href="/CorporateBanking/v10/PT/css/estilos.css" type="text/css" media="screen">
+
+<script>var urlPagina="/CorporateBanking/v10/PT/aspx/empresas/consultas/saldosMov/saldosmovimentos_index.aspx"</script>
+
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/geralV1.js"></script>
+
+<script src="/CorporateBanking/v10/PT/js/menus.aspx"></script>
+
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/utilsV1.js"></script>
+
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/validacoesV1.js"></script>
+
+
+
+		<script language="javascript">
+
+WEBO_ZONE=10;
+
+WEBO_PAGE=7;
+
+if(webo_ok==1){webo_zpi(WEBO_ZONE,WEBO_PAGE,89140);}
+
+</script>
+
+
+
+		<script language="javascript">
+
+		function hrefDetalhe(url,codOpr,dataMov,numMov,obsMov,horaMov,numOper,montMovValor,montMovSinal, movDesc)
+
+		{
+
+			document.getElementById('txtUrl').value     = url;
+
+			document.getElementById('txtCodOpr').value  = codOpr;
+
+			document.getElementById('txtDataMov').value = dataMov;
+
+			document.getElementById('txtNumMov').value  = numMov;
+
+			document.getElementById('txtObsMov') .value = obsMov;
+
+			document.getElementById('txtDescMov') .value = movDesc;
+
+			document.getElementById('txtHoraMov').value = horaMov;
+
+			document.getElementById('txtNumOper').value = numOper;
+
+			document.getElementById('txtMontMovValor').value = montMovValor;
+
+			document.getElementById('txtMontMovSinal').value = montMovSinal;
+
+			__doPostBack('btnDetalhe','click');
+
+		}
+
+		</script>	
+
+</HEAD>
+
+	<body bgColor="white" leftMargin="2" topMargin="0" marginheight="0" marginwidth="0">
+
+		<!--CABECALHO-->
+
+		<script language="javascript" src="../../../../js/imprimirV4.js"></script>
+
+		
+
+
+
+<script language="javascript">
+
+function CallUrl(mode)
+
+{
+
+	url_final = "";
+
+	
+
+	
+
+	if (mode == 'ajuda')
+
+	{
+
+	}
+
+	else if (mode == 'contactenos')
+
+	{
+
+		url_final = contactenos_link;
+
+	}
+
+	else if (mode == 'infoUtil')
+
+	{
+
+		url_final = 'https://www.bancobic.pt/eportal/v10/PT/aspx/genericas/index,10855.aspx';		
+
+	}
+
+	else if (mode == 'avisolegal')
+
+	{
+
+		url_final = avisolegal_link;
+
+	}
+
+	else if (mode == 'precario')
+
+	{
+
+		url_final = precario_link;
+
+	}
+
+	else if (mode == 'cotacoes')
+
+	{
+
+        url_final = 'https://www.eurobic.pt/particulares/mercados/indices';
+
+	}
+
+	else if (mode == 'cambios')
+
+	{
+
+        url_final = 'https://www.eurobic.pt/particulares/mercados/cambios';
+
+	}	
+
+	
+
+	if (url_final.length > 0)
+
+	{
+
+		if (mode == 'contactenos')
+
+		{
+
+			id = window.open(url_final,'xpto_janela','height=650,width=660,status=no,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes,top=40,left=200');
+
+		}
+
+		else
+
+		{
+
+			if(mode == 'cotacoes' || mode == 'cambios')
+
+			{
+
+				id = window.open(url_final,'','height=650,width=800,top=40,left=200,location=yes,resizable=yes,menubar=yes,scrollbars=yes,titlebar=yes,toolbar=yes');
+
+			}
+
+			else
+
+				id = window.open(url_final,'xpto_janela','height=400,width=650,status=no,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes,top=200,left=200');
+
+		}
+
+		
+
+		id.focus();
+
+	}
+
+}
+
+
+
+function SplitUrl(mode, url)
+
+{
+
+	posicao = url.indexOf("/aspx/");
+
+	url = url.substring(0,posicao);
+
+	posicao = url.lastIndexOf("/");
+
+	
+
+	if (mode == 0)	//Lingua
+
+		url = url.substring(posicao+1);
+
+	else (mode == 1)	//Versão
+
+	{
+
+		url = url.substring(0,posicao);
+
+		posicao = url.lastIndexOf("/");
+
+		url = url.substring(posicao+1);
+
+	}
+
+	
+
+	return url;
+
+}
+
+
+
+function SplitUrl2(mode, url)
+
+{
+
+	posicao = url.indexOf("/aspx/");
+
+	urlant = url.substring(0,posicao);
+
+	urlpos = url.substring(posicao+1);
+
+	
+
+	if (mode == 0) //Url Anterior
+
+	{
+
+		posicao = urlant.lastIndexOf("/");
+
+		urlant = urlant.substring(0,posicao);
+
+		posicao = urlant.lastIndexOf("/");
+
+		urlant = urlant.substring(0,posicao);
+
+		
+
+		return urlant;
+
+	}
+
+	else if (mode == 1)
+
+		return urlpos;
+
+}
+
+</script>
+
+
+
+<script>
+
+    var timeoutHandle = null;
+
+    function resetSessionTimeoutCounter() {
+
+        var timeoutLocation = "/corporatebanking/V10/PT/login.aspx?exp=true";
+
+        var timeoutSeconds = 480 * 1000;
+
+
+
+        if (timeoutHandle != null)
+
+            window.clearTimeout(timeoutHandle);
+
+        timeoutHandle = window.setTimeout(function () { location = timeoutLocation }, timeoutSeconds);
+
+    }
+
+    resetSessionTimeoutCounter();
+
+</script>
+
+
+
+<div id="aguarde" name="aguarde" style="position: absolute; top: 200; left: 200; visibility: visible;">
+
+	<table cellSpacing="4" cellPadding="0" border="0" bgcolor="#ffffff">
+
+		<tr>
+
+			<td><IMG src="/4/23/HB_topo_mensagem.gif"></td>
+
+		</tr>
+
+		<TR>
+
+			<td class="preto333333_11_bold"><IMG src="/imagens/img_clear.gif" width="10"><IMG src="/imagens/seta_noticiasHome.gif">&nbsp;Aguarde um momento, por favor.</td>
+
+		</TR>
+
+		<tr>
+
+			<td><input type="text" id="progress" class="preto333333_10_caixaII" size="50"></td>
+
+		</tr>
+
+	</table>
+
+</div>
+
+
+
+
+
+<div id="pagina" style="position: absolute; visibility: hidden;">
+
+	<table id="cabecalho_tableCabecalho" height="77" cellspacing="0" cellpadding="0" width="776" border="0" name="tableCabecalho" background="/4/24/cabecalho_netbanking_empresas.gif">
+
+	<tr>
+
+		<td colspan="8" height="0"></td>
+
+	</tr>
+
+	<tr>
+
+		<td width="200"><IMG src="/imagens/img_clear.gif"></td>
+
+		<td width="200"><IMG src="/imagens/img_clear.gif"></td>
+
+		<td><span title="Tradução: Inglês" onmouseover="window.status='Tradução: Inglês'; return true;" onmouseout="window.status=''; return true;" onclick="ChangeLanguageImage('english', this);" id="english" name="english" style="CURSOR: hand"><IMG SRC="/imagens/menuUtilitarios_english.gif"></span></td>
+
+		<td><span title="Tradução: Português" onmouseover="window.status='Tradução: Português'; return true;" onmouseout="window.status=''; return true;" onclick="ChangeLanguageImage('portugues', this);" id="portugues" name="portugues" style="CURSOR: hand"><IMG SRC="/imagens/menuUtilitarios_portugues.gif"></span></td>
+
+		<td><IMG src="/imagens/img_clear.gif" width="30px" height="1px"></td>
+
+		<td><!-- span title="Ajuda" onmouseover="window.status='Ajuda'; return true;" onmouseout="window.status=''; return true;" style="CURSOR: hand" id="ajuda" name="ajuda" onclick="CallUrl('ajuda');"><IMG src="/4/23/menuUtilitarios_ajuda.gif"></span --></td>
+
+		<td><span title="Contacte-nos" onmouseover="window.status='Contacte-nos'; return true;" onmouseout="window.status=''; return true;" style="CURSOR: hand" id="contactenos" name="contactenos" onclick="CallUrl('contactenos');"><IMG src="/4/23/menuUtilitarios_contacte-nos.png"></span></td>
+
+		<td width="15"></td>
+
+		<td><span onclick='document.location.href="/CorporateBanking/v10/PT/aspx/empresas/end.aspx"' style="CURSOR: hand" title="Sair" onmouseover="window.status='Sair'; return true;" onmouseout="window.status=''; return true;"><IMG src="/4/23/menuUtilitarios_sair.gif"></span></td>
+
+	</tr>
+
+	<tr>
+
+		<td width="200" height="50"><a href="/CorporateBanking/v10/PT/aspx/empresas/index.aspx" title="Página Inicial" onmouseover="window.status='Página Inicial'; return true;" onmouseout="window.status=''; return true;"><IMG src="/imagens/img_clear.gif" border="0" style="cursor:hand" width="200" height="50"></a></td>
+
+		<td><IMG src="/imagens/img_clear.gif"></td>
+
+		<td colspan="6" height="59"></td>
+
+	</tr>
+
+</table>
+
+
+
+
+
+		<!--/CABECALHO-->
+
+		<a name="topo"></a>
+
+		<table cellSpacing="0" cellPadding="0" border="0">
+
+			<tr>
+
+				<td><IMG height="10" src="/imagens/img_clear.gif" width="1" border="0"></td>
+
+			</tr>
+
+			<tr>
+
+				<td vAlign="top" width="175">
+
+					<table cellSpacing="0" border="0">
+
+						<tr>
+
+							<td height="16"><IMG src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<!--MENU LATERAL-->
+
+						<tr>
+
+							<td rowSpan="2">
+
+<!--Menu LateralEsq Pág Detalhe -->
+
+<table border="0" cellpadding="0" cellspacing="0">
+
+	<tr width="20" height="18">
+
+		<td><img src="/4/23/topo_menuEsq_pagsInt.gif"></td>
+
+	</tr>
+
+	<tr>
+
+		<td valign="top" width="100%">
+
+			<table border="0" cellpadding="0" cellspacing="0" width="160">
+
+				<tr>
+
+					<td valign="top" width="160">
+
+						<script>desenhaMenuLateral()</script>
+
+					</td>
+
+				</tr>
+
+			</table>
+
+		</td>
+
+	</tr>
+
+</table>
+
+<!--/Menu LateralEsq Pág Detalhe --></td>
+
+						</tr>
+
+						<tr>
+
+							<td></td>
+
+						</tr>
+
+						<!--/MENU LATERAL-->
+
+					</table>
+
+				</td>
+
+				<td vAlign="top" width="600">
+
+					<form name="consultas_index" method="post" action="./saldosmovimentos_index.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="consultas_index">
+
+<div>
+
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTIzMDg2ODc0OA8WEh4GSU5EU05UBQErHgdkYXRhSW5pBQgyMDE5MDYzMB4HTlVNUEFHRgUeICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgHgdkYXRhRmltBQgyMDE5MDczMB4HTUFJU1JFR2UeB05VTVBBR0kFHiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIB4KSU5EU05UX0FOVGUeB0lkUGFnaW4FATEeBHRpcG8FATAWBAIDD2QWAgIHDxYCHgpiYWNrZ3JvdW5kBScvNC8yNC9jYWJlY2FsaG9fbmV0YmFua2luZ19lbXByZXNhcy5naWZkAgcPZBYKAgEPZBYIZg8WAh4JaW5uZXJodG1sBRNTYWxkb3MgZSBNb3ZpbWVudG9zZAIDD2QWAgIBDw8WAh4LTmF2aWdhdGVVcmwFTi9Db3Jwb3JhdGVCYW5raW5nL3YxMC9QVC9hc3B4L2VtcHJlc2FzL3BlcnNvbmFsaXphY2FvL2NvZGlnby9jb2RpZ29faW5kZXguYXNweGRkAgQPFgIfCgUZTENDIFRSQU5TIFNFTkRJTkcgTElNSVRFRGQCBQ8WAh8KBRxDYW1pbGEgRHLDvGdnIENhcmRvc28gZGEgTHV6ZAIDD2QWAmYPEGQQFQENNzU2NzI2NjAxMDAwMRUBDTc1NjcyNjYwMTAwMDEUKwMBZxYBZmQCBw8WAh8KBRMzMCBkZSBqdWxobyBkZSAyMDE5ZAIPD2QWCgIIDxAPFgIeB1Zpc2libGVnZBAVAgIxMAIyMBUCAjEwAjIwFCsDAmdnFgECAWQCCQ8PFgIfDGdkZAIKDw8WAh4EVGV4dAUBMWRkAgsPFgIeBWNsYXNzBQ5jaW56YTMzMzMzM18xMmQCDA8WAh8OBRF2ZXJtZWxobzk5MDAwMF8xMmQCEA8QDxYGHg1EYXRhVGV4dEZpZWxkBQMyNzYeDkRhdGFWYWx1ZUZpZWxkBQMyNzUeC18hRGF0YUJvdW5kZ2QQFQUFVG9kb3MIQ3LDqWRpdG8HRMOpYml0bwdDaGVxdWVzD1RyYW5zZmVyw6puY2lhcxUFATADQ1JFA0RFQgNDSFEDVFJGFCsDBWdnZ2dnZGRkDwHpCkJmDpOzdVF5VyoxARcRUbCd8eGEkCGafiLUfYc=" />
+
+</div>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var theForm = document.forms['consultas_index'];
+
+if (!theForm) {
+
+    theForm = document.consultas_index;
+
+}
+
+function __doPostBack(eventTarget, eventArgument) {
+
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+
+        theForm.__EVENTTARGET.value = eventTarget;
+
+        theForm.__EVENTARGUMENT.value = eventArgument;
+
+        theForm.submit();
+
+    }
+
+}
+
+//]]>
+
+</script>
+
+
+
+
+
+<script src="/corporatebanking/WebResource.axd?d=MV5vzUqm_Vya9igQDIfb6Wf7_IVkLVtsjcNKmO7tZStA_eWM8vHRxVAFvOGiEYdTLWj-aEUCLg8uuSOyDSku-W-93BWzDBmR81xRjgGlXu41&amp;t=636776725224055265" type="text/javascript"></script>
+
+
+
+
+
+<script src="/corporatebanking/WebResource.axd?d=e9Niu1SM2RslzwMfDL8NNUIJKtfgeSqx34PUMPs9VW0Tm_lmBPtZWp3jriCfFxJKvNT47Kx5eNHXzXvy-RBIeJLIG6iNGxB-eNSaM-l-PHA1&amp;t=636776725224055265" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+function WebForm_OnSubmit() {
+
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+
+return true;
+
+}
+
+//]]>
+
+</script>
+
+
+
+<div>
+
+
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="92E1F613" />
+
+</div>
+
+					<input name="txtPrende" type="hidden" id="txtPrende" />
+
+						<table cellSpacing="0" cellPadding="0" border="0">
+
+							<tr>
+
+								<td height="22"></td>
+
+							</tr>
+
+							
+
+<tr>
+
+	<td colspan="5" valign="bottom"><IMG src="/4/23/HB_topo_geral.gif"></td>
+
+</tr>
+
+<tr>
+
+	<td width="15" height="15" valign="top"><IMG src="/4/23/seta_rodape.gif">&nbsp;</td>
+
+	<td class="vermelho990000_12_sublinhado" width="350"><label id="cabecalhoBaixo_lblTitulo" name="lblTitulo">Saldos e Movimentos</label>
+
+		<br>
+
+	<a href="javascript:void(0);" target="_blank" style="CURSOR: hand" onClick="location.href='/CorporateBanking/v10/PT/aspx/empresas/personalizacao/email/email_index.aspx';"><label id="cabecalhoBaixo_lblMail" class="vermelho990000_10_sublinhado" name="lblMail"></label></a>
+
+		<br>
+
+	<a href="javascript:void(0);" target="_blank" style="CURSOR: hand" onClick="location.href='/CorporateBanking/v10/PT/aspx/empresas/personalizacao/aprovacoes/aprovacoes_index.aspx';"><label id="cabecalhoBaixo_lblAprov" class="vermelho990000_10_sublinhado" name="lblAprov"></label></a>
+
+		
+
+<table>
+
+	<tr>
+
+		<td class="cinza999999_10" colSpan="2"><a id="cabecalhoBaixo_ExpiredPassword1_hlExpired" class="vermelho990000_10_sublinhado" href="/CorporateBanking/v10/PT/aspx/empresas/personalizacao/codigo/codigo_index.aspx">
+
+				A sua password não é alterada há mais de 30 dias.<br>Por questões de segurança, o EuroBic recomenda a sua alteração.
+
+
+
+			</a></td>
+
+	</tr>
+
+	<tr>
+
+		<td vAlign="top" width="20"><a id="cabecalhoBaixo_ExpiredPassword1_lkb_expireOK" title="não mostrar mensagem." onmouseover="window.status=&#39;não mostrar mensagem.&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" name="lkb_expireOK" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cabecalhoBaixo$ExpiredPassword1$lkb_expireOK&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><img src="/imagens/botao_standard_verm.gif" id="imgExpireOk" name="imgExpireOk" style="CURSOR:hand" onmouseover="document.getElementById('txtExpireOK').style.color='#990000'" onmouseout="document.getElementById('txtExpireOK').style.color='#666666';" border="0"></a></td>
+
+		<td width="200"><a id="cabecalhoBaixo_ExpiredPassword1_txtexpireOK" title="não mostrar mensagem." class="cinza666666_10" onmouseover="document.getElementById(&#39;txtExpireOK&#39;).style.color=&#39;#990000&#39;; window.status=&#39;&#39;; return true;" onmouseout="document.getElementById(&#39;txtExpireOK&#39;).style.color=&#39;#666666&#39;; window.status=&#39;&#39;; return true;" name="txtExpireOK" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;cabecalhoBaixo$ExpiredPassword1$txtexpireOK&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">não mostrar mensagem.
+
+			</a></td>
+
+	</tr> 
+
+</table>
+
+</td>
+
+	<td width="5"></td>
+
+	<td><IMG src="/4/23/seta_rodape.gif">&nbsp;</td>
+
+	<td class="preto333333_11_bold" width="300" align="left">
+
+		<label id="cabecalhoBaixo_lblEmpresa" name="lblEmpresa" class="laranjaCC6600_11">LCC TRANS SENDING LIMITED</label>
+
+		<br> 
+
+		<label id="cabecalhoBaixo_lblNome" name="lblNome">Camila Drügg Cardoso da Luz</label>
+
+	</td>
+
+</tr>
+
+<tr>
+
+	<td colspan="5" height="5"><IMG src="/imagens/img_clear.gif"></td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+											
+
+							<!-- alteração das páginas-->
+
+							<tr>
+
+								<td colSpan="4"><IMG src="/imagens/img_clear.gif"></td>
+
+								<td class="cinza999999_10" align="left"><label id="lblConta" name="lblConta">Conta
+
+									</label>&nbsp;&nbsp;<select name="ucContas1$ddlConta" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ucContas1$ddlConta\&#39;,\&#39;\&#39;)&#39;, 0)" id="ucContas1_ddlConta" class="preto000000_10">
+
+	<option selected="selected" value="7567266010001">7567266010001</option>
+
+
+
+</select>
+
+</td>
+
+							</tr>
+
+							<tr>
+
+								<td colSpan="5" height="5"><IMG src="/imagens/img_clear.gif"></td>
+
+							</tr>
+
+							<tr>
+
+								<td colSpan="5">
+
+									<table cellSpacing="0" cellPadding="0" border="0">
+
+										<tr>
+
+											<td width="316"></td>
+
+											<td width="296" background="/imagens/tracejado_menuEsq_pagsInt.gif"></td>
+
+										</tr>
+
+									</table>
+
+								</td>
+
+							</tr>
+
+							<!-- ***********************-->
+
+						</table>
+
+						<div id="divPrint">
+
+							<table border="0" cellpadding="0" cellspacing="0">
+
+								<tr>
+
+									<td width="20"><img src="/imagens/img_clear.gif"></td>
+
+									<td colSpan="5">
+
+										<!--CORPO-->
+
+										<table cellSpacing="0" cellPadding="0" align="right" border="0">
+
+											
+
+											
+
+											
+
+											<tr>
+
+												<td colSpan="5" height="20"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td align="right" colSpan="5">
+
+													<table cellSpacing="2" cellPadding="0" border="0">
+
+														<tr>
+
+															<td><IMG src="/imagens/img_clear.gif"></td>
+
+															<td><IMG src="/4/23/seta_destaques.gif"><IMG src="/4/23/seta_destaques.gif"></td>
+
+															<td class="cinza999999_10">Última atualização:
+
+																<label id="lblData" name="lblData">30 de julho de 2019</label></td>
+
+														</tr>
+
+													</table>
+
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG src="/4/23/HB_topo_tabelas.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td width="10"></td>
+
+												<td><IMG src="/4/23/seta_noticiasHome.gif"></td>
+
+												<td class="vermelho990000_11_bold" width="360" name="top">SALDOS À DATA DA ÚLTIMA ATUALIZAÇÃO</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG height="3" src="/imagens/barra_topo.gif" width="100%"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td class="celula_cinzaf2f2f2" colSpan="5" height="110">
+
+													<table cellSpacing="5" cellPadding="0" border="0">
+
+														<tr>
+
+															<td width="20" rowSpan="6">&nbsp;</td>
+
+															<td class="celula_cinzaf2f2f2" align="right">Moeda</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td><input name="txtMoeda" type="text" id="txtMoeda" class="preto333333_10_caixa" readOnly="" size="3" typt="text" style="WIDTH:40px" value="EUR" /></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="celula_cinzaf2f2f2" align="right">Agência</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td><input name="txtBalcao" type="text" id="txtBalcao" class="preto333333_10_caixa" readOnly="" size="40" typt="text" style="WIDTH:280px" value="0421 - LISBOA - AV. REPÚBLICA" /></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="celula_cinzaf2f2f2" align="right">IBAN</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td><input name="txtNIB" type="text" id="txtNIB" class="preto333333_10_caixa" readOnly="" size="40" typt="text" style="WIDTH:170px" value="PT 50 007900007567266010153" /></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="celula_cinzaf2f2f2" align="right">Saldo Contabilístico</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td class="preto333333_11"><input name="txtSaldoCont" type="text" id="txtSaldoCont" class="preto333333_10_caixa" readOnly="" size="25" typt="text" style="text-align:right;width:120px" value="+ 23.050,22" /></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="celula_cinzaf2f2f2" align="right">Saldo Disponível</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td class="preto333333_11"><input name="txtSaldoDisp" type="text" id="txtSaldoDisp" class="preto333333_10_caixa" readOnly="" size="25" typt="text" style="text-align:right;width:120px" value="+ 23.050,22" /></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="celula_cinzaf2f2f2" align="right">Saldo Autorizado</td>
+
+															<td><IMG src="/4/23/icn_redarrow.gif"></td>
+
+															<td class="preto333333_11"><input name="txtSaldoAutorizado" type="text" id="txtSaldoAutorizado" class="preto333333_10_caixa" readOnly="" size="25" typt="text" style="text-align:right;width:120px" value="+ 23.050,22" /></td>
+
+														</tr>
+
+													</table>
+
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td class="celula_cinzacecece" colSpan="5" height="1"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="15"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG src="/4/23/HB_topo_tabelas.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td width="10"><IMG src="/imagens/img_clear.gif"></td>
+
+												<td width="5"><IMG src="/4/23/seta_noticiasHome.gif"></td>
+
+												<td class="vermelho990000_11_bold" width="560" name="top">MOVIMENTOS</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG height="3" src="/imagens/barra_topo.gif" width="100%"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><div id="panMovimentos" name="panMovimentos">
+
+	<table align='center' cellpadding='1' cellspacing='0' border='0'>
+<tr class='vermelho990000_11'>
+<td  width='70' align='center' >Data Operação</td>
+<td  width='70' align='center' >Data Valor</td>
+<td  width='168' align='left' >Descrição</td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >Valor</td>
+<td  width='6' align='left' ></td>
+<td  width='105' align='right' >Saldo</td>
+<td  width='6' align='left' ></td>
+</tr><tr><td colspan='8'><img src='/imagens/barra_topo.gif' width='100%' height='1'></td></tr><tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>2019-07-30</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>2019-07-30</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de MUHAMMAD SAGHER'>SEPA de MUHAMMAD SAGHER</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>921,89</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>23.050,22</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104442757','RSEPA                         ','04:32:53','620748461','000000000092189','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-30</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-30</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de GOLDJASMINE LDA'>SEPA de GOLDJASMINE LDA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>5.500,00</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>22.128,33</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190730','104441507','RSEPA                         ','04:31:54','620748461','000000000550000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' >2019-07-29</td>
+<td  width='70' align='center' >2019-07-29</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio 40506">Dep. Numer&#225;rio 40506</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >530,68</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >16.628,33</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' >2019-07-29</td>
+<td  width='70' align='center' >2019-07-29</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio 40505">Dep. Numer&#225;rio 40505</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >2.437,12</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >16.097,65</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-29</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-29</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de CAROLINE SOARES VIEIRA'>SEPA de CAROLINE SOARES VIEIRA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>1.906,70</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>13.660,53</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609718','RSEPA                         ','03:36:22','620585002','000000000190670','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-29</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-29</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de CAROLINE SOARES VIEIRA'>SEPA de CAROLINE SOARES VIEIRA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>501,09</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>11.753,83</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190729','103609526','RSEPA                         ','03:36:15','620585002','000000000050109','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' >2019-07-26</td>
+<td  width='70' align='center' >2019-07-26</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio SONAM D LAMA NIF 28987683">Dep. Numer&#225;rio SONAM D LAMA NIF 28987683</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >430,00</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >11.252,74</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de GOLDJASMINE LDA'>SEPA de GOLDJASMINE LDA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2.400,00</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>10.822,74</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101546914','RSEPA                         ','04:25:31','620217979','000000000240000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de CAROLINE SOARES VIEIRA'>SEPA de CAROLINE SOARES VIEIRA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>882,00</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>8.422,74</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544904','RSEPA                         ','04:24:06','620217979','000000000088200','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de CAROLINE SOARES VIEIRA'>SEPA de CAROLINE SOARES VIEIRA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>692,54</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>7.540,74</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101544840','RSEPA                         ','04:24:02','620217979','000000000069254','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>2019-07-26</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de MUHAMMAD SAGHER'>SEPA de MUHAMMAD SAGHER</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>47,30</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'>6.848,20</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190726','101543352','RSEPA                         ','04:22:53','620217979','000000000004730','C','SEPA de MUHAMMAD SAGHER                 ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' >2019-07-25</td>
+<td  width='70' align='center' >2019-07-25</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio SONAM LAMA NIF 289876834">Dep. Numer&#225;rio SONAM LAMA NIF 289876834</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >626,50</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >6.800,90</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio 40505">Dep. Numer&#225;rio 40505</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >488,51</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >6.174,40</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio 40506">Dep. Numer&#225;rio 40506</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >4.063,91</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >5.685,89</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='70' align='center' >2019-07-24</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio SONAM LAMA_NIF 289876834">Dep. Numer&#225;rio SONAM LAMA_NIF 289876834</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >700,00</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >1.621,98</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='from Eurobic LCC to Barcs LCC'>from Eurobic LCC to Barcs LCC</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'>21.000,00</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'>-</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'>921,98</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx#0','580','20190724','100085257','ESEPA                         ','09:50:17','619928158','000000002100000','D','from Eurobic LCC to Barcs LCC           ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de CAROLINE SOARES VIEIRA'>SEPA de CAROLINE SOARES VIEIRA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>1.239,17</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'>21.921,98</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099783637','RSEPA                         ','04:11:14','619885196','000000000123917','C','SEPA de CAROLINE SOARES VIEIRA          ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='70' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>2019-07-24</a></td>
+<td  width='168' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><div style='width: 168px; white-space: nowrap; overflow : hidden; cursor: pointer' title='SEPA de GOLDJASMINE LDA'>SEPA de GOLDJASMINE LDA</div></a></td>
+<td  width='15' align='center' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'><img style='border-style: none' src='/imagens/HB_botao_lupa_sem_seta.gif'></a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>1.500,00</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>+</a></td>
+<td  width='105' align='right' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'>20.682,81</a></td>
+<td  width='6' align='left' ><a href="javascript:hrefDetalhe('detTEICreditoDO/detTEICreditoDO_detalhe.aspx#0','583','20190724','099781639','RSEPA                         ','04:09:57','619885196','000000000150000','C','SEPA de GOLDJASMINE LDA                 ')" class='preto333333_11_link'> </a></td>
+</tr>
+<tr class='celula_cinzaf2f2f2_normal'>
+<td  width='70' align='center' >2019-07-23</td>
+<td  width='70' align='center' >2019-07-23</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio 40506">Dep. Numer&#225;rio 40506</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >1.544,06</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >19.182,81</td>
+<td  width='6' align='left' > </td>
+</tr>
+<tr><td height='1' colspan='8' class='celula_cinzacecece'></td></tr>
+<tr class='preto333333_11'>
+<td  width='70' align='center' >2019-07-23</td>
+<td  width='70' align='center' >2019-07-23</td>
+<td  width='168' align='left' ><div style=" width: 168px; white-space: nowrap; overflow : hidden; " title="Dep. Numer&#225;rio SONAM D LAMA NIF 28987683">Dep. Numer&#225;rio SONAM D LAMA NIF 28987683</div></td>
+<td  width='15' align='center' ></td>
+<td  width='105' align='right' >811,00</td>
+<td  width='6' align='left' >+</td>
+<td  width='105' align='right' >17.638,75</td>
+<td  width='6' align='left' > </td>
+</tr>
+</table>
+
+
+</div></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="10"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5">
+
+													<input name="PagConsultas1$txt_INDSNT" type="hidden" id="PagConsultas1_txt_INDSNT" value="+" /> <input name="PagConsultas1$txt_NUMPAGI" type="hidden" id="PagConsultas1_txt_NUMPAGI" value="20190730004156600000002212833C" />
+
+<input name="PagConsultas1$txt_NUMPAGF" type="hidden" id="PagConsultas1_txt_NUMPAGF" value="20190723037783600000001682775C" /> <input name="PagConsultas1$txt_NUMREG" type="hidden" id="PagConsultas1_txt_NUMREG" value="20" />
+
+<input name="PagConsultas1$txt_FIMPAG" type="hidden" id="PagConsultas1_txt_FIMPAG" /> <input name="PagConsultas1$txt_MAISREG" type="hidden" id="PagConsultas1_txt_MAISREG" value="0" />
+
+<input name="PagConsultas1$txt_INDSNT_ANT" type="hidden" id="PagConsultas1_txt_INDSNT_ANT" /> <input name="PagConsultas1$txtIdPagin" type="hidden" id="PagConsultas1_txtIdPagin" value="1" />
+
+<table cellSpacing="0" cellPadding="0" border="0" width="100%">
+
+	<tr>
+
+		<td align="left"><select name="PagConsultas1$ddlNumRegistos" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;PagConsultas1$ddlNumRegistos\&#39;,\&#39;\&#39;)&#39;, 0)" id="PagConsultas1_ddlNumRegistos" class="preto000000_10">
+
+	<option value="10">10</option>
+
+	<option selected="selected" value="20">20</option>
+
+
+
+</select><span id="PagConsultas1_lblDDLNumRegistos" class="cinza999999_10">(núm. registos por página)</span></td>
+
+		<td align="right">
+
+			<table cellSpacing="0" cellPadding="1" align="right" border="0">
+
+				<tr>
+
+					
+
+					<td class="vermelho990000_10" vAlign="bottom">Página</td>
+
+					<td width="1"><IMG src="/imagens/img_clear.gif"></td>
+
+					<td class="vermelho990000_10" vAlign="bottom"><span id="PagConsultas1_lblPagina" name="lblPagina">1</span></td>
+
+					
+
+					<td width="5"><IMG src="/imagens/img_clear.gif"></td>
+
+					<td>
+
+						<div id="divEsconderPaginacao">
+
+							<table cellpadding='1' cellspacing='0' border='0'>
+
+								<tr>
+
+									<td><label id="PagConsultas1_lbl_prev" name="lbl_prev" Title="Anterior" onmouseover="window.status=&#39;Anterior&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" class="cinza333333_12">«</label></td>
+
+									<td width="1"><IMG src="/imagens/img_clear.gif"></td>
+
+									<td><label id="PagConsultas1_lbl_next" name="lbl_next" Title="Seguinte" onmouseover="window.status=&#39;Seguinte&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" onclick="hrefNext();" style="CURSOR: pointer" class="vermelho990000_12">»</label></td>
+
+									<td width="6"><IMG src="/imagens/img_clear.gif"></td>
+
+								</tr>
+
+							</table>
+
+						</div>
+
+					</td>
+
+				</tr>
+
+			</table>
+
+		</td>
+
+	</tr>
+
+</table>
+
+
+
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="5"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG src="/4/23/HB_topo_tabelas.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td width="10"></td>
+
+												<td><IMG src="/4/23/seta_noticiasHome.gif"></td>
+
+												<td class="vermelho990000_11_bold" width="360" name="top">PESQUISA</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="1"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5"><IMG height="3" src="/imagens/barra_topo.gif" width="100%"></td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5">
+
+													<table cellSpacing="0" cellPadding="1" border="0">
+
+														<tr>
+
+															<td colSpan="3" height="3"><IMG height="3" src="/imagens/img_clear.gif"></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="cinza666666_10" align="right">Tipo de Operação</td>
+
+															<td align="middle" width="10"><IMG src="/4/23/seta_rodape.gif"></td>
+
+															<td colspan="2"><select name="ddlTipoMov" id="ddlTipoMov" class="preto000000_10" name="ddlTipoMov">
+
+	<option selected="selected" value="0">Todos</option>
+
+	<option value="CRE">Cr&#233;dito</option>
+
+	<option value="DEB">D&#233;bito</option>
+
+	<option value="CHQ">Cheques</option>
+
+	<option value="TRF">Transfer&#234;ncias</option>
+
+
+
+</select></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="cinza666666_10" align="right">&nbsp;&nbsp;<label id="lbl_montante">Montante superior a
+
+																</label></td>
+
+															<td align="middle" width="10"><IMG src="/4/23/seta_rodape.gif"></td>
+
+															<td colspan="2"><input name="txtMontante" type="text" id="txtMontante" class="preto000000_10" onkeypress="keyPressMontante(event,this);" onblur="this.value=formatCurrency(this.value);" maxlength="16" size="16" style="WIDTH:100px" /></td>
+
+															<td class="cinza666666_10"></td>
+
+														</tr>
+
+														<tr>
+
+															<td class="cinza666666_10" align="right"><label id="lbl_Data1">Data Início
+
+																</label></td>
+
+															<td align="middle" width="10"><IMG src="/4/23/seta_rodape.gif"></td>
+
+															<td class="preto333333_11" align="left"><input name="txtData1" type="text" value="2019-06-30" maxlength="10" id="txtData1" name="txtData1" class="preto333333_11" size="8" onKeypress="keyPressData(this,event);" onBlur="BlurData(this);" style="width:70px;" /></td>
+
+															<td>
+
+																<div id="divCalendar1">
+
+																	<table border="0" cellpadding="0" cellspacing="0">
+
+																		<tr>
+
+																			<td class="cinza666666_10">
+
+<LINK media="screen" href="/CorporateBanking/v10/PT/css/estilos.css" type="text/css" rel="stylesheet">
+
+<img  src="/imagens/HB_botao_topo_mouseover.gif" id="imgCalendar1" border="0" Title="Calendário" onmouseover="document.getElementById('imgCalendar1').src='/imagens/HB_botao_topo_verm_mouseover.gif'; window.status=''; return true;" onmouseout="document.getElementById('imgCalendar1').src='/imagens/HB_botao_topo_mouseover.gif'; window.status=''; return true;" onclick="window.open('../../../../templates/calendario/datePage.aspx?tipo=1','calendar','height=110,width=151,status=yes,toolbar=no,menubar=no,location=no,status=no,top=350,left=400');" style="cursor:hand">
+
+</td>
+
+																			<td width="2"><IMG src="/imagens/img_clear.gif"></td>
+
+																			<td class="cinza666666_10">(aaaa-mm-dd)</td>
+
+																		</tr>
+
+																	</table>
+
+																</div>
+
+															</td>
+
+														</tr>
+
+														<tr>
+
+															<td class="cinza666666_10" align="right"><label id="lbl_Data2">Data Fim
+
+																</label></td>
+
+															<td align="middle" width="10"><IMG src="/4/23/seta_rodape.gif"></td>
+
+															<td class="preto333333_11" align="left"><input name="txtData2" type="text" value="2019-07-30" maxlength="10" id="txtData2" name="txtData2" class="preto333333_11" size="8" onKeypress="keyPressData(this,event);" onBlur="BlurData(this);" style="width:70px;" /></td>
+
+															<td>
+
+																<div id="divCalendar2">
+
+																	<table border="0" cellpadding="0" cellspacing="0">
+
+																		<tr>
+
+																			<td class="cinza666666_10">
+
+<LINK media="screen" href="/CorporateBanking/v10/PT/css/estilos.css" type="text/css" rel="stylesheet">
+
+<img  src="/imagens/HB_botao_topo_mouseover.gif" id="imgCalendar2" border="0" Title="Calendário" onmouseover="document.getElementById('imgCalendar2').src='/imagens/HB_botao_topo_verm_mouseover.gif'; window.status=''; return true;" onmouseout="document.getElementById('imgCalendar2').src='/imagens/HB_botao_topo_mouseover.gif'; window.status=''; return true;" onclick="window.open('../../../../templates/calendario/datePage.aspx?tipo=2','calendar','height=110,width=151,status=yes,toolbar=no,menubar=no,location=no,status=no,top=350,left=400');" style="cursor:hand">
+
+</td>
+
+																			<td width="2"><IMG src="/imagens/img_clear.gif"></td>
+
+																			<td class="cinza666666_10">(aaaa-mm-dd)</td>
+
+																		</tr>
+
+																	</table>
+
+																</div>
+
+															</td>
+
+														</tr>
+
+													</table>
+
+												</td>
+
+											</tr>
+
+											<tr>
+
+												<td colSpan="5" height="2"><IMG src="/imagens/img_clear.gif"></td>
+
+											</tr>
+
+										</table>
+
+										<!--/CORPO-->
+
+									</td>
+
+								</tr>
+
+							</table>
+
+						</div>
+
+						<div id="ValidationSummary1" style="color:Red;display:none;">
+
+
+
+</div>
+
+						<span id="CompareValidator1" style="color:Red;display:none;"></span>
+
+						<table border="0" cellpadding="0" cellspacing="0" align="right" width="600">
+
+							<tr>
+
+								<td align="right" colSpan="10"><IMG src="/4/23/HB_topo_botoes.gif"></td>
+
+							</tr>
+
+							<tr>
+
+								<td colSpan="10" height="3"><IMG src="/imagens/img_clear.gif"></td>
+
+							</tr>
+
+							<tr>
+
+								<td width="130"><IMG src="/imagens/img_clear.gif"></td>
+
+								<td width="20" valign="top"><a id="lkb_pesquisar" name="lkb_pesquisar" Title="Pesquisar" onmouseover="window.status=&#39;Pesquisar&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lkb_pesquisar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><img src="/imagens/botao_standard_verm.gif" id="imgPesquisa" name="imgPesquisa" style="CURSOR:hand" onmouseover="document.getElementById('txtPesquisar').style.color='#990000' " onmouseout="document.getElementById('txtPesquisar').style.color='#666666'" border="0"></a></td>
+
+								<td width="210"><a id="txtPesquisar" class="cinza666666_10" Title="Pesquisar" onmouseover="document.getElementById(&#39;txtPesquisar&#39;).style.color=&#39;#990000&#39;; window.status=&#39;Pesquisar&#39;; return true;" onmouseout="document.getElementById(&#39;txtPesquisar&#39;).style.color=&#39;#666666&#39;; window.status=&#39;&#39;; return true;" name="txtPesquisar" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;txtPesquisar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="CURSOR: hand">Pesquisar
+
+									</a></td>
+
+								<td width="30" valign="top"><span id="td1"><a id="lkb_exportar" name="lkb_exportar" Title="Exportar Excel" onmouseover="window.status=&#39;Exportar Excel&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lkb_exportar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><img src="/imagens/botao_excel_verm.gif" id="imgExportar" name="imgExportar" style="CURSOR:hand" onmouseover="document.getElementById('txtExportar').style.color='#990000' " onmouseout="document.getElementById('txtExportar').style.color='#666666'" border="0"></a>
+
+									</span></td>
+
+								<td width="70"><a id="txtExportar" class="cinza666666_10" Title="Exportar Excel" onmouseover="document.getElementById(&#39;txtExportar&#39;).style.color=&#39;#990000&#39;; window.status=&#39;Exportar Excel&#39;; return true;" onmouseout="document.getElementById(&#39;txtExportar&#39;).style.color=&#39;#666666&#39;; window.status=&#39;&#39;; return true;" name="txtExportar" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;txtExportar&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="CURSOR: hand">Exportar Excel
+
+									</a></td>
+
+								<td width="30"><IMG src="/imagens/img_clear.gif"></td>
+
+								<td width="30" valign="top"><A href="javascript:openPrintWindow('divPrint', document.getElementById('cabecalhoBaixo_lblTitulo').innerHTML,'7567266010001', document.getElementById('cabecalhoBaixo_lblNome').innerHTML)" Title="Imprimir" onmouseover="window.status='Imprimir'; return true;" onmouseout="window.status=''; return true;"><IMG id="imgImprimirIni" onmouseover="document.getElementById('txtImprimirIni').style.color='#990000'" style="CURSOR: hand" onmouseout="document.getElementById('txtImprimirIni').style.color='#666666'" src="/imagens/botao_impressora_verm.gif" border="0" id="imgImprimirIni" name="imgImprimirIni"></A></td>
+
+								<td width="30"><A id="txtImprimirIni" href="javascript:openPrintWindow('divPrint', document.getElementById('cabecalhoBaixo_lblTitulo').innerHTML,'7567266010001', document.getElementById('cabecalhoBaixo_lblNome').innerHTML)" class="cinza666666_10" Title="Imprimir" onmouseover="document.getElementById('txtImprimirIni').style.color='#990000'; window.status='Imprimir'; return true;" style="CURSOR: hand" onmouseout="document.getElementById('txtImprimirIni').style.color='#666666'; window.status=''; return true;">Imprimir</A></td>
+
+								<td width="30"><IMG src="/imagens/img_clear.gif"></td>
+
+								<td width="30" align="right" valign="top"><a href="#topo"><IMG id="imgTopo" style="CURSOR: hand" border="0" src="/imagens/botao_topo_verm.gif" name="imgTopo" title="Voltar ao Topo" onmouseover=" window.status='Voltar ao Topo'; return true;" onmouseout="window.status=''; return true;"></a></td>
+
+							</tr>
+
+							<tr>
+
+								<td colspan="10">
+
+									<table border="0" cellpadding="0" cellspacing="0" width="600">
+
+										<tr>
+
+											<td width="3"><img src="/imagens/img_clear.gif"></td>
+
+											<td colspan="4" width="420"><img src="/imagens/img_clear.gif"></td>
+
+										</tr>
+
+										
+
+<tr>
+
+	<td colspan="5" height="30"><img src="/imagens/img_clear.gif"></td>
+
+</tr>
+
+<tr>
+
+	<td colspan="5" background="/imagens/tracejado_menuEsq_pagsInt.gif" width="100%"></td>
+
+</tr>
+
+<tr>
+
+	<td colspan="5" height="4"><img src="/imagens/img_clear.gif"></td>
+
+</tr>
+
+<tr>
+
+	<td width="15" height="15" valign="top"><img src="/4/23/seta_noticiasHome.gif"></td>
+
+	<td colspan="4"></td>
+
+</tr>
+
+<tr>
+
+	<td height="4"></td>
+
+	<td colspan="4" class="cinza999999_10" valign="top" rowspan="3">Se necessitar de ajuda, contacte-nos através da Linha EuroBic 808 22 44 44. A partir do estrangeiro ligue para:<br> +351 213 180 870. Poderá fazê-lo entre as 8h e as 23h, de 2ª f. a 6ª f., exceto feriados.<p></td>
+
+</tr>
+
+<tr>
+
+	<td colspan="5"><img src="/imagens/img_clear.gif"></td>
+
+</tr>
+
+
+
+									</table>
+
+								</td>
+
+							</tr>
+
+						</table>
+
+						<table cellSpacing="0" cellPadding="0" align="center" border="0" style="DISPLAY:none">
+
+							<tr class="vermelho990000_11">
+
+								<td width="75"></td>
+
+								<td width="60"></td>
+
+								
+
+								<td width="30"></td> 
+
+								
+
+								<td width="270"></td>
+
+								<!-- 
+
+								<td align="right" width="17"></td> 
+
+								-->
+
+								<td align="right" width="120">&nbsp;</td>
+
+								<td align="right" width="120">&nbsp;</td>
+
+							</tr>
+
+						</table>
+
+						
+
+						
+
+						
+
+						<input name="txtUrl" type="hidden" id="txtUrl" />
+
+						<input name="txtCodOpr" type="hidden" id="txtCodOpr" />
+
+						<input name="txtDataMov" type="hidden" id="txtDataMov" />
+
+						<input name="txtNumMov" type="hidden" id="txtNumMov" />
+
+						<input name="txtHoraMov" type="hidden" id="txtHoraMov" />
+
+						<input name="txtObsMov" type="hidden" id="txtObsMov" />
+
+						<input name="txtDescMov" type="hidden" id="txtDescMov" />
+
+						<input name="txtNumOper" type="hidden" id="txtNumOper" />
+
+						<input name="txtMontMovValor" type="hidden" id="txtMontMovValor" />
+
+						<input name="txtMontMovSinal" type="hidden" id="txtMontMovSinal" />
+
+		
+
+					
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var Page_ValidationSummaries =  new Array(document.getElementById("ValidationSummary1"));
+
+var Page_Validators =  new Array(document.getElementById("CompareValidator1"));
+
+//]]>
+
+</script>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var ValidationSummary1 = document.all ? document.all["ValidationSummary1"] : document.getElementById("ValidationSummary1");
+
+ValidationSummary1.headertext = "Ocorreram os seguintes erros:";
+
+ValidationSummary1.showmessagebox = "True";
+
+ValidationSummary1.showsummary = "False";
+
+ValidationSummary1.displaymode = "List";
+
+var CompareValidator1 = document.all ? document.all["CompareValidator1"] : document.getElementById("CompareValidator1");
+
+CompareValidator1.controltovalidate = "txtData2";
+
+CompareValidator1.errormessage = "- Data Fim: menor que Data Início";
+
+CompareValidator1.display = "None";
+
+CompareValidator1.type = "Date";
+
+CompareValidator1.dateorder = "dmy";
+
+CompareValidator1.cutoffyear = "2029";
+
+CompareValidator1.century = "2000";
+
+CompareValidator1.evaluationfunction = "CompareValidatorEvaluateIsValid";
+
+CompareValidator1.controltocompare = "txtData1";
+
+CompareValidator1.controlhookup = "txtData1";
+
+CompareValidator1.operator = "GreaterThanEqual";
+
+//]]>
+
+</script>
+
+
+
+<script>
+var contactenos_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/contactenos/index.aspx';
+var avisolegal_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/avisolegal/index.aspx';
+var ajuda_link='#';
+var precario_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/precarios/avisos/aviso1/index.aspx';
+</script>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+
+
+var Page_ValidationActive = false;
+
+if (typeof(ValidatorOnLoad) == "function") {
+
+    ValidatorOnLoad();
+
+}
+
+
+
+function ValidatorOnSubmit() {
+
+    if (Page_ValidationActive) {
+
+        return ValidatorCommonOnSubmit();
+
+    }
+
+    else {
+
+        return true;
+
+    }
+
+}
+
+        //]]>
+
+</script>
+
+</form>
+
+				</td>
+
+			</tr>
+
+		</table>
+
+		<!--RODAPE-->
+
+		
+<span id="serverName" style="display:none;">PSRCCWPE02</span>
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td height="20"></td>
+	</tr>
+	<tr>
+		<td background="/imagens/rodape.gif" width="776" height="51" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" width="776">
+				<tr align>
+					<td width="240" height="15"></td>
+					<td width="10"></td>
+					<td class="cinza999999_10"><img src="/imagens/img_clear.gif"></td>
+					<td class="vermelho990000_10" align="right" >
+						<a id="paginicial" name="paginicial" href="/CorporateBanking/v10/PT/aspx/empresas/index.aspx" class="vermelho990000_10" Title="Página Inicial" onmouseover="window.status='Página Inicial'; return true;" onmouseout="window.status=''; return true;" >Home</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="contactenos" name="contactenos" href="javascript:void(0);" onclick="CallUrl('contactenos')" class="vermelho990000_10" Title="Contacte-nos" onmouseover="window.status='Contacte-nos'; return true;" onmouseout="window.status=''; return true;" >Contacte-nos</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="infoUtil" name="infoUtil" href="javascript:void(0);" onclick="CallUrl('infoUtil')" class="vermelho990000_10" Title="Informação Útil" onmouseover="window.status='Informação Útil'; return true;" onmouseout="window.status=''; return true;" >Informação Útil</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="avisolegal" name="avisolegal" href="javascript:void(0);" onclick="CallUrl('avisolegal')" class="vermelho990000_10" title="Aviso Legal" onmouseover="window.status='Aviso Legal'; return true;" onmouseout="window.status=''; return true;" >Aviso Legal</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="cotacoes" name="cotacoes" href="javascript:void(0);" onclick="CallUrl('cotacoes')" class="vermelho990000_10" title="Cotações" onmouseover="window.status='Cotações'; return true;" onmouseout="window.status=''; return true;" >Cotações</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="cambios" name="cambios" href="javascript:void(0);" onclick="CallUrl('cambios')" class="vermelho990000_10" title="Câmbios" onmouseover="window.status='Câmbios'; return true;" onmouseout="window.status=''; return true;" >Câmbios</a> <img src="/imagens/img_clear.gif" width="10"> 
+						<a id="precario" name="precario" href="javascript:void(0);" onclick="CallUrl('precario')" class="vermelho990000_10" title="Preçário" onmouseover="window.status='Preçário'; return true;" onmouseout="window.status=''; return true;" >Preçário</a>
+					</td>
+				</tr>
+				<tr>
+					<td height="5"><img src="/imagens/img_clear.gif"></td>
+				</tr>
+				<tr>
+					<td colspan="3" class="cinza999999_10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017 Banco BIC Português S.A. &nbsp;&nbsp;Todos os direitos reservados.<br>
+
+</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+<script>
+var outMsg = "";
+var i = 0;
+var timerDM=null;
+var msg = " ";
+
+var ScreenLine = "";
+//var ScreenLine = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";
+var msgNum = ScreenLine.length;
+var typeSpeed = 200;
+var delay=typeSpeed;
+
+msg = ScreenLine;
+
+function DisplayMsg() {
+	if(outMsg.length==msgNum)
+	{
+		outMsg = "";
+		msg = ScreenLine;
+		i=0;
+	}
+	outMsg = outMsg + msg.charAt(i);
+	i++; 
+	delay = typeSpeed;
+	try{
+	document.getElementById('progress').value=outMsg;
+	}
+	catch(err1){
+	}
+	try{
+	timerDM = setTimeout("DisplayMsg()",delay);
+	}
+	catch(err2){
+	}
+}
+switchDiv("aguarde",false);
+switchDiv("pagina",true);
+
+</script>
+
+
+		<!--/RODAPE-->
+
+		
+
+		
+
+	</body>
+
+</HTML>

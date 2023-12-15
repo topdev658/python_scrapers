@@ -1,0 +1,35 @@
+cust 97716 - 2 times segfault on parallel scraping (!)
+
+Apr 16 06:47:24 ubu kernel: [9224636.155135] python3[8440]: segfault at 0 ip           (null) sp 00002b8a4f066728 error 14 in python3.5[400000+3a9000]
+Apr 16 06:47:43 ubu kernel: [9224654.730500] python3[8752]: segfault at 0 ip           (null) sp 00002b56923a02b8 error 14 in python3.5[400000+3a9000]
+
+
+
+https://stackoverflow.com/questions/16731115/how-to-debug-a-python-segmentation-fault?rq=1
+related to
+
+https://bugs.python.org/file9195/thread_crash.py
+<code>
+import threading, sys, time
+
+class MyThread(threading.Thread):
+    def run(self):
+        # create a file, so that when the main thread clears
+        # all threads states, file.close() is called, which
+        # releases the GIL and gives a chance to the loop below
+        # to execute again.
+        f = open("c:/temp/@temp", "w")
+
+        while True:
+            time.sleep(0)
+            time.sleep
+
+t = MyThread()
+t.setDaemon(True)
+t.start()
+time.sleep(0.01)
+</code>
+
+
+cmd args: "-X faulthandler" to trace segfault
+

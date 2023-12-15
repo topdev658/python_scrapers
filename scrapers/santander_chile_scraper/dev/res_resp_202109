@@ -1,0 +1,39 @@
+>>> LOGIN
+await fetch("https://www.officebanking.cl/login.asp", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "cross-site",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.santander.cl/",
+    "body": "d_rut=&d_pin=&botonenvio=&hrut=481918502&pass=Busselto&optsgd=ATN&rut=&IDLOGIN=BancoSantander&tipo=0&pin=&usateclado=no&dondeentro=home&rslAlto=900&rslAncho=1600",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> AFTER LOGIN (ACCEPTADO)
+await fetch("https://www.officebanking.cl/aceptado.asp", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.officebanking.cl/empresas.asp",
+    "body": "empSel=0001000100069002163980007645325700NALANDA+SEGURIDAD+SPA+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ModoAcceso=B&changeEmp=Falso&Autenticado=Verdadero&nom_prsna_etcdo=JUAN+GIL+RABADAN&Autorizado=Verdadero&UsuarioNoOFB=0&UsuarioOFB=1&TipoAutenticacion=&GLS_SEGMENTO=CLIENTES&nro_prsna_usr=0481918502&Login_Autorizado_HE=Verdadero&EstadoTCC=&CLVSP001=&Cod_srv=&url_btn_ses=https%3A%2F%2Fwww.officebanking.cl&btnpnc=0&btnDFTN=PantOB_Blanca.asp&btnDFT3=https%3A%2F%2Fwww.officebanking.cl%2Fcampna%2FCAMPANAS_OB%2FPAGO_TC_APP%2F&btnDFT4=ERC&btnDFT6=ERC&btnDFT92=https%3A%2F%2Fwww.officebanking.cl%2Fcampna%2FCAMPANAS_OB%2FAPO_DELEGADO%2FBANNER.ASPX&btnDFT00=ERC&NoticiaOFB20=",
+    "method": "POST",
+    "mode": "cors"
+});

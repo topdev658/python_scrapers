@@ -1,0 +1,230 @@
+>>> OPEN FICHEROS PAGE
+
+>>> send-receive-update
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/send-receive-updates", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/resumen/resumen_posiciones.iface",
+    "body": "ice.submit.partial=false&ice.event.target=formMenuLateral%3Aj_id2302&ice.event.captured=formMenuLateral%3AlateralFicheros&ice.event.type=onclick&ice.event.alt=false&ice.event.ctrl=false&ice.event.shift=false&ice.event.meta=false&ice.event.x=937&ice.event.y=597&ice.event.left=false&ice.event.right=false&formMenuLateral=formMenuLateral&icefacesCssUpdates=&javax.faces.ViewState=1&javax.faces.RenderKitId=ICEfacesRenderKit&formMenuLateral%3A_idcl=formMenuLateral%3AlateralFicheros&ice.session=T8CXX60YftNcMNKDdBOo1g&ice.view=1&ice.focus=formMenuLateral%3AlateralFicheros&rand=0.9454272055717282\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OrderedDict([('ice.submit.partial', 'false'),
+             ('ice.event.target', 'formMenuLateral:j_id2302'),
+             ('ice.event.captured', 'formMenuLateral:lateralFicheros'),
+             ('ice.event.type', 'onclick'),
+             ('ice.event.alt', 'false'),
+             ('ice.event.ctrl', 'false'),
+             ('ice.event.shift', 'false'),
+             ('ice.event.meta', 'false'),
+             ('ice.event.x', '937'),
+             ('ice.event.y', '597'),
+             ('ice.event.left', 'false'),
+             ('ice.event.right', 'false'),
+             ('formMenuLateral', 'formMenuLateral'),
+             ('icefacesCssUpdates', ''),
+             ('javax.faces.ViewState', '1'),
+             ('javax.faces.RenderKitId', 'ICEfacesRenderKit'),
+             ('formMenuLateral:_idcl', 'formMenuLateral:lateralFicheros'),
+             ('ice.session', 'T8CXX60YftNcMNKDdBOo1g'),
+             ('ice.view', '1'),
+             ('ice.focus', 'formMenuLateral:lateralFicheros'),
+             ('rand', '0.9454272055717282\n\n')])
+
+>>> dispose-views
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/dispose-views", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/resumen/resumen_posiciones.iface",
+    "body": "T8CXX60YftNcMNKDdBOo1g=1&rand=0.8966496320871459\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> ficheros
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_situacion.iface", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/resumen/resumen_posiciones.iface",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_ficheros.html
+
+>>> SWITCH TO RECEPCION TAB
+
+>>> send-receive-update
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/send-receive-updates", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_situacion.iface",
+    "body": "ice.submit.partial=false&ice.event.target=formMenuAcciones%3APanelAcciones%3A1%3AAccion&ice.event.captured=formMenuAcciones%3APanelAcciones%3A1%3AAccion&ice.event.type=onclick&ice.event.alt=false&ice.event.ctrl=false&ice.event.shift=false&ice.event.meta=false&ice.event.x=273&ice.event.y=167&ice.event.left=false&ice.event.right=false&formMenuAcciones=formMenuAcciones&icefacesCssUpdates=&javax.faces.ViewState=1&javax.faces.RenderKitId=ICEfacesRenderKit&formMenuAcciones%3A_idcl=formMenuAcciones%3APanelAcciones%3A1%3AAccion&ice.session=5pZ07vQOq89F1zxSusrXmw&ice.view=1&ice.focus=formMenuAcciones%3APanelAcciones%3A1%3AAccion&rand=0.7215749204605992\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OrderedDict([('ice.submit.partial', 'false'),
+             ('ice.event.target', 'formMenuAcciones:PanelAcciones:1:Accion'),
+             ('ice.event.captured', 'formMenuAcciones:PanelAcciones:1:Accion'),
+             ('ice.event.type', 'onclick'),
+             ('ice.event.alt', 'false'),
+             ('ice.event.ctrl', 'false'),
+             ('ice.event.shift', 'false'),
+             ('ice.event.meta', 'false'),
+             ('ice.event.x', '273'),
+             ('ice.event.y', '167'),
+             ('ice.event.left', 'false'),
+             ('ice.event.right', 'false'),
+             ('formMenuAcciones', 'formMenuAcciones'),
+             ('icefacesCssUpdates', ''),
+             ('javax.faces.ViewState', '1'),
+             ('javax.faces.RenderKitId', 'ICEfacesRenderKit'),
+             ('formMenuAcciones:_idcl',
+              'formMenuAcciones:PanelAcciones:1:Accion'),
+             ('ice.session', '5pZ07vQOq89F1zxSusrXmw'),
+             ('ice.view', '1'),
+             ('ice.focus', 'formMenuAcciones:PanelAcciones:1:Accion'),
+             ('rand', '0.7215749204605992\n\n')])
+
+>>> dispose-views
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/dispose-views", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_situacion.iface",
+    "body": "5pZ07vQOq89F1zxSusrXmw=1&rand=0.13267840084466986\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> recepcion
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_buzon_detalle.iface", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_situacion.iface",
+    "method": "GET",
+    "mode": "cors"
+});
+
+
+>>> SELECT N43 USUARIO/COMPANY on RECEPCION tab
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/send-receive-updates", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_buzon_detalle.iface",
+    "body": "ice.submit.partial=true&ice.event.target=formBuzonSeleccion%3Ausuarios%3A_0&ice.event.captured=formBuzonSeleccion%3Ausuarios%3A_0&ice.event.type=onclick&ice.event.alt=false&ice.event.ctrl=false&ice.event.shift=false&ice.event.meta=false&ice.event.x=178&ice.event.y=207&ice.event.left=false&ice.event.right=false&formBuzonSeleccion=&icefacesCssUpdates=&javax.faces.ViewState=1&javax.faces.RenderKitId=&formBuzonSeleccion%3Ausuarios=01&ice.session=wixmUUxh2-ARTUWHYtFMzA&ice.view=1&ice.focus=formBuzonSeleccion%3Ausuarios%3A_0&rand=0.7792849037649462\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 30_resp_comp_n43_selected.html / 35_resp_comp_n43_selected_no_files.html
+
+
+>>> DOWNLOAD N43 FILE
+>>> send-receive-updates
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/block/send-receive-updates", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_buzon_detalle.iface",
+    "body": "ice.submit.partial=false&ice.event.target=formFicherosBuzon%3AdatosBuzon%3A0%3Alink_descargar&ice.event.captured=formFicherosBuzon%3AdatosBuzon%3A0%3Alink_descargar&ice.event.type=onclick&ice.event.alt=false&ice.event.ctrl=false&ice.event.shift=false&ice.event.meta=false&ice.event.x=838&ice.event.y=374&ice.event.left=false&ice.event.right=false&formFicherosBuzon=formFicherosBuzon&icefacesCssUpdates=&javax.faces.ViewState=1&javax.faces.RenderKitId=ICEfacesRenderKit&formFicherosBuzon%3A_idcl=formFicherosBuzon%3AdatosBuzon%3A0%3Alink_descargar&ice.session=erG5t1eVXB2IQ0S6WgmJOw&ice.view=1&ice.focus=formFicherosBuzon%3AdatosBuzon%3A0%3Alink_descargar&rand=0.9125745603148003\n\n",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('ice.submit.partial', 'false'),
+             ('ice.event.target',
+              'formFicherosBuzon:datosBuzon:0:link_descargar'),
+             ('ice.event.captured',
+              'formFicherosBuzon:datosBuzon:0:link_descargar'),
+             ('ice.event.type', 'onclick'),
+             ('ice.event.alt', 'false'),
+             ('ice.event.ctrl', 'false'),
+             ('ice.event.shift', 'false'),
+             ('ice.event.meta', 'false'),
+             ('ice.event.x', '838'),
+             ('ice.event.y', '374'),
+             ('ice.event.left', 'false'),
+             ('ice.event.right', 'false'),
+             ('formFicherosBuzon', 'formFicherosBuzon'),
+             ('icefacesCssUpdates', ''),
+             ('javax.faces.ViewState', '1'),
+             ('javax.faces.RenderKitId', 'ICEfacesRenderKit'),
+             ('formFicherosBuzon:_idcl',
+              'formFicherosBuzon:datosBuzon:0:link_descargar'),
+             ('ice.session', 'erG5t1eVXB2IQ0S6WgmJOw'),
+             ('ice.view', '1'),
+             ('ice.focus', 'formFicherosBuzon:datosBuzon:0:link_descargar'),
+             ('rand', '0.9125745603148003\n\n')])
+>>> dispose-views
+>>> download file
+await fetch("https://www.kutxabank.es/NASApp/BesaideNet2/Gestor?PRESTACION=ficheros&FUNCION=buzon&ACCION=descargar&referenciaCash=677854&bytesFichero=410&tipoFichero=CSB-43&numeroFichero=130617&usuario=01", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.kutxabank.es/NASApp/BesaideNet2/pages/ficheros/ficheros_buzon_detalle.iface",
+    "method": "POST",
+    "mode": "cors"
+});

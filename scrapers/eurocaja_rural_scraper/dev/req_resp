@@ -1,0 +1,101 @@
+>>> GET CLAVE CALCULA
+await fetch("https://banking.eurocajarural.es/BEWeb/3081/3081/inicio_identificacion_sello.action", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.eurocajarural.es/3081/3081/",
+    // ALEATORIOIDENSELLO - random? (can be 3816651674)  861034922, better random
+    "body": "CAJA=3081&CAMINO=3081&IDIOMA=01&ALEATORIOIDENSELLO=2726080899",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_resp_inicio_sello.json
+
+>>> LOGIN
+await fetch("https://banking.eurocajarural.es/BEWeb/3081/3081/identificacion.action?CAJA=3081&CAMINO=3081&IDIOMA=01", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.eurocajarural.es/3081/3081/",
+    // PIN - userpass encrypted
+    // PAN = 9999993081 - const
+    // PANENT - username
+    "body": "SELLO=2022.08.14.13.26.06&OPERACION=0002&BROKER=NO2&PINV3=si&PIN=83ecc45223b7984677518da8fd059e2c&PAN=9999993081&PANENT=04199500E",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_logged_in.json
+    20_resp_logged_in_decoded.json
+
+
+>>> ACCOUNTS (HOME)
+await fetch("https://banking.eurocajarural.es/BEWeb/3081/3081/noperCadenaSBE_d_ngCadenaSBE.action;jsessionid=KxKf4jfIS5SGXPHxwQC0VaV9ZPR1ZpF3mUCzV7_L.lima?CAJA=3081&CAMINO=3081&IDIOMA=01", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.eurocajarural.es/3081/3081/",
+    "body": "FIT_CTT_NOMBRE_CONTRATO=HIPERMADERA%20TALAVERA%20S.L.&FIT_CTT_CONTRATO=F4JWC&FIT_CTT_CONTRATO_CAJA=****3343**&OPERACION=selContrato",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 30_resp_home_decoded.json
+
+>>> MOVS
+await fetch("https://banking.eurocajarural.es/BEWeb/3081/3081/oper2992_d_ngJsonSeg.action;jsessionid=ENHP91i87yK9_JtG7IDdtvJJtn1CcXCPj9dm-raA.tlima?CAJA=3081&CAMINO=3081&IDIOMA=01", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.eurocajarural.es/3081/3081/",
+    "body": "OPERACION=2992&GCUENTA=30810102340000111105194920&FECINI=2022-06-01&FECFIN=2022-08-28&TIPOMOV=",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 40_resp_movs_no_pagination.json
+    40_resp_movs_pag1.json
+
+
+>>> MOVS PAG2 (see 40_resp_movs_pag1.json)
+await fetch("https://banking.eurocajarural.es/BEWeb/3081/3081/oper2992_d_ngJsonSeg.action;jsessionid=wb8EeYXWMvVOqTbE-F_0PMazgfUgfJI3F2Gul07f.tlis?CAJA=3081&CAMINO=3081&IDIOMA=01", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.eurocajarural.es/3081/3081/",
+    "body": "OPERACION=2992&GCUENTA=30810101730000212624338329&FECINI=2022-06-01&FECFIN=2022-08-28&TIPOMOV=&REANUDACION=YWZiNzc5MjEtMmZlNS00N2EyLTg1ZTMtZmIwMjJmODUyNzgz",
+    "method": "POST",
+    "mode": "cors"
+});

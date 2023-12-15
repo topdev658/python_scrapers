@@ -1,0 +1,2112 @@
+{
+  "accountTransactions": [
+    {
+      "id": "140000033788256887190905142725357233",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "branch": {
+        "id": "7013"
+      },
+      "extendedName": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219093474111533",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "14:27:25",
+        "dateRMS": "19-09-05"
+      },
+      "transactionDate": "2019-09-05T00:00:00.000+0200",
+      "valueDate": "2019-09-05T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 19197.11
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 19197.11
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -412.89
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0063",
+          "name": "TRANSFERENCIAS GASTOS"
+        },
+        "subCategory": {
+          "id": "0064",
+          "name": "TRANSFERENCIA REALIZADA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA001",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219093474111533-EM-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "EM",
+        "transferDate": "2019-09-05T00:00:00.000+0200",
+        "valueDate": "2019-09-05T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 412.89
+        },
+        "sender": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "021482456L",
+              "type": "01"
+            },
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 412.89
+            },
+            "date": "2019-09-05T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "ES2220386295313000065663",
+            "bank": {
+              "bicCode": "CAHMESMMXXX",
+              "name": "BANKIA, S.A",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES2220386295313000065663"
+            },
+            "productName": "1"
+          },
+          "person": {
+            "address": "",
+            "name": "PAGO ALQUILER NAVE C/POSEIDON P,PLA DE TEROL CATI GARCIA"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 412.89
+            },
+            "date": "2019-09-06T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+        "channel": {
+          "id": "0501",
+          "name": "BBVA.ES B.ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "924865044666",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 412.89
+        },
+        "purpose": {},
+        "remittanceCode": "694025605",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501167893343",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "10",
+        "name": "Hogar"
+      },
+      "humanSubcategory": {
+        "id": "39",
+        "name": "Gastos variados del hogar"
+      },
+      "humanConceptName": "TRANSFERENCIA REALIZADA",
+      "humanExtendedConceptName": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-09-05%3A2019-09-05%3A00007%3AEUR%3A-412.89/bankingVirtualMails?$filter=(review==0011018219093474111533)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033761783011190903075302688183",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO MPV - AG  SV",
+      "branch": {
+        "id": "7013"
+      },
+      "extendedName": "PAGO MPV - AG  SV",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219093471425091",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "07:53:02",
+        "dateRMS": "19-09-03"
+      },
+      "transactionDate": "2019-09-03T00:00:00.000+0200",
+      "valueDate": "2019-09-03T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 19610.0
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 19610.0
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -700.0
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0063",
+          "name": "TRANSFERENCIAS GASTOS"
+        },
+        "subCategory": {
+          "id": "0064",
+          "name": "TRANSFERENCIA REALIZADA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA001",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219093471425091-EM-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "EM",
+        "transferDate": "2019-09-03T00:00:00.000+0200",
+        "valueDate": "2019-09-03T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 700.0
+        },
+        "sender": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "021482456L",
+              "type": "01"
+            },
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 700.0
+            },
+            "date": "2019-09-03T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "01821150050208506266",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES9401821150050208506266",
+              "ccc": "01821150050208506266"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "name": "MANUEL PALACIN DEL VAL"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 700.0
+            },
+            "date": "2019-09-03T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO MPV - AG  SV",
+        "channel": {
+          "id": "0501",
+          "name": "BBVA.ES B.ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "21482456L",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 700.0
+        },
+        "purpose": {},
+        "remittanceCode": "692820573",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501166119947",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "9",
+        "name": "Efectivo y Pagos"
+      },
+      "humanSubcategory": {
+        "id": "62",
+        "name": "Transferencia realizada"
+      },
+      "humanConceptName": "TRANSFERENCIA REALIZADA",
+      "humanExtendedConceptName": "PAGO MPV - AG  SV",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-09-03%3A2019-09-03%3A00007%3AEUR%3A-700.0/bankingVirtualMails?$filter=(review==0011018219093471425091)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033744390319190902000026168901",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00229",
+        "name": "ADEUDO DE IBERDROLA"
+      },
+      "name": "N 2019238000999779 IBERDROLA CLIENTES, S.A.U",
+      "branch": {
+        "id": "1150"
+      },
+      "extendedName": "IBERDROLA número de recibo 2019238000999779",
+      "origin": {
+        "detailSourceId": "PAAD",
+        "detailSourceKey": "2019238000999779",
+        "billCode": "2019238000999779",
+        "panCode": "2019238000999779",
+        "procedureCode": "0457",
+        "timeRMS": "00:00:26",
+        "dateRMS": "19-09-02"
+      },
+      "transactionDate": "2019-09-02T00:00:00.000+0200",
+      "valueDate": "2019-09-02T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20310.0
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20310.0
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -114.56
+      },
+      "scheme": {
+        "source": {
+          "name": "AUTOMATICO"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0057",
+          "name": "RECIBOS GASTOS"
+        },
+        "subCategory": {
+          "id": "0058",
+          "name": "PAGO DE ADEUDO DIRECTO SEPA"
+        },
+        "summaryType": {
+          "id": "A"
+        }
+      },
+      "extendedDate": {
+        "terminal": "",
+        "userCode": "KPGIBIMP",
+        "bankCode": "0182"
+      },
+      "billTransactionDetail": {
+        "self": {
+          "id": "2019238000999779",
+          "link": {
+            "rel": "getBillDetails",
+            "href": "/bills/V01/2019238000999779?$filter=origin==SEPA",
+            "method": "GET"
+          }
+        },
+        "id": "2019238000999779",
+        "billCounterpart": "79",
+        "expirationDate": "2019-09-02T00:00:00.000+0200",
+        "registerDate": "2019-08-26T00:00:00.000+0200",
+        "rejectionDeadLine": "2019-08-30T00:00:00.000+0200",
+        "returnDateLimit": "2019-10-31T00:00:00.000+0100",
+        "recoveryDateLimit": "2019-10-31T00:00:00.000+0100",
+        "billConceptName": "N",
+        "extendedBillConceptName": "IBERDROLA ELECTRICIDAD 0520668686 POLOP,  PG PLA DE TEROL CALLE G 2,BA4",
+        "type": "RECURRENTE",
+        "amount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 114.56
+        },
+        "thirdPartyDescription": "ADEUDO IBERDROLA",
+        "chargeInformation": {
+          "situation": {
+            "id": "C",
+            "name": "CARGADO"
+          },
+          "account": {
+            "id": "0182-1150-05-0201568494"
+          },
+          "branch": {},
+          "chargeDate": "2019-09-02T00:00:00.000+0200"
+        },
+        "statusInformation": {
+          "date": "2019-09-02T00:00:00.000+0200",
+          "user": {},
+          "branch": {}
+        },
+        "creditor": {
+          "id": "ES43001A95758389",
+          "ibanCode": "ES6501824647910201502610",
+          "reference": "0520668686230816938920190823212824",
+          "bank": {
+            "id": "2019238000999779",
+            "bicCode": "BBVAESMMXXX",
+            "countryId": "ES"
+          },
+          "origin": "CLIENTE GRUPO BBVA",
+          "name": "IBERDROLA CLIENTES, S.A.U",
+          "participant": {}
+        },
+        "debtor": {
+          "participant": {
+            "name": "KATALINA GARCIA MARTINEZ"
+          }
+        },
+        "expectedAccount": {
+          "id": "0182-1150-05-0201568494"
+        },
+        "mandate": {
+          "id": "294441471000"
+        },
+        "status": {
+          "id": "PAY",
+          "name": "Cargado con Saldo"
+        },
+        "intentionName": "ENERGIA",
+        "pendingReason": "CC",
+        "extendedIntentionName": "PAGO DE INTERCAMBIO COMERCIAL",
+        "customPaymentIndicator": "NF",
+        "stillCustomizable": false,
+        "returnDeadLine": "2019-09-09T00:00:00.000+0200"
+      },
+      "humanCategory": {
+        "id": "10",
+        "name": "Hogar"
+      },
+      "humanSubcategory": {
+        "id": "38",
+        "name": "Luz"
+      },
+      "humanConceptName": "ADEUDO DE IBERDROLA",
+      "humanExtendedConceptName": "ADEUDO Nº 2019238000999779",
+      "document": {
+        "rel": "ADEUDO DE IBERDROLA",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-09-02%3A2019-09-02%3A00229%3AEUR%3A-114.56/bankingVirtualMails?$filter=(review==2019238000999779)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033718216978190830002732270714",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00321",
+        "name": "ADEUDO DE CUOTA DE LA SEGURIDAD SOCIAL"
+      },
+      "name": "N 2019240001355283 TGSS. COTIZACION 005 R.E.AUTONOMOS",
+      "branch": {
+        "id": "1150"
+      },
+      "extendedName": "TGSS. COTIZACION 005 R.E.AUTONOMOS número de recibo 2019240001355283",
+      "origin": {
+        "detailSourceId": "PAAD",
+        "detailSourceKey": "2019240001355283",
+        "billCode": "2019240001355283",
+        "panCode": "2019240001355283",
+        "procedureCode": "0457",
+        "timeRMS": "00:27:32",
+        "dateRMS": "19-08-30"
+      },
+      "transactionDate": "2019-08-30T00:00:00.000+0200",
+      "valueDate": "2019-08-30T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20424.56
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20424.56
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -163.78
+      },
+      "scheme": {
+        "source": {
+          "name": "AUTOMATICO"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0025",
+          "name": "IMPUESTOS"
+        },
+        "subCategory": {
+          "id": "0027",
+          "name": "PAGO DE IMPUESTO"
+        },
+        "summaryType": {
+          "id": "A"
+        }
+      },
+      "extendedDate": {
+        "terminal": "",
+        "userCode": "KPGIBIMP",
+        "bankCode": "0182"
+      },
+      "billTransactionDetail": {
+        "self": {
+          "id": "2019240001355283",
+          "link": {
+            "rel": "getBillDetails",
+            "href": "/bills/V01/2019240001355283?$filter=origin==SEPA",
+            "method": "GET"
+          }
+        },
+        "id": "2019240001355283",
+        "billCounterpart": "83",
+        "expirationDate": "2019-08-30T00:00:00.000+0200",
+        "registerDate": "2019-08-28T00:00:00.000+0200",
+        "rejectionDeadLine": "2019-08-29T00:00:00.000+0200",
+        "returnDateLimit": "2019-09-03T00:00:00.000+0200",
+        "recoveryDateLimit": "2019-09-03T00:00:00.000+0200",
+        "billConceptName": "N",
+        "extendedBillConceptName": "PERIODO LIQUIDACION: 08/2019-08/2019",
+        "type": "RECURRENTE",
+        "amount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 163.78
+        },
+        "thirdPartyDescription": "ADEUDO CUOTA SEGURIDAD SOCIAL",
+        "chargeInformation": {
+          "situation": {
+            "id": "C",
+            "name": "CARGADO"
+          },
+          "account": {
+            "id": "0182-1150-05-0201568494"
+          },
+          "branch": {},
+          "chargeDate": "2019-08-30T00:00:00.000+0200"
+        },
+        "statusInformation": {
+          "date": "2019-08-30T00:00:00.000+0200",
+          "user": {},
+          "branch": {}
+        },
+        "creditor": {
+          "id": "ES75005Q2827003A",
+          "ibanCode": "ES2801822370420018600315",
+          "reference": "190800503010947029118911",
+          "bank": {
+            "id": "2019240001355283",
+            "bicCode": "BBVAESMMXXX"
+          },
+          "origin": "CLIENTE GRUPO BBVA",
+          "name": "TGSS. COTIZACION 005 R.E.AUTONOMOS",
+          "participant": {}
+        },
+        "debtor": {
+          "participant": {
+            "name": "GARCIA MARTINEZ CATALINA",
+            "type": "D",
+            "description": "D21482456L"
+          }
+        },
+        "applicant": {
+          "participant": {
+            "name": "GARCIA MARTINEZ CATALINA",
+            "type": "D",
+            "description": "D07030109470291"
+          }
+        },
+        "expectedAccount": {
+          "id": "0182-1150-05-0201568494"
+        },
+        "mandate": {
+          "id": "030109470291"
+        },
+        "status": {
+          "id": "PAY",
+          "name": "Cargado con Saldo"
+        },
+        "intentionName": "PAGO ORGANISMOS PUBLICOS",
+        "pendingReason": "CC",
+        "extendedIntentionName": "PAGO DE/PARA EL GOBIERNO",
+        "customPaymentIndicator": "NF",
+        "stillCustomizable": false,
+        "returnDeadLine": "2019-09-03T00:00:00.000+0200"
+      },
+      "humanCategory": {
+        "id": "3",
+        "name": "Administraciones públicas"
+      },
+      "humanSubcategory": {
+        "id": "1",
+        "name": "Impuestos y tasas"
+      },
+      "humanConceptName": "ADEUDO DE CUOTA DE LA SEGURIDAD SOCIAL",
+      "humanExtendedConceptName": "N 2019240001355283 TGSS. COTIZACION 005 R.E.AUTONOMOS",
+      "document": {
+        "rel": "ADEUDO DE CUOTA DE LA SEGURIDAD SOCIAL",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-08-30%3A2019-08-30%3A00321%3AEUR%3A-163.78/bankingVirtualMails?$filter=(review==2019240001355283)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033565232414190809114332816671",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO FRAS JUNIO   JULIO 19",
+      "branch": {
+        "id": "6051"
+      },
+      "extendedName": "PAGO FRAS JUNIO   JULIO 19",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219083374020896",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "11:43:32",
+        "dateRMS": "19-08-09"
+      },
+      "transactionDate": "2019-08-09T00:00:00.000+0200",
+      "valueDate": "2019-08-09T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20588.34
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 20588.34
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": 10244.29
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0002",
+          "name": "Abono"
+        },
+        "category": {
+          "id": "0147",
+          "name": "TRANSFERENCIAS INGRESOS"
+        },
+        "subCategory": {
+          "id": "0149",
+          "name": "TRANSFERENCIA RECIBIDA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA034",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219083374020896-RE-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "RE",
+        "transferDate": "2019-08-09T00:00:00.000+0200",
+        "valueDate": "2019-08-09T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 10244.29
+        },
+        "sender": {
+          "account": {
+            "id": "01**************5057",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES******************5057",
+              "ccc": "01824453060101505057"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "B54909288",
+              "type": "02"
+            },
+            "name": "ADMIRAL RATE S.L."
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 10244.29
+            },
+            "date": "2019-08-09T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 10244.29
+            },
+            "date": "2019-08-09T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO FRAS JUNIO   JULIO 19",
+        "channel": {
+          "id": "0503",
+          "name": "BBVA NETCASH BANCA ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "B54909288",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 10244.29
+        },
+        "purpose": {},
+        "remittanceCode": "686222852",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501156253835",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "1",
+        "name": "Ingresos"
+      },
+      "humanSubcategory": {
+        "id": "51",
+        "name": "Transferencia recibida"
+      },
+      "humanConceptName": "TRANSFERENCIA RECIBIDA",
+      "humanExtendedConceptName": "PAGO FRAS JUNIO   JULIO 19",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-08-09%3A2019-08-09%3A00007%3AEUR%3A10244.29/bankingVirtualMails?$filter=(review==0011018219083374020896)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033565080663190809110940411142",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO FRA JULIO 19",
+      "branch": {
+        "id": "6051"
+      },
+      "extendedName": "PAGO FRA JULIO 19",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219083374003688",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "11:09:40",
+        "dateRMS": "19-08-09"
+      },
+      "transactionDate": "2019-08-09T00:00:00.000+0200",
+      "valueDate": "2019-08-09T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 10344.05
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 10344.05
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": 3284.23
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0002",
+          "name": "Abono"
+        },
+        "category": {
+          "id": "0147",
+          "name": "TRANSFERENCIAS INGRESOS"
+        },
+        "subCategory": {
+          "id": "0149",
+          "name": "TRANSFERENCIA RECIBIDA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA034",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219083374003688-RE-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "RE",
+        "transferDate": "2019-08-09T00:00:00.000+0200",
+        "valueDate": "2019-08-09T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 3284.23
+        },
+        "sender": {
+          "account": {
+            "id": "01**************1475",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES******************1475",
+              "ccc": "01824453090101501475"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "B53531380",
+              "type": "02"
+            },
+            "name": "SERVICIOS DE LAVANDERIA LA NUCIA S.L."
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 3284.23
+            },
+            "date": "2019-08-09T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 3284.23
+            },
+            "date": "2019-08-09T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO FRA JULIO 19",
+        "channel": {
+          "id": "0503",
+          "name": "BBVA NETCASH BANCA ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "B53531380",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 3284.23
+        },
+        "purpose": {},
+        "remittanceCode": "686211711",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501156242557",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "1",
+        "name": "Ingresos"
+      },
+      "humanSubcategory": {
+        "id": "51",
+        "name": "Transferencia recibida"
+      },
+      "humanConceptName": "TRANSFERENCIA RECIBIDA",
+      "humanExtendedConceptName": "PAGO FRA JULIO 19",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-08-09%3A2019-08-09%3A00007%3AEUR%3A3284.23/bankingVirtualMails?$filter=(review==0011018219083374003688)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033528358627190805133330084277",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "branch": {
+        "id": "7013"
+      },
+      "extendedName": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219083371347169",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "13:33:30",
+        "dateRMS": "19-08-05"
+      },
+      "transactionDate": "2019-08-05T00:00:00.000+0200",
+      "valueDate": "2019-08-05T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 7059.82
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 7059.82
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -412.89
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0063",
+          "name": "TRANSFERENCIAS GASTOS"
+        },
+        "subCategory": {
+          "id": "0064",
+          "name": "TRANSFERENCIA REALIZADA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA001",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219083371347169-EM-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "EM",
+        "transferDate": "2019-08-05T00:00:00.000+0200",
+        "valueDate": "2019-08-05T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 412.89
+        },
+        "sender": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "021482456L",
+              "type": "01"
+            },
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 412.89
+            },
+            "date": "2019-08-05T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "ES2220386295313000065663",
+            "bank": {
+              "bicCode": "CAHMESMMXXX",
+              "name": "BANKIA, S.A",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES2220386295313000065663"
+            },
+            "productName": "1"
+          },
+          "person": {
+            "address": "",
+            "name": "PAGO ALQUILER NAVE C/POSEIDON P,PLA DE TEROL CATI GARCIA"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 412.89
+            },
+            "date": "2019-08-06T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+        "channel": {
+          "id": "0501",
+          "name": "BBVA.ES B.ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "921768384504",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 412.89
+        },
+        "purpose": {},
+        "remittanceCode": "685005973",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501154523285",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "10",
+        "name": "Hogar"
+      },
+      "humanSubcategory": {
+        "id": "39",
+        "name": "Gastos variados del hogar"
+      },
+      "humanConceptName": "TRANSFERENCIA REALIZADA",
+      "humanExtendedConceptName": "PAGO ALQUILER NAVE POSEIDON CATI GARCIA",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-08-05%3A2019-08-05%3A00007%3AEUR%3A-412.89/bankingVirtualMails?$filter=(review==0011018219083371347169)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    },
+    {
+      "id": "140000033502639223190802091118434009",
+      "contract": {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "counterPart": "0020",
+        "country": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "formats": {
+          "bocf": "01821150002000000000156849",
+          "iuc": "00000000000000000405303614"
+        }
+      },
+      "concept": {
+        "id": "00007",
+        "name": "TRANSFERENCIAS"
+      },
+      "name": "PAGO MPV - JL SV",
+      "branch": {
+        "id": "7013"
+      },
+      "extendedName": "PAGO MPV - JL SV",
+      "origin": {
+        "detailSourceId": "PGGP",
+        "detailSourceKey": "0011018219083368881158",
+        "billCode": "0000000000",
+        "procedureCode": "0102",
+        "timeRMS": "09:11:18",
+        "dateRMS": "19-08-02"
+      },
+      "transactionDate": "2019-08-02T00:00:00.000+0200",
+      "valueDate": "2019-08-02T00:00:00.000+0200",
+      "comments": [],
+      "attachments": [],
+      "balance": {
+        "availableBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 7472.71
+        },
+        "accountingBalance": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 7472.71
+        }
+      },
+      "amount": {
+        "currency": {
+          "id": "EUR",
+          "code": "EUR"
+        },
+        "amount": -700.0
+      },
+      "scheme": {
+        "source": {
+          "name": "MANUAL"
+        },
+        "type": {
+          "id": "0001",
+          "name": "Cargo"
+        },
+        "category": {
+          "id": "0063",
+          "name": "TRANSFERENCIAS GASTOS"
+        },
+        "subCategory": {
+          "id": "0064",
+          "name": "TRANSFERENCIA REALIZADA"
+        },
+        "summaryType": {}
+      },
+      "extendedDate": {
+        "terminal": "00",
+        "userCode": "IMMA001",
+        "bankCode": "0182"
+      },
+      "wireTransactionDetail": {
+        "id": "0011018219083368881158-EM-ES0182002000000000000000000405303614XXXXXXXXX",
+        "status": "EM",
+        "transferDate": "2019-08-02T00:00:00.000+0200",
+        "valueDate": "2019-08-02T00:00:00.000+0200",
+        "grossWireTransferAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 700.0
+        },
+        "sender": {
+          "account": {
+            "id": "01821150050201568494",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES3701821150050201568494",
+              "ccc": "01821150050201568494"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "id": {
+              "number": "021482456L",
+              "type": "01"
+            },
+            "name": "CATALINA GARCIA MARTINEZ"
+          },
+          "creditedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 700.0
+            },
+            "date": "2019-08-02T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          },
+          "operationReference": "NOTPROVIDED"
+        },
+        "receiver": {
+          "account": {
+            "id": "01821150050208506266",
+            "bank": {
+              "bicCode": "BBVAESMMXXX",
+              "name": "BANCO BILBAO VIZCAYA ARGENTARIA S.A.",
+              "countryId": "0724"
+            },
+            "formats": {
+              "iban": "ES9401821150050208506266",
+              "ccc": "01821150050208506266"
+            },
+            "productName": "0"
+          },
+          "person": {
+            "address": "",
+            "name": "MANUEL PALACIN DEL VAL"
+          },
+          "debitedFunds": {
+            "amount": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 700.0
+            },
+            "date": "2019-08-02T00:00:00.000+0200",
+            "commission": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR"
+              },
+              "amount": 0.0
+            }
+          }
+        },
+        "periodicityInformation": {
+          "id": "0000000000",
+          "type": {
+            "id": "N"
+          },
+          "customizedPeriod": {
+            "amount": 0,
+            "timeUnit": {}
+          },
+          "state": {}
+        },
+        "description": "PAGO MPV - JL SV",
+        "channel": {
+          "id": "0501",
+          "name": "BBVA.ES B.ELECTRONICA"
+        },
+        "postalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "indicators": {
+          "settlementIndicator": true,
+          "remittance": false,
+          "zeroAccount": false,
+          "forexInsuranceType": "N"
+        },
+        "expensesType": {
+          "id": "SHA"
+        },
+        "fees": {
+          "swiftAmount": {
+            "currency": {
+              "id": "EUR",
+              "code": "EUR"
+            },
+            "amount": 0.0
+          },
+          "commission": {
+            "currency": {}
+          }
+        },
+        "exchangeRate": 1.0,
+        "administrationExpenses": 0.0,
+        "intermediaryFeeAmount": 0.0,
+        "internalReference": "21482456L",
+        "operationType": {
+          "id": "TN"
+        },
+        "payment": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 700.0
+        },
+        "purpose": {},
+        "remittanceCode": "683829326",
+        "isSettlementForfait": false,
+        "isRealPaymentDate": true,
+        "executionType": {
+          "id": "I"
+        },
+        "inmediatePayment": {},
+        "ownReference": "19501152977922",
+        "orderType": {
+          "id": "1",
+          "name": "TRANSFERENCIA SEPA"
+        },
+        "isGroupedRemittanceOrders": false,
+        "totalFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "totalExpensesFeesAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        },
+        "feeAmount": {
+          "currency": {
+            "id": "EUR",
+            "code": "EUR"
+          },
+          "amount": 0.0
+        }
+      },
+      "humanCategory": {
+        "id": "10",
+        "name": "Hogar"
+      },
+      "humanSubcategory": {
+        "id": "39",
+        "name": "Gastos variados del hogar"
+      },
+      "humanConceptName": "TRANSFERENCIA REALIZADA",
+      "humanExtendedConceptName": "PAGO MPV - JL SV",
+      "document": {
+        "rel": "TRANSFERENCIAS",
+        "href": "/transactionVirtualMails/V01/ES0182002000000000000000000405303614XXXXXXXXX%3A2019-08-02%3A2019-08-02%3A00007%3AEUR%3A-700.0/bankingVirtualMails?$filter=(review==0011018219083368881158)"
+      },
+      "financingData": {
+        "customizableIndicator": "NF"
+      }
+    }
+  ],
+  "accountFaceted": {},
+  "pagination": {
+    "total": 8,
+    "numPages": 1,
+    "pageSize": 40,
+    "page": 1,
+    "firstPage": "/accountTransactions/V02/accountTransactionsAdvancedSearch?paginationKey=0&pageSize=40",
+    "end": 8,
+    "start": 0
+  },
+  "totalResults": 8,
+  "hostResult": false
+}

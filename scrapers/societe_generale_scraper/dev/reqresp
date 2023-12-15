@@ -1,0 +1,80 @@
+# PAGE WITH ACCOUNTS FILTER RORM
+GET https://unified-access.societegenerale.com/portal/site/SogecashWeb/template.ASYNC/globalcash/?javax.portlet.tpst=c1c03cab4385048d34d08610c841240c&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken&vgnextoid=77811229371f0210VgnVCM1000008c1442c0RCRD&roles=&service=Navigation&vgnextfmt=default&sgniUrl=%2Fsgw%2FNavigationServlet%3F_GOTO%3DRelevesComptes%26_NumeroPage%3D1&selectedSgniMenu=77811229371f0210VgnVCM1000008c1442c0RCRD&service=Navigation&sgniUrl=%2Fsgw%2FNavigationServlet%3F_GOTO%3DRelevesComptes%26_NumeroPage%3D1&selectedSgniMenu=77811229371f0210VgnVCM1000008c1442c0RCRD&portlet-name=PortletSGNI2
+
+
+GET MOVEMENTS
+1. Open page 'Extractos de cuentas': GET -- find link by text from position global page
+2. Load page content with accounts/mov filter: GET  https://unified-access.societegenerale.com/portal/site/SogecashWeb/template.ASYNC/globalcash/?javax.portlet.tpst=c1c03cab4385048d34d08610c841240c&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken&vgnextoid=77811229371f0210VgnVCM1000008c1442c0RCRD&roles=&service=Navigation&vgnextfmt=default&sgniUrl=%2Fsgw%2FNavigationServlet%3F_GOTO%3DRelevesComptes%26_NumeroPage%3D1&selectedSgniMenu=77811229371f0210VgnVCM1000008c1442c0RCRD&service=Navigation&sgniUrl=%2Fsgw%2FNavigationServlet%3F_GOTO%3DRelevesComptes%26_NumeroPage%3D1&selectedSgniMenu=77811229371f0210VgnVCM1000008c1442c0RCRD&portlet-name=PortletSGNI2 -- extract from step 1 by parse_helpers.get_accounts_list_link
+3. filter each account:
+
+POST https://unified-access.societegenerale.com/portal/site/SogecashWeb/template.RAW/action.process/globalcash/?javax.portlet.action=true&javax.portlet.sync=43b641d015eee9c1089d93517032140c&javax.portlet.tpst=c1c03cab4385048d34d08610c841240c_ws_RW&javax.portlet.prp_c1c03cab4385048d34d08610c841240c=service%3DNavigation%26sgniUrl%3D%252Fsgw%252FNavigationServlet&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken
+
+WITH HEADERS
+
+      X-Requested-With[XMLHttpRequest]
+      Connection[keep-alive]
+
+WITH PARAMS
+_eventId=
+service=Navigation
+sgniUrl=/sgw/NavigationServlet
+_GOTO=RelevesComptes
+dateDebutPourEdition=01/11/2017
+dateFinPourEdition=26/09/2018
+_CompteSelectionne=1157204
+_ClasseurSelectionne=1
+_ExtraitSelectionne=
+_NumeroPage=1
+validation=0
+changepage=0
+lstCompte=1157204
+_banque=SOGEESMM STE.GENERALE DIR.GALE/MADRID
+_devise=EUR
+_dateSoldeInitial=01/11/2017
+_soldeInitial=151Â 850,88 EUR
+_dateSoldeFinal=26/09/2018
+_soldeFinal=132Â 302,32 EUR
+
+WHERE URL FROM
+
+$.ajax({
+	        type: "POST",
+	        url: '/portal/site/SogecashWeb/template.RAW/action.process/globalcash/?javax.portlet.action=true&javax.portlet.sync=43b641d015eee9c1089d93517032140c&javax.portlet.tpst=c1c03cab4385048d34d08610c841240c_ws_RW&javax.portlet.prp_c1c03cab4385048d34d08610c841240c=service%3DNavigation%26sgniUrl%3D%252Fsgw%252FNavigationServlet&javax.portlet.begCacheTok=com.vignette.cachetoken&javax.portlet.endCacheTok=com.vignette.cachetoken',
+	        data: objForm.serialize(),
+	        dataType: "html",
+	        success: function(data) {
+				if (isSessionExpired()){
+					document.location.reload();
+				} else {
+					var $currentTabs = $("#tabsContainerReleves_V_c1c03cab4385048d34d08610c841240c > div");
+
+					FROM STEP 2
+
+
+AND _CompteSelectionne=1157204
+
+FROM
+
+<td class="sgw_align_left">
+		<div class="sgw_input_bloc sgw_position_top sgw_input_align_left "><label>Cuenta</label><select    id="lstCompte" onChange="validComptePourEdition(document.frmReleves_V_c1c03cab4385048d34d08610c841240c.lstCompte.selectedIndex, document.frmReleves_V_c1c03cab4385048d34d08610c841240c, 'V_c1c03cab4385048d34d08610c841240c');"  name="lstCompte"  class="sgw_input_select"><option value="1157203" selected >
+					  01080030200030059490 28 RIBERA DEL LOIRA SA
+					  </option><option value="1157209">
+					  01080030270030066222 330 AVDA DE ARAGON
+					  </option><option value="1157204">
+					  01080030290030061254 330 AVENIDA DE ARAGON  S
+					  </option><option value="1157205">
+					  01080030230030061236 330 AVENIDA DE ARAGON SL
+					  </option><option value="1157206">
+					  01080030220030064910 BARDOL INVERSIONES SL
+					  </option><option value="1157212">
+					  01080030220030070903 GREF ALAMEDA PARK SL
+					  </option><option value="1157211">
+					  01080030250030070912 GREF ALAMEDA PARK SL
+					  </option><option value="1157200">
+					  01080030230030061806 RAMIREZ  EPGF  SL
+					  </option><option value="1157201">
+					  01080030260030061931 RAMIREZ EPGF SL SERVICE
+					  </option></select></div>
+	</td>
+
+	FROM STEP 2

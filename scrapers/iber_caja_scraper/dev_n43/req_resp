@@ -1,0 +1,122 @@
+# FICHEROS MENU
+>>> POST https://www1.ibercajadirecto.com/ibercaja/asp/menus/negocio/menu_emision_ficheros.asp?facturaelectronica=si
+DATA
+IdOperacion=0079_0
+MSCSAuth=CF152A242E2B4D4AAD068D42F4196558BM20210115122037QGVQE2B4D4AAD0BR68D42F4196RFF24D860DAA4D4B2FR6914F24D86RB0DAA4D60DAA4D4B2E242A251FCFR6914F2
+Entorno=IN
+Usuario=Z97318ANNA
+Entidad=2085
+Canal=IBE
+Dispositivo=INTR
+Idioma=ES
+VersionCabeceraBanner=EM
+Eclasificacion
+contusu=Z97318
+pagina
+<<< 10_resp_ficheros.html
+
+
+
+>>> N43 FILTER FORM (1st step, pre)
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/cobrospagos/ficheros/irecfich.asp?MSCSAUTH=6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70&Idioma=ES", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/menus/negocio/menu_emision_ficheros.asp?facturaelectronica=si",
+    "body": "IdOperacion=&Entidad=2085&Canal=IBE&Dispositivo=INTR&Idioma=ES&MSCSAuth=6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70&Entorno=IN&comercio=&tipoinformacion=T",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_pre_filter_form.html
+
+
+>>> N43 FILTER FORM (2nd step, parsed from 20_resp_pre_filter_form.html)
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/cobrospagos/ficheros/irecfich.asp?MSCSAUTH=6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70&Idioma=ES",
+    "body": "idoperacion=725_22&ticket=6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70&lista=0&error=0&tipooperacion=RF&Dispositivo=INTR&Canal=WEB&Idioma=ES&Entidad=2085&tipocuenta=AH&subtipocuenta=01%2C02%2C03%2C04%2C07%2C09%2C83%2C93%2C94&tipopermiso=OCN",
+    "method": "POST",
+    "mode": "cors"
+});
+<<<  30_resp_filter_form.html
+
+
+# FILTER BY DATES
+>>> await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=753365DB0ED0492E9CBB9F55EB59C2BEPUFQ20210119123333UTVYED0492E9CBQVKOBMB9F55EB59CJHE55F9BBC9E2940DHJC95BE55F9BMBOKVQBCBBC9E2940DE0BD563357HJC95BE5", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=753365DB0ED0492E9CBB9F55EB59C2BEPUFQ20210119123333UTVYED0492E9CBQVKOBMB9F55EB59CJHE55F9BBC9E2940DHJC95BE55F9BMBOKVQBCBBC9E2940DE0BD563357HJC95BE5",
+    "body": "idoperacion=725_29&Entidad=2085&Canal=WEB&Dispositivo=INTR&Idioma=ES&ticket=753365DB0ED0492E9CBB9F55EB59C2BEPUFQ20210119123333UTVYED0492E9CBQVKOBMB9F55EB59CJHE55F9BBC9E2940DHJC95BE55F9BMBOKVQBCBBC9E2940DE0BD563357HJC95BE5&error=0&tipooperacion=RF&tipocuenta=AH&subtipocuenta=01%2C02%2C03%2C04%2C07%2C09%2C83%2C93%2C94&tipopermiso=OCN&operation=0&lista=1&account=2085%2F8428%2F18%2F0330033048+-+C.CTE&fromday=14&frommonth=01&fromyear=2021&today=15&tomonth=01&toyear=2021&tipo=04301",
+    "method": "POST",
+    "mode": "cors"
+});
+sometimes there are several prepared N43 files, so we have to select the last file
+<<< 40_resp_filtered.html (with file selection options)
+
+# CONFIRM
+
+>>> CONFIRM step 1 (selected target file and pressed Aceptar)
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26",
+    "body": "idoperacion=725_23&Entidad=2085&Canal=WEB&Dispositivo=INTR&Idioma=ES&ticket=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26&idfile=4907332&tipooperacion=RF&error=0&tipo=0",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 45_resp_confirm.html
+
+>>> GET N43 FILE NAME ( Selección de ficheros a descargar -> <selected file> -> 'ACEPTAR' button)
+await fetch("https://www1.ibercajadirecto.com/InterFicheros/download/request_download.asp?ticket=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26&cod_cliente=394815MARTA&filesId=4907332&tipooperacion=RF", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 50_resp_n43_get_filename.html
+
+
+>>> N43 file
+await fetch("https://www1.ibercajadirecto.com/InterFicheros/download/perform_download.asp?cod_cliente=394815MARTA&targetName=394815_04301_20210216_21.sop", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=54EF8308CB17429AABFA7B7C215628EDRIUWO20210216130601BVB17429AABFHISEA7B7C21562FIOTIX2C7B7AFBAA92471XITOIF26512C7B7AESIHAFBAA92471BC8038FE45XITOIF26",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< <n43 file>

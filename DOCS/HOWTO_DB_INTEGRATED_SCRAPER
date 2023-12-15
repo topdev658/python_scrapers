@@ -1,0 +1,56 @@
+import requests
+from concurrent import futures
+from typing import *
+
+from project import settings as project_settings
+from project.structs import *
+
+from scrapers._basic_scraper.basic_scraper import BasicScraper
+
+class Scraper(BasicScraper):
+
+    scraper_name = 'TheScraper'
+
+    def __init__(self,
+                 scraper_params_common: ScraperParamsCommon,
+                 proxies=project_settings.DEFAULT_PROXIES) -> None:
+
+        super().__init__(scraper_params_common, proxies)
+
+    ....
+
+
+    def main(self):
+        try:
+            self.logger.info('main: started')
+
+            d = self._get_or_init_driver(0)
+            s, resp, is_logged, is_credentials_error = self.login()
+
+            if is_credentials_error:
+                return self.basic_result_credentials_error()
+
+            if not is_logged:
+                return self.basic_result_not_logged_in_due_unknown_reason(resp.url, resp.text)
+
+            accounts_scraped = self.get_accounts_scraped(s, resp)
+            self.basic_upload_accounts_scraped(accounts_scraped)
+            self.basic_log_time_spent('GET BALANCES')
+
+            # get and save movements
+            if project_settings.IS_CONCURRENT_SCRAPING:
+                with futures.ThreadPoolExecutor(max_workers=len(accounts_scraped)) as executor:
+                    futures_dict = {
+                        executor.submit(self.process_account, idx, account_scraped): account_scraped.AccountNo
+                        for idx, account_scraped in enumerate(accounts_scraped)
+                    }
+                    self.logger.log_futures_exc('process_account', futures_dict)
+            else:
+                for account_scraped in accounts_scraped:
+                    self.process_account(0, account_scraped)
+
+            self.basic_log_time_spent('GET MOVEMENTS')
+            return self.basic_result_success()
+
+
+

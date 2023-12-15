@@ -1,0 +1,78 @@
+>>> GET CONFIG (WITH encrypt key)
+await fetch("https://particulares.bancosantander.es/login/config.json", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) like Gecko/20100101 Firefox/86.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-ClientId": "nhb"
+    },
+    "referrer": "https://particulares.bancosantander.es/login/",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_config_202103.json
+
+>>> LOGIN STEP 1 (AUTH)
+await fetch("https://particulares.bancosantander.es/hb/entry/auth", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) like Gecko/20100101 Firefox/86.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "Xdev_partic_newweb-ClientId": "nhb"
+    },
+    "referrer": "https://particulares.bancosantander.es/login/",
+    "body": "{\"key\":\"w36xZcQWfRN/UcSN32YyGPoNdpsFVw3lMc+MJmRS1ftcTEUqIs3J1iWalvCKFwlapLNfv1FTCLaW5ECxyowE9eH0Qnfo2FJjkBw/HY7TzldGbzfUn6rCqrypjA1leObKOzmlWMuwq2/e0N0+6BM9P3AmaQddy1FmFmtwaFHq1nblLpOGJNkzPdykVHYfvBPkUwNI/1BXCQ2xVeOU/+we4TrNsEOpDNApVzE/ItPYuObTKSyUJvSOMVcgRzzU1K+apT8Z9aSpH4fKz19HcC5MahRQp14yPauTJb0wlRBXoCb0AY7r4Fb9zqFPMFCgxmE+dEaOAr7cMpOGP0ymEdB1Nw==\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_login_step1_auth.json
+
+
+>>> LOGIN STEP 2
+await fetch("https://particulares.bancosantander.es/api/hb/login", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) like Gecko/20100101 Firefox/86.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "X-ClientId": "nhb",
+        "Authorization": "Bearer QUMxNjI4QkZFRUM5MzIyMEY5RkFEMjVDIzE4NS43NC44MS4xMTgjMTYxNDgwNTM0OTM5NCNQRDk0Yld3Z2RtVnljMmx2YmowaU1TNHdJaUJsYm1OdlpHbHVaejBpU1ZOUExUZzROVGt0TVNJL1BqeDBiMnRsYmtSbFptbHVhWFJwYjI0K1BIVnpaWEpKUkQ0d01FRkZWbEZMVnp3dmRYTmxja2xFUGp4amIyUnBaMjlRWlhKemIyNWhQalEzTkRjNU1EVXlQQzlqYjJScFoyOVFaWEp6YjI1aFBqeHVZVzFsUGxKQlZVd2dUVUZTVkVsT1JWb2dVMEZPUTBoRldqd3ZibUZ0WlQ0OGRHbHdiMUJsY25OdmJtRStSand2ZEdsd2IxQmxjbk52Ym1FK1BDOTBiMnRsYmtSbFptbHVhWFJwYjI0KyNERVNlZGUvQ0JDL1BLQ1M1UGFkZGluZyN2MSNQYXJ0aWN1bGFyZXNTQU5QUk8jTk9UIFVTRUQjU0hBMXdpdGhSU0EjWlZPNGtFYWZpYUtGZ1RHb002VHRaL2duN0dGTkMzaE52Yk4yS2NVTFR6QWFaZHZsUUR4YTgvNkY0bzI1VGJtZkZFY2MrVkdKUUZvWmg3RVJZK1FpaFM5VGgreGc0NDdzZGtYYkZyV1FiL0NpU3ZsSVljZ0NidVVnZHorUzlEeWJWU0RDcC9YR21FdkJWbzhXd0JBMUdURjlUaVpjZENJSXJuak9JOWZObHE0PQ==",
+        "session-ID": "1614804089-bdd6-e279-3124-c1d3580fdf49"
+    },
+    "referrer": "https://particulares.bancosantander.es/login/",
+    "body": "{\"connectionTime\":\"1614804034313\",\"remember\":false,\"csid\":\"177F9D22EF05MSCMP\",\"documentType\":\"N\",\"documentNumber\":\"48722721G\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 30_resp_login.json
+
+
+>>> SUMMARY
+await fetch("https://particulares.bancosantander.es/api/accounts/statements/summary", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) like Gecko/20100101 Firefox/86.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "session-ID": "1614804089-bdd6-e279-3124-c1d3580fdf49",
+        "sessionToken": "d29e4770aaaac32ff8c7e6c2071b0664519c2d46266cd9bbd83fc2534ce9ebaa913987014478a2db34a2e864bda62728231ef6975cf40ddffc1fa4c28ac29042001bfc26fc768ebf59d495accdbdf863c3261a813637670a730c9bda2735bb02242c8fd98843afe13751556a428a577f2a062244b40359f674010f10a210a32f90398dc29568542ce288d3f3a2b6957d6be8b64cf93a78337529c4cba875ff3fa0d0d88a1a5b60d1b6699078154d10e3915fad8792dfbfee5a699822e657fd59ee26b9a2941d8e62830f8ac2d7399f2c969bd35c9af3af7a0797e23e9dce13c75f66813292876468d68e77996844e30f2eeb7e31aa864b1a19824fe2c315da8db07e671851ae8f181da5563ae01fb0a71c9b5652f16adfef6c1d17b1ec9742230848205f412002012dc25c8bfe9c8bacc254a25765c7131bc38fc7d4ac7410b673d0abf7c770b20d725a35cec8bee259e653fdc90173e871910795ecf245b3f5b1237efd12f72ca65b47a674e7b584864a7f13adf9f50c14d8e53700063bb5c0ba3251300c111c7fabdd70cab402072e13580a5a265d52ea37561a10924f479507a9b9fe389ea58ecf23e47e39df42027221f8ea24159d2a3b737f52ad006591cb65b09e5ebe94d1016465d8f21cdc10087d0f72733ecd81a5be81636f089e839e11b2fda26d06cc544d314fbe9c34236e42b38614296516b84be53eac26ab9a3b113daa96c558de6c59a4c5955cddcbdd510a58ae06a40f81a0d4363b67129376fc3e9d3aa065eda4b9e118849fe44df44216f4e3493cc43c52391f3e99b7a97334a4b650ffdf6ef1ee0ae34a852d2436a0ac2ddbb0925c0665260b06e171644620f4e0aeea19b74b63f7f33e459a05dc0616e7b0c3d4426aa8d965cb898a5ce440374c5c5fbe65b0bbc631a5fda86d82dc57f9ea7d8ea36963abbbb17e161816823a9929bb66885d3b70f90bb1566502db272a9b7e26f94007076f1b26668fa14d2dcd04db61ad7e8dd1d79015172dfc049a522fc44cc8afcc5f397b09bfd0619559cb25a27211157136f86234168ddbcb7b2c701bd0150369c24d288bf2bd721dad3935d436a6aca28e6489cc6f9a7e33d03d9f77f7862faab851f771edce56bcd1bf2843e389df228976253f0c13e77bfc3a3515f318c06bfabe81f5ddfd96269fea550f5425e4ae4fd1b81812e726bc5b9cc2db55656a27c591ed7c715b6ed2781f8c62b3fa1ab34ae9c25abbdbe0a5c30650e1095a74f66efe1841216e62b84b264b4540afad4fd92fa68fd1e504eb7cee2ea4f5a5ed9bd51c795559fa465a64ece3ca493db47f3bb864be5d9047ced3daa8e977b36d3005d701ea30a1d55be2702833be98c742366ab8c461e79eba218dc21239db326f46b9fe962c02b4cd780f64eff49d6a26f15ad787398db8ce619f213ae28efb23f734d969122d999b582fa07d8e5905784b1a48a31275b5c4a0a3f1e9d44bf6af69edb35365e364d7a9b77283f4c1b6405d3e570c126d39afa0c3d720162fd4484884f3ee2d9f12f099ced2447dfff94adbea9a5ad9812930a54e90c9b6637e999d8fbeb00f031b1d88880931f6020ecb6072adbb1e5e37fad0abb57e66936a909bd5a029589d3aca7eba5f817f71298e878a04c4c36ad6d1a11e6304c8c8df2c6027db5fe1bfca7e97087da8503481f4cf67d9f8ba103aa50d6adfb3a0b98fb17922c27aeb1b00c20153cf699b7823fa83c0d6987fd9adc6d1ce25dd3898dc38e5ecd897a703",
+        "Authorization": "Bearer QUMxNjI4QkZFRUM5MzIyMEY5RkFEMjVDIzE4NS43NC44MS4xMTgjMTYxNDgwNTM0OTM5NCNQRDk0Yld3Z2RtVnljMmx2YmowaU1TNHdJaUJsYm1OdlpHbHVaejBpU1ZOUExUZzROVGt0TVNJL1BqeDBiMnRsYmtSbFptbHVhWFJwYjI0K1BIVnpaWEpKUkQ0d01FRkZWbEZMVnp3dmRYTmxja2xFUGp4amIyUnBaMjlRWlhKemIyNWhQalEzTkRjNU1EVXlQQzlqYjJScFoyOVFaWEp6YjI1aFBqeHVZVzFsUGxKQlZVd2dUVUZTVkVsT1JWb2dVMEZPUTBoRldqd3ZibUZ0WlQ0OGRHbHdiMUJsY25OdmJtRStSand2ZEdsd2IxQmxjbk52Ym1FK1BDOTBiMnRsYmtSbFptbHVhWFJwYjI0KyNERVNlZGUvQ0JDL1BLQ1M1UGFkZGluZyN2MSNQYXJ0aWN1bGFyZXNTQU5QUk8jTk9UIFVTRUQjU0hBMXdpdGhSU0EjWlZPNGtFYWZpYUtGZ1RHb002VHRaL2duN0dGTkMzaE52Yk4yS2NVTFR6QWFaZHZsUUR4YTgvNkY0bzI1VGJtZkZFY2MrVkdKUUZvWmg3RVJZK1FpaFM5VGgreGc0NDdzZGtYYkZyV1FiL0NpU3ZsSVljZ0NidVVnZHorUzlEeWJWU0RDcC9YR21FdkJWbzhXd0JBMUdURjlUaVpjZENJSXJuak9JOWZObHE0PQ==",
+        "language": "es-ES",
+        "X-ClientId": "nhb",
+        "app-Init": "nhb",
+        "X-Santander-Channel": "INT",
+        "nhb-url": "https://particulares.bancosantander.es/nhb/#/posicion-global",
+        "csid": "177F9D22EF05MSCMP-00AEVQKW"
+    },
+    "referrer": "https://particulares.bancosantander.es/nhb/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+<<< 40_resp_summary.json
+

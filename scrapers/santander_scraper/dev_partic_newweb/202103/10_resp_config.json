@@ -1,0 +1,181 @@
+{
+  "service": {
+    "init": "https://particulares.bancosantander.es/hb/remember",
+    "hb": "https://particulares.bancosantander.es/hb",
+    "login": "https://particulares.bancosantander.es/api/hb/login",
+    "home": "https://particulares.bancosantander.es/nhb/#/",
+    "entryBy": "https://particulares.bancosantander.es/nhb/#/entrada-por",
+    "tealium": "//tags.tiqcdn.com/utag/santander/es-bol-particulares/prod/utag.js",
+    "tealiumSync": "//tags.tiqcdn.com/utag/santander/es-bol-particulares/prod/utag.sync.js",
+    "logoff": "https://particulares.gruposantander.es/SUPFPA_ENS/s.cpbto?operation=logoff&responseType=json",
+    "androidredirect": "https://play.google.com/store/apps/details?id=es.bancosantander.apps&hl=es",
+    "iosredirect": "https://itunes.apple.com/es/app/santander/id408043474?mt=8"
+  },
+  "tm": {
+    "enabled": true
+  },
+  "login_post_pk": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxOEVfpM5d4UsAz8UnXVgl3fBK4ZU8YwRRdBYG20kTh6/dRr+fMFVFvkevgqLag651uQpW8iYzkOtE2yJp762ftGPfevF1icQjd+YSuYM3KrRZEDXJAh5/cIWIumZSekaIusrI3xehL4C7UpdFTUYxOaQF6rU4gJz7WWoDs9Ic81JfJ3W+ckkyx55Spl3Qqnta93K6mglpDSTwYpEMBMpb89GPnlHPynlUhz/1Ygo3jAHzLeVr55Arxtav44ftDEokwX9Hz9ZcelmkQstNG2xt6Blc6LHlFb2uIhWw0ZhtmOYCqgmgq8Cw721/Zpn0oj5f9W0VndoiooFvkRfilpETwIDAQAB",
+  "snippet": {
+    "enabled": true,
+    "snippetID": "10704211",
+    "domain": "bancosantander.es",
+    "url": "imagenr.particulares.bancosantander.es",
+    "timeout": 3000
+  },
+  "external_links": {
+    "bussiness": {
+      "enable": true,
+      "url": "https://empresas3.gruposantander.es/paas/loginnwe/",
+      "top": true
+    },
+    "back": {
+      "enable": true,
+      "url": "https://www.bancosantander.es/es/particulares",
+      "top": true
+    },
+    "password": {
+      "enable": true,
+      "url": "https://cmc.bancosantander.es/REGCLA_PHOENIX/static/index.html?sty=SNET"
+    },
+    "support": {
+      "enable": true,
+      "url": "https://microsite.bancosantander.es/files/ayudaonline/popup/particulares.html"
+    },
+    "map": {
+      "modal": true,
+      "enable": true,
+      "url": "/nhb-web-components/localizador"
+    },
+    "demo": {
+      "enable": true,
+      "url": "https://particulares.bancosantander.es/nhb-demo/"
+    },
+    "register": {
+      "enable": true,
+      "url": "https://cmc.bancosantander.es/ALTCMC_PHOENIX/public/inicio"
+    },
+    "info": {
+      "enable": true,
+      "url": "https://www.bancosantander.es/es/particulares/banca-online/seguridad-online"
+    },
+    "commercial": {
+      "enable": true
+    }
+  },
+  "redirects": {
+    "default": {
+      "url": "",
+      "block": false
+    },
+    "alertas": {
+      "module": "alertas",
+      "url": "alertas",
+      "block": true
+    },
+    "moneyplan": {
+      "module": "moneyplan",
+      "url": "moneyplan",
+      "block": true
+    },
+    "forma-pago": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion",
+      "block": true
+    },
+    "distribuidora": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion",
+      "block": true
+    },
+    "leasing-renting": {
+      "module": "leasing-renting",
+      "url": "leasing-y-renting",
+      "block": true
+    },
+    "firma-ordenes": {
+      "module": "firma-ordenes",
+      "url": "firma-ordenes",
+      "block": true
+    },
+    "bansacar": {
+      "module": "bansacar",
+      "url": "contratacion/renting/escaparate",
+      "block": true
+    },
+    "correspondencia": {
+      "module": "correspondencia",
+      "url": "buzon/correspondencia",
+      "block": true
+    },
+    "buzon-contratos": {
+      "module": "buzon-contratos",
+      "url": "buzon/buzon-contratos",
+      "block": true
+    },
+    "santander-one": {
+      "module": "santander-one",
+      "url": "santander-one",
+      "block": true
+    },
+    "santander-one-contratacion": {
+      "module": "santander-one",
+      "url": "santander-one/contratacion",
+      "block": true
+    },
+    "enviar-dinero": {
+      "module": "enviar-dinero",
+      "url": "cuentas/transferencias/nacional/enviar-dinero",
+      "block": true
+    },
+    "proceso-donaciones": {
+      "module": "proceso-donaciones",
+      "url": "/proceso-donaciones",
+      "block": true
+    },
+    "recobros": {
+      "module": "recobros",
+      "url": "area-personal/deuda-impagada",
+      "block": true
+    },
+    "docubox": {
+      "module": "docubox",
+      "url": "buzon/docubox",
+      "block": true
+    },
+    "firma-ordenes-no-asesoradas": {
+      "module": "firma-ordenes-no-asesoradas",
+      "url": "firma-ordenes/no-asesoradas",
+      "block": true
+    },
+    "seg-prot-num-cuenta": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion/{familia}/numero-cuenta",
+      "block": true
+    },
+    "seg-prot-dup-poliza": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion/{familia}/duplicado-poliza",
+      "block": true
+    },
+    "seg-prot-forma-pago": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion/{familia}/forma-pago",
+      "block": true
+    },
+    "seg-prot-tomador": {
+      "module": "seguros",
+      "url": "seguros/seguros-de-proteccion/{familia}/tomador",
+      "block": true
+    },
+    "faqs": {
+      "module": "faqs",
+      "url": "posicion-global/faqs",
+      "block": true
+    },
+    "correoscash": {
+      "module": "correos-cash",
+      "url": "correos-cash",
+      "block": true
+    }
+  }
+}

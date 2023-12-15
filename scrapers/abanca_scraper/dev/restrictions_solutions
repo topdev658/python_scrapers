@@ -1,0 +1,23 @@
+several logged in sessions are allowed
+
+
+several tabs of session are not allowed: you can open it, but then you will get 'error' when try make post request on
+this tab
+
+exec flow:
+log in
+get companies/contrects
+
+process each contract to get balances only
+    log in
+    get list of accounts and their balances
+    upload accounts
+    return list of accounts
+
+
+process ach account in list of accounts from all contracts to get movements
+    log in
+    get movements
+    upload movements
+
+NOTE: we log in each time for parallel processing or request will be rejected at some of steps

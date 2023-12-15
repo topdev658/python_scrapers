@@ -1,0 +1,53 @@
+INSTALL
+
+  mssql driver (see HOWTO_MSSQL_ODBC_INSTALL)
+  nodejs (HOWTO_NODE_INSTALL)
+
+  upload the scrapers
+
+
+UPDATE settings
+
+  project.settings
+    IS_DEPLOYED = False -> set True  -  to update paths and set local Ip as 0.0.0.0 (for azure) instead of localhost
+
+    IS_CONCURRENT_FINANCIAL_ENTITIES_PROCESSING = False -> set True    # use or not concurrent processing of financial entities
+    IS_CONCURRENT_SCRAPING = False -> set True   # use or not concurrent scraping of balances and movements of each fin entity
+
+    IS_API_SERVER_PRODUCTON_MODE = False -> True  - to use gunicorn as http server backend
+    IS_ALLOW_ALL_CUSTOMERS_SCRAPING_RUN = False -> True  - to allow main_launcher ScrapingRunner().scrape_all_customers_where_scraping_not_in_progress() for scheduled scraping
+
+    FINANCIAL_ENTITIES_TO_SCRAPE - set list of available entities to scrape
+
+RUN
+  start server_for_scraping_on_demand (from cron)
+  start machine statistics monitoring script (from cron)
+
+  run cronjobs (look at the ./cronjobs file)
+
+
+CHECK
+  logs/
+      scraping.log - all logs from server and scrapers
+      server_for_scraping_on_demand.err.log - logs of starting server, not errs
+      server_for_scraping_on_demand.log
+
+      + scraping__2017_06_06__05_17_02.log - server responses
+
+      machine_stat__2017_01_01 - with time-cpu%-mem% information, new file for each day
+
+
+RESTART
+   pkill python --  restart server_for_scraping_on_demand if any project file was changed
+   pkill phantomjs - kill hanged phantomjs instances
+
+
+SEGFAULT FIX (implemented at server_for_scraping_on_demand.py)
+    based on https://stackoverflow.com/questions/10035541/what-causes-a-python-segmentation-fault
+    add `ulimit -s 24576` for python call via shell
+
+FIREFORCE
+    ps aux | grep "[p]ython3 fix_scraping_state__reset_by_timing.py" | awk '{print $2}' | xargs kill
+
+
+

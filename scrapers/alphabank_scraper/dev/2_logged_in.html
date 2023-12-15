@@ -1,0 +1,211 @@
+<!-- https://secure.alpha.gr/ebanking/ -->
+
+<!DOCTYPE html>
+<html xmlns:ng="http://alpha.gr" id="ng-app" data-ng-app="alpha" data-ng-csp="">
+<head>
+    <base href="/eBanking/">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="SessionTimeout" content="3600" />
+        <meta name="IdleTimeout" content="900" />
+        <meta name="MaxSecondsLeft" content="3599.6150026" />
+        <meta name="Referer" content="2" />
+        <meta name="BII" content="6LrQaGRMJaa79zZBRrNID8I66qpOnFOCZBF8lh0YQic=" />
+        <meta name="FDP" content="1" />
+        <meta name="AccountsCount" content="1" />
+        <meta name="CardsCount" content="0" />
+        <meta name="InvestmentsCount" content="0" />
+        <meta name="LoansCount" content="0" />
+        <meta name="IsDemo" content="False" />
+        <meta name="PaymentData" content="" />
+        <meta name="StateName" content="" />
+        <meta name="IsCashManagement" content="False" />
+        <meta name="UserRole" content="CompanyEndUser" />
+        <meta name="Locale" content="en" />
+        <meta name="TemplatesVersion" content="nbeDKI9Rq0gexVJ9PWUshMSamTI9" />
+        <meta name="PiraeusClientId" content="1b0b097d-4301-43f6-a55f-3d71cdca4814" />  <!-- NOTE same for all sessions for specific customer -->
+        <meta name="PiraeusRedirectUri" content="https://localhost/eBanking/oauth/callback" />
+        <meta name="PiraeusAuthServerAuthorizeUrl" content="https://api.rapidlink.piraeusbank.gr/piraeusbank/production/oauth/oauth2/authorize" />
+        <meta name="PiraeusTypeIdForAccounts" content="20046" />
+        <meta name="PiraeusTypeIdForCards" content="30024" />
+        <meta name="EnablePsd2OtherBankProductsFeatureFlag" content="False" />
+        <meta name="Role" content="CompanyEndUser" />
+        <meta name="IsDocUploadCustomLogin" />
+        <meta name="E" content="010001" />
+        <meta name="N" content="DA8553AE975E06679D70CC818877426FA0FC1A111145A3F38AAF86A6FE0239D09C8352C5AEF46DA8E368AFF9B32C36EC07A838304D53083A86CD3EB78FF118238F1495C55915D82E1FAA6EA871DAAC6EB79631E66C832631C0CB27895E952F267BF031709EC9657FD901870AA15C8D6DF7A3DDF3557E8B9C74F0A4713A8C3B7BC9B2566C95B0036104C4592C52167505936DE309D1419A1E9E6B3AC178DE6750E47E63EB282D5F5D0BB4F68C07100ADFE7B10132127F4510EB432A834318ED15B3A7A7360B14573E9DA0DD7CEAA5C41075B552981590A1ED8FCBDD361D18299E61A6036432026AE2B2935778E653957FB5042A6EDEE977BDE607128A69E64965" />
+        <meta name="AnalyticsId" content="00ced89a-f71e-4c8f-94bc-90eae5cb233a" />
+        <meta name="ApplicationId" content="54d45c5d-9142-4893-bc82-cd01df78a6f5" />
+        <meta name="DisableBrowserAppInsights" content="False" />
+        <meta name="AiBrowserEndPointAddress" content="https://monitoring.alpha.gr/appinsights/" />
+        <meta name="prop_App" content="cb" />
+        <meta name="IgnoreAtm24" content="true" />
+    <meta name="Server" content="AlphaFarm08" />
+        <meta name="Role" content="CompanyEndUser" />
+        <meta name="IsCashManagement" content="False" />
+        <meta name="IsDocUploadCustomLogin" />
+    <title>Alpha Web Banking on AlphaFarm08</title>
+
+    <link href="/eBanking/content/css/libbundle?v=Na9gzRP1nwEZyn-tW6WJX3B21lpLZz_JNGQR8T97m2Q1" rel="stylesheet"/>
+
+
+    <link href="/eBanking/content/css/printbundle?v=JDB04gXr9qJlghgKfo_IvmYazqaMsEYAb9oIQoRwVqg1"  rel="stylesheet" type="text/css" media="print" />
+
+
+
+        <!--[if lte IE 9]>
+        <link href="/eBanking/content/css/styl9s?v=rBoOmvxJlf-62hZGaJQYzYLkSaU_AAlNd78KOwH3Uos1" rel="stylesheet"/>
+
+        <![endif]-->
+<link href="/eBanking/content/css/corporate?v=QBMTdxaia4ZO6qYSECR2tLe7DF7Oh3Q1_4LUvGtu_yg1" rel="stylesheet"/>
+
+        <meta data-analytics="" data-enable-dark-theme-track="true">
+    </head>
+    <script type="text/javascript">window.jdr=!!window.jdr;try{(function(){try{var Zz,sz,Iz=1,Jz=1,zZ=1,ZZ=1,jZ=1,lZ=1;for(var LZ=0;LZ<sz;++LZ)Iz+=2,Jz+=2,zZ+=2,ZZ+=2,jZ+=2,lZ+=3;Zz=Iz+Jz+zZ+ZZ+jZ+lZ;window.il===Zz&&(window.il=++Zz)}catch(zzz){window.il=Zz}var zs=!0;function ss(z){!z||document.visibilityState&&"visible"!==document.visibilityState||(zs=!1,document.cookie="brav=ad");return zs}function _s(z){ss(z);return!0}function ls(){}ss(window[ls.name]===ls);ss("function"!==typeof ie9rgb4);
+ss(/\x3c/.test(function(){return"\x3c"})&!/x3d/.test(function(){return"'x3'+'d';"}));var os=window.attachEvent||/mobi/i.test(window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),Os=+new Date+6E5,zS,sS,SS,iS=setTimeout,IS=os?3E4:6E3;function s(){if(!document.querySelector)return!0;var z=+new Date,S=z>Os;if(S)return ss(!1);S=sS&&!SS&&zS+IS<z;S=ss(S);zS=z;sS||(sS=!0,iS(function(){sS=!1},1));return S}s();
+document.addEventListener&&document.addEventListener("visibilitychange",function(z){document.visibilityState&&("hidden"===document.visibilityState&&z.isTrusted?SS=!0:"visible"===document.visibilityState&&(zS=+new Date,SS=!1,s()))});var jS=[17795081,27611931586,1558153217];function lS(z){z="string"===typeof z?z:z.toString(36);var S=window[z];if(!S.toString)return;var Z=""+S;window[z]=function(z,Z){sS=!1;return S(z,Z)};window[z].toString=function(){return Z}}for(var LS=0;LS<jS.length;++LS)lS(jS[LS]);
+ss(!1!==window.jdr);var oS=[ss,_s];(function(){3%s()&&eval(function(z){z=z.split("l");var S="";for(var Z=0;Z<z.length;++Z)S+=String.fromCharCode(z[Z]);return S}("40l102l117l110l99l116l105l111l110l40l41l123l118l97l114l32l104l101l97l100l61l100l111l99l117l109l101l110l116l46l104l101l97l100l59l118l97l114l32l97l108l108l61l102l117l110l99l116l105l111l110l40l97l114l114l41l123l114l101l116l117l114l110l32l97l114l114l46l102l105l108l116l101l114l40l102l117l110l99l116l105l111l110l40l120l41l123l114l101l116l117l114l110l32l47l105l115l47l46l116l101l115l116l40l120l41l125l41l46l108l101l110l103l116l104l125l59l118l97l114l32l117l61l39l84l101l120l116l32l105l115l32l97l118l97l105l108l97l98l108l101l32l117l110l100l101l114l32l116l104l101l32l67l114l101l97l116l105l118l101l32l67l111l109l109l111l110l115l32l65l116l116l114l105l98l117l116l105l111l110l45l83l104l97l114l101l65l108l105l107l101l32l76l105l99l101l110l115l101l59l97l100l100l105l116l105l111l110l97l108l32l116l101l114l109l115l32l109l97l121l32l97l112l112l108l121l46l32l66l121l32l117l115l105l110l103l32l116l104l105l115l32l115l105l116l101l44l121l111l117l32l97l103l114l101l101l32l116l111l32l116l104l101l32l84l101l114l109l115l32l111l102l32l85l115l101l32l97l110l100l32l80l114l105l118l97l99l121l32l80l111l108l105l99l121l39l46l115l112l108l105l116l40l47l87l43l47l41l59l102l117l110l99l116l105l111l110l32l116l104l101l105l114l115l40l97l114l114l41l123l117l46l112l111l112l40l41l59l114l101l116l117l114l110l32l97l114l114l59l125l118l97l114l32l114l61l123l108l111l115l101l58l102l117l110l99l116l105l111l110l40l102l117l110l99l41l123l117l61l116l104l101l105l114l115l40l117l41l125l125l59l118l97l114l32l117l99l97l110l61l123l107l101l101l112l58l102l117l110l99l116l105l111l110l40l120l41l123l116l104l105l115l46l99l97l99l104l101l46l112l117l115l104l40l120l41l59l114l101l116l117l114l110l32l116l114l117l101l59l125l44l116l114l117l115l116l58l102l117l110l99l116l105l111l110l40l120l41l123l114l101l116l117l114l110l32l120l61l61l61l116l104l105l115l125l44l99l97l99l104l101l58l91l93l125l59l118l97l114l32l100l111l117l98l116l61l51l48l59l102l117l110l99l116l105l111l110l32l73l84l40l120l41l123l102l111l114l40l118l97l114l32l121l32l105l110l32l120l41l105l102l40l120l91l121l93l61l61l61l54l54l55l41l114l101l116l117l114l110l32l116l114l117l101l59l114l101l116l117l114l110l32l102l97l108l115l101l125l59l102l117l110l99l116l105l111l110l32l98l108l97l109l101l40l97l44l98l41l123l114l101l116l117l114l110l32l97l40l98l41l125l59l105l102l40l117l99l97l110l46l107l101l101l112l40l104l101l97l100l41l41l123l119l104l105l108l101l40l97l108l108l40l117l41l41l123l114l46l108l111l115l101l40l116l104l101l105l114l115l41l38l38l98l108l97l109l101l40l73l84l44l117l41l59l125l125l125l41l40l41"))})();
+var OS=63;window._l={IoS:"083f99020a009814abdcd9cff18f97396ec9ec1883a03ce131078e7889b1d109f01dccbcae6bd041471bf88516f7a5acd16df255ca4440fc8dd57c0550ec008a0fd71f18ca2131de13ef296cc743d5d2347bad0c8e120a79ae7150963312b9db63d9bf267fb996cc5be1899862154848f750955be1d166cc32fd905e8c04c62b67a43edc48fb0bc80e44944478dd767ab8dc6989365bdad75ffb838b4cb0f78e9c2ebe9c916bc22949f6848bbded0a3cad9bf93733da8d6da6b43f665e86e9422ac5cfe3aabf1710db24cc3f3d99548baa138b758f0292d3a2a93e513f509de1fba15d0f2773860009aad78f11e9b5857a03a25587247237e7bdea24aa083e853964366a22dce6a91cb2c27d8136ceee66f474096bc02e6d85a7925cabbb3dd7062a3f53f0ddd396e3dac7af3d54f7e13f42594c3aaff44f2fdb0e3357874bb457db29ff3600ae8469403da37eddbb2e0f3aaec29f07c5ae5354ba2f1d288780a11fd5457085cc141b03bd1a8daae39dc11c2f9b80f9c2cce30bb97302b1a862d74da9a4f51e743b1065f74de96169f3e91231fbf39c42325c530953bbb185522976235dc65db8abda9a131cc035b618bafb3db9d08b86c8e42b9d41229a3b12b8c7ea15ad41c6e17c820da290140f1a403412a578b744dfa2eadf033af2ce1c05f013a07e818aeef4e195497d154b9ec59d1d1bddbe617d60799d0f3bbd54e191610c6e32e4522fa432ae558c1844f8e8a43ff00a2426941fd5fbbc321943190e65d62eba69b3bf5619f37b25d9092e520ea6f7cfedabf7c5ff73b4138d94c539c6abc40e6c1333a127dd705bdb04124c40fba0dd3874b86b041b3ddf3ff38cd900fff0973422333cda2ecdc193122c1ecc2ac8d54f6e9026748054d2ab0b45b903e87f9dfdca51defca714302494ac22c5c1bbb21bd72589afe4f3acd1234bc87bd087280cc20f6f3a382e021114d5f2da0eba300699df41050b1e9ece9333647f224d14c9142adc4912579455eddd0004f7d5f4644e12f456885690648e2061b54a9f3806f3a6c6f87e606affbb13a8d834ff42900372291a6f065ea62aeba08b0d4b9811ffe68f825c63b57b7cd27cdff9a83db793c4d2102216f4c1fff49ba18ae4981b5a7d183f9f4eb8f56a84345dba68709ba7ef015afae3f8048c436947a4f363ac6f672a0adf344de6f81c0d84237b89fafffdef3321ad33766004e889f14fd5bb8b129bab073af8ce4f63929245db8f316133c1d9db293f8df3b967ac5af95c5b2cb2e9b1efe4d691e2dcd1c800c5fcce1191ca505e4ef2861972f8374c630d95f1d4b5056d808f76e3fb97c0cbaa0ed45b57307adbe333037ef27899a84dba9d909e7d896ff736cf27096bdedd6b5b1498eac31753cf8ae3a132e7093c399b89d95e9451aa45cabf6d8a6a43254b5fbc784bfec6d3777b645ed451a1ccfbfd1e80011d52deae92db2e5bdea94425f4cb2d92989352e55b04dc512fbc9e70730576aba95d8c1ab887ef94b53816d076e8f481d79a64f1b1c3e7e7703a1868d1afa0185c4f9c68cc99f3f1657db5e12175a5b1f0840be0ca02097e06abefa4932b63fd43847f99db574de97c907a08d62a357f143f55406da060cbb5cee6a5b199e782c7f7c67f6f4882f2c8c840d1926acf0ea2153a036fba1be982a2c32331b210f0b2bc07ed83b7ee74e10df56c517d44a3436eeb81376a2b981326d5cebcf224d786da8f6b70bd30877c28ee826c6c88af9152f041aadf58c854ae9507dcbe053bb7e26f8b47e1c79909df46a7544f83af429b552f11e20bc04fe2262ac42a468e2cacacf0bfe254f78710045c7023d3cadff5a6119d192b33fee85c22c9b774f2ec189992ca0b001040a519693e1747d146c5bd8e0a1bc0298e9c21252f489564930e3891dac8eb2e3ae00ce04b47429a4849b25c215c119d75126a4fb36a1390136b81005534a41a13f04aeec9da09e58d2fa6116e6442c753f5595c8600191e7883bd7fcc6df8e28fdd038ea6aedc999eb1e78f49049a4ac9b0abf633016581f243df29ef714911a0787bb8247998ed83be292fe69ce63f997c6223ac04d3f8e8321c066ad322b8c417c2b566b60e8f995367105e3793900cd1a18988ad39946dc432719e30ebb5a7bc0c17acc0cdb8495af28368d11e944a6e242ac43eea99d0bdd8b8b1772282263b909ad21ac2452699463640242421e8f648c7b1c68f8a03eb53e6cb588ecb5ae5c116d2bbb9c1a53b3023c1869c06244729b00c5e0ce530b9358f62bbb8f513cd0974a35e340f44bc4e2d7fa2ace46d6fc194b438fb6c9344d27bbada906a0180805ab2f32581cc136d34cf04ffc20ce2b6d16fbdc08ee26306a8fef3a351b65f6624d5ea983cd54fee297503b267f5fd7b19ad6c8126cda18c040e083198b381a742874260c41159566396c9ce076b5ea6b839f3267e264e7a28a2ba716304572b631e39703e989b0de3c93da981b7465a3c41a063b6b914b795a8af5e7163b9260f491184dc5ea66aaeb988a28c978b384ee38a29e5ea631bc1dfa97e01957d7c8cca2a748e887e9400c191c451594acb09e7dbddc5a68e021c95f410609e6713eedea6e3c37cfbaedb128eafa42f95ddf8d7e4548d0d6f8e498e95b54a3627d19f9c3bd757907e238524f32ca9601d74d2ebd92612fccf56bc00bc44f5517d1217bd669858ee69ada738de9c36a48354c1c94dbde3953f801eafad1a1d683f9b77c230df02bc631f442be5f2e9d7db7fd1619e99375c1dfa5c407b0a9a21a16bd96c97093ae86399736b1a708fafaee4c95445b185863c0369f193d258f64cfeecb3a6faa13fdf33f516963bdcb0248ea68eaeb5a7f53afbcacfa04c7733cdad3f97894d74fd9d1c33ebad7c9c70276fd41f11ffa0f3f55fcd10af079d25a8946f6dac2fb8f4effc901408ae552037c5e2c3e26004172b19edd3b1a194e90da72a5702106b7e5780a6fbd8cada082d8fd65f05520ae1b6ade10942035d81bd20c5613ad33ed72946c9c9f0357b172d1da81396ba1f12adefbc1b27591e28cd8bab603f3f9f09b2e355fc8ea52b594f4a20547005a051f816744cd23518a6e3e5b85010cc1031129824a73158cda01373e995956f27ad5ba102588d276b62e06266a86c655473c60a66b408a862b0bfc33162dd898a526d1e10e4344971968fbfd6422359e6c397dce357432d86ad73ed5579ea17654edc3e02bcaf4be357a63031571bff1cb8df76fbb22355d1a913c95871eb19fa6975f2d92071654a06711e3cc70ce310cf7607912de359fb568198c2d15b3a1f17815db407c7af73dc960ae522ae515edb8faad842caba19294317f85887c8fa3615523df09170aeb0308cf6e43b6165e8b081829f233eb51edaecc5f35bdd6208d3cc1bb8dd40929c5686f545eeeede508970a95cfcc2a2246fd7c40dc357fc5d8ffe70b180133c3934eb6c8d49ffac6abb0e6120bdff6b1534c5a846c8ee245f3ef5b68fef923106695303f59143dae8c7b4a65e30751f1e5932a0c8a957a93ad3f860c6bba061bc30e46c1d45d025bfe1735ff261d718391254c3b7f88401d71d8a49aa7a60f0ed8c5185d1555fabe220572cba9ccb751f227406072f6d6c05e3a943ef4e2d8c044e61cab3321624a8225afee9725461dea6577b23f3cb3bb161579fdd29ad03496f2694295e05005eb2efe854699348769dbe32b6bd86f37fdb3dabfa42fb01771ca79f0dfa333647420f9d97550521a31b9aa9d7877ae213b8d00779bb05252ad3831a30d3bda9086604883d2b5a99b3ea84741c95475f7d721a902a68709cde2a79ed4c65d107b77a2e386c34f3e116647bfd7cc447a553a5ee4d8f2cd91d4c43d096ff17910f79d38dbca2a16d342dcb57cf1abeb8f388dc280e41f975912df4b27d5fa2621d022a1be0435e561a26e7e3b467c4082d9719590629add488421cde81bc55177f47953c958533c632137386401c17775517352b8f7f1d8dd88902ff1c4a6abf927b26b874c5f2ccbd861dcb29d4793c00e6c45d76a1d05c18a0fa69484ada00186abcbae19668e31bbe989ea6f4899ebd114b68d03a17556494d8af4dcd1ee8a99e3b8b042e512fd9200ce42d771bb622ea786126fab2dc98c8926ef3e26d1bc1940d856ec78d1217decf76b6a54b6b53e723de4d256b3d88859523e687ad52efdab23ced808ccf642f5daf817eb37db96cce62b578018e59ebbca22f264b90a381965ae2996bcbfb90cb8f8c2161e8951630521006283fa10382c8518accd17e3b31498862249efaccaa8266ba14b921f85c7994b27cb1a17bf4acb2fe5e33a7c12c6ca2a26aa353ece7ed8f729b0f0171ada5db3e489cea4e22557f9cb51f6be879af47442cbe1c57fde34078beb8387f3e64615dac844e3542b075dedd5befe24f82368458b26868d2fda4260560114cf8d0d1a14c86428c407b093a3505ded43e15f370d48eb92a7d4c899f72ec676b1a2e940912a53cd7ccd497c075c0b9f98d84260436320ec86d6fef14d2232f82622ee4153ea42897a821a9bdf70555a1777e01faef5d88135e216725fcecda76b4d8a248b677ec7c1c457914a7d84f0df2df635d8d153b7cf96298f4c80d9c4aeba9015c2c7f9e8db971b55fd0883e75218b2d9e6d8dd2a59952095519fb4a94c57374043ac8e923cdc5c310803f6197f5fd711f0b73d206600720d7136f440c3c57baa402f6e80f2428175e365b27ed260f1cbe6fe39289626075ce4974161604a2eb27d42f26454f06ac12d1c38a4d36164d6dc50d09b65903139235186681099172981438f34d9ed258ee2164145c9902231eb3a835c002518d644cac6abd4ddf0e02c78a72f29a19c96916f34e53bf6276b72823afc4c2234133d875c7a486c8e604a011676b80b9d32a49ff046c8c9d401016bf0100466c5f78ee219b14f543b39d8cfc8318adf8a7dfb9692d2de3d337547d3d11b7d24d9f58799df2d1762a9e19ba1f4a1f523ea561283696d8e3985e781e4eab257c800db40bbd148c73bd893ee69cd76c04c0c630b8ccb73d0bfd6a0f61e966adb01a3fd0b7fefce4346b0b72ac4b4d7213faaea9f5b74c061832eca2b5e06c551c0da66b9b5d718dcd1bd7342807c7559104c79b3d2308dc2f68c0296c5471a943bddc105ae5e1bcdb0bbcf1c795c41d2f1f5d14ca4eee7c8d134abe5c98ebceb0299eaf9435ca883a19002c8df95d7b48c395d3961daabb647ec9b6c82ac61e6ee557bab24361f27dd4b6da43b569f6eb7ae5377b3cb94d91b3fdfd4f2b8612abc57bb2785aba92593cb3ffaa8bb71ea98b4d8b8f565688c41897293ea8afaedbdf0abef165454076ef6f4ea44e46bb73847c1da8574f04b838dd5f0339be50c4930d69e73b64948dc6df3f55c02aa4b11b6734805d4865e45cb3fa8343c79a3b5d0d8cb91ec192ca9f9239d9f11bce629661c20efe57eff0737734d34c6dec38d4fd367b940548e6f24466e5781626cc6d95f1aeed39d1626c43c36f664f7ab4c9627f2e1b7f339f3d3338eac2ad5b869cf4e6dfffe4f86c232749d29b872be1f40f3a0b089621965d7be1f21ab709ef4e360b32d400401be92cf685ea81f3c3b8aed8148100c6e1866cfc55afa96e4beff5ef1de79e9ea4d18505df16335ec9b3a96e91dbc0c3db192249ff09633cf0668b891b3822186a0332350c48fc62ef4ee2677b774723b8858ea2287756e13d03c6280777995d07c7d0dbb8494e23b539c9fc25e13bbc8dd0ca382c89b1aa2754c65f7cf632259512c334061f74481b65a572462acecf825a222fc9add0c752e9234f771850fcb20fd719bce0ee0ea2ad4a397353b761f3f56f7f503c66016d3c7d678ba690e30b889848e58df09f3f3adabb3aaed2d21f5117cd7c72258ed2d1063a483d1249c37a60e3fcb3bb869515f0f6a3aa8ea89db2e9c6e5eb92cabc88286c2f081bfbe7fc9d5a464113e5eb4d52c9da8f8e613b0ec1016d7548a9a293ffdd1ab7cb1197fbbdd91b013f02b6f2767fd703a66aadcf0443863d17df563ca767e36c9bdc5b3f7c5909c7d2bc28ef505090b31067aa9abe16b22b577f4f09c3fac7d497b7810115c80e96f92ecf6253a07832d1641cc4ca01223180b953fc4c2cd03259e4f6512dc04ac3f18cea70f732915e70f36a8fadf0c7162ab25fd39937ef3012f514f18e3fdb4d72ef0e161a1e082ff647073545952594f8776114f0cb30c428a4a7472291b28da6efb876b6a8b022d5a2eb3f48e261d99cb714f91704964de6d23d01e1137b4ebdb158c2061ecc20dd6cc0b256ba47c4f705079b1da1384a8da39a692c6f6945e179671dabe391265cfeba093998cc206507a845abaa5ccfabc5a06f192a2039b254d34771fafe840a17dca6977dabedc4b82075556d3c57a70b7b93b1cf42f1c03fba67f046180acf12f91fdf78068317064b58900b5480090f99c70a5e3f071c8d6e67ca7deaa47f1a7433c3a36dd0385bb2d963709b56a69a86f1960457d5649e8b2c3f7a2cfe724fc028485a3b4c32b811b23cfb5bf023f91d8672257afc26505203180b381a45b04865bab133a35537ec7914e0978fce7d16acfa525dd658d706009086f63485823fca22d116b65fa36a10e08b4caa031cbef40ad5686acda7502da8b803ba0aa6310084743db143edcab4278b163bef70d966ed9527f6a0633fbe4a11cb5928c1a784b894726be9ad64d55ea7cc9fc547095da60db1dc6914a0ee9c6f2a15f479ed621c851dbf2ac8239585982b4d902ef5420e9ec01fd33fd8a5aac368f5d705303dccbb91a8a90d11b14dc371f309a985e09e9ea290f877ba50db9886a7a51c5e72891806c00ef2740eac3551c4cbcf028630414d28b4b40328a74cc43a569eb44372f2dfd6e9b071efab591e99ea1366ec6adc453a492bc9860f6d529b67f6b1a21577157fe3e2f71cf24fc56453767a68f157795612b7b32b0543319177d82980b04bc473762713496d925a5d341f57b10520d4f1bc2ee307029e0b382c3c9fb62bb11015e7974c28bae9a9ea5a54c3c785a1bbe4b70de308fe45728a6c0c75f4410c9057850290f426a4ed9b1e00a4cc1222a427f807426ed22aa71b31ccc2c3a2db63037248d8eb35ce5164c5b2aad62afcc75dbc6092b599bf8f12b7a17e30fd851f8b45b5a01512fccc4a823291d89389e05f1a43f072bf32c08a15c62f5f723a3c4189635026b281e187e353793993e38f1a84fddf9866debb360f6f8b9e26d8423a357274799906feeffd4fd10d85b6bf529bd9c990e553eb08a3e2cc8137977c3db9e1eee3d43aeaf62c5a517ea9ec4ab400a2895f12d14de690a43553af90f386790cdd09172aafb3419f03f8493fe83802c034cfb5032b3bfb0ea6df472c791a8b50d882598251073dcb0bc4bb9fc3060abe263961d6211eee7ad72a9a801e4c99d0cdfe5570fdb7e77a85e33cdd3110b6"};function _(z){return 851>z}function I(z){var S=arguments.length,Z=[];for(var J=1;J<S;++J)Z.push(arguments[J]-z);return String.fromCharCode.apply(String,Z)}function L(z,S){z+=S;return z.toString(36)}(function(){var z=/(\A([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1,1}\Z)|(\A(([0-9a-f]{1,4}:){1,7}|:):\Z)|(\A:(:[0-9a-f]{1,4}){1,7}\Z)/ig,S=document.getElementsByTagName("head")[0],Z=[];S&&(S=S.innerHTML.slice(0,1E3));while(S=z.exec())Z.push(S)})();})();}catch(x){document.cookie='brav=oex'+x;}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+</script><script type="text/javascript" src="//secure.alpha.gr/UxvHoWZIn/08a1c8d148ab18000ff89dd81302edb8ac26dc1a973f74b45fce40b051ead55f.js"></script><body data-ng-class="{dark : darken}" data-logoff-on-leave="" >
+        <div class="ng-hide" data-timer-expired="" data-timer-expired-msg="Your session has timed out. Please return to the Alpha Web Banking starting page to relogin." data-ip-changed-message="There was instability on your internet connection to Alpha Web Banking (possible change of IP address by your internet provider). For security reasons, we have disconnected you and you should reconnect."></div>
+
+            <!-- static menu-->
+            <div class="mobile_menu">
+                <div class="mobile_menu--inner">
+                    <div class="main_menu">
+                        <div class="mobile_container">
+                            <div data-menu="" data-level="1" data-selected-class="selected" data-highligth-active="false"></div>
+                        </div>
+                    </div>
+                    <div class="submenu">
+                        <div class="submenu--inner">
+                            <div id="item-2" class="item open">
+                                <div data-menu="" data-level="2" data-selected-class="selected" data-clear-on-no-children="true" data-highligth-active="false"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- duplicate header because of document upload where we need the logout button -->
+
+        <!-- test-->
+        <div id="main" data-session-message-modal="">
+            <!-- fixed overlay for mobile menu-->
+            <div class="fixed_overlay"></div>
+                <header>
+                    <div class="container">
+                        <span class="alpha_logo"><img src="/eBanking/Content/images/alpha-logo.svg"></span>
+                        <!-- .alpha logo -->
+                        <div class="logo">
+
+                            <span>myAlpha Web</span>
+
+                            <span></span>
+                                            </div>
+                    <!-- .col -->
+                    <div class="header_right">
+                        <div class="actions">
+                            <div data-messages=""></div>
+
+                                                                                        <!-- .logout -->
+                                <div data-logout="#logoutForm" class="logout"></div>
+
+                        </div>
+                        <!-- .actions -->
+                    </div>
+                    <!-- .col -->
+                </div>
+                <!-- .container -->
+            </header>
+        <!-- duplicate header because of direct payment where we need the logout button -->
+
+        <!-- duplicate header because of document upload where we need the logout button -->
+
+            <div data-on-event-apply="PasswordValidationSuccess_Event" data-on-event-mode="applyFirstRemoveOnEvent" data-on-event-class="fade-background">
+                <div class="secondary_menu wrap-subnav mobile--toggle">
+                    <div class="clearfix">
+                        <a href="#" id="togglemenu" class="menu-trigger"></a>
+                        <h2 data-page-title=""></h2>
+                    </div>
+                </div>
+                <div class="main_menu">
+                    <div class="container">
+                        <div data-menu="" data-level="1" data-selected-class="selected blue" data-top-element-class="nav" data-highligth-active="true"></div>
+                    </div>
+                </div>
+                <div data-second-level-menu-content=""></div>
+            </div>
+
+        <!-- duplicate header because of document upload where we need an empty blue container -->
+
+        <!-- mobile menu secondary -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 sm-intro-stripped" data-ng-init="finishedLoading = true" ng-hide="finishedLoading">
+                        <div class="module">
+                            <div class="col-sm-12">
+                                <h2 class="md-hidden sm-hidden">please wait...</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-loading=""></div>
+                    <div data-ui-view="" data-ng-cloak=""></div>
+                </div>
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- .content -->
+            <div ng-include="'Templates/Features/footer/footer'"></div>
+            <div class="footer_bottom">
+                <!-- print footer -->
+                <div class="printfooter container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="personal_info" data-personal-information=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container printhide">
+                    <div class="row">
+                        <div class="footer_left">
+                            <strong>210 326 0000</strong> (everyday, 8:00 a.m. - 10:30 p.m.)
+                        </div>
+                        <!-- .col-8 -->
+                            <div class="footer_right">
+                                <div class="actions">
+                                    <div data-logout-timer="#logoutForm"></div>
+                                    <div data-logout="#logoutForm" class="logout"></div>
+                                </div>
+                                <!-- .actions -->
+                            </div>
+                        <!-- .col-4 -->
+                    </div>
+                    <!-- .row -->
+                </div>
+            </div>
+
+    </div>
+        <span data-fire-donation></span>
+		<span data-security-tips></span>
+		<span data-show-modal-in-login></span>
+		<span data-failed-trans></span>
+		<span data-contact-update></span>
+		<span data-psd-prompt></span>
+		<span data-sms-otp-prompt></span>
+        <!-- Messages are now created on mobile services. The otp prompt is not needed for the time being -->
+    <script src="/eBanking/bundles/libraries?v=-0uBNoizOAJOkdzCR9uMcd1fAB1cnI4lsmlBe9Oh6nw1"></script>
+
+
+    <script src="/eBanking/bundles/libraries_en?v=y6G8UaqXIMjSoqv9_dNZRCUFICKjpAxxn5i8M-2nLHU1"></script>
+
+<script src="/eBanking/bundles/app_CompanyEndUser?v=jRvhSRloE6CEzyGOhTRy6bwOXeM0WK5-0iMaR2jcpIs1"></script>
+    <script src="/eBanking/Javascript/strings?v=ennbeDKI9Rq0gexVJ9PWUshMSamTI9"></script>
+    <script src="/eBanking/Javascript/templates?v=ennbeDKI9Rq0gexVJ9PWUshMSamTI9&r=CompanyEndUser"></script>
+        <!-- NOTE __RequestVerificationToken is used by all request -->
+<form Id="logoutForm" action="/eBanking/logout" method="post"><input name="__RequestVerificationToken" type="hidden" value="1Ot400wbIz-HhnFwlfdf_dkz_o6RTA4Bp1R19v0XszMKdxkPIFwec8z_pRdCYypakFusC5SQ_fPTAE8rzbBbUhP-FoLCPR6hsFr0EtpJLRk1" />            <input id="referer" name="Referer" type="hidden" value="2" /> </form></body>
+</html>

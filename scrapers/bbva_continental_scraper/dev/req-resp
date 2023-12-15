@@ -1,0 +1,42 @@
+===== ACCOUNTS =====
+
+>>> POST https://www.continentalnetcash.com.pe/SPECNET/cent6_pe_web/servlet/PIBEE?proceso=posicion_global_prUX&operacion=posicion_global_opUX&accion=menuPosicion
+
+pb_cod_prod=007&pb_cod_serv=3300&pb_cod_proc=87000000&LOCALE=es_PE&pb_cod_ffecha=dd%2FMM%2Fyyyy&pb_cod_fimporte=0%2C000.00&pb_husohora=%28GMT-05%3A00%29&pb_xti_comprper=S&pb_url=+%3Fproceso%3Dposicion_global_prUX%26operacion%3Dposicion_global_opUX%26accion%3DmenuPosicion&pb_segmento=30&xtiTipoProd=C&pb_isPortalKyop=true&cod_emp=00001360&pb_cod_prod_p=007&kyop-process-id=
+
+<<<
+
+
+
+===== MOVEMENTS =====
+
+>>> POST https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_informe_saldos_contables_op_multipais&accion=consultar&numOPRequest=2
+
+
+numeroCuenta=0&numeroPagina=0&listaAsuntos=0%231%232%233%234%235%236%237%238%239%2310%2311%2312%2313%23&cBanc=&cOfic=&cCont=&cFoli=&listaCuentas=0%40USD00110194810100051253&listaCuentas=1%40PEN00110194870100051245&listaCuentas=2%40USD00110377900100033306&listaCuentas=3%40USD00110377900100034396&listaCuentas=4%40PEN00110377920100029775&listaCuentas=5%40PEN00110377920100033292&listaCuentas=6%40PEN00110377960100029759&listaCuentas=7%40USD00110377960100029783&listaCuentas=8%40EUR00110377960100053773&listaCuentas=9%40USD00110377970100029805&listaCuentas=10%40PEN00110377970100034388&listaCuentas=11%40USD00110377990100029767&listaCuentas=12%40PEN00110377990100029791&listaCuentas=13%40EUR00110377990100053781&fechaDesde=01-09-2018&fechaHasta=27-10-2018&importeDesde=&importeHasta=&indiceOrdenacion1=0&indiceOrdenacion2=4&b_aceptar=Aceptar
+
+
+
+>>> POST https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_informe_saldos_contables_op_multipais&accion=consultar&numOPRequest=4
+
+numeroCuenta=0&numeroPagina=0&listaAsuntos=1%23&cBanc=&cOfic=&cCont=&cFoli=&listaCuentas=1%40PEN00110194870100051245&fechaDesde=01-09-2018&fechaHasta=27-10-2018&importeDesde=&importeHasta=&indiceOrdenacion1=0&indiceOrdenacion2=4&b_aceptar=Aceptar
+
+=== MORE MOVEMENTS ===
+>>> GET https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_muestra_formulario_SC_op_multipais&numOPRequest=5
+
+
+=== MOVEMENTS v2 (Historico) 1st step ===
+>>> POST https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/PIBEE?proceso=tlcl_sym_histmov_pr_multipais&operacion=tlcl_sym_hmconfigurarseleccion_op_multipais&accion=consultar
+
+pb_cod_prod=007&pb_cod_serv=8700&pb_cod_proc=89990059&LOCALE=es_PE&pb_cod_ffecha=dd%2FMM%2Fyyyy&pb_cod_fimporte=0%2C000.00&pb_husohora=%28GMT-05%3A00%29&pb_xti_comprper=N&pb_url=OperacionCBTFServlet%3Fproceso%3Dtlcl_sym_histmov_pr_multipais%26operacion%3Dtlcl_sym_hmconfigurarseleccion_op_multipais%26accion%3Dconsultar&pb_segmento=30&xtiTipoProd=C&pb_isPortalKyop=true&cod_emp=00001360&pb_cod_prod_p=007&kyop-process-id=
+
+=== MOVEMENTS v2 select account  	00110194870100051245 PEN COMSA PERU SAC ===
+
+>>> POST https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/OperacionCBTFServlet?proceso=tlcl_sym_histmov_pr_multipais&operacion=tlcl_sym_hmhistoricomovimientos_op_multipais&accion=consultar&numOPRequest=8
+
+numeroCuenta=0&numeroPagina=0&totalPaginas=0&listaAsuntos=1%23&numeroAsuntos=1&indiceCodigoOperacionCompleto=&diasAnterioresOK=&codigoOperacion=-1&cBanc=&cOfic=&cCont=&cFoli=&listaCuentas=1%40PEN00110194870100051245&diasAnteriores=-1&op=&fechaDesde=01-09-2018&fechaHasta=31-10-2018&importeDesde=&importeHasta=&codigoOperacionCombo=-1&indiceOrdenacion1=0&indiceOrdenacion2=2
+
+
+=== DOWNLOAD EXCEL ===
+
+>>> GET https://www.continentalnetcash.com.pe/SPETLCL/tlcl_pe_web/servlet/OperacionCBTFServlet?proceso=tlcl_sym_histmov_pr_multipais&operacion=tlcl_sym_hmhistoricomovimientos_op_multipais&accion=verExcel&numOPRequest=5

@@ -1,0 +1,35 @@
+## PETICION area
+
+# DOWNL N43 (peticion)
+>>> POST https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/planification/fileinline
+DATA JSON
+{"beginDate":"2020-09-20","endDate":"2020-10-19","account":["ES3000753179440500074074"]}
+
+
+## RECEPCION area
+
+# RECEPCION LIST
+>>> GET https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/file
+<<< 110_resp_recepcion_list.json
+
+# PRE-N43
+>>> GET https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/file/0458180002015833/number_files?disaggregated=false
+<<< 120_resp_pre_n43.json
+
+# DOWNL N43 (recepcion)
+>>> GET https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/file/e3780df9d62fe44cc2018108aac1ead9?cuadernoNumber=1&disaggregated=0&fileNumber=1
+<<< N43 doc
+
+or
+>>> GET https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/file/b6df7e22b8b27088ba80caeb463ba7e4?cuadernoNumber=1&disaggregated=0&fileNumber=1
+
+
+=========
+
+# RECEPCION PAGINATON
+PAGE 1
+<<< 115_resp_recepcion_list_pagination_page1
+
+PAGE 2
+>>> https://empresas3.gruposantander.es/paas/api/nwe-norm43-api/v1/file?pagination.activationDate=99991231&pagination.bankCode=20201104&pagination.endDate=20201104&pagination.expirationDate=20201104&pagination.fileId=3500800002015746&pagination.intervalNumber=1&pagination.lastPostDate=20201104&pagination.periodicity=01&pagination.startDate=20201104&pagination.statusCode=01&pagination.userPetition=GIRRUBAN
+<<< 116_resp_recepcion_list_pagination_page2

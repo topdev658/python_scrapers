@@ -1,0 +1,23 @@
+var user = document.getElementsByName("usuari")[0].value;
+var pass = document.getElementsByName("password")[0].value;
+
+
+login
+
+encrypt + redirect to
+https://www.caixabank.es/aplnr/lolopo/nocache/lolopo_es.htm?loce=es-particulars-home-particulares-06-i01-3-E/aplnr/lolopo/nocache/lolopo_es.htm?loce=es-particulars-home-particulares-06-i01-3-E
+
+
+
+function tratamiento(usuario,pin){  // pin = passw
+        var pinenc="";
+        if(esEntradaValida(usuario,pin)){
+         pinenc=CodificaPIN(pin);   /// encode passw
+         document.forms.LGN.action=dominio+"GPeticiones"+wblSession;
+         document.forms.LGN.E.value=usuario;
+         document.forms.LGN.D.value=pinenc;
+         document.forms.LGN.submit();
+         return true;
+        } else MuestraMensajes();
+        return false;
+}

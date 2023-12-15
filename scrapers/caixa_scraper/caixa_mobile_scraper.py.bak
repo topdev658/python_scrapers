@@ -1,0 +1,944 @@
+import datetime
+import os
+import random
+import subprocess
+import threading
+import time
+import traceback
+import urllib.parse
+import urllib.parse
+from concurrent import futures
+from typing import Dict, List, Optional, Tuple
+
+from custom_libs import date_funcs
+from custom_libs import extract
+from custom_libs import myrequests as requests  # redefine requests behavior
+from project import settings as project_settings
+from project.custom_types import AccountScraped, MovementParsed, ScraperParamsCommon
+from project.settings import SCRAPER_DATE_FMT
+from scrapers._basic_scraper.basic_scraper import BasicScraper
+from scrapers.caixa_scraper import parse_helpers
+from scrapers.caixa_scraper.meta import CompanyUrlData, MovementUrlData
+
+__version__ = '6.18.0'
+
+__changelog__ = """
+6.18.0
+renamed to CaixaMobileScraper
+6.17.0
+process_all_movements_of_account: MAX_PAGES_W_MOVS to avoid an infinite loop in rare cases
+6.16.0
+login() endpoint_num default for tests compatibility
+6.15.0
+new movements_from_page comparison (only dates and temp_balances) - 
+this allows to avoid hanged movements scraping when paginator returns
+same movements but with different urls
+
+handle edge cases if failed subdomain (defaults, optional, type hints)
+upd log messages
+better type hints
+6.14.0
+supports companies (contracts) list with pagination 
+6.13.0
+upd movs scraping parameters; correct log info
+6.12.0
+parse_helpers: fix changed layout
+6.11.0
+process_company: handle 'no accounts' marker
+6.10.0
+basic_movements_scraped_from_movements_parsed: new format of the result 
+6.9.1
+logger.warning -> logger.info if "day is out of range for month"
+6.9.0
+more 'wrong credentials' markers
+6.8.0
+stop loop over pages is len(movements_url_datas_from_list) < MAX_MOVEMENTS_LIST_PER_PAGE
+to handle hanging loop (case with -u 149727 -a 6033: ES3521003571572200124118 
+when same movs have different urls on each "next page" call)
+6.7.0
+only m2 m4 m6 m8 subdomains are working
+6.6.0
+parse_helpers: added more generic: if len(currency_sign) == 3 then currency = currency_sign
+6.5.0
+temp solution: SCRAP_MOVS_OFFSET__CUSTOM and _get_date_from_for_account_str_by_fin_ent_acc_id
+6.4.0
+parse_hepers: _get_mov_date_obj: handle leap year
+6.3.0
+parse_helpers: get_account_parsed_from_acc_details_page: added GBP support
+6.2.0
+parse_helpers: _get_mov_date_obj: more info if can't convert date
+parse_helpers: get_movements_from_html_list: hande empty date_part_str (skip mov)
+6.1.1
+process_account, process_all_movements_of_account:dates in err msgs
+6.1.0
+full_scraping_for_idx: several attempts to log in
+'disabled company' markers
+parse_helpers: type annotations
+process_movement: don't filter movements by dated (will be filtered in basic_mov_scrap_from_pars) 
+6.0.0
+new project structure, basic_movements_scraped_from_movements_parsed w/ date_from_str
+"""
+
+CALL_JS_ENCRYPT_LIB = 'node {}'.format(os.path.join(
+    project_settings.PROJECT_ROOT_PATH,
+    project_settings.JS_HELPERS_FOLDER,
+    'caixa_encrypter.js'
+))
+
+USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0"
+
+ENDPOINT_PATH = ('/WAP/SPDServlet?PN=LGN&PE=1&IDIOMA=02&CANAL=Y&PASSTHROUGH=ALWAYS'
+                 '&ORIGEN=50008&DEMO=0&ENTORNO=L&URL_DESC=/jsp/elolgnplogoff02.jsp')
+
+ENDPOINTS_SERVERS = [
+    # 'https://m1.lacaixa.es/',
+    'https://m2.lacaixa.es/',
+    # 'https://m3.lacaixa.es/',
+    'https://m4.lacaixa.es/',
+    # 'https://m5.lacaixa.es/',
+    'https://m6.lacaixa.es/',
+    # 'https://m7.lacaixa.es/',
+    'https://m8.lacaixa.es/',
+]
+
+ENDPOINTS = [urllib.parse.urljoin(s, ENDPOINT_PATH) for s in ENDPOINTS_SERVERS]
+ENDPOINTS_NUM = len(ENDPOINTS)
+lock = threading.Lock()
+
+MAX_RETRIES_WHILE_COMPANY_PROCESSING = 2
+MOV_SCRAP_MAX_WORKERS = 2
+MAX_MOVEMENTS_LIST_PER_PAGE = 10
+SCRAP_REQ_TIME_DELAY_SEC = 0.5
+
+# to redefine project setting at scraper level
+SCRAP_MOVS_OFFSET__CUSTOM = 2
+
+DISABLED_COMPANY_MARKERS = [
+    'Se ha producido un error. Disculpe las molestias. Vuelva a conectarse de nuevo',
+    'La operación solicitada no está disponible en estos momentos.'
+]
+
+NO_ACCOUNTS_MARKERS = [
+    'Sin cuentas a la vista disponibles'
+]
+
+MAX_PAGES_W_MOVS = 300  # to avoid hanged loops in 'while True'
+
+
+def _date_obj(date_str: str):
+    return datetime.datetime.strptime(date_str, project_settings.SCRAPER_DATE_FMT)
+
+
+def _delay():
+    time.sleep((0.5 + random.random()) * SCRAP_REQ_TIME_DELAY_SEC)
+
+
+def _mov_url_data_str(m: MovementUrlData) -> str:
+    return 'date={} temp_balance={}'.format(m.date.strftime(project_settings.SCRAPER_DATE_FMT),
+                                            m.temp_balance)
+
+
+class CaixaScraper(BasicScraper):
+    scraper_name = 'CaixaMobileScraper'
+
+    def __init__(self,
+                 scraper_params_common: ScraperParamsCommon,
+                 proxies=project_settings.DEFAULT_PROXIES) -> None:
+        super().__init__(scraper_params_common, proxies)
+        self.req_headers = {'User-Agent': USER_AGENT}  # type: Dict
+        # [0] - at least one company to scrape
+        self.companies_to_scrape_idxs = [0]  # type: List[int]
+
+    def _get_encrypted(self, operParam, aParam, cParam, dParam, lonParam):
+        cmd = '{} "{}" "{}" "{}" "{}" "{}" {}'.format(
+            CALL_JS_ENCRYPT_LIB,
+            operParam,
+            aParam,
+            cParam,
+            dParam,
+            self.userpass.upper(),
+            lonParam
+        )
+        result_bytes = subprocess.check_output(cmd, shell=True)
+        text_encrypted = result_bytes.decode().strip()
+        return text_encrypted
+
+    def _check_is_still_logged(self, resp):
+        if 'Por motivos de seguridad la sesión ha caducado. Vuelva a conectarse de nuevo.' in resp.text:
+            assert False  # hard interrupt while development
+        return True
+
+    def _url_open_get(self, s: requests.Session, url, headers=None, proxies=None):
+        _delay()
+        req_headers = headers or self.req_headers
+        req_proxies = proxies or self.req_proxies
+        resp = s.get(url, headers=req_headers, proxies=req_proxies)
+
+        return s, resp
+
+    def _log_errs_on_process_company(self, page_source, company, idx):
+        # user-level blocked company
+        if 'USUARIO CADUCADO, POR FAVOR DIRÍJASE A SU OFICINA' in page_source:
+            self.logger.warning(
+                '(USUARIO CADUCADO, POR FAVOR DIRÍJASE A SU OFICINA).'
+                'The company {} has been blocked by user. '
+                'Skip scraping'.format(company)
+            )
+        elif ('Sentimos comunicarle que su petición no puede realizarse en estos momentos.'
+              in page_source):
+            self.logger.error(
+                '(Sentimos comunicarle que su petición no puede realizarse en estos momentos).'
+                'Error to open company {} at idx {}. '
+                'Possible reason: WRONG REQUEST URL (could be changed during the scraping).'
+                'YOU SHOULD TRY TO EXTRACT COMPANY URL AGAIN'.format(company, idx)
+            )
+        else:
+            self.logger.error(
+                'ERROR response for {}. Check it: {}'.format(
+                    company.company_title_in_list,
+                    page_source
+                )
+            )
+
+    # TODO almost copy-paste of basic func. implement custom behavior at basic_... func level
+    def _get_date_from_for_account_str_by_fin_ent_acc_id(self,
+                                                         fin_ent_account_id: str,
+                                                         custom_offset=SCRAP_MOVS_OFFSET__CUSTOM) -> str:
+        """
+        :return: '30/01/2017' format
+
+        LOGIC
+        -----
+            IF date_from_param
+            THEN start_scrap_from = date_from_param
+            ELSE
+                IF last_scraped_mov_date
+                THEN start_scrap_from = last_scraped_mov_date_with_offset_for_rescraping
+                ELSE start_scrap_from = today_with_offset_for_initial_scraping
+        """
+
+        # Handle possible case with incorrect incoming params
+        if not fin_ent_account_id:
+            # '30/11/2016' format
+            return self.date_from_param_str or date_funcs.scrape_dates_before_initially_str()
+
+        # If date_from - start from it in any case
+        if self.date_from_param_str:
+            return self.date_from_param_str
+
+        # Get last movements date from DB if exists
+        acc_last_movs_scrap_finished_date_dt = (
+                self.db_connector.get_last_movements_scraping_finished_date_dt(fin_ent_account_id)
+                or None
+        )  # type: Optional[datetime.datetime]
+
+        # Calculate offset. Set to initial scraping offset if no acc_last_movs_scrap_finished_date_dt
+        acc_start_scrap_date_w_offset_str = (
+            date_funcs.scrape_dates_before_on_rescraping_str(acc_last_movs_scrap_finished_date_dt,
+                                                             custom_offset)
+            if acc_last_movs_scrap_finished_date_dt
+            else date_funcs.scrape_dates_before_initially_str()
+        )  # type: str
+
+        return acc_start_scrap_date_w_offset_str
+
+    def login(self, endpoint_num: int = 0) -> Tuple[Optional[requests.Session],
+                                                    requests.Response, bool, bool]:
+        _delay()
+
+        s = requests.session()
+        resp0 = requests.Response()
+
+        req0_url = ENDPOINTS_SERVERS[endpoint_num] + ENDPOINT_PATH
+        try:
+            resp0 = s.get(
+                req0_url,
+                headers=self.req_headers,
+                proxies=self.req_proxies,
+                timeout=20
+            )
+        except ConnectionError as exc:
+            self.logger.error('Endpoint error: {} : {}'.format(req0_url, exc))
+            return None, resp0, False, False
+
+        if resp0.status_code != 200:
+            self.logger.error('Endpoint error: {}'.format(resp0.text))
+            return None, resp0, False, False
+
+        operParam = extract.re_first_or_blank("revertir\('(.*?)'", resp0.text)
+        lonParam = extract.re_first_or_blank("autenticate.*?document.forms\[0\]\.D\,(\d+)",
+                                             resp0.text)
+        action_url, req_params = extract.build_req_params_from_form_html(resp0.text, 'formu')
+
+        seed, passw_encrypted = self._get_encrypted(
+            operParam,
+            req_params['A'],
+            req_params['C'],
+            req_params['D'],
+            lonParam
+        ).split()
+
+        req1_url = urllib.parse.urljoin(resp0.url, action_url)
+
+        req1_params = req_params.copy()
+
+        req1_params['LOGIN'] = None
+        req1_params['FLAG'] = None
+        req1_params[''] = None  # possible case
+        # req1_params['C'] = None
+
+        req1_params['E'] = self.username
+        req1_params['tmp'] = seed
+        req1_params['D'] = passw_encrypted
+        req1_params['B'] = ''
+        req1_params['FLAG_DEMO'] = 0
+        req1_params['FLAG_PART_EMPR'] = 'P'
+        req1_params['TIPUS_IDENT'] = 2
+        req1_params['FLAG_TECLAT'] = 'N'
+        req1_params['E_AUX'] = ''
+        req1_params['LOGIN_JAVASCRIPT'] = 'S'
+
+        _delay()
+        resp1 = s.post(
+            req1_url,
+            data=req1_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies
+        )
+
+        # second login page
+        resp2 = None
+        if self.username_second:
+            self.logger.info('Need to enter username_second')
+            req2_url = resp1.url
+
+            req2_params = {
+                'NOM_CARPETA': self.username_second,
+                'PN': 'LGN',
+                'PE': '9',
+                'CANAL': 'Y',
+                'FLAG_DEMO': '0',
+                'FLAG_PART_EMPR': 'P',
+            }
+
+            resp2 = s.post(
+                req2_url,
+                data=req2_params,
+                headers=self.req_headers,
+                proxies=self.req_proxies
+            )
+
+        resp_logged_in = resp2 or resp1
+
+        is_logged = '<title>la Caixa - Inicio</title>' in resp_logged_in.text
+        is_credentials_error = any(
+            marker in resp_logged_in.text
+            for marker in ['Identificación incorrecta',
+                           'Su acceso está desactivado por razones de seguridad']
+        )
+
+        return s, resp_logged_in, is_logged, is_credentials_error
+
+    def full_scraping_for_idx(self, idx) -> bool:
+        """
+        :return: True - all companies processed;
+                 False - need to process more companies (possible the scraping of the company is
+                 finished with error, in this case self.is_success=False and the scraper will
+                 try to continue and will stop at next iteration)
+        """
+        self.logger.info('Full scraping for endpoint idx: {}'.format(idx))
+        # no more companies to scrape
+        # detect here to avoid unnecessary authorization
+        if not self.companies_to_scrape_idxs:
+            self.logger.info('No more companies to process at endpoint {}'.format(idx))
+            return True
+
+        resp = requests.Response()
+        is_logged = False
+
+        # log in every time to handle possible down endpoints
+        # handle unexpected !is_logged (the credentials should be ok, they were checked at initial log in)
+        for _ in range(project_settings.LOGIN_ATTEMPTS):
+            s, resp, is_logged, is_credentials_error = self.login(idx)
+            if is_logged or is_credentials_error:
+                break
+            _delay()
+
+        if not is_logged:
+            self.logger.error(
+                'Not logged in {}. Stop scraping of the endpoint.\nRESPONSE\n{}\n{}'.format(
+                    ENDPOINTS_SERVERS[idx],
+                    resp.url,
+                    resp.text
+                )
+            )
+            return False
+
+        while True:
+            try:
+                with lock:
+                    # company_idx_to_scrape = self.companies_to_scrape_idxs.pop()
+                    company_idx_to_scrape = self.companies_to_scrape_idxs[0]
+                    self.companies_to_scrape_idxs = self.companies_to_scrape_idxs[1:]
+            # no more companies to process
+            # handle as exception to use with concurrent scraping
+            except IndexError:
+                self.logger.info('No more companies to process at endpoint {}'.format(idx))
+                return True
+
+            # need to get companies every iteration bcs the urls has been changed
+            # during regular scraping
+            companies = self.get_companies(s, resp)
+            company = companies[company_idx_to_scrape]
+
+            is_success = self.process_company(s, resp, company, idx)
+            if is_success:
+                self.logger.info(
+                    'Func process_company at endpoint idx {} : {}: success'.format(idx, company)
+                )
+            else:
+                # return on error - scrape next company from another endpoint
+                self.logger.info(
+                    'Func process_company at endpoint (subdomain) idx {} : {} : failed. '
+                    'Skip processing current endpoint now. '
+                    'Continue the scraping using next endpoint.'.format(idx, company)
+                )
+                return False
+
+    def get_companies(self, s, resp) -> List[CompanyUrlData]:
+        """
+        the company url will be changed after new user authorization
+        and possible during the processing
+        """
+        self.logger.info('get_companies: start')
+
+        # go to initial page (if not at it now) to change the contract
+        inicio_url_or_false = extract.get_link_by_text(
+            resp.text,
+            resp.url,
+            'Inicio'
+        )
+
+        if inicio_url_or_false:
+            self.logger.info('get_companies: open initial page')
+            resp_init = s.get(
+                inicio_url_or_false,
+                headers=self.req_headers,
+                proxies=self.req_proxies
+            )
+        else:
+            self.logger.info('get_companies: already at the initial page')
+            resp_init = resp
+
+        # open page to change user company
+        companies_list_url = extract.get_link_by_text(
+            resp_init.text,
+            resp_init.url,
+            'Cambio de usuario'
+        )
+
+        # many companies per user account
+        # process each from corresponding session
+        if not companies_list_url:
+            self.logger.info("get_companies: one company at the user account")
+            companies = [
+                CompanyUrlData(
+                    init_url=resp_init.url,
+                    company_title_in_list=parse_helpers.get_organization_title_if_one_org(resp_init.text)
+                )
+            ]
+            return companies
+
+        companies = []  # List[CompanyUrlData]
+
+        page_num = 1
+        while companies_list_url:
+            # extract companies (contracts) from the list of companies (w/ pagination)
+            self.logger.info("get_companies: open 'change contract/company page': page {}".format(page_num))
+
+            resp_companies_list = s.get(
+                companies_list_url,
+                headers=self.req_headers,
+                proxies=self.req_proxies
+            )
+
+            self.logger.info('get_companies: parse list of companies')
+            companies_from_page = parse_helpers.get_companies_links_datas(resp_companies_list)
+            companies += companies_from_page
+
+            companies_list_url = extract.get_link_by_text(
+                resp_companies_list.text,
+                resp_companies_list.url,
+                '>> Más usuarios'
+            )
+            page_num += 1
+
+        return companies
+
+    def process_company(self, s, resp, company: CompanyUrlData, idx):
+        """
+        process accounts for each company one by one
+        because the session will be blocked in other case
+        """
+
+        page_source = resp.text
+        current_url = resp.url
+
+        self.logger.info('Process_company {}: start'.format(company))
+
+        # if one company = already company init url
+        if company.init_url != resp.url:
+            s, resp_comp = self._url_open_get(s, company.init_url)
+            page_source = resp_comp.text
+            current_url = resp_comp.url
+
+        tesoreria_url = (extract.get_link_by_text(page_source, current_url, 'Tesorería')
+                         or extract.get_link_by_text(page_source, current_url, 'Cuentas'))
+
+        if not tesoreria_url:
+            # user-level blocked company
+            self._log_errs_on_process_company(page_source, company, idx)
+            # return False to stop processing current idx - need to relogin (to another index)
+            return False
+
+        # open finances
+        s, tesoreria_resp = self._url_open_get(s, tesoreria_url)
+
+        # check title:
+        #   Saldo y movimientos -> parse movements,
+        #   Tesorería -> get_company_accounts_and_movements
+
+        # one account per contract
+        # the movements already opened
+        # if 'Saldo y movimientos' in resp.text:
+        if 'Más saldo a la cuenta' in tesoreria_resp.text:
+            self.process_account(s, tesoreria_resp, company)
+            return True
+
+        # several accounts
+        # need to open each account movements
+        accounts_to_process = parse_helpers.get_accounts_to_process(tesoreria_resp)
+        self.logger.info('Company {} has accounts: {}'.format(company,
+                                                              accounts_to_process))
+        if not accounts_to_process:
+            if any(m in tesoreria_resp.text for m in NO_ACCOUNTS_MARKERS):
+                self.logger.info(
+                    "Func: process_company: {}: NOT PROCESSED: "
+                    "Found 'no accounts' marker".format(
+                        company.company_title_in_list
+                    )
+                )
+                return True
+
+            elif any(m in tesoreria_resp.text for m in DISABLED_COMPANY_MARKERS):
+                self.logger.warning(
+                    "Func: process_company: {}: NOT PROCESSED: "
+                    "Found 'disabled company' marker: "
+                    "CHECK IT MANUALLY".format(
+                        company.company_title_in_list,
+                    )
+                )
+            else:
+                self.logger.error(
+                    'Func: process_company: {} : NOT PROCESSED : '
+                    'Neither one nor several accounts were found. '
+                    'CHECK THE LAYOUT:\n{}'.format(
+                        company.company_title_in_list,
+                        tesoreria_resp.text
+                    )
+                )
+            return False
+
+        # need to login for each account to process it in parallel mode, so now serial mode only
+        for account_to_process in accounts_to_process:
+            self.process_several_accounts(s, company, account_to_process)
+
+        return True
+
+    def _open_acc_details_and_save_account_scraped(self, s,
+                                                   resp: requests.Response,
+                                                   company: CompanyUrlData) -> AccountScraped:
+        """IBAN of named account can be retrieved only from details page"""
+
+        acc_det_page_url = extract.get_link_by_text(resp.text, resp.url, 'Saldo y detalle de cuenta')
+
+        # Can get only account_no from details page because probable case
+        # when balance from another account returns be server on concurrent scraping
+        s, resp_acc_det_page = self._url_open_get(s, acc_det_page_url)
+        account_parsed = parse_helpers.get_account_parsed_from_acc_details_page(resp_acc_det_page.text)
+
+        # account_parsed = parse_helpers.get_account_parsed_from_mov_list_page(resp.text, account_no)
+
+        account_scraped = self.basic_account_scraped_from_account_parsed(
+            company.company_title_in_list or self.db_customer_name,
+            account_parsed,
+            is_default_organization=bool(not company.company_title_in_list)
+        )
+
+        self.logger.info('Company {} has an account {}'.format(company.company_title_in_list,
+                                                               account_scraped))
+
+        # one account uploading
+        self.basic_upload_accounts_scraped([account_scraped])
+        self.basic_log_time_spent('GET BALANCE')
+        return account_scraped
+
+    def process_several_accounts(self, s: requests.Session,
+                                 company: CompanyUrlData,
+                                 account_to_process: Tuple[str, str]):
+        _delay()
+        acc_url, acc_text = account_to_process
+        self.logger.info('Process subaccount link {}'.format(acc_text))
+        s, resp_acc = self._url_open_get(s, acc_url)
+        # possible situation: same response for different requests
+        self.process_account(s, resp_acc, company)
+
+    def process_account(self, s: requests.Session,
+                        resp: requests.Response,
+                        company: CompanyUrlData):
+
+        account_scraped = self._open_acc_details_and_save_account_scraped(s, resp, company)
+
+        fin_ent_account_id = account_scraped.FinancialEntityAccountId
+
+        date_from_str = self._get_date_from_for_account_str_by_fin_ent_acc_id(
+            fin_ent_account_id
+        )
+        date_from = _date_obj(date_from_str)
+
+        self.basic_log_process_account(fin_ent_account_id, date_from_str)
+
+        movements_ordering, mov_url_datas_map_to_movements_parsed, is_success = self.process_all_movements_of_account(
+            s,
+            resp,
+            date_from,
+            fin_ent_account_id
+        )
+
+        if not is_success:
+            self.logger.error(
+                '{}: dates from {} to {}: got possible integrity error while tried to extract movements '
+                '(not all movements were extracted). Skip uploading'.format(
+                    fin_ent_account_id,
+                    date_from_str,
+                    self.date_to_str
+                ))
+            self.basic_set_movements_scraping_finished(fin_ent_account_id)
+            return False
+
+        try:
+            movements_parsed_ordered_desc = [
+                mov_url_datas_map_to_movements_parsed[movement_url_data]
+                for movement_url_data in movements_ordering
+            ]
+        # Handle case if any movement was not extracted
+        # Should fail with err msg
+        except KeyError as exc:
+            self.logger.error(
+                '{}: dates from {} to {}: process_account EXCEPTION: no movement_parsed for {}'.format(
+                    fin_ent_account_id,
+                    date_from_str,
+                    self.date_to_str,
+                    exc  # str(exc) == movurldata
+                )
+            )
+            self.basic_set_movements_scraping_finished(fin_ent_account_id)
+            return False
+
+        movements_scraped, _ = self.basic_movements_scraped_from_movements_parsed(
+            movements_parsed_ordered_desc,
+            date_from_str
+        )
+
+        self.basic_log_process_account(fin_ent_account_id, date_from_str, movements_scraped)
+
+        self.basic_upload_movements_scraped(
+            account_scraped,
+            movements_scraped
+        )
+
+        return True
+
+    def process_all_movements_of_account(self, s, resp,
+                                         date_from: datetime.datetime,
+                                         fin_ent_account_id: str) -> Tuple[List[MovementUrlData],
+                                                                           Dict[MovementUrlData, MovementParsed],
+                                                                           bool]:
+
+        """
+        During parallel processing we can lost movements ordering
+        To avoid it we will save movements_parsed in dict like
+        {movement_url_data1: movement_parsed}, {movement_url_data2: movement_parsed}, ...}
+        and save the ordering in
+        movements_ordering = [movement_url_data1, movement_url_data2, ...]
+        """
+
+        self.logger.info('Func: get_account_movements: {} : start'.format(fin_ent_account_id))
+
+        resp_initial_text = resp.text
+        time.sleep(0.5)
+        load_more_movements_url = extract.re_first_or_blank(
+            "decodeXml\('(.*?)'\)\,true\,'callBack_movimientosCuenta'",
+            resp_initial_text
+        )
+
+        movements_ordering = []  # type: List[MovementUrlData]
+        mov_url_datas_map_to_movements_parsed = {}  # type: Dict[MovementUrlData, MovementParsed]
+        movements_url_datas_from_list_from_previous_iteration = []  # type: List[MovementUrlData]
+
+        # Iterate over pages
+        # Limit number of pages to MAX_PAGES_W_MOVS=300 (=max 3000 movs)
+        # to avoid infinite loops in rare cases
+        for page_ix in range(1, MAX_PAGES_W_MOVS):
+            # Note: no reliable way to detect year for movement from the list,
+            # possible cases when start scraping of movements from prev years detected as false positive current year
+            # handle it then using last_mov_scraped below
+            movements_url_datas_from_list = (
+                    parse_helpers.get_movements_from_html_list(resp, fin_ent_account_id, self.logger)
+                    or parse_helpers.get_movements_from_xml_list(resp, fin_ent_account_id, self.logger)
+            )  # type: List[MovementUrlData]
+
+            # To handle hanged processing when
+            # next page is the same as previous.
+            # Compares only dates and balances, not urls
+            # because urls from different pages are different even for same movements.
+            # Replaces
+            # `if movements_url_datas_from_list == movements_url_datas_from_list_from_previous_iteration:`
+            is_movs_from_prev_and_current_page_are_equal = all(
+                all([tpl[0].date == tpl[1].date, tpl[0].temp_balance == tpl[1].temp_balance])
+                for tpl
+                in zip(movements_url_datas_from_list,
+                       movements_url_datas_from_list_from_previous_iteration)
+            )
+            if (movements_url_datas_from_list_from_previous_iteration
+                    and is_movs_from_prev_and_current_page_are_equal):
+                self.logger.info('{}: no more previous movements'.format(fin_ent_account_id))
+                break
+
+            movements_url_datas_from_list_from_previous_iteration = movements_url_datas_from_list
+
+            # Update list of movements to process
+            movements_url_datas_to_process_from_page = [
+                mov_url_data for mov_url_data
+                in movements_url_datas_from_list
+                if date_from <= mov_url_data.date <= self.date_to
+            ]  # type: List[MovementUrlData]
+
+            movements_ordering.extend(movements_url_datas_to_process_from_page)
+
+            # Process all movements from the page
+            # Stop if not is_success
+            if project_settings.IS_CONCURRENT_SCRAPING:
+                # 10 - max movements at a page
+                # IMPORTANT PLACE
+                # get result of process_movements and handle it in place
+                with futures.ThreadPoolExecutor(max_workers=MOV_SCRAP_MAX_WORKERS) as executor:
+                    futures_dict = {
+                        executor.submit(
+                            self.process_movement,
+                            s,
+                            fin_ent_account_id,
+                            movement_url_data_to_process
+                        ): '{}: {}'.format(fin_ent_account_id, movement_url_data_to_process.url)
+                        for movement_url_data_to_process in movements_url_datas_to_process_from_page
+                    }
+
+                    # Extract result from the futures
+                    for future in futures.as_completed(futures_dict):
+                        future_id = futures_dict[future]
+                        try:
+                            movement_parsed, movement_url_data_processed, is_success = future.result()
+
+                            # Each movement should be extracted correctly
+                            if not is_success:
+                                return [], {}, False
+
+                            mov_url_datas_map_to_movements_parsed[movement_url_data_processed] = movement_parsed
+
+                        except Exception:
+                            self.logger.error(
+                                '{function_title} failed: {future_id}: '
+                                'dates from {date_from} to {date_to}: !!! EXCEPTION !!! {exc}'.format(
+                                    function_title='get_movements_and_upd_movements_parsed',
+                                    future_id=future_id,
+                                    date_from=date_from,
+                                    date_to=self.date_to_str,
+                                    exc=traceback.format_exc()
+                                )
+                            )
+                            return [], {}, False
+            else:
+                for movement_url_data_to_process in movements_url_datas_to_process_from_page:
+                    movement_parsed, _, is_success = self.process_movement(
+                        s,
+                        fin_ent_account_id,
+                        movement_url_data_to_process
+                    )
+
+                    # Each movement should be extracted correctly
+                    if not is_success:
+                        return [], {}, False
+
+                    mov_url_datas_map_to_movements_parsed[movement_url_data_to_process] = movement_parsed
+
+            # Open previous page if necessary
+            if not movements_url_datas_from_list:
+                self.logger.info('{}: no movements to scrape'.format(fin_ent_account_id))
+                break
+
+            # Check need open more movements
+            last_mov_url_data = movements_url_datas_from_list[-1]
+            if last_mov_url_data.date < date_from:  # and 'Ver más movimientos' in resp_initial_text
+                self.logger.info(
+                    '{}: date_from reached. No need to open previous movements. '
+                    'Last mov at the page: {}'.format(
+                        fin_ent_account_id,
+                        (last_mov_url_data.date, last_mov_url_data.temp_balance)
+                    )
+                )
+                break
+
+            if not load_more_movements_url:
+                self.logger.info(
+                    "{}: no load_more_movements_url (no 'Ver más movimientos' button)".format(fin_ent_account_id)
+                )
+                break
+
+            # No need to try open prev page - nothing to open.
+            # it is necessary to handle this case because
+            # found that for DB customer 149727: fin_entity_access 6033: ES3521003571572200124118
+            # the scraper opens "new pages" (nut thay are the same) with different urls for same movements
+            # so, most obvious approach to handle it - count movements at the page
+            # BTW, it is possible to stuck if 20 movs at last page and "new page"
+            # returns movs with different urls, but this case didn't occur yet.
+            movs_on_page = len(movements_url_datas_from_list)
+            if movs_on_page < MAX_MOVEMENTS_LIST_PER_PAGE:
+                self.logger.info("{}: too few movements on the page ({} < {}). No need to open previous".format(
+                    fin_ent_account_id,
+                    movs_on_page,
+                    MAX_MOVEMENTS_LIST_PER_PAGE
+                ))
+                break
+
+            self.logger.info(
+                "{}: last movement's date on the page: {}, need movements from date {}. "
+                "Open move previous movements from page {}".format(
+                    fin_ent_account_id,
+                    datetime.datetime.strftime(movements_url_datas_from_list[-1].date, SCRAPER_DATE_FMT),
+                    datetime.datetime.strftime(date_from, SCRAPER_DATE_FMT),
+                    page_ix + 1
+                )
+            )
+
+            time.sleep(0.2)
+            s, resp = self._url_open_get(s, load_more_movements_url)
+            time.sleep(0.5)
+        else:
+            self.logger.error(
+                "{}: reached the limit of max opened pages with movements ({}). "
+                "Probably, hanged loop (but maybe really many movements). Check urgently".format(
+                    MAX_PAGES_W_MOVS,
+                    fin_ent_account_id,
+
+                ))
+
+        self.logger.info('Func: get_account_movements: {} : success'.format(fin_ent_account_id))
+        return movements_ordering, mov_url_datas_map_to_movements_parsed, True
+
+    def process_movement(
+            self,
+            s: requests.Session,
+            fin_ent_account_id: str,
+            movement_url_data: MovementUrlData) -> Tuple[MovementParsed, MovementUrlData, bool]:
+        """
+        Extracts movement and updates self.movements_parsed
+
+        :return: (movement_parsed, mov_url_data, scraping state)
+            scraping state (bool): False means that movement was not extracted
+        """
+
+        self.logger.info(
+            '{}: process_movement: {}'.format(
+                fin_ent_account_id,
+                _mov_url_data_str(movement_url_data)
+            )
+        )
+
+        movement_parsed = {}  # type: MovementParsed
+        resp = requests.Response()  # for linter
+        # Several attempts to open movement
+        for i in range(5):
+            s, resp = self._url_open_get(s, movement_url_data.url)
+
+            movement_parsed = (parse_helpers.get_movement_parsed_from_html(resp, movement_url_data)
+                               or parse_helpers.get_movement_parsed_from_xml(resp, movement_url_data, self.logger))
+
+            if 'description' in movement_parsed:
+                break
+            self.logger.info('{}: process_movement: {}: try extract movement again #{}'.format(
+                fin_ent_account_id,
+                _mov_url_data_str(movement_url_data),
+                i + 1
+            ))
+            time.sleep(0.2 + random.random() / 2)
+        else:
+            self.logger.error(
+                '{}: process_movement: {}: FAILED : \nWrong mov parsed\n{}\nFrom resp\n{}'.format(
+                    fin_ent_account_id,
+                    _mov_url_data_str(movement_url_data),
+                    movement_parsed,
+                    resp.text
+                )
+            )
+            return {}, movement_url_data, False
+
+        return movement_parsed, movement_url_data, True
+
+    def main(self):
+        is_success = True
+
+        # assignments to suppress 'reference before assignment' false positive err notifications
+        s = None  # type: Optional[requests.Session]
+        resp_logged_in = requests.Response()
+        is_logged = False
+        is_credentials_error = False
+
+        # try each endpoint
+        # stop when receive correct session - that means no endpoint (subdomain) error
+        for i in range(ENDPOINTS_NUM):
+            s, resp_logged_in, is_logged, is_credentials_error = self.login(i)
+            if s:
+                break
+
+        if is_credentials_error:
+            return self.basic_result_credentials_error()
+
+        if not is_logged:
+            return self.basic_result_not_logged_in_due_unknown_reason(
+                resp_logged_in.url,
+                resp_logged_in.text
+            )
+
+        companies = self.get_companies(s, resp_logged_in)
+        self.companies_to_scrape_idxs = [i for i, _ in enumerate(companies)]
+        loop_range = min(ENDPOINTS_NUM, len(self.companies_to_scrape_idxs))
+
+        if project_settings.IS_CONCURRENT_SCRAPING:
+            self.logger.info('Run parallel scraping')
+
+            with futures.ThreadPoolExecutor(max_workers=loop_range) as executor:
+
+                futures_dict = {
+                    executor.submit(self.full_scraping_for_idx, idx): idx
+                    for idx in range(ENDPOINTS_NUM)
+                }
+
+                self.logger.log_futures_exc('full_scraping_for_idx', futures_dict)
+        else:
+            for idx in range(loop_range):
+                self.full_scraping_for_idx(idx)
+
+        self.basic_log_time_spent('GET MOVEMENTS')
+        self.logger.info('Func main: done: is_success {}'.format(is_success))
+
+        return self.basic_result_success()

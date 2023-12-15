@@ -1,0 +1,165 @@
+{
+  "secondaryTransactions": [],
+  "actionList": [
+    {
+      "type": "INVOICE_PAY",
+      "name": "Pagar",
+      "url": "/invoice/payerView/details/INV2-46LQ-FMK5-PMA5-JJX5",
+      "isNewWindow": false,
+      "invoiceurl": true,
+      "fptiPageNameForAction": "main:businessweb:txns::main:txn-details:ACTION:Pagar"
+    },
+    {
+      "type": "INVOICE_CANCEL",
+      "name": "Cancelar",
+      "url": "/invoice/details/INV2-46LQ-FMK5-PMA5-JJX5?action=cancel",
+      "isNewWindow": false,
+      "invoiceurl": true,
+      "fptiPageNameForAction": "main:businessweb:txns::main:txn-details:ACTION:Cancelar"
+    },
+    {
+      "name": "Archivar",
+      "type": "HIDE"
+    }
+  ],
+  "isPayUponInvoice": false,
+  "c3Transaction": false,
+  "encryptedAccountNumber": "22TLHVJV84Z82",
+  "accountInfo": "",
+  "internalTransactionId": "s5mmXTXxlV_TgRZZJJA-BblRBcN2hWlMD4GdqnxWbD8ZcSVD9Yq6FW38vzW",
+  "transactionId": "INV2-46LQ-FMK5-PMA5-JJX5",
+  "scidValue": "",
+  "transactionTime": "13 nov. 2021",
+  "transactionTimeFormatted": "13/11/21",
+  "transactionTimeUnformatted": "2021-11-13T05:00:47.000Z",
+  "transactionType": "INVOICE",
+  "transactionStatus": "Impagado",
+  "transactionParent": "None",
+  "isTokenized": false,
+  "activity": {
+    "id": "INV2-46LQ-FMK5-PMA5-JJX5",
+    "account": {},
+    "time_created": "2021-11-13T05:00:47.000Z",
+    "activity_type": "INVOICE",
+    "status": "PENDING",
+    "detailed_status": "PENDING",
+    "counterparty": {
+      "business_name": "Camelog.com",
+      "name": "Camelog.com"
+    },
+    "fee": {
+      "currency_code": "USD",
+      "value": "0.00",
+      "amount": "0.00"
+    },
+    "gross": {
+      "currency_code": "USD",
+      "value": "249.00",
+      "amount": "249.00"
+    },
+    "net": {
+      "currency_code": "USD",
+      "value": "249.00",
+      "amount": "249.00"
+    },
+    "gross_usd_amount": "0.00",
+    "is_primary": true,
+    "internal_id": "s5mmXTXxlV_TgRZZJJA-BblRBcN2hWlMD4GdqnxWbD8ZcSVD9Yq6FW38vzW",
+    "actions": [
+      "ACTIVITY_DETAILS",
+      "INVOICE_CANCEL",
+      "INVOICE_PAY",
+      "ARCHIVE"
+    ],
+    "extension": {
+      "role": "REQUESTEE",
+      "due_date": "2021-11-13",
+      "is_invoice_sent": false,
+      "invoice_number": "0034"
+    },
+    "extensions": {
+      "invoice_properties": {
+        "role": "REQUESTEE",
+        "is_invoice_sent": false,
+        "invoice_number": "0034",
+        "due_date": "2021-11-13",
+        "DEF_EXT_FLD": "DEF_EXT_VAL"
+      }
+    },
+    "NewNodeURL": true,
+    "scidValue": "",
+    "redirectUrl": "/invoice/details/",
+    "orderVoidPXP": true,
+    "proTransaction": false,
+    "fptiPageName": "main:businessweb:txns::main:txn-details:INVOICE::PENDING:null:nonEBAY:",
+    "matchedTCodes": []
+  },
+  "grossAmount": {
+    "amount": "249,00\\u00a0USD",
+    "amountUnformatted": "249.00",
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "249,00\\u00a0USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": false,
+    "zeroAmount": false,
+    "isAmountInCents": false
+  },
+  "feeAmount": {
+    "amount": "0,00\\u00a0USD",
+    "amountUnformatted": "0.00",
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "0,00\\u00a0USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": false,
+    "zeroAmount": true,
+    "isAmountInCents": false
+  },
+  "netAmount": {
+    "amount": "249,00\\u00a0USD",
+    "amountUnformatted": "249.00",
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "249,00\\u00a0USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": false,
+    "zeroAmount": false,
+    "isAmountInCents": false
+  },
+  "balanceAmount": "",
+  "transactionNote": null,
+  "orderVoidPXP": true,
+  "NewNodeURL": true,
+  "proTransaction": false,
+  "redirectUrl": "/invoice/details/",
+  "fptiPageName": "main:businessweb:txns::main:txn-details:INVOICE::PENDING:null:nonEBAY:",
+  "alertTooltipMessages": [],
+  "infoTooltipMessages": [],
+  "errorTooltipMessages": [],
+  "transactionDescription": {
+    "description": "Factura de",
+    "name": "Camelog.com"
+  }
+}

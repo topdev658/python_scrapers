@@ -1,0 +1,1279 @@
+<HTML>
+<HEAD>
+
+    <TITLE>Supernet Empresas e Instituciones</TITLE>
+
+    <SCRIPT LANGUAGE="JavaScript">
+        <!--
+        document.writeln('<link rel=stylesheet href=' + top.STYLE_SHEET_SEI + ' type=text/css>')
+        var num_mov = 0
+
+        function Imprimir() {
+            newWindow = window.open(top.PATH_IMG_SEI + 'unpixel.gif', 'nuevaVentana', 'scrollbars=yes,resizable,status,width=790,height=450,screenX=0,screenY=0,top=0,left=0')
+            document.imprimir.submit()
+        }
+
+        function Imprimir_OLD() {
+            if (top.navver < 4)
+                document.write('<td class=txtnormal>Ctrl+P para imprimir.</td>')
+            else {
+                document.write('<td class=tdbotimg><a href=Javascript:print()><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+                document.write('<td class=tdbottxt><a href=Javascript:print()>Imprimir</a></td>')
+            }
+        }
+
+        function LanzaXML() {
+            window.open(top.PATH_HTM_SEI + 'cuentas_bk/Relacion_de_conceptos_Consulta_movimentos-N43.xls', 'Documento', 'scrollbars,  resizable=yes, width=790, height=500, screenX=0, screenY=0, top=0, left=0');
+        }
+
+        function lanzabuscar() {
+            if (document.buscar.diainicio.value == '' || document.buscar.mesinicio.value == '' || document.buscar.anoinicio.value == '') {
+                alert('Debe introducir la "Fecha desde"')
+                return
+            }
+            if (Importe_Correcto(document.buscar.importe_desde.value) == false) {
+                alert('Si rellena los importes, solo puede introducir caracteres numéricos')
+                return
+            }
+            if (Importe_Correcto(document.buscar.importe_hasta.value) == false) {
+                alert('Si rellena los importes, solo puede introducir caracteres numéricos')
+                return
+            }
+            if (document.buscar.operacion.value == '')
+                document.buscar.operacion.value = document.buscar.tipo_oper[document.buscar.tipo_oper.selectedIndex].value
+            document.buscar.submit()
+        }
+
+        function Importe_Correcto(imp) {
+            if (imp.length == 0) return (true)
+            for (i = 0; i < imp.length; i++) {
+                car = imp.substring(i, i + 1)
+                if ((car < "0" || car > "9") && car != ",")
+                    return (false)
+            }
+            return (true)
+        }
+
+        function actualiza1(f_op, f_va, ope, ref1, ref2, doc, imp) {
+            document.detalle.fecha_operacion.value = f_op
+            document.detalle.fecha_valor.value = f_va
+            document.detalle.operacion.value = ope
+            document.detalle.referencia1.value = ref1
+            document.detalle.referencia2.value = ref2
+            document.detalle.documento.value = doc
+            document.detalle.importe.value = imp
+        }
+
+        function actualiza2(con) {
+            document.detalle.concepto.value = con
+        }
+
+        function actualizaNuevoDetalle(f_op, f_va, ope, ref1, ref2, doc, imp, signo, concepto1, concepto2, concepto3, descAbrev, posMvto, numMvtoDia, oficinaOrigen) {
+            document.nuevoDetalleMovimiento.elements['entrada.fechaOperacion'].value = f_op
+            document.nuevoDetalleMovimiento.elements['entrada.fechaValor'].value = f_va
+            document.nuevoDetalleMovimiento.elements['entrada.conceptoPropio'].value = ope
+            document.nuevoDetalleMovimiento.elements['entrada.referencia1'].value = ref1
+            document.nuevoDetalleMovimiento.elements['entrada.referencia2'].value = ref2
+            document.nuevoDetalleMovimiento.elements['entrada.numeroDocumento'].value = doc
+            document.nuevoDetalleMovimiento.elements['entrada.importeMovimiento'].value = imp
+            document.nuevoDetalleMovimiento.elements['entrada.signoImporte'].value = signo
+            document.nuevoDetalleMovimiento.elements['entrada.descMovimiento1'].value = concepto1
+            document.nuevoDetalleMovimiento.elements['entrada.descMovimiento2'].value = concepto2
+            document.nuevoDetalleMovimiento.elements['entrada.descMovimiento3'].value = concepto3
+            document.nuevoDetalleMovimiento.elements['entrada.descAbreviada'].value = descAbrev
+            document.nuevoDetalleMovimiento.elements['entrada.numMvtoDia'].value = numMvtoDia
+            document.nuevoDetalleMovimiento.elements['entrada.oficinaOrigen'].value = oficinaOrigen
+        }
+
+        function actualizaDetalleMvtosModeloTextos(f_op, f_va, ope, ref1, ref2, doc, imp, signo, concepto1, concepto2, concepto3, descAbrev, posMvto, numMvtoDia, oficinaOrigen) {
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.fechaOperacion'].value = f_op
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.fechaValor'].value = f_va
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.codigoOperacion'].value = ope
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.referencia1'].value = ref1
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.referencia2'].value = ref2
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.numeroDocumento'].value = doc
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.importe.IMPORTE'].value = imp
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.signoImporte'].value = signo
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.descMovimiento1'].value = '-' + concepto1 + '-'
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.descMovimiento2'].value = '-' + concepto2 + '-'
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.descMovimiento3'].value = '-' + concepto3 + '-'
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.descAbreviada'].value = descAbrev
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.datosConsultaMovimiento.numMvtoDia'].value = numMvtoDia
+            document.detalleMovimientoModeloTextos.elements['detalleMovimiento_E.datosMovimiento.oficinaOrigen'].value = oficinaOrigen
+        }
+
+        function Detalle() {
+            if (num_mov == 0) {
+                alert('No existen datos para realizar esta consulta')
+                return
+            }
+            if (num_mov > 1) {
+                var sel = false
+                for (i = 0; i < num_mov && sel == false; i++) {
+                    if (document.detalle.botonmov[i].checked == true)
+                        sel = true;
+                }
+                if (sel == false) {
+                    alert('Seleccione un movimiento')
+                    return
+                }
+            }
+            document.detalle.submit()
+        }
+
+        function actualizarTipoOperacion() {
+            if (document.buscar.operacion.value != '') {
+                for (i = 0; i < document.buscar.tipo_oper.length; i++) {
+                    if (document.buscar.operacion.value == document.buscar.tipo_oper[i].value) {
+                        document.buscar.operacion.value = ''
+                        document.buscar.tipo_oper[i].selected = true
+                        break
+                    }
+                }
+                document.buscar.operacion.value = document.buscar.tipo_oper[document.buscar.tipo_oper.selectedIndex].value
+            }
+        }
+
+        function cargarOperacion() {
+            document.buscar.operacion.value = document.buscar.tipo_oper[document.buscar.tipo_oper.selectedIndex].value
+        }
+
+        function volver() {
+            top.cabeza.lanzaWAS('OPPosicionGlobalConsGP', '1', '')
+        }
+
+        function lanzaNuevoDetalleMvtos() {
+            if (num_mov == 0) {
+                alert('No existen datos para realizar esta consulta')
+                return
+            }
+            if (num_mov > 1) {
+                var sel = false
+                for (i = 0; i < num_mov && sel == false; i++) {
+                    if (document.detalle.botonmov[i].checked == true)
+                        sel = true;
+                }
+                if (sel == false) {
+                    alert('Seleccione un movimiento')
+                    return
+                }
+            }
+            top.parametrosNuevoDetalleMvtos = 'secreto=-----BEGIN DAT----- Le9tpPulkGB6RWV88vuWbNf74Kc1U7psMa5FxLFRSTH4QuExqzA46EO8G7wWbexX qT5BhGnBB3Nv2sEaO/+h9G7ksqrR9Nc52bLdWGGntFQ6lPD+NY3uFxhwlJ72n6T2 utREi+mb5gbWtVF9YmfmB4R+IKphx1/pQDQMbSRMkyw= -----END DAT-----&mesinicio=12&anofin=2020&saldo=&anoinicio=2019&diafin=17&mesfin=01&de_donde=PosGloWas&cuenta=00496668  2610004218&tipo_entrada=C&tipo_movimientos=3&diainicio=23'
+            top.separadoresNuevoDetalleMvtos = '&='
+            document.nuevoDetalleMovimiento.submit()
+        }
+
+        function lanzaDetalleMvtosModeloTextos() {
+            if (num_mov == 0) {
+                alert('No existen datos para realizar esta consulta')
+                return
+            }
+            if (num_mov > 1) {
+                var sel = false
+                for (i = 0; i < num_mov && sel == false; i++) {
+                    if (document.detalle.botonmov[i].checked == true)
+                        sel = true;
+                }
+                if (sel == false) {
+                    alert('Seleccione un movimiento')
+                    return
+                }
+            }
+            top.parametrosNuevoDetalleMvtos = 'secreto=-----BEGIN DAT----- Le9tpPulkGB6RWV88vuWbNf74Kc1U7psMa5FxLFRSTH4QuExqzA46EO8G7wWbexX qT5BhGnBB3Nv2sEaO/+h9G7ksqrR9Nc52bLdWGGntFQ6lPD+NY3uFxhwlJ72n6T2 utREi+mb5gbWtVF9YmfmB4R+IKphx1/pQDQMbSRMkyw= -----END DAT-----&mesinicio=12&anofin=2020&saldo=&anoinicio=2019&diafin=17&mesfin=01&de_donde=PosGloWas&cuenta=00496668  2610004218&tipo_entrada=C&tipo_movimientos=3&diainicio=23'
+            top.separadoresNuevoDetalleMvtos = '&='
+            document.detalleMovimientoModeloTextos.submit()
+        }
+
+        function obtenerDigito(valor) {
+            valores = new Array(1, 2, 4, 8, 5, 10, 9, 7, 3, 6)
+            control = 0
+            var numero = '' + valor
+            for (v = 0; v <= 9; v++)
+                control += parseInt(numero.charAt(v)) * valores[v]
+            control = 11 - (control % 11)
+            if (control == 11) control = 0
+            else if (control == 10) control = 1
+            return control
+        }
+
+        function calcularDC(banco, sucursal, cuenta) {
+            return '' + obtenerDigito('00' + banco + sucursal) + obtenerDigito(cuenta)
+        }
+
+        // -->
+    </script>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+    <!--
+    document.writeln('<body ' + top.BODY_B + ' onLoad="javascript:actualizarTipoOperacion()">')
+    document.writeln(top.T_TIT)
+    document.writeln('<tr class=trpagtit><td class=tdpagtit>&nbsp;Cuentas vistas y ahorro - Consulta de movimientos de una cuenta</td></tr>')
+    document.writeln('</table>')
+    document.writeln('<center><table border=0 width=100% cellspacing=0>')
+    document.writeln('<tr>')
+    document.writeln('<td width=90%>')
+    document.writeln(top.T_EXT1)
+    document.writeln('<tr><td>')
+    document.writeln(top.T_INT1)
+    document.writeln('<tr class=trdat>')
+    document.writeln('<td width=150px class=tddattithor>&nbsp;Titular contrato:</td>')
+    document.writeln('<td class=tddatizq>' + top.nombredato + '</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr class=trdat>')
+    document.writeln('<td class=tddattithor>&nbsp;N&uacute;mero de cuenta:</td>')
+    document.writeln('<td class=tddatizq>0049&nbsp;6668&nbsp;  &nbsp;2610004218</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr class=trdat>')
+    document.writeln('<td class=tddattithor>&nbsp;Titulares cuenta:</td>')
+    document.writeln('<td class=tddatizq>ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          &nbsp;</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr class=trdat>')
+    document.writeln('<td class=tddattithor>&nbsp;Descripci&oacute;n:</td>')
+    document.writeln('<td class=tddatizq>&nbsp;</td>')
+    document.writeln('</tr>')
+    document.writeln('</tr><tr class=trdat>')
+    document.writeln('<td class=tddattithor>&nbsp;Saldo:</td>')
+    document.writeln('<td class=tddatizq>&nbsp;</td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('</td></tr>')
+    document.writeln('</table></center>')
+    document.writeln('</td>')
+    document.writeln('<td align=right valign=top><a href="javascript:volver()"><img src=' + top.PATH_IMG_SEI + 'flecha_e.gif border=0 align=right></a></td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    top.secreto = "-----BEGIN DAT----- wxkTggCFE3+6rWPjQ+KzcmVz5nBAA7+FNpal951i9cVlcJn8dLENB2b7Jeq7aSrB MRt5bkLGELZHdLZ0u2CofpVAKIOWg3M386Srp3XKeg4ffSKT8Q1aA3VuQQKqyy5n z+bEgPG/pdczaSL1FdJy6ljwKTKQn4CWlAPjflhNYeM= -----END DAT----- "
+
+
+    document.writeln('<FORM method=post name="buscar" action=cue_movimientos_detallados>')
+    document.writeln('    <input type=hidden name=secreto value="' + top.secreto + '">')
+    document.writeln('    <input type=hidden name=cuentasMovs value="00496668  2610004218">')
+    document.writeln('    <input type=hidden name=tipo_entrada value="C">')
+    document.writeln('    <input type=hidden name=saldo value="">')
+    document.writeln('    <input type=hidden name=grupo value="">')
+    document.writeln('    <input type=hidden name=alias value="">')
+    document.writeln('		<input type=hidden name=cliente value="">')
+    document.writeln('		<input type=hidden name=fecha_contable value="">')
+    document.writeln('    <input type=hidden name=de_donde value="PosGloWas">')
+    document.writeln('    <input type=hidden name=empresa value="">')
+    document.writeln('    <input type=hidden name=tip_persona value="">')
+    document.writeln('    <input type=hidden name=cod_persona value="">')
+    document.writeln('    <input type=hidden name=criterio value="">')
+    document.writeln('    <input type=hidden name=fecha value="">')
+    document.writeln('    <input type=hidden name=des_familia value="">')
+    document.writeln('    <input type=hidden name=cod_familia value="">')
+    document.writeln('    <input type=hidden name=tipo_consulta value="S">')
+    document.writeln('    <input type=hidden name=descripcion value="">')
+    document.writeln('    <input type=hidden name=moneda value="">')
+    document.writeln('    <input type=hidden name=numCuentasSeleccionadas value="1">')
+    document.writeln('    <input type=hidden name=numero_bloque value="">')
+    document.writeln('    <center><table border=0 width=98% cellspacing=0>')
+    document.writeln('<tr>')
+    document.writeln('<td align=left colspan=4 class=txtnegrita>&nbsp;Criterios de selecci&oacute;n</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('<td align=left colspan=4 class=tdblatithor>&nbsp;Cuenta</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('<td align=left colspan=4 class=txtnegrita>')
+    document.writeln('        <select name=cuentaSeleccionada onchange="javascript:lanzabuscar();">')
+    document.writeln('<option value="0" selected>0049&nbsp;6668&nbsp;  &nbsp;2610004218</option>')
+    document.writeln('        </select>')
+    document.writeln('</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('<td align=left class=tdblatithor>&nbsp;Fecha desde</td>')
+    document.writeln('<td class=tdblatithor align=left>&nbsp;Fecha hasta</td>')
+    document.writeln('<td class=tdblatithor align=left>&nbsp;Importe desde</td>')
+    document.writeln('<td class=tdblatithor align=left>&nbsp;Importe hasta</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('<td><input type=text name=diainicio size=2 maxlength=2 value="23">&nbsp;')
+    document.writeln('    <input type=text name=mesinicio size=2 maxlength=2 value="12">&nbsp;')
+    document.writeln('    <input type=text name=anoinicio size=4 maxlength=4 value="2019"></td>')
+    document.writeln('<td><input type=text name=diafin size=2 maxlength=2 value="17">&nbsp;')
+    document.writeln('    <input type=text name=mesfin size=2 maxlength=2 value="01">&nbsp;')
+    document.writeln('    <input type=text name=anofin size=4 maxlength=4 value="2020"></td>')
+    document.writeln('<td><input type=text name=importe_desde size=15 maxlength=15 value=""></td>')
+    document.writeln('<td><input type=text name=importe_hasta size=15 maxlength=15 value=""></td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('<center><table border=0 width=98% cellspacing=0>')
+    document.writeln('<tr>')
+    document.writeln('    <td class=tdblatithor>Tipo de consulta</td>')
+    document.writeln('    <td class=tdblatithor>Tipo movimientos</td>')
+    document.writeln('    <td class=tdblatithor>Cod. Operaci&oacute;n</td>')
+    document.writeln('    <td class=tdblatithor colspan=3>Tipo Operaci&oacute;n</td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('    <td class=tdblatithor>')
+    document.writeln('        <select name=tipo_consulta>')
+    document.writeln('            <option value="S" selected>Simple</option>')
+    document.writeln('            <option value="A">Ampliada</option>')
+    document.writeln('            <option value="D">Detallado</option>')
+    document.writeln('        </select>')
+    document.writeln('    </td>')
+    document.writeln('    <td class=tdblatithor>')
+    document.writeln('        <input type=radio name=tipo_movimientos value="1">Debe&nbsp;')
+    document.writeln('        <input type=radio name=tipo_movimientos value="2">Haber&nbsp;')
+    document.writeln('        <input type=radio name=tipo_movimientos value="3">Todos</td>')
+    document.writeln('    <td>')
+    document.writeln('        <input type=text name=operacion size=3 maxlength=3 value="" onChange=javascript:document.buscar.tipo_oper[0].selected=true></td>')
+    document.writeln('    <td>')
+    document.writeln('        <select name=tipo_oper onChange=javascript:cargarOperacion()>')
+    document.writeln('            <option value="" selected></option>')
+    document.writeln('            <option value="29">Abono remesa efectos</option>')
+    document.writeln('            <option value="35">Ingreso de cheques</option>')
+    document.writeln('            <option value="36">Pago de cheques</option>')
+    document.writeln('            <option value="43">Ingreso en efectivo</option>')
+    document.writeln('            <option value="44">Pago en efectivo</option>')
+    document.writeln('            <option value="52">Efecto a su cargo</option>')
+    document.writeln('            <option value="56">Devoluciones efectos</option>')
+    document.writeln('            <option value="58">Devoluciones cheques</option>')
+    document.writeln('            <option value="71">Transferencias recibidas</option>')
+    document.writeln('            <option value="72">Transferencias emitidas</option>')
+    document.writeln('            <option value="74">Cargo documentos varios</option>')
+    document.writeln('            <option value="100">Adeudo inter/comis/gastos</option>')
+    document.writeln('            <option value="173">Abono remesas recibos</option>')
+    document.writeln('            <option value="174">Cargo de recibos</option>')
+    document.writeln('        </select>')
+    document.writeln('    </td>')
+    document.writeln('    <td class=tdbotimg><a href="javascript:lanzabuscar()"><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+    document.writeln('    <td class=tdbottxt><a href="javascript:lanzabuscar()">Buscar</a></td>')
+    document.writeln('</tr>')
+    document.writeln('<tr>')
+    document.writeln('<td>&nbsp;</td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('</form>')
+    document.writeln('<FORM method=post name="detalle" action=cue_mov_detalle>')
+    document.writeln('<input type=hidden name=secreto value="' + top.secreto + '">')
+    document.writeln('<input type=hidden name=cuenta value="00496668  2610004218">')
+    document.writeln('<input type=hidden name=titular1 value="ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          ">')
+    document.writeln('<input type=hidden name=titular2 value="                                                  ">')
+    document.writeln('<input type=hidden name=titular3 value="                                                  ">')
+    document.writeln('<input type=hidden name=grupo value="">')
+    document.writeln('<input type=hidden name=alias value="">')
+    document.writeln('<input type=hidden name=tipo_entrada value="C">')
+    document.writeln('<input type=hidden name=fecha_operacion>')
+    document.writeln('<input type=hidden name=fecha_valor>')
+    document.writeln('<input type=hidden name=operacion>')
+    document.writeln('<input type=hidden name=importe>')
+    document.writeln('<input type=hidden name=documento>')
+    document.writeln('<input type=hidden name=referencia1>')
+    document.writeln('<input type=hidden name=referencia2>')
+    document.writeln('<input type=hidden name=concepto>')
+    document.writeln('<input type=hidden name=concepto_propio>')
+    document.writeln('<table border=0 width=100% cellspacing=0>')
+    document.writeln('<tr>')
+    document.writeln('<td class=txtnegrita>&nbsp;Movimientos </font></td>')
+    document.writeln('</tr>')
+    document.writeln('<tr><td>')
+    document.writeln(top.T_EXT1)
+    document.writeln('<tr><td>')
+    document.writeln(top.T_INT1)
+    document.writeln('<tr class=trcabprin>')
+    document.writeln(top.TD_TIT + top.TD1_B + '&nbsp;</td>')
+    document.writeln('<td class=tdrestitver bgcolor=#9CD1E7 align=center width=12%>Fecha<br>operaci&oacute;n</td>')
+    document.writeln('<td class=tdrestitver bgcolor=#9CD1E7 align=center width=9%>Fecha<br>valor</td>')
+    document.writeln(top.TD_TIT + 'Concepto</td>')
+    document.writeln('<td class=tdrestitver bgcolor=#9CD1E7 align=center width=21%>Importe</td>')
+    document.writeln('<td class=tdrestitver bgcolor=#9CD1E7 align=center width=21%>Saldo</td>')
+    document.writeln('</tr>')
+
+
+    num_mov++  // <--- START
+    var f_op0 = "23-12-2019"
+    var f_va0 = "23-12"
+    var ope0 = " 71"
+    var ref10 = "            "
+    var ref20 = "                "
+    var doc0 = "0000000000"
+    var conc1_0 = "TRANSFERENCIA DE BANCO BILBAO VIZCAYA ARGENTARIA S.A., CONCE"
+    var conc2_0 = "PTO PAGO VENCIMIENTO CONFIRMING DE FUELS SUR S.L..          "
+    var conc3_0 = "                                                            "
+    var descAbrev0 = "ABONO TRANSFERENCI"
+    var con0 = "TRANSFERENCIA DE BANCO BILBAO VIZCAYA ARGENTARIA S.A., CONCE PTO PAGO VENCIMIENTO CONFIRMING DE FUELS SUR S.L..                                                                       "
+    var imp0 = "+       25.796,89 "
+    var importeBKS0 = "25796.89"
+    var signoImporteBKS0 = "H"
+    var fechaOperacionBKS0 = "20191223"
+    var fechaValorBKS0 = "20191223"
+    var fechaValorMT0 = "23-12-2019"
+    var posMovimiento0 = 1
+    var oficinaOrigen0 = "6668"
+    var numMovimiento0 = "00.001"
+    var numMovimientoMT0 = "00001"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op0,f_va0,ope0,ref10,ref20,doc0,imp0);actualiza2(con0);actualizaNuevoDetalle(fechaOperacionBKS0,fechaValorBKS0,ope0,ref10,ref20,doc0,importeBKS0,signoImporteBKS0,conc1_0,conc2_0,conc3_0, descAbrev0, posMovimiento0, numMovimiento0, oficinaOrigen0);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS0,fechaValorMT0,ope0,ref10,ref20,doc0,importeBKS0,signoImporteBKS0,conc1_0,conc2_0,conc3_0, descAbrev0, posMovimiento0, numMovimientoMT0, oficinaOrigen0)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE BANCO BILBAO VIZCAYA ARGENTARIA S.A., CONCE PTO PAGO VENCIMIENTO CONFIRMING DE FUELS SUR S.L..                                                                       </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       25.796,89 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     1.704.757,14 </td>')
+    document.writeln('</tr>')  // <--- END
+
+
+    num_mov++
+    var f_op1 = "23-12-2019"
+    var f_va1 = "23-12"
+    var ope1 = " 71"
+    var ref11 = "            "
+    var ref21 = "                "
+    var doc1 = "0000000000"
+    var conc1_1 = "TRANSFERENCIA DE NAVARRA DE ESTACIONES SL, CONCEPTO NAVARRA "
+    var conc2_1 = "DE ESTACIONES PARCIAL 331695.                               "
+    var conc3_1 = "                                                            "
+    var descAbrev1 = "ABONO TRANSFERENCI"
+    var con1 = "TRANSFERENCIA DE NAVARRA DE ESTACIONES SL, CONCEPTO NAVARRA  DE ESTACIONES PARCIAL 331695.                                                                                            "
+    var imp1 = "+        6.063,49 "
+    var importeBKS1 = "6063.49"
+    var signoImporteBKS1 = "H"
+    var fechaOperacionBKS1 = "20191223"
+    var fechaValorBKS1 = "20191223"
+    var fechaValorMT1 = "23-12-2019"
+    var posMovimiento1 = 2
+    var oficinaOrigen1 = "6668"
+    var numMovimiento1 = "00.002"
+    var numMovimientoMT1 = "00002"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op1,f_va1,ope1,ref11,ref21,doc1,imp1);actualiza2(con1);actualizaNuevoDetalle(fechaOperacionBKS1,fechaValorBKS1,ope1,ref11,ref21,doc1,importeBKS1,signoImporteBKS1,conc1_1,conc2_1,conc3_1, descAbrev1, posMovimiento1, numMovimiento1, oficinaOrigen1);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS1,fechaValorMT1,ope1,ref11,ref21,doc1,importeBKS1,signoImporteBKS1,conc1_1,conc2_1,conc3_1, descAbrev1, posMovimiento1, numMovimientoMT1, oficinaOrigen1)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE NAVARRA DE ESTACIONES SL, CONCEPTO NAVARRA  DE ESTACIONES PARCIAL 331695.                                                                                            </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        6.063,49 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     1.710.820,63 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op2 = "23-12-2019"
+    var f_va2 = "23-12"
+    var ope2 = " 71"
+    var ref12 = "            "
+    var ref22 = "                "
+    var doc2 = "0000000000"
+    var conc1_2 = "TRANSFERENCIA DE GESTIONES DE CARBURANTES CORDOBESA S.L, CON"
+    var conc2_2 = "CEPTO PAGO PEDIDO 20-12-19.                                 "
+    var conc3_2 = "                                                            "
+    var descAbrev2 = "ABONO TRANSFERENCI"
+    var con2 = "TRANSFERENCIA DE GESTIONES DE CARBURANTES CORDOBESA S.L, CON CEPTO PAGO PEDIDO 20-12-19.                                                                                              "
+    var imp2 = "+        4.800,00 "
+    var importeBKS2 = "4800.00"
+    var signoImporteBKS2 = "H"
+    var fechaOperacionBKS2 = "20191223"
+    var fechaValorBKS2 = "20191223"
+    var fechaValorMT2 = "23-12-2019"
+    var posMovimiento2 = 3
+    var oficinaOrigen2 = "6668"
+    var numMovimiento2 = "00.003"
+    var numMovimientoMT2 = "00003"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op2,f_va2,ope2,ref12,ref22,doc2,imp2);actualiza2(con2);actualizaNuevoDetalle(fechaOperacionBKS2,fechaValorBKS2,ope2,ref12,ref22,doc2,importeBKS2,signoImporteBKS2,conc1_2,conc2_2,conc3_2, descAbrev2, posMovimiento2, numMovimiento2, oficinaOrigen2);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS2,fechaValorMT2,ope2,ref12,ref22,doc2,importeBKS2,signoImporteBKS2,conc1_2,conc2_2,conc3_2, descAbrev2, posMovimiento2, numMovimientoMT2, oficinaOrigen2)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE GESTIONES DE CARBURANTES CORDOBESA S.L, CON CEPTO PAGO PEDIDO 20-12-19.                                                                                              </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        4.800,00 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     1.715.620,63 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op3 = "23-12-2019"
+    var f_va3 = "23-12"
+    var ope3 = " 71"
+    var ref13 = "            "
+    var ref23 = "                "
+    var doc3 = "0000000000"
+    var conc1_3 = "TRANSFERENCIA DE ESTACION SERVICIO BARDENAS SA, CONCEPTO A-7"
+    var conc2_3 = "1008163.                                                    "
+    var conc3_3 = "                                                            "
+    var descAbrev3 = "ABONO TRANSFERENCI"
+    var con3 = "TRANSFERENCIA DE ESTACION SERVICIO BARDENAS SA, CONCEPTO A-7 1008163.                                                                                                                 "
+    var imp3 = "+      206.051,93 "
+    var importeBKS3 = "206051.93"
+    var signoImporteBKS3 = "H"
+    var fechaOperacionBKS3 = "20191223"
+    var fechaValorBKS3 = "20191223"
+    var fechaValorMT3 = "23-12-2019"
+    var posMovimiento3 = 4
+    var oficinaOrigen3 = "6668"
+    var numMovimiento3 = "00.004"
+    var numMovimientoMT3 = "00004"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op3,f_va3,ope3,ref13,ref23,doc3,imp3);actualiza2(con3);actualizaNuevoDetalle(fechaOperacionBKS3,fechaValorBKS3,ope3,ref13,ref23,doc3,importeBKS3,signoImporteBKS3,conc1_3,conc2_3,conc3_3, descAbrev3, posMovimiento3, numMovimiento3, oficinaOrigen3);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS3,fechaValorMT3,ope3,ref13,ref23,doc3,importeBKS3,signoImporteBKS3,conc1_3,conc2_3,conc3_3, descAbrev3, posMovimiento3, numMovimientoMT3, oficinaOrigen3)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE ESTACION SERVICIO BARDENAS SA, CONCEPTO A-7 1008163.                                                                                                                 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+      206.051,93 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     1.921.672,56 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op4 = "23-12-2019"
+    var f_va4 = "23-12"
+    var ope4 = " 71"
+    var ref14 = "            "
+    var ref24 = "                "
+    var doc4 = "0000000000"
+    var conc1_4 = "TRANSFERENCIA DE INTRANSPORT SERVICE XXI SL, CONCEPTO FACTUR"
+    var conc2_4 = "AS NOVIEMBRE.                                               "
+    var conc3_4 = "                                                            "
+    var descAbrev4 = "ABONO TRANSFERENCI"
+    var con4 = "TRANSFERENCIA DE INTRANSPORT SERVICE XXI SL, CONCEPTO FACTUR AS NOVIEMBRE.                                                                                                            "
+    var imp4 = "+      200.000,00 "
+    var importeBKS4 = "200000.00"
+    var signoImporteBKS4 = "H"
+    var fechaOperacionBKS4 = "20191223"
+    var fechaValorBKS4 = "20191223"
+    var fechaValorMT4 = "23-12-2019"
+    var posMovimiento4 = 5
+    var oficinaOrigen4 = "6668"
+    var numMovimiento4 = "00.005"
+    var numMovimientoMT4 = "00005"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op4,f_va4,ope4,ref14,ref24,doc4,imp4);actualiza2(con4);actualizaNuevoDetalle(fechaOperacionBKS4,fechaValorBKS4,ope4,ref14,ref24,doc4,importeBKS4,signoImporteBKS4,conc1_4,conc2_4,conc3_4, descAbrev4, posMovimiento4, numMovimiento4, oficinaOrigen4);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS4,fechaValorMT4,ope4,ref14,ref24,doc4,importeBKS4,signoImporteBKS4,conc1_4,conc2_4,conc3_4, descAbrev4, posMovimiento4, numMovimientoMT4, oficinaOrigen4)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE INTRANSPORT SERVICE XXI SL, CONCEPTO FACTUR AS NOVIEMBRE.                                                                                                            </td>')
+    document.writeln('<td class=tdresdcha valign=top>+      200.000,00 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.121.672,56 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op5 = "23-12-2019"
+    var f_va5 = "23-12"
+    var ope5 = " 71"
+    var ref15 = "            "
+    var ref25 = "                "
+    var doc5 = "0000000000"
+    var conc1_5 = "TRANSFERENCIA DE CAIXABANK, S.A., CONCEPTO PAGO DE FACTURAS "
+    var conc2_5 = "DEL CLIENTE ESTACION DE SERVICIO HERMANOS BLAZQUEZ S.L..    "
+    var conc3_5 = "                                                            "
+    var descAbrev5 = "ABONO TRANSFERENCI"
+    var con5 = "TRANSFERENCIA DE CAIXABANK, S.A., CONCEPTO PAGO DE FACTURAS  DEL CLIENTE ESTACION DE SERVICIO HERMANOS BLAZQUEZ S.L..                                                                 "
+    var imp5 = "+       29.378,75 "
+    var importeBKS5 = "29378.75"
+    var signoImporteBKS5 = "H"
+    var fechaOperacionBKS5 = "20191223"
+    var fechaValorBKS5 = "20191223"
+    var fechaValorMT5 = "23-12-2019"
+    var posMovimiento5 = 6
+    var oficinaOrigen5 = "6668"
+    var numMovimiento5 = "00.006"
+    var numMovimientoMT5 = "00006"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op5,f_va5,ope5,ref15,ref25,doc5,imp5);actualiza2(con5);actualizaNuevoDetalle(fechaOperacionBKS5,fechaValorBKS5,ope5,ref15,ref25,doc5,importeBKS5,signoImporteBKS5,conc1_5,conc2_5,conc3_5, descAbrev5, posMovimiento5, numMovimiento5, oficinaOrigen5);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS5,fechaValorMT5,ope5,ref15,ref25,doc5,importeBKS5,signoImporteBKS5,conc1_5,conc2_5,conc3_5, descAbrev5, posMovimiento5, numMovimientoMT5, oficinaOrigen5)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE CAIXABANK, S.A., CONCEPTO PAGO DE FACTURAS  DEL CLIENTE ESTACION DE SERVICIO HERMANOS BLAZQUEZ S.L..                                                                 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       29.378,75 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.151.051,31 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op6 = "23-12-2019"
+    var f_va6 = "23-12"
+    var ope6 = " 71"
+    var ref16 = "            "
+    var ref26 = "                "
+    var doc6 = "0000000000"
+    var conc1_6 = "TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRA. N- 328.3"
+    var conc2_6 = "83.                                                         "
+    var conc3_6 = "                                                            "
+    var descAbrev6 = "ABONO TRANSFERENCI"
+    var con6 = "TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRA. N- 328.3 83.                                                                                                                      "
+    var imp6 = "+       15.715,81 "
+    var importeBKS6 = "15715.81"
+    var signoImporteBKS6 = "H"
+    var fechaOperacionBKS6 = "20191223"
+    var fechaValorBKS6 = "20191223"
+    var fechaValorMT6 = "23-12-2019"
+    var posMovimiento6 = 7
+    var oficinaOrigen6 = "6668"
+    var numMovimiento6 = "00.007"
+    var numMovimientoMT6 = "00007"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op6,f_va6,ope6,ref16,ref26,doc6,imp6);actualiza2(con6);actualizaNuevoDetalle(fechaOperacionBKS6,fechaValorBKS6,ope6,ref16,ref26,doc6,importeBKS6,signoImporteBKS6,conc1_6,conc2_6,conc3_6, descAbrev6, posMovimiento6, numMovimiento6, oficinaOrigen6);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS6,fechaValorMT6,ope6,ref16,ref26,doc6,importeBKS6,signoImporteBKS6,conc1_6,conc2_6,conc3_6, descAbrev6, posMovimiento6, numMovimientoMT6, oficinaOrigen6)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRA. N- 328.3 83.                                                                                                                      </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       15.715,81 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.166.767,12 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op7 = "23-12-2019"
+    var f_va7 = "23-12"
+    var ope7 = " 71"
+    var ref17 = "            "
+    var ref27 = "                "
+    var doc7 = "0000000000"
+    var conc1_7 = "TRANSFERENCIA DE SISA ENERGIA SL, CONCEPTO E/C FRA. 328.965."
+    var conc2_7 = "                                                            "
+    var conc3_7 = "                                                            "
+    var descAbrev7 = "ABONO TRANSFERENCI"
+    var con7 = "TRANSFERENCIA DE SISA ENERGIA SL, CONCEPTO E/C FRA. 328.965.                                                                                                                          "
+    var imp7 = "+        1.700,00 "
+    var importeBKS7 = "1700.00"
+    var signoImporteBKS7 = "H"
+    var fechaOperacionBKS7 = "20191223"
+    var fechaValorBKS7 = "20191223"
+    var fechaValorMT7 = "23-12-2019"
+    var posMovimiento7 = 8
+    var oficinaOrigen7 = "6668"
+    var numMovimiento7 = "00.008"
+    var numMovimientoMT7 = "00008"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op7,f_va7,ope7,ref17,ref27,doc7,imp7);actualiza2(con7);actualizaNuevoDetalle(fechaOperacionBKS7,fechaValorBKS7,ope7,ref17,ref27,doc7,importeBKS7,signoImporteBKS7,conc1_7,conc2_7,conc3_7, descAbrev7, posMovimiento7, numMovimiento7, oficinaOrigen7);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS7,fechaValorMT7,ope7,ref17,ref27,doc7,importeBKS7,signoImporteBKS7,conc1_7,conc2_7,conc3_7, descAbrev7, posMovimiento7, numMovimientoMT7, oficinaOrigen7)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE SISA ENERGIA SL, CONCEPTO E/C FRA. 328.965.                                                                                                                          </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        1.700,00 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.168.467,12 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op8 = "23-12-2019"
+    var f_va8 = "23-12"
+    var ope8 = " 71"
+    var ref18 = "            "
+    var ref28 = "                "
+    var doc8 = "0000000000"
+    var conc1_8 = "TRANSFERENCIA DE HIJOS DE AGUADO Y RIVERA SL, CONCEPTO factu"
+    var conc2_8 = "ra 328.358.                                                 "
+    var conc3_8 = "                                                            "
+    var descAbrev8 = "ABONO TRANSFERENCI"
+    var con8 = "TRANSFERENCIA DE HIJOS DE AGUADO Y RIVERA SL, CONCEPTO factu ra 328.358.                                                                                                              "
+    var imp8 = "+        6.958,20 "
+    var importeBKS8 = "6958.20"
+    var signoImporteBKS8 = "H"
+    var fechaOperacionBKS8 = "20191223"
+    var fechaValorBKS8 = "20191223"
+    var fechaValorMT8 = "23-12-2019"
+    var posMovimiento8 = 9
+    var oficinaOrigen8 = "6668"
+    var numMovimiento8 = "00.009"
+    var numMovimientoMT8 = "00009"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op8,f_va8,ope8,ref18,ref28,doc8,imp8);actualiza2(con8);actualizaNuevoDetalle(fechaOperacionBKS8,fechaValorBKS8,ope8,ref18,ref28,doc8,importeBKS8,signoImporteBKS8,conc1_8,conc2_8,conc3_8, descAbrev8, posMovimiento8, numMovimiento8, oficinaOrigen8);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS8,fechaValorMT8,ope8,ref18,ref28,doc8,importeBKS8,signoImporteBKS8,conc1_8,conc2_8,conc3_8, descAbrev8, posMovimiento8, numMovimientoMT8, oficinaOrigen8)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE HIJOS DE AGUADO Y RIVERA SL, CONCEPTO factu ra 328.358.                                                                                                              </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        6.958,20 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.175.425,32 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op9 = "23-12-2019"
+    var f_va9 = "23-12"
+    var ope9 = " 71"
+    var ref19 = "            "
+    var ref29 = "                "
+    var doc9 = "0000000000"
+    var conc1_9 = "TRANSFERENCIA DE GRAN ZUFARIA S.A., CONCEPTO PAGO FRA 330138"
+    var conc2_9 = " GRAN ZUFARIA S.A. A50162700.                               "
+    var conc3_9 = "                                                            "
+    var descAbrev9 = "ABONO TRANSFERENCI"
+    var con9 = "TRANSFERENCIA DE GRAN ZUFARIA S.A., CONCEPTO PAGO FRA 330138  GRAN ZUFARIA S.A. A50162700.                                                                                            "
+    var imp9 = "+        6.980,94 "
+    var importeBKS9 = "6980.94"
+    var signoImporteBKS9 = "H"
+    var fechaOperacionBKS9 = "20191223"
+    var fechaValorBKS9 = "20191223"
+    var fechaValorMT9 = "23-12-2019"
+    var posMovimiento9 = 10
+    var oficinaOrigen9 = "6668"
+    var numMovimiento9 = "00.010"
+    var numMovimientoMT9 = "00010"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op9,f_va9,ope9,ref19,ref29,doc9,imp9);actualiza2(con9);actualizaNuevoDetalle(fechaOperacionBKS9,fechaValorBKS9,ope9,ref19,ref29,doc9,importeBKS9,signoImporteBKS9,conc1_9,conc2_9,conc3_9, descAbrev9, posMovimiento9, numMovimiento9, oficinaOrigen9);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS9,fechaValorMT9,ope9,ref19,ref29,doc9,importeBKS9,signoImporteBKS9,conc1_9,conc2_9,conc3_9, descAbrev9, posMovimiento9, numMovimientoMT9, oficinaOrigen9)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE GRAN ZUFARIA S.A., CONCEPTO PAGO FRA 330138  GRAN ZUFARIA S.A. A50162700.                                                                                            </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        6.980,94 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.182.406,26 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op10 = "23-12-2019"
+    var f_va10 = "23-12"
+    var ope10 = " 71"
+    var ref110 = "            "
+    var ref210 = "                "
+    var doc10 = "0000000000"
+    var conc1_10 = "TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRAS. N.328.3"
+    var conc2_10 = "82.                                                         "
+    var conc3_10 = "                                                            "
+    var descAbrev10 = "ABONO TRANSFERENCI"
+    var con10 = "TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRAS. N.328.3 82.                                                                                                                      "
+    var imp10 = "+       11.057,71 "
+    var importeBKS10 = "11057.71"
+    var signoImporteBKS10 = "H"
+    var fechaOperacionBKS10 = "20191223"
+    var fechaValorBKS10 = "20191223"
+    var fechaValorMT10 = "23-12-2019"
+    var posMovimiento10 = 11
+    var oficinaOrigen10 = "6668"
+    var numMovimiento10 = "00.011"
+    var numMovimientoMT10 = "00011"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op10,f_va10,ope10,ref110,ref210,doc10,imp10);actualiza2(con10);actualizaNuevoDetalle(fechaOperacionBKS10,fechaValorBKS10,ope10,ref110,ref210,doc10,importeBKS10,signoImporteBKS10,conc1_10,conc2_10,conc3_10, descAbrev10, posMovimiento10, numMovimiento10, oficinaOrigen10);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS10,fechaValorMT10,ope10,ref110,ref210,doc10,importeBKS10,signoImporteBKS10,conc1_10,conc2_10,conc3_10, descAbrev10, posMovimiento10, numMovimientoMT10, oficinaOrigen10)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE OIL BAROL S.L., CONCEPTO PAGO FRAS. N.328.3 82.                                                                                                                      </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       11.057,71 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.193.463,97 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op11 = "23-12-2019"
+    var f_va11 = "23-12"
+    var ope11 = " 71"
+    var ref111 = "            "
+    var ref211 = "                "
+    var doc11 = "0000000000"
+    var conc1_11 = "TRANSFERENCIA DE CARBURANTES Y SERVICIOS AYORA, S.L., CONCEP"
+    var conc2_11 = "TO PAGO FRAS. 327898-327897.                                "
+    var conc3_11 = "                                                            "
+    var descAbrev11 = "ABONO TRANSFERENCI"
+    var con11 = "TRANSFERENCIA DE CARBURANTES Y SERVICIOS AYORA, S.L., CONCEP TO PAGO FRAS. 327898-327897.                                                                                             "
+    var imp11 = "+       32.118,31 "
+    var importeBKS11 = "32118.31"
+    var signoImporteBKS11 = "H"
+    var fechaOperacionBKS11 = "20191223"
+    var fechaValorBKS11 = "20191223"
+    var fechaValorMT11 = "23-12-2019"
+    var posMovimiento11 = 12
+    var oficinaOrigen11 = "6668"
+    var numMovimiento11 = "00.012"
+    var numMovimientoMT11 = "00012"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op11,f_va11,ope11,ref111,ref211,doc11,imp11);actualiza2(con11);actualizaNuevoDetalle(fechaOperacionBKS11,fechaValorBKS11,ope11,ref111,ref211,doc11,importeBKS11,signoImporteBKS11,conc1_11,conc2_11,conc3_11, descAbrev11, posMovimiento11, numMovimiento11, oficinaOrigen11);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS11,fechaValorMT11,ope11,ref111,ref211,doc11,importeBKS11,signoImporteBKS11,conc1_11,conc2_11,conc3_11, descAbrev11, posMovimiento11, numMovimientoMT11, oficinaOrigen11)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE CARBURANTES Y SERVICIOS AYORA, S.L., CONCEP TO PAGO FRAS. 327898-327897.                                                                                             </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       32.118,31 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.225.582,28 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op12 = "23-12-2019"
+    var f_va12 = "23-12"
+    var ope12 = " 71"
+    var ref112 = "            "
+    var ref212 = "                "
+    var doc12 = "0000000000"
+    var conc1_12 = "TRANSFERENCIA DE TORIJA Y AYJON DISTRIBUCIONES S.L., CONCEPT"
+    var conc2_12 = "O PAGO FRA. TORIJA Y AYJON DISTRIBUCIONES, S.L..            "
+    var conc3_12 = "                                                            "
+    var descAbrev12 = "ABONO TRANSFERENCI"
+    var con12 = "TRANSFERENCIA DE TORIJA Y AYJON DISTRIBUCIONES S.L., CONCEPT O PAGO FRA. TORIJA Y AYJON DISTRIBUCIONES, S.L..                                                                         "
+    var imp12 = "+       17.696,25 "
+    var importeBKS12 = "17696.25"
+    var signoImporteBKS12 = "H"
+    var fechaOperacionBKS12 = "20191223"
+    var fechaValorBKS12 = "20191223"
+    var fechaValorMT12 = "23-12-2019"
+    var posMovimiento12 = 13
+    var oficinaOrigen12 = "6668"
+    var numMovimiento12 = "00.013"
+    var numMovimientoMT12 = "00013"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op12,f_va12,ope12,ref112,ref212,doc12,imp12);actualiza2(con12);actualizaNuevoDetalle(fechaOperacionBKS12,fechaValorBKS12,ope12,ref112,ref212,doc12,importeBKS12,signoImporteBKS12,conc1_12,conc2_12,conc3_12, descAbrev12, posMovimiento12, numMovimiento12, oficinaOrigen12);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS12,fechaValorMT12,ope12,ref112,ref212,doc12,importeBKS12,signoImporteBKS12,conc1_12,conc2_12,conc3_12, descAbrev12, posMovimiento12, numMovimientoMT12, oficinaOrigen12)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE TORIJA Y AYJON DISTRIBUCIONES S.L., CONCEPT O PAGO FRA. TORIJA Y AYJON DISTRIBUCIONES, S.L..                                                                         </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       17.696,25 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.243.278,53 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op13 = "23-12-2019"
+    var f_va13 = "23-12"
+    var ope13 = " 71"
+    var ref113 = "            "
+    var ref213 = "                "
+    var doc13 = "0000000000"
+    var conc1_13 = "TRANSFERENCIA DE GESTICE SLU, CONCEPTO GESTICE SLU PAGO S.FR"
+    var conc2_13 = "A.329107.                                                   "
+    var conc3_13 = "                                                            "
+    var descAbrev13 = "ABONO TRANSFERENCI"
+    var con13 = "TRANSFERENCIA DE GESTICE SLU, CONCEPTO GESTICE SLU PAGO S.FR A.329107.                                                                                                                "
+    var imp13 = "+       21.760,64 "
+    var importeBKS13 = "21760.64"
+    var signoImporteBKS13 = "H"
+    var fechaOperacionBKS13 = "20191223"
+    var fechaValorBKS13 = "20191223"
+    var fechaValorMT13 = "23-12-2019"
+    var posMovimiento13 = 14
+    var oficinaOrigen13 = "6668"
+    var numMovimiento13 = "00.014"
+    var numMovimientoMT13 = "00014"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op13,f_va13,ope13,ref113,ref213,doc13,imp13);actualiza2(con13);actualizaNuevoDetalle(fechaOperacionBKS13,fechaValorBKS13,ope13,ref113,ref213,doc13,importeBKS13,signoImporteBKS13,conc1_13,conc2_13,conc3_13, descAbrev13, posMovimiento13, numMovimiento13, oficinaOrigen13);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS13,fechaValorMT13,ope13,ref113,ref213,doc13,importeBKS13,signoImporteBKS13,conc1_13,conc2_13,conc3_13, descAbrev13, posMovimiento13, numMovimientoMT13, oficinaOrigen13)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE GESTICE SLU, CONCEPTO GESTICE SLU PAGO S.FR A.329107.                                                                                                                </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       21.760,64 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.265.039,17 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op14 = "23-12-2019"
+    var f_va14 = "23-12"
+    var ope14 = " 35"
+    var ref114 = "            "
+    var ref214 = "                "
+    var doc14 = "0001111110"
+    var conc1_14 = "ENTREGA DE DOCUMENTOS PARA SU COMPENSACION                  "
+    var conc2_14 = "                                                            "
+    var conc3_14 = "                                                            "
+    var descAbrev14 = "INGRESO DE DOCUMEN"
+    var con14 = "ENTREGA DE DOCUMENTOS PARA SU COMPENSACION                                                                                                                                            "
+    var imp14 = "+       71.598,56 "
+    var importeBKS14 = "71598.56"
+    var signoImporteBKS14 = "H"
+    var fechaOperacionBKS14 = "20191223"
+    var fechaValorBKS14 = "20191223"
+    var fechaValorMT14 = "23-12-2019"
+    var posMovimiento14 = 15
+    var oficinaOrigen14 = "6668"
+    var numMovimiento14 = "00.015"
+    var numMovimientoMT14 = "00015"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op14,f_va14,ope14,ref114,ref214,doc14,imp14);actualiza2(con14);actualizaNuevoDetalle(fechaOperacionBKS14,fechaValorBKS14,ope14,ref114,ref214,doc14,importeBKS14,signoImporteBKS14,conc1_14,conc2_14,conc3_14, descAbrev14, posMovimiento14, numMovimiento14, oficinaOrigen14);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS14,fechaValorMT14,ope14,ref114,ref214,doc14,importeBKS14,signoImporteBKS14,conc1_14,conc2_14,conc3_14, descAbrev14, posMovimiento14, numMovimientoMT14, oficinaOrigen14)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>ENTREGA DE DOCUMENTOS PARA SU COMPENSACION                                                                                                                                            </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       71.598,56 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.336.637,73 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op15 = "23-12-2019"
+    var f_va15 = "23-12"
+    var ope15 = " 71"
+    var ref115 = "            "
+    var ref215 = "                "
+    var doc15 = "0000000000"
+    var conc1_15 = "TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C"
+    var conc2_15 = "., CONCEPTO ABONO FACTURAS A VTO.(ESB41630609).             "
+    var conc3_15 = "                                                            "
+    var descAbrev15 = "ABONO TRANSFERENCI"
+    var con15 = "TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C ., CONCEPTO ABONO FACTURAS A VTO.(ESB41630609).                                                                          "
+    var imp15 = "+       12.981,42 "
+    var importeBKS15 = "12981.42"
+    var signoImporteBKS15 = "H"
+    var fechaOperacionBKS15 = "20191223"
+    var fechaValorBKS15 = "20191223"
+    var fechaValorMT15 = "23-12-2019"
+    var posMovimiento15 = 16
+    var oficinaOrigen15 = "6668"
+    var numMovimiento15 = "00.016"
+    var numMovimientoMT15 = "00016"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op15,f_va15,ope15,ref115,ref215,doc15,imp15);actualiza2(con15);actualizaNuevoDetalle(fechaOperacionBKS15,fechaValorBKS15,ope15,ref115,ref215,doc15,importeBKS15,signoImporteBKS15,conc1_15,conc2_15,conc3_15, descAbrev15, posMovimiento15, numMovimiento15, oficinaOrigen15);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS15,fechaValorMT15,ope15,ref115,ref215,doc15,importeBKS15,signoImporteBKS15,conc1_15,conc2_15,conc3_15, descAbrev15, posMovimiento15, numMovimientoMT15, oficinaOrigen15)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C ., CONCEPTO ABONO FACTURAS A VTO.(ESB41630609).                                                                          </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       12.981,42 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.349.619,15 </td>')
+    document.writeln('</tr>')
+
+    num_mov++
+    var f_op16 = "23-12-2019"
+    var f_va16 = "23-12"
+    var ope16 = " 71"
+    var ref116 = "            "
+    var ref216 = "                "
+    var doc16 = "0000000000"
+    var conc1_16 = "TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C"
+    var conc2_16 = "., CONCEPTO ABONO FACTURAS A VTO.(ESB71084487).             "
+    var conc3_16 = "                                                            "
+    var descAbrev16 = "ABONO TRANSFERENCI"
+    var con16 = "TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C ., CONCEPTO ABONO FACTURAS A VTO.(ESB71084487).                                                                          "
+    var imp16 = "+       26.569,89 "
+    var importeBKS16 = "26569.89"
+    var signoImporteBKS16 = "H"
+    var fechaOperacionBKS16 = "20191223"
+    var fechaValorBKS16 = "20191223"
+    var fechaValorMT16 = "23-12-2019"
+    var posMovimiento16 = 17
+    var oficinaOrigen16 = "6668"
+    var numMovimiento16 = "00.017"
+    var numMovimientoMT16 = "00017"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op16,f_va16,ope16,ref116,ref216,doc16,imp16);actualiza2(con16);actualizaNuevoDetalle(fechaOperacionBKS16,fechaValorBKS16,ope16,ref116,ref216,doc16,importeBKS16,signoImporteBKS16,conc1_16,conc2_16,conc3_16, descAbrev16, posMovimiento16, numMovimiento16, oficinaOrigen16);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS16,fechaValorMT16,ope16,ref116,ref216,doc16,importeBKS16,signoImporteBKS16,conc1_16,conc2_16,conc3_16, descAbrev16, posMovimiento16, numMovimientoMT16, oficinaOrigen16)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE SANTANDER FACTORING Y CONFIRMING S.A. E.F.C ., CONCEPTO ABONO FACTURAS A VTO.(ESB71084487).                                                                          </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       26.569,89 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.376.189,04 </td>')
+    document.writeln('</tr>')
+
+
+    num_mov++
+    var f_op17 = "23-12-2019"
+    var f_va17 = "23-12"
+    var ope17 = " 71"
+    var ref117 = "            "
+    var ref217 = "                "
+    var doc17 = "          "
+    var conc1_17 = "TRANSFERENCIA DE MASCARO MORERA S.L., CONCEPTO PAGO FRA 3247"
+    var conc2_17 = "38-324737                                                   "
+    var conc3_17 = "                                                            "
+    var descAbrev17 = "ABONO TRANSFERENCI"
+    var con17 = "TRANSFERENCIA DE MASCARO MORERA S.L., CONCEPTO PAGO FRA 3247 38-324737                                                                                                                "
+    var imp17 = "+       12.214,31 "
+    var importeBKS17 = "12214.31"
+    var signoImporteBKS17 = "H"
+    var fechaOperacionBKS17 = "20191223"
+    var fechaValorBKS17 = "20191223"
+    var fechaValorMT17 = "23-12-2019"
+    var posMovimiento17 = 18
+    var oficinaOrigen17 = "6668"
+    var numMovimiento17 = "00.018"
+    var numMovimientoMT17 = "00018"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op17,f_va17,ope17,ref117,ref217,doc17,imp17);actualiza2(con17);actualizaNuevoDetalle(fechaOperacionBKS17,fechaValorBKS17,ope17,ref117,ref217,doc17,importeBKS17,signoImporteBKS17,conc1_17,conc2_17,conc3_17, descAbrev17, posMovimiento17, numMovimiento17, oficinaOrigen17);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS17,fechaValorMT17,ope17,ref117,ref217,doc17,importeBKS17,signoImporteBKS17,conc1_17,conc2_17,conc3_17, descAbrev17, posMovimiento17, numMovimientoMT17, oficinaOrigen17)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE MASCARO MORERA S.L., CONCEPTO PAGO FRA 3247 38-324737                                                                                                                </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       12.214,31 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.388.403,35 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op18 = "23-12-2019"
+    var f_va18 = "23-12"
+    var ope18 = " 71"
+    var ref118 = "            "
+    var ref218 = "                "
+    var doc18 = "0000000000"
+    var conc1_18 = "TRANSFERENCIA DE DAGROS S.L., CONCEPTO pago factura 328.073 "
+    var conc2_18 = "fecha 16-11-19.                                             "
+    var conc3_18 = "                                                            "
+    var descAbrev18 = "ABONO TRANSFERENCI"
+    var con18 = "TRANSFERENCIA DE DAGROS S.L., CONCEPTO pago factura 328.073  fecha 16-11-19.                                                                                                          "
+    var imp18 = "+       11.217,83 "
+    var importeBKS18 = "11217.83"
+    var signoImporteBKS18 = "H"
+    var fechaOperacionBKS18 = "20191223"
+    var fechaValorBKS18 = "20191223"
+    var fechaValorMT18 = "23-12-2019"
+    var posMovimiento18 = 19
+    var oficinaOrigen18 = "6668"
+    var numMovimiento18 = "00.019"
+    var numMovimientoMT18 = "00019"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op18,f_va18,ope18,ref118,ref218,doc18,imp18);actualiza2(con18);actualizaNuevoDetalle(fechaOperacionBKS18,fechaValorBKS18,ope18,ref118,ref218,doc18,importeBKS18,signoImporteBKS18,conc1_18,conc2_18,conc3_18, descAbrev18, posMovimiento18, numMovimiento18, oficinaOrigen18);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS18,fechaValorMT18,ope18,ref118,ref218,doc18,importeBKS18,signoImporteBKS18,conc1_18,conc2_18,conc3_18, descAbrev18, posMovimiento18, numMovimientoMT18, oficinaOrigen18)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE DAGROS S.L., CONCEPTO pago factura 328.073  fecha 16-11-19.                                                                                                          </td>')
+    document.writeln('<td class=tdresdcha valign=top>+       11.217,83 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.399.621,18 </td>')
+    document.writeln('</tr>')
+    num_mov++
+    var f_op19 = "23-12-2019"
+    var f_va19 = "23-12"
+    var ope19 = " 71"
+    var ref119 = "            "
+    var ref219 = "                "
+    var doc19 = "          "
+    var conc1_19 = "TRANSFERENCIA DE MAQUINARIA REY, S.A. ,, CONCEPTO PAGO PEDID"
+    var conc2_19 = "O DEL 17-12-2019                                            "
+    var conc3_19 = "                                                            "
+    var descAbrev19 = "ABONO TRANSFERENCI"
+    var con19 = "TRANSFERENCIA DE MAQUINARIA REY, S.A. ,, CONCEPTO PAGO PEDID O DEL 17-12-2019                                                                                                         "
+    var imp19 = "+        7.342,00 "
+    var importeBKS19 = "7342.00"
+    var signoImporteBKS19 = "H"
+    var fechaOperacionBKS19 = "20191223"
+    var fechaValorBKS19 = "20191223"
+    var fechaValorMT19 = "23-12-2019"
+    var posMovimiento19 = 20
+    var oficinaOrigen19 = "6668"
+    var numMovimiento19 = "00.020"
+    var numMovimientoMT19 = "00020"
+    document.writeln('<tr>')
+    document.writeln('<td align=left valign=top><input type=radio name=botonmov  Onclick="{actualiza1(f_op19,f_va19,ope19,ref119,ref219,doc19,imp19);actualiza2(con19);actualizaNuevoDetalle(fechaOperacionBKS19,fechaValorBKS19,ope19,ref119,ref219,doc19,importeBKS19,signoImporteBKS19,conc1_19,conc2_19,conc3_19, descAbrev19, posMovimiento19, numMovimiento19, oficinaOrigen19);actualizaDetalleMvtosModeloTextos(fechaOperacionBKS19,fechaValorMT19,ope19,ref119,ref219,doc19,importeBKS19,signoImporteBKS19,conc1_19,conc2_19,conc3_19, descAbrev19, posMovimiento19, numMovimientoMT19, oficinaOrigen19)}"></td>')
+    document.writeln('<td class=tdrescent valign=top>23-12-2019</td>')
+    document.writeln('<td class=tdrescent valign=top>23-12</td>')
+    document.writeln('<td class=tdresizq valign=top>TRANSFERENCIA DE MAQUINARIA REY, S.A. ,, CONCEPTO PAGO PEDID O DEL 17-12-2019                                                                                                         </td>')
+    document.writeln('<td class=tdresdcha valign=top>+        7.342,00 </td>')
+    document.writeln('<td class=tdresdcha valign=top>+     2.406.963,18 </td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('</td></tr>')
+    document.writeln('</table></center>')
+    document.writeln('</td></tr>')
+    document.writeln('</table></center>')
+    document.writeln('</form>')
+    document.writeln('<form name="imprimir" method="post" target="nuevaVentana" action="imprimir_movs_detallados">')
+    document.writeln('<input type=hidden name=secreto value="' + top.secreto + '">')
+    document.writeln('<input type=hidden name=cuenta value="00496668  2610004218">')
+    document.writeln('<input type=hidden name=tipo_entrada value="C">')
+    document.writeln('<input type=hidden name=saldo value="">')
+    document.writeln('<input type=hidden name=grupo value="">')
+    document.writeln('<input type=hidden name=alias value="">')
+    document.writeln('<input type=hidden name=de_donde value="PosGloWas">')
+    document.writeln('<input type=hidden name=empresa value="">')
+    document.writeln('<input type=hidden name=tip_persona value="">')
+    document.writeln('<input type=hidden name=cod_persona value="">')
+    document.writeln('<input type=hidden name=criterio value="">')
+    document.writeln('<input type=hidden name=fecha value="">')
+    document.writeln('<input type=hidden name=des_familia value="">')
+    document.writeln('<input type=hidden name=cod_familia value="">')
+    document.writeln('<input type=hidden name=diainicio value="23">')
+    document.writeln('<input type=hidden name=mesinicio value="12">')
+    document.writeln('<input type=hidden name=anoinicio value="2019">')
+    document.writeln('<input type=hidden name=diafin value="17">')
+    document.writeln('<input type=hidden name=mesfin value="01">')
+    document.writeln('<input type=hidden name=anofin value="2020">')
+    document.writeln('<input type=hidden name=importe_desde value="">')
+    document.writeln('<input type=hidden name=importe_hasta value="">')
+    document.writeln('<input type=hidden name=operacion value="">')
+    document.writeln('<input type=hidden name=tipo_movimientos value="3">')
+    document.writeln('<input type=hidden name=datos_repaginacion value="">')
+    document.writeln('<input type=hidden name=titular1 value="ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          ">')
+    document.writeln('<input type=hidden name=titular2 value="                                                  ">')
+    document.writeln('<input type=hidden name=titular3 value="                                                  ">')
+    document.writeln('<input type=hidden name=tipo_consulta value="S">')
+    document.writeln('</form>')
+    document.writeln('<form method=post name="nuevoDetalleMovimiento" action="' + top.window.document.location + '">')
+    document.writeln('<input type = hidden name="dse_operationName" value="OP_detalleMovimiento">')
+    document.writeln('<input type = hidden name="dse_parentContextName" value="">')
+    document.writeln('<input type = hidden name="dse_processorState" value="initial">')
+    document.writeln('<input type = hidden name="dse_nextEventName" value="start">')
+    document.writeln('<input type = hidden name="entrada.cuenta" value="0049 6668 261 0004218">')
+    document.writeln('<input type = hidden name="entrada.aliasCuenta" value="">')
+    document.writeln('<input type = hidden name="entrada.importeMovimiento" >')
+    document.writeln('<input type = hidden name="entrada.signoImporte" >')
+    document.writeln('<input type = hidden name="entrada.importeDesde" value="0.00">')
+    document.writeln('<input type = hidden name="entrada.importeHasta" value="9999999999999.99">')
+    document.writeln('<input type = hidden name="entrada.tipoMovimiento" value=" ">')
+    document.writeln('<input type = hidden name="entrada.fechaValor" >')
+    document.writeln('<input type = hidden name="entrada.fechaOperacion" >')
+    document.writeln('<input type = hidden name="entrada.fechaDesde" value="20191223">')
+    document.writeln('<input type = hidden name="entrada.fechaHasta" value="20200117">')
+    document.writeln('<input type = hidden name="entrada.numeroDocumento" >')
+    document.writeln('<input type = hidden name="entrada.referencia1" >')
+    document.writeln('<input type = hidden name="entrada.referencia2" >')
+    document.writeln('<input type = hidden name="entrada.primerTitular" value="ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          ">')
+    document.writeln('<input type = hidden name="entrada.segundoTitular" value="                                                  ">')
+    document.writeln('<input type = hidden name="entrada.tercerTitular" value="                                                  ">')
+    document.writeln('<input type = hidden name="entrada.descMovimiento1" >')
+    document.writeln('<input type = hidden name="entrada.descMovimiento2" >')
+    document.writeln('<input type = hidden name="entrada.descMovimiento3" >')
+    document.writeln('<input type = hidden name="entrada.descAbreviada">')
+    document.writeln('<input type = hidden name="entrada.conceptoPropio" >')
+    document.writeln('<input type = hidden name="entrada.numeroBloque" value="0">')
+    document.writeln('<input type = hidden name="entrada.posicionMovimiento" value="0">')
+    document.writeln('<input type = hidden name="entrada.numMvtoDia" >')
+    document.writeln('<input type = hidden name="entrada.oficinaOrigen" >')
+    document.writeln('<input type = hidden name="entrada.divisa" value="">')
+    document.writeln('</form>')
+    var cta_ccc = '0049 6668 32 2610004218'
+    document.writeln('<form method=post name="detalleMovimientoModeloTextos" action="' + top.window.document.location + '">')
+    document.writeln('<input type = hidden name="dse_operationName" value="OPDetalleMovimientoModeloTexto">')
+    document.writeln('<input type = hidden name="dse_parentContextName" value="">')
+    document.writeln('<input type = hidden name="dse_processorState" value="initial">')
+    document.writeln('<input type = hidden name="dse_nextEventName" value="start">')
+    document.writeln('<input type = hidden name="datosInterno.urlVuelta" value="' + top.PATH_CGI_SEI + 'cuentas_bk/cue_movimientos_detallados">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.canalProcedencia" value="IE">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.operacionBancaria" value="100">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.usuarioExternoAlias" value="90889333001">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.codigoModeloTexto" value="IE">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.fechaOperacion">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.codigoOperacion">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.datosConsultaMovimiento.numMvtoDia">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.nLinea" value="00">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.datosCuenta.cuentaCCC" value="' + cta_ccc + '">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.datosCuenta.aliasCuenta" value="">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.datosCuenta.primerTitular" value="ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          ">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.numeroDocumento">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.fechaValor">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.importe.IMPORTE">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.importe.DIVISA" value="">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.signoImporte">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.descripcionTipoMovimiento">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.referencia1">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.referencia2">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.oficinaOrigen">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.descAbreviada">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.descMovimiento1">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.descMovimiento2">')
+    document.writeln('<input type = hidden name="detalleMovimiento_E.datosMovimiento.descMovimiento3">')
+    document.writeln('</form>')
+    document.writeln('<center><table>')
+    document.writeln('<tr>')
+    document.writeln('<td class=tdbotimg><a href="javascript:document.masdatos.submit()"><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+    document.writeln('<td class=tdbottxt><a href="javascript:document.masdatos.submit()">M&aacute;s movimientos</a></td>')
+    document.writeln('<td width=20>&nbsp;</td>')
+    document.writeln('<td class=tdbotimg><a href=Javascript:Imprimir()><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+    document.writeln('<td class=tdbottxt><a href=Javascript:Imprimir()>Imprimir</a></td>')
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('</center><span class=txtnormal>&nbsp;Si desea ampliar datos, seleccione movimientos y pulse</span>')
+    document.writeln('<center><table>')
+    document.writeln('<tr>')
+    if (top.haveservice('MT')) {
+        document.writeln('<td class=tdbotimg><a href="javascript:lanzaDetalleMvtosModeloTextos()"><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+        document.writeln('<td class=tdbottxt><a href="javascript:lanzaDetalleMvtosModeloTextos()">Detalle movimiento</a></td>')
+    } else if (top.haveservice('DM')) {
+        document.writeln('<td class=tdbotimg><a href="javascript:lanzaNuevoDetalleMvtos()"><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+        document.writeln('<td class=tdbottxt><a href="javascript:lanzaNuevoDetalleMvtos()">Detalle movimiento</a></td>')
+    } else {
+        document.writeln('<td class=tdbotimg><a href="javascript:Detalle()"><img src=' + top.PATH_IMG_SEI + 'boton_e.gif border=0></a></td>')
+        document.writeln('<td class=tdbottxt><a href="javascript:Detalle()">Detalle movimiento</a></td>')
+    }
+    document.writeln('</tr>')
+    document.writeln('</table></center>')
+    document.writeln('<FORM method=post name="masdatos" action=cue_movimientos_detallados>')
+    document.writeln('<input type=hidden name=secreto value="' + top.secreto + '">')
+    document.writeln('<input type=hidden name=cuentasMovs value="00496668  2610004218">')
+    document.writeln('<input type=hidden name=descripcion value="">')
+    document.writeln('<input type=hidden name=moneda value="">')
+    document.writeln('<input type=hidden name=anoinicio value="2019">')
+    document.writeln('<input type=hidden name=anofin value="2020">')
+    document.writeln('<input type=hidden name=mesinicio value="12">')
+    document.writeln('<input type=hidden name=mesfin value="01">')
+    document.writeln('<input type=hidden name=diainicio value="23">')
+    document.writeln('<input type=hidden name=diafin value="17">')
+    document.writeln('<input type=hidden name=importe_desde value="">')
+    document.writeln('<input type=hidden name=importe_hasta value="">')
+    document.writeln('<input type=hidden name=tipo_movimientos value="3">')
+    document.writeln('<input type=hidden name=operacion value="">')
+    document.writeln('<input type=hidden name=cuenta value="00496668  2610004218">')
+    document.writeln('<input type=hidden name=datos_repaginacion value="00020        2019-12-23N2                                                              EURE5666800003020049524300">')
+    document.writeln('<input type=hidden name=tipo_entrada value="C">')
+    document.writeln('<input type=hidden name=saldo value="">')
+    document.writeln('<input type=hidden name=grupo value="">')
+    document.writeln('<input type=hidden name=alias value="">')
+    document.writeln('<input type=hidden name=cliente value="">')
+    document.writeln('<input type=hidden name=fecha_contable value="">')
+    document.writeln('<input type=hidden name=de_donde value="PosGloWas">')
+    document.writeln('<input type=hidden name=empresa value="">')
+    document.writeln('<input type=hidden name=tip_persona value="">')
+    document.writeln('<input type=hidden name=cod_persona value="">')
+    document.writeln('<input type=hidden name=criterio value="">')
+    document.writeln('<input type=hidden name=fecha value="">')
+    document.writeln('<input type=hidden name=des_familia value="">')
+    document.writeln('<input type=hidden name=cod_familia value="">')
+    document.writeln('<input type=hidden name=titular1 value="ESTACIONES DE SERVICIO DE GUIPUZCOA S.A.          ">')
+    document.writeln('<input type=hidden name=titular2 value="                                                  ">')
+    document.writeln('<input type=hidden name=titular3 value="                                                  ">')
+    document.writeln('<input type=hidden name=tipo_consulta value="S">')
+    document.writeln('<input type=hidden name=numero_bloque value="1">')
+    document.writeln('<input type=hidden name=numCuentasSeleccionadas value="1">')
+    document.writeln('<input type=hidden name=cuentaSeleccionada value="0">')
+    document.writeln('</form>')
+    document.buscar.tipo_movimientos[2].checked = true
+    if (document.detalle.botonmov[0].checked == true) {
+        actualiza1(f_op0, f_va0, ope0, ref10, ref20, doc0, imp0)
+        actualiza2(con0)
+        actualizaNuevoDetalle(fechaOperacionBKS0, fechaValorBKS0, ope0, ref10, ref20, doc0, importeBKS0, signoImporteBKS0, conc1_0, conc2_0, conc3_0, descAbrev0, posMovimiento0, numMovimiento0, oficinaOrigen0)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS0, fechaValorMT0, ope0, ref10, ref20, doc0, importeBKS0, signoImporteBKS0, conc1_0, conc2_0, conc3_0, descAbrev0, posMovimiento0, numMovimientoMT0, oficinaOrigen0)
+    }
+    if (document.detalle.botonmov[1].checked == true) {
+        actualiza1(f_op1, f_va1, ope1, ref11, ref21, doc1, imp1)
+        actualiza2(con1)
+        actualizaNuevoDetalle(fechaOperacionBKS1, fechaValorBKS1, ope1, ref11, ref21, doc1, importeBKS1, signoImporteBKS1, conc1_1, conc2_1, conc3_1, descAbrev1, posMovimiento1, numMovimiento1, oficinaOrigen1)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS1, fechaValorMT1, ope1, ref11, ref21, doc1, importeBKS1, signoImporteBKS1, conc1_1, conc2_1, conc3_1, descAbrev1, posMovimiento1, numMovimientoMT1, oficinaOrigen1)
+    }
+    if (document.detalle.botonmov[2].checked == true) {
+        actualiza1(f_op2, f_va2, ope2, ref12, ref22, doc2, imp2)
+        actualiza2(con2)
+        actualizaNuevoDetalle(fechaOperacionBKS2, fechaValorBKS2, ope2, ref12, ref22, doc2, importeBKS2, signoImporteBKS2, conc1_2, conc2_2, conc3_2, descAbrev2, posMovimiento2, numMovimiento2, oficinaOrigen2)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS2, fechaValorMT2, ope2, ref12, ref22, doc2, importeBKS2, signoImporteBKS2, conc1_2, conc2_2, conc3_2, descAbrev2, posMovimiento2, numMovimientoMT2, oficinaOrigen2)
+    }
+    if (document.detalle.botonmov[3].checked == true) {
+        actualiza1(f_op3, f_va3, ope3, ref13, ref23, doc3, imp3)
+        actualiza2(con3)
+        actualizaNuevoDetalle(fechaOperacionBKS3, fechaValorBKS3, ope3, ref13, ref23, doc3, importeBKS3, signoImporteBKS3, conc1_3, conc2_3, conc3_3, descAbrev3, posMovimiento3, numMovimiento3, oficinaOrigen3)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS3, fechaValorMT3, ope3, ref13, ref23, doc3, importeBKS3, signoImporteBKS3, conc1_3, conc2_3, conc3_3, descAbrev3, posMovimiento3, numMovimientoMT3, oficinaOrigen3)
+    }
+    if (document.detalle.botonmov[4].checked == true) {
+        actualiza1(f_op4, f_va4, ope4, ref14, ref24, doc4, imp4)
+        actualiza2(con4)
+        actualizaNuevoDetalle(fechaOperacionBKS4, fechaValorBKS4, ope4, ref14, ref24, doc4, importeBKS4, signoImporteBKS4, conc1_4, conc2_4, conc3_4, descAbrev4, posMovimiento4, numMovimiento4, oficinaOrigen4)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS4, fechaValorMT4, ope4, ref14, ref24, doc4, importeBKS4, signoImporteBKS4, conc1_4, conc2_4, conc3_4, descAbrev4, posMovimiento4, numMovimientoMT4, oficinaOrigen4)
+    }
+    if (document.detalle.botonmov[5].checked == true) {
+        actualiza1(f_op5, f_va5, ope5, ref15, ref25, doc5, imp5)
+        actualiza2(con5)
+        actualizaNuevoDetalle(fechaOperacionBKS5, fechaValorBKS5, ope5, ref15, ref25, doc5, importeBKS5, signoImporteBKS5, conc1_5, conc2_5, conc3_5, descAbrev5, posMovimiento5, numMovimiento5, oficinaOrigen5)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS5, fechaValorMT5, ope5, ref15, ref25, doc5, importeBKS5, signoImporteBKS5, conc1_5, conc2_5, conc3_5, descAbrev5, posMovimiento5, numMovimientoMT5, oficinaOrigen5)
+    }
+    if (document.detalle.botonmov[6].checked == true) {
+        actualiza1(f_op6, f_va6, ope6, ref16, ref26, doc6, imp6)
+        actualiza2(con6)
+        actualizaNuevoDetalle(fechaOperacionBKS6, fechaValorBKS6, ope6, ref16, ref26, doc6, importeBKS6, signoImporteBKS6, conc1_6, conc2_6, conc3_6, descAbrev6, posMovimiento6, numMovimiento6, oficinaOrigen6)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS6, fechaValorMT6, ope6, ref16, ref26, doc6, importeBKS6, signoImporteBKS6, conc1_6, conc2_6, conc3_6, descAbrev6, posMovimiento6, numMovimientoMT6, oficinaOrigen6)
+    }
+    if (document.detalle.botonmov[7].checked == true) {
+        actualiza1(f_op7, f_va7, ope7, ref17, ref27, doc7, imp7)
+        actualiza2(con7)
+        actualizaNuevoDetalle(fechaOperacionBKS7, fechaValorBKS7, ope7, ref17, ref27, doc7, importeBKS7, signoImporteBKS7, conc1_7, conc2_7, conc3_7, descAbrev7, posMovimiento7, numMovimiento7, oficinaOrigen7)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS7, fechaValorMT7, ope7, ref17, ref27, doc7, importeBKS7, signoImporteBKS7, conc1_7, conc2_7, conc3_7, descAbrev7, posMovimiento7, numMovimientoMT7, oficinaOrigen7)
+    }
+    if (document.detalle.botonmov[8].checked == true) {
+        actualiza1(f_op8, f_va8, ope8, ref18, ref28, doc8, imp8)
+        actualiza2(con8)
+        actualizaNuevoDetalle(fechaOperacionBKS8, fechaValorBKS8, ope8, ref18, ref28, doc8, importeBKS8, signoImporteBKS8, conc1_8, conc2_8, conc3_8, descAbrev8, posMovimiento8, numMovimiento8, oficinaOrigen8)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS8, fechaValorMT8, ope8, ref18, ref28, doc8, importeBKS8, signoImporteBKS8, conc1_8, conc2_8, conc3_8, descAbrev8, posMovimiento8, numMovimientoMT8, oficinaOrigen8)
+    }
+    if (document.detalle.botonmov[9].checked == true) {
+        actualiza1(f_op9, f_va9, ope9, ref19, ref29, doc9, imp9)
+        actualiza2(con9)
+        actualizaNuevoDetalle(fechaOperacionBKS9, fechaValorBKS9, ope9, ref19, ref29, doc9, importeBKS9, signoImporteBKS9, conc1_9, conc2_9, conc3_9, descAbrev9, posMovimiento9, numMovimiento9, oficinaOrigen9)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS9, fechaValorMT9, ope9, ref19, ref29, doc9, importeBKS9, signoImporteBKS9, conc1_9, conc2_9, conc3_9, descAbrev9, posMovimiento9, numMovimientoMT9, oficinaOrigen9)
+    }
+    if (document.detalle.botonmov[10].checked == true) {
+        actualiza1(f_op10, f_va10, ope10, ref110, ref210, doc10, imp10)
+        actualiza2(con10)
+        actualizaNuevoDetalle(fechaOperacionBKS10, fechaValorBKS10, ope10, ref110, ref210, doc10, importeBKS10, signoImporteBKS10, conc1_10, conc2_10, conc3_10, descAbrev10, posMovimiento10, numMovimiento10, oficinaOrigen10)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS10, fechaValorMT10, ope10, ref110, ref210, doc10, importeBKS10, signoImporteBKS10, conc1_10, conc2_10, conc3_10, descAbrev10, posMovimiento10, numMovimientoMT10, oficinaOrigen10)
+    }
+    if (document.detalle.botonmov[11].checked == true) {
+        actualiza1(f_op11, f_va11, ope11, ref111, ref211, doc11, imp11)
+        actualiza2(con11)
+        actualizaNuevoDetalle(fechaOperacionBKS11, fechaValorBKS11, ope11, ref111, ref211, doc11, importeBKS11, signoImporteBKS11, conc1_11, conc2_11, conc3_11, descAbrev11, posMovimiento11, numMovimiento11, oficinaOrigen11)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS11, fechaValorMT11, ope11, ref111, ref211, doc11, importeBKS11, signoImporteBKS11, conc1_11, conc2_11, conc3_11, descAbrev11, posMovimiento11, numMovimientoMT11, oficinaOrigen11)
+    }
+    if (document.detalle.botonmov[12].checked == true) {
+        actualiza1(f_op12, f_va12, ope12, ref112, ref212, doc12, imp12)
+        actualiza2(con12)
+        actualizaNuevoDetalle(fechaOperacionBKS12, fechaValorBKS12, ope12, ref112, ref212, doc12, importeBKS12, signoImporteBKS12, conc1_12, conc2_12, conc3_12, descAbrev12, posMovimiento12, numMovimiento12, oficinaOrigen12)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS12, fechaValorMT12, ope12, ref112, ref212, doc12, importeBKS12, signoImporteBKS12, conc1_12, conc2_12, conc3_12, descAbrev12, posMovimiento12, numMovimientoMT12, oficinaOrigen12)
+    }
+    if (document.detalle.botonmov[13].checked == true) {
+        actualiza1(f_op13, f_va13, ope13, ref113, ref213, doc13, imp13)
+        actualiza2(con13)
+        actualizaNuevoDetalle(fechaOperacionBKS13, fechaValorBKS13, ope13, ref113, ref213, doc13, importeBKS13, signoImporteBKS13, conc1_13, conc2_13, conc3_13, descAbrev13, posMovimiento13, numMovimiento13, oficinaOrigen13)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS13, fechaValorMT13, ope13, ref113, ref213, doc13, importeBKS13, signoImporteBKS13, conc1_13, conc2_13, conc3_13, descAbrev13, posMovimiento13, numMovimientoMT13, oficinaOrigen13)
+    }
+    if (document.detalle.botonmov[14].checked == true) {
+        actualiza1(f_op14, f_va14, ope14, ref114, ref214, doc14, imp14)
+        actualiza2(con14)
+        actualizaNuevoDetalle(fechaOperacionBKS14, fechaValorBKS14, ope14, ref114, ref214, doc14, importeBKS14, signoImporteBKS14, conc1_14, conc2_14, conc3_14, descAbrev14, posMovimiento14, numMovimiento14, oficinaOrigen14)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS14, fechaValorMT14, ope14, ref114, ref214, doc14, importeBKS14, signoImporteBKS14, conc1_14, conc2_14, conc3_14, descAbrev14, posMovimiento14, numMovimientoMT14, oficinaOrigen14)
+    }
+    if (document.detalle.botonmov[15].checked == true) {
+        actualiza1(f_op15, f_va15, ope15, ref115, ref215, doc15, imp15)
+        actualiza2(con15)
+        actualizaNuevoDetalle(fechaOperacionBKS15, fechaValorBKS15, ope15, ref115, ref215, doc15, importeBKS15, signoImporteBKS15, conc1_15, conc2_15, conc3_15, descAbrev15, posMovimiento15, numMovimiento15, oficinaOrigen15)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS15, fechaValorMT15, ope15, ref115, ref215, doc15, importeBKS15, signoImporteBKS15, conc1_15, conc2_15, conc3_15, descAbrev15, posMovimiento15, numMovimientoMT15, oficinaOrigen15)
+    }
+    if (document.detalle.botonmov[16].checked == true) {
+        actualiza1(f_op16, f_va16, ope16, ref116, ref216, doc16, imp16)
+        actualiza2(con16)
+        actualizaNuevoDetalle(fechaOperacionBKS16, fechaValorBKS16, ope16, ref116, ref216, doc16, importeBKS16, signoImporteBKS16, conc1_16, conc2_16, conc3_16, descAbrev16, posMovimiento16, numMovimiento16, oficinaOrigen16)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS16, fechaValorMT16, ope16, ref116, ref216, doc16, importeBKS16, signoImporteBKS16, conc1_16, conc2_16, conc3_16, descAbrev16, posMovimiento16, numMovimientoMT16, oficinaOrigen16)
+    }
+    if (document.detalle.botonmov[17].checked == true) {
+        actualiza1(f_op17, f_va17, ope17, ref117, ref217, doc17, imp17)
+        actualiza2(con17)
+        actualizaNuevoDetalle(fechaOperacionBKS17, fechaValorBKS17, ope17, ref117, ref217, doc17, importeBKS17, signoImporteBKS17, conc1_17, conc2_17, conc3_17, descAbrev17, posMovimiento17, numMovimiento17, oficinaOrigen17)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS17, fechaValorMT17, ope17, ref117, ref217, doc17, importeBKS17, signoImporteBKS17, conc1_17, conc2_17, conc3_17, descAbrev17, posMovimiento17, numMovimientoMT17, oficinaOrigen17)
+    }
+    if (document.detalle.botonmov[18].checked == true) {
+        actualiza1(f_op18, f_va18, ope18, ref118, ref218, doc18, imp18)
+        actualiza2(con18)
+        actualizaNuevoDetalle(fechaOperacionBKS18, fechaValorBKS18, ope18, ref118, ref218, doc18, importeBKS18, signoImporteBKS18, conc1_18, conc2_18, conc3_18, descAbrev18, posMovimiento18, numMovimiento18, oficinaOrigen18)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS18, fechaValorMT18, ope18, ref118, ref218, doc18, importeBKS18, signoImporteBKS18, conc1_18, conc2_18, conc3_18, descAbrev18, posMovimiento18, numMovimientoMT18, oficinaOrigen18)
+    }
+    if (document.detalle.botonmov[19].checked == true) {
+        actualiza1(f_op19, f_va19, ope19, ref119, ref219, doc19, imp19)
+        actualiza2(con19)
+        actualizaNuevoDetalle(fechaOperacionBKS19, fechaValorBKS19, ope19, ref119, ref219, doc19, importeBKS19, signoImporteBKS19, conc1_19, conc2_19, conc3_19, descAbrev19, posMovimiento19, numMovimiento19, oficinaOrigen19)
+        actualizaDetalleMvtosModeloTextos(fechaOperacionBKS19, fechaValorMT19, ope19, ref119, ref219, doc19, importeBKS19, signoImporteBKS19, conc1_19, conc2_19, conc3_19, descAbrev19, posMovimiento19, numMovimientoMT19, oficinaOrigen19)
+    }
+    //-->
+</script>
+</body></html>

@@ -1,0 +1,221 @@
+{
+  "endState": "true",
+  "scHierarchy": "cuentas:buscadormovimientos:serviceErrorEndState",
+  "openCategory": null,
+  "indiceProductoActual": 0,
+  "idMovimientoActual": 0,
+  "ultimoBloqueMovimientos": false,
+  "filtros": {
+    "tipoMovimiento": {
+      "textosPosibles": [],
+      "textoSeleccionado": null,
+      "indiceTextoSeleccionado": null,
+      "textoObservaciones": ""
+    },
+    "textoLibre": null,
+    "importes": {
+      "rangoImportes": {
+        "minimoPermitido": {
+          "importe": null,
+          "divisa": "€",
+          "codigoDivisa": "EUR"
+        },
+        "maximoPermitido": {
+          "importe": null,
+          "divisa": "€",
+          "codigoDivisa": "EUR"
+        }
+      }
+    },
+    "fechas": {
+      "tiposFiltroFecha": null,
+      "tipoFiltro": "FECHA_CONCRETA",
+      "nombre": "Fecha concreta",
+      "tiposFiltroFechaBuscador": [
+        "MES_ACTUAL",
+        "MES_PASADO",
+        "ANIO_ACTUAL",
+        "ANIO_PASADO",
+        "FECHA_CONCRETA"
+      ],
+      "tipoFiltroBuscador": "FECHA_CONCRETA",
+      "nombreBuscador": "Fecha concreta",
+      "fechaReferenciaActual": 1568797877452,
+      "inicio": 1420070400000,
+      "fin": null,
+      "fechaReferenciaInicio": 1563441077452
+    },
+    "contratos": {
+      "textosPosibles": [
+        {
+          "codigo": null,
+          "nivelMovimiento": null,
+          "descripcion": null,
+          "descripcionContrato": "0182-1150-05-0201568494"
+        }
+      ],
+      "indiceTextoSeleccionado": null,
+      "numeroContratosSeleccionados": 0
+    },
+    "listaAnioBusquedaExtracto": [],
+    "listaMesesBusquedaExtracto": [],
+    "pintarBotonAltaOperacionAgil": true,
+    "busquedaVacia": false,
+    "tipoInOutEnum": "",
+    "filtrosBorrados": false,
+    "operationType": null
+  },
+  "tipoHistorico": "",
+  "tituloEncabezadoLista": null,
+  "pintarBotonAltaOperacionAgil": false,
+  "servicioAdHoc": null,
+  "movimientoActual": null,
+  "cuentaActual": null,
+  "inforPaginacion": null,
+  "inforImportePaginacion": null,
+  "busquedaRealizada": false,
+  "mapaVerPdfDetalle": {},
+  "tieneCorrespondenciaVirtual": false,
+  "mapaDetallesAbiertos": {},
+  "ficheroSeleccionado": 0,
+  "debesAfinarBusqueda": false,
+  "sortOrderDesc": false,
+  "sortedColumn": null,
+  "filtroSeleccionadoURL": null,
+  "aprendizajeNotasCompletado": false,
+  "resultadoAltaOperacionAgilConMensaje": false,
+  "agil": null,
+  "descripcionMovimientoHistorico": null,
+  "aliasHistorico": null,
+  "listaDetallesHistoricos": null,
+  "tipoMostrarMas": null,
+  "camposDetalleActual": null,
+  "envioComunicacionesFormDto": null,
+  "disclaimerEnvioEmail": null,
+  "claveSesionEnvioEmail": null,
+  "extractoMovimientoSeleccionado": 0,
+  "filtrosExcelPdf": {
+    "tipoFiltrado": null,
+    "ocultarAlias": false,
+    "ocultarObservaciones": false,
+    "numeroPaginasDesde": 0,
+    "numeroPaginasHasta": 0,
+    "numeroPaginasTotal": 0
+  },
+  "cuentasOperacionesAgiles": null,
+  "estoyOrdenando": false,
+  "llamadaInicial": false,
+  "tipoBuscador": null,
+  "productoSeleccionado": null,
+  "paginacion": {
+    "numPaginaActual": 0,
+    "totalResultados": 0,
+    "numeroMovimientosPorPagina": 40,
+    "resultadoInicial": 0,
+    "resultadoFinal": 0,
+    "paginaSolicitada": null,
+    "from": "0",
+    "nextPage": null
+  },
+  "cambiadaPaginacion": false,
+  "evolutivoBuscadorTarjetas": false,
+  "actualizarPredictivo": false,
+  "pintarQuieroPDFJustificante": null,
+  "mostrarNotas": true,
+  "referenciaHistorico": null,
+  "idMovimientoWally": null,
+  "elasticCaido": false,
+  "busquedaEnaxInDto": {
+    "accountContracts": [
+      {
+        "contract": {
+          "bank": null,
+          "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+          "formats": null,
+          "productName": null,
+          "product": {
+            "id": null,
+            "name": null,
+            "href": null
+          }
+        },
+        "account": {
+          "currentBalance": {
+            "availableBalance": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR",
+                "name": null,
+                "shortName": null,
+                "decimalNumbers": 0
+              },
+              "amount": 19197.11
+            },
+            "accountingBalance": {
+              "currency": {
+                "id": "EUR",
+                "code": "EUR",
+                "name": null,
+                "shortName": null,
+                "decimalNumbers": 0
+              },
+              "amount": 19197.11
+            }
+          }
+        }
+      }
+    ],
+    "customer": {
+      "id": "ES0182003629321C"
+    },
+    "searchText": null,
+    "descriptionFormat": "LONG_FORMAT",
+    "orderField": "DATE_FIELD",
+    "orderType": "DESC_ORDER",
+    "searchType": "SEARCH",
+    "showNotVisibleOperations": false,
+    "filter": {
+      "dates": {
+        "from": 1420070400000,
+        "to": null
+      },
+      "amounts": null,
+      "categories": null,
+      "subcategories": null,
+      "concepts": null,
+      "operationType": [],
+      "accountFacetedDates": null,
+      "accountFacetedAmounts": null,
+      "accountFacetedHashtags": null
+    }
+  },
+  "fechaInicioBusquedaMovimiento": null,
+  "fechaFinBusquedaMovimiento": null,
+  "timeZoneOffset": null,
+  "listaMovimientos": [],
+  "detalleMovimientoSolicitado": null,
+  "filesWarehouse": [],
+  "datosPersonales": {
+    "nombre": "CATALINA GARCIA MARTINEZ",
+    "nombreSinApellidos": "CATALINA",
+    "codigoProvincia": "",
+    "fechaNacimiento": -60048000000
+  },
+  "enmascarado": false,
+  "view": null,
+  "operacionResultado": "ERROR_SERVICIO",
+  "operacionAdicional": "NINGUNA",
+  "operacionMensaje": [
+    null
+  ],
+  "operacionCodigoError": null,
+  "browserUrl": null,
+  "campania": null,
+  "campaniasDisponibles": null,
+  "lastUpdateTimeStamp": 1568790674610,
+  "campaniaBloqueante": null,
+  "signatureIvr": false,
+  "ivrOTP": null,
+  "ttFlowId": "cuentas/buscadormovimientos",
+  "viewStateId": "serviceErrorEndState"
+}

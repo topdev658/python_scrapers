@@ -1,0 +1,59 @@
+Settings initialized. Use ODBC Driver 17 for SQL Server
+main_launcher_receipts: redefine FIN_ENTITY_ID_TO_SCRAPER
+main_launcher_receipts: start main_launcher
+Override: project.settings.IS_CONCURRENT_SCRAPING = False
+Override: project.settings.IS_UPDATE_DB = False
+===== The scraping process started with arguments: Namespace(access_id=24436, concurrent='false', from_date='01/01/2020', offset=None, to_date=None, update_db='false', user_id=None) =====
+Start queue thread
+DB query from queue 6822685a-00cc-4d41-a756-722ce5c13631: "-- get_financial_entity_access 24436..."
+Scrape -u 395518 -a 24436
+DB query from queue 970c20a5-de73-4a84-9f32-ca1836615ac1: "-- get_user_scraping_not_in_progress for customer 395518..."
+Scrape_specific_customer: start scraping for customer 395518
+DB query from queue b68d0b44-aa60-4153-9650-d3a6f1eb0cfb: "-- get_fin_ent_accesses_to_scrape for customer 395518..."
+2020-10-14 15:51:18:INFO:main_launcher_receipts._process_user: -u 395518 -a ALL: Start. Scrape fin_ent accesses: [DBFinancialEntityAccess(Id=24436, AccessFirstLoginValue='20050417', AccessPasswordLoginValue='GAMBAFRESH', AccessSecondLoginValue='13108619E', CustomerId=395518, FinancialEntityAccessFirstLoginLabel='Usuario', FinancialEntityAccessId=1101, FinancialEntityAccessName='RURALVIA', FinancialEntityAccessPasswordLoginLabel='Contraseña', FinancialEntityAccessSecondLoginLabel='NIF / NIE', FinancialEntityAccessUrl='http://www.ruralvia.com/cms/estatico/rvia/alcora/ruralvia/es/empresas/index.html', FinancialEntityId=1101, CreateTimeStamp=datetime.datetime(2020, 6, 23, 16, 20, 41, 860000), LastScrapingFinishedTimeStamp=datetime.datetime(2020, 10, 14, 7, 52, 56, 967000), LastScrapingStartedTimeStamp=datetime.datetime(2020, 10, 14, 7, 52, 29, 267000), LastUpdateTimeStamp=datetime.datetime(2020, 10, 14, 9, 52, 57, 207000), ScrapingInProgress=False, LastResponseTesoraliaCode='0')]
+2020-10-14 15:51:18:INFO:main_launcher_receipts._process_user: -u 395518 -a ALL: db_funcs.UserFuncs.update_user_scraping_state: ScrapingInProgress=1
+2020-10-14 15:51:18:INFO:main_launcher_receipts._process_financial_entity_access: -u 395518 -a 24436 of fin_entity 1101: start
+DB query from queue 09cd5f16-013f-4e21-b028-2be3e0c64dd7: "-- get_equal_access_ids_scraping_in_progress for 24436 ..."
+2020-10-14 15:51:18:INFO:main_launcher_receipts._process_scraper: -u 395518 -a 24436 of fin_entity 1101: start
+DB query from queue 8da469be-5670-4067-997b-a8cf493fa57b: "-- get_customer_show_bankoffice_payer for 395518..."
+DB query from queue b3f0b805-7c44-47e9-8475-ad16583cdf00: "-- get_accounts of access 24436..."
+2020-10-14 15:51:19:INFO:RuralviaScraper: -u 395518 -a 24436: main: started
+2020-10-14 15:51:34:INFO:RuralviaScraper: -u 395518 -a 24436: Process user account
+2020-10-14 15:51:34:INFO:RuralviaScraper: -u 395518 -a 24436: Process company: DEFAULT COMPANY
+DB query from queue a7e44fa3-fac9-43e9-9fed-538b09700f35: "-- should_download_documents for customer 395518..."
+_db_execute_query_loop: HANDLED EXCEPTION: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x274C (10060) (SQLExecDirectW)'). RETRY on communication link failure #1. QUERY:
+        -- should_download_documents for customer 395518
+        SELECT EV.[data_]
+        FROM [d...
+Traceback (most recent call last):
+  File "/home/vladimirb/Python-3.5.7/Lib/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 189, in _loop_queue
+    _process_queue()
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 184, in _process_queue
+    q_item.execute()
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 112, in execute
+    self._result = self.fn(*self.fn_args)
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/db_funcs.py", line 425, in _execute_query
+    result = _fetch_data(cursor, return_fields)
+pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Communication link failure (0) (SQLEndTran(SQL_COMMIT))')
+python-BaseException
+2020-10-14 15:52:48:INFO:RuralviaScraper: -u 395518 -a 24436: For each account: align balance and the last movement's temp_balance
+Exception in thread QueueSimpleThread:
+Traceback (most recent call last):
+  File "/home/vladimirb/Python-3.5.7/Lib/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/home/vladimirb/Python-3.5.7/Lib/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 189, in _loop_queue
+    _process_queue()
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 184, in _process_queue
+    q_item.execute()
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/queue_simple.py", line 112, in execute
+    self._result = self.fn(*self.fn_args)
+  File "/home/vladimirb/_upwork/_upwork_raul/tesoralia.scrapers.python/tesoralia_scrapers/custom_libs/db/db_funcs.py", line 425, in _execute_query
+    result = _fetch_data(cursor, return_fields)
+pyodbc.OperationalError: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Communication link failure (0) (SQLEndTran(SQL_COMMIT))')
+
+
+HUNG - can't do necessary db queries to finish the scraping process

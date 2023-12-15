@@ -1,0 +1,1429 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+
+
+<link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+<link  rel="stylesheet" href="../css/c-headActions.css"/>
+<link  rel="stylesheet" href="../libraries/internal_libraries/c-pdf_viewer/css/c-pdf_viewer.css">
+<link  rel="stylesheet" href="../css/c-dropdownSelector.css"/>
+<link  rel="stylesheet" href="../css/c-infoBlock.css"/>
+<link  rel="stylesheet" href="../css/c-titularFinal.css"/>
+<link  rel="stylesheet" href="../css/c-headActions.css"/>
+
+
+
+<script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+<script type="text/javascript" src="./js/slider.js"></script>
+<script type="text/javascript" src="./js/boton-desplegable.js"></script>
+<script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+
+
+<script type='text/javascript'>
+var ID_TABLA_CORRESPONDENCIA='tablacorresp';
+var ID_MARCAR_COMO_NO_LEIDO='marcarComoNoLeido';
+var ID_MARCAR_COMO_LEIDO='marcarComoLeido';
+var PN_PE_PERSONALIZAR='PN=COX&PE=5';
+var JS_AJAX_CALLBACK_LEIDO_NO_LEIDO='ajaxCallbackLeidoNoLeido';
+var ID_TABLA_CORRESPONDENCIA_MARGEN='tablacorrespMargen';
+var JS_AJAX_CALLBACK_TABLE='ajaxCallbackTable';
+var NAME_DETALLE_COMUNICADO_FORM='detalleComunicado';
+var JS_AJAX_CALLBACK_FAVORITOS='ajaxCallbackFavoritos';
+var JS_AJAX_CALLBACK_ERROR='ajaxCallbackError';
+var JS_AJAX_CALLBACK_GRAFICOS='callBackGraficos';
+var LISTA_CLAVE_COMUNICADO='LISTA_CLAVE_COMUNICADO';
+var LISTA_LEIDO='LISTA_LEIDO';
+var LISTA_FAVORITO='LISTA_FAVORITO';
+var sepIds='#~$#';
+var sepIdsRegExp='\Q#~$#\E';
+var GRAFICO_TARTA='GRAFICO_TARTA';var GRAFICO_DONUT='GRAFICO_DONUT';var GRAFICO_BARRAS='GRAFICO_BARRAS';</script>
+<script type='text/javascript'>
+var debug=true;
+var loadingImg=true;
+var myAjaxBaseUrl='/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075';
+var sepIds='#~$#';
+var sepIdsRegExp='\Q#~$#\E';
+</script><script language='JavaScript' type='text/javascript' src='./js/jquery.blockUI-2.57.0.js'></script><script language='JavaScript' type='text/javascript' src='./js/utilidadesMailbox.js'></script><script language='JavaScript' type='text/javascript' src='./js/EloGenB001100.js'></script><script language='JavaScript' type='text/javascript' src='./js/elocoxp000100.js'></script>
+
+<script type="text/javascript" src="../libraries/internal_libraries/ntooltip/js/ntooltip.js?autoinit=1"></script>
+<script type="text/javascript" src="../libraries/external_libraries/pdfjs/pdf.min.js"></script>
+<script type="text/javascript" src="../libraries/internal_libraries/c-pdf_viewer/js/c-pdf_viewer.js?autoinit=1"></script>
+<script type="text/javascript" src="../libraries/external_libraries/handlebars/handlebars.js"></script>
+<script type="text/javascript" src="../js/c-dropdownSelector.js"></script>
+<script type="text/javascript" src="../js/over.js"></script>
+<script type="text/javascript" src="../libraries/internal_libraries/custom_lightbox/js/custom_lightbox.js?autoinit=1"></script>
+
+<script type="text/javascript">
+var escribaAnotacion='Escriba aquí sus notas privadas sobre este comunicado';
+var MAX_LENGTH_ANOTACION_DETALLE=50
+var LIT_ERROR_NO_DISPONIBLE='En estos momentos no está disponible.';
+var lupaActivada=false;
+var isPdf=false;
+var formatoComunicado="L";
+var imagenComunicado="/jsp/arq/elocomp000001.jsp;WeblogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075!1625052577801?URI=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!791625052673419"
+
+
+
+
+ 
+function abrirEnPDF()
+{
+if (typeof OmnitureClicatElement != "undefined")
+{
+OmnitureClicatElement("L_AbrirPdf");
+}
+if (formatoComunicado === "I")
+{
+top.frames['Titol'].openW(imagenComunicado,'finestraPortal',600,465,1,0,1,0,0,0,0,1)
+}
+else
+{
+with (document.forms["formAbrirPDF_COX2"])
+{
+CLICK_ORIG.value="FLX_COX_2";
+target="Cos";
+submit();
+}
+}
+}
+
+
+
+
+ 
+function imprimirComunicado()
+{
+if (typeof OmnitureClicatElement != "undefined") {
+OmnitureClicatElement("L_Imprimir");
+}
+with (document.forms["formImprimirComunicado"]){
+CLICK_ORIG.value="EOC_COX_2";
+target="Oculto";
+submit();
+}
+}
+function mCapa(url,id)
+{
+var height = 'auto';
+var width = '640px';
+setPopUpMultiple("#"+id,height, width, 0, url);
+$("#"+id).click();
+}
+var objOrigenHtml=null;
+function cambiarEstadoMenuMarcarDestacado(marcadoTexto, desmarcadoTexto)
+{
+var config = $("#cDropdownSelector_menu_1").cDropdownSelector("getConfig");
+var icon = config.options[0].options[0].loicon;
+if (icon === "star")
+{
+config.options[0].options[0].loicon = "star-filled";
+config.options[0].options[0].title = desmarcadoTexto;
+}
+else
+{
+config.options[0].options[0].loicon = "star";
+config.options[0].options[0].title = marcadoTexto;
+}
+$("#cDropdownSelector_menu_1").cDropdownSelector("setConfig",config)
+}
+
+
+
+
+
+
+ 
+function marcarDestacado(marcadoTexto, desmarcadoTexto)
+{
+if (typeof OmnitureClicatElement != "undefined")
+{
+OmnitureClicatElement("Ch_MarcarDestacado");
+}
+
+with (document.forms["formPersFavoritoComunicado"])
+{
+var config = $("#cDropdownSelector_menu_1").cDropdownSelector("getConfig");
+var icon = config.options[0].options[0].loicon;
+if (icon === "star")
+{
+LISTA_FAVORITO.value = "S";
+}
+else
+{
+LISTA_FAVORITO.value = "N";
+}
+CLICK_ORIG.value="FLX_COX_2";
+}
+
+var parametros=$("form[name=formPersFavoritoComunicado]").serialize();
+
+myAjaxCall(parametros,
+'',
+'',
+function(response, textStatus, jqXHR, data, objOrigen, objDestino, objDestinoEvalScript)
+{
+ajaxCallbackMarcarDestacadoDetalle(response, textStatus, jqXHR, data, objOrigen, objDestino, objDestinoEvalScript);		
+cambiarEstadoMenuMarcarDestacado(marcadoTexto, desmarcadoTexto);
+},
+null,
+"ajaxCallbackPersonalizarError",
+true,
+false);
+}
+function ajaxCallbackMarcarDestacadoDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+$(objOrigen).html(objOrigenHtml);
+if (hasErrors(data)) {
+showErrors(data);
+}
+desbloqueaPantalla();
+}
+function ajaxCallbackPersonalizarError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+var html = '';
+
+if (data==null || data=="")
+{
+
+html = LIT_ERROR_NO_DISPONIBLE;
+}
+else
+{
+html = data;
+}
+showErrors(html);
+
+desbloqueaPantalla();
+}
+function cambiarEstadoMenuMarcarLeido(marcarLeido, marcarNoLeido)
+{
+var config = $("#cDropdownSelector_menu_1").cDropdownSelector("getConfig");
+var options = config.options[0].options[1];
+var icon = options["loicon"];
+if (icon === "mail")
+{
+options["loicon"] = "";
+options["image"] = "c-images/html-images/icons/32x32/ico_mail_opened.svg";
+options["title"] = marcarNoLeido;
+}
+else
+{
+options["image"] = "";
+options["loicon"] = "mail";
+options["title"] = marcarLeido;
+}
+config.options[0].options[1] = options;
+$("#cDropdownSelector_menu_1").cDropdownSelector("setConfig",config)
+}
+function marcarLeido(marcarLeido, marcarNoLeido)
+{
+
+with (document.forms["formPersLeidoComunicado"])
+{
+var config = $("#cDropdownSelector_menu_1").cDropdownSelector("getConfig");
+var options = config.options[0].options[1];
+var icon = options["loicon"];
+if (icon === "mail")
+{
+LISTA_LEIDO.value = "S";
+}
+else
+{
+LISTA_LEIDO.value = "N";
+}
+CLICK_ORIG.value="FLX_COX_2";
+}
+
+var parametros=$("form[name=formPersLeidoComunicado]").serialize();
+myAjaxCall(parametros,
+'',
+'',
+function(response, textStatus, jqXHR, data, objOrigen, objDestino, objDestinoEvalScript)
+{
+ajaxCallbackMarcarLeidoDetalle(response, textStatus, jqXHR, data, objOrigen, objDestino, objDestinoEvalScript);		
+cambiarEstadoMenuMarcarLeido(marcarLeido, marcarNoLeido);
+},
+null,
+"ajaxCallbackPersonalizarError",
+true);
+}
+function ajaxCallbackMarcarLeidoDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+$(objOrigen).html(objOrigenHtml);
+if (hasErrors(data))
+{
+showErrors(data);
+}
+desbloqueaPantalla();
+}
+function guardarAnotacion(tagOmniture) {
+
+if ($.trim($("#txtareaAnotacion").val()) == $.trim(escribaAnotacion)) {
+return;
+}
+if (typeof OmnitureClicatElement != "undefined" && tagOmniture != null && tagOmniture != '') {
+OmnitureClicatElement(tagOmniture);
+}
+with (document.forms["formPersComentarioComunicado"]) {
+LISTA_COMENTARIO.value = $("#txtareaAnotacion").val();
+CLICK_ORIG.value="FLX_COX_2";
+LISTA_COMENTARIO.value = encodeURI(LISTA_COMENTARIO.value);
+}
+
+var parametros=$("form[name=formPersComentarioComunicado]").serialize();
+myAjaxCall(parametros,
+'',
+'',
+"ajaxCallbackGuardarAnotacionDetalle",
+null,
+"ajaxCallbackPersonalizarError",
+true);
+}
+function myAjaxCall(params,objOrigen,objDestino,callback,objDestinoEvalScript,callbackError)
+{
+objOrigenHtml = $(objOrigen).html();
+
+hideErrors();
+
+objOrigen = $(objOrigen);
+objDestino = $(objDestino);
+callback = eval(callback);
+if (callbackError==null)
+callbackError='ajaxCallbackError';
+callbackError=eval(callbackError);
+var method="POST";
+var async=true;
+var timeout=10000;
+params=params+'&PETICION_AJAX=S';
+AjaxQueueMB.set(method,
+async,
+timeout,
+myAjaxBaseUrl,
+params,
+objOrigen,
+objDestino,
+objDestinoEvalScript,
+callback,
+callbackError);
+bloqueaPantalla();
+procesaAjaxQueueMB(AjaxQueueMB,false);
+}
+function ajaxCallbackGuardarAnotacionDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+$(objOrigen).html(objOrigenHtml);
+if (hasErrors(data)) {
+showErrors(data);
+} else
+{
+var linkButton = $('#openComments');
+var editButton = $('#editComments');
+var commentArea = $('#commentsArea');
+var comentario = $('#txtareaAnotacion').val()
+$('#comentario').html(comentario);
+if (comentario === '')
+{
+linkButton.show();
+editButton.hide();
+}
+else
+{
+linkButton.hide();
+editButton.show();
+}
+commentArea.slideUp();
+}
+desbloqueaPantalla();
+}
+function hasErrors(data) {
+var errors=$("<div/>").html(data).find("div#errorItem");
+if ($(errors).length==0)
+return false;
+return true;
+}
+function volver() {
+if (typeof OmnitureClicatElement != "undefined") {
+OmnitureClicatElement("B_Volver");
+}
+with (document.forms["formVolver"]) {
+removeFormField("formVolver", "TORNA_PN");
+removeFormField("formVolver", "TORNA_PE");
+var tornapnbackup=document.forms["formVolver"].TORNA_PN_BACKUP.value;
+var tornapebackup=document.forms["formVolver"].TORNA_PE_BACKUP.value;
+if (tornapnbackup!="" && tornapebackup!="") {
+$("form[name=formVolver]").append('<input id="TORNA_PN_FV" name="TORNA_PN" value="'+tornapnbackup+'" type="hidden">');
+$("form[name=formVolver]").append('<input id="TORNA_PE_FV" name="TORNA_PE" value="'+tornapebackup+'" type="hidden">');
+}
+submit();
+}
+}
+function isDefined(variable) {
+return (typeof variable == "undefined")?  false: true;
+}
+function setOmnitureInformation(){
+if (typeof OmnitureClicatElement != "undefined") {
+var chkMarcarDestacado = $('div.marcar a#enlaceMarcarDestacado');
+var chkMarcarNoLeido = $('div.marcar input#checkboxMarcarLeido');
+var textoAnotacion = $('table.table_dades textarea#txtareaAnotacion');
+var infoAnotacion = $('table.table_dades a#tooltip_142');
+
+chkMarcarDestacado.click(function(e) {
+OmnitureClicatElement("Ch_MarcarDestacado");
+});
+chkMarcarNoLeido.click(function(e) {
+OmnitureClicatElement("Ch_MarcarNoLeido");
+});
+
+textoAnotacion.click(function(e) {
+OmnitureClicatElement("T_Anotacion");
+});
+infoAnotacion.mouseenter(function(e) {
+OmnitureClicatElement("B_InfoAnotacion");
+});
+}
+}
+function getHTMLError(msg) {
+if (msg==null) {
+msg = LIT_ERROR_NO_DISPONIBLE;
+}
+var html = '';
+html +='<p id="parrafoInformativoErrorV2Visible" class="mens_error_rojo_pq">';
+html += msg;
+html +='</p>';
+return html;
+}
+function compruebaLongitudTextarea(ta,cursorPosition)
+{
+
+var valor_ta = ta.value;
+var lantes = valor_ta.length;
+var regexp = /(\r\n|\n|\r)/gm
+valor_ta=valor_ta.replace(regexp,"");
+var ldespues = valor_ta.length;
+if (lantes != ldespues) {
+ta.value=ta.value.replace(regexp,"");
+if (ta.setSelectionRange) {
+ta.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+} else if (ta.createTextRange) {
+var range = ta.createTextRange();
+range.collapse(true);
+range.moveEnd('character', cursorPosition - 2);
+range.moveStart('character', cursorPosition - 2);
+range.select();
+}
+return;
+}
+
+var tmp = ta.value;
+if (tmp.length > MAX_LENGTH_ANOTACION_DETALLE) {
+ta.value=ta.value.replace(regexp,"");
+ta.value=ta.value.substr(0,MAX_LENGTH_ANOTACION_DETALLE);
+if (ta.setSelectionRange) {
+ta.setSelectionRange(cursorPosition,cursorPosition);
+} else if (ta.createTextRange) {
+var range = ta.createTextRange();
+range.collapse(true);
+range.moveEnd('character', cursorPosition);
+range.moveStart('character', cursorPosition);
+range.select();
+}
+}
+}
+function getInputSelection(el) {
+var start = 0, end = 0, normalizedValue, range,
+textInputRange, len, endRange;
+if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+start = el.selectionStart;
+end = el.selectionEnd;
+} else {
+range = document.selection.createRange();
+if (range && range.parentElement() == el) {
+len = el.value.length;
+normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+textInputRange = el.createTextRange();
+textInputRange.moveToBookmark(range.getBookmark());
+
+
+
+endRange = el.createTextRange();
+endRange.collapse(false);
+if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+start = end = len;
+} else {
+start = -textInputRange.moveStart("character", -len);
+start += normalizedValue.slice(0, start).split("\n").length - 1;
+if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+end = len;
+} else {
+end = -textInputRange.moveEnd("character", -len);
+end += normalizedValue.slice(0, end).split("\n").length - 1;
+}
+}
+}
+}
+return {
+start: start,
+end: end
+};
+}
+function showErrors(error)
+{
+$("#showErrors").html(error);
+$("#mensaje").show();
+}
+function hideErrors()
+{
+$("#mensaje").hide();
+}
+function documentError(titulo, text)
+{
+$("#colIzq").children().remove();
+var liText = "";
+if (text !== "")
+{
+liText = "			<li class=\"c-listicon__item c-listicon__item c-listicon__item--dot\">" +
+text +
+"		</li>";
+}
+$("#colIzq").append("<div id=\"errorDinamico\" class=\"round_corn_error margin--bottom-normal clearfix\">" +
+"	<p id=\"titulo\" class=\"error-rojo\">" +
+titulo +
+"	</p>" +
+"	<ul id=\"texto\" class=\"c-listicon margin--left-normal\">" +
+liText +
+"	</ul>" +
+"</div>");
+}
+function paginacionComunicado(paginaSolicitada, tagOmniture, totalPaginas) {
+if (typeof OmnitureClicatElement != "undefined") {
+if (tagOmniture!=null) {
+OmnitureClicatElement(tagOmniture);
+}
+}
+
+with (document.forms["formPaginacionComunicado"]) {
+PAGINA_SOLICITADA.value = paginaSolicitada;
+CLICK_ORIG.value="PAG_COX_2";
+}
+
+removeFormField("formPaginacionComunicado", "TOTAL_PAGINAS");
+addFormField("formPaginacionComunicado", "TOTAL_PAGINAS", totalPaginas);
+
+var parametros=$("form[name=formPaginacionComunicado]").serialize();
+
+var contenedorOrigen='#paginacionComunicado';
+
+var contenedorDestino='#divImagenComunicadoAjax';
+
+myAjaxCall(parametros,
+contenedorOrigen,
+contenedorDestino,
+"ajaxCallbackPaginacionDetalle",
+null,
+"ajaxCallbackPaginacionDetalleError",
+true,
+true);
+}
+
+
+
+
+
+
+
+
+
+
+
+ 
+function ajaxCallbackPaginacionDetalle(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+$("#respuestaAjax").html(data);
+
+ 
+var imageElement = $("#respuestaAjax").find("#divImagenComunicadoAjax").html()
+$("#test_img").html(imageElement)
+
+ejecutaScript(data);
+
+var pagAjax = $("#respuestaAjax").find("#paginacionComunicadoAjax");
+var pagAct = $("#paginacionComunicado");
+pagAct.html(pagAjax.html());
+desbloqueaPantalla();
+}
+function ajaxCallbackPaginacionDetalleError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript)
+{
+var html = '';
+
+if (data==null || data=="") {
+
+html = getHTMLError(null);
+
+} else {
+html = $("<div/>").html(data).find("div#div_Error02").html();
+}
+$("#divImagenComunicadoAjax").html(html);
+$("#listadoEnlacesPDF").hide();
+
+desbloqueaPantalla();
+}
+function ejecutaScript(textoAsincrono) {
+var scripts = new Array();
+var scriptsJS = new Array();
+var p=textoAsincrono.indexOf("<script");
+var j=0;
+while(p!=-1){
+var f=textoAsincrono.indexOf("</script",p);
+if(f>p){
+var p1=textoAsincrono.indexOf('>',p);
+if(p1+1<f) {
+var texAux=textoAsincrono.substring(p,p1);
+if (texAux.indexOf("EvaluaScript_COX202") > 0) {
+scripts.push(textoAsincrono.substring(p1+1, f));
+}
+}else if (p1+1==f){
+var j=textoAsincrono.indexOf("js/",p);
+var j1=textoAsincrono.indexOf(".js",p);
+scriptsJS.push(textoAsincrono.substring(j,j1+3));
+}
+p=textoAsincrono.indexOf("<script",f+1);
+}else{
+p=-1;
+}
+}
+
+for(var i=0; i<scriptsJS.length; i++) {
+$.ajax({
+url: "./"+scriptsJS[i],
+async: false,
+dataType: "script"
+})
+}
+
+for(var i=0; i<scripts.length; ++i) {
+eval(scripts[i]);
+}
+}
+function popUpAbrirPdf() {
+
+var parametros = $("form[name=formAbrirPDF_COX2]").serialize();
+
+myAjaxCall(parametros,
+null,
+null,
+"ajaxCallbackPopUpAbrirPdf",
+null,
+"ajaxCallbackPopUpAbrirPdfError",
+true,
+true);
+}
+function ajaxCallbackPopUpAbrirPdf(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript)
+{
+$("#popUpAbrirPdf").html(data);
+}
+function ajaxCallbackPopUpAbrirPdfError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript)
+{
+}
+function abrirPDF(ini,fin){
+f=document.forms["formAbrirPDF"];
+f.PN.value="COX";
+f.PE.value="12";
+f.BLOQUE_PAGINAS_INICIAL.value = ini;
+f.BLOQUE_PAGINAS_FINAL.value = fin;
+f.submit();
+}
+
+
+ 
+function peticionDuplicado(claveComunicado,cuenta,fechaEnvio)
+{
+if (typeof OmnitureClicatElement != "undefined")
+{
+OmnitureClicatElement("L_SolicitarDuplicado");
+}
+document.forms["pn_pe"].PN.value = "COX";
+document.forms["pn_pe"].PE.value = "18";
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTORNA_PN_BACKUP" name="TORNA_PN_BACKUP" value="SCP" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTIPO_COMUNICADO" name="TIPO_COMUNICADO" value="00811" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsREFPARAMETROSCOMUNICADO" name="REFPARAMETROSCOMUNICADO" value="LPH9kHBvdEcs8f2QcG90RwAAAXpc0rHfB6pOfSxIXPw" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsNUMERO_ITERACIONES_LISTA_PDFS" name="NUMERO_ITERACIONES_LISTA_PDFS" value="10" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsDESCRIPCION_COMUNICADO" name="DESCRIPCION_COMUNICADO" value="Leasing: cargo arrendamiento financiero" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsPDF_MULTIPAGINA" name="PDF_MULTIPAGINA" value="N" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsIMAGEN_COMUNICADO" name="IMAGEN_COMUNICADO" value="/jsp/arq/elocomp000001.jsp?URI=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!791625052673419" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTORNA_PE_BACKUP" name="TORNA_PE_BACKUP" value="0" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTIPO_FORMATO" name="TIPO_FORMATO" value="AFP" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTIPO_CUENTA_COMUNICADO" name="TIPO_CUENTA_COMUNICADO" value="ES" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsFORMATO_COMUNICADO" name="FORMATO_COMUNICADO" value="L" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsTOTAL_PAGINAS" name="TOTAL_PAGINAS" value="1" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsCLAVE_COMUNICADO" name="CLAVE_COMUNICADO" value="20210622000750001228" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsALIAS_CUENTA" name="ALIAS_CUENTA" value="LA CAIXA CENTRAL" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsFLAG_JURIDICA" name="FLAG_JURIDICA" value="J" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsNUMERO_MAXIMO_PAGINAS_PDF" name="NUMERO_MAXIMO_PAGINAS_PDF" value="12" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsREFCLAVE_CONTINUACION_LISTA_COMUNICADOS" name="REFCLAVE_CONTINUACION_LISTA_COMUNICADOS" value="LPH9kHCh~z4s8f2QcKH7PgAAAXpc0rHfyv6ZsR8dVAo" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsFECHA_DESDE" name="FECHA_DESDE" value="" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsNUMERO_PAGINAS" name="NUMERO_PAGINAS" value="00001" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsRefInformacionComunicado" name="RefInformacionComunicado" value="LPH9kG4N3wws8f2Qbg3fDAAAAXpc0YxM~xlit_iz3dU:COX:2" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJsFECHA_HASTA" name="FECHA_HASTA" value="" type="hidden">');
+
+$("form[name=pn_pe]").append('<input id="hiddenJspresentacion" name="presentacion" value="/jsp/elocoxp000204.jsp" type="hidden">');
+
+var pagina=document.forms["formAbrirPDF_COX2"].PAGINA_SOLICITADA.value;
+$("form[name=pn_pe]").append('<input id="PAGINA_SOLICITADA_PN_PE" name="PAGINA_SOLICITADA" value="'+pagina+'" type="hidden">');
+$("form[name=pn_pe]").append('<input id="CLICK_ORIG_PN_PE" name="CLICK_ORIG" value="FLX_COX_2" type="hidden">');
+$("form[name=pn_pe]").append('<input id="OPCION_PN_PE" name="OPCION" value="" type="hidden">');
+$("form[name=pn_pe]").append('<input id="FECHA_ENVIO_PN_PE" name="FECHA_ENVIO" value="'+fechaEnvio+'" type="hidden">');
+$("form[name=pn_pe]").append('<input id="PN_ORIGEN_PN_PE" name="PN_ORIGEN" value="COX" type="hidden">');
+$("form[name=pn_pe]").append('<input id="PE_ORIGEN_PN_PE" name="PE_ORIGEN" value="2" type="hidden">');
+$("form[name=pn_pe]").append('<input id="TORNA_PN_PN_PE" name="TORNA_PN" value="COX" type="hidden">');
+$("form[name=pn_pe]").append('<input id="TORNA_PE_PN_PE"  name="TORNA_PE" value="1" type="hidden">');
+var divisa=document.forms["formAbrirPDF_COX2"].DIVISA_IMPORTE_COMUNICADO.value;
+$("form[name=pn_pe]").append('<input id="DIVISA_PN_PE" name="DIVISA" value="'+divisa+'" type="hidden">');
+var descripcion=document.forms["formAbrirPDF_COX2"].DESCRIPCION_COMUNICADO.value;
+$("form[name=pn_pe]").append('<input id="DESCRIPCION_PN_PE" name="DESCRIPCION" value="'+descripcion+'" type="hidden">');
+var importe=document.forms["formAbrirPDF_COX2"].IMPORTE_COMUNICADO.value;
+importe=importe.replace(".","").replace(",","").replace(" ","");
+if (importe=='')
+importe="000";
+$("form[name=pn_pe]").append('<input id="IMPORTE_PN_PE" name="IMPORTE" value="'+importe+'" type="hidden">');
+$("form[name=pn_pe]").append('<input id="REFCUENTA_PN_PE" name="REFCUENTA" value="'+cuenta+'" type="hidden">');
+var flujo=document.forms["formAbrirPDF_COX2"].FLUJO.value;
+$("form[name=pn_pe]").append('<input id="FLUJO_PN_PE" name="FLUJO" value="'+flujo+'" type="hidden">');
+$("form[name=pn_pe]").append('<input id="REFCLAVECOMUNICADO_PN_PE" name="REFCLAVECOMUNICADO" value="'+claveComunicado+'" type="hidden">');
+var canal=document.forms["formAbrirPDF_COX2"].CANAL_MOVIMIENTO.value;
+$("form[name=pn_pe]").append('<input id="CANAL_MOVIMIENTO_PN_PE" name="CANAL_MOVIMIENTO" value="'+canal+'" type="hidden">');
+document.forms["pn_pe"].submit();
+}
+
+
+
+ 
+$( document ).ready(function() {
+
+var linkButton = $('#openComments');
+var editButton = $('#editComments');
+var commentArea = $('#commentsArea');
+var comentario = "";
+if ($("#mydiv").length > 0)
+{
+comentario = $('#comentario').html().trim();
+}
+if (comentario === '')
+{
+linkButton.show();
+editButton.hide();
+}
+else
+{
+linkButton.hide();
+editButton.show();
+}
+$(linkButton).on('click', function (e)
+{
+e.preventDefault();
+if ( $(commentArea).is(':visible') )
+{
+$('#txtareaAnotacion').val("")
+$(commentArea).slideUp();
+}
+else if ( $(commentArea).is(':hidden') )
+{
+$('#txtareaAnotacion').val(escribaAnotacion)
+$(commentArea).slideDown();
+}
+});
+$('#editComments').on('click', function (e)
+{
+e.preventDefault();
+if ( $(commentArea).is(':visible') )
+{
+$('#txtareaAnotacion').val("")
+$(commentArea).slideUp();
+} else if ( $(commentArea).is(':hidden') )
+{
+$('#txtareaAnotacion').val($("#comentario").html().trim())
+$(commentArea).slideDown();
+}
+});
+
+if (isDefined(window.top.Inferior.Menu.fijarCoordenadasMenu)) {
+top.Inferior.Menu.fijarCoordenadasMenu('COX','1');
+}
+$("#tamMaximo").html(MAX_LENGTH_ANOTACION_DETALLE);
+$("#txtareaAnotacion").focus(function()
+{
+if ($.trim(this.value) == $.trim(escribaAnotacion))
+{
+this.value = '';
+}
+});
+$("#txtareaAnotacion").change(function()
+{
+var cursorPosition = 0;
+if (this.setSelectionRange)
+{
+cursorPosition = $(this).prop("selectionStart");
+}
+else
+{
+var rango = getInputSelection(this);
+cursorPosition = rango.start;
+}
+compruebaLongitudTextarea(this, cursorPosition);
+});
+$("#txtareaAnotacion").keyup(function()
+{
+if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+var cursorPosition = 0;
+if (this.setSelectionRange) {
+cursorPosition = $(this).prop("selectionStart");
+} else {
+var rango = getInputSelection(this);
+cursorPosition = rango.start;
+}
+compruebaLongitudTextarea(this, cursorPosition);
+}
+});
+$("#txtareaAnotacion").mousemove(function()
+{
+if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+var cursorPosition = 0;
+if (this.setSelectionRange) {
+cursorPosition = $(this).prop("selectionStart");
+} else {
+var rango = getInputSelection(this);
+cursorPosition = rango.start;
+}
+compruebaLongitudTextarea(this, cursorPosition);
+}
+});
+$("#txtareaAnotacion").mouseout(function()
+{
+if ($.trim(this.value) != $.trim(escribaAnotacion)) {
+var cursorPosition = 0;
+if (this.setSelectionRange) {
+cursorPosition = $(this).prop("selectionStart");
+} else {
+var rango = getInputSelection(this);
+cursorPosition = rango.start;
+}
+compruebaLongitudTextarea(this, cursorPosition);
+}
+});
+
+if (isPdf)
+{
+var parametros = $("#test_pdf").attr("data-c-pdf_viewer-file");
+if (parametros != undefined)
+{
+
+var oReq = new XMLHttpRequest();
+oReq.open("GET", parametros, true);
+oReq.responseType = "arraybuffer";
+oReq.onload = function(oEvent)
+{
+var content = oReq.getResponseHeader("Content-Type");
+if (content === "application/pdf")
+{
+var arrayBuffer = oReq.response;
+
+var blob = new Blob([arrayBuffer]);
+var url = URL.createObjectURL(blob);
+$("#test_pdf").attr("data-c-pdf_viewer-file", url);
+$("#test_pdf").cPdfViewer();
+$("#test_pdf").show();
+}
+else
+{
+var response = String.fromCharCode.apply(null, new Uint8Array(oReq.response));
+if ($(response).find("#parrafoInformativoErrorV2Visible").length > 0)
+{
+titulo = $(response).find("#parrafoInformativoErrorV2Visible").text();
+text = "";
+}
+else if ($(response).find(".pag").length > 0)
+{
+var text = $(response).find("li").html();
+var paraf = $(response).find(".pag");
+var titulo = "";
+var fecha = "";
+if (paraf.length > 1)
+{
+titulo = $(paraf[1]).html();
+fecha = $(paraf[0]).html();
+}
+else if (paraf.length == 1)
+{
+titulo = $(paraf[0]).html();
+}
+}
+else
+{
+titulo = LIT_ERROR_NO_DISPONIBLE;
+text = "";
+}
+documentError(titulo, text);
+}
+$("#cargando").hide();
+};
+oReq.send();
+}
+}
+setOmnitureInformation();
+});
+</script>
+</head>
+<body id="cos" class="margen_top5 ">
+<script>var PNLomilu='COX';var PELomilu='2';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+<div id="bloquear" class="blockMe">
+<div id="layaout" class="layout-default">
+<div id="barraSuperior" class="margin--bottom-normal ocultar">
+<div id="botonVolver" class="margin--bottom-small">
+<a id="volver" class="c-go-back" href="javascript:volver('B_Volver')">
+Volver 
+</a>
+</div>
+<div id="barraTitulo" class="u-flex u-flex-justify-content-between u-flex-align-item-center">
+<div id="titulo" class="u-flex u-flex-align-item-baseline">
+<h1 class="margin--bottom-none">
+Leasing: cargo arrendamiento financiero 438,63
+</h1>
+<span id="fecha" class="margin--left-small font--weight-normal color--gray500">
+22 Jun 2021
+</span>
+</div>
+<div id="menuDesplegable" class="margin--left-normal">
+<nav class="c-headActions">
+
+<a id="docAnterior" class="c-headActions__item c-headActions__item-type--prev" href="javascript:pasadorDetalleComunicado(&#039;-1&#039;,&#039;20210622000750001242-1&#039;,&#039;L_PagAnterior&#039;,&#039;REFVAL_COMPLEJO_8422=LPH9kG4aesMs8f2Qbhp6wwAAAXpc0YvSB_1jbOJRF3s&#039;);">
+Comunicado anterior
+</a>
+
+
+<a class="c-headActions__item c-headActions__item-type--options" data-c-dropdownselector="" data-ntooltip="" data-ntooltip-hook="element" href="#" id="cDropdownSelector_menu_1">
+Opciones
+</a>
+<span id="toolTipOpciones" class="ntooltip">
+<span id="toolTipOpciones2" class="white_space--nowrap">
+Opciones
+</span>
+</span>
+<script data-c-dropdownselectorconfig="" type="application/json">
+{
+"options": [
+{
+"title": "",
+"options": [
+
+
+
+{
+"type": "action",
+"value": "favorito",
+"loicon": "star",
+"title": "Marcar como destacado"
+},
+
+
+
+
+
+{
+"type": "action",
+"value": "leido",
+"loicon": "mail",
+"title": "Marcar como leído"
+}
+
+
+
+,
+{
+"type": "action",
+"value": "print",
+"loicon": "print",
+"title": "Imprimir comunicado"
+}
+
+
+,
+{
+"type": "action",
+"value": "descargar",
+"loicon": "download",
+"title": "Descargar documento en PDF"
+
+}
+
+
+,
+{
+"type": "action",
+"value": "solicitar",
+"image": "c-images/html-images/icons/24x24/ico_copy.svg",
+"title": "Solicitar un duplicado por correo postal"
+}
+
+]
+}
+]
+}
+</script>
+<script type="text/javascript">
+$(function()
+{
+$("#cDropdownSelector_menu_1").on("cDropdownSelector:itemSelected",function(e,name,value,checked,type,itemLabel)
+{
+switch(value)
+{
+case "favorito":
+javascript:marcarDestacado('Marcar como destacado',
+'Desmarcar como destacado')
+break;
+case "leido":
+javascript:marcarLeido('Marcar como leído',
+'Marcar como no leído')
+break;
+case "print":
+
+javascript:imprimirComunicado();
+break;
+case "descargar":
+
+javascript:abrirEnPDF();
+
+break;
+case "solicitar":
+javascript:peticionDuplicado('LPH9kG1yI5Us8f2QbXIjlQAAAXpc0YvTxzv~uj49FY4:COX:2','LPH9kG2zyqcs8f2QbbPKpwAAAXpc0YvTNCmzyjKrHpI:COX:2','22062021');
+break;
+}
+});
+});
+</script>
+</nav>
+</div>
+</div>
+</div>
+<div id="mensaje" class="c-infoBlock c-infoBlock--theme-highlighted  margin--bottom-normal" style="display:none;">
+<div id="mensajeIcon" class="c-infoBlock__icon">
+</div>
+<div id="showErrors" class="c-infoBlock__text">
+</div>
+</div>
+<div id="layoutDatos" class="u-flex u-row--sep-10 u-flex-medium-wrap margin--bottom-extrabig">
+<div id="colIzq" class="u-col--width-9/12c u-col-medium--width-12/12c margin-st-medium--bottom-normal">
+
+
+
+
+
+
+<div id="test_img"
+class="padding-none margin--bottom-normal c-pdf_viewer--theme-default">
+<img id="idImagenComunicado"
+src="/jsp/arq/elocomp000001.jsp;WeblogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075!1625052577801?URI=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!791625052673419"
+alt=""
+class="padding-none margin--bottom-normal c-pdf_viewer__canvas"
+style="max-width:100%;max-height:100%;">
+</div>
+
+<div id="respuestaAjax" style="display:none;"></div>
+
+
+
+
+</div>
+<div id="colDer" class="u-col--width-3/12c u-col-medium--width-12/12c ocultar">
+<div id="layoutColumna" class="c-box--simple">
+<div id="tituloColumna" class="c-box--simple__title">
+Datos del comunicado
+</div>
+<div id="tablaColumna" class="c-box--simple__body">
+<div id="fila1" class="margin--bottom-normal">
+<span id="fila11" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila111" class="color--gray500">
+Concepto
+</span>
+<span id="fila112">
+Leasing: cargo arrendamiento financiero
+</span>
+</span>
+</div>
+<div id="fila2" class="margin--bottom-normal">
+<span id="fila21" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila211" class="color--gray500">
+Fecha
+</span>
+<span id="fila212">
+22 Jun 2021
+</span>
+</span>
+</div>
+<div id="fila3" class="margin--bottom-normal">
+<span id="fila31" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila311" class="color--gray500">
+Tipo
+</span>
+<span id="fila312">
+Varios
+</span>
+</span>
+</div>
+
+<div id="fila4" class="margin--bottom-normal">
+<span id="fila41" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila411" class="color--gray500">
+Importe
+</span>
+<span id="fila412">
+438,63 &#8364;
+</span>
+</span>
+</div>
+
+
+<div id="fila5" class="margin--bottom-normal">
+<span id="fila51" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila511" class="color--gray500">
+Cuenta
+</span>
+<span id="fila512">
+<span id="fila5121">
+LA CAIXA CENTRAL
+</span>
+<br/>
+<span id="fila5122">
+ES70 2100 3810 8202 0003 0647
+</span>
+</span>
+</span>
+</div>
+
+<div id="fila6" class="margin--bottom-normal">
+<span id="fila61" class="u-flex-11auto u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start u-flex-justify-content-center">
+<span id="fila611" class="color--gray500">
+Comentario
+</span>
+<span id="fila612">
+<span id="comentario">
+
+</span>
+<div id="fila5122" class="margin--top-small">
+<a href="" id="editComments">
+Editar comentario
+</a>
+</div>
+</span>
+</span>
+</div>
+<div id="fila6" class="margin--bottom-normal margin--bottom-none">
+<a href="" id="openComments">
+Añadir comentario
+</a>
+</div>
+<div id="commentsArea" class="padding--top-normal"  style="display: none">
+<textarea id="txtareaAnotacion" class="textarea c_formElement--width-full margin--bottom-small" name="" rows="3"></textarea>
+<div id="filaBoton" class="u-flex u-flex-justify-content-between">
+<a id="botonGuardar" class="btn btn--lg btn--primary" href="javascript:guardarAnotacion()">
+Guardar
+</a>
+<span id="tamMaximo" class="color--gray500 text--align-right">
+</span>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="customlightbox_content"
+class="custom_lightbox_content"
+data-custom_lightbox-config='{
+"events": {
+"load": "popUpAbrirPdf();",
+"unload": "desbloqueaPantalla();"
+}
+}'>
+<div id="popUpAbrirPdf" class="u-flex u-flex-column box-sizing--border element-height--100p padding--top-big padding--bottom-big" >
+</div>
+</div>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formPaginacionComunicado">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="2">
+<input type="hidden" name="FLAG_OPERATIVA_CORRESPONDENCIA" value="">
+<input type="hidden" name="PETICION_AJAX" value="S">
+<input type="hidden" name="REFCLAVE_COMUNICADO" value="LPH9kG59u9os8f2Qbn272gAAAXpc0YvRyuJt~AoY4nY">
+<input type="hidden" name="TIPO_COMUNICADO" value="00811">
+<input type="hidden" name="FORMATO_COMUNICADO" value="L">
+<input type="hidden" name="PAGINA_SOLICITADA" value="">
+<input type="hidden" name="FLUJO" value="">
+<input type="hidden" id="CLICK_ORIG_PAG" name="CLICK_ORIG" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formPersFavoritoComunicado">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="5">
+<input type="hidden" name="LISTA_CLAVE_COMUNICADO" value="LPH9kG76GoEs8f2QbvoagQAAAXpc0YvRnrcl5pyKJ4o">
+<input type="hidden" name="LISTA_FAVORITO" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formPersLeidoComunicado">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="5">
+<input type="hidden" name="LISTA_CLAVE_COMUNICADO" value="LPH9kG76GoEs8f2QbvoagQAAAXpc0YvRnrcl5pyKJ4o">
+<input type="hidden" name="LISTA_LEIDO" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formPersComentarioComunicado">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="5">
+<input type="hidden" name="LISTA_CLAVE_COMUNICADO" value="LPH9kG76GoEs8f2QbvoagQAAAXpc0YvRnrcl5pyKJ4o">
+<input type="hidden" name="LISTA_COMENTARIO" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formVolver" target="Cos">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="1">
+<input type="hidden" name="TORNA_PN_BACKUP" value="SCP">
+<input type="hidden" name="TORNA_PE_BACKUP" value="0">
+<input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="VOL_COX_2">
+
+<input id="hiddenPAGINA_SOLICITADA" type="hidden" name="PAGINA_SOLICITADA" value="00001">
+
+<input id="hiddenTIPO_COMUNICADO" type="hidden" name="TIPO_COMUNICADO" value="00811">
+
+<input id="hiddenREFPARAMETROSCOMUNICADO" type="hidden" name="REFPARAMETROSCOMUNICADO" value="LPH9kHBvdEcs8f2QcG90RwAAAXpc0rHfB6pOfSxIXPw">
+
+<input id="hiddenNUMERO_ITERACIONES_LISTA_PDFS" type="hidden" name="NUMERO_ITERACIONES_LISTA_PDFS" value="10">
+
+<input id="hiddenTORNA_PN" type="hidden" name="TORNA_PN" value="COX">
+
+<input id="hiddenDESCRIPCION_COMUNICADO" type="hidden" name="DESCRIPCION_COMUNICADO" value="Leasing: cargo arrendamiento financiero">
+
+<input id="hiddenPDF_MULTIPAGINA" type="hidden" name="PDF_MULTIPAGINA" value="N">
+
+<input id="hiddenIMAGEN_COMUNICADO" type="hidden" name="IMAGEN_COMUNICADO" value="/jsp/arq/elocomp000001.jsp?URI=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!791625052673419">
+
+<input id="hiddenTIPO_FORMATO" type="hidden" name="TIPO_FORMATO" value="AFP">
+
+<input id="hiddenTIPO_CUENTA_COMUNICADO" type="hidden" name="TIPO_CUENTA_COMUNICADO" value="ES">
+
+<input id="hiddenFORMATO_COMUNICADO" type="hidden" name="FORMATO_COMUNICADO" value="L">
+
+<input id="hiddenCANAL_MOVIMIENTO" type="hidden" name="CANAL_MOVIMIENTO" value="INT">
+
+<input id="hiddenTOTAL_PAGINAS" type="hidden" name="TOTAL_PAGINAS" value="1">
+
+<input id="hiddenTORNA_PE" type="hidden" name="TORNA_PE" value="1">
+
+<input id="hiddenCLAVE_COMUNICADO" type="hidden" name="CLAVE_COMUNICADO" value="20210622000750001228">
+
+<input id="hiddenALIAS_CUENTA" type="hidden" name="ALIAS_CUENTA" value="LA CAIXA CENTRAL">
+
+<input id="hiddenFLAG_JURIDICA" type="hidden" name="FLAG_JURIDICA" value="J">
+
+<input id="hiddenNUMERO_MAXIMO_PAGINAS_PDF" type="hidden" name="NUMERO_MAXIMO_PAGINAS_PDF" value="12">
+
+<input id="hiddenREFCLAVE_CONTINUACION_LISTA_COMUNICADOS" type="hidden" name="REFCLAVE_CONTINUACION_LISTA_COMUNICADOS" value="LPH9kHCh~z4s8f2QcKH7PgAAAXpc0rHfyv6ZsR8dVAo">
+
+<input id="hiddenFECHA_DESDE" type="hidden" name="FECHA_DESDE" value="">
+
+<input id="hiddenNUMERO_PAGINAS" type="hidden" name="NUMERO_PAGINAS" value="00001">
+
+<input id="hiddenREFCLAVECOMUNICADO" type="hidden" name="REFCLAVECOMUNICADO" value="LPH9kG74SZ4s8f2QbvhJngAAAXpc0Y2zW~Q70qjjnDY:COX:2">
+
+<input id="hiddenRefInformacionComunicado" type="hidden" name="RefInformacionComunicado" value="LPH9kG4N3wws8f2Qbg3fDAAAAXpc0YxM~xlit_iz3dU:COX:2">
+
+<input id="hiddenFECHA_HASTA" type="hidden" name="FECHA_HASTA" value="">
+
+<input id="hiddenpresentacion" type="hidden" name="presentacion" value="/jsp/elocoxp000204.jsp">
+
+</form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formAbrirPDF_COX2">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="12">
+<input type="hidden" name="FORMATO_COMUNICADO" value="L">
+<input type="hidden" name="REFCLAVECOMUNICADO" value="LPH9kG5cR_0s8f2QblxH_QAAAXpc0YvRZJO3db_ouqc:COX:2">
+<input type="hidden" name="RefInformacionComunicado" value="LPH9kG4N3wws8f2Qbg3fDAAAAXpc0YxM~xlit_iz3dU:COX:2">
+<input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+<input type="hidden" name="RESOLUCION" value="300">
+<input type="hidden" name="CANAL_MOVIMIENTO" value="INT">
+<input type="hidden" name="FLAG_PDF_INICIAL" value="S">
+<input type="hidden" name="OPCION" value="">
+<input type="hidden" name="FLUJO" value="COX,2,:COX,1,:GFI,7,''">
+<input type="hidden" name="NUMERO_PAGINAS" value="00001">
+
+<input type="hidden" name="TORNA_PN" value="COX">
+<input type="hidden" name="TORNA_PE" value="1">
+
+<input type="hidden" name="REFCLAVE_COMUNICADO" value="LPH9kG59u9os8f2Qbn272gAAAXpc0YvRyuJt~AoY4nY">
+<input type="hidden" name="TIPO_COMUNICADO" value="00811">
+<input type="hidden" name="CATEGORIA_COMUNICADO" value="12">
+<input type="hidden" name="IMPORTE_COMUNICADO" value="438,63">
+<input type="hidden" name="DIVISA_IMPORTE_COMUNICADO" value="200">
+<input type="hidden" name="INDICADOR_DUPLICADO_COMUNICADO" value="S">
+<input type="hidden" name="CODIGO_CUENTA_COMUNICADO" value="0012100381020020600000030647">
+<input type="hidden" name="TIPO_CUENTA_COMUNICADO" value="ES">
+<input type="hidden" name="FAVORITO_COMUNICADO" value="">
+<input type="hidden">
+<input type="hidden" name="DESCRIPCION_COMUNICADO" value="Leasing%3A+cargo+arrendamiento+financiero">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="detalleComunicado" target="Cos">
+<input type="hidden" id="PN" name="PN" value="COX">
+<input type="hidden" id="PE" name="PE" value="2">
+<input type="hidden" name="CLICK_ORIG" value="FLX_COX_2">
+</form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="pn_pe" target="Cos">
+<input type="hidden" id="pn_pePN" name="PN">
+<input type="hidden" id="pn_pePE" name="PE">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=0URcroAJy7rzpZKVldp65V3GAuMiQA1GGydhAf0mmaFPcHPNDklM!793562328!-565409075" method="POST" name="formImprimirComunicado">
+<input type="hidden" name="PN" value="COX">
+<input type="hidden" name="PE" value="7">
+<input type="hidden" name="REFCLAVE_COMUNICADO" value="LPH9kG59u9os8f2Qbn272gAAAXpc0YvRyuJt~AoY4nY">
+<input type="hidden" name="TIPO_COMUNICADO" value="00811">
+<input type="hidden" name="FORMATO_COMUNICADO" value="L">
+<input type="hidden" name="PAGINA_SOLICITADA" value="">
+<input type="hidden" name="RESOLUCION" value="300">
+<input type="hidden" id="CLICK_ORIG_IMPR" name="CLICK_ORIG" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<div id='OmnitureDIV' style="display:none;visibility:hidden"></div>
+<div style="display:none;visibility:hidden">
+
+<script language="JavaScript" type="text/javascript" src="./js/s_code_basic.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+ 
+     function setTrackerHTML(code){
+        document.getElementById('OmnitureDIV').innerHTML=code;
+    };
+
+    function OmnitureClicatElement(pQuin){
+    try{ 
+   if(typeof window.top.sendLink === 'function') {  window.top.sendLink({event_category:'', event_action:'', event_label:'', event_description:pQuin})  }
+    } catch (err) {console.log(err);};
+    };
+
+    var sendLink = function(objeto){
+           if(typeof window.top.sendLink === 'function'){
+                           try{window.top.sendLink(objeto);}catch(e){}
+           }
+}
+
+
+function testHuella() {
+    
+  try{
+
+	s.channel="Linea Abierta"
+	s.pageName="Linea Abierta:MailBox:Correspondencia"
+
+	s.events="event24"
+	s.prop1="MailBox"
+
+	s.prop5="Correspondencia"
+	s.prop17="es"
+	s.eVar17=s.prop17
+	s.prop18="Cliente"
+	s.eVar18=s.prop18
+
+
+		if (typeof digitalData != "object") {  
+      digitalData={
+   sdid_at: typeof sdidget != "undefined" ? sdidget : "null",
+  client_login_status:'logado',
+  page_typology:'pagina',
+  device_name:'desktop',
+  page_language:'es',
+  page_environment:'produccion',
+  client_id:'N',
+  client_type:'cliente',
+  client_segment:'PRIV',
+  client_category:'empresa',
+  client_heavy_digital:'no',
+  client_holabank:'false',
+  client_autonomo:'false',
+  client_negocios:'false',
+  page_pn:'COX',
+  page_pe:'2',
+  page_pnpe:'COX2',
+  gdpr_treatment_online:'false',
+  gdpr_consent_eecc:'false',
+  gdpr_consent_profiling:'true',
+  prod_amount_max_limit:'0'}; 
+      } 
+
+ 
+
+  if(typeof tealiumAddCampanya === 'function'){
+     tealiumAddCampanya(digitalData);
+    tealiumAddCampanya = undefined;
+}		if(typeof window.top.sendView === 'function') { window.top.sendView(digitalData,s);  }
+	if(navigator.appVersion.indexOf('MSIE')>=0)  setTrackerHTML(unescape('%3C')+'\!-'+'-')
+} catch (err) {console.log(err);};
+    
+	}
+
+function OmnitureAddLoadEvent(func)
+{
+		var oldonload = window.onload;
+		if (typeof window.onload != 'function') {
+			window.onload = func;
+		}
+		else {
+			window.onload = function() {
+				oldonload();
+				func();
+			};
+		}
+}
+
+
+ OmnitureAddLoadEvent(new Function('setTimeout("testHuella();",50)'));
+</script>
+
+</div>
+</div>
+<div class="limpiar"></div>
+
+<script language="JavaScript" type="text/javascript"></script>
+
+</body>
+</html>

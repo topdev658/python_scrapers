@@ -1,0 +1,126 @@
+>>> SWITCH CONTRACT (only multicontract)
+await fetch("https://univia.unicajabanco.es/services/rest/selcontrato?numcontrato=001537385", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "840PE5SV",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/seleccion-de-contrato",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 20_resp_switched_contract__only_for_multi.json
+
+>>> ACCOUNTS
+await fetch("https://univia.unicajabanco.es/services/rest/api/productos/listacuentas", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "MIOPJ48J",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 30_resp_accounts.json
+
+>>> MOVS
+await fetch("https://univia.unicajabanco.es/services/rest/api/cuentas/movimientos/simulaAutorizaBusqueda", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "UY389WY8",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas/001/movimientos",
+    "body": "ppp=001&fechadesde=2022-02-28&fechahasta=2022-06-01&indOperacion=B",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> MOVS (w more movs)
+await fetch("https://univia.unicajabanco.es/services/rest/api/cuentas/movimientos/simulaAutorizaBusqueda", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "F2QYX8MJ",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas/002/movimientos",
+    "body": "ppp=002&fechadesde=2022-04-01&fechahasta=2022-06-06&indOperacion=B",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 40_resp_movs_w_more_movs.json (see masmovimientos)
+
+>>> MOVS PAG 2
+await fetch("https://univia.unicajabanco.es/services/rest/api/cuentas/movimientos/paginacion", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "F2QYX8MJ",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas/002/movimientos",
+    "body": "ppp=002&nummov=341&indOperacion=B",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 50_resp_movs_pag2.json
+
+>>> MOVS PAG 3 (no more)
+await fetch("https://univia.unicajabanco.es/services/rest/api/cuentas/movimientos/paginacion", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "F2QYX8MJ",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas/002/movimientos",
+    "body": "ppp=002&nummov=361&indOperacion=B",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 60_resp_movs_pag3_no_more.json

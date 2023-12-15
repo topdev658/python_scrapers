@@ -1,0 +1,139 @@
+MAILTO=""
+PATH=/home/context/bin:/home/context/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
+
+* * * * * flock -n ~/tmp/server_for_scraping.lock ./run_server_for_scraping.sh >> ~/logs/cron_flock_server_for_scraping.log 2>&1
+
+# replaced by fix_scraping_state...
+# * * * * * flock -n ~/tmp/scraping_state_observer.lock ./run_scraping_state_observer.sh >> ~/logs/cron_flock_scraping_state_observer.log 2>&1
+
+* * * * * flock -n ~/tmp/machine_stat.lock ./run_machine_statistics_collector.sh >> ~/logs/cron_flock_machine_stat.log 2>&1
+
+* * * * * cd ~/tinyproxy && flock -n ~/tmp/tinyproxy.lock ./tinyALL.sh >> ~/logs/cron_tinyproxy.log 2>&1
+
+
+
+# UTC = LOCAL - 1 (winter) or LOCAL - 2 (summer)
+# targets:
+# main_launcher_receipts.py 0:10 UTC
+# main_launcher_checks.py 239949 2:00 UTC
+# main_launcher_leasing.py 239949 4:00 UTC
+# NB: it's possible to use TZ=UTC for these tasks but it's not tested for other tasks
+# Launch AVIA basic scraping needed for other AVIA financial instruments.
+05 1 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py -u 239949 > /mnt/tesoralia_logs/prod/night_scraping_avia.log 2>&1
+# Descarga nocturna de informacion basica de movimientos
+10 2 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher.py > /mnt/tesoralia_logs/prod/night_scraping.log 2>&1
+# Descarga diurna de informacion de PDFs
+00 8 * * 6  ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > /mnt/tesoralia_logs/prod/daily_scraping.log 2>&1
+00 8 * * 0  ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > /mnt/tesoralia_logs/prod/daily_scraping.log 2>&1
+# Preferred to use main_launcher_checks for specific customers/accesses
+# (it reduces warn msgs related to absent checks scrapers for all fin entities)...
+0 4 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_checks.py -u 239949 > /mnt/tesoralia_logs/prod/night_scraping_checks.log 2>&1
+# Night leasing scraping
+0 6 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_leasing.py -u 239949 > /mnt/tesoralia_logs/prod/night_scraping_leasing.log 2>&1
+# Night leasing scraping SAGALES -u510112
+05 0 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_leasing.py -u 510112 > /mnt/tesoralia_logs/prod/night_scraping_leasing_u510112.log 2>&1
+
+# Random time launcher
+* * * * * SCRAP_INTERVAL=0 python3 main_launcher__random_time.py -u 505059 > /mnt/tesoralia_logs/prod/random_time_scraping_sercom.log 2>&1
+
+# MT940
+0 6 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_mt940_nightly_batch.py > ~/logs/night_scraping_mt940.log 2>&1
+
+# Night n43 scraping (no accs of -u 239949), takes about 15 min for 50 accs
+# The target folder sometimes is busy and not responding, remount it (see sudo crontab)
+30 6 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 -X faulthandler main_launcher_n43_nightly_batch_db.py > /mnt/tesoralia_logs/prod/night_scraping_n43.1.log 2>&1
+30 7 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 -X faulthandler main_launcher_n43_nightly_batch_db.py > /mnt/tesoralia_logs/prod/night_scraping_n43.2.log 2>&1
+30 8 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 -X faulthandler main_launcher_n43_nightly_batch_db.py > /mnt/tesoralia_logs/prod/night_scraping_n43.3.log 2>&1
+
+# TRANSFERENCIAS
+00 6 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 main_launcher_transfers_nightly_batch.py > /mnt/tesoralia_logs/prod/night_scraping_transfers.1.log 2>&1
+00 8 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 main_launcher_transfers_nightly_batch.py > /mnt/tesoralia_logs/prod/night_scraping_transfers.2.log 2>&1
+00 9 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 main_launcher_transfers_nightly_batch.py > /mnt/tesoralia_logs/prod/night_scraping_transfers.3.log 2>&1
+
+# Special launch for failing accesses (must be launched one by one, not simultaneously)
+00 7 * * * SCRAP_INTERVAL=0 python3 main_launcher_receipts.py -a 35424
+
+# ROTONDA TPV
+#40 6 * * * ulimit -s unlimited && SCRAP_INTERVAL=0 python3 -X faulthandler main_launcher_tpv.py -a 30618 > /mnt/tesoralia_logs/prod/night_scraping_tpv.log 2>&1
+45 8 * * * SCRAP_INTERVAL=0 python3 main_launcher_pos.py -a 30623 > /mnt/tesoralia_logs/prod/night_scraping_pos.log 2>&1
+50 8 * * * SCRAP_INTERVAL=0 python3 main_launcher_pos.py -a 37110 > /mnt/tesoralia_logs/prod/night_scraping_pos.log 2>&1
+55 8 * * * SCRAP_INTERVAL=0 python3 main_launcher_pos.py -a 39502 > /mnt/tesoralia_logs/prod/night_scraping_pos.log 2>&1
+
+# Special launch for customer sharing accesses on N43 and normal scrapper.
+00 7 * * * SCRAP_INTERVAL=0 python3 main_launcher_receipts.py -u 527129
+10 7 * * * SCRAP_INTERVAL=0 python3 main_launcher_receipts.py -u 527602
+
+# Fixers, detectors
+* * * * * python3 fix_scraping_state__reset_by_timing.py
+0 * * * * python3 fix_movs__release_old_mutexes.py
+0 7 * * * python3 fix_auth__mass_wrong_credentials_detector.py -o 7
+0 0 * * * python3 fix_auth__mass_wrong_credentials_detector.py -o 17
+
+# RECEIPTS DOWNLOAD
+05 14 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py -r > /mnt/tesoralia_logs/prod/receipts_download.log 2>&1
+#0 2 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > ~/logs/night_scraping.log 2>&1
+# for night re-scraping, green tunnel should be finished already (default 0-4 UTC)
+#0 4 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > ~/logs/night_rescraping.log 2>&1
+
+# Clean up the logs:
+# every day move logs to arch/
+0 0 * * * mv logs/main_launcher* /mnt/tesoralia_logs/prod/_arch/
+0 0 * * * mv /mnt/tesoralia_logs/prod/main_launcher* /mnt/tesoralia_logs/prod/_arch/
+
+# once a day truncate global log file (prefer specific log files instead)
+0 0 * * * truncate -s 1M logs/server_start_cronjob.log
+# clean other logs
+0 0 * * * rm logs/scraping_state_observer/*
+
+
+# once a week delete all (old) logs from arch/,
+# after this only logs of the last day
+# will be saved in the arch/ by the first cronjob
+# of this list (mv logs/...)
+# 59 23 * * 0 rm logs/arch/*
+
+# delete all archived logs older 10 days
+DAY10=date +%Y-%m-%d -d -10day
+59 23 * * * cd /mnt/tesoralia_logs/prod/_arch && find . -name "*.log" ! -newerct $($DAY10) | xargs rm
+
+# * * * * * ulimit -s unlimited && python3 -X faulthandler t.py >> ~/logs/t.log
+
+#DAF: night_scraping reports
+0 8 * * * /home/context/reports/night_scraping_sms_auth_accesses_reporter.sh
+5 8 * * * /home/context/reports/night_scraping_all_failures_reporter.sh
+
+# COPY N43 logs to arch
+TODAY=date +%Y%m%d
+59 23 * * * cp /mnt/tesoralia_logs/prod/night_scraping_n43.1.log  /mnt/tesoralia_logs/prod/_arch/night_scraping_n43_$($TODAY).1.log
+59 23 * * * cp /mnt/tesoralia_logs/prod/night_scraping_n43.2.log  /mnt/tesoralia_logs/prod/_arch/night_scraping_n43_$($TODAY).2.log
+59 23 * * * cp /mnt/tesoralia_logs/prod/night_scraping_n43.3.log  /mnt/tesoralia_logs/prod/_arch/night_scraping_n43_$($TODAY).3.log
+59 23 * * * cp /mnt/tesoralia_logs/prod/night_scraping_pos.log /mnt/tesoralia_logs/prod/_arch/night_scraping_pos_$($TODAY).log
+
+#Monitorización de consumo de recursos
+*/30 * * * * date >>/mnt/tesoralia/prod/free_memory.log
+*/30 * * * * sleep 10 && free -m >>/mnt/tesoralia/prod/free_memory.log
+#*/30 * * * * sleep 15 && uptime >>/mnt/tesoralia/prod/free_memory.log
+
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+

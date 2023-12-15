@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <TITLE>Bankinter empresas&gt;Visualización de Documentos</TITLE>
+    <script type="text/javascript" src="/www/es-es/cgi/ruxitagentjs_ICA2SVfhjqrux_10199200831173248.js"
+            data-dtconfig="app=9d76c2ed0d84b292|featureHash=ICA2SVfhjqrux|rdnt=1|uxrgce=1|bp=2|cuc=6x9v7ja9|dpvc=1|md=mdcc1=a.user|lastModification=1599735180212|dtVersion=10199200831173248|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/www/es-es/cgi/ruxitagentjs_ICA2SVfhjqrux_10199200831173248.js|reportUrl=/www/es-es/cgi/beacon/rb_32d2040b-e176-40d5-bb75-e6b6f8fb7ff7|rid=RID_-2014365087|rpid=2088691866|domain=bankinter.com"></script>
+    <SCRIPT event="onload" for="window" language="javascript">
+        var direccion;
+
+        // TODO exact PDF URL
+        direccion = "empresas+cuentas+frame1?semana=5&envio=3084079&cuenta=01289426100003607&fecha=20200131&persona=40607476&num_pag=006&tot_pag=1&fecha_valor=20200131&ind_csf=1&ind_anyo=A";
+
+
+        browserName = navigator.appName;
+        if (browserName == "Microsoft Internet Explorer") {
+            acrobat = document.all.PDFNotKnown ? "IfNoAcrobat" : "IfAcrobat";
+            if (acrobat == "IfAcrobat") {
+                document.location = direccion;
+            } else {
+                //document.location= 'empresas+fichhtml?nombre=empresas/cmd_cuentas/cmd_vista/noacrobat.html';
+                document.location = direccion + "&acrobat=no";
+            }
+        } else if (browserName == "Netscape") {
+            navigator.plugins.refresh(false);
+            numeroPlugins = navigator.plugins.length;
+            acrobatinstalado = "NO";
+            for (i = 0; i < numeroPlugins; i++) {
+                plugin = navigator.plugins[i];
+                nombreplugin = plugin.name;
+                if (nombreplugin == "Adobe Acrobat") {
+                    acrobatinstalado = "SI";
+                }
+            }
+            if (acrobatinstalado == "SI") {
+                document.location = direccion;
+            } else {
+                //document.location= 'empresas+fichhtml?nombre=empresas/cmd_cuentas/cmd_vista/noacrobat.html';
+                document.location = direccion + "&acrobat=no";
+            }
+        } else {
+            document.location = direccion;
+        }
+
+    </SCRIPT>
+</HEAD>
+<BODY marginheight="0" marginwidth="0" rightmargin="0" bottommargin="0" topmargin="0" leftmargin="0">
+<OBJECT style="display:none" height="0" width="0" type="application/pdf">
+    <DIV style="display:none" id="PDFNotKnown">&nbsp;</DIV>
+</OBJECT>
+</BODY>
+</HTML>
+<!--
+PT : 0.0 : 0.0
+M : 0 : 13PORLPA
+-->

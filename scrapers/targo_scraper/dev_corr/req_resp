@@ -1,0 +1,60 @@
+>>> OPEN FILTER FORM (justificantes de operaciones)
+await fetch("https://www.tomamosimpulso.com/es/banque/avis_operes.aspx", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.tomamosimpulso.com/es/banque/pageaccueil.html",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_filter_form.html
+
+
+>>> FILTER CORR FOR ACCOUNT
+await fetch("https://www.tomamosimpulso.com/es/banque/avis_operes.aspx?_productfilter=AVIS&_pid=Avis_rech_liste_avis&_state=1989-F&_saguid=lv1lsKtUcU2iqfF3YK9PUQ%3d%3dMTAuMy4xLjEzNTo4MDAz&_wxf2_cc=es-ES&_rendertypeversion=2&_rendertype=WebXForm", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.tomamosimpulso.com/es/banque/avis_operes.aspx",
+    "body": "data_input_TYP%255fRCH=CPT&data_input_NUM%255fCPT=02160585600620000397&data_input_COD%255fTYP=+++&%5Bt%3Adbt%253adate%3B%5Ddata_input_DAT%25255fDEB=01%2F10%2F2021&%5Bt%3Adbt%253adate%3B%5Ddata_input_DAT%25255fFIN=17%2F10%2F2021&%5Bt%3Adbt%253adouble%3B9%2814%29v9%282%29%5Ddata_input_MNT%25255fMIN=&%5Bt%3Adbt%253adouble%3B9%2814%29v9%282%29%5Ddata_input_MNT%25255fMAX=&%5Bt%3Adbt%253astring%3Bx%2840%29%5Ddata_input_NUM%25255fREF=&_FID_DoRechercher.x=56&_FID_DoRechercher.y=24&data_input_NUM%255fCPT%255fAFF=&data_output_MES%255fERR=&data_output_AFF%255fLST=N&data_output_CRI%255fRECH%255fEXP=True&data_LST%255fCPT_CPT_RIB%255fPRD=02160585600620000397&data_LST%255fCPT_CPT_RIB%255fPRD%255fAFF=0620000397+CUENTA+CORRIENTE+DE+USO+PRO+EN+USD+I+GAMBASTAR+SL&data_LST%255fCPT_CPT_INT=CUENTA+CORRIENTE+DE+USO+PRO+EN+USD+I+GAMBASTAR+SL&data_LST%255fCPT_CPT_NB%255fAVI=4&data_LST%255fCPT_CPT_RFN=O",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_corr_filtered.html
+
+
+>>> DOWNLOAD PDF
+await fetch("https://www.tomamosimpulso.com/es/banque/avis_operes.aspx?_productfilter=AVIS&_pid=Avis_rech_liste_avis&_fid=DoVisuICOU&_state=2166-F&_saguid=Mg%2fwqhtTfECkHPd2bic%2fhQ%3d%3dMTAuMy4xLjEzNjo4MDAz&_rendertype=WebXForm&_rendertypeversion=2&PAR=12&FMT%255fAVI=NEW&CLE%255fINT=C61D21279N50236A&ETT%255fGES1=02674&ETT%255fGES2=23197&TYP%255fRES=DBT&REF%255fEXT=02160585600620000397&REF%255fINT=0009002521902&NOM%255fMAQ=AVIDBTDY&COD%255fAPL=OID&RES1=", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.tomamosimpulso.com/es/banque/avis_operes.aspx?_productfilter=AVIS&_pid=Avis_rech_liste_avis&_state=1569-F&_saguid=Mg%2fwqhtTfECkHPd2bic%2fhQ%3d%3dMTAuMy4xLjEzNjo4MDAz&_wxf2_cc=es-ES&_rendertypeversion=2&_rendertype=WebXForm",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< pdf

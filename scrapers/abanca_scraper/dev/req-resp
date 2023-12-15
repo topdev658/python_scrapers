@@ -1,0 +1,122 @@
+MOVS FILTERED
+
+>>> POST https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces
+
+formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040000699&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=01-01-2019&formulario%3AfInicioInputCurrentDate=01%2F2019&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=27-01-2019&formulario%3AfFinInputCurrentDate=01%2F2019&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario%3AbtnFiltrar=Consultar&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxMDc5NXB0+AB0vanNwL0JFUFJfbW92aW1pZW50b3NfTFNULmpzcA%3D%3D+
+
+[('formulario:panelAyudaOpenedState', ''), ('formulario:panelModalSaldosOpenedState', ''), ('formulario:idCuenta', '20801208213040000699'), ('formulario:radioSeleccion', 'F'), ('formulario:fInicioInputDate', '01-01-2019'), ('formulario:fInicioInputCurrentDate', '01/2019'), ('formulario:tipoOrdenacion', '1'), ('formulario:fFinInputDate', '27-01-2019'), ('formulario:fFinInputCurrentDate', '01/2019'), ('formulario:importeD', ''), ('formulario:importeH', ''), ('formulario:concepto', ''), ('formulario:tipo', ''), ('formulario:btnFiltrar', 'Consultar'), ('formulario_SUBMIT', '1'), ('formulario:_link_hidden_', ''), ('formulario:_idcl', ''), ('javax.faces.ViewState', 'rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxMDc5NXB0 AB0vanNwL0JFUFJfbW92aW1pZW50b3NfTFNULmpzcA== ')]
+
+
+
+MOVS EXCEL
+
+>>> POST https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true
+
+AJAXREQUEST=_viewRoot&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040000699&formulario%3Aultimosmeses=&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=01-01-2019&formulario%3AfInicioInputCurrentDate=01%2F2019&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=27-01-2019&formulario%3AfFinInputCurrentDate=01%2F2019&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxMDgyMnB0%0AAB0vanNwL0JFUFJfbW92aW1pZW50b3NfTFNULmpzcA%3D%3D%0A&formulario%3A_idJsp401=formulario%3A_idJsp401&
+
+[('AJAXREQUEST', '_viewRoot'), ('formulario:panelAyudaOpenedState', ''), ('formulario:panelModalSaldosOpenedState', ''), ('formulario:idCuenta', '20801208213040000699'), ('formulario:ultimosmeses', ''), ('formulario:radioSeleccion', 'F'), ('formulario:fInicioInputDate', '01-01-2019'), ('formulario:fInicioInputCurrentDate', '01/2019'), ('formulario:tipoOrdenacion', '1'), ('formulario:fFinInputDate', '27-01-2019'), ('formulario:fFinInputCurrentDate', '01/2019'), ('formulario:importeD', ''), ('formulario:importeH', ''), ('formulario:concepto', ''), ('formulario:tipo', ''), ('formulario_SUBMIT', '1'), ('formulario:_link_hidden_', ''), ('formulario:_idcl', ''), ('javax.faces.ViewState', 'rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxMDgyMnB0\nAB0vanNwL0JFUFJfbW92aW1pZW50b3NfTFNULmpzcA==\n'), ('formulario:_idJsp401', 'formulario:_idJsp401')]
+
+===================
+
+MOVS FORM SELECTION
+
+>>> SELECT 'BY DATES' option
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "AJAXREQUEST=_viewRoot&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3Aultimosmeses=15&formulario%3AradioSeleccion=F&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0OTY2cHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw&formulario%3AsupportradioSeleccion=formulario%3AsupportradioSeleccion&",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> SELECT FECHA CONTABLE
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "AJAXREQUEST=_viewRoot&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3Aultimosmeses=&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=12-06-2021&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario%3AdataMovimientos__hiddenSelected=&formulario%3AdataMovimientos__hiddenDeselected=&formulario%3AdataMovimientos_tablaSeleccion=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0OTY2cHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw&formulario%3AsupporttipoOrdenacion=formulario%3AsupporttipoOrdenacion&",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> SELECT DATE FROM
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "AJAXREQUEST=_viewRoot&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3Aultimosmeses=&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=07-06-2021&formulario%3AfInicioInputDate=07-06-2021&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=12-06-2021&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario%3AdataMovimientos__hiddenSelected=&formulario%3AdataMovimientos__hiddenDeselected=&formulario%3AdataMovimientos_tablaSeleccion=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0OTY2cHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw&formulario%3AsupportfInicio=formulario%3AsupportfInicio&",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> SELECT DATE TO
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "AJAXREQUEST=_viewRoot&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3Aultimosmeses=&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=07-06-2021&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=07-06-2021&formulario%3AfFinInputDate=07-06-2021&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario%3AdataMovimientos__hiddenSelected=&formulario%3AdataMovimientos__hiddenDeselected=&formulario%3AdataMovimientos_tablaSeleccion=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0OTY2cHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw&formulario%3AsupportfFin=formulario%3AsupportfFin&",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> SUBMIT FILTER
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "body": "formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=07-06-2021&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=07-06-2021&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario%3AbtnFiltrar=Consultar&formulario%3AdataMovimientos__hiddenSelected=&formulario%3AdataMovimientos__hiddenDeselected=&formulario%3AdataMovimientos_tablaSeleccion=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0OTY2cHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> EXPORT EXCEL STEP 1
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces?javax.portlet.faces.DirectLink=true", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    "body": "AJAXREQUEST=_viewRoot&formAux_SUBMIT=1&formAux%3A_link_hidden_=&formAux%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ1MTMxcHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw&formAux%3A_idJsp621=formAux%3A_idJsp621&",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> EXPORT EXCEL STEP 2
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_movimientos_LST.faces", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "body": "formulario%3AbtnExportToExcel=Submit+Query&formulario%3ApanelAyudaOpenedState=&formulario%3ApanelModalSaldosOpenedState=&formulario%3AidCuenta=20801208213040001027&formulario%3AradioSeleccion=F&formulario%3AfInicioInputDate=07-06-2021&formulario%3AfInicioInputCurrentDate=06%2F2021&formulario%3AtipoOrdenacion=1&formulario%3AfFinInputDate=07-06-2021&formulario%3AfFinInputCurrentDate=06%2F2021&formulario%3AimporteD=&formulario%3AimporteH=&formulario%3Aconcepto=&formulario%3Atipo=&formulario_SUBMIT=1&formulario%3A_link_hidden_=&formulario%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ1MTMxcHQAHS9qc3AvQkVQUl9tb3ZpbWllbnRvc19MU1QuanNw",
+    "method": "POST",
+    "mode": "cors"
+});

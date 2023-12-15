@@ -1,0 +1,142 @@
+PRE CUENTAS -> SALDOS PRODUCTOS
+>>> POST https://www.inversis.com/trans/inversis/SvlAjaxControl?accion=setMenuHistoryItem&dataTitle=Saldos%20productos%20bancarios&dataUrl=/trans/inversis/SvlConsultaCC%3Faccion%3DresumenSaldosPI%26tipo%3DS%26pathMenu%3D1_0%26esLH%3DN&contenedor=N
+DATA
+<empty>
+
+
+>>> GET  https://www.inversis.com/trans/inversis/SvlConsultaCC?accion=resumenSaldosPI&tipo=S&pathMenu=1_0&esLH=N
+<<< resp_accs_dropdown.html
+(see
+    //value, texto, color, seleccionado
+var aCuentas = [
+
+    ["","","A","S"]
+             ,
+
+    ["0029493443","CUENTA EFECTIVO - 0232-0105-00-0029493443 - VIA CELERE DESARROLLOS INMOBIL",
+
+    "A",
+
+    "N",
+
+    "EUR"]
+
+    ];
+)
+
+
+ACTUAL BALANCE
+>>> POST https://www.inversis.com/trans/inversis/SvlConsultaCC
+DATA
+modoPresentacion=D
+accion=posicionIntegrada
+origen=posicionIntegrada
+cuentaSeleccionada
+cuentaSeleccionadaInicio
+tipoSaldo
+producto
+tipoInforme=1
+datoPersona
+servicio
+internacionalizado=SI
+tipo=S
+indEfecMarcaBlanca=N
+esPosIntegrada=false
+nombreForm
+productos0=0029493443
+cuentaCompleta0=0232-0105-00-0029493443
+divisaFiltro0
+divisaCuenta0=EUR
+institucionTriangulacion=5000
+divisaInstitucion=EUR
+divisaDecimalesInstitucion=2
+c_codigoProducto
+c_numeroCtaExterna
+c_tipoProducto
+c_descripcionCorta
+c_estadoProducto
+c_estadoPersonaProducto
+c_tipoTitular
+c_tipoFirma
+c_descripcionTipoProducto
+nombreSelect
+inicio
+saldoInternacionalizado=S
+multiDivisa0=S
+indMostrarEuros0
+hinstitucionCuenta=5000
+tipoCuenta=AG
+institucionColectiva=5358217
+institucionlogado=5000
+tipoProductoBuscador0=CE
+estadoProductoBuscador0
+online=S
+tipoProducto
+contravalorEn
+tipoTitular
+_id_tds=qDlM7AkL43pRejvoL0BWMOil9zWVgV2qvhruw6yahEx6rRLLuI74!1789967887!-1145187264!16076083059311802216824226270652
+esLH=N
+<<< resp_acc_balance.html
+
+
+MOVS
+>>>  https://www.inversis.com/trans/inversis/SvlConsultaCC
+DATA
+accion=consultaMovimientos
+origen=consultarMovimientos
+numeroOperacion
+claseOperacion
+fecha
+ordenMiInversis
+fechaHoy=11/12/2020
+CABECERA.TIPO_PRODUCTO=CE,RE
+formatoFecha=dd/MM/yyyy
+cuenta=0029493443
+indMovimientoMigrado
+detalleFechaOperacion
+detalleFechaValor
+detalleTipoOperacion
+detalleConcepto
+detalleImporte
+detalleReferenciaMov
+refFicheroMigrado
+totalRegistros=1
+numeroRegistrosMostrar=50
+numeroPagina=1
+indCargoAbono
+cuentaSeleccionada=0029493443
+esSW=false
+nombreForm
+productos0=0029493443
+cuentaCompleta0=0232-0105-00-0029493443
+divisaFiltro0
+divisaCuenta0=EUR
+institucionTriangulacion=5000
+divisaInstitucion=EUR
+divisaDecimalesInstitucion=2
+c_codigoProducto
+c_numeroCtaExterna
+c_tipoProducto
+c_descripcionCorta
+c_estadoProducto
+c_estadoPersonaProducto
+c_tipoTitular
+c_tipoFirma
+c_descripcionTipoProducto
+nombreSelect
+inicio
+saldoInternacionalizado=S
+multiDivisa0=S
+indMostrarEuros0
+hinstitucionCuenta=5000
+tipoCuenta=AG
+institucionColectiva=5358217
+institucionlogado=5000
+tipoProductoBuscador0=CE,RE
+estadoProductoBuscador0
+fechaDesde=01/10/2020
+fechaHasta=11/12/2020
+_id_tds=JZtTqnw-HNAD7ZhYhoW8gmvq2Dwj9ttUQu0mZv0j7dVDPvKOGMoX!1789967887!-1145187264!160772145055818022168241869633915
+esLH=N
+
+<<< resp_movs.html

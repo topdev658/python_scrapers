@@ -1,0 +1,253 @@
+>>> FICHEROS MENU CLICK STEP 1(TO CHECK PROBABLY IS NOT NEEDED)
+
+await fetch("https://loc7.caixabank.es/GPeticiones;WebLogicSession=6Uuv-NMDNftAcXH4AvVObaMcgPdY28ymi08FqVhoQyhHWZ3BrJ55!791169714!-495327821?PN=GFI&PE=4&POSICION_PESTAYA=9&NUMERO_PESTANYA=9&REMOVE_REFVAL=1&CLORIG=MNU_EMP_9&PREPN=FTX&PREPE=12&TARGET=&ENTORNO=&USUCLO=00003751317", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en,es-ES;q=0.8,es;q=0.5,en-US;q=0.3",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc7.caixabank.es/GPeticiones;WebLogicSession=6Uuv-NMDNftAcXH4AvVObaMcgPdY28ymi08FqVhoQyhHWZ3BrJ55!791169714!-495327821?PN=GFI&PE=3&FLAG_PE=E&NUMERO_PESTANYA=&FLAG_DEMO=false&FLAG_BORSA=false&INIPN=&INIPE=&CLR_LOG_SESSIO=N&CLR_LOG_SESSIO_AOL=N&FLAG_BKONLINE=0",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_clicked_ficheros.html
+
+>>> FICHEROS MENU CLICK STEP 2
+await fetch("https://loc7.caixabank.es/GPeticiones;WebLogicSession=6Uuv-NMDNftAcXH4AvVObaMcgPdY28ymi08FqVhoQyhHWZ3BrJ55!791169714!-495327821", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en,es-ES;q=0.8,es;q=0.5,en-US;q=0.3",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc7.caixabank.es/GPeticiones;WebLogicSession=6Uuv-NMDNftAcXH4AvVObaMcgPdY28ymi08FqVhoQyhHWZ3BrJ55!791169714!-495327821?PN=GFI&PE=10&NUMERO_PESTANYA=9&REMOVE_REFVAL=1&CLORIG=MNU_EMP_9&PREPN=FTX&PREPE=12&TARGET=&ENTORNO=&USUCLO=00003751317",
+    "body": "PN=FTX&PE=12&CLICK_ORIG=&REMOVE_REFVAL=1&VOLVER_PE=&VOLVER_PN=&ORIGEN_PE=&ORIGEN_PN=&BAJA=&MODIFICAR=&CLICK_ORIG=",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_clicked_ficheros.html
+
+>>> OPEN DESCARGAR FICHEROS
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118?PN=GFI&PE=3&FLAG_PE=E&NUMERO_PESTANYA=&FLAG_DEMO=false&FLAG_BORSA=false&INIPN=&INIPE=&CLR_LOG_SESSIO=N&CLR_LOG_SESSIO_AOL=N&FLAG_BKONLINE=0",
+    "body": "PN=FTR&PE=70&CLICK_ORIG=MNU_EMP_9.2&REMOVE_REFVAL=&NUMERO_PESTANYA=9",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 30_resp_descargar_ficheros.html
+
+
+>>> DESCARGAR FICHEROS (PAGE 2 from 35_resp_descargar_ficheros_page1.html)
+await fetch("https://loc11.caixabank.es/GPeticiones;WebLogicSession=SWcDSzY37B_MSBw9FEBt2AOnpSctDMvP9kmERUEyhdInsZnfJzaj!-2124760579!1656891269", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc11.caixabank.es/GPeticiones;WebLogicSession=SWcDSzY37B_MSBw9FEBt2AOnpSctDMvP9kmERUEyhdInsZnfJzaj!-2124760579!1656891269",
+    "body": "operacionesDescarga=&PN=FTR&PE=70&PN_VOLVER=FTR&PE_VOLVER=70&CLAVE_ITR=&SITUA=&NOMBRE_FICH_HP=&NOMBRE_FICH_PC=&CLAU_REC=&CLAVE_CONTINUACION=n12yZQ7FA9efXbJlDsUD1wAAAXkDTADUG2s4E%7Eml6V4&LISTA_FICHEROS_DESCARGA=&LISTA_FICHEROS_DESCARGA_HP=&LISTA_CLAVE_ITR=&LISTA_CLAU_REC=&NUM_DESCARGAS=&ALIASPETICION=&PRIMERA_PAGINA_FTR70=N&SEGUNDA_VUELTA=&FLUJO=&CLICK_ORIG=PAG_FTR_70",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 36_resp_descargar_ficheros_page2.html
+
+
+>>> DOWNLOAD N43 file step 1 POPUP (select file format, need ico_text.svgFormato texto)
+await fetch("https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+    "referrer": "https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320",
+    "body": "PN=FTR&PE=23&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S&NOM_FICH_HP=L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE&CLAVE_ITR=L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA&SITUA=RU&CLAU_REC=00001MHC99973&NOM_FICH_PC=TT100421.755&TIPO_FICHERO=Ext.C43/3 SEPA",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('PN', 'FTR'),
+             ('PE', '23'),
+             ('CLICK_ORIG', 'RED_FTR_70'),
+             ('FLAG_LIGHTBOX_DESCARGA', 'S'),
+             ('NOM_FICH_HP', 'L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE'),
+             ('CLAVE_ITR', 'L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA'),
+             ('SITUA', 'RU'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('NOM_FICH_PC', 'TT100421.755'),
+             ('TIPO_FICHERO', 'Ext.C43/3 SEPA')])
+
+<<< 40_downl_file_step1__select_file_format.htm
+
+
+>>> DOWNLOAD N43 file - step 2 -- PRE (extra req) unnecessary??
+await fetch("https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+    "referrer": "https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320",
+    "body": "FORMAT=RMHC9997302002&ESTILO=RMHC999730200201&CLAU_REC=00001MHC99973&NOM_FICH_PC=TT100421.755&NOM_FICH_HP=L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE&CLAVE_PRODUCTO=&CLAVE_ITR=L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA&USUARI_SAU=0003751317&LITERAL_TEXTO=&IDIOMA=02&SITUA=RU&presentacion=/jsp/prometeus/popupdescargafichero/web/FTRPopupDescargaFichero.jsp&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S&PN=FTR&PE=23&FLAG_PDF=NO",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('FORMAT', 'RMHC9997302002'),
+             ('ESTILO', 'RMHC999730200201'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('NOM_FICH_PC', 'TT100421.755'),
+             ('NOM_FICH_HP', 'L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE'),
+             ('CLAVE_PRODUCTO', ''),
+             ('CLAVE_ITR', 'L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA'),
+             ('USUARI_SAU', '0003751317'),
+             ('LITERAL_TEXTO', ''),
+             ('IDIOMA', '02'),
+             ('SITUA', 'RU'),
+             ('presentacion',
+              '/jsp/prometeus/popupdescargafichero/web/FTRPopupDescargaFichero.jsp'),
+             ('CLICK_ORIG', 'RED_FTR_70'),
+             ('FLAG_LIGHTBOX_DESCARGA', 'S'),
+             ('PN', 'FTR'),
+             ('PE', '23'),
+             ('FLAG_PDF', 'NO')])
+<<< 50_download_file__pre.html
+
+
+>>> DOWNLOAD N43 file - step 3
+await fetch("https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc2.caixabank.es/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320",
+    "body": "PN=FTR&PE=91&PE_ORIGEN=23&NOM_FICH_PC=TT100421.755&RUTA_FICH_HP=L_NvdQNlqkEv8291A2WqQQAAAXiaKXsIHi%7EQyaf%7EMcM&EXTENS=TXT&CLAU_REC=00001MHC99973&MULTIDESCARGA=N&CLICK_ORIG=FLX_FTR_23",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('PN', 'FTR'),
+             ('PE', '91'),
+             ('PE_ORIGEN', '23'),
+             ('NOM_FICH_PC', 'TT100421.755'),
+             ('RUTA_FICH_HP', 'L_NvdQNlqkEv8291A2WqQQAAAXiaKXsIHi~Qyaf~McM'),
+             ('EXTENS', 'TXT'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('MULTIDESCARGA', 'N'),
+             ('CLICK_ORIG', 'FLX_FTR_23')])
+<<< N43 file
+
+
+ALSO, FILE 2
+
+
+>>> DOWNLOAD N43 file step 1 POPUP -- FILE 2
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118",
+    "body": "PN=FTR&PE=23&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S&NOM_FICH_HP=Edx_uDHnTNAR3H~4MedM0AAAAXidzA14FJ9li4~mG~E&CLAVE_ITR=Edx_uDEHKXQR3H~4MQcpdAAAAXidzA14qpFeIJhPE7g&SITUA=RU&CLAU_REC=00001MHC99973&NOM_FICH_PC=TT090421.978&TIPO_FICHERO=Ext.C43/3 SEPA",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('PN', 'FTR'),
+             ('PE', '23'),
+             ('CLICK_ORIG', 'RED_FTR_70'),
+             ('FLAG_LIGHTBOX_DESCARGA', 'S'),
+             ('NOM_FICH_HP', 'Edx_uDHnTNAR3H~4MedM0AAAAXidzA14FJ9li4~mG~E'),
+             ('CLAVE_ITR', 'Edx_uDEHKXQR3H~4MQcpdAAAAXidzA14qpFeIJhPE7g'),
+             ('SITUA', 'RU'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('NOM_FICH_PC', 'TT090421.978'),
+             ('TIPO_FICHERO', 'Ext.C43/3 SEPA')])
+<<< 40_downl_file_step1__select_file_format__file2.html
+
+
+>>> DOWNLOAD N43 file - step 2 -- PRE (extra req) unnecessary?? -- FILE 2
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html, */*; q=0.01",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118",
+    "body": "FORMAT=RMHC9997302002&ESTILO=RMHC999730200201&CLAU_REC=00001MHC99973&NOM_FICH_PC=TT090421.978&NOM_FICH_HP=Edx_uDHnTNAR3H~4MedM0AAAAXidzA14FJ9li4~mG~E&CLAVE_PRODUCTO=&CLAVE_ITR=Edx_uDEHKXQR3H~4MQcpdAAAAXidzA14qpFeIJhPE7g&USUARI_SAU=0003751317&LITERAL_TEXTO=&IDIOMA=02&SITUA=RU&presentacion=/jsp/prometeus/popupdescargafichero/web/FTRPopupDescargaFichero.jsp&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S&PN=FTR&PE=23&FLAG_PDF=NO",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('FORMAT', 'RMHC9997302002'),
+             ('ESTILO', 'RMHC999730200201'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('NOM_FICH_PC', 'TT090421.978'),
+             ('NOM_FICH_HP', 'Edx_uDHnTNAR3H~4MedM0AAAAXidzA14FJ9li4~mG~E'),
+             ('CLAVE_PRODUCTO', ''),
+             ('CLAVE_ITR', 'Edx_uDEHKXQR3H~4MQcpdAAAAXidzA14qpFeIJhPE7g'),
+             ('USUARI_SAU', '0003751317'),
+             ('LITERAL_TEXTO', ''),
+             ('IDIOMA', '02'),
+             ('SITUA', 'RU'),
+             ('presentacion',
+              '/jsp/prometeus/popupdescargafichero/web/FTRPopupDescargaFichero.jsp'),
+             ('CLICK_ORIG', 'RED_FTR_70'),
+             ('FLAG_LIGHTBOX_DESCARGA', 'S'),
+             ('PN', 'FTR'),
+             ('PE', '23'),
+             ('FLAG_PDF', 'NO')])
+<<< 50_download_file__pre__file2.html
+
+
+>>> DOWNLOAD N43 file - step 3 -- FILE 2
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=4N3js5y65DowMDxTiEL76AvleYBNL-O8bvyINWBUQvGs2bFK74tz!1014989509!-288142118",
+    "body": "PN=FTR&PE=91&PE_ORIGEN=23&NOM_FICH_PC=TT090421.978&RUTA_FICH_HP=Edx_uDN_TGsR3H%7E4M39MawAAAXidyZdj5hgxs_jYr9U&EXTENS=TXT&CLAU_REC=00001MHC99973&MULTIDESCARGA=N&CLICK_ORIG=FLX_FTR_23",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('PN', 'FTR'),
+             ('PE', '91'),
+             ('PE_ORIGEN', '23'),
+             ('NOM_FICH_PC', 'TT090421.978'),
+             ('RUTA_FICH_HP', 'Edx_uDN_TGsR3H~4M39MawAAAXidyZdj5hgxs_jYr9U'),
+             ('EXTENS', 'TXT'),
+             ('CLAU_REC', '00001MHC99973'),
+             ('MULTIDESCARGA', 'N'),
+             ('CLICK_ORIG', 'FLX_FTR_23')])
+<<< N43 file

@@ -1,0 +1,177 @@
+login step 2
+
+POST https://pj.santandernetibe.com.br/ibeweb/
+
+Ticket=s8Bp3XiAE%2FLS2vSnasSaAZZIxOGH%2BhkaSq6vvtZ5brRZVeiNgFIihCOL5kZhQkhHackCH4zyFmSGdqckDHZJgQRP%2Fg0YHkRAC5YHeIEygvJGXfuT8OZmtGndiykVzLOhIIb4PlSC8zS8rRC4rAiLrAXR88KNTHtb8Ubl3njQ%2FKAoxAW8YV0Vrq%2BLMWsYAAHcuULR7AfSBHt8uo1RlqMKF2AwWJglXFFpcCp%2Fi5fcq6AGkeeTaTjYwfoYCgL8Lm9Y3kQpeD%2BayUiaubXKjWH9QVMneFWsTV%2FDt0iEbKBIROVqmRJ1LIjqIbx%2B8b8piNVzXTsEusmXoXONk22RtHGAVDrKuFDOOV%2F8Z8ZlOcGMyy2b9QrKt9%2Bdf9dOpofdjX0%2FDSGU4KsHOkzlWXbYzAhLjDRgTgKYuzj5dbW4iOJxACBkEcoyKw4Gs1qj93vgUNn7cLpuoJNwcvU%3D
+
+home
+
+GET https://pj.santandernetibe.com.br/ibeweb/pages/home/homeNovo.xhtml
+
+POST application/json https://pj.axa.santandernetibe.com.br/api/1/urn:ca:tenantId:BC29C563-BF1A-0C3F-DEAF-DA298DF53346/urn:ca:appId:Novo%20IBPJ/browserMetrics
+
+{"schemaVersion":"2.0","creator":{"name":"BA","version":"1.0"},"clientInfo":{"userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0","fingerPrint":"d722884deb024b3db00895e562c67501","browserType":"Firefox","browserMajorVersion":56},"app":{"ba":{"pages":{"pageList":[{"url":"https://pj.santandernetibe.com.br/ibeweb/pages/home/homeNovo.xhtml","pageLoadFlag":false,"pageType":"HP","sessions":{"sessionList":[{"id":"5bed196bfe5548f28a74be8dde9d0410","startTime":1548141062535,"newSessionFlag":false,"cv":{"lch":false,"ch":3,"fch":false}}]},"timeStamp":1548141062535,"referrer":{"url":"https://pj.santandernetibe.com.br/ibeweb/"},"prevPage":{"url":"https://pj.santandernetibe.com.br/ibeweb/","timeStamp":1548141062535},"resources":{"resourceList":[{"type":"HTMLRES","timeStamp":1548141070070,"apmData":{"metrics":{"metricList":[{"path":"Business Segment|pj.santandernetibe.com.br/443|/ibeweb/pages/home/homeNovo.xhtml|Resources|HTML|www.google-analytics.com/443|/r/collect","name":"Resource Load Time","accumulatorType":0,"value":"1321","unit":"ms"},{"path":"Business Segment|pj.santandernetibe.com.br/443|/ibeweb/pages/home/homeNovo.xhtml|Resources|HTML|www.google-analytics.com/443|/r/collect","name":"Invocation Count Per Interval","accumulatorType":1,"value":"1"}]},"transactionTraces":{"transactionTraceList":[{"path":"Business Segment|pj.santandernetibe.com.br/443|/ibeweb/pages/home/homeNovo.xhtml|Resources|HTML|www.google-analytics.com/443|/r/collect","duration":1321,"startTime":1548141070070,"x_attributes":{"x_attributeList":[{"name":"axa_customerId","value":"8278596"},{"name":"axa_customSessionInfo_SegmentoPJ","value":"EMPRESAS 3 - NUCLEO"},{"name":"axa_customSessionInfo_Modo de login","value":"Transacional"},{"name":"axa_customSessionInfo_Tipo de UsuÃ¡rio","value":"SecundÃ¡rio"}]},"bucketId":"bf20ce52231745ac89e0e3946a0d303c","adjustedStartTime":1548141070070}]}},"request":{"url":"https://www.google-analytics.com/r/collect?v=1&_v=j72&a=844121035&t=pageview&_s=1&dl=https%3A%2F%2Fpj.santandernetibe.com.br%2Fibeweb%2Fpages%2Fhome%2FhomeNovo.xhtml&ul=en-us&de=UTF-8&dt=Internet%20Banking&sd=24-bit&sr=1366x768&vp=1356x624&je=0&_u=YCDACAABB~&jid=740427814&gjid=602127726&cid=1795137277.1542651505&tid=UA-79856927-12&_gid=916591161.1548141070&_r=1&cd1=2019-01-21T00%3A28%3A35.474%2B03%3A00&cd2=228&z=213955230"},"rawData":{"performanceResourceTiming":{"name":"https://www.google-analytics.com/r/collect?v=1&_v=j72&a=844121035&t=pageview&_s=1&dl=https%3A%2F%2Fpj.santandernetibe.com.br%2Fibeweb%2Fpages%2Fhome%2FhomeNovo.xhtml&ul=en-us&de=UTF-8&dt=Internet%20Banking&sd=24-bit&sr=1366x768&vp=1356x624&je=0&_u=YCDACAABB~&jid=740427814&gjid=602127726&cid=1795137277.1542651505&tid=UA-79856927-12&_gid=916591161.1548141070&_r=1&cd1=2019-01-21T00%3A28%3A35.474%2B03%3A00&cd2=228&z=213955230","entryType":"resource","startTime":7535.91932,"duration":1320.5962000000009,"initiatorType":"img","nextHopProtocol":"h2","redirectStart":0,"redirectEnd":0,"fetchStart":7772.890795,"domainLookupStart":0,"domainLookupEnd":0,"connectStart":0,"connectEnd":0,"secureConnectionStart":0,"requestStart":0,"responseStart":0,"responseEnd":8856.51552,"transferSize":0,"encodedBodySize":0,"decodedBodySize":0}}}]}}]}},"id":"Novo IBPJ","key":"671c44e7-94ca-11e7-aad9-6fbcfcb2d7d7","version":"1.0","tenantId":"BC29C563-BF1A-0C3F-DEAF-DA298DF53346","profileInfo":{"id":7,"name":"NovoIBPJ","createdAt":1505005386397,"lastUpdatedAt":1507055590678}}}
+
+
+POST https://pj.santandernetibe.com.br/ibeweb/pages/home/homeNovo.xhtml
+javax.faces.partial.ajax=true&
+javax.faces.source=formGeral%3Aj_id_e9&
+javax.faces.partial.execute=%40all&
+formGeral%3Aj_id_e9=formGeral%3Aj_id_e9
+&formGeral%3AdrunningMode=prod1
+&formGeral%3Asegmento=228
+&formGeral%3Aautenticacao=&formGeral%3Aoferta=&
+formGeral_SUBMIT=1&
+javax.faces.ViewState=sMWIAjzKhcccXd5vfZAUIuQyejKj6nDLoay%2FGzzMO%2FBnUDd6
+
+<<< <partial-response>
+<changes>
+<update id="formData:idDataHora">
+<span id="formData:idDataHora">Terça-feira, <b>22 de janeiro de 2019</b> - 05h18 (horário de Brasília)</span>
+</update>
+<update id="formGeral:j_id_67">
+<div id="formGeral:j_id_67" class="ui-outputpanel ui-widget"><div id="formGeral:idAviso" class="ui-outputpanel ui-widget"><div id="formGeral:j_id_69" class="ui-outputpanel ui-widget col-xs-12"><div id="formGeral:j_id_6a" class="ui-outputpanel ui-widget box-shadow avisoHome"><div id="formGeral:j_id_6b" class="ui-outputpanel ui-widget row"><div id="formGeral:j_id_6c" class="ui-outputpanel ui-widget col-xs-12">
+						<i class="fa fa-exclamation-circle"></i>
+						<p><a href="#" onclick="return myfaces.oam.submitForm('formGeral','formGeral:j_id_6i','',[]);">Não pegue fila nas agências, clique aqui e pague seu IPVA - SP</a>
+						</p></div></div></div></div></div></div>
+</update>
+<update id="formGeral:j_id_6o">
+<div id="formGeral:j_id_6o" class="ui-outputpanel ui-widget box-shadow saldo "><div id="formGeral:j_id_6p" class="ui-outputpanel ui-widget listaSaldo" style="min-height: 117px"><div id="formGeral:j_id_6q" class="ui-outputpanel ui-widget row"><div id="formGeral:j_id_6r" class="ui-outputpanel ui-widget col-xs-12"><div id="formGeral:j_id_6s_0_1" class="ui-outputpanel ui-widget"><div id="formGeral:j_id_6s_0_2" class="ui-outputpanel ui-widget row" style="line-height: 30px;"><div id="formGeral:j_id_6s_0_3" class="ui-outputpanel ui-widget col-xs-7">Saldo Disponível</div><div id="formGeral:j_id_6s_0_5" class="ui-outputpanel ui-widget col-xs-5 text-right"><span id="formGeral:valor0">R$ 246.093,55</span></div></div></div><div id="formGeral:j_id_6s_1_1" class="ui-outputpanel ui-widget"><div id="formGeral:j_id_6s_1_2" class="ui-outputpanel ui-widget row" style="line-height: 30px;"><div id="formGeral:j_id_6s_1_3" class="ui-outputpanel ui-widget col-xs-7">Limite</div><div id="formGeral:j_id_6s_1_5" class="ui-outputpanel ui-widget col-xs-5 text-right"><span id="formGeral:valor1">R$ 139.580,00</span></div></div></div><div id="formGeral:j_id_6s_2_1" class="ui-outputpanel ui-widget"><div id="formGeral:j_id_6s_2_7" class="ui-outputpanel ui-widget row" style="line-height: 30px;background: #f6f6f6"><div id="formGeral:j_id_6s_2_8" class="ui-outputpanel ui-widget col-xs-7">Saldo Disponível Total</div><div id="formGeral:j_id_6s_2_a" class="ui-outputpanel ui-widget col-xs-5 text-right"><span id="formGeral:valorFooter2">R$ 385.673,55</span></div></div></div></div></div></div><div id="formGeral:j_id_6t" class="ui-outputpanel ui-widget row"><div id="formGeral:j_id_6u" class="ui-outputpanel ui-widget col-xs-12 text-right"><a id="formGeral:j_id_6v" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_6v',onstart:function(cfg){openLoad();},oncomplete:function(xhr,status,args){closeLoad();},params:[{name:'idMenu',value:'4004'},{name:'descricaoMenuAvo',value:'Conta Corrente'}]});return false;">Ver Saldo Completo</a></div></div></div>
+</update>
+<update id="formGeral:painelAcessoRapido">
+<div id="formGeral:painelAcessoRapido" class="ui-outputpanel ui-widget row"><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:0:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:0:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:0:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:0:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:0:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:1:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:1:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:1:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:1:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:1:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:2:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:2:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:2:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:2:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:2:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:3:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:3:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:3:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:3:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:3:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:4:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:4:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:4:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:4:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:4:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a><script type="text/javascript">habilitarDialog = function() {PrimeFaces.ab({source:'formGeral:j_id_c9:5:j_id_ci',formId:'formGeral',update:'formGeral:dialogTelaInterna',params:arguments[0]});}</script><a id="formGeral:j_id_c9:5:j_id_cj" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_c9:5:j_id_cj',onstart:function(cfg){openLoad();;},oncomplete:function(xhr,status,args){closeLoad();;}});return false;"><div id="formGeral:j_id_c9:5:j_id_ck" class="ui-outputpanel ui-widget col-xs-4"><div id="formGeral:j_id_c9:5:j_id_cl" class="ui-outputpanel ui-widget empty">
+													<i class="ic icon-outros-servicos"></i>
+													<br />
+													<span>INSERIR</span></div></div></a></div>
+</update>
+<update id="formGeral:divFloat">
+<div id="formGeral:divFloat" class="ui-outputpanel ui-widget floaterHome">
+
+				<span class="textCarousell" style="top: px; left: px;">
+				</span>
+
+				<span class="textCarousell" style="top: px; left: px;">
+				</span>
+
+				<span class="textCarousell" style="top: px; left: px;">
+				</span>
+
+				<span class="textCarousell" style="top: px; left: px;">
+				</span><a id="formGeral:btnCloseModal" href="#" class="ui-commandlink ui-widget sair" onclick="PrimeFaces.ab({source:'formGeral:btnCloseModal',partialSubmit:true});return false;">
+						<img src="/ibeweb/images/fecharPopup.png" border="0" vspace="7" hspace="16" align="right" /></a><a href="#" onclick="return myfaces.oam.submitForm('formGeral','formGeral:j_id_dm','_blank',[['aceiteBoId','129376016740275126709149382680'],['aceiteRaAttribSeg','12488053507'],['aceiteCodCampanha','304270']]);" target="_blank"><div id="formGeral:j_id_dq" class="ui-outputpanel ui-widget divImage" style="background-image: url('https://www.santandernetibe.com.br/crm_imagens/cJ_304270_2911_N580x400.gif')"></div></a><div id="formGeral:j_id_dt" class="ui-outputpanel ui-widget crm-floater-msg" style="width: 100%">
+					<span class="space-l">
+						Para ver uma nova campanha no próximo acesso.
+						<a id="formGeral:j_id_dv" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'formGeral:j_id_dv',params:[{name:'rejeiteBoId',value:'129376016740275126709149382680'},{name:'rejeiteRaAttribSeg',value:'12488053507'},{name:'rejeiteCodCampanha',value:'304270'}]});return false;">Clique aqui.</a>
+					</span></div></div>
+</update>
+<update id="j_id_eq">
+<div id="j_id_eq" class="ui-outputpanel ui-widget"><div id="j_id_er" class="ui-outputpanel ui-widget boxMessagePadrao"><div id="j_id_es" class="ui-outputpanel ui-widget"><div id="j_id_et" class="ui-outputpanel ui-widget text-left content-modal-text"><img id="j_id_eu" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt="" /><label id="j_id_ev" class="ui-outputlabel ui-widget" style="margin-top: 6px;"></label></div></div><div id="j_id_ew" class="ui-outputpanel ui-widget content-modal-footer"><div id="j_id_ex" class="ui-outputpanel ui-widget"><a id="closeMessageActionNao" href="#" class="ui-commandlink ui-widget btn btn-default btn-cinza" onclick="PrimeFaces.ab({source:'closeMessageActionNao'});return false;"></a><a id="closeMessageActionSim" href="#" class="ui-commandlink ui-widget btn btn-default" onclick="PrimeFaces.ab({source:'closeMessageActionSim'});return false;"></a><input id="btnCloseMessageAction" name="btnCloseMessageAction" type="text" value="" onkeydown="closeMessageAction();" style="width: 1px; padding: 0px; height: 0px; border: 0;" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" /><script id="btnCloseMessageAction_s" type="text/javascript">PrimeFaces.cw('InputText','widget_btnCloseMessageAction',{id:'btnCloseMessageAction'});</script><span id="j_id_f0"></span><script type="text/javascript">$(function(){PrimeFaces.focus('btnCloseMessageAction');});</script></div></div></div></div>
+</update>
+<update id="j_id_f3">
+<div id="j_id_f3" class="ui-outputpanel ui-widget"><div id="j_id_f4" class="ui-outputpanel ui-widget boxMessagePadrao"><div id="j_id_f5" class="ui-outputpanel ui-widget"><div id="j_id_f6" class="ui-outputpanel ui-widget text-left content-modal-text"><img id="j_id_f7" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt="" /><label id="j_id_f8" class="ui-outputlabel ui-widget" style="margin-top: 6px;"></label></div>
+
+	<style type="text/css">
+
+		.bkimgLogout {
+			margin: auto;
+		    width: 50%;
+			background-image: url("https://www.santandernetibe.com.br/crm_imagens/cJ_304270_2911_N550x90.gif ");
+		}
+	</style><form id="j_id_fa" name="j_id_fa" method="post" action="/ibeweb/pages/home/homeNovo.xhtml" enctype="application/x-www-form-urlencoded"><div id="j_id_fa:idPanelbannerLogout" class="ui-outputpanel ui-widget"><div id="j_id_fa:j_id_fc" class="ui-outputpanel ui-widget" style="margin-top:8px; margin-bottom: 8px;"><div id="j_id_fa:divArte2" style="OVERFLOW: hidden; HEIGHT: 95px; WIDTH: 540px"><a href="#" onclick="return myfaces.oam.submitForm('j_id_fa','j_id_fa:j_id_fv','_blank',[['aceiteBoId','129376016740275126709149382680'],['aceiteRaAttribSeg','12488053507'],['aceiteCodCampanha','304270']]);" target="_blank"><img id="j_id_fa:j_id_fw" src="https://www.santandernetibe.com.br/crm_imagens/cJ_304270_2911_N550x90.gif ?pfdrid_c=true" alt="" /></a></div><div id="j_id_fa:j_id_g0" class="ui-outputpanel ui-widget text-center crm-banner-msg" style="OVERFLOW: hidden; WIDTH: 540px; ">
+				<span>Para ver uma nova campanha no próximo acesso. <a id="j_id_fa:j_id_g3" href="#" class="ui-commandlink ui-widget" onclick="PrimeFaces.ab({source:'j_id_fa:j_id_g3',async:true,partialSubmit:true,params:[{name:'rejeiteBoId',value:'129376016740275126709149382680'},{name:'rejeiteRaAttribSeg',value:'12488053507'},{name:'rejeiteCodCampanha',value:'304270'}]});return false;" style="margin-left:8">Clique aqui.</a>
+				</span></div></div></div><input type="hidden" name="j_id_fa_SUBMIT" value="1" /></form></div><div id="j_id_gb" class="ui-outputpanel ui-widget content-modal-footer"><div id="j_id_gc" class="ui-outputpanel ui-widget"><a id="closeMessageLogoutNao" href="#" class="ui-commandlink ui-widget btn btn-default btn-cinza" onclick="PrimeFaces.ab({source:'closeMessageLogoutNao'});return false;"></a><a id="closeMessageLogoutSim" href="#" class="ui-commandlink ui-widget btn btn-default" onclick="PrimeFaces.ab({source:'closeMessageLogoutSim'});return false;"></a><input id="btnCloseMessageLogout" name="btnCloseMessageLogout" type="text" value="" onkeydown="closeMessageLogout();" style="width: 1px; padding: 0px; height: 0px; border: 0;" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" /><script id="btnCloseMessageLogout_s" type="text/javascript">PrimeFaces.cw('InputText','widget_btnCloseMessageLogout',{id:'btnCloseMessageLogout'});</script><span id="j_id_gf"></span><script type="text/javascript">$(function(){PrimeFaces.focus('btnCloseMessageLogout');});</script></div></div></div></div>
+</update>
+<update id="j_id_gi">
+<div id="j_id_gi" class="ui-outputpanel ui-widget"><div id="j_id_gj" class="ui-outputpanel ui-widget boxMessagePadrao"><div id="j_id_gk" class="ui-outputpanel ui-widget"><div id="j_id_gl" class="ui-outputpanel ui-widget text-left content-modal-text flex-align-v"><img id="j_id_gm" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt="" /><label id="j_id_gn" class="ui-outputlabel ui-widget modalLine"></label></div></div><div id="j_id_go" class="ui-outputpanel ui-widget content-modal-footer"><div id="btnMensagem" class="ui-outputpanel ui-widget"><a id="closeMessage" href="#" class="ui-commandlink ui-widget btn btn-default" onclick="PrimeFaces.ab({source:'closeMessage'});return false;">OK</a><input id="btnCloseMessage" name="btnCloseMessage" type="text" value="" onkeydown="closeMessage();" style="width: 1px; padding: 0px; height: 0px; border: 0;" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" /><script id="btnCloseMessage_s" type="text/javascript">PrimeFaces.cw('InputText','widget_btnCloseMessage',{id:'btnCloseMessage'});</script><span id="j_id_gs"></span><script type="text/javascript">$(function(){PrimeFaces.focus('btnCloseMessage');});</script></div></div></div></div>
+</update>
+<update id="j_id__v_0:javax.faces.ViewState:1">sMWIAjzKhcccXd5vfZAUIuQyejKj6nDLoay/GzzMO/BnUDd6</update>
+</changes>
+</partial-response>
+
+
+
+
+open cuenta corrente page
+
+POST https://pj.santandernetibe.com.br/ibeweb/pages/menu/menuNovo.xhtml
+
+// FROM logged_in_after_form.html
+javax.faces.partial.ajax=true&
+javax.faces.source=formGeral:j_id_5z&
+javax.faces.partial.execute=@all&
+javax.faces.partial.render=formGeral:idFormGeral&
+formGeral:j_id_5z=formGeral:j_id_5z&
+idItemMenu=4001&
+formGeral:j_id_5z_menuid=0&
+formGeral:drunningMode=prod4&
+formGeral:segmento=228&
+formGeral:autenticacao=&
+formGeral:oferta=&
+formGeral_SUBMIT=1&
+javax.faces.ViewState=9jf/CEzquwwX5IYIOZfFfZ6sdox8f62c202dyECX7hvHRt3A
+
+OR
+
+javax.faces.partial.ajax=true&javax.faces.source=formGeral%3Aj_id_ag&javax.faces.partial.execute=%40all&formGeral%3Aj_id_ag=formGeral%3Aj_id_ag&formGeral%3AdrunningMode=prod1&formGeral%3Asegmento=228&formGeral%3Aautenticacao=&formGeral%3Aoferta=&formGeral_SUBMIT=1&javax.faces.ViewState=zjjxNlGG0vQcXd5vfZAUIjFNcMSbTag8Kee7GAOUS3f8PwSH
+
+
+// MOVEMENTS
+
+>>> POST  https://pj.santandernetibe.com.br/ibeweb/pages/menu/menuNovo.xhtml
+
+formGeral:drunningMode=prod1&
+formGeral:segmento=228&
+formGeral:autenticacao=&
+formGeral:oferta=&
+formGeral_SUBMIT=1&
+javax.faces.ViewState=4ASjw1tWSY8cXd5vfZAUIuozxuhYiF/79qe5saCdZzMTXzRc&
+redirectPage=goConsultarContaCorrenteExtratos&
+descricaoMenuPai=Conta+Corrente&descricaoMenu=Consultar+Extrato&
+idItemMenu=4928&
+idItemMenuPai=4026&
+redirectPageIBPJClassico=NOVOIBPJ&
+fluxoCapAssinatura=N&
+formGeral:_idcl=formGeral:j_id_7p:1:j_id_7u
+
+
+<<< https://pj.santandernetibe.com.br/ibeweb/pages/contaCorrente/extratos/contaCorrenteConsultarExtratos.xhtml
+
+
+
+
+MOVS FILER BY DATES
+
+>>> POST  https://pj.santandernetibe.com.br/ibeweb/pages/contaCorrente/extratos/contaCorrenteConsultarExtratos.xhtml
+
+javax.faces.partial.ajax=true&
+javax.faces.source=formGeral:consultarExtratoDatePicker&
+javax.faces.partial.execute=@all&
+javax.faces.partial.render=formGeral:geral&
+formGeral:consultarExtratoDatePicker=formGeral:consultarExtratoDatePicker&
+formGeral:dataInicial=01/01/2019&
+formGeral:dataFinal=23/01/2019&
+formGeral:porPeriodo=&
+formGeral:selTipoBandeira=Todos&
+formGeral:htmlToPrintHidden=&
+formGeral:htmlToPdfHidden=....<BASE64 HTML>...&
+formGeral:drunningMode=prod4&
+formGeral:segmento=228&
+formGeral:autenticacao=&
+formGeral:oferta=&
+formGeral_SUBMIT=1&
+javax.faces.ViewState=DHFC+2gSLFll2I0q2+z5iT5dsRxtu1OSiGc7ZoqtDQ7wf+sw'

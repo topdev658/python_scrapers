@@ -1,0 +1,49 @@
+CHECK FOR:
+different db_customers may have same accounts:
+FinancialEntityAccountId='ES1701825437660208509436'
+
+Always should filter accounts by FinancialEntityAccountId _AND_ CustomerId
+
+TODO: fix functions from the list below which marked as FIXME
+
+REPORT:
+UserFuncs
+update_user_scraping_state - uses CustomerId
+get_fin_ent_accesses_to_scrape - uses CustomerId
+
+
+MovementFuncs
+add_movements_if_not_exist - filters AccountId by FinancialEntityAccountId and CustomerId
+delete_movs_since_date - filters AccountId by FinancialEntityAccountId and CustomerId
+delete_movs_after_id - filters AccountId by FinancialEntityAccountId and CustomerId
+get_last_movement_of_account - filters AccountId by FinancialEntityAccountId and CustomerId
+get_first_movement_of_account - filters AccountId by FinancialEntityAccountId and CustomerId
+get_last_movement_of_previous_date - filters AccountId by FinancialEntityAccountId and CustomerId
+get_movements_since_date - filters AccountId by FinancialEntityAccountId and CustomerId
+get_movements_after_first_movement_of_date - filters AccountId by FinancialEntityAccountId and CustomerId
+set_have_receipts - filters AccountId by FinancialEntityAccountId // FIXED filter also by CustomerId
+set_have_receipts_with_checksum - filters AccountId by FinancialEntityAccountId // FIXED filter also by CustomerId
+set_receipt_description - filters AccountId by FinancialEntityAccountId // FIXED filter also by CustomerId
+set_movement_references - filters AccountId by FinancialEntityAccountId // FIXED filter also by CustomerId
+update_extended_descriptions_if_necessary - filters AccountId by FinancialEntityAccountId and CustomerId
+update_descriptions_if_necessary - filters AccountId by FinancialEntityAccountId and CustomerId
+
+AccountFuncs
+get_accounts - uses only CustomerFinancialEntityAccessId
+get_accounts_temp_balances - uses only CustomerFinancialEntityAccessId
+set_accounts_scraping_in_progress - uses only CustomerFinancialEntityAccessId
+update_accounts_scraping_attempt_timestamp - uses only CustomerFinancialEntityAccessId
+rollback_ts_and_balances - uses CustomerFinancialEntityAccessId and account Id
+set_accounts_possible_inactive - uses list of FinancialEntityAccountId // FIXED filter also by CustomerId
+! add_accounts_and_organiz_or_update - uses
+	OrganizationName, CustomerId (org);
+	FinancialEntityAccountId, CustomerId (account) on filtering AND CustomerFinancialEntityAccessId on insert operation
+update_acc_set_mov_scrap_fin - filters AccountId by FinancialEntityAccountId and CustomerId
+get_last_movements_scraping_finished_ts - filters AccountId by FinancialEntityAccountId and CustomerId
+upd_possible_inactive_set_scraping_state_to_false - filters by CustomerId
+check_should_download_receipt - filters AccountId by FinancialEntityAccountId // FIXED filter also by CustomerId
+check_add_document - filters AccountId by FinancialEntityAccountId[4:] and CustomerId
+add_document - uses StatementId
+should_download_documents - filters by CustomerId
+get_movement_id_from_document_info - filters by AccountId and Amount and OPTIONAL OperationalDate, ValueDate, StatementDescription // FIXME ambigious filtering (due to optional args)
+check_if_exists_document_movement_id - filters by StatementId

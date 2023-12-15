@@ -1,0 +1,784 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <script language="JavaScript" type="text/javascript">
+
+        function enviaEventApiTealium(datos){
+            if(typeof window.top.sendLink === 'function'){window.top.sendLink(datos);}
+        }
+
+
+        function loadTealium(){
+
+
+            var digitalData={
+                sdid_at: typeof sdidget != "undefined" ? sdidget : "null",
+                page_section:'linea abierta',
+                page_category:'empresas',
+                page_subcategory1:'descarga ficheros',
+                page_subcategory2:'menu',
+                page_name:'linea abierta:empresas:descarga ficheros:menu',
+                page_language:'es',
+                page_typology:'pagina',
+                page_environment:'produccion',
+                device_name:'desktop',
+                client_id:'E95AE0AC3863414D56D86D20DC642DD6',
+                client_type:'cliente',
+                client_login_status:'logado',
+                client_segment:'NOW',
+                client_category:'empresa',
+                client_heavy_digital:'no',
+                client_holabank:'false',
+                client_autonomo:'false',
+                client_negocios:'false',
+                page_pn:'FTR',
+                page_pe:'70',
+                page_pnpe:'FTR70',
+                gdpr_treatment_online:'true',
+                gdpr_consent_eecc:'true',
+                gdpr_consent_profiling:'true',
+                prod_amount_max_limit:'0'
+            };
+
+
+
+            if(typeof tealiumAddCampanya === 'function'){     tealiumAddCampanya(digitalData);
+                tealiumAddCampanya = undefined;
+            }
+
+            if(typeof window.top.sendView === 'function'){window.top.sendView(digitalData);}
+        }
+
+        function TealiumAddLoadEvent(func){
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            }
+            else {
+                window.onload = function() {
+                    oldonload();
+                    func();
+                };
+            }
+        }
+
+
+        TealiumAddLoadEvent(new Function('setTimeout("loadTealium();",50)'));
+    </script>
+
+    <link href="../css/lo_master.css" rel="stylesheet">
+    </script>
+    <script type="text/javascript" src="./js/EloGenB000003.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+    <script type="text/javascript" src="./js/gestionTablas.js"></script>
+    <script type="text/javascript" src="./js/AjaxQueue.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/matchHeight/jquery.matchHeight.js"></script>
+    <script type="text/javascript" src="./js/arq/init/updateHeightRows.js"></script>
+    <script type="text/javascript" src="./js/tamanytext_v2.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+    <script language="javascript" type="text/javascript">
+        // CLAVE_ITR
+        var ListaFicherosRecepcion_RefVal1= new Array("L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA","L_NvdQ79BZAv8291Dv0FkAAAAXiaKQf_Z8qcdgAGD24","L_NvdQ4q2H4v8291DirYfgAAAXiaKQf_M2qqYIu1JqE","L_NvdQ5IAoQv8291DkgChAAAAXiaKQf_t73KnQZq2yI","L_NvdQ5A0iov8291DkDSKgAAAXiaKQf_WWnvC7NH2aU");
+        // NOM_FICH_HP
+        var ListaFicherosRecepcion_RefVal2= new Array("L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE","L_NvdQ3MsyUv8291DcyzJQAAAXiaKQf_HF643Nq4qH4","L_NvdQ2pdk8v8291Dal2TwAAAXiaKQf_TR5gevKpRkA","L_NvdQ5C0OAv8291DkLQ4AAAAXiaKQf_1lTHnECLqBA","L_NvdQ45G4Iv8291DjkbggAAAXiaKQf_dZheRVSUNXs");
+        var ListaFicherosRecepcion_RefVal3= new Array("RH","RH","RH","RH","RH");
+        // CLAU_REC
+        var ListaFicherosRecepcion_RefVal4= new Array("00001MHC99973","00001MHC99973","00001MHC99973","00001MHC99973","00001MHC99973");
+        // NOM_FICH_PC
+        var ListaFicherosRecepcion_RefVal5= new Array("TT100421.755","TT120421.423","TT180421.767","TT090421.978","TT170421.719");
+        var ListaFicherosRecepcion_RefVal6= new Array("Caixa N43","Caixa N43","Caixa N43","Caixa N43","Caixa N43");
+        // TIPO_FICHERO
+        var ListaFicherosRecepcion_RefVal7= new Array("Ext.C43/3 SEPA","Ext.C43/3 SEPA","Ext.C43/3 SEPA","Ext.C43/3 SEPA","Ext.C43/3 SEPA");
+    </script>
+
+    <script type="text/javascript" src="./js/EloGenB000003.js"></script>
+
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+    <script defer type="text/javascript" src="js/custom_lightbox.min.js?autoinit=1"></script>
+    <script type="text/javascript" src='../js/EloGfiB000100.js'></script>
+    <script type="text/javascript" language="javascript">
+        var PNAjuda="FTR";
+        var PEAjuda="70";
+
+
+
+
+        var numDescargas=0;
+        var listaFicherosDescarga = new Array (5);
+        var listaFicherosDescargaHP = new Array (5);
+        var listaClaveITR = new Array (5);
+        var listaClauREC = new Array (5);
+        function gestionListaTodos(){
+            var i = 0;
+            for(i=0;i<5;i++){
+                listaFicherosDescarga[i]=ListaFicherosRecepcion_RefVal5[i];
+                listaFicherosDescargaHP[i]=ListaFicherosRecepcion_RefVal2[i];
+                listaClaveITR[i]=ListaFicherosRecepcion_RefVal1[i];
+                listaClauREC[i]=ListaFicherosRecepcion_RefVal4[i];
+            }
+            numDescargas=5;
+        }
+        function inicializaListas(){
+            listaFicherosDescarga = new Array (5);
+            listaFicherosDescargaHP = new Array (5);
+            listaClaveITR = new Array (5);
+            listaClauREC = new Array (5);
+            numDescargas=0;
+        }
+
+
+
+        function enviar(op){
+
+            f=document.forms[0];
+            switch(op) {
+                case 0:
+                    f.PN.value="FTR";
+                    f.PE.value="70";
+                    f.CLAVE_CONTINUACION.value="";
+                    f.CLICK_ORIG.value="PAG_FTR_70";
+                    f.submit();
+                    break;
+                case 1:
+                    f.PN.value="FTR";
+                    f.PE.value="70";
+
+
+                    f.CLAVE_CONTINUACION.value="L_NvdQ4oB14v8291DigHXgAAAXiaKQf_HB672LveFu8";
+
+
+
+
+                    f.PRIMERA_PAGINA_FTR70.value="N";
+                    f.CLICK_ORIG.value="PAG_FTR_70";
+                    f.submit();
+                    break;
+                case 3:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="3";
+                    f.CLAVE_CONTINUACION.value="L_NvdQ2KcXIv8291DYpxcgAAAXiaKQdWB8~YyJXmTEY";
+
+
+
+                    f.CLAVE_ITR.value=ListaFicherosRecepcion_RefVal1[f.operacionesDescarga.value];
+                    f.NOMBRE_FICH_HP.value=ListaFicherosRecepcion_RefVal2[f.operacionesDescarga.value];
+                    f.NOMBRE_FICH_PC.value=ListaFicherosRecepcion_RefVal5[f.operacionesDescarga.value];
+                    f.CLAU_REC.value=ListaFicherosRecepcion_RefVal4[f.operacionesDescarga.value];
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    f.ALIASPETICION.value=ListaFicherosRecepcion_RefVal6[f.operacionesDescarga.value];
+                    f.submit();
+                    break;
+                case 5:
+                    var url = "/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320?PN=FTR&PE=101&CLICK_ORIG=RED_FTR_70&NOM_FICH_HP="+ListaFicherosRecepcion_RefVal2[f.operacionesDescarga.value]+"&CLAVE_ITR="+ListaFicherosRecepcion_RefVal1[f.operacionesDescarga.value]+"&SITUA=RU&CLAU_REC="+ListaFicherosRecepcion_RefVal4[f.operacionesDescarga.value]+"&NOM_FICH_PC="+ListaFicherosRecepcion_RefVal5[f.operacionesDescarga.value];
+                    var clau_rec=ListaFicherosRecepcion_RefVal4[f.operacionesDescarga.value];
+                    if((clau_rec.search("MCC00217") != -1) && false){
+                        openW(url,'oto',650,430,1,0,0,0,0,0,0,0);
+                    }
+                    else{
+                        openW(url,'oto',550,330,1,0,0,0,0,0,0,0);
+                    }
+                    break;
+
+                case 6:
+                    listaFicherosDescarga = listaFicherosDescarga.join('|');
+                    listaFicherosDescargaHP = listaFicherosDescargaHP.join('|');
+                    listaClaveITR = listaClaveITR.join('|');
+                    listaClauREC = listaClauREC.join('|');
+                    var url = "/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320?PN=FTR&PE=100&CLICK_ORIG=RED_FTR_70&NUM_DESCARGAS="+numDescargas+"&LISTA_FICHEROS_DESCARGA="+listaFicherosDescarga+"&LISTA_FICHEROS_DESCARGA_HP="+listaFicherosDescargaHP+"&LISTA_CLAVE_ITR="+listaClaveITR+"&LISTA_CLAU_REC="+listaClauREC+"&NOM_FICH_HP="+ListaFicherosRecepcion_RefVal2[0]+"&CLAVE_ITR="+ListaFicherosRecepcion_RefVal1[0]+"&SITUA=RU&CLAU_REC="+ListaFicherosRecepcion_RefVal4[0]+"&NOM_FICH_PC="+ListaFicherosRecepcion_RefVal5[0]+"&PULSADO_ENLACE_TODOS=S";
+                    if((listaClauREC.search("MCC00217") != -1) && false){
+                        openW(url,'oto',650,430,1,0,0,0,0,0,0,0);
+                    }else{
+                        openW(url,'oto',550,330,1,0,0,0,0,0,0,0);
+                    }
+                    inicializaListas();
+                    break;
+
+                case 7:
+                    f.PN.value="FTR";
+                    f.PE.value="102";
+                    f.CLAVE_CONTINUACION.value="";
+                    f.CLICK_ORIG.value="FTR_FTR_70";
+                    f.submit();
+                    break;
+
+                case 8:
+                    f.PN.value="FTR";
+                    f.PE.value="103";
+                    f.CLAVE_CONTINUACION.value="";
+                    f.CLICK_ORIG.value="FTR_FTR_70";
+                    f.submit();
+                    break;
+                case 9:
+                    var parametros = "PN=FTR&PE=23&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S&NOM_FICH_HP="
+                        +ListaFicherosRecepcion_RefVal2[f.operacionesDescarga.value]+"&CLAVE_ITR="+ListaFicherosRecepcion_RefVal1[f.operacionesDescarga.value]+
+                        "&SITUA=RU&CLAU_REC="+ListaFicherosRecepcion_RefVal4[f.operacionesDescarga.value]+
+                        "&NOM_FICH_PC="+ListaFicherosRecepcion_RefVal5[f.operacionesDescarga.value]+
+                        "&TIPO_FICHERO="+ListaFicherosRecepcion_RefVal7[f.operacionesDescarga.value];
+                    llamadaAjaxPopUp(parametros);
+                    break;
+                case 10:
+                    listaFicherosDescarga = listaFicherosDescarga.join('|');
+                    listaFicherosDescargaHP = listaFicherosDescargaHP.join('|');
+                    listaClaveITR = listaClaveITR.join('|');
+                    listaClauREC = listaClauREC.join('|');
+                    var parametros = "PN=FTR&PE=100&CLICK_ORIG=RED_FTR_70&NUM_DESCARGAS="+numDescargas+"&LISTA_FICHEROS_DESCARGA="+listaFicherosDescarga+
+                        "&LISTA_FICHEROS_DESCARGA_HP="+listaFicherosDescargaHP+"&LISTA_CLAVE_ITR="+listaClaveITR+"&LISTA_CLAU_REC="+listaClauREC+
+                        "&NOM_FICH_HP="+ListaFicherosRecepcion_RefVal2[0]+"&CLAVE_ITR="+ListaFicherosRecepcion_RefVal1[0]+"&SITUA=RU&CLAU_REC="+ListaFicherosRecepcion_RefVal4[0]+
+                        "&NOM_FICH_PC="+ListaFicherosRecepcion_RefVal5[0]+"&PULSADO_ENLACE_TODOS=S&FLAG_LIGHTBOX_DESCARGA=S";
+                    llamadaAjaxPopUpAgrupada(parametros);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        function llamadaAjaxPopUp(params){
+            $.ajax({
+                type: 'POST',
+                url: '/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320',
+                mode: 'queue',
+                data: params,
+                cache: false,
+                success: function(result){
+                    gestionAjaxSimulacion(result);
+                },
+                dataType: 'html',
+                async:   true
+            });
+        }
+        function llamadaAjaxPopUpAgrupada(params){
+            $.ajax({
+                type: 'POST',
+                url: '/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320',
+                mode: 'queue',
+                data: params,
+                cache: false,
+                success: function(result){
+                    gestionAjaxDescargaAgrupada(result);
+                },
+                dataType: 'html',
+                async:   true
+            });
+        }
+        function gestionAjaxSimulacion(result) {
+            if (!/erroresAjax/.test(result)) {
+                opcion = 0;
+                $("#custom_lightbox_content_container").html(result);
+                actualizarFormulario();
+            } else {
+                $("#custom_lightbox_content_container").html("Error");
+            }
+        }
+        function gestionAjaxDescargaAgrupada(result) {
+            if (!/erroresAjax/.test(result)) {
+                $("#custom_lightbox_content_container").html(result);
+            } else {
+                $("#custom_lightbox_content_container").html("Error");
+            }
+            inicializaListas();
+        }
+
+        function selOperacionDescarga(indice){
+
+            f = document.forms[0];
+            f.operacionesDescarga.value=indice;
+        }
+        var opcion = 0;
+        var formato = "";
+        var estilo = "";
+        function setOpcion(envioOpcion,envioFormato,envioEstilo){
+            opcion = envioOpcion;
+            formato = envioFormato;
+            estilo = envioEstilo;
+        }
+        function descargar(){
+            if (opcion==0){
+                document.getElementById("cuadroError").style.display="block";
+                document.getElementById("mensajeError").style.display="block";
+            } else{
+                $('#contenedorLightbox').addClass('display--none');
+                $('#loading').addClass('dblock');
+                $('#custom_lightbox').addClass("custom_lightbox--close-false");
+                var parametros = "FORMAT="+formato;
+                parametros += "&ESTILO="+estilo;
+                parametros += "&CLAU_REC="+document.forms["formularioPopUp"].CLAU_REC.value;
+                parametros += "&NOM_FICH_PC="+document.forms["formularioPopUp"].NOM_FICH_PC.value;
+                parametros += "&NOM_FICH_HP="+document.forms["formularioPopUp"].NOM_FICH_HP.value;
+                parametros += "&CLAVE_PRODUCTO="+document.forms["formularioPopUp"].CLAVE_PRODUCTO.value;
+                parametros += "&CLAVE_ITR="+document.forms["formularioPopUp"].CLAVE_ITR.value;
+                parametros += "&USUARI_SAU="+document.forms["formularioPopUp"].USUARI_SAU.value;
+                parametros += "&LITERAL_TEXTO="+document.forms["formularioPopUp"].LITERAL_TEXTO.value;
+                parametros += "&IDIOMA="+document.forms["formularioPopUp"].IDIOMA.value;
+                parametros += "&SITUA="+document.forms["formularioPopUp"].SITUA.value;
+                parametros += "&presentacion="+document.forms["formularioPopUp"].presentacion.value;
+                parametros += "&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S";
+                if (opcion==1){
+                    parametros += "&PN=FTR&PE=26";
+                } else if (opcion==2){
+                    parametros += "&PN=FTR&PE=25";
+                } else if (opcion==3){
+                    parametros += "&PN=FTR&PE=23&FLAG_PDF=NO";
+                }
+                llamadaAjaxDescarga(parametros);
+            }
+        }
+        function descargarMultiformato(){
+            if (opcion==0){
+                document.getElementById("cuadroError").style.display="block";
+                document.getElementById("mensajeError").style.display="block";
+            } else{
+                $('#contenedorLightbox').addClass('display--none');
+                $('#loading').addClass('dblock');
+                $('#custom_lightbox').addClass("custom_lightbox--close-false");
+                var parametros = "FORMAT="+formato;
+                parametros += "&ESTILO="+estilo;
+                parametros += "&CLAU_REC="+document.forms["formularioPopUpAgrupada"].CLAU_REC.value;
+                parametros += "&NOM_FICH_PC="+document.forms["formularioPopUpAgrupada"].NOM_FICH_PC.value;
+                parametros += "&NOM_FICH_HP="+document.forms["formularioPopUpAgrupada"].NOM_FICH_HP.value;
+                parametros += "&CLAVE_PRODUCTO="+document.forms["formularioPopUpAgrupada"].CLAVE_PRODUCTO.value;
+                parametros += "&CLAVE_ITR="+document.forms["formularioPopUpAgrupada"].CLAVE_ITR.value;
+                parametros += "&USUARI_SAU="+document.forms["formularioPopUpAgrupada"].USUARI_SAU.value;
+                parametros += "&LITERAL_TEXTO="+document.forms["formularioPopUpAgrupada"].LITERAL_TEXTO.value;
+                parametros += "&IDIOMA="+document.forms["formularioPopUpAgrupada"].IDIOMA.value;
+                parametros += "&SITUA="+document.forms["formularioPopUpAgrupada"].SITUA.value;
+                parametros += "&presentacion="+document.forms["formularioPopUpAgrupada"].presentacion.value;
+                parametros += "&CLICK_ORIG=RED_FTR_70&FLAG_LIGHTBOX_DESCARGA=S";
+                parametros += "&LISTA_CLAU_REC="+document.forms["formularioPopUpAgrupada"].LISTA_CLAU_REC.value;
+                parametros += "&TIMER_AGRUPADA_FTR_RECUPERA_T0="+document.forms["formularioPopUpAgrupada"].TIMER_AGRUPADA_FTR_RECUPERA_T0.value;
+                parametros += "&LISTA_CLAVE_ITR="+document.forms["formularioPopUpAgrupada"].LISTA_CLAVE_ITR.value;
+                parametros += "&LISTA_FICHEROS_DESCARGA_HP="+document.forms["formularioPopUpAgrupada"].LISTA_FICHEROS_DESCARGA_HP.value;
+                parametros += "&LISTA_FICHEROS_DESCARGA="+document.forms["formularioPopUpAgrupada"].LISTA_FICHEROS_DESCARGA.value;
+                parametros += "&NUM_DESCARGAS="+document.forms["formularioPopUpAgrupada"].NUM_DESCARGAS.value;
+                parametros += "&PULSADO_ENLACE_TODOS="+document.forms["formularioPopUpAgrupada"].PULSADO_ENLACE_TODOS.value;
+                parametros += "&TOTAL_FICHEROS_AGRUPADA="+document.forms["formularioPopUpAgrupada"].TOTAL_FICHEROS_AGRUPADA.value;
+                if (opcion==1){
+                    parametros += "&PN=FTR&PE=83";
+                } else if (opcion==2){
+                    parametros += "&PN=FTR&PE=82";
+                } else if (opcion==3){
+                    parametros += "&PN=FTR&PE=81&FLAG_PDF=NO";
+                }
+                parametros += "&SEGUNDA_VUELTA=SI";
+                llamadaAjaxDescarga(parametros);
+            }
+        }
+        function llamadaAjaxDescarga(params){
+            $.ajax({
+                type: 'POST',
+                url: '/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320',
+                mode: 'queue',
+                data: params,
+                cache: false,
+                success: function(result){
+                    gestionAjaxDescarga(result);
+                },
+                dataType: 'html',
+                async:   true
+            });
+        }
+        function gestionAjaxDescarga(result) {
+            if (!/erroresAjax/.test(result)) {
+                $("#custom_lightbox_content_container").html(result);
+                actualizarLightbox();
+            } else {
+                $("#custom_lightbox_content_container").html("Error");
+            }
+        }
+
+        function enviar2(op){
+
+            f=document.forms[0];
+            switch(op) {
+                case 1:
+                    f.PN.value="FTR";
+                    f.PE.value="1";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 2:
+                    f.PN.value="FTR";
+
+                    f.PE.value="6";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 3:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="56";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 4:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="30";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 5:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="51";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 6:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="44";
+                    f.CLICK_ORIG.value="FLX_FTR_70";
+                    break;
+                case 7:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="ETG";
+                    f.PE.value="0";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    break;
+                case 8:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="PFT";
+                    f.PE.value="1";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    break;
+                case 9:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="PFT";
+                    f.PE.value="5";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    break;
+                case 10:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="60";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    break;
+                case 11:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="FTR";
+                    f.PE.value="65";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    break;
+                case 12:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="COM";
+                    f.PE.value="300";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    f.FLUJO.value = "FTR,70,:GFI,7,''";
+                    break;
+                case 13:
+                    f.PN_VOLVER.value="FTR";
+                    f.PE_VOLVER.value="70";
+                    f.PN.value="COM";
+                    f.PE.value="301";
+                    f.CLICK_ORIG.value="EOC_FTR_70";
+                    f.FLUJO.value = "FTR,70,:GFI,7,''";
+                    break;
+                default:
+                    break;
+            }
+            var esUsusariAprupat = true;
+            var demo = 0;
+            if((op==10 || op==11)&&!esUsusariAprupat && demo==0) {
+                InicializaErrores();
+                AddError("No disponible. Operativa disponible sólo para identificadores de usuario con agrupación de usuarios vigente");
+                ProcesaErrores();
+            }else{
+                f.submit();
+            }
+        }
+        function mes_info(op){
+            if(op==1){
+                url="http://empresa.lacaixa.es/deployedfiles/empresas/Estaticos/pdf/Transferenciasyficheros/Q43euro.pdf";
+            }else if(op==2){
+                url="http://empresa.lacaixa.es/deployedfiles/empresas/Estaticos/pdf/Transferenciasyficheros/Q43euro.pdf";
+            }else if(op==3){
+                url="./pdf/condicionsgenerals/extracto_liquidacion_tarjetas.pdf";
+            }else if(op==4){
+                url="./pdf/condicionsgenerals/fichero_pet_rel_op.pdf";
+            }else if(op==5){
+                url="./pdf/condicionsgenerals/recepcion_extractos_tarjetas_cast_v3.pdf";
+            }
+            window.open(url,"Info","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,height=400,width=610")
+        }
+
+    </script>
+</head>
+<body id="cos" class="margen_top5 ">
+<script>var PNLomilu='FTR';var PELomilu='70';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+
+    <form action="/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320" method="POST">
+        <div class="mostrar"><div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa" /></div><div class="rfloat">Fecha impresión: <strong>18/04/2021</strong>&nbsp;</div><div class="limpiar"></div></div><div class=""><div class="rfloat nowrap"><ul class="funciones_tit "><li><a href="javascript:reduir();" title="a -" id="linkred" class="amenos noactivo">a -</a></li><li><a href="javascript:augmentar();" title="a +" id="linkaug" class="amas">a +</a></li></ul></div><div class="lfloat"><h1 class="inline lfloat derecha15"><span>Descargar ficheros</span></h1></div><div class="limpiar"></div></div>
+        <div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.",null,"errores");</script></div>
+
+
+        <script type="text/javascript" language="javascript">
+            var versio=navigator.userAgent;
+            if(versio.indexOf("MSIE")!=-1 && versio.indexOf("Windows NT 6")!=-1){
+                document.write('<br>');
+                document.write('<div class="simple forabloc">');
+                document.write('<ul>');
+                document.write('<li>');
+                document.write('<strong>¿Tiene Windows Vista?</strong> <a href="JavaScript:top.Titol.obtenerAyudaCampo(\'FTR\',\'1\',\'VISTA\')"  class="popup"  title="Configurar Explorer 7 para descargar ficheros" ><img src="./imatge/trans.gif" alt="Configurar Explorer 7 para descargar ficheros" />Configurar Explorer 7 para descargar ficheros</a>');
+                document.write('</li>');
+                document.write('</ul>');
+                document.write('</div>');
+            }
+        </script>
+
+
+        <br>
+        <div class="lligats">
+            <div class="lfloat"><h2 class="inline lfloat derecha35">
+                Tienes estos ficheros pendientes de descarga</h2></div>
+            <a id="EnlaceTodos" href="#customlightbox_content" onClick="JavaScript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en cta',event_label:'menu descarga ficheros:l_descargartodos'});};gestionListaTodos();enviar(10)" data-custom_lightbox-width='800px' data-custom_lightbox-noclose class="rfloat ocultar custom_lightbox"   class=" rfloat ocultar"  title=""><img class=" "  src="imatge/cf_ico_download.png"  width="20"  height="20"  onclick ="" /> <span>Descargarlos todos</span></a>
+        </div>
+
+        <br>
+        <table class="table_generica"  id="ListaFicherosRecepcion"><thead>
+        <tr  id="" class="" style="">
+            <th  scope="col"  class="  ltxt   ltxt" >Tipo de fichero</th>
+            <th  scope="col"  class="  ltxt   " >Alias</th>
+            <th  scope="col"  class="  ltxt   " >Fecha y hora de recepción</th>
+            <th  scope="col"  class="    " ></th>
+            <th  scope="col"  class="    " ></th>
+        </tr>
+        </thead><tbody>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+            <th scope="row"  class="ltxt  medida400" >Ext.C43/3 SEPA</th>
+            <td class="ltxt  medida300" ><span>Caixa N43</span></td>
+            <td class="ltxt  medida400" ><span>18/04/2021</span><span> </span><span>17:09:01</span></td>
+            <td class="" ><span></span><span class="rfloat "><a href="#customlightbox_content" onclick="JavaScript:selOperacionDescarga(0);enviar(9)" class="boton boton_26 botonsinicon rfloat ocultar custom_lightbox" data-custom_lightbox-width='800px'><span>Descargar</span></a></span></td>
+            <td class="" ><div  class="contenedor-boton-desplegable ancho-160 rfloat ocultar"  id="botonDesplegableRecepcion1" >
+                <div class="contenedor-boton clearfix">
+                    <span class="image-superior-izquierda"></span>
+                    <span class="texto ">
+<a href="#"  onclick="return Toggle('botonDesplegableRecepcion1');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                </div>
+                <div class="desplegable">
+                    <div class="listado">
+                        <ul>
+                            <li><a href="JavaScript:selOperacionDescarga(0);enviar(3)"><span>Ver detalle</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+            <th scope="row"  class="ltxt  medida400" >Ext.C43/3 SEPA</th>
+            <td class="ltxt  medida300" ><span>Caixa N43</span></td>
+            <td class="ltxt  medida400" ><span>18/04/2021</span><span> </span><span>17:09:00</span></td>
+            <td class="" ><span></span><span class="rfloat "><a href="#customlightbox_content" onclick="JavaScript:selOperacionDescarga(1);enviar(9)" class="boton boton_26 botonsinicon rfloat ocultar custom_lightbox" data-custom_lightbox-width='800px'><span>Descargar</span></a></span></td>
+            <td class="" ><div  class="contenedor-boton-desplegable ancho-160 rfloat ocultar"  id="botonDesplegableRecepcion2" >
+                <div class="contenedor-boton clearfix">
+                    <span class="image-superior-izquierda"></span>
+                    <span class="texto ">
+<a href="#"  onclick="return Toggle('botonDesplegableRecepcion2');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                </div>
+                <div class="desplegable">
+                    <div class="listado">
+                        <ul>
+                            <li><a href="JavaScript:selOperacionDescarga(1);enviar(3)"><span>Ver detalle</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+            <th scope="row"  class="ltxt  medida400" >Ext.C43/3 SEPA</th>
+            <td class="ltxt  medida300" ><span>Caixa N43</span></td>
+            <td class="ltxt  medida400" ><span>18/04/2021</span><span> </span><span>02:12:29</span></td>
+            <td class="" ><span></span><span class="rfloat "><a href="#customlightbox_content" onclick="JavaScript:selOperacionDescarga(2);enviar(9)" class="boton boton_26 botonsinicon rfloat ocultar custom_lightbox" data-custom_lightbox-width='800px'><span>Descargar</span></a></span></td>
+            <td class="" ><div  class="contenedor-boton-desplegable ancho-160 rfloat ocultar"  id="botonDesplegableRecepcion3" >
+                <div class="contenedor-boton clearfix">
+                    <span class="image-superior-izquierda"></span>
+                    <span class="texto ">
+<a href="#"  onclick="return Toggle('botonDesplegableRecepcion3');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                </div>
+                <div class="desplegable">
+                    <div class="listado">
+                        <ul>
+                            <li><a href="JavaScript:selOperacionDescarga(2);enviar(3)"><span>Ver detalle</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+            <th scope="row"  class="ltxt  medida400" >Ext.C43/3 SEPA</th>
+            <td class="ltxt  medida300" ><span>Caixa N43</span></td>
+            <td class="ltxt  medida400" ><span>18/04/2021</span><span> </span><span>00:22:59</span></td>
+            <td class="" ><span></span><span class="rfloat "><a href="#customlightbox_content" onclick="JavaScript:selOperacionDescarga(3);enviar(9)" class="boton boton_26 botonsinicon rfloat ocultar custom_lightbox" data-custom_lightbox-width='800px'><span>Descargar</span></a></span></td>
+            <td class="" ><div  class="contenedor-boton-desplegable ancho-160 rfloat ocultar"  id="botonDesplegableRecepcion4" >
+                <div class="contenedor-boton clearfix">
+                    <span class="image-superior-izquierda"></span>
+                    <span class="texto ">
+<a href="#"  onclick="return Toggle('botonDesplegableRecepcion4');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                </div>
+                <div class="desplegable">
+                    <div class="listado">
+                        <ul>
+                            <li><a href="JavaScript:selOperacionDescarga(3);enviar(3)"><span>Ver detalle</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+            <th scope="row"  class="ltxt  medida400" >Ext.C43/3 SEPA</th>
+            <td class="ltxt  medida300" ><span>Caixa N43</span></td>
+            <td class="ltxt  medida400" ><span>17/04/2021</span><span> </span><span>02:15:27</span></td>
+            <td class="" ><span></span><span class="rfloat "><a href="#customlightbox_content" onclick="JavaScript:selOperacionDescarga(4);enviar(9)" class="boton boton_26 botonsinicon rfloat ocultar custom_lightbox" data-custom_lightbox-width='800px'><span>Descargar</span></a></span></td>
+            <td class="" ><div  class="contenedor-boton-desplegable ancho-160 rfloat ocultar"  id="botonDesplegableRecepcion5" >
+                <div class="contenedor-boton clearfix">
+                    <span class="image-superior-izquierda"></span>
+                    <span class="texto ">
+<a href="#"  onclick="return Toggle('botonDesplegableRecepcion5');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                </div>
+                <div class="desplegable">
+                    <div class="listado">
+                        <ul>
+                            <li><a href="JavaScript:selOperacionDescarga(4);enviar(3)"><span>Ver detalle</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+
+
+        <br>
+        <div class=""><div class="lfloat gris nobold  "><span class="blau ">Estas viendo 5 ficheros</span></div><div class="lfloat izquierda60 br_gris_d"><span class="previous_acumulativo_off " href="">Inicio</span></div><div class="lfloat "><span class="next_acumulativo_off " href="">Siguientes</span></div><div class="limpiar"></div></div>
+        <br>
+
+        <br>
+
+        <div class="row inferior20"><div class="col medida33">		<div class="border">			<div class="equalheights inferior15">				<div class="ctxt inferior10"><img class=" "  src="c-images/html-images/ico-add-circle-30.svg"  height="34" />				</div><h2 class="inferior20 ctxt"><span>Nueva petición</span></h2><p><span>Pide un fichero con los movimientos de tus cuentas, tarjetas o comercios</span></p>				<div class="inferior15"><a href="JavaScript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en cta',event_label:'menu descarga ficheros:b_nueva'});};enviar(7)"   class="btn btn--primary  btn--block btn--mg" id=""><span>Hacer una nueva petición</span></a>				</div>			</div>		</div>	</div><div class="col medida33">		<div class="border">			<div class="equalheights inferior15">				<div class="ctxt inferior10"><img class=" "  src="c-images/html-images/ico-config-30.svg"  height="34" />				</div><h2 class="inferior20 ctxt"><span>Consulta y gestión de peticiones</span></h2><p><span>Gestiona tus peticiones periódicas, consulta el historial de ficheros descargados y pide el duplicado de un fichero que ya te descargaste.</span></p><ul class="list-quadreblau margentbr"><li ><a id="grupoEnlace" href="JavaScript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en cta',event_label:'menu descarga ficheros:l_gestionar'});};enviar(8)"   title=""><span>Gestionar mis peticiones periódicas</span></a></li>
+            <li ><a id="grupoEnlace" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en cta',event_label:'menu descarga ficheros:l_historico'});};enviar2(2)"   title=""><span>Consultar el histórico de ficheros descargados</span></a></li>
+            <li ><a id="grupoEnlace" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en cta',event_label:'menu descarga ficheros:l_duplicado'});};enviar2(2)"   title=""><span>Pedir un duplicado</span></a></li>
+        </ul>			</div>		</div>	</div></div>
+
+
+
+
+        <div class="custom_lightbox_content" id="customlightbox_content"></div>
+        <input type="hidden" name="operacionesDescarga" value="">
+        <br>
+        <input type="hidden" name="PN" value="">
+        <input type="hidden" name="PE" value="">
+        <input type="hidden" name="PN_VOLVER" value="FTR">
+        <input type="hidden" name="PE_VOLVER" value="70">
+
+
+
+        <input type="hidden" name="CLAVE_ITR" value="">
+        <input type="hidden" name="SITUA" value="">
+        <input type="hidden" name="NOMBRE_FICH_HP" value="">
+        <input type="hidden" name="NOMBRE_FICH_PC" value="">
+        <input type="hidden" name="CLAU_REC" value="">
+        <input type="hidden" name="CLAVE_CONTINUACION" value="">
+        <input type="hidden" name="LISTA_FICHEROS_DESCARGA" value="">
+        <input type="hidden" name="LISTA_FICHEROS_DESCARGA_HP" value="">
+        <input type="hidden" name="LISTA_CLAVE_ITR" value="">
+        <input type="hidden" name="LISTA_CLAU_REC" value="">
+        <input type="hidden" name="NUM_DESCARGAS" value="">
+        <input type="hidden" name="ALIASPETICION" value="">
+        <input type="hidden" name="PRIMERA_PAGINA_FTR70" value="S">
+        <input type="hidden" name="SEGUNDA_VUELTA" value="">
+        <input type="hidden" name="FLUJO" value="">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320" method="POST" name="formularioPopUp">
+        <input type="Hidden" name="PN" value="">
+        <input type="Hidden" name="PE" value="">
+        <input type="Hidden" name="CLAVE_ITR" value="">
+        <input type="Hidden" name="CLAU_REC" value="">
+        <input type="Hidden" name="CLAVE_PRODUCTO" value="">
+        <input type="Hidden" name="IDIOMA" value="">
+        <input type="Hidden" name="NOM_FICH_HP" value="">
+        <input type="Hidden" name="NOM_FICH_PC" value="">
+        <input type="Hidden" name="USUARI_SAU" value="">
+        <input type="Hidden" name="LITERAL_TEXTO" value="">
+        <input type="Hidden" name="presentacion" value="">
+        <input type="Hidden" name="SITUA" value="">
+        <input type="Hidden" name="FLAG_PDF" value="">
+        <input type="Hidden" name="FORMAT" value="">
+        <input type="Hidden" name="ESTILO" value="">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320" method="POST" name="formularioPopUpAgrupada">
+        <input type="Hidden" name="PN" value="">
+        <input type="Hidden" name="PE" value="">
+        <input type="Hidden" name="CLAVE_ITR" value="">
+        <input type="Hidden" name="CLAU_REC" value="">
+        <input type="Hidden" name="CLAVE_PRODUCTO" value="">
+        <input type="Hidden" name="IDIOMA" value="">
+        <input type="Hidden" name="NOM_FICH_HP" value="">
+        <input type="Hidden" name="NOM_FICH_PC" value="">
+        <input type="Hidden" name="USUARI_SAU" value="">
+        <input type="Hidden" name="LITERAL_TEXTO" value="">
+        <input type="Hidden" name="presentacion" value="">
+        <input type="Hidden" name="SITUA" value="">
+        <input type="Hidden" name="FLAG_PDF" value="">
+        <input type="Hidden" name="FORMAT" value="">
+        <input type="Hidden" name="ESTILO" value="">
+        <input type="Hidden" name="LISTA_CLAU_REC" value="">
+        <input type="Hidden" name="TIMER_AGRUPADA_FTR_RECUPERA_T0" value="">
+        <input type="Hidden" name="LISTA_CLAVE_ITR" value="">
+        <input type="Hidden" name="LISTA_FICHEROS_DESCARGA_HP" value="">
+        <input type="Hidden" name="LISTA_FICHEROS_DESCARGA" value="">
+        <input type="Hidden" name="NUM_DESCARGAS" value="">
+        <input type="Hidden" name="PULSADO_ENLACE_TODOS" value="">
+        <input type="Hidden" name="TOTAL_FICHEROS_AGRUPADA" value="">
+        <input type="Hidden" name="SEGUNDA_VUELTA" value="">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+
+<script language="JavaScript" type="text/javascript"></script>
+
+</body>
+</html>

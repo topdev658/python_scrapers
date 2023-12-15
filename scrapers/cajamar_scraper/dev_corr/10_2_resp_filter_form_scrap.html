@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<html><script>var language = 'esp';</script>
+<head>
+    <title></title>
+    <link href="/BE/util_apoyo/css/estilos_lf.css" rel="stylesheet" type="text/css"></link>
+    <script language="javascript" src="/BE/util_apoyo/js/screen_code_v1.js" type="text/javascript"></script>
+    <script language="javascript" src="/BE/util_apoyo/js/common_functions_v1.js" type="text/javascript"></script>
+    <script language="javascript" src="/BE/util_apoyo/js/messages_esp_v1.js" type="text/javascript"></script>
+    <style type="text/css"></style>
+    <script language="javascript" src="/BE/util_apoyo/js/W_C_BUZON_VIRTUAL_NUEVO_v1.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script language="javascript" src="/BE/util_apoyo/js/date_picker_submit.js" type="text/javascript"></script>
+    <script LANGUAGE="JavaScript">
+
+        var idiomCode = "esp";
+    </script>
+</head>
+<body id="W_C_BUZON_VIRTUAL_NUEVO" onload="body_onload(this,'W_C_BUZON_VIRTUAL_NUEVO')">
+<bb>
+    <script>document.write(openLayer('LIT_TITULO',0,'','0','600','18',1,'hidden',1,'hidden',false));</script>
+    <table border="0" width="100%">
+        <tr>
+            <td align="center" width="">
+                <font class="titulo">Consulta de documentos en su i-buzón </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,1));</script>
+    <script>document.write(openLayer('TIPO_DOCUS',0,'115','171','350','50',1,'',0,'',false));</script>
+    <form name="TIPO_DOCUS" onkeypress="cancelSubmit()" target="#TPLRadioOpGen">
+        <table border="0" width="350">
+            <tr></tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td height="25"><input type="radio" name="TIPO_DOCUS" value="0" hidefocus="true" onclick="field_selected(this)"   tabindex=20></input></td>
+                            <td height="25">
+                                <font class="literal">Documentos de la cuenta</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25"><input type="radio" name="TIPO_DOCUS" value="1" hidefocus="true" onclick="field_selected(this)"   tabindex=20></input></td>
+                            <td height="25">
+                                <font class="literal">Documentos personales</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25"><input type="radio" name="TIPO_DOCUS" value="2" hidefocus="true" onclick="field_selected(this)"   tabindex=20></input></td>
+                            <td height="25">
+                                <font class="literal">Documentos de seguros y planes de pensiones</font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('NOMB',0,'23','0','600','23',1,'hidden',1,'hidden',false));</script>
+    <table border="0" width="100%">
+        <tr>
+            <td align="center">
+                <font class="usuario">GAMBASTAR S.L. </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,1));</script>
+    <script>document.write(openLayer('NCTA_ALIAS',0,'123','350','450','50',1,'visible',0,'hidden',false));</script>
+    <form name="NCTA_ALIAS" onkeypress="cancelSubmit()" target="#TPLComboVisorCCCGen">
+        <table border="0" width="450">
+            <tr>
+                <td align="left" width="100%">
+                    <select class="fondo" name="NCTA_ALIAS" tabindex="30">
+
+                        <option value="560127200001859">ES25 3058 5601 1727 2000 1859</option>
+
+                        <option value="560127990000036">ES94 3058 5601 1727 9900 0036</option>
+
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('TIPO_CONSUL',0,'233','171','385','50',1,'',0,'',false));</script>
+    <form name="TIPO_CONSUL" onkeypress="cancelSubmit()" target="#TPLRadioOpGen">
+        <table border="0" width="385">
+            <tr></tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td height="25"><input type="radio" name="TIPO_CONSUL" value="0" hidefocus="true" onclick="field_selected(this)"   tabindex=40></input></td>
+                            <td height="25">
+                                <font class="literal">Movimientos de</font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25"><input type="radio" name="TIPO_CONSUL" value="1" hidefocus="true" onclick="field_selected(this)" checked="checked"  tabindex=40></input></td>
+                            <td height="25">
+                                <font class="literal">Entre fechas</font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('LIT_1',0,'271','272','219','20',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="219">
+        <tr>
+            <td align="left" width="">
+                <font class="ayuda">Formato: ddmmaaaa </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('MOVIMIENTOS',0,'240','291','145','26',1,'visible',0,'hidden',false));</script>
+    <form name="MOVIMIENTOS" onkeypress="cancelSubmit()" target="#TPLComboGen">
+        <table border="0" width="145">
+            <tr>
+                <td align="left" width="100%">
+                    <select class="fondo" name="MOVIMIENTOS" tabindex="50"><option value="0"  >Últimos 7 días</option><option value="1"  >Última quincena</option><option value="2"  >Último mes</option></select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('FINI',0,'291','212','135','30',1,'hidden',0,'hidden',false));</script>
+    <form name="FINI" onkeypress="cancelSubmit()" target="#TPLFechaGen">
+        <table border="0" width="135">
+            <tr>
+                <td align="left" nowrap="">
+                    <font class="literal">Desde:</font>
+                </td>
+                <td align="" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('FINI','text','fondo2','8','10','',1,1,'field_parse(this,"dd/mm/aaaa"); this.select()','if (validarFecha(this)) field_format(this,"dd/mm/aaaa");','digitOnly(this)','mostrarMascara("dd/mm/aaaa")',60))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('FFIN',0,'318','216','130','30',1,'hidden',0,'hidden',false));</script>
+    <form name="FFIN" onkeypress="cancelSubmit()" target="#TPLFechaGen">
+        <table border="0" width="130">
+            <tr>
+                <td align="left" nowrap="">
+                    <font class="literal">Hasta:</font>
+                </td>
+                <td align="" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('FFIN','text','fondo2','8','10','',1,1,'field_parse(this,"dd/mm/aaaa"); this.select()','if (validarFecha(this)) field_format(this,"dd/mm/aaaa");','digitOnly(this)','mostrarMascara("dd/mm/aaaa")',70))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('TIPODOCUMENTO',0,'360','173','70%','35',1,'visible',0,'hidden',false));</script>
+    <form name="TIPODOCUMENTO" onkeypress="cancelSubmit()" target="#TPLComboGen">
+        <table border="0" width="420">
+            <tr>
+                <td align="left" nowrap="">
+                    <font class="literalBold">Tipo de documento:</font>
+                </td>
+                <td align="left" width="100%">
+                    <select class="fondo" name="TIPODOCUMENTO" tabindex="80"><option value="00"  >Todos</option><option value="06"  >Cuentas</option><option value="01"  >Recibos</option><option value="03"  >Tarjetas</option><option value="05"  >Préstamos y créditos</option><option value="08"  >Mercados financieros</option><option value="07"  >Hechos corporativos</option><option value="09"  >Cartera comercial</option><option value="04"  >Su comercio (TPV)</option><option value="10"  >Especiales</option><option value="11"  >Otros</option></select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CHECKCONSULTA',0,'391','173','414','25',1,'hidden',0,'hidden',false));</script>
+    <form name="CHECKCONSULTA" onkeypress="cancelSubmit()" target="#TPLCheckGen">
+        <table border="0" width="414">
+            <tr>
+                <td width="20">
+                    <input class="size_style" name="CHECKCONSULTA" tabindex="90" type="checkbox" width="20"></input>
+                </td>
+                <td align="left">
+                    <font class="">Consultar sólo los documentos no visualizados previamente.</font>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('OPCION',0,'66','46','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="OPCION" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('OPCION','text','size_style','30','30','',1,1,'','','','',120))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('DESDE_AUX',0,'155','18','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="DESDE_AUX" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('DESDE_AUX','text','size_style','30','30','',1,1,'','','','',130))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('HASTA_AUX',0,'185','17','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="HASTA_AUX" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('HASTA_AUX','text','size_style','30','30','',1,1,'','','','',140))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('LITERAL1',0,'72','','594','47',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="594">
+        <tr>
+            <td align="left">
+                <font class="">Pinche sobre la configuración del i-buzón para desactivar el envío de correspondencia a su domicilio en papel. </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('LABEL1',0,'95','192','258','19',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="258">
+        <tr>
+            <td align="center">
+                <font class="titulo">Seleccione una opción </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('LITERAL2',0,'199','192','258','19',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="258">
+        <tr>
+            <td align="center">
+                <font class="titulo">Seleccione una o varias opciones </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('LITERAL3',0,'221','173','58','18',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="58">
+        <tr>
+            <td align="left">
+                <font class="literalBold">Periodo: </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CALENDARIO',0,'180','420','200','200',0,'hidden',0,'hidden',false));</script>
+    <table border="0" width="200">
+        <tr>
+            <td align="left">
+                <font class="">. </font>
+            </td>
+            <td align="center">
+                <font class=""> </font>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('FECHAINITOPE',0,'','','0','0',0,'hidden',0,'hidden',false));</script>
+    <form name="FECHAINITOPE" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="0">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('FECHAINITOPE','text','size_style','30','30','',1,1,'','','','',250))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('NCTA',0,'430','50','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="NCTA" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('NCTA','text','size_style','30','30','',1,1,'','','','',280))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CONFIGURAR_BUZON',0,'410','50','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="CONFIGURAR_BUZON" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('CONFIGURAR_BUZON','text','size_style','30','30','0',1,1,'','','','',290))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('PARAM_ENTRADA',0,'370','40','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="PARAM_ENTRADA" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('PARAM_ENTRADA','text','size_style','30','30','',1,1,'','','','',320))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('OFICBE',0,'440','','100','30',0,'hidden',0,'hidden',false));</script>
+    <form name="OFICBE" onkeypress="cancelSubmit()" target="#TPLEntradaSimpleGen">
+        <table border="0" width="100">
+            <tr>
+                <td align="center" width="100%">
+                    <script type="text/javascript">document.write(createTextInput('OFICBE','text','size_style','30','30','',1,1,'','','','',330))</script>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('AYUDA2',0,'370','295','66','30',0,'hidden',0,'hidden',false));</script>
+    <table border="0" width="100%">
+        <tr>
+            <td align="center" valign="top">
+                <input class="btout" onclick="javascript: abre('/BE/extern/ayudas/esp/ayuda17b.htm',465,330)" onmouseout="this.className='btout'" onmouseover="this.className='bton'" style="width:60px;" tabindex="300" type="button" value="Ayuda"></input>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CONFBUZON',0,'44','','90%','28',1,'hidden',0,'hidden',false));</script>
+    <form action="/BE/ServletOperation" method="POST" name="CONFBUZON">
+        <input name="OP_CODE" type="hidden" value="O_C_BUZON_VIRTUAL_BIZTOL1600290533667-S_C_BUZON_VIRTUAL_BIZTOL_v1¬1600290533684"></input>
+        <input name="CHANNEL" type="hidden" value="WEB"></input>
+        <input name="MODEL" type="hidden" value="FullModel"></input>
+        <input name="CURRENT_NODE" type="hidden" value="W_C_BUZON_VIRTUAL_NUEVO"></input>
+        <input name="REACTION_CODE" type="hidden" value="CONFBUZON"></input>
+        <input name="TIPO_DOCUS" type="hidden" value=""></input>
+        <input name="NCTA_ALIAS" type="hidden" value=""></input>
+        <input name="TIPO_CONSUL" type="hidden" value=""></input>
+        <input name="MOVIMIENTOS" type="hidden" value=""></input>
+        <input name="FINI" type="hidden" value=""></input>
+        <input name="FFIN" type="hidden" value=""></input>
+        <input name="TIPODOCUMENTO" type="hidden" value=""></input>
+        <input name="CHECKCONSULTA" type="hidden" value=""></input>
+        <input name="OPCION" type="hidden" value=""></input>
+        <input name="DESDE_AUX" type="hidden" value=""></input>
+        <input name="HASTA_AUX" type="hidden" value=""></input>
+        <input name="FECHAINITOPE" type="hidden" value=""></input>
+        <input name="NCTA" type="hidden" value=""></input>
+        <input name="CONFIGURAR_BUZON" type="hidden" value=""></input>
+        <input name="PARAM_ENTRADA" type="hidden" value=""></input>
+        <input name="OFICBE" type="hidden" value=""></input>
+        <table border="0">
+            <tr>
+                <td align="left" valign="top">
+                    <a class="normal" href="javascript: doSubmit('CONFBUZON',2)" tabindex="10">Configuración del i-buzón</a>
+                </td>
+                <td valign="top">
+                    <a href="javascript: doSubmit('CONFBUZON',2)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('CONFBUZON_img','','/BE/util_apoyo/img/esp/over_anim.gif',1)" tabindex="10"><img name="CONFBUZON_img" src="/BE/util_apoyo/img/esp/anim.gif" border="0" align="middle"></img></a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CALENDESDE',0,'293','347','27','23',1,'hidden',0,'hidden',false));</script>
+    <a href="javascript:show_calendar('FINI.FINI');" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('CALENDESDE_img','','/BE/util_apoyo/img/esp/over_cal.gif',1)" tabindex="220"><img name="CALENDESDE_img" src="/BE/util_apoyo/img/esp/cal.gif" border="0" align="middle"></img></a>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('AYUDA',0,'437','295','65','30',1,'hidden',0,'hidden',false));</script>
+    <table border="0" width="100%">
+        <tr>
+            <td align="center" valign="top">
+                <input class="btout" onclick="javascript: abre('/BE/extern/ayudas/esp/ayuda17a.htm',465,330)" onmouseout="this.className='btout'" onmouseover="this.className='bton'" style="width:60px;" tabindex="120" type="button" value="Ayuda"></input>
+            </td>
+        </tr>
+    </table>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('ACEPTAR',0,'437','224','65','30',1,'hidden',0,'hidden',false));</script>
+    <form action="/BE/ServletOperation" method="POST" name="ACEPTAR">
+        <input name="OP_CODE" type="hidden" value="O_C_BUZON_VIRTUAL_BIZTOL1600290533667-S_C_BUZON_VIRTUAL_BIZTOL_v1¬1600290533684"></input>
+        <input name="CHANNEL" type="hidden" value="WEB"></input>
+        <input name="MODEL" type="hidden" value="FullModel"></input>
+        <input name="CURRENT_NODE" type="hidden" value="W_C_BUZON_VIRTUAL_NUEVO"></input>
+        <input name="REACTION_CODE" type="hidden" value="ACEPTAR"></input>
+        <input name="TIPO_DOCUS" type="hidden" value=""></input>
+        <input name="NCTA_ALIAS" type="hidden" value=""></input>
+        <input name="TIPO_CONSUL" type="hidden" value=""></input>
+        <input name="MOVIMIENTOS" type="hidden" value=""></input>
+        <input name="FINI" type="hidden" value=""></input>
+        <input name="FFIN" type="hidden" value=""></input>
+        <input name="TIPODOCUMENTO" type="hidden" value=""></input>
+        <input name="CHECKCONSULTA" type="hidden" value=""></input>
+        <input name="OPCION" type="hidden" value=""></input>
+        <input name="DESDE_AUX" type="hidden" value=""></input>
+        <input name="HASTA_AUX" type="hidden" value=""></input>
+        <input name="FECHAINITOPE" type="hidden" value=""></input>
+        <input name="NCTA" type="hidden" value=""></input>
+        <input name="CONFIGURAR_BUZON" type="hidden" value=""></input>
+        <input name="PARAM_ENTRADA" type="hidden" value=""></input>
+        <input name="OFICBE" type="hidden" value=""></input>
+        <table border="0" width="100%">
+            <tr>
+                <td align="center" valign="top">
+                    <input class="btout" name="Aceptar" onclick="javascript: doSubmit('ACEPTAR',2,false)" onmouseout="this.className='btout'" onmouseover="this.className='bton'" style="width:60px;" tabindex="100" type="button" value="Aceptar"></input>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>document.write(closeLayer(0,0));</script>
+    <script>document.write(openLayer('CALENHASTA',0,'319','347','25','24',1,'hidden',0,'hidden',false));</script>
+    <a href="javascript:show_calendar('FFIN.FFIN');" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('CALENHASTA_img','','/BE/util_apoyo/img/esp/over_cal.gif',1)" tabindex="230"><img name="CALENHASTA_img" src="/BE/util_apoyo/img/esp/cal.gif" border="0" align="middle"></img></a>
+    <script>document.write(closeLayer(0,0));</script>
+</bb>
+
+
+</bb>
+</body>
+
+</html><script id="f5_cspm">(function(){var f5_cspm={f5_p:'IEMBKLKNCIMFCGFMPNMLNHDJODJGGDEFKLJMDNJPEAMOOEPBMOFHJONHEDHHEKLKNLGBGPAHAANJDNFLKIHAAIBEAAGGKKMHBOOLBOFAFEODJOPLCLEEEPENPJEEDADL',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr1982998792aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/';}
+            return;}}
+        catch(err){return;}
+            setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+        {var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+        f5_cspm.go();}());</script>

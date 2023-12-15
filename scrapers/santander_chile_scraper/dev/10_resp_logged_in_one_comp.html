@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8">
+    <title>Empresas</title>
+    <script type="text/javascript" src="js/do_submit.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "tipo_portal.asp",
+                data: $("#empresas-form").serialize(),
+                contentType: "text/plain; charset=utf-8",
+                dataType: "html",
+                success : function(result) {
+                    $("#empresas-form").attr("action", result);
+                }
+            });
+        });
+    </script>
+</head>
+<body onLoad="javascript:doSubmit()">
+<form name="empresas" action="" method="post" target="_top" id="empresas-form">
+    <input type=hidden name=empSel value="0001000100069002163980007645325700NALANDA SEGURIDAD SPA                                                                                                   ">
+    <input type=hidden name=ModoAcceso value="B">
+    <input type=hidden name=changeEmp value="Falso">
+    <input type=hidden name=Autenticado value="Verdadero">
+    <input type=hidden name=nom_prsna_etcdo value="JUAN GIL RABADAN">
+    <input type=hidden name=Autorizado value="Verdadero">
+    <input type=hidden name=UsuarioNoOFB value="0">
+    <input type=hidden name=UsuarioOFB value="1">
+    <input type=hidden name=TipoAutenticacion value="">
+    <input type=hidden name=GLS_SEGMENTO value="CLIENTES">
+    <input type=hidden name=nro_prsna_usr value="0481918502">
+    <input type=hidden name=Login_Autorizado_HE value="Verdadero">
+    <input type=hidden name=EstadoTCC value="">
+    <input type=hidden name=CLVSP001 value="">
+    <input type=hidden name=Cod_srv value="">
+    <input type=hidden name=url_btn_ses value="https&#58;&#47;&#47;www.officebanking.cl">
+    <input type=hidden name=btnpnc value="0">
+    <input type=hidden name=btnDFTN value="PantOB_Blanca.asp">
+    <input type=hidden name=btnDFT3 value="https&#58;&#47;&#47;www.officebanking.cl&#47;campna&#47;CAMPANAS_OB&#47;PAGO_TC_APP&#47;">
+    <input type=hidden name=btnDFT4 value="ERC">
+    <input type=hidden name=btnDFT6 value="ERC">
+    <input type=hidden name=btnDFT92 value="https&#58;&#47;&#47;www.officebanking.cl&#47;campna&#47;CAMPANAS_OB&#47;APO_DELEGADO&#47;BANNER.ASPX">
+    <input type=hidden name=btnDFT00 value="ERC">
+    <input type=hidden name=NoticiaOFB20 value="">
+</form>
+</body>
+</html>

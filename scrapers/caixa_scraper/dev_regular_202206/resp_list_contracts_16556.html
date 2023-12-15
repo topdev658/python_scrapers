@@ -1,0 +1,731 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link href="css/lo_master.css" rel="stylesheet" type="text/css">
+    <link href="css/c-colorStatus.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-dropdownSelector/css/c-dropdownSelector.css" rel="stylesheet"
+          type="text/css">
+    <link href="libraries/internal_libraries/c-button/css/c-button.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/u-fonts/css/u-fonts.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/loicon/css/loicon.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-listing/css/c-listing.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-modal/css/c-modal.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-toast/css/c-toast.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/tables.js"></script>
+    <script type="text/javascript" src="js/h-handlebarsExtensions.js"></script>
+    <script type="text/javascript" src="libraries/external_libraries/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="libraries/internal_libraries/c-modal/js/c-modal.js"></script>
+    <script type="text/javascript"
+            src="libraries/internal_libraries/c-dropdownSelector/js/c-dropdownSelector.js"></script>
+    <script type="text/javascript" src="libraries/internal_libraries/c-toast/js/c-toast.js" defer></script>
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function () {
+            var resAliasOk = "";
+            var resUsuPredOk = "";
+            if ('S' == resAliasOk) {
+                document.getElementById('toastAlias').click();
+            }
+            if ('S' == resUsuPredOk) {
+                document.getElementById('toastUsuPredet').click();
+            }
+            $(function () {
+                $(".selectorusuario").on("cDropdownSelector:itemSelected", function (e, name, value, checked, type, itemLabel) {
+                    console.log(name, value, checked, type, itemLabel, e);
+                });
+            });
+        });
+
+        function peUsuarioDefecto(usuClo, nomTit) {
+            f = document.forms["formUsuDefecto"]
+            f.PN.value = "LGU"
+            f.PE.value = "8"
+            f.CLAVE_CONTINUACION_AREACLO.value = "000"
+            f.CLAVE_CONTINUACION_USUCLO.value = "00000000000"
+            f.CLAVE_CONTINUACION_COMCLO.value = "0000000000000"
+            f.PRIMERA_CONSULTA.value = "1"
+            f.CANVI_USUCLO.value = usuClo
+            f.USUARI_DEFECTE_MID.value = nomTit
+            f.submit();
+        }
+
+        function doPagIni(alta) {
+            with (document.forms["formDoPagIni"]) {
+                if (alta == 'true') {
+                    PE.value = "9";
+                } else {
+                    PE.value = "10";
+                }
+                ADVORIGPN.value = "LGU";
+                ADVORIGPE.value = "1";
+                submit();
+            }
+        }
+
+        function doCambioUsuario(usuclo, nomTitParse, comCloMid, usucloRef) {
+            f = document.forms["formCambioUsuario"];
+            f.CANVI_USUCLO.value = usuclo;
+            f.refCanviUsuclo.value = usucloRef;
+            f.USUARI_DEFECTE_MID.value = nomTitParse;
+            f.CONTRATO_CLO.value = comCloMid;
+            f.PN.value = "LGU";
+            f.PE.value = "3";
+            f.ORIGEN_LGU.value = "E";
+            f.submit();
+        }
+
+        function paginar(val) {
+            f = document.forms["formPaginacion"]
+            f.PN.value = "LGU"
+            f.PE.value = "1"
+            f.PAS.value = ""
+            f.LGU2PAS_CABECERA.value = ""
+            if (val == 0) {
+                f.CLAVE_CONTINUACION_AREACLO.value = "000"
+                f.CLAVE_CONTINUACION_USUCLO.value = "00000000000"
+                f.CLAVE_CONTINUACION_COMCLO.value = "0000000000000"
+                f.PRIMERA_CONSULTA.value = "1"
+            } else if (val == 1) {
+                f.CLAVE_CONTINUACION_AREACLO.value = ""
+                f.CLAVE_CONTINUACION_USUCLO.value = ""
+                f.CLAVE_CONTINUACION_COMCLO.value = ""
+                f.PRIMERA_CONSULTA.value = "0"
+            }
+            f.submit();
+        }
+
+        function editAlias(usuClo) {
+            var nAlias = document.getElementById('newAlias').value;
+            if (nAlias.includes("\"")) {
+                document.getElementById("textErrorAnd").classList.add('display--none');
+                document.getElementById("textErrorBackslash").classList.add('display--none');
+                ponErrorComil();
+            } else if (nAlias.includes("&")) {
+                document.getElementById("textErrorComil").classList.add('display--none');
+                document.getElementById("textErrorBackslash").classList.add('display--none');
+                ponErrorAnd();
+            } else if (nAlias.includes("\\")) {
+                document.getElementById("textErrorAnd").classList.add('display--none');
+                document.getElementById("textErrorComil").classList.add('display--none');
+                ponErrorBackslash();
+            } else {
+                document.getElementById("textErrorComil").classList.add('display--none');
+                document.getElementById("textErrorAnd").classList.add('display--none');
+                document.getElementById("textErrorBackslash").classList.add('display--none');
+                document.getElementById("newAlias").classList.remove('input--error');
+                f = document.forms["formEditAlias"];
+                f.PN.value = "LGU";
+                f.PE.value = "6";
+                f.CLAVE_CONTINUACION_AREACLO.value = "000";
+                f.CLAVE_CONTINUACION_USUCLO.value = "00000000000";
+                f.CLAVE_CONTINUACION_COMCLO.value = "0000000000000";
+                f.PRIMERA_CONSULTA.value = "1";
+                f.LLISTA_USUCLO.value = usuClo;
+                f.LLISTA_ALIAS.value = nAlias;
+                f.submit();
+            }
+        }
+
+        function delAlias(usuClo) {
+            f = document.forms["formEditAlias"];
+            f.PN.value = "LGU";
+            f.PE.value = "6";
+            f.CLAVE_CONTINUACION_AREACLO.value = "000";
+            f.CLAVE_CONTINUACION_USUCLO.value = "00000000000";
+            f.CLAVE_CONTINUACION_COMCLO.value = "0000000000000";
+            f.PRIMERA_CONSULTA.value = "1";
+            f.LLISTA_USUCLO.value = usuClo;
+            f.LLISTA_ALIAS.value = "";
+            f.submit();
+        }
+
+        function ponErrorComil() {
+            document.getElementById("newAlias").classList.add('input--error');
+            document.getElementById("textErrorComil").classList.remove('display--none');
+        }
+
+        function ponErrorAnd() {
+            document.getElementById("newAlias").classList.add('input--error');
+            document.getElementById("textErrorAnd").classList.remove('display--none');
+        }
+
+        function ponErrorBackslash() {
+            document.getElementById("newAlias").classList.add('input--error');
+            document.getElementById("textErrorBackslash").classList.remove('display--none');
+        }
+
+        function quitaError() {
+            document.getElementById("newAlias").classList.remove('input--error');
+        }
+    </script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+</head>
+<body id="cos" class="">
+<script>var PNLomilu = 'LGU';
+var PELomilu = '1';</script>
+<script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+
+<div id="lo_contenido">
+
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST">
+        <div id="layoutGen" class="o-layout-fixed--small margin--left-normal">
+            <div
+                    class="u-flex u-flex-justify-content-between u-flex-align-item-center margin--bottom-normal">
+                <div id="" class="u-flex u-flex-align-item-baseline">
+                    <h1 class="margin--bottom-none">Tus usuarios de CaixaBankNow
+                    </h1>
+                </div>
+            </div>
+            <p id="" class="margin--bottom-normal">Estos son los usuarios asociados a tu identificador de CaixaBankNow.
+                Puedes cambiar de usuario sin cerrar sesión, marcar un usuario predeterminado o modificar el alias de
+                cada usuario.</p>
+            <div id="" class="tableWrapper margin--bottom-small">
+                <table id="" class="table table--width-full">
+                    <thead>
+                    <tr>
+                        <th class="table--column-width-70p">Titular</th>
+                        <th class="table--column-width-25p"></th>
+                        <th class="table--column-width-5p"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr class="bg-color--softblue">
+
+
+                        <td>
+
+
+                            <div id="" class="font--size-100">
+
+                                <span id="">	(Usuario predeterminado)</span>
+                            </div>
+                            <div id="" class="font--size-100">GIROWIMAX WIRELESS SOLUTIONS, S.L.</div>
+
+
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+                            <div id=""
+                                 class="c-colorstatus c-colorstatus--theme-ok padding--right-normal font--size-100">
+                                Usuario actual
+                            </div>
+
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+                            <a id="" class="btn btn--lg btn--icon selectorusuario"
+                               data-c-dropdownselector=""
+                               id="cDropdownSelector1"> <span
+                                    class="loicon-dotsvert loicon--size-24px"></span></a>
+                            <script data-c-dropdownselectorconfig="" type="application/json">
+                                {
+                                    "options": [
+                                        {
+                                            "options": [
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionUserDefecto",
+                                                    "loicon": "user",
+                                                    "title": "Marcar como predeterminado",
+                                                    "onClick": "javascript:peUsuarioDefecto(\"01884930101\",\"GIROWIMAX WIRELESS SOLUTIONS, S.L.\")"
+                                                },
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionEditAlias",
+                                                    "loicon": "edit",
+                                                    "title": "Modificar alias",
+                                                    "link": {
+                                                        "href": "#"
+                                                    },
+                                                    "additionalAttributes": {
+                                                        "data-cModal-trigger": "#modalEditAlias1",
+                                                        "onClick": "return false;"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            </script>
+
+                        </td>
+                        <div data-cmodal="" id="modalEditAlias1">
+                            <script data-cmodal-contenthead="" type="text/x-handlebars-template">
+                                <h1 class='margin--bottom-normal'>Modificar alias</h1>
+                            </script>
+                            <script data-cmodal-contentmain="" type="text/x-handlebars-template">
+                                <div id="divInputMod">
+                                    <input id="newAlias"
+                                           class="input_base input_base--height-large c_formElement--width-medium"
+                                           value="" type="text" maxlength="20"/>
+                                    <div id=textErrorAnd class="display--none c-form-group__error_text">
+                                        Caracter no válido: &amp;
+                                    </div>
+                                    <div id=textErrorComil class="display--none c-form-group__error_text">
+                                        Caracter no válido: &#034;
+                                    </div>
+                                    <div id=textErrorBackslash class="display--none c-form-group__error_text">
+                                        Caracter no válido: \
+                                    </div>
+                                </div>
+                                <div id="divBotons"
+                                     class="u-flex u-flex-align-item-center u-flex-justify-content-center">
+                                    <a id=""
+                                       class="c-button c-button--theme-secondary margin--top-extrabig margin--right-normal"
+                                       href="javascript:delAlias('01884930101')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Eliminar alias
+</span>
+                                    </a>
+                                    <a id="" class="c-button font--weight-normal margin--top-extrabig"
+                                       href="javascript:editAlias('01884930101')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Guardar
+</span>
+                                    </a>
+                                </div>
+                            </script>
+                            <script data-cmodal-config="" type="application/json">
+                                {
+                                    "layout": {
+                                        "width": "750px"
+                                    }
+                                }
+                            </script>
+                        </div>
+
+
+                    <tr>
+
+
+                        <td>
+
+
+                            <div id="" class="font--size-100">
+
+                            </div>
+                            <div id="" class="font--size-100">FRANCISCO JAVIER MAURICIO FOCHE</div>
+
+
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+
+                            <a id="" class="c-button font--weight-normal"
+                               href="javascript:doCambioUsuario('00989982901', 'FRANCISCO JAVIER MAURICIO FOCHE', '9725019899829', '_LKTMiY8ZYP8spMyJjxlgwAAAf9fKurBNQchGb5_7YY')"
+                               role="button"> <span
+                                    class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                                 src="c-images/html-images/icons/24x24/ico_user_change.svg"/>
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar de usuario  </span>
+                            </a>
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+                            <a id="" class="btn btn--lg btn--icon selectorusuario"
+                               data-c-dropdownselector=""
+                               id="cDropdownSelector2"> <span
+                                    class="loicon-dotsvert loicon--size-24px"></span></a>
+                            <script data-c-dropdownselectorconfig="" type="application/json">
+                                {
+                                    "options": [
+                                        {
+                                            "options": [
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionUserDefecto",
+                                                    "loicon": "user",
+                                                    "title": "Marcar como predeterminado",
+                                                    "onClick": "javascript:peUsuarioDefecto(\"00989982901\",\"FRANCISCO JAVIER MAURICIO FOCHE\")"
+                                                },
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionEditAlias",
+                                                    "loicon": "edit",
+                                                    "title": "Modificar alias",
+                                                    "link": {
+                                                        "href": "#"
+                                                    },
+                                                    "additionalAttributes": {
+                                                        "data-cModal-trigger": "#modalEditAlias2",
+                                                        "onClick": "return false;"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            </script>
+
+                        </td>
+                        <div data-cmodal="" id="modalEditAlias2">
+                            <script data-cmodal-contenthead="" type="text/x-handlebars-template">
+                                <h1 class='margin--bottom-normal'>Modificar alias</h1>
+                            </script>
+                            <script data-cmodal-contentmain="" type="text/x-handlebars-template">
+                                <div id="divInputMod">
+                                    <input id="newAlias"
+                                           class="input_base input_base--height-large c_formElement--width-medium"
+                                           value="" type="text" maxlength="20"/>
+                                    <div id=textErrorAnd class="display--none c-form-group__error_text">
+                                        Caracter no válido: &amp;
+                                    </div>
+                                    <div id=textErrorComil class="display--none c-form-group__error_text">
+                                        Caracter no válido: &#034;
+                                    </div>
+                                    <div id=textErrorBackslash class="display--none c-form-group__error_text">
+                                        Caracter no válido: \
+                                    </div>
+                                </div>
+                                <div id="divBotons"
+                                     class="u-flex u-flex-align-item-center u-flex-justify-content-center">
+                                    <a id=""
+                                       class="c-button c-button--theme-secondary margin--top-extrabig margin--right-normal"
+                                       href="javascript:delAlias('00989982901')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Eliminar alias
+</span>
+                                    </a>
+                                    <a id="" class="c-button font--weight-normal margin--top-extrabig"
+                                       href="javascript:editAlias('00989982901')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Guardar
+</span>
+                                    </a>
+                                </div>
+                            </script>
+                            <script data-cmodal-config="" type="application/json">
+                                {
+                                    "layout": {
+                                        "width": "750px"
+                                    }
+                                }
+                            </script>
+                        </div>
+
+
+                    <tr>
+
+
+                        <td>
+
+
+                            <div id="" class="font--size-100">
+
+                            </div>
+                            <div id="" class="font--size-100">FRANCISCO DE ASIS RIPOLL SOGAS</div>
+
+
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+
+                            <a id="" class="c-button font--weight-normal"
+                               href="javascript:doCambioUsuario('01021011901', 'FRANCISCO DE ASIS RIPOLL SOGAS', '9725020210119', '_LKTMibhRGD8spMyJuFEYAAAAf9fKurBvCC1ntn92cI')"
+                               role="button"> <span
+                                    class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                                 src="c-images/html-images/icons/24x24/ico_user_change.svg"/>
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar de usuario  </span>
+                            </a>
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+                            <a id="" class="btn btn--lg btn--icon selectorusuario"
+                               data-c-dropdownselector=""
+                               id="cDropdownSelector3"> <span
+                                    class="loicon-dotsvert loicon--size-24px"></span></a>
+                            <script data-c-dropdownselectorconfig="" type="application/json">
+                                {
+                                    "options": [
+                                        {
+                                            "options": [
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionUserDefecto",
+                                                    "loicon": "user",
+                                                    "title": "Marcar como predeterminado",
+                                                    "onClick": "javascript:peUsuarioDefecto(\"01021011901\",\"FRANCISCO DE ASIS RIPOLL SOGAS\")"
+                                                },
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionEditAlias",
+                                                    "loicon": "edit",
+                                                    "title": "Modificar alias",
+                                                    "link": {
+                                                        "href": "#"
+                                                    },
+                                                    "additionalAttributes": {
+                                                        "data-cModal-trigger": "#modalEditAlias3",
+                                                        "onClick": "return false;"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            </script>
+
+                        </td>
+                        <div data-cmodal="" id="modalEditAlias3">
+                            <script data-cmodal-contenthead="" type="text/x-handlebars-template">
+                                <h1 class='margin--bottom-normal'>Modificar alias</h1>
+                            </script>
+                            <script data-cmodal-contentmain="" type="text/x-handlebars-template">
+                                <div id="divInputMod">
+                                    <input id="newAlias"
+                                           class="input_base input_base--height-large c_formElement--width-medium"
+                                           value="" type="text" maxlength="20"/>
+                                    <div id=textErrorAnd class="display--none c-form-group__error_text">
+                                        Caracter no válido: &amp;
+                                    </div>
+                                    <div id=textErrorComil class="display--none c-form-group__error_text">
+                                        Caracter no válido: &#034;
+                                    </div>
+                                    <div id=textErrorBackslash class="display--none c-form-group__error_text">
+                                        Caracter no válido: \
+                                    </div>
+                                </div>
+                                <div id="divBotons"
+                                     class="u-flex u-flex-align-item-center u-flex-justify-content-center">
+                                    <a id=""
+                                       class="c-button c-button--theme-secondary margin--top-extrabig margin--right-normal"
+                                       href="javascript:delAlias('01021011901')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Eliminar alias
+</span>
+                                    </a>
+                                    <a id="" class="c-button font--weight-normal margin--top-extrabig"
+                                       href="javascript:editAlias('01021011901')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Guardar
+</span>
+                                    </a>
+                                </div>
+                            </script>
+                            <script data-cmodal-config="" type="application/json">
+                                {
+                                    "layout": {
+                                        "width": "750px"
+                                    }
+                                }
+                            </script>
+                        </div>
+
+
+                    <tr>
+
+
+                        <td>
+
+
+                            <div id="" class="font--size-100">
+
+                            </div>
+                            <div id="" class="font--size-100">NIMBUS TELECOM S.L.</div>
+
+
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+
+                            <a id="" class="c-button font--weight-normal"
+                               href="javascript:doCambioUsuario('01906125703', 'NIMBUS TELECOM S.L.', '9725029061257', '_LKTMiaFrw_8spMyJoWvDwAAAf9fKurBMNxPjpd4nvQ')"
+                               role="button"> <span
+                                    class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                                 src="c-images/html-images/icons/24x24/ico_user_change.svg"/>
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar de usuario  </span>
+                            </a>
+                        </td>
+                        <td class="white_space--nowrap text--align-center">
+
+                            <a id="" class="btn btn--lg btn--icon selectorusuario"
+                               data-c-dropdownselector=""
+                               id="cDropdownSelector4"> <span
+                                    class="loicon-dotsvert loicon--size-24px"></span></a>
+                            <script data-c-dropdownselectorconfig="" type="application/json">
+                                {
+                                    "options": [
+                                        {
+                                            "options": [
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionUserDefecto",
+                                                    "loicon": "user",
+                                                    "title": "Marcar como predeterminado",
+                                                    "onClick": "javascript:peUsuarioDefecto(\"01906125703\",\"NIMBUS TELECOM S.L.\")"
+                                                },
+                                                {
+                                                    "type": "action",
+                                                    "name": "actionEditAlias",
+                                                    "loicon": "edit",
+                                                    "title": "Modificar alias",
+                                                    "link": {
+                                                        "href": "#"
+                                                    },
+                                                    "additionalAttributes": {
+                                                        "data-cModal-trigger": "#modalEditAlias4",
+                                                        "onClick": "return false;"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            </script>
+
+                        </td>
+                        <div data-cmodal="" id="modalEditAlias4">
+                            <script data-cmodal-contenthead="" type="text/x-handlebars-template">
+                                <h1 class='margin--bottom-normal'>Modificar alias</h1>
+                            </script>
+                            <script data-cmodal-contentmain="" type="text/x-handlebars-template">
+                                <div id="divInputMod">
+                                    <input id="newAlias"
+                                           class="input_base input_base--height-large c_formElement--width-medium"
+                                           value="" type="text" maxlength="20"/>
+                                    <div id=textErrorAnd class="display--none c-form-group__error_text">
+                                        Caracter no válido: &amp;
+                                    </div>
+                                    <div id=textErrorComil class="display--none c-form-group__error_text">
+                                        Caracter no válido: &#034;
+                                    </div>
+                                    <div id=textErrorBackslash class="display--none c-form-group__error_text">
+                                        Caracter no válido: \
+                                    </div>
+                                </div>
+                                <div id="divBotons"
+                                     class="u-flex u-flex-align-item-center u-flex-justify-content-center">
+                                    <a id=""
+                                       class="c-button c-button--theme-secondary margin--top-extrabig margin--right-normal"
+                                       href="javascript:delAlias('01906125703')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Eliminar alias
+</span>
+                                    </a>
+                                    <a id="" class="c-button font--weight-normal margin--top-extrabig"
+                                       href="javascript:editAlias('01906125703')" role="button">
+<span id=""
+      class="c-button__content font--size-100 font--weight-normal">Guardar
+</span>
+                                    </a>
+                                </div>
+                            </script>
+                            <script data-cmodal-config="" type="application/json">
+                                {
+                                    "layout": {
+                                        "width": "750px"
+                                    }
+                                }
+                            </script>
+                        </div>
+
+                    </tbody>
+                </table>
+            </div>
+            <a class="display--none" id="toastAlias" href="#"
+               onclick="toast.create('Alias modificado correctamente','ok',false)"></a>
+            <a class="display--none" id="toastUsuPredet" href="#"
+               onclick="toast.create('Usuario marcado predeterminado correctamente','ok',false)"></a>
+
+
+            <div id="" class="font--size-110 font--weight-semibold margin--bottom-normal margin--top-big">
+                Además, puedes:
+            </div>
+            <ul id="" class="c-listing margin--bottom-big">
+                <li class="c-listing__item c-listing__item--type-dot"><a
+                        href="javascript:top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,'PCM','1','','EOC_LGU_1');">Consultar
+                    saldo de las cuentas de todos tus usuarios</a></li>
+
+
+                <li class="c-listing__item c-listing__item--type-dot"><a
+                        href="javascript:doPagIni('true')">Añadir esta página como página inicial</a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formUsuDefecto">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="USUARI_DEFECTE_MID">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO">
+        <input type="hidden" name="PRIMERA_CONSULTA">
+        <input type="hidden" name="CANVI_USUCLO">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formPosicionCuentas">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formDoPagIni">
+
+        <input type="hidden" name="PE" value="">
+        <input type="hidden" name="ADVORIGPN" value="PPE">
+        <input type="hidden" name="ADVORIGPE" value="1">
+
+
+        <input name="REFVAL_COMPLEJO_3360" value="_LKTMiaOp4v8spMyJo6niwAAAf9fKuq9c9b19IQnoBE" type="hidden"><input
+            type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formCambioUsuario">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="refCanviUsuclo">
+        <input type="hidden" name="CONTRATO_CLO">
+        <input type="hidden" name="USUARI_DEFECTE_MID">
+        <input type="hidden" name="CANVI_USUCLO">
+
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formPaginacion">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO">
+        <input type="hidden" name="PRIMERA_CONSULTA">
+        <input type="hidden" name="PAS">
+        <input type="hidden" name="LGU2PAS_CABECERA">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=xlhfKKVO1NBIgHwg3SJAcnMg3hb4Ip3M6-yMXDXe_NO6_jo72vVs!1814653135!-60768580"
+          method="POST" name="formEditAlias">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="LLISTA_USUCLO">
+        <input type="hidden" name="LLISTA_ALIAS">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO">
+        <input type="hidden" name="PRIMERA_CONSULTA">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+<script language="JavaScript" type="text/javascript"></script>
+
+</body>
+</html>

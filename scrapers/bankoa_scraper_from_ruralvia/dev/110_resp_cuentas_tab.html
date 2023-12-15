@@ -1,0 +1,2569 @@
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+
+<script>
+	var ua = 'UA-12835961-5';
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+	ga('create', ua, 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+
+<!--
+<title>BANCA INTERNET</title>
+-->
+<!-- -->
+
+<title>BANCA INTERNET</title>
+
+<meta HTTP-EQUIV="Cache-Control" CONTENT="No-cache">
+<META HTTP-EQUIV="Pragma" CONTENT="No-cache">
+<META HTTP-EQUIV="Expires" CONTENT="Now">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+
+
+
+
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/ValidateTO.js"></script>
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script>
+<script language="javascript" src="/javascripts_portal/es_ES/js_portal/calendar.js"></script>
+<script language="javascript" >
+
+	var pulsada = 0;	
+	
+	//Se usa una variable global para la fecha actual 
+	var hoy = new Date("2020", "1", "21");
+	
+	function getFechaSistema(){
+		return formatearFecha(hoy);
+	}
+	
+	function restarDias(dias){
+		var salida = new Date(hoy.getFullYear(),hoy.getMonth(),parseInt(hoy.getDate(),10)-parseInt(dias,10));
+	 	return formatearFecha(salida);
+	}
+	
+	function restarMeses(meses){
+		var salida = new Date(hoy.getFullYear(),parseInt(hoy.getMonth(),10)-parseInt(meses,10) ,hoy.getDate());
+	 	return formatearFecha(salida);
+	}
+	
+	function inicializarDatos(){
+		
+			habilitarOrden(0, true);
+			document.FORM_RVIA_0.nMovs.value = "50";
+		
+		
+		//orden
+		
+			document.FORM_RVIA_0.ordenBusqueda[0].checked = true;
+		
+		
+		// Usaremos la fecha de comparación para que no introduzcan fechas posteriores a la actual 
+	    document.FORM_RVIA_0.fechaComparacion.value = getFechaSistema();
+		
+		
+		
+		
+	}
+	
+	//Completa la paginación
+	function completar(pag) {
+		document.FORM_RVIA_0.clavePagina.value = "PAS_MOV_CUENTAS_NO_FINAN";
+		document.FORM_RVIA_0.columnaOrden.value = document.FORM_RVIA_0.ultimoOrden.value;
+		if (pulsada == 0) {
+			pulsada = 1;
+			document.FORM_RVIA_0.mostrarAlert250.value = "0";
+			document.FORM_RVIA_0.submit();
+		}
+	}
+
+	
+	//Habilita y deshabilita y marca tipo de orden de dependiendo de la opcion de búsqueda seleccionada
+	function habilitarOrden(tipo, actualizaCampos){
+		//dependiendo del parámetro que se pasa en la llamada a la función se le llama desde un onclick de un radiobutton u otro
+		switch (tipo){
+			
+			// Búsqueda de últimos movimientos
+			case 0: 
+				document.FORM_RVIA_0.tipoBusqueda[0].checked = true;
+				document.FORM_RVIA_0.ordenBusqueda[0].checked = true;
+				//document.FORM_RVIA_0.ordenBusqueda[1].disabled = true;
+				document.FORM_RVIA_0.ordenBusqueda[1].value = "C";
+				if(actualizaCampos) document.FORM_RVIA_0.nMovs.value = "50";
+			    document.FORM_RVIA_0.FECHAMOVHASTA.value = "";    
+			    document.FORM_RVIA_0.FECHAMOVDESDE.value = "";
+				document.FORM_RVIA_0.diasAnteriores.value = "";
+				break;
+			
+			//Búsqueda por rango de fechas*/
+			case 1:
+				document.FORM_RVIA_0.tipoBusqueda[1].checked = true;
+				document.FORM_RVIA_0.ordenBusqueda[0].checked = true;
+				//document.FORM_RVIA_0.ordenBusqueda[1].disabled = false;
+				document.FORM_RVIA_0.ordenBusqueda[1].value = "A";
+				document.FORM_RVIA_0.nMovs.value = "";
+				if(actualizaCampos){
+				    document.FORM_RVIA_0.FECHAMOVHASTA.value = getFechaSistema();    
+				    document.FORM_RVIA_0.FECHAMOVDESDE.value = restarMeses(1);
+				}
+				document.FORM_RVIA_0.diasAnteriores.value = "";
+				break;
+		
+			//Búsqueda por últimos días*/
+			case 2:
+				document.FORM_RVIA_0.tipoBusqueda[2].checked = true;
+				document.FORM_RVIA_0.ordenBusqueda[0].checked = true;
+				//document.FORM_RVIA_0.ordenBusqueda[1].disabled = false;
+				document.FORM_RVIA_0.ordenBusqueda[1].value = "A";
+				document.FORM_RVIA_0.nMovs.value = "";
+			    document.FORM_RVIA_0.FECHAMOVHASTA.value = "";    
+			    document.FORM_RVIA_0.FECHAMOVDESDE.value = "";
+				break;
+		}
+	}
+	
+	
+	//Muestra u oculta búsqueda avanzada en función de onclick sobre literal
+	function mostrarOcultar(){
+		var vista = document.getElementById("BUSQUEDA_AVANZADA").style.display;
+		if (vista=='none')
+			vista='block';
+		else
+			vista='none';
+	    document.getElementById("BUSQUEDA_AVANZADA").style.display = vista;
+	}
+	
+	function mostrarBusAv(){
+		document.getElementById("BUSQUEDA_AVANZADA").style.display ='block';
+		document.getElementById("BOTON_BA").style.display ='none';
+		document.FORM_RVIA_0.busquedaAvanzada.value = "1";
+	}
+	
+	function aceptarBuscar(){
+		if (!validar()) return;
+		
+		if ( pulsada == 0 ){
+			pulsada = 1;
+			document.FORM_RVIA_0.mostrarAlert250.value = "1";
+			document.FORM_RVIA_0.tipoOrden.value = "0";
+			if(document.FORM_RVIA_0.busquedaAvanzada.value == "1" || document.FORM_RVIA_0.BUSQUEDA.value == "EMPRESA"){
+				document.FORM_RVIA_0.clavePagina.value = "PAS_MOV_CUENTAS_NO_FINAN";
+			}else{
+				document.FORM_RVIA_0.clavePagina.value = "PAS_MOV_CUENTAS";
+			}
+			document.FORM_RVIA_0.columnaOrden.value = 0;
+			document.FORM_RVIA_0.submit();
+		}
+	}
+	
+	function validar() {
+		if( false ){
+			// Vamos a obtener la Cuenta Seleccionada 
+		    cuentaSelecc = document.FORM_RVIA_0.SELCTA[document.FORM_RVIA_0.SELCTA.selectedIndex].value;
+		    if ( cuentaSelecc == "0" ) {
+				window.alert("Debe de seleccionar una cuenta.");
+				return false;
+	  		}
+		    document.FORM_RVIA_0.cuentaSel.value = cuentaSelecc; 
+			document.FORM_RVIA_0.cuenta.value = cuentaSelecc.substring(0,20);
+			document.FORM_RVIA_0.DIVISA_COD.value = cuentaSelecc.substring(20,23);
+			//**** P000018455 04-02-2016 INICIO ****************			
+			document.FORM_RVIA_0.descripcionCuenta.value = cuentaSelecc.substring(28, cuentaSelecc.length);
+			//**** P000018455 04-02-2016 FIN ****************
+			
+
+
+	document.FORM_RVIA_0.primeraVez.value      = "1";
+	    
+	
+		document.FORM_RVIA_0.paginaActual.value    = "0";
+	
+
+    <!-- **** P00008126 25-01-2006 INICIO ****************.-->
+	
+		document.FORM_RVIA_0.tamanioPagina.value   = "50";;
+		    
+    <!-- **** P00008126 25-01-2006 FIN ****************.-->
+	   
+	
+	    document.FORM_RVIA_0.campoPaginacion.value = "lista";
+	
+
+			
+			
+			var textoCuenta = document.FORM_RVIA_0.SELCTA[document.FORM_RVIA_0.SELCTA.selectedIndex].text;
+			var arrayCuenta = textoCuenta.split(" | ");
+			document.FORM_RVIA_0.DIVISA_NAME.value = arrayCuenta[2];
+			
+			
+		}else{
+			document.FORM_RVIA_0.primeraVez.value = '1';
+			document.FORM_RVIA_0.paginaActual.value = '0';
+			document.FORM_RVIA_0.tamanioPagina.value = '50';
+			document.FORM_RVIA_0.campoPaginacion.value = 'lista';
+		}
+		
+		var tipoBusq = "0";
+		for(i=0;i<document.FORM_RVIA_0.tipoBusqueda.length;i++){
+	    	if(document.FORM_RVIA_0.tipoBusqueda[i].checked){ 
+	    		tipoBusq = document.FORM_RVIA_0.tipoBusqueda[i].value;
+	    	}
+	    }
+		
+		switch (tipoBusq){
+		case ("0"):
+			if (! checkInteger2 (document.FORM_RVIA_0.nMovs,'Movimientos',false))return false;
+			if (! checkNumericMayor(document.FORM_RVIA_0.CERO, document.FORM_RVIA_0.nMovs,'Movimientos',false))return false;
+			document.FORM_RVIA_0.numMovs.value  = document.FORM_RVIA_0.nMovs.value;
+			document.FORM_RVIA_0.FechaDesde.value  = restarMeses(400);
+			document.FORM_RVIA_0.FechaHasta.value  = getFechaSistema();
+			break;
+		case ("1"):
+			// Chequeo de fechas					
+			if (! checkDate(document.FORM_RVIA_0.FECHAMOVDESDE,'Fecha', false))return false;
+			if (! checkDate(document.FORM_RVIA_0.FECHAMOVHASTA,'Fecha', false))return false;	
+			if (! checkDateMayorEquals(document.FORM_RVIA_0.FECHAMOVDESDE, document.FORM_RVIA_0.FECHAMOVHASTA, false))return false; 
+			if (! isDateMayorEquals(document.FORM_RVIA_0.FECHAMOVHASTA, document.FORM_RVIA_0.fechaComparacion, false)){
+				alert("El campo Fecha Hasta no debe ser posterior a la Fecha Actual.");
+				return false;
+			}
+			document.FORM_RVIA_0.FechaDesde.value  = document.FORM_RVIA_0.FECHAMOVDESDE.value;
+			document.FORM_RVIA_0.FechaHasta.value  = document.FORM_RVIA_0.FECHAMOVHASTA.value;
+			document.FORM_RVIA_0.numMovs.value  = "0";
+			break;
+		case ("2"):
+			// Validación de últimos días de movimientos
+			if (! checkInteger2(document.FORM_RVIA_0.diasAnteriores,'número de días',false))return false;
+			if (! checkNumericMayor(document.FORM_RVIA_0.CERO, document.FORM_RVIA_0.diasAnteriores,'número de días',false))return false;	
+			document.FORM_RVIA_0.FechaDesde.value  = restarDias(document.FORM_RVIA_0.diasAnteriores.value);
+			document.FORM_RVIA_0.FechaHasta.value  = getFechaSistema();
+			document.FORM_RVIA_0.numMovs.value  = "0";
+			break;
+		}
+		
+		if(document.FORM_RVIA_0.busquedaAvanzada.value == "1"){
+			//Importes
+			if(document.FORM_RVIA_0.IMPORTMIN.value != ""){
+				if (!comprobarImporteyEnteros(document.FORM_RVIA_0.IMPORTMIN, 'Importe desde',13, false)) return false;
+				document.FORM_RVIA_0.importeDesde.value = document.FORM_RVIA_0.IMPORTMIN.value;
+				convertirNumero(document.FORM_RVIA_0.importeDesde);
+			}
+			/***************** P00015616 06/11/2013 INICIO ************************/
+			else{
+				document.FORM_RVIA_0.importeDesde.value = "";
+			}
+			/***************** P00015616 06/11/2013 FIN ***************************/
+			if(document.FORM_RVIA_0.IMPORTMAX.value != ""){
+				if (!comprobarImporteyEnteros(document.FORM_RVIA_0.IMPORTMAX, 'Importe hasta',13, false)) return false;
+				document.FORM_RVIA_0.importeHasta.value = document.FORM_RVIA_0.IMPORTMAX.value;
+				convertirNumero(document.FORM_RVIA_0.importeHasta);
+			}
+			/***************** P00015616 06/11/2013 INICIO ************************/
+			else{
+				document.FORM_RVIA_0.importeHasta.value = "";
+			}
+			
+			if(isNumericMayor(document.FORM_RVIA_0.importeHasta,document.FORM_RVIA_0.importeDesde,false)){
+				alert("El campo 'Importe hasta' debe ser mayor o igual que el campo 'Importe desde'. Por favor, introdúzcalos de nuevo.");
+				return false;
+			}
+			/***************** P00015616 06/11/2013 FIN ***************************/
+			
+		}
+		return true;
+	}
+	
+	function convertirNumero(theField){
+		theField.value = EliminaFormatoImporte(theField);
+		theField.value = cambiaCaracter(theField,',','.');
+	}
+	
+	function volver(){
+		if (pulsada == 0) {
+						
+			switch ("NO"){
+			case ("MM"):
+				document.FORM_RVIA_0.nMovs.value = 50;
+				document.FORM_RVIA_0.diasAnteriores.value = "";
+				document.FORM_RVIA_0.tipoMovimiento.value = "";
+				document.FORM_RVIA_0.importeDesde.value = "";
+				document.FORM_RVIA_0.importeHasta.value = "";
+				document.FORM_RVIA_0.tipoBusqueda.value = "0";
+				document.FORM_RVIA_0.FechaDesde.value  = "24-11-2019";
+				document.FORM_RVIA_0.FechaHasta.value  = "21-02-2020";
+				document.FORM_RVIA_0.SALDO_CONTABLE.value = "";
+				document.FORM_RVIA_0.clavePagina.value = "MENUP_PAS_MOV_CUENTAS";
+				document.FORM_RVIA_0.primeraVez.value = '1';
+				document.FORM_RVIA_0.paginaActual.value = '0';
+				document.FORM_RVIA_0.tamanioPagina.value = '50';
+				document.FORM_RVIA_0.campoPaginacion.value = 'lista';
+				document.FORM_RVIA_0.busquedaAvanzada.value = "0";
+				break;
+			case ("PG"):
+				document.FORM_RVIA_0.clavePagina.value = "BEL_FR_POS_GLOBAL_OPT_PORTAL";  
+				break;
+			default:
+				return false;
+			}
+			
+			pulsada = 1;
+			document.FORM_RVIA_0.submit(); 		  	
+		}
+	}
+
+	//Ordenación de columnas de movimientos
+	function ordenar(tipo){
+		validar();
+		
+
+
+	document.FORM_RVIA_0.primeraVez.value      = "1";
+	    
+	
+		document.FORM_RVIA_0.paginaActual.value    = "0";
+	
+
+    <!-- **** P00008126 25-01-2006 INICIO ****************.-->
+	
+		document.FORM_RVIA_0.tamanioPagina.value   = "50";;
+		    
+    <!-- **** P00008126 25-01-2006 FIN ****************.-->
+	   
+	
+	    document.FORM_RVIA_0.campoPaginacion.value = "lista";
+	
+
+		
+		if ( pulsada == 0 ){
+			// si no hay movimientos se desactiva la ordenacion
+			if (false)return;
+			
+			document.FORM_RVIA_0.columnaOrden.value = tipo;
+			// contadores de ordenación de columnas para comprobar si toca orden ascendente o descendente
+			var ult = document.FORM_RVIA_0.ultimoOrden.value;
+			
+			if(tipo == ult){
+				if( document.FORM_RVIA_0.tipoOrden.value == "1"){
+					document.FORM_RVIA_0.tipoOrden.value = "0";
+				}else{
+					document.FORM_RVIA_0.tipoOrden.value = "1";
+				}
+			}else{
+				document.FORM_RVIA_0.tipoOrden.value = "1";
+			}
+			
+			document.FORM_RVIA_0.diasAnteriores.value = "";
+			document.FORM_RVIA_0.tipoMovimiento.value = "";
+			document.FORM_RVIA_0.importeDesde.value = "";
+			document.FORM_RVIA_0.importeHasta.value = "";
+			document.FORM_RVIA_0.tipoBusqueda[0].checked = true;			
+			document.FORM_RVIA_0.FechaDesde.value  = "24-11-2019";
+			document.FORM_RVIA_0.FechaHasta.value  = "21-02-2020";
+			document.FORM_RVIA_0.saldoVisible.value = "0";
+			document.FORM_RVIA_0.primeraVez.value = '1';
+			document.FORM_RVIA_0.paginaActual.value = '0';
+			document.FORM_RVIA_0.tamanioPagina.value = '50';
+			document.FORM_RVIA_0.campoPaginacion.value = 'lista';
+			document.FORM_RVIA_0.clavePagina.value = "PAS_MOV_CUENTAS_NO_FINAN";
+			
+			document.FORM_RVIA_0.ordenBusqueda.value = "D";
+			
+						
+			pulsada = 1; 
+			document.FORM_RVIA_0.submit();
+		}
+	}
+
+	function mostrarDetalle(tipoDetalle,NumEntidad, NroClave, fechaValor, origenApunte ,fechaOperacion, positivoNegativo,descripcionLarga, indicadorRef, ordenante, numSecuencia, importeNumerico, descripcionLarg)
+	{
+		console.log("Entra en mostrarDetalle "+tipoDetalle);
+		
+		var hoy_menos_13_meses = new Date("2020", "1"-13, "21");
+		var hoy_menos_6_meses = new Date("2020", "1"-6, "21");
+		var hoy_menos_500_dias = new Date("2020", "1", "21"-500);
+		var hoy_menos_3_anios = new Date("2020"-3, "1", "21");
+		
+		var valida_menos_13_mes
+		
+		
+		
+ 		
+		
+		var hoy_menos_5_anios = new Date("2020"-5, "1", "21");
+		var dateFechaOperacion;
+		if (fechaOperacion.substr(6).indexOf("-")>-1)
+		    dateFechaOperacion = new Date (parseInt(fechaOperacion.substr(0,4),10),parseInt(fechaOperacion.substr(5,7),10)-1,parseInt(fechaOperacion.substr(8),10))
+		else
+		    dateFechaOperacion = new Date (parseInt(fechaOperacion.substr(6),10),parseInt(fechaOperacion.substr(3,5),10)-1,parseInt(fechaOperacion.substr(0,2),10));  
+        
+		
+		var hoy_menos_13_meses = new Date("2020", "1"-13, "21");
+		var hoy_menos_6_meses = new Date("2020", "1"-6, "21");
+		var hoy_menos_500_dias = new Date("2020", "1", "21"-500);
+		var hoy_menos_3_anios = new Date("2020"-3, "1", "21");
+		
+		var valida_menos_13_meses = hoy_menos_13_meses.getTime()>dateFechaOperacion.getTime();
+		valida_menos_13_meses = valida_menos_13_meses && (tipoDetalle=="31" || tipoDetalle=="32" || tipoDetalle=="33" || tipoDetalle=="34" || tipoDetalle=="35" || tipoDetalle=="37" || tipoDetalle=="3C" || tipoDetalle=="3B" || tipoDetalle=="RB" ||  tipoDetalle=="V7" );
+		
+		var valida_menos_6_meses = hoy_menos_6_meses.getTime()>dateFechaOperacion.getTime();
+		valida_menos_6_meses = valida_menos_6_meses && (tipoDetalle=="TF" || tipoDetalle=="TR");
+		
+		var valida_menos_500_dias = hoy_menos_500_dias.getTime()>dateFechaOperacion.getTime();
+		valida_menos_500_dias = valida_menos_500_dias && (tipoDetalle=="RZ");
+		
+		var valida_menos_3_anios = hoy_menos_3_anios.getTime()>dateFechaOperacion.getTime();
+		valida_menos_3_anios = valida_menos_3_anios &&  (tipoDetalle=="EC" || tipoDetalle=="RME");
+		
+		var valida_menos_5_anios = hoy_menos_5_anios.getTime()>dateFechaOperacion.getTime();
+		valida_menos_5_anios =  valida_menos_5_anios && !valida_menos_13_meses && !valida_menos_6_meses && !valida_menos_500_dias && !valida_menos_3_anios;
+		
+		if (valida_menos_13_meses){
+			alert("El detalle de este movimiento no puede consultarse, por tener una antiguedad superior a 13 meses. Por favor disculpe las molestias.");
+			return ;
+		}
+		
+		if (valida_menos_6_meses){
+			alert("El detalle de este movimiento no puede consultarse, por tener una antiguedad superior a 6 meses. Por favor disculpe las molestias.");
+			return ;
+		}
+		
+		if (valida_menos_500_dias){
+			alert("El detalle de este movimiento no puede consultarse, por tener una antiguedad superior a 500 días. Por favor disculpe las molestias.");
+			return ;
+		}
+		
+		if (valida_menos_3_anios){
+			alert("El detalle de este movimiento no puede consultarse, por tener una antiguedad superior a 3 años. Por favor disculpe las molestias.");
+			return ;
+		}
+		
+		if (valida_menos_5_anios){
+			alert("El detalle de este movimiento no puede consultarse, por tener una antiguedad superior a 5 años. Por favor disculpe las molestias.");
+			return ;
+		}
+		
+		
+		
+		
+
+		
+				
+		
+		validar();
+		
+
+
+	document.FORM_RVIA_0.primeraVez.value      = "1";
+	    
+	
+		document.FORM_RVIA_0.paginaActual.value    = "0";
+	
+
+    <!-- **** P00008126 25-01-2006 INICIO ****************.-->
+	
+		document.FORM_RVIA_0.tamanioPagina.value   = "50";;
+		    
+    <!-- **** P00008126 25-01-2006 FIN ****************.-->
+	   
+	
+	    document.FORM_RVIA_0.campoPaginacion.value = "lista";
+	
+
+		document.FORM_RVIA_0.fechaOperacion.value  = fechaOperacion;
+		document.FORM_RVIA_0.Entidad.value         = NumEntidad;
+		document.FORM_RVIA_0.NumClave.value        = NroClave;
+		document.FORM_RVIA_0.numClave.value        = NroClave;
+		document.FORM_RVIA_0.fechaValor.value      = fechaValor;
+		document.FORM_RVIA_0.origenApunte.value    = origenApunte;
+		document.FORM_RVIA_0.columnaOrden.value = document.FORM_RVIA_0.ultimoOrden.value;
+		document.FORM_RVIA_0.saldoVisible.value = 1;
+		
+		document.FORM_RVIA_0.FechaDesde.value  = "24-11-2019";
+		document.FORM_RVIA_0.FechaHasta.value  = "21-02-2020";
+		
+		
+		switch (tipoDetalle) 
+		{
+			case "31": //Tributo Local			
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETRNDTL"; 	
+				break;				
+			
+			case "32":  // Servicios			
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETRNDSE";
+				break;
+				
+			case "33": // Cuota Fija Seguridad Social				
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETCUOTAFIJASS";
+				break;
+			
+			case "34": // Cuota Fija Seguridad Social	
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETCUOTAVARIABLESS";
+				break;
+	
+			case "35": // Hacienda Pública A.E.ET.; Ingreso de Autoliquidación.				
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETINGAUTOLIQHAC";
+				break;
+
+			case "37": // Hacienda Pública A.E.AT. ; Liquidación de Hacienda.					
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETLIQHACIENDA";
+				break;
+				
+			case "3C": // Hacienda Pública A.E.AT. ; Tasas de Hacienda.	
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETTASASHACIENDA";
+				break;
+
+			case "3B": // Recaudaciones Autonimicas.				
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETRECAUTONOMICAS";
+				break;
+
+			case "RZ":  //Recibos sepa		
+				document.FORM_RVIA_0.IND_SEPA.value=1;
+				
+				
+				
+				
+				document.FORM_RVIA_0.ENTIDAD_I.value=NumEntidad;
+				
+				document.FORM_RVIA_0.OFICINA_I.value=document.FORM_RVIA_0.cuenta.value.substring(4,8);
+				document.FORM_RVIA_0.ACUERDO_I.value=document.FORM_RVIA_0.cuenta.value.substring(10,20);
+				document.FORM_RVIA_0.clavePagina.value  = "BDP_REC_DOM_DETALLE_SEPA_MOVS"; 	
+				break;
+				
+			case "RB":  //Recibos		
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_CONMOVSREC"; 	
+				break;
+				
+			case "TF": // Transferencias
+				/*** I002660525  31-03-2017  INICIO  ***/
+				if (positivoNegativo=="1"){
+					document.FORM_RVIA_0.indic.value="TR";
+				}
+				else{
+					document.FORM_RVIA_0.indic.value="TE";					
+				}
+				/*** I002660525  31-03-2017  FIN  ***/
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_CONMOVSTRN";		
+				break;
+				
+			case "HL": //Créditos; Depósitos y Préstamos	
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETHL";
+				break;
+
+			case "XO": //Transferencias Extranjero
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_EXTDETTRANSF";
+				document.FORM_RVIA_0.numClave.value        = NroClave.substring(3);			
+				break;
+
+			case "EC": //Impagados			
+				document.FORM_RVIA_0.clavePagina.value = "BDP_DETALLE_EFECTO";
+				if (descripcionLarga.indexOf("COBRO EFECTO IMPAGADO")!= -1){
+					document.FORM_RVIA_0.indicadorEfecto.value = "I";	
+				} else if (descripcionLarga.indexOf("EF S/CARGO")!= -1){
+					document.FORM_RVIA_0.indicadorEfecto.value = "C";	
+				} else if (descripcionLarga.indexOf("DEV.EF.COBRADO")!= -1){
+					document.FORM_RVIA_0.indicadorEfecto.value = "D";	
+				} 
+				break;
+			 
+			case "OM": //OMF				
+				document.FORM_RVIA_0.clavePagina.value = "PAS_DETOMF";
+				break;
+			
+			case "TR": // Transferencias 	SEPA			
+				//Importe Positivo->Transferencia Recibida
+				document.FORM_RVIA_0.ESSEPA.value="1";
+				if (positivoNegativo=="1"){
+					document.FORM_RVIA_0.indic.value="TR";
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_SEPA_DETALLE_TRANSF_REC";							
+				}
+				else{
+					document.FORM_RVIA_0.DESCRIPCIONCANAL.value="Oficina";
+					document.FORM_RVIA_0.indic.value="TE";					
+					//Importe Negativo->Transferencia Emitida
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_SEPA_DETALLE_TRANSF_EMI";							
+				}
+				break; 
+			//P00021024 19/05/2017 INICIO	
+			case "TI": // Transferencias 	INMEDIATAS
+				document.FORM_RVIA_0.ESSEPA.value="2";
+				if (positivoNegativo=="1"){
+					document.FORM_RVIA_0.indic.value="TR";
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_SEPA_DETALLE_TRANSF_INM_REC";
+				}else{
+					document.FORM_RVIA_0.indic.value="TE";
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_SEPA_DETALLE_TRANSF_INM_EMI";
+				}
+				break; 	
+			//P00021024 19/05/2017 FIN
+			case "OT": // Transferencias 	TARGET 2
+				document.FORM_RVIA_0.FECDESDE.value     = fechaValor;	
+				document.FORM_RVIA_0.FECHASTA.value     = fechaValor;	
+				document.FORM_RVIA_0.FECHA_VALOR.value  = fechaValor;
+				document.FORM_RVIA_0.NORHOST.value      = NroClave;	
+				document.FORM_RVIA_0.FECHA_CREA.value 	= fechaValor;
+				document.FORM_RVIA_0.CUENTA_DESC.value 	= "CUENTA VISTA";
+				document.FORM_RVIA_0.CUENTA_SELEC.value	= "01380001120195420021";				
+				//Importe Positivo->Transferencia Recibida
+				if (positivoNegativo=="1"){
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_TARGET2_DETALLE_RECIBIDA";		
+				}
+				else{
+					//Importe Negativo->Transferencia Emitida
+					document.FORM_RVIA_0.clavePagina.value  = "BDP_TARGET2_DETALLE_EMITIDA";		
+				}
+				break;
+				
+			case "V7": 
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETCOMMAN";
+				break;
+				
+				
+			case "RME":
+				var relleno = "0000000000000000";
+				var aRemesa = descripcionLarga.substring(0, 4);
+				var nRemesa = descripcionLarga.substring(4);
+				
+				
+				document.FORM_RVIA_0.primeraVez.value = "1";				
+				
+				
+
+				document.FORM_RVIA_0.anyoRemesa.value = aRemesa ;
+				document.FORM_RVIA_0.numRemesa.value  =  nRemesa;
+				document.FORM_RVIA_0.cuentaSel.value = document.FORM_RVIA_0.CUENTA.value+"   "+document.FORM_RVIA_0.DESCUENTA.value;
+				document.FORM_RVIA_0.clavePagina.value  = "CAR_EFECTOSREM_CARTERA";
+				break;
+				
+				
+			case "AC":  //Ingreso por ventanilla
+				document.FORM_RVIA_0.indicadorRef.value= indicadorRef;
+				document.FORM_RVIA_0.ordenante.value= ordenante;
+				document.FORM_RVIA_0.NumSecuencia.value= numSecuencia;
+				document.FORM_RVIA_0.origenApunte.value= tipoDetalle;
+				document.FORM_RVIA_0.importe.value= importeNumerico;
+				//document.FORM_RVIA_0.descripcionCorta.value= descripcionCorta;
+				document.FORM_RVIA_0.descripcionLarga.value= descripcionLarg;
+				document.FORM_RVIA_0.clavePagina.value  = "PAS_DETINGRESOVENT";
+				break;
+				
+		}
+
+		if (pulsada == 0) {
+			pulsada = 1;
+			document.FORM_RVIA_0.submit();	
+		}
+	}
+	
+	function listaSolicitudes() {
+		if(pulsada == 0){
+			
+				
+
+
+	document.FORM_RVIA_0.primeraVez.value      = "1";
+	    
+	
+		document.FORM_RVIA_0.paginaActual.value    = "0";
+	
+
+    <!-- **** P00008126 25-01-2006 INICIO ****************.-->
+	
+		document.FORM_RVIA_0.tamanioPagina.value   = "50";;
+		    
+    <!-- **** P00008126 25-01-2006 FIN ****************.-->
+	   
+	
+	    document.FORM_RVIA_0.campoPaginacion.value = "lista";
+	
+
+				document.FORM_RVIA_0.mov_primeraVez.value = document.FORM_RVIA_0.primeraVez.value;
+				document.FORM_RVIA_0.mov_paginaActual.value = document.FORM_RVIA_0.paginaActual.value;
+				document.FORM_RVIA_0.mov_tamanioPagina.value = document.FORM_RVIA_0.tamanioPagina.value;
+				document.FORM_RVIA_0.mov_campoPaginacion.value = document.FORM_RVIA_0.campoPaginacion.value;
+				document.FORM_RVIA_0.diasAnteriores.value = "";
+				document.FORM_RVIA_0.tipoMovimiento.value = "";
+				document.FORM_RVIA_0.importeDesde.value = "";
+				document.FORM_RVIA_0.importeHasta.value = "";
+				document.FORM_RVIA_0.tipoBusqueda[0].checked = true;	
+				document.FORM_RVIA_0.FechaDesde.value  = "24-11-2019";
+				document.FORM_RVIA_0.FechaHasta.value  = "21-02-2020";				
+			
+			document.FORM_RVIA_0.mostrarAlert250.value = "0";
+			document.FORM_RVIA_0.primeraVez.value = '1';
+			document.FORM_RVIA_0.paginaActual.value = '0';
+			document.FORM_RVIA_0.tamanioPagina.value = '25';
+			document.FORM_RVIA_0.campoPaginacion.value = 'lista';
+			document.FORM_RVIA_0.columnaOrden.value = document.FORM_RVIA_0.ultimoOrden.value;
+			document.FORM_RVIA_0.saldoVisible.value = 1;
+			document.FORM_RVIA_0.clavePagina.value = "PAS_MOV_FICH_SOLICITADOS";
+			pulsada = 1;
+			document.FORM_RVIA_0.submit();
+		}
+	}
+	
+	
+	function abrirDoc(cuenta, entidad, fechaOperacion, fechaValor, importe, origenApunte, acuerdoDoc, secuenciaApunte, codigoDoc, secuenciaDoc){
+		
+		document.FORM_RVIA_1.acuerdo.value = cuenta.substring(10,20);
+		document.FORM_RVIA_1.Entidad.value = entidad;
+		document.FORM_RVIA_1.fechaValor.value = fechaValor.substring(6,10)+"-"+fechaValor.substring(3,5)+"-"+fechaValor.substring(0,2);
+		document.FORM_RVIA_1.fechaOperacion.value = fechaOperacion.substring(6,10)+"-"+fechaOperacion.substring(3,5)+"-"+fechaOperacion.substring(0,2);
+		document.FORM_RVIA_1.importe.value = Math.abs(importe);
+		document.FORM_RVIA_1.origenApunte.value = origenApunte;
+		
+		document.FORM_RVIA_1.acuerdoDocumento.value = acuerdoDoc;
+		document.FORM_RVIA_1.numeroSecuencialApunteDoc.value = secuenciaApunte;
+		document.FORM_RVIA_1.codigoDocumento.value = codigoDoc;
+		document.FORM_RVIA_1.numSecPDF.value = secuenciaDoc;
+		//********** M000000875 - 26/05/2016 - INICIO ************
+ 		var nuevaVentana=window.open('','NEW','width=500,height=500,top=0,left=0,menubar=yes,scrollbars=yes,resizable=yes');
+ 		document.FORM_RVIA_1.target='NEW';
+		//********** M000000875 - 26/05/2016 - FIN ************
+		document.FORM_RVIA_1.clavePagina.value = "BDP_PAS_GENERA_DOC";
+		document.FORM_RVIA_1.submit();
+	}
+	
+			
+</script>
+
+
+    	
+		
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/skin.css?id=001">
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/skin.css?id=001">
+
+
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/skin.css?id=001">
+
+
+<link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/0138/skin.css?id=001">
+
+
+<NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script></NO_TRANSFORM>
+
+
+
+
+<NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/multicanalidad.js"></script></NO_TRANSFORM>
+
+
+
+<script language="JavaScript">
+<!--
+openMenuA = null;
+openMenuB = null;
+
+function cambiaKK(capa1, capa2){
+	oculta(capa1);
+	visualiza(capa2);
+	if (openMenuA != null){
+		oculta(openMenuB);
+		visualiza(openMenuA);
+	}
+	if (openMenuA == capa2){
+		openMenuA = null;
+		openMenuB = null;
+	}else{
+		openMenuA = capa1;
+		openMenuB = capa2;
+	}
+}
+
+function oculta(capaId){
+	capa = document.getElementById(capaId);
+	capa.style.display = 'none';
+	i = 0;
+	while (document.getElementById(capaId + "_" + i)){
+		caux = document.getElementById(capaId + "_" + i);
+		caux.style.display = 'none';
+		i++;
+	}
+}
+
+function visualiza(capaId){
+	capa = document.getElementById(capaId);
+	capa.style.display = 'block';
+	i = 0;
+	while (document.getElementById(capaId + "_" + i)){
+		caux = document.getElementById(capaId + "_" + i);
+		caux.style.display = 'block';
+		i++;
+	}
+}
+
+
+
+
+
+
+function pintarTablaMenu(texto)
+{
+	document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+	document.write("	<table cellpadding='0' cellspacing='0' border='0'>");
+	document.write("	<tr>");
+	document.write("		<td nowrap='true' id='opcion'>" + texto + "</td>");
+	document.write("	</tr>");
+	document.write("	</table>");
+	document.write("</td>");
+}
+
+function pintarTablaMenuSeleccionada(texto)
+{
+	document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+	document.write("			<table cellpadding='0' cellspacing='0' border='0'>");
+	document.write("			<tr>");
+	document.write("	 			<td class='izqFin' nowrap='true'></td>");
+	document.write("	 			<td class='centroFin' nowrap='true'>&nbsp;" + texto + "&nbsp;</td>");
+	document.write("				<td class='dchaFin' nowrap='true'>&nbsp;</td>");
+	document.write("			</tr>");
+	document.write("		 	</table>");
+	document.write("		</td>");
+	
+	
+}
+
+function pintarFinTablaMenu()
+{
+	document.write("<td class='fondoMenu' style='vertical-align: bottom; padding-top:5px;' width='100%'>");
+	document.write("<table cellpadding='0' cellspacing='0' border='0' width='100%'>");
+	document.write("	<tr>");
+	document.write("		<td id='opcion'>&nbsp;</td>");
+	document.write("	</tr>");
+	document.write("	</table>");
+	document.write("</td>");
+}
+
+//-->
+</script>
+<script language="Javascript">
+<!--
+ie4 = (document.all)? true:false;
+function pulsarTecla (e){
+	if ((ie4 && (event.keyCode == 13)) || (! ie4 && (e.which == 13))){			
+			return false;
+		}
+}
+document.onkeydown = pulsarTecla;
+//-->
+
+</script>
+</head>
+
+<BODY>
+<DIV ID="RESOLUCION">
+
+<!--CABECERA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+	<!--
+	function resolucion(valor){
+	  if (valor == "TM1"){
+			var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a 800 x 600 píxeles.";	
+			alert(tx);
+		}else{
+				var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a un resolución mínima de 1024 x 768 píxeles.";	
+			alert(tx);
+		}
+		url = window.location.href;			
+		if (url.indexOf("?") != -1){
+			indice = url.indexOf("?");
+			if (indice != -1){				
+				window.location.href = url.substring(0, indice) + "?RES=" + valor;
+			}else{
+				window.location.href = url + "&RES=" + valor;
+			}
+		}else{
+			window.location.href = url + "?RES=" + valor;
+		}	
+	}
+//--> 
+
+function salirConfirmacion(url){
+	load(url);
+	//location.href="/isum/srv.BDP_EXCLUSIVE_SALIR_EMP.BDP_EXCLUSIVE_SALIR_EMP";
+}
+
+ var pgLogout = null ;
+
+ function load(url) {
+	
+	 
+	 
+	
+	url= 'https://bancaelectronica.evobanco.com'+url; 
+	
+	
+    if (typeof window.ActiveXObject != 'undefined' ) {
+    	pgLogout = new ActiveXObject("Microsoft.XMLHTTP");
+    	pgLogout.onreadystatechange = process ;
+    }
+    else {
+    	pgLogout = new XMLHttpRequest();
+    	pgLogout.onload = process ;
+    }
+    pgLogout.open( 'POST', url, true );
+    pgLogout.send( null );
+  }
+
+  function process() {
+    if (pgLogout.readyState != 4 ) return ;
+    document.getElementById('CONTENIDO').innerHTML = pgLogout.responseText ;
+  }
+
+
+</script>
+
+<div class=CABECERA>
+	
+	<div id=LOGO></div>
+	<div id=BARRALITERAL>
+	
+		
+			
+		
+			 	<a href="/isum/interfaces/ruralvia2005b/Logout.jsp?entidad=0138&modo_autenticacion=1" id="botonSalir" ></a>
+			
+		
+		<div id=CBLITERAL01>
+			
+			
+			
+			<a href='Main?ISUM_ID=cabecera&ISUM_SCR=serviceScr&ISUM_CIPH=pJ277A9Y%2F9J1OIfWZ%2FMtIVcc3NTJEJReZQwhM0CrXO0%3D' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('desconectar','','/es_ES/img/desconectar_b.gif',1)"><img name="desconectar" border="0" src="/es_ES/img/desconectar_a.gif" alt="Desconectar" ></a>
+			
+			
+			
+		</div> <!-- CBLITERAL01 -->
+			
+
+
+	
+		
+	
+		
+						<div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=ulhPnZrQNBGomqn5TuEVrg%3D%3D" target="_blank">Seguridad</a>&nbsp;|&nbsp;</div>
+					
+	
+	
+	<!--Adaptación Resoluciones-->
+		
+
+		
+		<!--***** P00009735 -- INICIO ***********-->
+		
+		<!-- /*************************** P00017411 12/08/2013 INICIO *************************************** -->
+		
+		
+		<div id="CBLOGOTXT">		
+				BANKOA
+				
+			
+				<div class="bix">BIC: BKOAES22XXX</div>
+			
+		</div>
+	<!-- /*************************** P00017411 12/08/2013 FIN ****************************************** -->
+			
+		<!--***** P00009735 -- FIN ***********-->	
+		
+		
+			<div id=contrato_tit> 
+				<p class=contrato><span>Contrato:  </span>00000000000195873997</p>
+				<p class=titular><span>Titular:  </span>ESERGUI DISTESER, S.L.                            </p>
+			</div> 	
+		
+		  
+ 
+ 			
+		
+	</div> <!-- BARRALITERAL -->
+
+	
+	<div id=ENTORNO>
+
+	
+	
+		
+					
+					
+
+		
+					
+					
+
+		
+					
+					
+
+		
+				
+													<div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=%2Fo98bjs533DKGgWoj%2BJf6wHB9JhuNiT%2BljflDSunw2g%3D" id="BDP_RVIA05_COMERCIO_EMP">Comercio</a></div>
+												
+					
+
+		
+					
+					
+
+		
+					
+					
+
+		
+					
+					
+
+		
+				
+													<div id=DESTACADOS><a class="link1" HREF="/isum/srv.EMPRESA.BDP_RVIA05_SERV_CABECERA_GEST_FICHEROS"  id="EMPRESA_IA">Gestión de Ficheros</a></div>
+												
+												<INPUT type="hidden" name="EMPRESA_IA_REDIRECT" id="EMPRESA_IA_REDIRECT" value="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=pKZaDqyiRH3STnxxfZWgW38isPnQ%2FYIIdgTuICLnk0M%3D">	
+											
+											
+												
+					
+
+		
+					
+					
+
+		
+					
+					
+
+		
+	
+	
+						
+	</div>
+</DIV>
+
+
+
+
+
+
+
+<!--MENU SUPERIOR-->
+
+
+
+
+
+
+<!--	<DIV MENU> //-->
+<div id="menuHorizontal">
+	<table cellpadding="0" align="center" cellspacing="0" border="0" style="border-top: 1px solid #000000; border-left: 1px solid #949494;">
+	<tr>
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=53%2F7klwVdDV07QguYXxRvb9Q7dDdig%2BedFkTRM%2BjZNs%3D">Inicio</a>');</script>
+			
+		
+				<script>pintarTablaMenuSeleccionada('Cuentas');</script>
+			
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=uW9i%2FjeY6eHGmCZa8c%2BUhf776hq3iEDOoNc0829hJ3o%3D">Transferencias</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=twSwrK98ne1V3E9Jb%2FmxynoqfevWQ2WrLE8JTFoMh44%3D">Tarjetas</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=HQfQYicbwHs5M6mQkHLFtFGOmCM%2FUA2Nou2WOQiODSg%3D">Ahorro/Inversión</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=Fz0i2xagakKFwwqMeJUNN9GxzOyd0yln1vHS680OAAk%3D">Financiación</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=6YbGp82Mwp7m880gN4RiyOxPAr4MtK3pKzuRXYVk82U%3D">Internacional</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=eq2Uv%2B8T%2FDVU%2BaNmNBwI1xo9GHfAfM0SfeFTbK3Iw1o%3D">Impuestos</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=RFWm0sltW3dEqOjVRY03O%2BJ9xTRSBqQ1gf3T8I6T32Q%3D">Ficheros</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=y9usQhdzOhXY3KyGoihc8hU2tqIoHx4Zt1bJU6xwCNs%3D">Servicios</a>');</script>
+			
+		
+			<script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=ZqmjVmLRi8DqEXBDnE8BkeoY3jwlSMrlBzXj2JdJPiE%3D">Buzón</a>');</script>
+			
+		
+		<script>pintarFinTablaMenu();</script>
+	</tr>
+	</table>
+</div>
+
+
+
+
+
+		 		 		 
+
+
+ 
+
+ 
+ 
+
+
+
+
+<DIV class="MENU2">
+
+
+	<div class="opcionGm2">Consultas</div>
+	
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=eMFb%2F5Iw%2FOk5sfgiRfcimaWIOj3fNqvLc1TduBaxLto%3D" >Saldo</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=m%2F6Duvioj01zZk0JlpNob%2F4P8S4%2Frtb5yXCkqDAjHvM%3D" >Movimientos</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=wEgn%2FbD5SqBpu60YrCsh2O4IcvMUnkQQuYQQVbVR8l4%3D" >Datos de la cuenta</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=OJCDmdJhJXzfBPG7rjDGJ0qhNgkRvt2Wvn9LsKkJS44%3D" >Descargas movimientos C43</a></div>
+								</div>
+										
+	
+
+	
+	<div class="fondopciones">			
+				<script language="JavaScript">
+				<!--
+				gName = 'Solicitud Extracto Histórico';
+				//-->
+				</script>
+					
+				<div id="ga1909" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga1909', 'gb1909');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></a>					
+					<a href="javascript:cambiaKK('ga1909', 'gb1909');"><script language="javascript">document.write(gName);</script></a></div>
+						
+				<div id="gb1909" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb1909', 'ga1909');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb1909', 'ga1909');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				
+				
+						<div id="gb1909_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=sTpXc8inhtrfo%2B4yQ68LxkmASl911tZpVBKh3nUxgyA%3D" >Alta</a></div>
+						
+				
+				
+						<div id="gb1909_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=oLuQb4%2FLgZITQh3P1cWUK%2BI3dQ8Bl07MBhwVvOS8joE%3D" >Anulación</a></div>
+						
+				
+				
+			
+			
+			
+			</div>
+	
+
+
+
+
+	<div class="opcionGm2">Recibos</div>
+	
+	
+
+	
+	<div class="fondopciones">			
+				<script language="JavaScript">
+				<!--
+				gName = 'Consulta';
+				//-->
+				</script>
+					
+				<div id="ga234" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga234', 'gb234');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></a>					
+					<a href="javascript:cambiaKK('ga234', 'gb234');"><script language="javascript">document.write(gName);</script></a></div>
+						
+				<div id="gb234" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb234', 'ga234');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb234', 'ga234');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				
+				
+						<div id="gb234_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=%2FOs6vZfwUmi6G8%2FwgzoAhRfj%2B8EQBaIJ3V9eA%2FSPGYg%3D" >Domiciliados</a></div>
+						
+				
+				
+						<div id="gb234_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=RHCpIzECZtvdeLxK9VT0Qn6XwK5v7UTgm0Dv9tiUP2o%3D" >No domiciliados</a></div>
+						
+				
+				
+			
+			
+			
+			</div>
+	
+	<div class="fondopciones">			
+				<script language="JavaScript">
+				<!--
+				gName = 'Pago Recibos';
+				//-->
+				</script>
+					
+				<div id="ga232" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga232', 'gb232');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></a>					
+					<a href="javascript:cambiaKK('ga232', 'gb232');"><script language="javascript">document.write(gName);</script></a></div>
+						
+				<div id="gb232" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb232', 'ga232');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb232', 'ga232');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				
+				
+						<div id="gb232_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=Ha28EccodNG1ETb3xS%2F9IIMBfzMKzkMMwQGr4qSG%2FME%3D" >Pago</a></div>
+						
+				
+				
+						<div id="gb232_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=5a6xy9MAwiD7VOMrqU1A9HjxidnXhG4BUXXhBBJBgsQ%3D" >Anulación</a></div>
+						
+				
+				
+			
+			
+			
+			</div>
+	
+	<div class="fondopciones">			
+				<script language="JavaScript">
+				<!--
+				gName = 'Devolución de Recibos Domiciliados';
+				//-->
+				</script>
+					
+				<div id="ga1719" class="subopcionm2A">
+					<a href="javascript:cambiaKK('ga1719', 'gb1719');"><IMG SRC="/estilos_prtl/css/abrir.gif" border=0></a>					
+					<a href="javascript:cambiaKK('ga1719', 'gb1719');"><script language="javascript">document.write(gName);</script></a></div>
+						
+				<div id="gb1719" class="subopcionm2C" style="display: none;">
+					<a href="javascript:cambiaKK('gb1719', 'ga1719');"><IMG SRC="/estilos_prtl/css/cerrar.gif" border=0></script></a>
+					<a href="javascript:cambiaKK('gb1719', 'ga1719');"><script language="javascript">document.write(gName);</script></a>
+				</div>
+				
+				
+						<div id="gb1719_0" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=1QCRE5Dfbfej3cI4M%2F9SMm1OZFNCNJsNs0y0bO3iaKY%3D" >Orden de Devolución</a></div>
+						
+				
+				
+						<div id="gb1719_1" class="subopcionm3" style="display: none;"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=y8RqZu4Y%2BSM88WCdN17TlAQ4pqiuJ7SP%2BQdy7AYwaeg%3D" >Anulación de la Orden de Devolución</a></div>
+						
+				
+				
+			
+			
+			
+			</div>
+	
+	<div class="fondopciones">
+					
+					
+					
+							<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=rVJiG7WryF5UHpeVpE1QsjKoV4tLgHq6zeJCCfQBYHs%3D" >Cambio de Cuenta </a></div>
+												
+					
+			
+			
+			
+			</div>
+	
+	<div class="fondopciones">
+					
+					
+					
+							<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=fFNTRyWCdF0x8xu3uF89n%2BYT%2BMsatyJ11UMQBINTXQM%3D" >Baja domiciliación</a></div>
+												
+					
+			
+			
+			
+			</div>
+	
+	<div class="fondopciones">
+					
+					
+					
+							<div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=w%2BGNRl%2Fnz8moofzmUJJDHWbMV%2BiViCMh7J7i%2BjdORN4%3D" >Recibos Domiciliados Pendientes</a></div>
+												
+					
+			
+			
+			
+			</div>
+	
+
+
+
+
+	<div class="opcionGm2">Talonarios</div>
+	
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=gtxmRjml68jq7nVMTHskixSRVY2hhmX8B6QxPYH9GCA%3D" >Petición talonario</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=WPiLWu0iWPsZuN7vmEmfz9se4skiVMgTOg4PDhkOmX4%3D" >Anular Petición</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=sMY9G2ap9MbQKlUgHx2YAGJmKPt9%2BNjxwCR4rkivwE0%3D" >Cancelar talonario</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=7tRTuLPPbwr3t9kqd4eFrzbGnnerRsu9e%2BVQH5X0cWM%3D" >Situación de un cheque</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=%2B42dqH6Q%2FOYjo1LNGWt374I847gngR0TUmkDhluwIE0%3D" >Situación de un talonario</a></div>
+								</div>
+										
+	
+
+	
+
+
+
+
+	<div class="opcionGm2">Ingreso de Cheque</div>
+	
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=v2wNxerSX4HcOW9FTGl7Hqw01ghx3bL1x3LKwEO9viM%3D" >Ingreso</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=QLr5PGJmlSETDATsIMR75XrVVmoQP2gV3gUG%2BheUqvA%3D" >Anulación</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=CfKRhkw3%2BX4RmcLzuNUJRt8g4FNh2RR%2BfR0zR5DtgY8%3D" >Consulta</a></div>
+								</div>
+										
+	
+
+	
+
+
+
+
+	<div class="opcionGm2">Cheques</div>
+	
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=2tCW8uF9PVtl4O3tFP7p7xs9QOOIX5AAcCpYOZAyOEQ%3D" >Alta Remesa </a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=AfFoy2sjXuA7sQCqNgcwlfQeyzk0JJSpkwCd90txfzA%3D" >Consulta Remesa</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=QIJlVGGZTR3l0D%2B5rYHmRXoJvCISzCiGIS425qa7dek%3D" >Gestión</a></div>
+								</div>
+										
+	
+	
+								<div class="fondopciones"><!-- 000003 -->	
+									<div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=lnWUQ0TIN1g3KPN4SvMVslI0N2TxVu2Il35mj5ck8PM%3D" >Anulación</a></div>
+								</div>
+										
+	
+
+	
+
+
+
+
+</DIV>
+
+
+
+
+
+
+
+
+
+<div id="AdminToolbar">
+
+</div>
+
+	<!--CONTENIDO-->
+	<DIV id="CONTENIDO" class="pos_global">
+		
+
+	
+	
+	
+					
+
+
+
+
+
+
+
+
+	
+
+
+
+<FORM name="FORM_RVIA_0" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCCKy5WaCFE9UmLI3kTceWXTQj0HP8awlcaQD%2BO0RJKieD3aqngFXj%2Bz5XnLkm83uMFU6qjitBlMQBYpbio%2BrTElxdTk8i7EZTkrUcNpq4ETIE5kRvHA2cDlWY7GH4q9Y317vCIAEUm3Ovrg13tHkGul%2FcUMyN%2BAulAtOrnWi%2FfcWGUURbUzBcRGIDZwygcKnAzFderPWoDii1%2FaDaPGZMdC" method="post" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+
+	<div id=PORTLET-SECTION-HEADER>
+		
+		<div id=HEADER>Movimientos</div>
+	     
+			<div id="HDBOT"><A href='' onClick='javascript:ImpresionDirecta(); return false;' onMouseOut="window.status=' ';MM_swapImgRestore()" onMouseOver="MM_swapImage('ico_imp','','/es_ES/img/E/ico_imp_b.gif',1);window.status='ICO_IMP';return true"><img name="ico_imp" border="0" src="/es_ES/img/E/ico_imp_a.gif"> Imprimir</A><A href='' onClick='javascript:guardadoDirecto(); return false;' onMouseOut="window.status=' ';MM_swapImgRestore()" onMouseOver="MM_swapImage('ico_guardar_xls','','/es_ES/img/E/ico_guardar_xls_b.gif',1);window.status='ICO_GUARDAR_XLS';return true"><img name="ico_guardar_xls" border="0" src="/es_ES/img/E/ico_guardar_xls_a.gif"> Exportar a Excel</A><a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCCKy5WaCFE9UmLI3kTceWXTQj0HP8awlcaQD%2BO0RJKieMRtXrV96cv6rn1ch5GpbijMqtU06KbXahijwEGAk%2FZQDnTwD8v9ipUuK814tOqsWw%3D%3D" id="url_guardarxls" name="campourl3" ></a></div>
+	           
+	</div>
+   
+	<div id="EXPLICA">Seleccione los criterios de consulta que desee realizar y pulse '<b>Aceptar</b>'.</div>
+
+	<div id=PORTLET-INPUT>
+
+		<div id=HEADER_INPUT><div id=HD_INPUT>Búsqueda de Movimientos</div></div>
+		
+		<div id=BODY_INPUT>
+		
+			<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+				<tr >
+					<td class="datobl" width="10px" >Cuenta</td>
+					
+						<!-- /**** P000018455 04-02-2016 INICIO    ****************/-->	
+						<td class="datoI" >ES11 0138 0001 1201 9542 0021  | CUENTA VISTA | Euro</td>
+						<!-- /**** P000018455 04-02-2016 FIN    ****************/-->	
+					</tr>
+					<tr >
+						<td class="datobl" >Saldo</td>
+						<td class="datoI" >48.601,44</td>
+					
+				</tr>
+				
+				<tr >
+					<td >
+					<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+						<tr >
+							<td class="datoC" width="1%" ><INPUT TYPE="radio" NAME="tipoBusqueda" VALUE="0" onClick="javascript:habilitarOrden(0, true);" checked></td>
+							<td class="datopc" >Últimos&nbsp;
+								<input class="dato" type="text" name="nMovs" size="3" maxlength="3" onClick="javascript:habilitarOrden(0, false);">&nbsp;
+								Movimientos
+							</td>
+			 			</tr>
+			 		</table>
+					</td><td class="datoI" >&nbsp;</td>
+				<tr >
+				
+				<tr >
+					<td >
+					<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+						<tr >
+							<td class="datoC" width="1%" ><INPUT TYPE="radio" NAME="tipoBusqueda" VALUE="1" onClick="javascript:habilitarOrden(1, true);"></td>
+							<td class="datopc" >Fecha desde</td>
+						</tr> 
+					</table>
+					</td>
+					<td >
+					<table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" >
+						<tr >	
+	  						<td class="datoI" width="130px" >
+	  							<INPUT class="dato"  TYPE="text" NAME="FECHAMOVDESDE" VALUE="" SIZE=15 MAXLENGTH=10 onClick="javascript:habilitarOrden(1, false);">
+	  							<!--  I0002465967 Inicio se pasa un nuevo parametro para llamar a una funcion JavaScript -->
+								<DIV id='cal_FECHAMOVDESDE' style='position:absolute;z-index:1;'></DIV><IMG src='/es_ES/img/E/calendar.gif' border=0 onMouseOver="this.style.cursor='hand'" onClick="javascript:showCalendar('FECHAMOVDESDE','idcal_FECHAMOVDESDE','-','espaniol','FORM_RVIA_0');habilitarOrden(1, false);"><DIV id='idcal_FECHAMOVDESDE' style='position:absolute; visibility: hidden;z-index:2;'></DIV>
+								<!--  I0002465967 Fin -->
+							</td>
+							<td class="datopc" style="width:80px" >hasta</td>
+							<td class="datoI" >
+								<INPUT class="dato"  TYPE="text" NAME="FECHAMOVHASTA" VALUE="" SIZE=15 MAXLENGTH=10 onClick="javascript:habilitarOrden(1, false);">
+								<!--  I0002465967 Inicio se pasa un nuevo parametro para llamar a una funcion JavaScript -->
+								<DIV id='cal_FECHAMOVHASTA' style='position:absolute;z-index:1;'></DIV><IMG src='/es_ES/img/E/calendar.gif' border=0 onMouseOver="this.style.cursor='hand'" onClick="javascript:showCalendar('FECHAMOVHASTA','idcal_FECHAMOVHASTA','-','espaniol','FORM_RVIA_0');habilitarOrden(1, false);"><DIV id='idcal_FECHAMOVHASTA' style='position:absolute; visibility: hidden;z-index:2;'></DIV>
+								<!--  I0002465967 Fin -->
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</TABLE>
+
+			<div id="BUSQUEDA_AVANZADA" style="display: none;">
+			<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+				<tr >
+					<td >
+					<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+						<tr >
+							<td class="datoC" width="1%" ><INPUT TYPE="radio" NAME="tipoBusqueda" VALUE="2" onClick="javascript:habilitarOrden(2, true);"></td>
+							<td class="datopc" >De los últimos
+								<input class="dato" type="text" name="diasAnteriores" size="3" maxlength="3" onClick="javascript:habilitarOrden(2, false);">&nbsp;
+								Días
+							</td>
+						</tr>
+					</table>
+					</td><td class="datoI" >&nbsp;</td>
+				</tr>
+				
+				<tr >
+					<td class="datopc" >Importe&nbsp;desde</td>
+					<td ><table border="0" cellspacing="0" cellpadding="0" WIDTH="100%" >
+						<tr >
+							<td class="datoI" width="130px" ><INPUT class="dato" TYPE="text" NAME="IMPORTMIN" VALUE="" SIZE=15 MAXLENGTH=15></td>
+							<td class="datopc" style="width:80px" >hasta</td>
+							<td class="datoI" ><INPUT class="dato"  TYPE="text" NAME="IMPORTMAX" VALUE="" SIZE=15 MAXLENGTH=15></td>
+						</tr>		       	     
+					</table>
+					</td>
+	 			</tr>
+				
+				<tr >
+					<td class="datobl" >Tipo&nbsp;de&nbsp;Movimiento</td>
+					<td class="datoI" >
+						<select id ="tipoMovimiento" class="dato" name="tipoMovimiento" maxlength="20">					
+							<option selected value="">Todos</option>
+							
+							<option  value="H">Abonos</option>
+							<option  value="D">Cargos</option>
+							
+						</select>
+					</td>
+				</tr>
+			</TABLE>	
+			</div>
+
+			<table CELLPADDING="0" CELLSPACING="0" BORDER="0" WIDTH="100%" >
+			    <tr >
+					<td class="datopc" >Mostrar primero el movimiento:</td>
+					<td class="datoI" width="130px" >
+						<INPUT TYPE="radio" name="ordenBusqueda" value="D" checked>
+						Más reciente
+					</td>
+					<td class="datoI" >
+						<INPUT TYPE="radio" name="ordenBusqueda" value="A" >
+						Más antiguo
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+		<div id="NOTAINFO">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" >
+				<tr >
+					<td id="BOTON_BA" style="display: block;" width="50%" ><a class="datoI" href="#" onClick="mostrarBusAv(); return false;" >Búsqueda Avanzada</a></td>
+					<td width="50%" ><a class="datoI" href="#" onClick="listaSolicitudes(); return false;" >Ficheros Solicitados</a></td>
+				</tr>
+			</table>
+		</div>
+    
+		<div id="FOOTER">
+  			<div id="BOT">
+  				<a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:aceptarBuscar();return false;" >&#65;&#99;&#101;&#112;&#116;&#97;&#114;</a>
+  			</div>
+			
+		</div>
+
+		
+		<div id="NOTAINFO">Cumpliendo con la normativa europea PSD2, a partir del 14 de Septiembre de 2019, ampliamos la seguridad con una autenticación reforzada en 2 pasos. <br><br>Al realizar búsquedas de movimientos con una antiguedad mayor a 90 días, deberás introducir tu firma y un código de validación que recibiras por SMS en tu móvil.</div>
+		 
+
+		
+			
+
+
+
+
+<script language="Javascript" >
+
+function paginar(pag){
+  document.FORM_RVIA_0.primeraVez.value = "0";
+  document.FORM_RVIA_0.paginaActual.value = pag;
+  document.FORM_RVIA_0.tamanioPagina.value = "50";
+  document.FORM_RVIA_0.campoPaginacion.value = "lista";
+  document.FORM_RVIA_0.pagXpag.value = "5";
+  completar();
+}
+
+</script>
+
+
+
+     <div id="PAGINAR" align="right">
+    
+    
+    </div>
+  	<INPUT type='hidden' name='primeraVez' value=''>
+  	<INPUT type='hidden' name='paginaActual' value=''>
+  	<INPUT type='hidden' name='tamanioPagina' value=''>
+  	<INPUT type='hidden' name='campoPaginacion' value=''>
+	<INPUT type='hidden' name='pagXpag' value=''> 
+				
+	
+			<table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" >
+				<tr >
+					<td class="cblistaC" ><a class="cblistaOR" href="#" onclick="javascript:ordenar(0)" >Fecha Operación</a></td>
+					<td class="cblistaC" ><a class="cblistaOR" href="#" onclick="javascript:ordenar(2)" >Fecha Valor</a></td>
+					<td class="cblistaC" ><a class="cblistaOR" href="#" onclick="javascript:ordenar(3)" >Descripción</a></td>
+					<td class="cblistaC" ><a class="cblistaOR" href="#" onclick="javascript:ordenar(4)" >Importe</a></td>
+					
+						<td class="cblistaC" >Saldo</td>
+					 
+				</tr>
+	
+				
+					
+					
+					
+					<tr >
+						<td class="listaC" >04-02-2020</td>
+						<td class="listaC" >04-02-2020</td>
+						
+						
+							<td class="listaI" >
+								<a href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javaScript:mostrarDetalle('TR', '0138', '535090682', '04-02-2020', 'TR', '04-02-2020','1','TRF. ESERGUI DISTESER', 'N', '', '57', '21000.0', 'TRF. ESERGUI DISTESER');return false;" >
+						
+									TRF. ESERGUI DISTESER
+								</a>
+							</td>
+						
+							<td class="implista" >21.000,00</td>
+						
+								<td class="implista" >48.601,44</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '04-02-2020 00:00:00.000', '04-02-2020 00:00:00.000',  '21000.0', 'TR','195420021','0000057','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >03-02-2020</td>
+						<td class="listaC" >02-02-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0200990356</td>
+						
+							<td class="implistaN" >-479,91</td>
+						
+								<td class="implista" >27.601,44</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '03-02-2020 00:00:00.000', '02-02-2020 00:00:00.000',  '-479.91', 'HL','195420021','0000056','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >03-02-2020</td>
+						<td class="listaC" >02-02-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0200989754</td>
+						
+							<td class="implistaN" >-1.606,67</td>
+						
+								<td class="implista" >28.081,35</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '03-02-2020 00:00:00.000', '02-02-2020 00:00:00.000',  '-1606.67', 'HL','195420021','0000055','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-01-2020</td>
+						<td class="listaC" >29-01-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0195425657</td>
+						
+							<td class="implistaN" >-1.223,01</td>
+						
+								<td class="implista" >29.688,02</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-01-2020 00:00:00.000', '29-01-2020 00:00:00.000',  '-1223.01', 'HL','195420021','0000054','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-01-2020</td>
+						<td class="listaC" >29-01-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0195424957</td>
+						
+							<td class="implistaN" >-1.450,19</td>
+						
+								<td class="implista" >30.911,03</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-01-2020 00:00:00.000', '29-01-2020 00:00:00.000',  '-1450.19', 'HL','195420021','0000053','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-01-2020</td>
+						<td class="listaC" >29-01-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0195375159</td>
+						
+							<td class="implistaN" >-365,15</td>
+						
+								<td class="implista" >32.361,22</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-01-2020 00:00:00.000', '29-01-2020 00:00:00.000',  '-365.15', 'HL','195420021','0000052','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >22-01-2020</td>
+						<td class="listaC" >22-01-2020</td>
+						
+							<td class="listaI" >COMISION EMISION OTROS CERTIFICADOS</td>
+						
+							<td class="implistaN" >-24,20</td>
+						
+								<td class="implista" >32.726,37</td>
+							
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >02-01-2020</td>
+						<td class="listaC" >02-01-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0200990356</td>
+						
+							<td class="implistaN" >-479,91</td>
+						
+								<td class="implista" >32.750,57</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '02-01-2020 00:00:00.000', '02-01-2020 00:00:00.000',  '-479.91', 'HL','195420021','0000050','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >02-01-2020</td>
+						<td class="listaC" >02-01-2020</td>
+						
+							<td class="listaI" >RECIBO LEASING0200989754</td>
+						
+							<td class="implistaN" >-1.606,67</td>
+						
+								<td class="implista" >33.230,48</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '02-01-2020 00:00:00.000', '02-01-2020 00:00:00.000',  '-1606.67', 'HL','195420021','0000049','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >02-01-2020</td>
+						<td class="listaC" >31-12-2019</td>
+						
+							<td class="listaI" >LIQ.CTA.VISTA  0195420021</td>
+						
+							<td class="implistaN" >-16,10</td>
+						
+								<td class="implista" >34.837,15</td>
+							
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >30-12-2019</td>
+						<td class="listaC" >29-12-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195425657</td>
+						
+							<td class="implistaN" >-1.223,01</td>
+						
+								<td class="implista" >34.853,25</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '30-12-2019 00:00:00.000', '29-12-2019 00:00:00.000',  '-1223.01', 'HL','195420021','0000047','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >30-12-2019</td>
+						<td class="listaC" >29-12-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195424957</td>
+						
+							<td class="implistaN" >-1.450,19</td>
+						
+								<td class="implista" >36.076,26</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '30-12-2019 00:00:00.000', '29-12-2019 00:00:00.000',  '-1450.19', 'HL','195420021','0000046','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >30-12-2019</td>
+						<td class="listaC" >29-12-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195375159</td>
+						
+							<td class="implistaN" >-365,15</td>
+						
+								<td class="implista" >37.526,45</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '30-12-2019 00:00:00.000', '29-12-2019 00:00:00.000',  '-365.15', 'HL','195420021','0000045','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >02-12-2019</td>
+						<td class="listaC" >02-12-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0200990356</td>
+						
+							<td class="implistaN" >-479,91</td>
+						
+								<td class="implista" >37.891,60</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '02-12-2019 00:00:00.000', '02-12-2019 00:00:00.000',  '-479.91', 'HL','195420021','0000044','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >02-12-2019</td>
+						<td class="listaC" >02-12-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0200989754</td>
+						
+							<td class="implistaN" >-1.606,67</td>
+						
+								<td class="implista" >38.371,51</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '02-12-2019 00:00:00.000', '02-12-2019 00:00:00.000',  '-1606.67', 'HL','195420021','0000043','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-11-2019</td>
+						<td class="listaC" >29-11-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195425657</td>
+						
+							<td class="implistaN" >-1.223,01</td>
+						
+								<td class="implista" >39.978,18</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-11-2019 00:00:00.000', '29-11-2019 00:00:00.000',  '-1223.01', 'HL','195420021','0000042','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-11-2019</td>
+						<td class="listaC" >29-11-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195424957</td>
+						
+							<td class="implistaN" >-1.450,19</td>
+						
+								<td class="implista" >41.201,19</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-11-2019 00:00:00.000', '29-11-2019 00:00:00.000',  '-1450.19', 'HL','195420021','0000041','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+				
+					
+					
+					<tr >
+						<td class="listaC" >29-11-2019</td>
+						<td class="listaC" >29-11-2019</td>
+						
+							<td class="listaI" >RECIBO LEASING0195375159</td>
+						
+							<td class="implistaN" >-365,15</td>
+						
+								<td class="implista" >42.651,38</td>
+							
+						
+						<td class="listaI" >
+							
+							<A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCBjnY53MIgRhi6tFqKsQ5gs" onClick="javascript:abrirDoc('01380001120195420021', '0138', '29-11-2019 00:00:00.000', '29-11-2019 00:00:00.000',  '-365.15', 'HL','195420021','0000040','','0');return false;" >
+							
+							
+							<svg class="icono_detalle_pdf" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 99" style="enable-background:new 0 0 58 99;" xml:space="preserve">
+								<defs>
+									<path id="SVGID_1_" d="M30.4,94C18.9,94,12,86.2,12,73.2l0.1-52.7c0-1,0.2-4.8,2.6-8.2C16.3,9.9,19.5,7,25.2,7c0,0,0,0,0,0
+										c5.8,0,8.9,2.7,10.6,4.9c2.3,3.2,2.6,6.9,2.6,8.4l-0.1,53c0,1.5,0,5-2.4,7.4c-1.5,1.5-3.5,2.2-6,2.2c0,0,0,0,0,0
+										c-4.8,0-7.6-3.6-7.6-9.7l0-52.8l5,0l0,52.8c0,4.6,1.8,4.7,2.6,4.7c0,0,0,0,0,0c1.2,0,2-0.3,2.5-0.8c0.9-0.9,0.9-2.9,0.9-3.9l0.1-53
+										c0-1-0.2-3.4-1.6-5.4C30.3,13,28.1,12,25.2,12c0,0,0,0,0,0h0c-2.8,0-5,1-6.4,3.1c-1.3,1.8-1.7,4-1.7,5.4L17,73.2
+										C17,80.4,19.3,89,30.4,89c10.8,0,13.1-8.6,13.1-15.8l-0.1-45.8l5,0l0.1,45.8C48.4,86.4,41.8,94,30.4,94z"/>
+								</defs>
+								<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								<clipPath id="SVGID_2_">
+									<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+								</clipPath>
+							</svg>
+							
+							</A>							
+							
+						</td>
+						
+					</tr>
+							
+				
+			</TABLE>
+	
+			
+	</div>
+	
+	
+	<INPUT type='hidden' name='clavePagina' value=''>
+	<input type="hidden" name="SELCON" value='00000000000195873997'>  	
+	<INPUT type='hidden' name='clavePaginaSiguiente' value='PAS_MOV_CUENTAS_NO_FINAN'>
+	<INPUT type='hidden' name='clavePaginaVolver' value='PAS_MOV_CUENTAS_NO_FINAN'>
+	<INPUT type='hidden' name='cuenta' value= '01380001120195420021' >
+	<INPUT type='hidden' name='DIVISA_COD' value= '978'>
+	<INPUT type='hidden' name='DIVISA_NAME' value= 'Euro' >
+	<INPUT type="hidden" name="DIVISA_DESC" value='EUR' >
+	<INPUT type='hidden' name='descripcionCuenta' value= 'CUENTA VISTA' >
+	<INPUT type='hidden' name='SALDO_CONTABLE' value= '48601.44' >
+	<INPUT type='hidden' name='cuentaSel' value= '' >
+	
+	<INPUT type='hidden' name='FechaDesde' value ='24-11-2019'>  	  	  	  	
+	<INPUT type='hidden' name='FechaHasta' value ='21-02-2020'>
+	<INPUT type='hidden' name='importeDesde' value = ''>
+	<INPUT type='hidden' name='importeHasta' value = ''>
+	<INPUT type='hidden' name='botonVolver' value = 'NO'>
+	<INPUT type='hidden' name='busquedaAvanzada' value = '' >
+	<INPUT type='hidden' name='numMovs' value = '50'>
+	<INPUT type='hidden' name='mostrarAlert250' value = '0'>
+	
+	<INPUT type='hidden' name='columnaOrden' value = '0'>
+	<INPUT type='hidden' name='tipoOrden' value = '0'>
+	<INPUT type='hidden' name='ultimoOrden' value = '0'>
+	<INPUT type='hidden' name='saldoVisible' value = ''>
+		
+	
+	<INPUT type='hidden' name='fechaOperacion' value=''>
+	<INPUT type='hidden' name='Entidad' value=''>
+	<INPUT type='hidden' name='NumClave' value=''>
+	<INPUT type='hidden' name='numClave' value=''>
+	<INPUT type='hidden' name='fechaValor' value=''>
+	<INPUT type='hidden' name='origenApunte' value=''>
+	<INPUT type='hidden' name='IND_SEPA' value=''>
+	<INPUT type='hidden' name='ENTIDAD_I' value=''>
+	<INPUT type='hidden' name='OFICINA_I' value=''>
+	<INPUT type='hidden' name='ACUERDO_I' value=''>
+	<INPUT type='hidden' name='indic' value=''>
+	<INPUT type="hidden" name="ESSEPA" value=''>
+	<INPUT type="hidden" name="DESCRIPCIONCANAL" value=''>
+	<INPUT type='hidden' name='indicadorEfecto' value=''>
+	<INPUT type='hidden' name='FECDESDE' value=''>
+	<INPUT type='hidden' name='FECHASTA' value=''>
+	<INPUT type='hidden' name='FECHA_VALOR' value=''>
+	<INPUT type='hidden' name='NORHOST' value=''>
+	<INPUT type='hidden' name='FECHA_CREA' value=''>
+	<INPUT type='hidden' name='CUENTA_DESC' value=''>
+	<INPUT type='hidden' name='CUENTA_SELEC' value=''>
+	<INPUT type='hidden' name='CUENTA' value='01380001120195420021'>
+	<INPUT type='hidden' name='DESCUENTA' value='CUENTA VISTA'>
+	<INPUT type='hidden' name='indicador' value='MV'>
+	
+	<INPUT type='hidden' name='indicadorRef' value=''>
+	<INPUT type='hidden' name='ordenante' value=''>
+	<INPUT type='hidden' name='NumSecuencia' value=''>
+	<INPUT type='hidden' name='importe' value=''>
+	<INPUT type='hidden' name='descripcionCorta' value=''>
+	<INPUT type='hidden' name='descripcionLarga' value=''>
+	
+	
+	<INPUT type='hidden' name='fechaComparacion' value= ''> 
+	
+	<input type="hidden" name="CERO" value='0'>
+
+	
+	
+	
+	<INPUT type='hidden' name='mov_primeraVez' value=''>
+	<INPUT type='hidden' name='mov_paginaActual' value=''>
+	<INPUT type='hidden' name='mov_tamanioPagina' value=''>  	  	  	
+	<INPUT type='hidden' name='mov_campoPaginacion' value=''>
+	
+	
+	<input type="hidden" name="TIPO_PERFIL" value=''>  	
+	
+	
+	
+	<INPUT type='hidden' name='anyoRemesa' value=''>
+	<INPUT type='hidden' name='numRemesa' value=''>
+	<INPUT type='hidden' name='codDocumento' value='EC'>
+	<INPUT type='hidden' name='dondeEfecto' value='MV'>
+	
+	
+	
+	<INPUT type="hidden" name="indOperativa" value="C">
+	<INPUT type="hidden" name="clavePaginaOperativa" value="PAS_MOV_CUENTAS_NO_FINAN">
+	
+	
+	
+	<INPUT type="hidden" name="BUSQUEDA" value="">
+	
+
+<script language="javascript" >
+	inicializarDatos();
+</script> 
+</form>
+
+
+<FORM name="FORM_RVIA_1" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=KfnPt%2BSg85hmpOypeHirO%2F8HY4cMnOgbG9auNrwhLCCKy5WaCFE9UmLI3kTceWXTQj0HP8awlcaQD%2BO0RJKieD3aqngFXj%2Bz5XnLkm83uMFU6qjitBlMQBYpbio%2BrTElxdTk8i7EZTkrUcNpq4ETIE5kRvHA2cDlWY7GH4q9Y317vCIAEUm3Ovrg13tHkGul%2FcUMyN%2BAulAtOrnWi%2FfcWGUURbUzBcRGIDZwygcKnAzFderPWoDii1%2FaDaPGZMdC" method="post" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+	<INPUT type='hidden' name='acuerdo' value=''>
+	<INPUT type='hidden' name='Entidad' value=''>
+	<INPUT type='hidden' name='fechaValor' value=''>
+	<INPUT type='hidden' name='fechaOperacion' value=''>
+	<INPUT type='hidden' name='importe' value=''>
+	<INPUT type='hidden' name='origenApunte' value=''>
+	<INPUT type='hidden' name='clavePagina' value=''>
+	<INPUT type='hidden' name='acuerdoDocumento' value=''>
+	<INPUT type='hidden' name='numeroSecuencialApunteDoc' value=''>
+	<INPUT type='hidden' name='codigoDocumento' value=''>
+	<INPUT type='hidden' name='numSecPDF' value=''>
+</FORM>
+
+
+<script language="javascript" >var URLtoPrinter = 'imprimir_inf_direct.htm';var toPrinterCabecera = 
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+'<div id=CABECERA_IMP>'+
+	'<div id=LOGOIMP><img src="/img/logoimp_0138.gif" border=0></div>'+
+	'<div id=FECHAIMP>'+
+		'<table border="0" cellspacing="0">'+
+         '<tr>'+
+         '<td class=datoI>Fecha:</td><td class=datoI>21-02-2020</td>'+
+         '<td class=anchoG>&nbsp;</td>'+
+         '<td class=datoI>Hora:</td><td class=datoI>11:21:08</td>'+
+         '</tr>'+
+        '</table>'+
+	'</div>'+
+'</div>'+
+
+
+''+
+''+
+'<div id=CTAIBAN_IMP>'+
+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'+
+	  		'<TR>'+
+  				'<td width=40%>'+
+  					'<table border="0" cellspacing="0" cellpadding="2" width="98%">'+
+  						'<tr>'+
+  							'<td class=literal>IBAN:</td>'+
+  							'<td class=datoI>ES11 0138 0001 1201 9542 0021 | CUENTA VISTA | Euro</td>'+
+  						'</tr>'+
+  					'</table>'+
+  				'</td>'+
+ 			'</TR>'+
+'</table></center>'+
+'</div>'+
+''+
+''+
+
+  
+''+
+''+
+''+
+
+''; var toPrinterCuerpo = '	<div id="PORTLET-SECTION-HEADER">		<div id="HEADER">Movimientos		</div>	</div>	<div id="PORTLET-LISTA">		<div id="BODY_LISTA">				<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" width="100%">				<tr>					<td class="cblistaC">Fecha Operación</td>					<td class="cblistaC">Fecha Valor</td>					<td class="cblistaC">Descripción</td>					<td class="cblistaC">Importe</td>											<td class="cblistaC">Saldo</td>					   				</tr> 										<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'04-02-2020\'</td>							<td CLASS="listaC" width="12%">\'04-02-2020\'</td>														<td CLASS="listaI">TRF. ESERGUI DISTESER</td>															<td class="implista">21.000,00</td>																<td class="implista">48.601,44</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'03-02-2020\'</td>							<td CLASS="listaC" width="12%">\'02-02-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0200990356</td>															<td class="implistaN">-479,91</td>																<td class="implista">27.601,44</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'03-02-2020\'</td>							<td CLASS="listaC" width="12%">\'02-02-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0200989754</td>															<td class="implistaN">-1.606,67</td>																<td class="implista">28.081,35</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'29-01-2020\'</td>							<td CLASS="listaC" width="12%">\'29-01-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0195425657</td>															<td class="implistaN">-1.223,01</td>																<td class="implista">29.688,02</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'29-01-2020\'</td>							<td CLASS="listaC" width="12%">\'29-01-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0195424957</td>															<td class="implistaN">-1.450,19</td>																<td class="implista">30.911,03</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'29-01-2020\'</td>							<td CLASS="listaC" width="12%">\'29-01-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0195375159</td>															<td class="implistaN">-365,15</td>																<td class="implista">32.361,22</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'22-01-2020\'</td>							<td CLASS="listaC" width="12%">\'22-01-2020\'</td>														<td CLASS="listaI">COMISION EMISION OTROS CERTIFICADOS</td>															<td class="implistaN">-24,20</td>																<td class="implista">32.726,37</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'02-01-2020\'</td>							<td CLASS="listaC" width="12%">\'02-01-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0200990356</td>															<td class="implistaN">-479,91</td>																<td class="implista">32.750,57</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'02-01-2020\'</td>							<td CLASS="listaC" width="12%">\'02-01-2020\'</td>														<td CLASS="listaI">RECIBO LEASING0200989754</td>															<td class="implistaN">-1.606,67</td>																<td class="implista">33.230,48</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'02-01-2020\'</td>							<td CLASS="listaC" width="12%">\'31-12-2019\'</td>														<td CLASS="listaI">LIQ.CTA.VISTA  0195420021</td>															<td class="implistaN">-16,10</td>																<td class="implista">34.837,15</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'30-12-2019\'</td>							<td CLASS="listaC" width="12%">\'29-12-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195425657</td>															<td class="implistaN">-1.223,01</td>																<td class="implista">34.853,25</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'30-12-2019\'</td>							<td CLASS="listaC" width="12%">\'29-12-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195424957</td>															<td class="implistaN">-1.450,19</td>																<td class="implista">36.076,26</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'30-12-2019\'</td>							<td CLASS="listaC" width="12%">\'29-12-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195375159</td>															<td class="implistaN">-365,15</td>																<td class="implista">37.526,45</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'02-12-2019\'</td>							<td CLASS="listaC" width="12%">\'02-12-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0200990356</td>															<td class="implistaN">-479,91</td>																<td class="implista">37.891,60</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'02-12-2019\'</td>							<td CLASS="listaC" width="12%">\'02-12-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0200989754</td>															<td class="implistaN">-1.606,67</td>																<td class="implista">38.371,51</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'29-11-2019\'</td>							<td CLASS="listaC" width="12%">\'29-11-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195425657</td>															<td class="implistaN">-1.223,01</td>																<td class="implista">39.978,18</td>																	</tr>												<tr class="PAR">													 																					<td CLASS="listaC" width="12%">\'29-11-2019\'</td>							<td CLASS="listaC" width="12%">\'29-11-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195424957</td>															<td class="implistaN">-1.450,19</td>																<td class="implista">41.201,19</td>																	</tr>												<tr class="IMPAR">													 																					<td CLASS="listaC" width="12%">\'29-11-2019\'</td>							<td CLASS="listaC" width="12%">\'29-11-2019\'</td>														<td CLASS="listaI">RECIBO LEASING0195375159</td>															<td class="implistaN">-365,15</td>																<td class="implista">42.651,38</td>																	</tr>						   					</TABLE>		</div>				</div>' +
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+'<div id=DATOSPIE>'+
+'<table border="0" cellspacing="0" cellpadding="0" align=right>'+
+'<tr>'+
+<!--*********P00018063 10-06-2015 COMENTAR TABLA INICIO******   
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+   <!--*********P00009840 02-04-2008 INICIO******  -->
+ 
+   
+<!--**********************************************************     
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+  '<td class="datocodeD"></td>'+
+   <!--*********P00009840 02-04-2008 FIN******  -->  
+<!--*********P00018063 10-06-2015 COMENTAR TABLA  FIN*** -->  
+'</tr>'+
+'</table><br><br>'+
+'</div>'
+;function ImpresionDirecta(){var pri = document.getElementById("imprimir_info").contentWindow;pri.focus();pri.print();}
+function transformar(texto, posInicio, posFin){var longFrase;var posicion;var posicion_fin;while(texto.indexOf(posInicio)!=-1){longFrase = texto.length;posicion = texto.indexOf(posInicio);posicion_fin = texto.indexOf(posFin);frase_principal = texto.substring(0, posicion);frase_principal += texto.substring((posicion_fin + posFin.length), longFrase);texto = frase_principal;}return texto;}
+function guardadoDirecto(){try{var campoVTotal = parent.document.FORM_RVIA_0.elements["visualizarTotal"];if(parent.document.FORM_RVIA_0.visualizarTotal.value == "hidden"){pInicio = parent.document.FORM_RVIA_0.comentarioInicio.value;pFin = parent.document.FORM_RVIA_0.comentarioFin.value;textoXsl = transformar(parent.toPrinterCuerpo, pInicio, pFin);}else{textoXsl = parent.opener.toPrinterCuerpo;}document.FORM_RVIA_PRINT.PAN.value=textoXsl;}catch(e){document.FORM_RVIA_PRINT.PAN.value=parent.toPrinterCuerpo;}document.FORM_RVIA_PRINT.action = parent.document.getElementById('url_guardarxls');document.FORM_RVIA_PRINT.target='_self';document.FORM_RVIA_PRINT.submit();return false;}
+</script><iframe name="imprimir_info" id="imprimir_info" src="/imprimir/imprimir_inf_direct.htm" height="0px" width="0px" scrolling="no" frameborder=0 ></iframe><form method="post" name="FORM_RVIA_PRINT" ><input type="hidden" name="ISUM_OLD_METHOD" value="post"/><input type="hidden" name="ISUM_ISFORM" value="true"/><INPUT type="hidden" name="PAN" value=""><INPUT type="hidden" name="FILENAME" value="movimientos.xls"><INPUT type="hidden" name="formato" value="htm"></form>
+
+
+
+		
+							
+	
+	</DIV>
+	
+	
+
+
+
+			
+
+
+</DIV>
+</BODY>
+</html>
+
+

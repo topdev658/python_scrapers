@@ -1,0 +1,1919 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+
+<link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+<link rel="stylesheet" type="text/css" href="./css/elogctk000000.css"/>
+<link rel="stylesheet" type="text/css" href="./css/imprimirGCT.css" media="print" />
+
+<script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+
+<script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+
+<script type="text/javascript" src="./js/EloGenB000004.js"></script>
+<script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+<script type="text/javascript" src="./js/EloGenB000003.js"></script>
+<script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+<script type="text/javascript" src="./js/gestionTablas.js"></script>
+<script type="text/javascript" src="./js/AjaxQueue.js"></script>
+<script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+<script type="text/javascript" src="./js/over.js"></script>
+<script type="text/javascript" src="./js/boton-desplegable.js"></script>
+<script type="text/javascript" src="./js/EloGenB000005.js"></script>
+<script type="text/javascript" src="./js/tamanytext_v2.js"></script>
+<script type="text/javascript" src="./js/arq/init/jsHandlerSelect.js"></script>
+<script type="text/javascript" src="./js/slider.js"></script>
+<script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+<script language="javascript" type="text/javascript">
+var ArrayBean01_RefVal1= new Array("bQm~vJHl0YFtCb68keXRgQAAAWgATILZH4w8P7Wrp9Q");
+var ArrayBean01_RefVal2= new Array("B");
+var ArrayBean01_RefVal3= new Array(" ");
+var ArrayBean01_RefVal4= new Array("");
+var ArrayBean01_RefVal5= new Array("0012100585820020600000009275");
+var ArrayBean01_RefVal6= new Array("N");
+var ArrayBean01_RefVal7= new Array("1004");
+var ArrayBean01_RefVal8= new Array("");
+</script>
+
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./js/elogctb000100.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./js/elogctb010000.js"></SCRIPT>
+
+<script type="text/javascript" src="./js/popup.js"></script>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./js/jquery.blockUI-2.57.0.js"></SCRIPT>
+<script type="text/javascript" src="./js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="./js/jquery.metadata.js"></script>
+
+<script type="text/javascript" src="./js/elogennavimp.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+var PNAjuda="GCT";
+var PEAjuda="100";
+
+
+
+
+
+
+
+var operacion_nuevo_extracto = "SALDO_Y_EXTRACTOS";
+var cuentaTecleada = "";
+var	fechaIni = "";
+var fechaFin = "";
+var valorRadio = "";
+var posicionTR= 0;
+var busquedaTR= "";
+var arrayMovimientosCargados= new Array();
+var arrayMovimientoAbierto= new Array();
+var clavecontinuacionlistacuentasSIG="";
+var cuentaseleccionada="0012100585820020600000009275";
+var REFCUENTA="";
+var totalMovimientos="20";
+var clauContinuacioActual = "00000000000000000 000000000000000 000000000000000 000000000000000 ";
+var flagDetalleDesplegado = "N";
+var arrayDetalleMovimientoOK= new Array();
+var ventana;
+var detalleHTML ="";
+var masDatosListaCuentas=false;
+var tipoCuentas = "VIG";
+var tipoFecha="P";
+var error101 = "";
+var fechaMaxima = "";
+var claveContinuacion3792="";
+var fechaMenos24Actual="";
+var SCRIPTLET_SESION = '/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048';
+var SCRIPTLET_REFVAL_SIMPLE_CUENTA_PRINCIPAL = "bQm~vJFohVRtCb68kWiFVAAAAWgATILZoXPxEK8xocw"
+
+var SCRIPTLET_REFVAL_SIMPLE_CUENTA_PRINCIPAL_2 = "bQm~vJHkAV5tCb68keQBXgAAAWgATILZg1Iu1zmCKhw"
+
+var SCRIPTLET_REFVAL_SIMPLE_NUMERO_CUENTA = "bQm~vJH~XLxtCb68kf5cvAAAAWgATILZH~1DKZ7B1RY"
+
+var SCRIPTLET_REFVAL_SIMPLE_NUMERO_CUENTA_2 = "bQm~vJFDfhVtCb68kUN~FQAAAWgATILZGJKHZ0CAZiQ"
+
+var SCRIPTLET_CLAU_CONTINUACIO_INI = "bQm~vJKyMdxtCb68krIx3AAAAWgATILZO832Y3J43bc"
+
+var SCRIPTLET_REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM = "bQm~vJLR6XRtCb68ktHpdAAAAWgATILZ6xLRHuiKZtU"
+
+var SCRIPTLET_REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER = "bQm~vJLz6AZtCb68kvPoBgAAAWgATILZA3AFlPHU22M"
+
+var SCRIPTLET_ALIAS_CUENTA_PRINCIPAL = '';
+var SCRIPTLET_ALIAS_CUENTA = '';
+var SCRIPTLET_VAL_INI_CLA_CON_CUENTAS = "00000000000000000 000000000000000 000000000000000 000000000000000 ";
+var LIT_CONCEPTO               = "Concepto";
+var LIT_MOVIMIENTO             = "Movimiento";
+var LIT_FECHA                  = "Fecha";
+var LIT_IMPORTE                = "Importe";
+var LIT_SALDO                  = "Saldo";
+var LIT_FECHA_VALOR            = "Fecha valor";
+var LIT_REMITENTE              = "Remitente";
+var LIT_MAS_DATOS              = "Más datos";
+var LIT_OPCIONES               = "Opciones";
+var LIT_PROCESANDO             = "Su petición se está procesando...";
+var LIT_NO_DISPONIBLE          = "En estos momentos no está disponible.";
+var LIT_NO_DISPONIBLE_PRINT    = "Su navegador no soporta esta opción. Para imprimir seleccione la opción de menú Archivo-Imprimir...";
+var LIT_TITULO_NO_DISPO_PRINT  = "Mis cuentas - Saldo y últimos movimientos";
+var LIT_INICIO             	   = "Inicio";
+var LIT_SIGUIENTE              = "Siguiente";
+var LIT_ERROR_CUENTA_NUMERICA  = "La cuenta debe ser numérica";
+var LIT_ERROR_CUENTA_10_CIFRAS = "La cuenta debe ser informada con una cifra de 10 dígitos";
+var LIT_ERROR_CUENTA_11_CIFRAS = "La cuenta debe ser informada con una cifra de 11 dígitos";
+var LIT_ERROR_LONGITUD_INCORRECTA = "La longitud de la cuenta es incorrecta";
+var LIT_ERROR_OFICINA_NUMERICA = "La oficina debe ser numérica";
+var LIT_ERROR_OFICINA_4_CIFRAS = "La oficina debe ser informada con una cifra de 4 dígitos";
+var LIT_ERROR_13_MESES 		   = "El período máximo consultable es de 13 meses";
+var LIT_ERROR_FIN_MAYOR_MES    = "La fecha fin no debe ser mayor a la fecha actual más un mes";
+var LIT_CUENTA_PENDIENTE_ALTA  = "Esta cuenta está pendiente de alta del servicio de extracto de movimientos por fecha valor";
+var LIT_CUENTA_PENDIENTE_BAJA  = "Esta cuenta está pendiente de baja del servicio de extracto de movimientos por fecha valor";
+var LIT_ERROR_FECHA_INI		   = "La fecha de inicio no es correcta";
+var LIT_ERROR_FECHA_FIN		   = "La fecha fin no es correcta";
+var LIT_ERROR_INI_MENOR_FIN	   = "La fecha de inicio debe ser menor que la fecha fin";
+var LIT_ERROR_FECHAS_MAYOR_HOY = "Las fechas no deben ser mayores que la fecha actual";
+var LIT_ERROR_24_MESES	   	   = "El período máximo consultable es de 3 años";
+var LIT_ERROR_CUENTA_SELECCIONADA = "Debe seleccionar una cuenta para poder realizar la consulta";
+var LIT_ERROR_NO_DISPONE_CUENTAS = "No dispone de cuentas para consultar";
+var usuarioPiloto 			   = false;
+var LIT_CERRAR 				   = "Cerrar";
+var LIT_ErrorFechaMaxima	   = "Fecha incorrecta: solo puede consultar movimientos de esta cuenta hasta el ";
+var FLAG_EXTRACTO_EXCEL = "S";
+var EXTRACTO_EXCEL_CFG_ORIGEN = "AV;X;FDD#MM#AAAA;FDD#MM#AAAA;AV;IV;IV;X";
+var EXTRACTO_EXCEL_CFG_DESTINO = "01F00802F00800AV~03AV~04IV~05IV";
+var NUMERO_MAXIMO_REGISTROS_EXTRACTO_EXCEL = "3000";
+
+var versionNavegador = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.97 Safari/537.22";
+
+var navegadores = "MSIE 11.";
+
+var activoExecCommand = "S";
+
+window.onresize=pintayColorea;
+function init() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->init()";
+
+
+var miniBanner = document.getElementById("miniBanner");
+var miniBannerOculto = document.getElementById("miniBannerOculto");
+if (miniBanner!=null && miniBannerOculto!=null) {
+if (miniBannerOculto.innerHTML != "") {
+var tmpDiv = $('#miniBannerOculto').find('div')[0];
+if (tmpDiv!=null) {
+
+$(tmpDiv).attr('id','miniBanner_tmp');
+
+var content = $('#miniBannerOculto').html();
+$('#miniBanner').replaceWith(content);
+
+$('#miniBanner_tmp').attr("id","miniBanner");
+
+miniBannerOculto.innerHTML = "";
+}
+}
+}
+
+var origInvocacionStr = document.forms[0].ORIGEN_INVOCACION.value;
+
+if (origInvocacionStr == "PPE0") {
+elemento = document.getElementById("favSigSup");
+if (elemento!=null) {
+elemento.style.display='block';
+}
+elemento = document.getElementById("favSigInf");
+if (elemento!=null) {
+elemento.style.display='block';
+}
+} else if (origInvocacionStr == "PPE1") {
+elemento = document.getElementById("parrafoPrestIni");
+if (elemento!=null) {
+elemento.style.display='block';
+}
+}
+operacion_nuevo_extracto = "SALDO_Y_EXTRACTOS";
+
+document.forms[0].FLAG_PE.value = top.flagPE;
+
+document.forms[0].SALDO_ACTUAL.value="000000006133395";
+document.forms[0].SIGNO_SALDO_ACTUAL.value="+";
+
+
+document.forms[0].SALDO_RETENIDO.value="000000000000000";
+document.forms[0].SIGNO_SALDO_RETENIDO.value="+";
+
+
+clavecontinuacionlistacuentasSIG="bQm~vJKdDJttCb68kp0MmwAAAWgATILYP357X5XyCGY"
+;
+
+
+
+
+elemento = document.getElementById("divContenidoVerTitulares");
+if (tipoCuentas=="CAN") {
+if (elemento!=null) {
+elemento.style.display='none';
+}
+}else {
+if (elemento!=null) {
+elemento.style.display='block';
+}
+}
+
+elemento = document.getElementById("divContenidoCertificado");
+if (tipoCuentas=="CAN") {
+if (elemento!=null) {
+elemento.style.display='none';
+}
+}else {
+if (elemento!=null) {
+elemento.style.display='block';
+}
+}
+
+if (tipoCuentas=="CAN") {
+limpiarTablaSaldos();
+}
+
+if (tipoCuentas=="CAN") {
+setGrupoEnlace2(false);
+}
+
+if (tipoCuentas=="CAN") {
+setGrupoEnlaceDOM(false)
+}
+INICIO_CARGA_SELECT_VISUAL = 0;
+
+
+
+
+
+
+
+pintayColorea();
+
+
+setExtracto_EDI_TLE();
+
+setExtracto_VIG_CAN();
+
+setEnlaceCertificado();
+
+elemento = document.getElementById("bloque_disclaimerDisponibleNomina");
+if (elemento!=null) {
+
+elemento.style.display='none';
+
+}
+elemento = document.getElementById("bloque_disclaimerDisponibleNominaEfectivo");
+if (elemento!=null) {
+
+elemento.style.display='none';
+
+}
+}
+function SaldoDetallado() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->SaldoDetallado()";
+InicializaErrores();
+with (document.forms[0]) {
+
+cuentaTecleada = checkCuentaTecleada();
+if (cuentaTecleada) {
+
+OFICINA.value="";
+CUENTA.value="";
+REFVAL_SIMPLE_CUENTA.value = "";
+REFVAL_SIMPLE_NUMERO_CUENTA.value="";
+ALIAS_CUENTA.value = "";
+FLAG_KEEP_THE_CHANGE.value = "";
+}else {
+
+InicializaErrores();
+if (isCuentaSeleccionadaCombo()) {
+var elemento = document.getElementById("SelectBean01");
+if (elemento!=null) var valor = elemento.options[elemento.selectedIndex].value;
+
+
+if (elemento.options[elemento.selectedIndex].text.trim()!="") {
+REFVAL_SIMPLE_NUMERO_CUENTA.value= ArrayBean01_RefVal1[valor];
+ALIAS_CUENTA.value=ArrayBean01_RefVal4[valor];
+REFVAL_SIMPLE_CUENTA.value="";
+CUENTA.value="";
+FLAG_KEEP_THE_CHANGE.value=ArrayBean01_RefVal6[valor];
+if (getTipoCuentaSeleccionada()=="EDI") {
+NUMCUENTATOTAL.value= ArrayBean01_RefVal5[valor];
+MONEDA.value = ArrayBean01_RefVal7[valor];
+CONSEO.value = "0";
+}
+}else{
+AddError(LIT_ERROR_CUENTA_SELECCIONADA);
+}
+}
+}
+if (ProcesaErrores()) {
+
+CLAVE_ANTERIOR.value="  000000000000000000000000000 0000000";
+REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM.value="bQm~vJKBHZJtCb68koEdkgAAAWgATILYEmYoFm3UwXg"
+;
+REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER.value="bQm~vJKco2VtCb68kpyjZQAAAWgATILYHND165mmV1g"
+;
+POSICION_TR_ABIERTO.value="0";
+RefInformacionSaldoMovimientos.value="";
+CLICK_ORIG.value = "FLX_GCT_100";
+FLAG_PE.value = top.flagPE;
+FLUJO.value = "GCT,100,180:GFI,7,''";
+if (getTipoCuentaSeleccionada()=="EDI") {
+PN.value="GCD";
+PE.value="3";
+} else {
+PN.value="GCT";
+PE.value="17";
+}
+target="Cos";
+HTML_DETALLE_MOVIMIENTO.value="";
+submit();
+}
+}
+}
+function RetencionSaldo() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->RetencionSaldo()";
+InicializaErrores();
+with (document.forms[0]) {
+
+cuentaTecleada = checkCuentaTecleada();
+if (cuentaTecleada) {
+
+OFICINA.value="";
+CUENTA.value="";
+REFVAL_SIMPLE_CUENTA.value = "";
+REFVAL_SIMPLE_NUMERO_CUENTA.value="";
+ALIAS_CUENTA.value = "";
+FLAG_KEEP_THE_CHANGE.value = "";
+}else {
+
+if (isCuentaSeleccionadaCombo()) {
+var elemento = document.getElementById("SelectBean01");
+if (elemento!=null) var valor = elemento.options[elemento.selectedIndex].value;
+if (elemento.options[elemento.selectedIndex].text.trim()!="") {
+REFVAL_SIMPLE_NUMERO_CUENTA.value= ArrayBean01_RefVal1[valor];
+ALIAS_CUENTA.value=ArrayBean01_RefVal4[valor];
+REFVAL_SIMPLE_CUENTA.value="";
+CUENTA.value="";
+FLAG_KEEP_THE_CHANGE.value=ArrayBean01_RefVal6[valor];
+INDICADOR_CANCELADA.value=ArrayBean01_RefVal8[valor];
+}else{
+AddError(LIT_ERROR_CUENTA_SELECCIONADA);
+}
+}
+}
+if (ProcesaErrores()) {
+
+CLAVE_ANTERIOR.value="  000000000000000000000000000 0000000";
+REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM.value="bQm~vJFOmiBtCb68kU6aIAAAAWgATILYtAsssZwsc7w"
+;
+REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER.value="bQm~vJKN9w5tCb68ko33DgAAAWgATILYffggAOdngt0"
+;
+POSICION_TR_ABIERTO.value="0";
+RefInformacionSaldoMovimientos.value="";
+CLICK_ORIG.value = "FLX_GCT_100";
+FLAG_PE.value = top.flagPE;
+FLUJO.value = "GCT,100,180:GFI,7,''";
+PN.value="GCT";
+PE.value="18";
+target="Cos";
+HTML_DETALLE_MOVIMIENTO.value="";
+submit();
+}
+}
+}
+
+function siguiente(){
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->siguiente()";
+
+f=document.forms["favorita"]
+f.target="Cos";
+f.PN.value="PPE";
+f.PE.value="null";
+f.DESDE.value="0";
+f.submit();
+}
+function enviar(opt) {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->enviar()";
+f=document.forms[0]
+f.target="Cos";
+var cuentaTecleada = checkCuentaTecleada();
+if (!cuentaTecleada) {
+InicializaErrores();
+isCuentaSeleccionadaCombo();
+}
+if (ProcesaErrores()) {
+if (opt==1) {
+f.PN.value="PPE";
+f.PE.value="9";
+f.CLICK_ORIG.value="EOC_GCT_100";
+f.ADVORIGNEGOCI.value="GCT";
+f.ADVORIGPETICIO.value="1";
+}
+else if (opt==2) {
+f.PN.value="PPE";
+f.PE.value="7";
+f.CLICK_ORIG.value="EOC_GCT_100";
+}
+else if (opt==5) {
+f.PN.value="PPE";
+f.PE.value="10";
+f.ADVORIGNEGOCI.value="GCT";
+f.ADVORIGPETICIO.value="1";
+f.CLICK_ORIG.value="EOC_GCT_100";
+}
+else if (opt==6) {
+f.PN.value="PPE";
+f.PE.value="11";
+f.ADVORIGNEGOCI.value="PPE";
+f.ADVORIGPETICIO.value="1";
+f.CLICK_ORIG.value="EOC_GCT_100";
+}
+else if (opt==9){
+f.CLICK_ORIG.value="EOCGCT_100"
+f.PN.value="MFP";
+f.PE.value="1";
+}
+f.HTML_DETALLE_MOVIMIENTO.value="";
+f.submit();
+}
+}
+function volver() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->volver()";
+f= document.forms[0]
+f.target="Cos";
+if ("" == "PSN" && "" == "2"){
+f.PN.value = "PSN";
+f.PE.value = "2";
+} else {
+
+if ("RED_GCT_16" == "FLX_TRG_19"){
+f.FLUJO.value = ""
+f.PN.value = "GFI"
+f.PE.value = "7"
+}else{
+f.FLUJO.value = "GFI,7,''"
+f.PN.value = "GCT"
+f.PE.value = "11"
+}
+
+}
+f.CLICK_ORIG.value="VOL_GCT_100"
+f.HTML_DETALLE_MOVIMIENTO.value="";
+f.RECUPERAR_CUENTAS_CONTEXTO_GCT.value="S";
+f.submit()
+}
+function envioNuevaTransferencia() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->envioNuevaTransferencia()";
+f=document.forms[0];
+f.target="Cos";
+f.PN.value="TTU";
+f.PE.value="1";
+limpiarCamposTTU();
+f.tipoCuenta.value="2";
+f.TIPO_GASTO.value="SHA";
+f.HTML_DETALLE_MOVIMIENTO.value="";
+f.submit();
+}
+
+function transPeriodicasDeEstaCuenta() {
+f=document.forms["transPeriodicas"];
+f.target="Cos";
+InicializaErrores();
+var cuentaTecleada = checkCuentaTecleada();
+
+var cuenta = "";
+
+if (cuentaTecleada) {
+cuenta = document.getElementById("CampoCuentaBean01_of").value + document.getElementById("CampoCuentaBean01_no").value;
+
+} else if (isCuentaSeleccionadaCombo()) {
+var elemento = document.getElementById("SelectBean01");
+var valor = elemento.options[elemento.selectedIndex].value;
+cuenta = ArrayBean01_RefVal5[valor];
+}
+else
+AddError(LIT_ERROR_CUENTA_SELECCIONADA);
+if (ProcesaErrores()) {
+f.CLACON_PPM12.value = cuenta;
+f.submit();
+}
+}
+function limpiarCamposTTU() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->limpiarCamposTTU()";
+
+with (document.forms[0]) {
+REMITENTE.value="";
+DESDE.value="";
+FLUJO_T.value="";
+HASTA.value="";
+ORIGEN_INVOCACION.value="";
+}
+}
+function MovPorFecha(fechaActual, fechaMenos24) {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->MovPorFecha()";
+InicializaErrores();
+
+limpiarErrorPaginacionCuenta();
+
+limpiarPaginacionPlus();
+
+inicializaArrayMovimientosCargados();
+
+
+inicializaArrayMovimientosDesplegados();
+arrayDetalleMovimientoOK= new Array();
+with (document.forms[0]) {
+
+cuentaTecleada = checkCuentaTecleada();
+
+if (!cuentaTecleada) isCuentaSeleccionadaCombo();
+
+fechaIni = any1.value + mes1.value + dia1.value;
+fechaFin = any2.value + mes2.value + dia2.value;
+validarFechasGeneral(fechaIni, fechaFin);
+validarFechas01(fechaActual, fechaMenos24, fechaIni, fechaFin);
+if (tipoCuentas=="CAN") {
+validarFechasCuentasCanceladas(fechaMaxima, fechaFin);
+}
+
+var i = 0;
+while (!radios1[i].checked && i < radios1.length) i++;
+valorRadio = radios1[i].value;
+
+FILTRO_ABIERTO.value="S";
+ORDEN_MOVIMIENTOS.value=valorRadio;
+FECHA_INICIO_OPERACIONES.value=fechaIni;
+FECHA_FIN_OPERACIONES.value=fechaFin;
+OPERACION_NUEVO_EXTRACTO.value="MOVIMIENTOS_POR_FECHA";
+
+if (ProcesaErrores()) {
+
+var urlParams = "PN=GCT&PE=102";
+urlParams += "&OPERACION_NUEVO_EXTRACTO=";
+urlParams += "MOVIMIENTOS_POR_FECHA";
+urlParams += "&CLICK_ORIG=";
+urlParams += "FLX_GCT_100";
+urlParams += "&FLAG_PE=";
+urlParams += top.flagPE;
+urlParams += "&FLUJO=";
+urlParams += "GCT,100,180:GFI,7,''";
+urlParams += "&CLAVE_CONTINUACION_SUM=";
+urlParams += "  000000000000000000000000000 0000000";
+urlParams += "&FECHA_INICIAL=";
+urlParams += "";
+urlParams += "&ORDEN_MOVIMIENTOS=";
+urlParams += valorRadio;
+urlParams += "&FECHA_INICIO_OPERACIONES=";
+urlParams += fechaIni;
+urlParams += "&FECHA_FIN_OPERACIONES=";
+urlParams += fechaFin;
+urlParams += "&FILTRO_ABIERTO=S";
+urlParams += "&ID_TABLA=";
+urlParams += "TablaBean02";
+urlParams += "&TIPO_CUENTAS=";
+urlParams += tipoCuentas;
+
+if (cuentaTecleada) {
+urlParams += "&REFVAL_SIMPLE_NUMERO_CUENTA=";
+urlParams += "";
+urlParams += "&ALIAS_CUENTA=";
+urlParams += "";
+urlParams += "&OFICINA=";
+urlParams += document.getElementById("CampoCuentaBean01_of").value;
+urlParams += "&CUENTA=";
+urlParams += document.getElementById("CampoCuentaBean01_no").value;
+urlParams += "&FLAG_KEEP_THE_CHANGE=";
+urlParams += "";
+urlParams += '&MONEDA=';
+urlParams += "";
+
+} else {
+var elemento = document.getElementById("SelectBean01");
+var valor = elemento.options[elemento.selectedIndex].value;
+urlParams += "&REFVAL_SIMPLE_NUMERO_CUENTA=";
+urlParams += ArrayBean01_RefVal1[valor];
+
+
+urlParams += "&ALIAS_CUENTA=";
+urlParams += encodeURI(ArrayBean01_RefVal4[valor]);
+urlParams += "&FLAG_KEEP_THE_CHANGE=";
+urlParams += ArrayBean01_RefVal6[valor];
+urlParams += '&MONEDA=';
+urlParams += ArrayBean01_RefVal7[valor];
+urlParams += '&INDICADOR_CANCELADA=';
+urlParams += ArrayBean01_RefVal8[valor];
+}
+urlParams += '&CLAU_CONTINUACIO_MOV=';
+urlParams += "4040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040";
+
+urlParams += "&FLAG_CAMBIO_CUENTA_EXTRACTO=S";
+
+eliminaOpcionBlancaCombo('SelectBean01');
+
+operacion_nuevo_extracto = "MOVIMIENTOS_POR_FECHA";
+origen_refrescaSaldoExtracto = "filtro";
+
+limpiaTablaExtracto();
+bloquearCursor();
+enviaAsincrono(SCRIPTLET_SESION, urlParams, 'asincronoExtractos', 'POST', refrescaSaldoExtracto,errorSaldoExtracto);
+}
+}
+}
+function BusquedaAvanzada(fechaActual, fechaMenos24) {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->BusquedaAvanzada()";
+InicializaErrores();
+with (document.forms[0]) {
+
+cuentaTecleada = checkCuentaTecleada();
+
+if (cuentaTecleada) {
+REFVAL_SIMPLE_NUMERO_CUENTA.value="";
+ALIAS_CUENTA.value = "";
+OFICINA.value = "";
+CUENTA.value = "";
+FLAG_KEEP_THE_CHANGE.value = "";
+
+} else {
+if(isCuentaSeleccionadaCombo()) {
+var elemento = document.getElementById("SelectBean01");
+var valor = elemento.options[elemento.selectedIndex].value;
+REFVAL_SIMPLE_NUMERO_CUENTA.value = ArrayBean01_RefVal1[valor];
+FLAG_KEEP_THE_CHANGE.value=ArrayBean01_RefVal6[valor];
+INDICADOR_CANCELADA.value = ArrayBean01_RefVal8[valor];
+}
+}
+
+
+var fechaIni = any1.value + mes1.value + dia1.value;
+var fechaFin = any2.value + mes2.value + dia2.value;
+validarFechasGeneral(fechaIni, fechaFin);
+validarFechas01(fechaActual, fechaMenos24, fechaIni, fechaFin);
+if (tipoCuentas=="CAN") {
+validarFechasCuentasCanceladas(fechaMaxima, fechaFin);
+}
+
+var i = 0;
+while (!radios1[i].checked && i < radios1.length) i++;
+valorRadio = radios1[i].value;
+
+ORDEN_MOVIMIENTOS_BA.value=valorRadio;
+FEC_INI_BUS.value=fechaIni;
+FEC_FIN_BUS.value=fechaFin;
+FILTRO_ABIERTO.value="S";
+POSICION_TR_ABIERTO.value="0";
+TIPO_FECHA.value="P";
+RefInformacionSaldoMovimientos.value="";
+OPERACION_NUEVO_EXTRACTO.value="MOVIMIENTOS_BUSQUEDA_AVANZADA";
+CLAU_CONTINUACIO_MOV.value="4040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040";
+TIPO_CUENTAS.value=tipoCuentas;
+if (ProcesaErrores()) {
+REFVAL_SIMPLE_CLAU_CONTINUACIO.value=SCRIPTLET_CLAU_CONTINUACIO_INI;
+CLICK_ORIG.value = "FLX_GCT_100";
+FLAG_PE.value = top.flagPE;
+FLUJO.value = "GCT,100,180:GFI,7,''";
+PN.value="GCT";
+PE.value="120";
+target="Cos";
+RefInformacionSaldoMovimientos.value="";
+GCT_REFVAL_SIMPLE_NUMERO_CUENTA.value = "";
+CLAVE_CONTINUACION_BUS.value="  000000000000000000000000000 0000000";
+CLAVE_ANTERIOR.value="  000000000000000000000000000 0000000";
+HTML_DETALLE_MOVIMIENTO.value="";
+submit();
+}
+}
+}
+
+
+
+function MovPorFechaValor(fechaMas1, fechaMenos13) {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->MovPorFechaValor()";
+InicializaErrores();
+with (document.forms[0]) {
+
+var fechaIni = any3.value + mes3.value + dia3.value;
+var fechaFin = any4.value + mes4.value + dia4.value;
+
+validarFechasGeneral(fechaIni, fechaFin);
+
+validarFechas02(fechaMas1, fechaMenos13, fechaIni, fechaFin);
+
+var i = 0;
+while (!radios2[i].checked && i < radios2.length) i++;
+var  valorRadio2 = radios2[i].value;
+
+if (checkCuentaTecleada()) {
+
+
+
+FLAG_ORIGEN.value="M";
+
+ESTADO_SERVICIO_CUENTA.value = "";
+SOLICITUD_ESTADO_SERVICIO_CUENTA.value = "";
+
+REFVAL_SIMPLE_CUENTA.value = "";
+REFVAL_SIMPLE_NUMERO_CUENTA.value = "";
+ALIAS_CUENTA.value = "";
+FLAG_KEEP_THE_CHANGE.value = "";
+
+} else {
+
+var elemento = document.getElementById("SelectBean01");
+if (elemento!=null) {
+
+if(isCuentaSeleccionadaCombo()) {
+
+var valor = elemento.options[elemento.selectedIndex].value;
+
+REFVAL_SIMPLE_NUMERO_CUENTA.value= ArrayBean01_RefVal1[valor];
+ALIAS_CUENTA.value=ArrayBean01_RefVal4[valor];
+
+REFVAL_SIMPLE_CUENTA.value="";
+CUENTA.value="";
+
+ESTADO_SERVICIO_CUENTA.value = ArrayBean01_RefVal2[valor];
+SOLICITUD_ESTADO_SERVICIO_CUENTA.value = ArrayBean01_RefVal3[valor];
+FLAG_ORIGEN.value="";
+FLAG_KEEP_THE_CHANGE.value=ArrayBean01_RefVal6[valor];
+INDICADOR_CANCELADA.value=ArrayBean01_RefVal8[valor];
+}
+}
+}
+if (ProcesaErrores()) {
+CLICK_ORIG.value = "FLX_GCT_100";
+INDICADOR_COMUNICADOS.value = "";
+FILTRO_ABIERTO.value="N";
+INDICA_SOLICITUD.value = "A";
+FLAG_PE.value = top.flagPE;
+FLUJO.value = "GCT,110,180:GFI,7,''";
+FECHA_INICIO_OPERACIONES.value = fechaIni;
+FECHA_FIN_OPERACIONES.value    = fechaFin;
+ORDEN_MOVIMIENTOS_FV.value = valorRadio2;
+CLAVE_ANTERIOR.value="  000000000000000000000000000 0000000";
+REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM.value=SCRIPTLET_REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM;
+REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER.value=SCRIPTLET_REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER;
+CLAU_CONTINUACIO_ACTUAL.value=clauContinuacioActual;
+POSICION_TR_ABIERTO.value="0";
+RefInformacionSaldoMovimientos.value="";
+FECHA_INICIAL.value="";
+OPERACION_NUEVO_EXTRACTO.value = "MOVIMIENTOS_POR_FECHA_VALOR";
+GCT_REFVAL_SIMPLE_NUMERO_CUENTA.value = "";
+PN.value= "GCT";
+PE.value= "110";
+target="Cos";
+HTML_DETALLE_MOVIMIENTO.value="";
+submit();
+}
+}
+}
+function GestionMovsFechaValor() {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->GestionMovsFechaValor()";
+InicializaErrores();
+with (document.forms[0]) {
+
+cuentaTecleada = checkCuentaTecleada();
+if (ProcesaErrores())	{
+
+if (cuentaTecleada) {
+REFVAL_SIMPLE_NUMERO_CUENTA.value="";
+ALIAS_CUENTA.value = "";
+OFICINA.value = document.getElementById("CampoCuentaBean01_of").value;
+CUENTA.value = document.getElementById("CampoCuentaBean01_no").value;
+FLAG_KEEP_THE_CHANGE.value = "";
+
+} else {
+
+if (isCuentaSeleccionadaCombo()) {
+var elemento = document.getElementById("SelectBean01");
+var valor = elemento.options[elemento.selectedIndex].value;
+REFVAL_SIMPLE_NUMERO_CUENTA.value = ArrayBean01_RefVal1[valor];
+FLAG_KEEP_THE_CHANGE.value=ArrayBean01_RefVal6[valor];
+INDICADOR_CANCELADA.value=ArrayBean01_RefVal8[valor];
+}
+}
+if (ProcesaErrores()) {
+ALIAS_CUENTA.value = "";
+CLICK_ORIG.value = "EOC_GCT_100";
+FLAG_PE.value = top.flagPE;
+FLUJO.value = "GCT,100,180:GFI,7,''";
+PN.value="GDV";
+PE.value="1";
+FLAG_ORIGEN.value="G";
+target="Cos";
+RefInformacionSaldoMovimientos.value="";
+REFVAL_SIMPLE_CLAU_CONTINUACIO.value=SCRIPTLET_CLAU_CONTINUACIO_INI;
+HTML_DETALLE_MOVIMIENTO.value="";
+submit();
+}
+}
+}
+}
+
+</script>
+<script type="text/javascript">
+function linkpeu(num) {
+if (NIVEL_DEBUG>=0) CADENA_DEBUG += "\n elogctb010000.jsp->linkpeu()";
+InicializaErrores();
+var cuentaTecleada = checkCuentaTecleada();
+if (num==1){
+top.clickorig="PPA_GCT_100";
+top.frames['Inferior'].frames['Menu'].prelanzar('POS','0',0,0,0,null,null);
+} else if (num==2) {
+top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,"TRG","200","","PPA_GCT_100");
+} else if (num==3) {
+top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,"TTU","1","","PPA_GCT_100");
+} else if (num==4) {
+if (!cuentaTecleada) isCuentaSeleccionadaCombo();
+
+fechaIni = '11'+'2018';
+fechaFin = '12'+'2018';
+buffer='&BUSQUEDACLO=0&ACCESODIRECTO=1&CATEGORIA=000&IMPORTE_INICIAL=000000000000000&IMPORTE_FINAL=000000000000000&MONEDA=000&FECHA_INICIAL='+fechaIni+'&FECHA_FINAL='+fechaFin+'&CUENTA='+cuentaseleccionada;
+if (tipoCuentas=="CAN") buffer+= "&CANCELADAS=0&TIPO_CUENTAS_BUSCADOR_COMUNICADOS=C&REFCUENTA="+REFCUENTA;
+if (ProcesaErrores()) {
+top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,"COM","2",buffer,"PPA_GCT_100");
+}
+} else if (num==5) {
+top.Titol.obtenerAyuda();
+} else if (num==6) {
+if (!cuentaTecleada) isCuentaSeleccionadaCombo();
+var flujo = document.forms[0].FLUJO_T.value;
+var refCuenta = document.forms[0].REF_CUENTA.value;
+buffer='&FLUJO='+flujo+'&REF_CUENTA='+refCuenta;
+if (ProcesaErrores()) {
+top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,"DGR","25",buffer,"PPA_GCT_100");
+}
+}
+}
+</script>
+</head>
+
+<div  class="apple_overlay " id="overlay">
+<div class="capa_liquida" >
+<div class="top"><span></span></div>
+<div class="center-content2" >
+<div class="center-content clearfix">
+<div id="infoCont" class="contentWrap clearfix"></div>
+</div>
+<div class="limpiar"></div>
+</div>
+<div class="bottom_liq"><span></span></div>
+</div>
+</div>
+
+<body id="cos" class="margen_top5 " onload="Javascript:init();" onclick="ocultarSelect2();">
+<script>var PNLomilu='GCT';var PELomilu='100';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+<form action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST">
+<div id="errorpaginacioncuenta" style="display:none"></div>
+<a name="posicionar"></a>
+
+
+
+
+<div id="titulo_pagina" class="dtable inferior5 ocultar">
+<div class="dtcell vamid padr10">
+
+<a class="icon_tornar_petit" href="javascript:volver()">Volver</a>
+
+</div>
+<div class="dtcell vamid medida100">
+
+<ul class="funciones_tit">
+<li><a title="¿Necesita imprimirlo? Protejamos el medio ambiente" class="printgreen" href="javascript:imprimir();">Imprimir</a></li>
+
+<li><a title="Exportar a fichero Excel" class="exportarexcel funciones_tit__item--showtext" href="javascript:excel();">Descargar en excel</a></li>
+
+<li><a title="Incluir esta operación en mi lista de favoritos" class="derecha5" href="javascript:enviar(2);"><img src="../imatge/ico_fav.png"></a></li>
+<li><a title="Reducir tamaño del texto" class="amenos noactivo" id="linkred" onclick="reduir();" href="javascript:void(0);">a-</a></li>
+<li><a title="Aumentar tamaño del texto" class="amas" id="linkaug" onclick="augmentar();" href="javascript:void(0);">a +</a></li>
+<li class="ajuda"> <span class="funciones_ini"></span><a title="Ayuda" href="javascript:top.Titol.obtenerAyuda(); ">Ayuda</a><span class="funciones_fin"></span></li>
+</ul>
+</div>
+</div>
+
+<div id = "favSigSup" class="superior10 dnone">
+
+</div>
+<div id="titulo_cuenta">
+<div class="mostrar"><div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa" /></div><div class="rfloat">Fecha impresión: <strong>30/12/2018</strong>&nbsp;</div><div class="limpiar"></div></div><div class=" ocultar "><div class="rfloat nowrap"><ul class="funciones_tit "></ul></div><div class="lfloat"><h1 class="lfloat"><span class="bold ">Cuenta</span><span class="bold ">: </span><span class="tit_subt ">ES63 2100 5858 7402 0000 9275</span><span></span></h1><p class="lfloat izquierda10 superior5"><a id="enlace_iban" href="JavaScript:verDetalleIBAN()"   class=" superior5"  title=""><span>Detalle de la cuenta (BIC, SWIFT, IBAN...)</span></a></p></div><div class="limpiar"></div></div>
+</div>
+<div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.",null,"errores");</script></div>
+<div class="limpiar dnone"></div>
+<div id = "parrafoPrestIni" class="superior10 dnone" style="margin-top: 5px; margin-bottom:5px">
+
+</div>
+<div id="lista_cuentas">
+<div class=" ocultar "><div class="lfloat" id="SelectBeanDIV01"><select name="SelectBean01" id="SelectBean01"  class="lfloat number_pages fregular " ><option value="0" selected="selected" >ES63 2100 5858 7402 0000 9275</option>
+<option value="CAN">Ver cuentas dadas de baja</option>
+</select>
+</div>
+<a href="JavaScript:selCuenta('SALDO_Y_EXTRACTOS')"   class="boton boton_26 botonsinicon lfloat ocultar" ><span>Ver</span></a></div>
+<div id="divContenidoVerTitulares" class="lfloat superior5">
+
+<span class="ocultar ">&nbsp;&nbsp;</span> <a id="" href="JavaScript:verTitulares()"   class=" ocultar"  title=""><span>Ver titulares</span></a>
+</div>
+<div id="divContenidoCertificado" class="lfloat superior5">
+
+<span class="ocultar ">&nbsp;&nbsp;</span> <a  class="ico_certificat  ocultar"  id="" href="JavaScript:solicitarCertificado()"  title="" data-tooltip-position="left"><span>Solicitar certificado de titularidad</span></a>
+</div>
+<div class="limpiar"></div>
+<div id="bloque_SelectBeanDIV02" style="display:none;">
+<fieldset class="formulari_nuevoExtracto_select">
+<table class="form">
+<tbody>
+<tr>
+<td>
+<div class="nuevoExtracto_select">
+<div class="opciones_nuevoExtracto_select" id="SelectBeanDIV02"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</fieldset>
+</div>
+</div>
+<div id="tabla_cuenta_manual" style="display:none;">
+<div id="cuenta_manual">
+<div>
+<div class="dades_form">
+<div class="esq">
+<label for="import"><span> Puede teclear la cuenta</span><span> :</span></label>
+</div>
+<div class="dre">
+<ul class="ul_icons lfloat inferior6">
+<li>Entidad<br><input type="text" name="CampoCuentaBean01_ent" value="****" id="CampoCuentaBean01_ent" maxlength="4" size="4" disabled="disabled" style="border:0;background-color:#fff;color:gray;padding:.3em;"></li>
+<li class="izquierda5">Oficina<br><input type="text" name="CampoCuentaBean01_of" id="CampoCuentaBean01_of" maxlength="4" size="4" ></li>
+<li class="izquierda5">DC<br><input type="text" name="CampoCuentaBean01_dc" value="**" id="CampoCuentaBean01_dc" size="2" maxlength="2" disabled="disabled" style="border:0;background-color:#fff;color:gray;padding:.3em;" ></li>
+<li class="izquierda5">Número de Cuenta<br><input type="text" name="CampoCuentaBean01_no" id="CampoCuentaBean01_no" maxlength="11" size="11"></li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+<div id="boton_cuenta_manual">
+<a href="JavaScript:selCuentaManual('SALDO_Y_EXTRACTOS')"   class="boton boton_26 botonsinicon lfloat ocultar" ><span>&nbsp;&nbsp;Ir&nbsp;&nbsp;</span></a>
+</div>
+</div>
+<div id="forzarancho" class="limpiar" ></div>
+<div id ="infoSaldos1000">
+<div class="modul_blaufosc  ocultar ">
+	<span class="left"></span><span class="right"></span>
+	<div class="middle "   ><div class="limpiar"></div><div class="modul_blanco limpiar lfloat medida49 inferior3">
+<div class="top"><span></span></div>
+<div class="center-content limpiar"  >
+<div id="divTablaSaldos01"><table class="table_resumen "  id="TablaBean01"><tbody><tr id="" name="" class=" no_border" style="">
+<th scope="row"  class="" ><span class="bold ">Saldo actual</span><span class="ocultar "></span></th>
+<td class="" ><span class="bold ">+&nbsp;61.333,95&nbsp;euros</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="limpiar"></div>
+</div>
+<div class="bottom">
+<span></span>
+</div>
+</div>
+<div class="rfloat medida50"><div class="limpiar"></div><div class="limpiar"></div><div id="miniBanner" class="content-mkt-lateral"></div><div class="limpiar"></div></div><div class="limpiar"></div>
+<a href="JavaScript:despliegaBuscador()"   class="boton boton_26funcionb margen_top5 lfloat ocultar" ><span>Buscar movimientos</span></a>
+
+	<div class="bottom"></div></div></div>
+</div>
+<div id = "filtro_buscador_movimientos" style="display:none">
+<div class="modul_borderazul limpiar " id="divContenedorBean">
+<span class="left"></span><span class="right"></span><div class="middle">
+<div class="dades_form izquierda40 inferior10" id="FiltroBuscadorMovimientos1">
+<div class="esq"><label><span class="bold ">Fechas&nbsp;</span></label></div>
+<div class="dre"><div class="limpiar inferior6">
+<label class=" B  izquierda15 "><span>Desde</span></label> <select id="dia1" name="desdedia1" ><option value="01" selected="selected">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+ <select id="mes1" name="desdedia1" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11" selected="selected">11</option><option value="12">12</option></select>
+ <select id="any1" name="desdedia1" ><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018" selected="selected">2018</option></select>
+</div>
+<div class="limpiar inferior6">
+<label class=" B  izquierda15 "><span>Hasta&nbsp;</span></label> <select id="dia2" name="desdedia2" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30" selected="selected">30</option><option value="31">31</option></select>
+ <select id="mes2" name="desdedia2" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12" selected="selected">12</option></select>
+ <select id="any2" name="desdedia2" ><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018" selected="selected">2018</option><option value="2019">2019</option></select>
+</div>
+<div class="limpiar inferior6">
+<div id='fechaMaxima' class='gris smaller' style='margin-left:15px !important;'></div></div>
+<div class="limpiar inferior6">
+<div id="divParrafoAccesoInformacionDetallada" class="">
+Si desea buscar movimientos de más de 3 años, acceda a &nbsp;<a id="" href="javascript:excel2();"   title="información detallada de los movimientos."><span>información detallada de los movimientos.</span></a></div></div>
+</div>
+</div>
+<div class="limpiar"></div><div class="dades_form izquierda40 inferior10" id="FiltroBuscadorMovimientos2">
+<div class="esq"><label><span class="bold ">Mostrar primero&nbsp;</span></label></div>
+<div class="dre"><div class="limpiar inferior6">
+<span class="derecha5 " ><input type="radio" title="" value="R" name="radios1" id="radios1" checked >
+</span>
+<label for="radios1" class="B "><span>el movimiento más reciente</span>&nbsp; </label></div>
+<div class="limpiar inferior6">
+<span class="derecha5 " ><input type="radio" title="" value="A" name="radios1" id="radios1">
+</span>
+<label for="radios1" class="B "><span>el movimiento más antiguo</span>&nbsp; </label></div>
+</div>
+</div>
+<div class="limpiar"></div><div class="dades_form izquierda40 inferior10" id="FiltroBuscadorMovimientos3">
+<div class="esq">&nbsp;&nbsp;</div>
+<div class="dre"><div class="limpiar ">
+<a id="EnlaceBean03" href="JavaScript:BusquedaAvanzada('20181230','20151230')"   title=""><span>Búsqueda avanzada</span></a></div>
+</div>
+</div>
+<div class="dades_form izquierda40">
+<div class="dre">
+<div class="cerca_boto izquierda255">
+<a href="JavaScript:MovPorFecha('20181230','20151230')"   class="boton boton_26cerca ocultar" ><span>Buscar</span></a>
+</div>
+</div>
+</div>
+
+<div class="limpiar"></div> </div> <div class="bottom"><span class="left"></span><span class="right"></span></div></div>
+&nbsp;<br>
+</div>
+
+<div id="tablaBeanCuentaSaldosImpresion" style="display:none;">
+<div class="limpiar_impresion dnone"></div>
+<table class="table_dades"  id="TablaBeanCuentaSaldosImpresion01"><tbody><tr id="" name="" class="" style="">
+<th scope="row"  class="" ><span class="bold ">IBAN</span><span class="bold ">:</span></th>
+<td class="" ><span>ES63 2100 5858 7402 0000 9275</span></td>
+<td class="" ><a id="LinkBean04" href="JavaScript:top.Titol.obtenerAyudaCampo('TDI', '9', 'INFOIBAN')"   class=" ocultar"  title="Más información sobre el saldo disponible. Se abre en una nueva ventana."><span>Más información</span></a></td>
+</tr>
+<tr id="" name="" class="" style="">
+<th scope="row"  class="" ><span class="bold ">Saldo actual</span><span class="ocultar "></span></th>
+<td class="" ><span>+&nbsp;61.333,95&nbsp;euros</span></td>
+</tr>
+<tr id="" name="" class="" style="">
+<th scope="row"  class="" ><span class="bold ">Cuenta</span><span class="bold ">:</span></th>
+<td class="" ><span>2100 5858 74 0200009275</span></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div id="texto_filtro_buscador_movimientos" class="texto_filtro_buscador_movimientos">
+<span class="bold ">Movimientos desde</span><span class="bold ">:</span> <span><font id='f1_filtro_buscador_movimientos'>30/12/2018</font></span> <span class="bold ">y hasta</span><span class="bold ">:</span> <span><font id='f2_filtro_buscador_movimientos'>01/11/2018</font></span>
+</div>
+
+<div class="limpiar"></div>
+<div id="AvisoCuentaCancelada">
+
+</div>
+<div id="AvisoMasPeriodos">
+
+</div>
+<div id="importesExpresados" class="rtxt">
+<span class="bold ">Importes expresados en</span> <span class="bold ">euros</span>
+</div>
+
+<div id="asincronoExtractos">
+
+<div id="TablaBean02ContainerFinal">
+<table class="table_generica"  id="TablaBean02"><thead>
+<tr  id="" class="" style="">
+<th  scope="col"  class="  ltxt   ltxt" >Concepto</th>
+<th  scope="col"  class="  rtxt   " >&nbsp;</th>
+<th  scope="col"  class=" ltxt    border_right"  id="FECHA0">Fecha</th>
+<th style="display:none;" scope="col"  class=" nobold ltxt    border_right"  id="FECHA0_Seg"><a title="Fecha" href="JavaScript:capaCabecera('FECHA',new Array('DATA_VALOR'),21)">Fecha</a></th>
+<th style="display:none;" scope="col"  class=" ltxt   "  id="DATA_VALOR0">Fecha valor</th>
+<th  scope="col"  class=" nobold ltxt   "  id="DATA_VALOR0_Seg"><a title="Fecha valor" href="JavaScript:capaCabecera('DATA_VALOR',new Array('FECHA'),21)">Fecha valor</a></th>
+<th  scope="col"  class="  ltxt   " >Más datos</th>
+<th  scope="col"  class="  rtxt   " >Importe</th>
+<th  scope="col"  class="  rtxt   " >Saldo</th>
+<th  scope="col"  class="  ltxt   "  id="columna_link" >Opciones</th>
+</tr>
+</thead><tbody>
+<tr id="Oculta"    class="ocultar" style="display:none">
+<td width="100%" colspan="99">
+<div id="TablaBean02DivAjax"></div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_0_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016623&FECHA_CONTABLE=2018362&INDICADOR_COMUNICADOS=N&CLOPWW=016&SUBCLO=00062&IMPORTE_COM=000000000001200&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=28122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=28122018&TIPO_COMUNICADO=00488&DESC_COMUNICADO=GTAT.+VALENCIANA&REMITENTE=&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_0&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=DIS','','concepto0', 'TablaBean02', this) ">GTAT. VALENCIANA</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA1"><span>28/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR1" style="display:none;"><span>28/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>&nbsp;</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;12,00</span></td>
+<td class="rtxt " ><span>+&nbsp;61.333,95</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_0_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_0_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_1_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016622&FECHA_CONTABLE=2018362&INDICADOR_COMUNICADOS=N&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000002086&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=28122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=28122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=CASH+LOS+LLANOS&REMITENTE=B02269595001&NUMERO_RECIBO=021744000005176&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_1&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=BDR','','concepto1', 'TablaBean02', this) ">CASH LOS LLANOS</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA2"><span>28/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR2" style="display:none;"><span>28/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B02269595001</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;20,86</span></td>
+<td class="rtxt " ><span>+&nbsp;61.345,95</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_1_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_1_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_2_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016621&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=067&SUBCLO=00006&IMPORTE_COM=000000001600000&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00611&DESC_COMUNICADO=PRESTAMO&REMITENTE=PLAY+ONTENIENTE+18%2C+S.L.&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_2&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CTF','','concepto2', 'TablaBean02', this) ">PRESTAMO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA3"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR3" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>PLAY ONTENIENTE 18, S.L.</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;16.000,00</span></td>
+<td class="rtxt " ><span>+&nbsp;61.366,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_2_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_2_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_3_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016620&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=067&SUBCLO=00006&IMPORTE_COM=000000001500000&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00611&DESC_COMUNICADO=TRASPASO&REMITENTE=&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_3&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CTF','','concepto3', 'TablaBean02', this) ">TRASPASO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA4"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR4" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>&nbsp;</span></td>
+<td class="rtxt " ><span>+&nbsp;15.000,00</span></td>
+<td class="rtxt " ><span>+&nbsp;77.366,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_3_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_3_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_4_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016619&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=002&SUBCLO=00000&IMPORTE_COM=000000000800000&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=TRANSF.+A+SU+FAVOR&REMITENTE=01825651-JOSE+ANTONIO+PENADES+SA&NUMERO_RECIBO=020181227018201&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_4&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TRF','','concepto4', 'TablaBean02', this) ">TRANSF. A SU FAVOR</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA5"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR5" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>01825651-JOSE ANTONIO PENADES SA</span></td>
+<td class="rtxt " ><span>+&nbsp;8.000,00</span></td>
+<td class="rtxt " ><span>+&nbsp;62.366,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_4_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_4_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_5_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016618&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=N&CLOPWW=000&SUBCLO=00000&IMPORTE_COM=000000000258600&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=IMPOSICION+EFECTIVO&REMITENTE=JESUS+ELDA&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_5&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TLE','','concepto5', 'TablaBean02', this) ">IMPOSICION EFECTIVO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA6"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR6" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>JESUS ELDA</span></td>
+<td class="rtxt " ><span>+&nbsp;2.586,00</span></td>
+<td class="rtxt " ><span>+&nbsp;54.366,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_5_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_5_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_6_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016617&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=N&CLOPWW=000&SUBCLO=00000&IMPORTE_COM=000000000810500&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=IMPOSICION+EFECTIVO&REMITENTE=CAJA+ELDA&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_6&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TLE','','concepto6', 'TablaBean02', this) ">IMPOSICION EFECTIVO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA7"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR7" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>CAJA ELDA</span></td>
+<td class="rtxt " ><span>+&nbsp;8.105,00</span></td>
+<td class="rtxt " ><span>+&nbsp;51.780,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_6_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_6_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_7_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016616&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=038&SUBCLO=00000&IMPORTE_COM=000000000598950&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNNN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=NOVOMATIC+GAMING&REMITENTE=A84889336000&NUMERO_RECIBO=021742101279325&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_7&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto7', 'TablaBean02', this) ">NOVOMATIC GAMING</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA8"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR8" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>Recibos varios</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;5.989,50</span></td>
+<td class="rtxt " ><span>+&nbsp;43.675,81</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_7_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_7_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_8_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016615&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000050820&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=COSTA+CALIDA+GAM.&REMITENTE=B73854432000&NUMERO_RECIBO=021746502342561&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_8&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto8', 'TablaBean02', this) ">COSTA CALIDA GAM.</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA9"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR9" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B73854432000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;508,20</span></td>
+<td class="rtxt " ><span>+&nbsp;49.665,31</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_8_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_8_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_9_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016614&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000021927&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=GM+FOOD+IBERICA&REMITENTE=A17371758000&NUMERO_RECIBO=021743002464764&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_9&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto9', 'TablaBean02', this) ">GM FOOD IBERICA</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA10"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR10" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>A17371758000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;219,27</span></td>
+<td class="rtxt " ><span>+&nbsp;50.173,51</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_9_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_9_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_10_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016613&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000015217&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=FERRET.TOREROS+40&REMITENTE=B02561355000&NUMERO_RECIBO=021742104618638&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_10&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto10', 'TablaBean02', this) ">FERRET.TOREROS 40</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA11"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR11" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B02561355000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;152,17</span></td>
+<td class="rtxt " ><span>+&nbsp;50.392,78</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_10_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_10_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_11_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016612&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000049368&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=ALBACETE+FERRET.&REMITENTE=B02263333000&NUMERO_RECIBO=021718300594939&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_11&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto11', 'TablaBean02', this) ">ALBACETE FERRET.</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA12"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR12" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B02263333000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;493,68</span></td>
+<td class="rtxt " ><span>+&nbsp;50.544,95</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_11_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_11_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_12_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016611&FECHA_CONTABLE=2018361&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000021878&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=27122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=27122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=ALBACETE+FERRET.&REMITENTE=B02263333000&NUMERO_RECIBO=021718300594826&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_12&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto12', 'TablaBean02', this) ">ALBACETE FERRET.</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA13"><span>27/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR13" style="display:none;"><span>27/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B02263333000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;218,78</span></td>
+<td class="rtxt " ><span>+&nbsp;51.038,63</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_12_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_12_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_13_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016610&FECHA_CONTABLE=2018360&INDICADOR_COMUNICADOS=N&CLOPWW=000&SUBCLO=00000&IMPORTE_COM=000000000330000&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=26122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=26122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=JESUS+ELDA&REMITENTE=&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_13&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TLE','','concepto13', 'TablaBean02', this) ">JESUS ELDA</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA14"><span>26/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR14" style="display:none;"><span>26/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>&nbsp;</span></td>
+<td class="rtxt " ><span>+&nbsp;3.300,00</span></td>
+<td class="rtxt " ><span>+&nbsp;51.257,41</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_13_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_13_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_14_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016609&FECHA_CONTABLE=2018360&INDICADOR_COMUNICADOS=N&CLOPWW=000&SUBCLO=00000&IMPORTE_COM=000000000189750&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=26122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=26122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=IMPOSICION+EFECTIVO&REMITENTE=JESUS&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_14&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TLE','','concepto14', 'TablaBean02', this) ">IMPOSICION EFECTIVO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA15"><span>26/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR15" style="display:none;"><span>26/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>JESUS</span></td>
+<td class="rtxt " ><span>+&nbsp;1.897,50</span></td>
+<td class="rtxt " ><span>+&nbsp;47.957,41</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_14_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_14_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_15_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016608&FECHA_CONTABLE=2018360&INDICADOR_COMUNICADOS=N&CLOPWW=000&SUBCLO=00000&IMPORTE_COM=000000001600000&SIGNO_IMPORTE_COM=+&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=26122018&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=26122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=IMPOSICION+EFECTIVO&REMITENTE=DELEGACION+ELDA&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_15&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TLE','','concepto15', 'TablaBean02', this) ">IMPOSICION EFECTIVO</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA16"><span>26/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR16" style="display:none;"><span>26/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>DELEGACION ELDA</span></td>
+<td class="rtxt " ><span>+&nbsp;16.000,00</span></td>
+<td class="rtxt " ><span>+&nbsp;46.059,91</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_15_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_15_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_16_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016607&FECHA_CONTABLE=2018358&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000046410&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=24122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=24122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=INFRICO+S.L.&REMITENTE=B14080915000&NUMERO_RECIBO=021634900263006&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_16&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto16', 'TablaBean02', this) ">INFRICO S.L.</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA17"><span>24/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR17" style="display:none;"><span>24/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B14080915000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;464,10</span></td>
+<td class="rtxt " ><span>+&nbsp;30.059,91</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_16_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_16_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_17_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016606&FECHA_CONTABLE=2018358&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000023570&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=24122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=24122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=FERRET.TOREROS+40&REMITENTE=B02561355000&NUMERO_RECIBO=021702504518477&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_17&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto17', 'TablaBean02', this) ">FERRET.TOREROS 40</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA18"><span>24/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR18" style="display:none;"><span>24/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B02561355000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;235,70</span></td>
+<td class="rtxt " ><span>+&nbsp;30.524,01</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_17_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_17_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_18_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016605&FECHA_CONTABLE=2018358&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000045497&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=24122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=24122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=GRUP+CST+BATMAR&REMITENTE=B96462767000&NUMERO_RECIBO=021681900405840&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_18&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto18', 'TablaBean02', this) ">GRUP CST BATMAR</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA19"><span>24/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR19" style="display:none;"><span>24/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B96462767000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;454,97</span></td>
+<td class="rtxt " ><span>+&nbsp;30.759,71</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_18_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_18_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+<tr class=""
+id="TablaBean02_fila_19_" onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)"  ><th scope="row"  class="tamanyomaximocolumna ltxt " ><span><a href="#this" onClick="javascript:sendIFrame('PN=GCT&PE=103&NUMERO_MOVIMIENTO=0016604&FECHA_CONTABLE=2018358&INDICADOR_COMUNICADOS=S&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000016163&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000006133395&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=24122018&INDICA_SALDO=SNSN&TIPO_BUSQUEDA=05&FECHA_COM=24122018&TIPO_COMUNICADO=00000&DESC_COMUNICADO=JUAN+CARBONELL&REMITENTE=B96446786000&NUMERO_RECIBO=021679700179796&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_19&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA','','concepto19', 'TablaBean02', this) ">JUAN CARBONELL</a></span></th>
+<td class="rtxt " ><span>&nbsp;</span></td>
+<td class="ltxt "  colspan="2"  id="FECHA20"><span>24/12/2018</span></td>
+<td class="ltxt "  colspan="2"  id="DATA_VALOR20" style="display:none;"><span>24/12/2018</span></td>
+<td class="tamanyomaximocolumna ltxt " ><span>B96446786000</span></td>
+<td class="rtxt " ><span class="rojo ">-&nbsp;161,63</span></td>
+<td class="rtxt " ><span>+&nbsp;31.214,68</span></td>
+<td class="ltxt "  id="columna_link" ><span>&nbsp;</span></td>
+</tr>
+<tr class="ocultar" style="display:none"
+id="TablaBean02_fila_19_Oculta"><td width="100%" colspan="99" class="ltxt groc_taula">
+<div class="lfloat bloc_interior" id="
+TablaBean02_fila_19_OcultaDivAjax">
+<div class="inferior20"><a href="javascript:ocultar('TablaBean02DivAjax')"><img src="../imatge/btn_close.jpg" class="rfloat"/></a></div>
+<div class="limpiar"></div>
+<div class="operations">
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="TablaBean02ContainerTmp" style="display:none;"></div>
+
+</div>
+
+
+<div id="TablaBean02PaginacionPlusDiv" >
+<div class=" ocultar "><div class="lfloat gris nobold  "><span>Está viendo&nbsp;20&nbsp;movimientos&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="lfloat izquierda60 br_gris_d"><span class="previous_acumulativo_off " href="">Inicio</span></div><div class="lfloat"><a class="next_acumulativo_on " href="javaScript:paginacionExtractoAsincronaPlus('0F20183580016603       31376312018350','', 'TablaBean02', null)"><span>Ver siguientes&nbsp;20</span></a></div><div class="limpiar"></div></div>
+</div>
+<div class="limpiar"></div>
+<br>
+<div id="GrupoEnlace2">
+<div class=" ocultar "><h2><span></span></h2><div class="limpiar"></div><ul class="ul_ico margentbr"><li ><a id="<pn>ENVIO_NUEVA_TRANSFERENCIA</pn>" href="JavaScript:envioNuevaTransferencia()"   title=""><span>Envío nueva transferencia</span></a></li>
+<li ><a id="<pn>06</pn>" href="JavaScript:SaldoDetallado()"   title=""><span>Saldo detallado</span></a></li>
+<li ><a id="<pn>TRANS_PERIODICAS_CUENTA</pn>" href="JavaScript:transPeriodicasDeEstaCuenta()"   title=""><span>Transferencias periódicas de esta cuenta</span></a></li>
+</ul></div>
+</div>
+<div id="opciones_datosEntradaFormBean00">
+<div class="dades_form izquierda40 inferior10" id="datosEntradaFormBean004">
+<div class="esq"><a href="JavaScript:despliegaBuscadorMovsFechaValor()"   class="boton boton_26funcionb margen_top5 sinmargin lfloat ocultar" ><span>Búsqueda de movimientos por fecha valor</span></a></div>
+<div class="dre"><div class="limpiar ">
+<div class="limpiar"></div></div>
+</div>
+</div>
+<div class="dades_form izquierda40">
+<div class="dre">
+<div class="cerca_boto izquierda255">
+</div>
+</div>
+</div>
+
+</div>
+<div id = "filtro_buscador_movimientos_fecha_valor" style="display:none">
+<div class="modul_borderazul limpiar " id="divContenedorBean">
+<span class="left"></span><span class="right"></span><div class="middle">
+<div class="dades_form izquierda40 inferior10" id="FiltroBuscadorMovimientosFV5">
+<div class="esq"><label><span class="bold ">Fechas&nbsp;</span></label></div>
+<div class="dre"><div class="limpiar inferior6">
+<label class=" B  izquierda15 "><span>Desde</span></label> <select id="dia3" name="desdedia3" ><option value="01" selected="selected">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+ <select id="mes3" name="desdedia3" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11" selected="selected">11</option><option value="12">12</option></select>
+ <select id="any3" name="desdedia3" ><option value="2016">2016</option><option value="2017">2017</option><option value="2018" selected="selected">2018</option></select>
+</div>
+<div class="limpiar inferior6">
+<label class=" B  izquierda15 "><span>Hasta&nbsp;</span></label> <select id="dia4" name="desdedia4" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30" selected="selected">30</option><option value="31">31</option></select>
+ <select id="mes4" name="desdedia4" ><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12" selected="selected">12</option></select>
+ <select id="any4" name="desdedia4" ><option value="2016">2016</option><option value="2017">2017</option><option value="2018" selected="selected">2018</option><option value="2019">2019</option></select>
+</div>
+<div class="limpiar inferior6">
+<div id='fechaMaxima' class='gris smaller' style='margin-left:15px !important;'></div></div>
+<div class="limpiar inferior6">
+</div>
+</div>
+</div>
+<div class="limpiar"></div><div class="dades_form izquierda40 inferior10" id="FiltroBuscadorMovimientosFV6">
+<div class="esq"><label><span class="bold ">Mostrar primero&nbsp;</span></label></div>
+<div class="dre"><div class="limpiar inferior6">
+<span class="derecha5 " ><input type="radio" title="" value="R" name="radios2" id="radios2" checked >
+</span>
+<label for="radios2" class="B "><span>el movimiento más reciente</span>&nbsp; </label></div>
+<div class="limpiar inferior6">
+<span class="derecha5 " ><input type="radio" title="" value="A" name="radios2" id="radios2">
+</span>
+<label for="radios2" class="B "><span>el movimiento más antiguo</span>&nbsp; </label></div>
+</div>
+</div>
+<div class="dades_form izquierda40">
+<div class="dre">
+<div class="cerca_boto izquierda255">
+<a href="JavaScript:MovPorFechaValor('20181330','20171130')"   class="boton boton_26cerca ocultar" ><span>Buscar</span></a>
+</div>
+</div>
+</div>
+
+<div class="limpiar"></div> </div> <div class="bottom"><span class="left"></span><span class="right"></span></div></div>
+</div>
+<div id="opciones_datosEntradaFormBean01">
+<div class="dades_form izquierda40 inferior10" id="datosEntradaFormBean017">
+<div class="esq medida300"><a href="JavaScript:GestionMovsFechaValor()"  class="icon_mes_info no_subrayado sinmargin medida500 lfloat ocultar"  title=""><span>Gestión del servicio de movimientos por fecha valor</span></a><span>&nbsp;<br></span><a id="EnlaceVerInfoConexionLO" href="JavaScript:enviar(1)"   class="boton boton_26funcion botonsinicon  sinmargin  inferior6 lfloat ocultar" title=""><span>Ver esta información al entrar a banca digital CaixaBankNow</span></a><a href="JavaScript:enviar(2)"   class="btn ico-fav inferior15 superior2 lfloat ocultar" ><span>Incluir esta operación en mi lista de favoritos</span></a></div>
+<div class="dre"><div class="limpiar ">
+<span>&nbsp;<br></span></div>
+</div>
+</div>
+<div class="dades_form izquierda40">
+<div class="dre">
+<div class="cerca_boto izquierda255">
+</div>
+</div>
+</div>
+
+</div>
+<div id = "favSigInf"  class="superior25 dnone">
+
+</div>
+<div id="GrupoEnlace1">
+<div class=" ocultar "><h2><span>Además puedes</span></h2><div class="limpiar"></div><ul class="ul_ico margentbr izquierda10"><li ><a id="<pn>CONSULTAR_POS_GLOBAL</pn>" href="JavaScript:linkpeu(1)"   title=""><span>Consultar la posición global</span></a></li>
+<li ><a id="<pn>VER_MIS_TARJETAS</pn>" href="JavaScript:linkpeu(2)"   title=""><span>Ver mis tarjetas</span></a></li>
+<li ><a id="<pn>REALIZAR_UN_TRASPASO</pn>" href="JavaScript:linkpeu(3)"   title=""><span>Realizar un traspaso</span></a></li>
+<li ><a id="<pn>CONSULTAR_LAS_DOMI</pn>" href="JavaScript:linkpeu(6)"   title=""><span>Consultar las domiciliaciones</span></a></li>
+<li ><a id="<pn>GESTIONAR_TU_CORREO</pn>" href="JavaScript:linkpeu(4)"   title=""><span>Gestionar el correo</span></a></li>
+</ul></div>
+</div>
+<div class="limpiar_impresion dnone"></div>
+<div id="bloque_disclaimerDisponibleNomina" style="display:none;">
+<p class=""><span class="gris ">(*) El servicio Disponible Family le permite, si Ud. tiene domiciliada su nómina (**) o la percibe en el presente depósito, realizar disposiciones que superen el saldo a su favor en las condiciones y con los límites por finalidades que figuran en el comunicado que le fue enviado, a su disposición en Mailbox. Ud. deberá reembolsar las disposiciones en el plazo máximo de un (1) mes.</span><br></p>
+</div>
+<div id="bloque_disclaimerDisponibleNominaEfectivo" style="display:none;">
+<p class=""><span class="gris ">(**) Se entenderá por nómina aquella percepción periódica regular que reciba el titular en virtud de una relación laboral por cuenta ajena o de una relación funcionarial, como beneficiario en ambos casos, cuyo importe deberá abonarse en el presente depósito a la vista, abierto en CaixaBank, mediante transferencia bancaria tipo nómina o cheque-nómina ordenada o emitido directamente por el pagador de la nómina.</span></p>
+</div>
+<div id="miniBannerOculto" style="display:none">
+
+
+</div>
+
+<div id="javaScriptStrCTX"></div>
+
+<div id="detallePDF" style="display:none; visibility:hidden;"></div>
+
+<input type="hidden" name="PN" value="">
+<input type="hidden" name="PE" value="">
+<input type="hidden" name="FLUJO" value="">
+<input type="hidden" name="FLUJO_T" value="GCT,100,188:GCT,11,:GFI,7,''">
+<input type="hidden" name="ADVORIGNEGOCI" value="">
+<input type="hidden" name="ADVORIGPETICIO" value="">
+<input type="hidden" name="TIPDAT" value="">
+<input type="hidden" name="NPEMOV" value="">
+<input type="hidden" name="ADVORIGPN" value="GCT">
+<input type="hidden" name="ADVORIGPE" value="1">
+<input type="hidden" name="CODPREST" value="3494">
+<input type="hidden" name="ORIGEN_INVOCACION" value="GCT11">
+<input type="hidden" name="FLAG_TITULO" value="U">
+<input type="hidden" name="ACCESODIRECTO" value="1">
+<input type="hidden" name="BUSQUEDACLO" value="1">
+<input type="hidden" name="TITULO" value="LIT_TIT_NEW_GCT_U_GCT11_">
+<input type="hidden" name="MONEDA_IMPORTE" value="EUR">
+<input type="hidden" name="ORIGEN" value="">
+<input type="hidden" name="REFVAL_SIMPLE_CUENTA_PRINCIPAL" value="">
+<input type="hidden" name="ALIAS_CUENTA_PRINCIPAL" value="">
+<input type="hidden" name="FLAG_PE" value="P">
+<input type="hidden" name="OPCION_OPERACION" value="">
+
+<input type="hidden" name="POSICION_TR_ABIERTO" value="">
+<input type="hidden" name="BUSQUEDA_TR_ABIERTO" value="">
+<input type="hidden" name="VTACREU_PN" value="">
+<input type="hidden" name="VTACREU_PE" value="">
+<input type="hidden" name="OPERACION_NUEVO_EXTRACTO" value="SALDO_Y_EXTRACTOS">
+<input type="hidden" name="FILTRO_ABIERTO" value="">
+
+<input type="hidden" name="RESOLUCION" value="">
+<input type="hidden" name="DIMENSIONX" value="">
+<input type="hidden" name="DIMENSIONY" value="">
+<input type="hidden" name="ORIGENY" value="0">
+<input type="hidden" name="ORIGENX" value="60">
+<input type="hidden" name="PAGINA_SOLICITADA" value="00001">
+<input type="hidden" name="FLAG_PDF_INICIAL" value="S">
+
+<input type="hidden" name="ORDEN_MOVIMIENTOS" value="">
+<input type="hidden" name="ORDEN_MOVIMIENTOS_FV" value="">
+<input type="hidden" name="FECHA_INICIO_OPERACIONES" value="">
+<input type="hidden" name="FECHA_FIN_OPERACIONES" value="">
+<input type="hidden" name="FECHA_INICIAL" value="">
+<input type="hidden" name="FLAG_ORIGEN" value="">
+<input type="hidden" name="INDICA_SOLICITUD" value="">
+<input type="hidden" name="ESTADO_SERVICIO_CUENTA" value="">
+<input type="hidden" name="SOLICITUD_ESTADO_SERVICIO_CUENTA" value="">
+<input type="hidden" name="FECHA_INICIO_OPERACIONES_DEFECTO" value="20181101">
+<input type="hidden" name="FECHA_FIN_OPERACIONES_DEFECTO" value="20181230">
+<input type="hidden" name="ORDEN_MOVIMIENTOS_FV_DEFECTO" value="R">
+
+<input type="hidden" name="CLAVE_CONTINUACION_BUS" value="  000000000000000000000000000 0000000">
+<input type="hidden" name="ORDEN_MOVIMIENTOS_BA" value="R">
+<input type="hidden" name="TIPO_FECHA" value="P">
+<input type="hidden" name="FEC_INI_BUS" value="">
+<input type="hidden" name="FEC_FIN_BUS" value="">
+<input type="hidden" name="IMPMIN" value="000000000000000">
+<input type="hidden" name="IMPMAX" value="000000000000000">
+<input type="hidden" name="TIPMOV" value=" ">
+<input type="hidden" name="FEC_ULT_BUS" value="">
+
+<input type="hidden" name="TODOSVALUES" value="">
+<input type="hidden" name="TODOSPRESTACIONES" value="">
+<input type="hidden" name="DESDE" value="">
+<input type="hidden" name="HASTA" value="">
+
+
+<input type="hidden" name="CLAU_CONTINUACIO_MOV" value="">
+<input type="hidden" name="CONTRACTE" value="">
+<input type="hidden" name="MONEDA" value="">
+<input type="hidden" name="NUMCUENTATOTAL" value="">
+<input type="hidden" name="CONSEO" value="">
+<input type="hidden" name="PN_ORIGEN" value="GCT">
+<input type="hidden" name="PE_ORIGEN" value="100">
+
+<input type="hidden" name="MONEDA_CUENTA" value="euros">
+
+<input type='hidden' name='DETALLE_HTML' value=''>
+
+<input type="hidden" name="tipoCuenta" value="">
+<input type="hidden" name="TIPO_GASTO" value="">
+<input type="hidden" name="FLAG_KEEP_THE_CHANGE" value="N">
+
+
+<input type="hidden" name="REFVAL_SIMPLE_CLAU_CONTINUACIO" value="bQm~vJFus21tCb68kW6zbQAAAWgATILJjTLaVMPXGVY">
+<input type="hidden" name="TIPO_CUENTAS" value="">
+
+
+
+<input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="bQm~vJH88PVtCb68kfzw9QAAAWgATILJLszCmXtzAHM">
+<input type="hidden" name="REFVAL_SIMPLE_CUENTA" value="bQm~vJFqQrptCb68kWpCugAAAWgATILJojJo4GRp2z8">
+<input type="hidden" name="ALIAS" value="">
+<input type="hidden" name="ALIAS_CUENTA" value="">
+<input type="hidden" name="CLAVE_ANTERIOR" value="  000000000000000000000000000 0000000">
+<input type="hidden" name="REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM" value="bQm~vJHovgttCb68kei~CwAAAWgATILJ1PvFraS6v5g">
+<input type="hidden" name="REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER" value="bQm~vJAHxyltCb68kAfHKQAAAWgATILJBCiAW_jy2Ss">
+<input type="hidden" name="REFVAL_SIMPLE_CLAVE_CONTINUACION_VALOR" value="bQm~vJASk8dtCb68kBKTxwAAAWgATILJmMYEAT97a8k">
+<input type="hidden" name="RAFEGA" value="0012100585820020600000009275">
+<input type="hidden" name="REF_CUENTA" value="bQm~vJF8jLhtCb68kXyMuAAAAWgATIIKGcUjeU6BkT8:GCT:100">
+<input type="hidden" name="SALDO_ACTUAL" value="000000006133395">
+<input type="hidden" name="SALDO_RETENIDO" value="000000000000000">
+<input type="hidden" name="SIGNO_SALDO_ACTUAL" value="+">
+<input type="hidden" name="SIGNO_SALDO_RETENIDO" value="+">
+<input type="hidden" name="RefInformacionSaldoMovimientos" value="bQm~vJGMVzZtCb68kYxXNgAAAWgATILzqbgIWbktL50">
+<input type="hidden" name="INDICADOR_CUENTA_MIGRADA" value="N">
+<input type="hidden" name="LIMITE_MAXIMO_DESCUBIERTO" value="000000000000000">
+<input type="hidden" name="SIGNO_LIMITE_MAXIMO_DESCUBIERTO" value="+">
+<input type="hidden" name="INDICADOR_CANCELADA" value="">
+<input type="hidden" name="REFVAL_SIMPLE_DISPONIBLE_NOMINA" value="bQm~vJGejzRtCb68kZ6PNAAAAWgATILI33yrs2LF_lA">
+<input type="hidden" name="REFVAL_SIMPLE_SIGNO_DISPONIBLE_NOMINA" value="bQm~vJBdI1JtCb68kF0jUgAAAWgATILIgRkzkK5Y4xc">
+<input type="hidden" name="REFVAL_SIMPLE_DISPONIBLE_NOMINA_EFECTIVO" value="bQm~vJByOZptCb68kHI5mgAAAWgATILIa_xYggGqMpQ">
+<input type="hidden" name="REFVAL_SIMPLE_SIGNO_DISPONIBLE_NOMINA_EFECTIVO" value="bQm~vJD6zOltCb68kPrM6QAAAWgATILIyDnNhUgHz80">
+
+<input type="hidden" name="OFICINA" value="">
+<input type="hidden" name="CUENTA" value="">
+
+
+
+<input type="hidden" name="NUMERO_MOVIMIENTO" value="">
+<input type="hidden" name="NUMERO_RECIBO" value="">
+<input type="hidden" name="FECHA_CONTABLE" value="">
+<input type="hidden" name="INDICADOR_COMUNICADOS" value="">
+<input type="hidden" name="IMPORTE_COM" value="">
+<input type="hidden" name="SIGNO_IMPORTE_COM" value="">
+<input type="hidden" name="FECHA_COM" value="">
+<input type="hidden" name="MONEDA_COM" value="">
+<input type="hidden" name="CLOPWW" value="">
+<input type="hidden" name="SUBCLO" value="">
+<input type="hidden" name="DESC_COMUNICADO" value="">
+<input type="hidden" name="TIPO_COMUNICADO" value="">
+<input type="hidden" name="REMITENTE" value="">
+<input type="hidden" name="FORMATO_COMUNICADO" value="">
+<input type="hidden" name="REFCLAVECOMUNICADO" value="">
+<input type="hidden" name="FECHA_VALOR" value="">
+<input type="hidden" name="INDICA_SALDO" value="">
+<input type="hidden" name="TIPO_BUSQUEDA" value="">
+<input type="hidden" name="TIENE_FACTURA" value="">
+<input type="hidden" name="IMPORT_GN" value="">
+<input type="hidden" name="MONEDA_GN" value="">
+<input type="hidden" name="FEOPER_GN" value="">
+<input type="hidden" name="TEXREM_GN" value="">
+<input type="hidden" name="REFERE2_GN" value="">
+<input type="hidden" name="REFEEXT_GN" value="">
+<input type="hidden" name="CONESP_GN" value="">
+<input type="hidden" name="NUMERO_PAGINAS" value="">
+<input type="hidden" name="REFVAL_CUENTA_PERSON_SEL" value="">
+<input type="hidden" name="REFVAL_CONTRATO_SCP" value="">
+<input type="hidden" name="OPCION" value="">
+<input type="hidden" name="HTML_DETALLE_MOVIMIENTO" value="">
+<input type="hidden" name="TIPO_IMPRESION" value="">
+<input type="hidden" name="RefInformacionComunicado" value="">
+<input type="hidden" name="NUMERO_SUBMOVIMIENTO" value="">
+<input type="Hidden" name="CLAVE_CONTINUACION_DETALLE_3496" value="" >
+<input type="Hidden" name="CLAVE_DETALLE_3496" value="" >
+
+<input type="Hidden" name="CLAU_CONTINUACIO_ACTUAL" value="" >
+
+<input type="hidden" name="CANTIDAD_MOVIMIENTOS" value="20">
+<input type="hidden" name="CONFIG_FLAGS_EXTRACTO_EXCEL" value="11">
+
+<input type="hidden" name="FLAG_PROCESO" value="GCT:100">
+<input type='hidden' name='GCT_REFVAL_SIMPLE_NUMERO_CUENTA' value=''>
+ <input type='hidden' name='GCT_REMITENTE' value=''>
+ <input type='hidden' name='GCT_INDICA_SALDO' value=''>
+ <input type='hidden' name='GCT_FECHA_VALOR' value=''>
+ <input type='hidden' name='GCT_POSICION_TR_ABIERTO' value=''>
+ <input type='hidden' name='GCT_BUSQUEDA_TR_ABIERTO' value=''>
+ <input type='hidden' name='GCT_NUMERO_RECIBO' value=''>
+ <input type='hidden' name='GCT_TIPO_BUSQUEDA' value=''>
+ <input type='hidden' name='GCT_REFVAL_SIMPLE_CLAU_CONTINUACIO' value=''>
+ <input type='hidden' name='GCT_REFVAL_SIMPLE_CLAVE_CONTINUACION_SUM' value=''>
+ <input type='hidden' name='GCT_REFVAL_SIMPLE_CLAVE_CONTINUACION_OPER' value=''>
+ <input type='hidden' name='GCT_REFVAL_SIMPLE_CLAVE_CONTINUACION_VALOR' value=''>
+ <input type='hidden' name='GCT_OPERACION_NUEVO_EXTRACTO' value=''>
+ <input type='hidden' name='GCT_FILTRO_ABIERTO' value=''>
+ <input type='hidden' name='GCT_CLOPWW' value=''>
+ <input type='hidden' name='GCT_SUBCLO' value=''>
+ <input type='hidden' name='GCT_SIGNO_IMPORTE_COM' value=''>
+ <input type='hidden' name='GCT_IMPORTE_COM' value=''>
+ <input type='hidden' name='GCT_SIGNO_SALDO_ACTUAL' value=''>
+ <input type='hidden' name='GCT_SALDO_ACTUAL' value=''>
+ <input type='hidden' name='GCT_NUMERO_MOVIMIENTO' value=''>
+ <input type='hidden' name='GCT_FECHA_CONTABLE' value=''>
+ <input type='hidden' name='GCT_INDICADOR_COMUNICADOS' value=''>
+ <input type='hidden' name='GCT_MONEDA_COM' value=''>
+ <input type='hidden' name='GCT_FECHA_COM' value=''>
+ <input type='hidden' name='GCT_TIPO_COMUNICADO' value=''>
+ <input type='hidden' name='GCT_DESC_COMUNICADO' value=''>
+ <input type='hidden' name='GCT_OPCION_OPERACION' value=''>
+ <input type='hidden' name='GCT_FLUJO' value=''>
+ <input type='hidden' name='GCT_CLAVE_ANTERIOR' value=''>
+ <input type='hidden' name='GCT_FLAG_PE' value=''>
+ <input type='hidden' name='GCT_ORDEN_MOVIMIENTOS' value=''>
+ <input type='hidden' name='GCT_SIGNO_SALDO_RETENIDO' value=''>
+ <input type='hidden' name='GCT_SALDO_RETENIDO' value=''>
+ <input type='hidden' name='GCT_FLAG_ORIGEN' value=''>
+ <input type='hidden' name='GCT_INDICA_SOLICITUD' value=''>
+ <input type='hidden' name='GCT_ORDEN_MOVIMIENTOS_FV' value=''>
+ <input type='hidden' name='GCT_FECHA_FIN_OPERACIONES' value=''>
+ <input type='hidden' name='GCT_FECHA_INICIO_OPERACIONES' value=''>
+ <input type='hidden' name='GCT_ESTADO_SERVICIO_CUENTA' value=''>
+ <input type='hidden' name='GCT_SOLICITUD_ESTADO_SERVICIO_CUENTA' value=''>
+ <input type='hidden' name='GCT_CLAVE_CONTINUACION_BUS' value=''>
+ <input type='hidden' name='GCT_ORDEN_MOVIMIENTOS_BA' value=''>
+ <input type='hidden' name='GCT_TIPO_FECHA' value=''>
+ <input type='hidden' name='GCT_FEC_INI_BUS' value=''>
+ <input type='hidden' name='GCT_FEC_FIN_BUS' value=''>
+ <input type='hidden' name='GCT_FEC_ULT_BUS' value=''>
+ <input type='hidden' name='GCT_IMPMIN' value=''>
+ <input type='hidden' name='GCT_IMPMAX' value=''>
+ <input type='hidden' name='GCT_TIPMOV' value=''>
+ <input type='hidden' name='GCT_FLAG_KEEP_THE_CHANGE' value=''>
+ <input type='hidden' name='GCT_NUMERO_SUBMOVIMIENTO' value=''>
+
+<input type="Hidden" name="RECUPERAR_CUENTAS_CONTEXTO_GCT" value="" >
+
+<input type="Hidden" name="OPERATIVA_DESTINO" value="" >
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST" id="favorita">
+<input type="hidden" name="PN" value="">
+<input type="hidden" name="PE" value="">
+<input type="hidden" name="TODOSVALUES" value="">
+<input type="hidden" name="TODOSPRESTACIONES" value="">
+<input type="hidden" name="DESDE" value="">
+<input type="hidden" name="HASTA" value="">
+</form>
+<form action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST" id="transPeriodicas">
+<input type="hidden" name="PN" value="TRF">
+<input type="hidden" name="PE" value="10">
+<input type="hidden" name="TIPO_TRANSFERENCIA" value="1">
+<input type="hidden" name="CODSIT" value="V">
+<input type="hidden" name="FILA_PPM12_SELECCIONADA" value="0">
+<input type="hidden" name="SOL_GEST" value="GEST">
+<input type="hidden" name="CLACON_PPM12" value="">
+<input  type="Hidden" name="CLICK_ORIG" value="EOC_GCT_100">
+</form>
+<form action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST" name="volcadoExcel">
+<input type="hidden" name="PN" value="">
+<input type="hidden" name="PE" value="">
+<input type="hidden" name="OPERACION_NUEVO_EXTRACTO" value="">
+<input type="hidden" name="TIPO_CUENTAS" value="">
+<input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="">
+<input type="hidden" name="MONEDA_CUENTA" value="">
+<input type="hidden" name="MONEDA_IMPORTE" value="">
+<input type="hidden" name="TIEMPO_CLIENTE" value="">
+<input type="hidden" name="datos_a_enviar" id="datos_a_enviar" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+<form name="pdf" action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST">
+<input type="hidden" name="PN" value="RDR">
+<input type="hidden" name="PE" value="2">
+<input type="hidden" name="TIMESTAMP_IMPRESION" value="">
+<input type="hidden" name="ORIGEN" value="MAP_GCT_100">
+<input type="hidden" name="CONVERSOR" value="C">
+</form>
+<form name="pai" action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST">
+<input type="hidden" name="PN" value="PPP">
+<input type="hidden" name="PE" value="830">
+<input type="hidden" name="LND_IMAGEN" value="">
+<input type="hidden" name="LND_VALOR1" value="">
+<input type="hidden" name="CLICK_ORIG" value="RED_GCT_100">
+</form>
+<form name="antipai" action="/GPeticiones;WebLogicSession=h7MATMICdi_asvTHnu7_KAebZgymIwBQ5GGsqK1fbe-LqYphScLu!-276132070!998719048" method="POST">
+<input type="hidden" name="CLICK_ORIG" value="RED_GCT_100">
+</form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+setPopUp($('a.exportarexcel'), '250px', '640px');
+});
+</script>
+
+
+</div>
+<div class="limpiar"></div>
+</body>
+</html>

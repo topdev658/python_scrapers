@@ -1,0 +1,46 @@
+>>> OPEN N43 FILTER FORM
+await fetch("https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet?o=csbcta&p=1&M1=empr-tesoreria&M2=mi-tesoreria&M3=consultas-mis-cuentas&M4=cuentas-movcsb-tesoreria", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_filter_form.html
+
+>>> FILTER N43
+await fetch("https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet?o=csbcta&p=1&M1=empr-tesoreria&M2=mi-tesoreria&M3=consultas-mis-cuentas&M4=cuentas-movcsb-tesoreria",
+    "body": "p=2&numMovDesdeSiguiente=1&discriminante=01&ppp=001&diaDesde=01&mesDesde=06&anoDesde=2021&diaHasta=06&mesHasta=07&anoHasta=2021&o=csbcta&x=58&y=5",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_n43_filtered.html
+
+>>> DOWNLOAD N43
+await fetch("https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet?o=csbcta&p=3&ppp=001&diaDesde=01&diaHasta=06&mesDesde=06&mesHasta=07&anoDesde=2021&anoHasta=2021", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< N43 file

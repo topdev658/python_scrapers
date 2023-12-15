@@ -1,0 +1,94 @@
+saldos e extratos ->
+
+GET
+https://www.ne12.bradesconetempresa.b.br/ibpjsaldosextratos/extratoMensalCC.jsf?CTRL=071527835370325171
+
+
+FILTER 90 days
+POST https://www.ne12.bradesconetempresa.b.br/ibpjsaldosextratos/extratoUltimosLancamentosWebCanaisCC.jsf?javax.portlet.faces.DirectLink=true
+
+0-ix acc
+AJAXREQUEST	_viewRoot
+jsf_viewid	/extratoUltimosLancamentosWebCanaisCC.jsp
+formFiltroUltimosLancamentos:filtro:_id58	0
+formFiltroUltimosLancamentos_SUBMIT	1
+autoScroll
+formFiltroUltimosLancamentos:_link_hidden_
+formFiltroUltimosLancamentos:filtro:_id61	formFiltroUltimosLancamentos:filtro:_id61
+
+1-ix acc
+jsf_viewid	/extratoUltimosLancamentosWebCanaisCC.jsp
+formFiltroUltimosLancamentos:filtro:_id58	1
+formFiltroUltimosLancamentos_SUBMIT	1
+autoScroll
+formFiltroUltimosLancamentos:_link_hidden_
+formFiltroUltimosLancamentos:filtro:_id61	formFiltroUltimosLancamentos:filtro:_id61
+
+
+2-ix acc
+jsf_viewid	/extratoUltimosLancamentosWebCanaisCC.jsp
+formFiltroUltimosLancamentos:filtro:_id58	2
+formFiltroUltimosLancamentos_SUBMIT	1
+autoScroll
+formFiltroUltimosLancamentos:_link_hidden_
+formFiltroUltimosLancamentos:filtro:_id61	formFiltroUltimosLancamentos:filtro:_id61
+
+
+FILTER PERIOD
+1. get accounts
+POST https://www.ne12.bradesconetempresa.b.br/ibpjsaldosextratos/selecaoPeriodoContasWebCanaisCC.jsf?javax.portlet.faces.DirectLink=true
+
+jsf_viewid	/selecaoPeriodoContasWebCanaisCC.jsp
+formularioExtratoMensal:selectMesProgramado
+tipoConsultaPorMes	1
+calendarioProgramado_beginDia	15
+calendarioProgramado_beginMes	08
+calendarioProgramado_beginAno	2019
+calendarioProgramado_begin	15/08/2019
+calendarioProgramadoDtInicio	[…]
+0	01/01/1900
+1
+calendarioProgramadoDtFim	[…]
+0	01/09/2019
+1
+calendarioProgramadoRequired	[…]
+0	false
+1
+calendarioProgramado_endDia	01
+calendarioProgramado_endMes	09
+calendarioProgramado_endAno	2019
+calendarioProgramado_end	01/09/2019
+contas	0
+formularioExtratoMensal_SUBMIT	1
+autoScroll
+formularioExtratoMensal:_link_hidden_
+formularioExtratoMensal:_id45	formularioExtratoMensal:_id45
+
+2. DO FILTER
+https://www.ne12.bradesconetempresa.b.br/ibpjsaldosextratos/selecaoPeriodoContasWebCanaisCC.jsf
+
+jsf_viewid	/selecaoPeriodoContasWebCanaisCC.jsp
+formularioExtratoMensal:selectMesProgramado
+tipoConsultaPorMes	1
+calendarioProgramado_beginDia	15
+calendarioProgramado_beginMes	08
+calendarioProgramado_beginAno	2019
+calendarioProgramado_begin	15/08/2019
+calendarioProgramadoDtInicio	[…]
+0	01/01/1900
+1
+calendarioProgramadoDtFim	[…]
+0	01/09/2019
+1
+calendarioProgramadoRequired	[…]
+0	false
+1
+calendarioProgramado_endDia	01
+calendarioProgramado_endMes	09
+calendarioProgramado_endAno	2019
+calendarioProgramado_end	01/09/2019
+contas	0
+formularioExtratoMensal:_id78
+formularioExtratoMensal_SUBMIT	1
+autoScroll	0,0
+formularioExtratoMensal:_link_hidden_

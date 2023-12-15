@@ -1,0 +1,100 @@
+
+<!DOCTYPE html><HTML><HEAD><LINK rel="stylesheet" href="css/tpl.css?v=3?v=1" type="text/css" /><TITLE>-==.-</TITLE>
+
+    <link rel="stylesheet" href="css/controlos.css?v=1" type="text/css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/nav.css?v=1" type="text/css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/main.css?v=1" type="text/css" media="screen,projection"/>
+
+    <script src="/web/Resources/js/b20top.js?v1" language="javascript"></script>
+    <script src="/web/Resources/js/b20srv.js?v1" language="javascript"></script>
+    <script language="javascript">
+        function __iniCtx() {
+            if (bNet.Ani != null)
+                bNet.Ani.iniAnimation("Espere un momento, por favor");
+
+            bNet.Ctx.iniContexto('1');
+
+        }
+
+        function doOnLoad ()
+        {
+            if (typeof __iniCtx == 'function')  __iniCtx();
+            if (typeof __iniToolbar == 'function')  __iniToolbar();
+
+            if (typeof __iniSrv == 'function') __iniSrv();
+        }
+
+
+    </script>
+
+
+</HEAD><BODY CLASS="BS" background="" onLoad="doOnLoad()"><DIV id="MP" NAME="MP" style="display:none; POSITION: relative;"><DIV class="clearfix" id="Loader" >
+    <img id="imgLoader" src="Resources/loader_anim.gif" alt="Loading" />
+    <br/><p id="MPP" NAME="MPP"/></DIV></DIV><DIV id="PAGINA" name="PAGINA"  onmousemove="ResetInactividadePL()" onkeypress="ResetInactividadePL()" >
+
+    <script language="javascript" src="/web/Resources/js/EsColors.js?v1"></script><script type="text/javascript" src="/web/Resources/js/jquery-1.4.4.min.js?v1"></script><script type="text/javascript" src="/web/Resources/js/jquery-1.10.2.min.js?v1"></script><script type="text/javascript" src="/web/Resources/js/jquery-ui-1.11.4.min.js?v1"></script><script type="text/javascript" src="/web/Resources/js/jquery.reject.min.js?v1"></script><div style="display:none;visibility:hidden;"><div id="rejectheader">Hemos detectado que está utilizando un navegador no actualizado en su acceso a Internet.</div><div id="rejectparagraph1">Su navegador no es compatible con NBnetwork. Le recomendamos que haga su actualización de inmediato. <BR><br> Abajo podrá consultar una lista de los navegadores más actualizados del mercado.</div><div id="rejectparagraph2">Haga click sobre uno de los símbolos visibles para acceder a la página de download de la versión actualizada y compatible.</div><div id="rejectcloseMessage">Sin la actualización de su navegador podrá tener problemas en la utilización de NBnetwork.</div><div id="rejectcloseLink">Cerrar</div></div><script type="text/javascript">
+
+    var metaTag = document.createElement('meta');
+    metaTag.httpEquiv = 'X-UA-Compatible';
+    metaTag.content = 'IE=edge,chrome=1';
+    var headTag = document.getElementsByTagName('head')[0];
+    headTag.insertBefore(metaTag, headTag.childNodes[0]);
+
+    var metaTag2 = document.createElement('meta');
+    metaTag2.name = 'viewport';
+    metaTag2.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    document.getElementsByTagName('head')[0].appendChild(metaTag2);
+
+    document.getElementById("PAGINA").style.background="#ffffff";
+    document.getElementById("PAGINA").style.padding="0";
+    document.getElementsByTagName("body")[0].style.background="#ffffff";
+
+    document.createElement('main');
+    document.createElement('header');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('legend');
+
+    //Check if browser is IE
+    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+        if(!document.addEventListener) //IE 8 or older
+        {
+            var scriptTag = document.createElement('script');
+            scriptTag.type = 'text/javascript';
+            scriptTag.src = '/web/Resources/js/respond.min.js?v1';
+            document.getElementsByTagName('head')[0].appendChild(scriptTag);
+        }
+    }
+
+    $(document).ready(function () {
+
+
+        $.reject({
+            imagePath: '/web/Resources/browsers/',
+            display: ['msie','firefox','chrome','safari'],
+            reject: {msie4: true, msie5: true, msie6: true,firefox1:true, firefox2:true,safari2:true, safari3:true, opera7: true,opera8: true,opera9: true, "CriOS/30": true},
+            header: $("#rejectheader").html(),
+            paragraph1: $("#rejectparagraph1").html(),
+            paragraph2: $("#rejectparagraph2").html(),
+            closeMessage: $("#rejectcloseMessage").html(),
+            closeLink: $("#rejectcloseLink").html(),
+            browserInfo: {
+                firefox: { text: "Firefox 3.6",        url: "http://www.mozilla.com/firefox/"},
+                safari:  { text: "Safari 5",            url: "http://www.apple.com/safari/download/" },
+                chrome:  { text: "Chrome",              url: "http://www.google.com/chrome/"},
+                msie:    { text: "Internet Explorer 8", url: "http://www.microsoft.com/ie/", allow: { all:false,win: true }	}
+            }
+        });
+    });
+
+</script><main class="containerLogin"><article class="rowLogin"><div class="col-md-9 contentColLogin"><header class="rowLogin generic-headerLogin"><div class="col-md-12" id="header"><div id="logotipo"></div></div></header><section class="col-sm-12 gray-bg login-content"><form action="tpl.asp" method="POST" id="form1" name="form1" class="col-sm-12 login-form"><script src="/web/Resources/js/b20top.js?v1" language="javascript"></script><input type="hidden" name="SRV" value="00101"><input type="hidden" name="selo" value="0"><input type="hidden" name="ad" value="0839795"><div class="col-sm-12 nblogin-message"><div id="AreaMensagemErro" class="hiddenError"><p></p></div><script language="javascript">
+    document.getElementById("imgLoader").src = 'Resources/' + 'loader_anim.gif';
+</script></div><div class="rowLogin"><div class="col-sm-6"></div><div class="col-sm-6"><span name="__msg" id="__msg" style="display:none">O NBnetwork está momentaneamente indisponível. Por favor tente mais tarde</span><script language="javascript">
+    var els=document.getElementsByName("__msg");bNet.Val.mostraErro(els[els.length-1].innerHTML);
+</script><input type="hidden" name="AvisaBrowser" value="true"><p>Si es cliente Banca a Distancia de NOVO BANCO por favor introduzca el Número de Adhesión/PIN.<br>Si necesita ayuda, llame a Línea NBnetwork 902 321 252.</p><p>El acceso a NBnetwork, servicio de Banca a Distancia del NOVO BANCO, está restringido a los clientes de Banca a distancia de NOVO BANCO con contrato de NBnetwork. El banco dispone de los mecanismos de seguridad necesarios para asegurar esta restricción, reservándose el Banco el derecho de supervisar, monitorizar y grabar la actividad realizada a través de este servicio.</p><p><a href="http://www.novobanco.es/empresas">Para volver al sitio del Banco haga clic aquí.</a></p></div></div><button class="btn btn-back" onMouseUp="behave();window.location.href='http://www.novobanco.es/empresas'" onClick="return false;">Volver</button><script language="Javascript">window.focus();</script></form></section><div class="col-sm-12"></div></div><aside class="col-md-3 sidebarLogin"><section class="securityLogin"><h2><i aria-hidden="true" class="circleLogin circle-lock"></i>Segurança Canais Diretos</h2><ul class="regular-listLogin"><li>Nunca lhe pediremos o seu número de telemóvel nesta página.</li><li>Nunca lhe pediremos mais que 3 dígitos da matriz.</li></ul><p>Em caso de dúvida ou necessidade de apoio, contacte por favor o NOVO BANCO.</p></section></aside></article></main><script language="javascript">function ResetInactividadePL() { if ("SetResetInactividadePL" in top){top.SetResetInactividadePL();}}</script></DIV></BODY></HTML><script id="f5_cspm">(function(){var f5_cspm={f5_p:'DKGKLACEFNPNKCHBOPNHMCBHKOHENJFOLBHKOCKDGIBAPOJGAMMPBPNHHIMKEPNAMPKBAAIDKNBJBMKHNKGANJCHAPIJANHBLJLACILDECCDBLIPEFDPMJOKHAEMABKE',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr1659428599aaaaaaaaaaaaaaaa='+encodeURIComponent(cookie_val)+';path=/';}
+        return;}}
+    catch(err){return;}
+        setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+    {var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+    f5_cspm.go();}());</script>

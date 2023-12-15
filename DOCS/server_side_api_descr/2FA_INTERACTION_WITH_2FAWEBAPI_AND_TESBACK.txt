@@ -1,0 +1,42 @@
+# https://www.websequencediagrams.com/
+
+title 2FA INTERACTION with TesBack and 2FAWebAPI :(
+
+
+note over TesFront,TesBack, 2FAWebAPI,2FADB,Scraper: Event: Scraper needs 2FA token
+note over Scraper: Start
+Scraper->2FAWebAPI:Update access 001:\n`DoubleAuthStatus`="need"\n`DoubleAuthQuestion`="123456"\n`DoubleAuthStartTimeStamp`=now()
+2FAWebAPI->2FADB:Update access 001:\n`DoubleAuthStatus`="need"\n`DoubleAuthQuestion`="123456"\n`DoubleAuthStartTimeStamp`=now()
+
+
+
+TesFront->TesBack: Get 2FA accesses for the customer
+TesBack->2FAWebAPI: Get 2FA accesses for the customer
+2FAWebAPI->2FADB:  Select accesses where `DoubleAuthStatus`="need"
+2FADB-->2FAWebAPI:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}]
+2FAWebAPI->2FADB:Update access 001:\n`DoubleAuthStatus`="question_sent"
+2FAWebAPI-->TesBack:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}] as JSON
+TesBack-->TesFront:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}] as JSON
+
+loop Check for updates from scraper:
+    Scraper->2FAWebAPI: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    2FAWebAPI -> 2FADB: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    2FADB --> 2FAWebAPI: [ ]
+    2FAWebAPI-->Scraper: [ ]
+end
+
+note over TesFront, Scraper: Event: User entered 2FA token
+
+TesFront-> TesBack: {access: 001, token: "987654"}
+TesBack-> 2FAWebAPI: {access: 001, token: "987654"}
+2FAWebAPI->2FADB: Update access 001:\n`DoubleAuthToken`="987654"\n`DoubleAuthStatus`="token_received"
+loop Check for updates from scraper:
+    
+    Scraper->2FAWebAPI: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    2FAWebAPI->2FADB : Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    2FADB-->2FAWebAPI : `DoubleAuthToken`="987654"
+    2FAWebAPI-->Scraper:`DoubleAuthToken`="987654"
+    Scraper->2FAWebAPI: Update access 001\n`DoubleAuthStatus`="ok"
+    2FAWebAPI->2FADB : Update access 001\n`DoubleAuthStatus`="ok"
+end
+note over Scraper: Finish

@@ -1,0 +1,621 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+
+<title>CaixaBank | banca digital CaixaBankNow</title>
+
+
+<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+<LINK REL="ICON" HREF="favicon.ico">
+<script type="text/javascript" src="./js/EloGenB000005.js"></script>
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></SCRIPT>
+<link rel="stylesheet" href="./css/lo_chatbot_iframe.css" type="text/css"/>
+<script>
+
+
+
+flagMBB=false;
+NS4 = (document.layers) ? true : false
+flagTipoBorsa = "B"
+
+flagTornaPNBox=""
+flagTornaPEBox=""
+
+
+flagNetejaRefVal = false
+
+
+imatgecobra=""
+urlcobra=""
+flagIdioma="02"
+flagPE="E"
+flagBorsa=false
+
+flagPEAnt="E"
+
+flagBancaPrivada="0"
+flagBancaPersonal="0"
+flagAbierto=0
+ flagDemo=false
+flagLgn=true
+flagInici=true
+nomUser="JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA."
+opcioActiva=null
+
+opcioActivaPN=null
+opcioActivaPE=null
+
+
+flagMail=false
+
+flagAlert=false
+flagOneToOne=false
+flagMisOneToOne=""
+mskCntx=null
+flagGestoria=""
+flagNivel=""
+flagIniPn=""
+flagIniPe=""
+flagIndica=""
+encodedURL="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214"
+wblSession=";WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214"
+lv1=null
+lv2=null
+lv3=null
+lv4=null
+pn_lat=null
+pe_lat=null
+dominio=null
+canviUsuari="S"
+flagQgo=false
+clickorig=null
+cambio=false
+flagAbsis="";
+flagRbxAlertas="";
+var productoC = '';
+var origenC = '';
+flagBolsa3 = "true";
+var VOYAGERID = "2752870D4BD3AD49E14C65A52774C286";
+if (document.layers) window.onresize=reloar
+function reloar(){
+top.location="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=LGN&PE=22&FLAG_BORSA=0&FLAG_PART_EMPR=E&FLAG_BKONLINE=0&FLAG_BANCA_PRIVADA=0&FLAG_BANCA_PERSONAL=0"
+}
+
+flagNewQgo="1";
+
+tieneCSS=true
+tieneJS=true
+
+flagPopUpRTD=false
+mapPersonalizacion = new Object();
+mapPersonalizacion.P = '0';
+mapPersonalizacion.E = '0';
+mapPersonalizacion.B = '0';
+mapPersonalizacion.A = '0';
+mapPersonalizacion.L = '0';
+mapPersonalizacion.C = '0';
+mapPersonalizacion.D = '0';
+var temporizador=0;
+var tempActiu=false;
+var comptAbsis=0;
+var timerID = 0;
+var objetoSPAN=0;
+function invocaAbsisLO(){
+temporizador=0;
+comptAbsis=0;
+tempActiu=false;
+
+clearTimeout(timerID);
+}
+function invocaLOAbsis(){
+if (!tempActiu){
+temporizador=0;
+tempActiu=true;
+comptAbsis=0
+
+timerID = setTimeout("Timer()", 10000);
+}
+}
+function invocaAbsisAbsis(){
+
+if (tempActiu){
+comptAbsis++;
+}
+}
+function RefrescaLo(){
+
+
+
+
+if (tempActiu){
+if (temporizador==10){
+if (comptAbsis==0){
+tempActiu=false;
+
+
+clearTimeout(timerID);
+
+}
+else {
+comptAbsis=0;
+
+
+
+top.Inferior.Oculto.location="/jsp/refresco.jsp;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214"
+
+timerID = setTimeout("Timer()", 60000);
+}
+
+temporizador=0;
+}
+else{
+temporizador++;
+timerID = setTimeout("Timer()", 60000);
+}
+}
+}
+function Timer(){
+
+
+RefrescaLo()
+}
+
+function calculaAlturaDivSombreado(){
+altura = 800;
+if(top.Inferior.Cos.document.getElementById("global-container") && top.Inferior.Cos.document.getElementById("global-container").clientHeight!=""){
+if(top.Inferior.Cos.document.getElementById("global-container").clientHeight > altura){
+altura = top.Inferior.Cos.document.getElementById("global-container").clientHeight;
+}
+}
+if(top.Inferior.Cos.document.getElementById("lo_contenido") && top.Inferior.Cos.document.getElementById("lo_contenido").clientHeight!=""){
+if(top.Inferior.Cos.document.getElementById("lo_contenido").clientHeight > altura){
+altura = top.Inferior.Cos.document.getElementById("lo_contenido").clientHeight;
+}
+}
+if(top.Inferior.Cos.document.getElementById("cos") && top.Inferior.Cos.document.getElementById("cos").clientHeight!=""){
+if(top.Inferior.Cos.document.getElementById("cos").clientHeight > altura){
+altura = top.Inferior.Cos.document.getElementById("cos").clientHeight;
+}
+}
+if(top.Inferior.outerHeight!=""){
+if(top.Inferior.outerHeight > altura){
+altura = top.Inferior.outerHeight;
+}
+}
+return altura;
+}
+function leLlamamosOD(prodCampanya, origCampanya)
+{
+if (prodCampanya == undefined) prodCampanya = '';
+if (origCampanya == undefined) origCampanya = '';
+
+operativaODCMN = 7;
+
+productoC = prodCampanya;
+origenC = origCampanya;
+var trasCampanya='';
+var PNAjuda2 = "GFI";
+var PEAjuda2 = "4";
+var url="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?_=1545473403268&PN=CMN&PE=8&CLICK_ORIG=CMB_GFI_4&PNAjuda=GFI&PEAjuda=4";
+operativaCMBCMNGlobal = operativaODCMN;
+data = "&operativaCMBCMN="+operativaODCMN+"&trasCampanya="+trasCampanya;
+orig = operativaODCMN;
+frameCosCapaLAL = obtenerCosCapaLAL()
+if(typeof frameCosCapaLAL.document.custom_lightbox === 'undefined'){
+script = frameCosCapaLAL.document.createElement('script');
+script.type = 'text/javascript';
+script.async = true;
+script.src = '../js/custom_lightbox.js?autoinit=1';
+frameCosCapaLAL.document.getElementsByTagName('head')[0].appendChild(script);
+script.onload = function(){
+cargarContenidoLightboxCMNMKT(orig,data);
+};
+} else {
+cargarContenidoLightboxCMNMKT(orig,data);
+}
+}
+function cargarContenidoLightboxCMNMKT(orig,data){
+
+$.ajax({
+url: '/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=CMN&PE=8&CLICK_ORIG=CMB_GFI_4&PNAjuda=GFI&PEAjuda=4'+ data,
+cache: false,
+success: function(datos) {
+if (datos != null) {
+frameCosCapaLAL = obtenerCosCapaLAL()
+var divDataResponse = frameCosCapaLAL.document.createElement('div');
+divDataResponse.id = "cmnOpinator";
+if(null == frameCosCapaLAL.document.getElementById('cmnOpinator')){
+frameCosCapaLAL.document.getElementsByTagName('body')[0].appendChild(divDataResponse);
+}
+frameCosCapaLAL.document.getElementById("cmnOpinator").innerHTML = "";
+datos = datos.replace("llamada","top.llamadaCMNMKT");
+datos = datos.replace("llamaXat","top.llamaXatOD");
+datos = datos.replace("detectaEnterCMN","top.detectaEnterCMNMKT");
+frameCosCapaLAL.document.getElementById("cmnOpinator").insertAdjacentHTML('beforeend', datos);
+
+frameCosCapaLAL.document.getElementById('opinatorLink').click();
+}
+
+$("#custom_lightbox_mask").attr("onclick","top.cierraCMNOpinator()");
+},
+error: function() {
+
+$("#custom_lightbox_mask").attr("onclick","top.cierraCMNOpinator()");
+
+cancelaProceso();
+}
+});
+}
+function cierraCMNOpinator(){
+document.body.style.overflow='auto';
+}
+function cancelaProceso(){
+if(cancelaDesdeTLO=="S"){
+eval(top.frames['Inferior'].frames['Cos'].frames[1].atras());
+}else{
+eval(top.frames['Inferior'].frames['Cos'].funcionCancel);
+}
+}
+function leLlamamosAsincronoOD(operativaODCMN, prodCampanya, origCampanya)
+{
+productoC = prodCampanya;
+origenC = origCampanya;
+var trasCampanya='';
+var PNAjuda2 = "GFI";
+var PEAjuda2 = "4";
+var url="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?_=1545473403269&PN=CMN&PE=8&CLICK_ORIG=CMB_GFI_4&PNAjuda=GFI&PEAjuda=4";
+operativaCMBCMNGlobal = operativaODCMN;
+data = "&operativaCMBCMN="+operativaODCMN+"&trasCampanya="+trasCampanya;
+enviaAsincrono(url, data, 'capaClasicaCallMe',"POST",procesaResultadoCargaCapa);
+}
+function procesaResultadoCargaCapa(){
+var result = http_request.responseText;
+
+result = result.replace("muestraCos","top.ocultaCMN");
+result = result.replace("top.Inferior.Menu.llamaVideoxat","top.llamaVideoxat");
+result = result.replace("muestraCos","top.ocultaCMN");
+result = result.replace("llamaVideoXat","top.llamaVideoxat");
+result = result.replace("detectaEnterCMN","top.detectaEnterCMNOD");
+result = result.replace("llamada","top.llamadaOD");
+result = result.replace("llamaXat","top.llamaXatOD");
+result = result.replace("divLlamada","divLlamadaOD");
+
+
+insertarOKCMN_OD(result)
+}
+function obtenerCosCapaLAL(){
+frameCos = top.Inferior.Cos
+framesElementsCos = top.Inferior.Cos.frames;
+frameSup = framesElementsCos[0];
+if (framesElementsCos.length > 0){
+if ((frameSup.document.forms[0].PN.value != 'undefined') && (frameSup.document.forms[0].PN.value == 'AUT')){
+
+frameCos = frameCos.frames[0];
+}else{
+frameCos = null;
+}
+}
+return frameCos
+}
+function llamadaOD(tfno, prodCamp, origCamp, tipo){
+var msg = "";
+msg = top.validarTelefono(tfno);
+if (tipo == null){
+var orig = 9;
+}else{
+var orig = tipo;
+}
+
+if(msg=="" && "0"!="0"){
+msg = "<p class='pCMN' style='font-size:16px;'><br>" + "&nbsp;&nbsp;&nbsp;Opción no disponible en demo"+ "</p>";
+}
+
+if(msg==""){
+
+var url="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=CMN&PE=2&CLICK_ORIG=CMB_GFI_4";
+var data="TELEFONO="+ tfno + "&TIPO_ACCESO=" + orig+ "&NOMBRE=" + "JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA.";
+if(productoC!='' && origenC!='')
+{
+
+
+data += "&PRODUCTO_CAMP=" + productoC + "&ORIGEN_CAMP=" + origenC;
+}
+enviaAsincrono(url, data, 'divConfirmacion',"POST",procesaResultadoCMN, procesaResultadoCMN);
+}
+else{
+ocultaCMN()
+
+frameCos = obtenerCosCapaLAL()
+insertarKOCMN_LAL(msg)
+}
+}
+function llamadaCMNMKT(tfno, prodCamp, origCamp, tipo){
+var msg = "";
+msg = top.validarTelefono(tfno);
+if (tipo == null){
+var orig = 9;
+}else{
+var orig = tipo;
+}
+if(msg=="" && "0"!="0"){
+msg = "<p class='pCMN' style='font-size:16px;'><br>" + "&nbsp;&nbsp;&nbsp;Opción no disponible en demo"+ "</p>";
+}
+if(msg==""){
+
+var url="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=CMN&PE=2&CLICK_ORIG=CMB_GFI_4";
+var data="TELEFONO="+ tfno + "&TIPO_ACCESO=" + orig+ "&NOMBRE=" + "JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA.";
+if(productoC!='' && origenC!='')
+{
+
+
+data += "&PRODUCTO_CAMP=" + productoC + "&ORIGEN_CAMP=" + origenC;
+}
+enviaAsincrono(url, data, 'divConfirmacion',"POST",procesaResultadoCMNMKT, procesaResultadoCMNMKT);
+}
+else{
+frameCos = obtenerCosCapaLAL()
+
+if("0"!="0"){
+msg = "<p class='font--size-110 text--align-center margin--bottom-big'>Opción no disponible en demo" + "</p>";
+frameCos.document.getElementById("contenidoError").innerHTML=msg;
+frameCos.document.getElementById("errorLink").click();
+}else{
+
+
+frameCos.document.getElementById("telef").className = 'input_base input_base--large medida100 font--size-110 euros_form_error';
+frameCos.document.getElementById("errorText").innerHTML=msg;
+}
+
+
+
+
+}
+}
+function procesaResultadoCMN()
+{
+var result = http_request.responseText;
+result = result.replace("muestraCos","top.ocultaCMN");
+result = result.replace("top.Inferior.Menu.llamaVideoxat","top.llamaVideoxat");
+ocultaCMN()
+frameCos = obtenerCosCapaLAL()
+insertarOKCMN_LAL(result)
+}
+function procesaResultadoCMNMKT()
+{
+var result = http_request.responseText;
+result = result.replace("muestraCos","top.ocultaCMN");
+result = result.replace("top.Inferior.Menu.llamaVideoxat","top.llamaVideoxat");
+frameCos = obtenerCosCapaLAL()
+if(result.indexOf("resultadoCMNKO") > -1)
+{
+frameCos.document.getElementById("errorLink").click();
+}else{
+frameCos.document.getElementById("confirmacionLink").click();
+}
+}
+function validarTelefono(tfno)
+{
+var mensajeError = "";
+var valido = true;
+
+if(tfno.indexOf("*") != -1) return mensajeError;
+
+if(!tfno || (tfno.length<9 || tfno.length>14)){
+valido=false;
+mensajeError = "<p class='pCMN' style='font-size:16px;'>" + "Se ha producido un error." + "<br>" + "La longitud del número de teléfono tiene que ser entre 9 y 14 caracteres."+ "</p>";
+}
+else
+{
+
+var numeros="0123456789";
+for(i=0; i<tfno.length && valido; i++){
+if (i==0 && tfno.length>9) {
+if (tfno.charAt(i)!='+') {
+valido = false;
+}
+} else {
+if (numeros.indexOf(tfno.charAt(i))==-1) {
+valido = false;
+}
+}
+}
+if (!valido){
+mensajeError = "<p class='pCMN' style='font-size:16px;'>" + "Se ha producido un error." + "<br>" + "La longitud del número de teléfono tiene que ser entre 9 y 14 caracteres."+ "</p>";
+}
+}
+return mensajeError;
+}
+function ocultaCMN(){
+frameCosCapaLAL = obtenerCosCapaLAL()
+var capa = frameCosCapaLAL.document.getElementById("capa_call_me_now_reducida")
+if (capa != null){
+capa.parentNode.removeChild(capa)
+}
+}
+function insertarEstiloSombra(frameAux){
+var style = frameAux.document.createElement('style');
+style.type = 'text/css';
+style.innerHTML = '#capaInformativaCosCallMe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:500;background-color:rgb(127,151,167);-moz-opacity: 0.7;opacity:.70;filter: alpha(opacity=70);filter: \"alpha(opacity=70)\";filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);}';
+frameAux.document.getElementsByTagName('head')[0].appendChild(style);
+}
+function insertarOKCMN_OD(result){
+frameCosCapaLAL = obtenerCosCapaLAL()
+insertarEstiloSombra(frameCosCapaLAL)
+var el0 = frameCosCapaLAL.document.createElement("div");
+el0.setAttribute('id', 'capa_call_me_now_reducida');
+capa_call = "<div id=\"capaInformativaCosCallMe\"></div>";
+capa_call = capa_call +         "<div id=\"contenidoConfirmacionCMNGestor\" class=\"contentWrap divCMN\" style=\"\">"+result+"</div>"
+capa_call = capa_call + "</div>"
+el0.innerHTML = capa_call;
+frameCosCapaLAL.document.body.appendChild(el0);
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.height = calculaAlturaDivSombreado() + "px";
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.display='block';
+}
+function insertarOKCMN_LAL(result){
+frameCosCapaLAL = obtenerCosCapaLAL()
+insertarEstiloSombra(frameCosCapaLAL)
+var el0 = frameCosCapaLAL.document.createElement("div");
+el0.setAttribute('id', 'capa_call_me_now_reducida');
+capa_call = "<div id=\"capaInformativaCosCallMe\"></div>";
+capa_call = capa_call + "<div id=\"divConfirmacionCMNGestor\" class=\"apple_overlay divCMN\" style=\"width:700px; top:39.6px; left:50px; position:absolute; display:block; z-index: 1000;\">";
+capa_call = capa_call +   "<div class=\"close divCMN\" onclick=\"javascript:top.ocultaCMN();\"></div>"
+capa_call = capa_call +   "<div class=\"capa_liquida divCMN\">"
+capa_call = capa_call +     "<div class=\"top divCMN\"><span></span></div>"
+capa_call = capa_call +     "<div class=\"center-content2 divCMN\">"
+capa_call = capa_call +       "<div class=\"center-content divCMN\">"
+capa_call = capa_call +         "<div id=\"contenidoConfirmacionCMNGestor\" class=\"contentWrap divCMN\" style=\"\">"+result+"</div>"
+capa_call = capa_call +       "</div><div style=\"clear:both\"></div>"
+capa_call = capa_call +     "</div>"
+capa_call = capa_call +     "<div class=\"bottom_liq\"><span></span></div>"
+capa_call = capa_call +   "</div>"
+capa_call = capa_call + "</div>"
+el0.innerHTML = capa_call;
+frameCosCapaLAL.document.body.appendChild(el0);
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.height = calculaAlturaDivSombreado() + "px";
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.display='block';
+}
+function insertarKOCMN_LAL(msg){
+frameCosCapaLAL = obtenerCosCapaLAL()
+insertarEstiloSombra(frameCosCapaLAL)
+var el0 = frameCosCapaLAL.document.createElement("div");
+el0.setAttribute('id', 'capa_call_me_now_reducida');
+capa_call = "<div id=\"capaInformativaCosCallMe\"></div>";
+capa_call = capa_call + "<div id=\"divErrorCMNGestor\" class=\"apple_overlay divCMN\" style=\"width:700px; top:39.6px; left:50px; position:absolute; display:block; z-index: 1000;\">"
+capa_call = capa_call +   "<div class=\"close divCMN\" onclick=\"javascript:top.ocultaCMN();\"></div>"
+capa_call = capa_call +   "<div class=\"capa_liquida divCMN\">"
+capa_call = capa_call +     "<div class=\"top divCMN\"><span></span></div>"
+capa_call = capa_call +     "<div class=\"center-content2 divCMN\">"
+capa_call = capa_call +       "<div class=\"center-content divCMN\">"
+capa_call = capa_call +         "<div class=\"contentWrap divCMN\" style=\"height: auto;\">"
+capa_call = capa_call +           "<h1 class=\"blau\" id=\"tituloAyudaError\">ERROR</h1>"
+capa_call = capa_call +           "<table width=\"600px\"><tr><td class=\"celdaCMN\"><img src=\"../imatge/cmn/foto_office_lightbox3.jpg\"/></td><td>&nbsp;&nbsp;&nbsp;</td><td class=\"celdaCMN\"><table><tr><td class=\"celdaCMN\">";
+capa_call = capa_call +             "<div id=\"contenidoErrorCMNGestor\" class=\"ico_error2 superior10\">"+msg+"</div>"
+capa_call = capa_call +             "</td></tr><tr><td class=\"celdaCMN\">"
+capa_call = capa_call +               "<a href=\"javascript:top.ocultaCMN();\" class=\"boton boton_26 sinmargen_left rfloat botonsinicon superior25\"><span>Cerrar</span></a>"
+capa_call = capa_call +           "</td></tr></table>"
+capa_call = capa_call +           "</td></tr></table>"
+capa_call = capa_call +         "</div>"
+capa_call = capa_call +       "</div>"
+capa_call = capa_call +       "<div style=\"clear:both\"></div>"
+capa_call = capa_call +     "</div>"
+capa_call = capa_call +     "<div class=\"bottom_liq\"><span></span></div>"
+capa_call = capa_call +   "</div>"
+capa_call = capa_call + "</div>";
+el0.innerHTML = capa_call;
+frameCosCapaLAL.document.body.appendChild(el0);
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.height = calculaAlturaDivSombreado() + "px";
+frameCosCapaLAL.document.getElementById("capaInformativaCosCallMe").style.display='block';
+}
+function llamaTelefono(){
+frameCosCapaLAL = obtenerCosCapaLAL()
+llamadaOD(frameCosCapaLAL.document.forms['datosUsuarioCMNGestor'].tel.value)
+return void(null)
+}
+function llamaXatOD(prodCamp,origCamp,cola,tipo){
+llamaXat(prodCamp,origCamp,tipo)
+}
+function llamaXat(prodCamp,origCamp,tipo){
+var tipoComunicacion='C';
+if (tipo=="9") tipoComunicacion='G';
+if (tipo=="7"){
+prodCamp=productoC;
+origCamp=origenC;
+}
+if (prodCamp=="") prodCamp='0';
+if (origCamp=="") origCamp='0';
+
+var url = '/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=XAT&PE=1' +'&IDPRODUCTO='+prodCamp+'&ORIGEN='+origCamp+'&OPTION=CHAT&TIPO_COMUNICACION='+tipoComunicacion;
+top.Inferior.Menu.openW(url,'XAT',591,459,0,0,0,0,0,0,0,0).focus();
+with(top.Titol){
+f=document.forms["AFTERCHAT"];
+f.submit();
+}
+return void(null)
+}
+function llamaVideoxat(prodCamp,origCamp,tipo){
+var tipoComunicacion='C';
+if (tipo=="9") tipoComunicacion='G';
+if (tipo=="7"){
+prodCamp=productoC;
+origCamp=origenC;
+}
+if (prodCamp=="") prodCamp='0';
+if (origCamp=="") origCamp='0';
+var url = '/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=XAT&PE=1' +'&IDPRODUCTO='+prodCamp+'&ORIGEN='+origCamp+'&OPTION=VIDEOCHAT&TIPO_COMUNICACION='+tipoComunicacion;
+top.Inferior.Menu.openW(url,'XAT',591,600,0,0,0,0,0,0,0,0).focus();
+with(top.Titol){
+f=document.forms["AFTERCHAT"];
+f.submit();
+}
+return void(null)
+}
+function detectaEnterCMNOD(evnt,tel) {
+evnt = evnt || window.event;
+var ret=0;
+if ( (!(evnt)) && (document.all) ) {
+evnt=self.event;
+if (evnt.keyCode==13) { ret=1; }
+}
+else if (evnt) { if (evnt.keyCode==13 || evnt.which==13) { ret=1; } }
+if (ret) {
+llamaTelefono();
+return false;
+}
+}
+function detectaEnterCMNMKT(evnt,tel) {
+evnt = evnt || window.event;
+var ret=0;
+if ( (!(evnt)) && (document.all) ) {
+evnt=self.event;
+if (evnt.keyCode==13) { ret=1; }
+}
+else if (evnt) { if (evnt.keyCode==13 || evnt.which==13) { ret=1; } }
+if (ret) {
+llamaTelefono();
+return false;
+}
+}
+</script>
+<script> function Mostra_Intersticials(myColor,myOpacity){ top.Inferior.Niveles.Mostra_Intersticials(myColor,myOpacity); } function Amaga_Intersticials(){ top.Inferior.Niveles.Amaga_Intersticials(); } </script>
+<script type="text/javascript" src="./js/EloGenB000005.js"></script>
+
+
+<script type="text/javascript" src="https://www.caixabank.es/deployedfiles/common/JavaScript/aplnr/cookie/cookie-policy.js"></script>
+<script type="text/javascript">
+if(CookiePolicy.isAllowedComponent('tecnica_tealium_tercero')){
+var script=document.createElement("script");
+script.type="text/javascript";
+script.src='../js/t3/utag.sync.js';
+document.head.appendChild(script);
+}
+</script>
+
+
+</head>
+
+
+<script type="text/javascript">var utag_data={};</script>
+<script type="text/javascript">
+if(CookiePolicy.isAllowedComponent("tecnica_tealium_tercero")){(function(a,b,c,d){a='../js/t3/utag.js';b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);})();}
+</script>
+
+
+
+
+<frameset id="Cabecera" rows="43,*" BORDER=0 frameborder="0" framespacing="no" scrolling="no" >
+<noframes><body>
+</body></noframes>
+
+<!-- NOTE: the page with link to comnaies -->
+<frame name="Titol" title="Título" src="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=GFI&PE=1&IMGCBDG=&URLCBDG=&FLAG_PE=E&FLAG_BORSA=false&FLAG_BANCA_PRIVADA=0&FLAG_BANCA_PERSONAL=0" marginwidth="0" frameborder="no" marginheight="0" scrolling="no">
+
+<frame name="Inferior" title="Inferior" src="/GPeticiones;WebLogicSession=zufVYCMJBBzW5HgqEbjIBGXdqJcKFu7wnuWp7Z-QYcY9FpXpSH58!297061165!-393273214?PN=LGN&PE=16&FLAG_BORSA=0&FLAG_PART_EMPR=E&FLAG_BKONLINE=0&INICIAL_PN=&INICIAL_PE=&FLAG_TIPO_BORSA=B&FLAG_BANCA_PRIVADA=0&FLAG_BANCA_PERSONAL=0" marginwidth="0" frameborder="no" marginheight="0" scrolling="no">
+</frameset>
+
+</html>

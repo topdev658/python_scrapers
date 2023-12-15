@@ -1,0 +1,9 @@
+MAILTO=""
+PATH=/home/context/bin:/home/context/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
+
+# Sometimes the resource get busy - remount the folder before N43 night scraping
+# 0 4 * * * umount -l /mnt/descargas && mount /mnt/descargas
+# 0 5 * * * umount -l /mnt/descargas && mount /mnt/descargas
+
+#Deleted old BBVA particulares splash docker image initialization as now login fro BBVA PARTICULARES does not require splash.
+#* * * * * /usr/bin/docker run -i -p 8050:8050 --restart always scrapinghub/splash

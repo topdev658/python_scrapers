@@ -1,0 +1,227 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+
+    <script type="text/javascript" src="./js/EloGenB000003.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+    <script type="text/javascript" src="./js/gestionTablas.js"></script>
+    <script type="text/javascript" src="./js/AjaxQueue.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script type="text/javascript" src="./js/tamanytext_v2.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+    <script type="text/javascript" language="JavaScript">
+        function doPagIni(alta)
+        {
+            with (document.forms[1]){
+                if (alta == 'true')
+                    PE.value="9";
+                else
+                    PE.value="10";
+                if (top.flagBorsa==true) {
+                    ADVORIGPN.value="LGU";
+                    ADVORIGPE.value="1";
+                }
+                else {
+                    ADVORIGPN.value="PPE";
+                    ADVORIGPE.value="1";
+                }
+                submit();
+            }
+        }
+        function enviar() {
+            InicializaErrores();
+            f=document.forms[0]
+            f.PN.value="LGU"
+            f.PE.value="3"
+            f.ORIGEN_LGU.value="E"
+            if (ProcesaErrores()) f.submit();
+        }
+        function Inicializar (usuclo, nomtit, comCloMid, usucloRef ){
+            f=document.forms[0]
+            f.CANVI_USUCLO.value = usuclo
+            f.refCanviUsuclo.value=usucloRef
+            f.USUARI_DEFECTE_MID.value = nomtit
+            f.CONTRATO_CLO.value=comCloMid
+            enviar();
+        }
+        function enviar_formOLD(pn, pe) {
+            InicializaErrores();
+            f=document.forms[0]
+            f.PN.value=pn
+            f.PE.value=pe
+            if (pe=='8' || pe=='5') {
+                f.CLAVE_CONTINUACION_AREACLO.value= f.CC1.value
+                f.CLAVE_CONTINUACION_USUCLO.value= f.CC2.value
+                f.CLAVE_CONTINUACION_COMCLO.value= f.CC3.value
+                f.PRIMERA_CONSULTA.value="0"
+            }
+            if (pe=='1') f.PRIMERA_CONSULTA.value="0"
+            if (ProcesaErrores()){
+                f.submit();
+            }
+        }
+        function enviar_form(pn, pe){
+            f=document.forms[0]
+            f.PN.value=pn
+            f.PE.value=pe
+            if (pe=='7' || pe=='5') {
+                f.CLAVE_CONTINUACION_AREACLO.value="000"
+                f.CLAVE_CONTINUACION_USUCLO.value="00000000000"
+                f.CLAVE_CONTINUACION_COMCLO.value="0000000000000"
+            }
+            if (pe=='1') f.PRIMERA_CONSULTA.value="0"
+            f.submit()
+        }
+        function paginar(val){
+            f=document.forms[0]
+            f.PN.value="LGU"
+            f.PE.value="1"
+            if (val == 0){
+                f.CLAVE_CONTINUACION_AREACLO.value="000"
+                f.CLAVE_CONTINUACION_USUCLO.value="00000000000"
+                f.CLAVE_CONTINUACION_COMCLO.value="0000000000000"
+                f.PRIMERA_CONSULTA.value="1"
+            }else if (val == 1){
+                f.PRIMERA_CONSULTA.value="0"
+            }
+            f.submit();
+        }
+    </script>
+</head>
+<body id="cos" class="margen_top5 ">
+<script>var PNLomilu='LGU';var PELomilu='1';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+    <form action="/GPeticiones;WebLogicSession=JYmhTRcQ0dQOh8WNiiD2Nc5b5rd-WLN2-kq-jewuGC4DDzNyr1dV!186605500!435612341" method="POST">
+        <div class="mostrar"><div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa" /></div><div class="rfloat">Fecha impresión: <strong>18/09/2020</strong>&nbsp;</div><div class="limpiar"></div></div><div class=""><h1 class="blau inferior10"><span>Usuarios del contrato banca digital CaixaBankNow</span></h1>
+        </div>
+        <div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("",null,"errores");</script></div>
+        <br>
+        <p class=""><span>Usted dispone de varios usuarios de banca digital CaixaBankNow</span> <span class="bold ">&nbsp;&nbsp;&nbsp;</span> <a href="javascript:top.Titol.obtenerAyudaCampo('LGU', '1', 'CUSU')"  class="no_subrayado link_blank"  title="¿Qué son los usuarios?"><span>¿Qué son los usuarios?</span></a></p>
+        <h2>
+            <span>Seleccione el usuario desde el cual desea operar</span></h2>
+        <table class="table_resumen "  id="ListaUsuarios"><tbody><tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940274801','BORA ENERGIAS RENOVABLES 1SPV, S.L.','9725029402748','phLWWOV5unWmEtZY5Xm6dQAAAXTfUYcDDOYK7SozrSc')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 1SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940275101','BORA ENERGIAS RENOVABLES 2SPV, S.L.','9725029402751','phLWWOUQFCCmEtZY5RAUIAAAAXTfUYcDBmv4i4FarMQ')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 2SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940275301','BORA ENERGIAS RENOVABLES 3SPV, S.L.','9725029402753','phLWWOVA08mmEtZY5UDTyQAAAXTfUYcDOZAhlWIIUjI')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 3SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940275401','BORA ENERGIAS RENOVABLES 4SPV, S.L.','9725029402754','phLWWOabJQCmEtZY5pslAAAAAXTfUYcDr0pnHX3qYhA')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 4SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940275601','RENTA CERO 1SPV, S.L.','9725029402756','phLWWObH7qymEtZY5sfurAAAAXTfUYcD5dRFE8RLPYM')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 1SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940275901','RENTA CERO 2SPV, S.L.','9725029402759','phLWWOUm8FKmEtZY5SbwUgAAAXTfUYcDWa7jUolHreU')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 2SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940276101','RENTA CERO 3SPV, S.L.','9725029402761','phLWWOa1YrqmEtZY5rViugAAAXTfUYcD0GgV1h1VRcs')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 3SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940307501','RENTA CERO 4SPV, S.L.','9725029403075','phLWWObWlm6mEtZY5taWbgAAAXTfUYcDKGbM5DTUehI')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 4SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940641801','RIVAL CAPITAL 5 SPV, S.L.','9725029406418','phLWWObJwJCmEtZY5snAkAAAAXTfUYcEt60RNPg0tb8')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RIVAL CAPITAL 5 SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940642601','RIVAL CAPITAL 6 SPV, S.L.','9725029406426','phLWWObL50KmEtZY5svnQgAAAXTfUYcE~owIk0pKUF4')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RIVAL CAPITAL 6 SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940644101','RENTA CERO 5 SPV, S.L.','9725029406441','phLWWOZoTBSmEtZY5mhMFAAAAXTfUYcE5CMIpExaq08')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 5 SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940645101','RENTA CERO 6 SPV, S.L.','9725029406451','phLWWObxWiimEtZY5vFaKAAAAXTfUYcExSh~EbHSY98')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RENTA CERO 6 SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940842801','BORA ENERGIAS RENOVABLES 6SPV, S.L.','9725029408428','phLWWOY8dgWmEtZY5jx2BQAAAXTfUYcEO6JyLCEDL~A')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 6SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01940967501','BORA ENERGIAS RENOVABLES 5 SPV, S.L.','9725029409675','phLWWOe2xe~mEtZY57bF7wAAAXTfUYcEiTC5jZyz1jo')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>BORA ENERGIAS RENOVABLES 5 SPV, S.L.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01970347601','RECREATIVOS EL QUIJOTE SOCIEDAD LIMITADA.','9725029703476','phLWWOY54DumEtZY5jngOwAAAXTfUYcEgdhXmOd1V4U')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RECREATIVOS EL QUIJOTE SOCIEDAD LIMITADA.</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('01972688001','DIVIERTETE ALBACETE SL','9725029726880','phLWWOe6YZGmEtZY57phkQAAAXTfUYcEa1mjN~bm4Wg')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>DIVIERTETE ALBACETE SL</span></a></th>
+            </tr>
+            <tr id="" name="" class="" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('02044280501','A A AARON 2018 RECREATIVOS SL','9725030442805','phLWWOYiNW2mEtZY5iI1bQAAAXTfUYcEnVkAYcFL5ts')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>A A AARON 2018 RECREATIVOS SL</span></a></th>
+            </tr>
+            <tr id="" name="" class=" no_border" style="">
+                <th scope="row"  class="" ><a href="JavaScript:Inicializar('02045622201','RECREATIVOS HOYARAMA SL','9725030456222','phLWWOeImuWmEtZY54ia5QAAAXTfUYcEKdWokJ4q3ZU')"  class="no_subrayado"  title=""  onClick="this.blur();"><span>RECREATIVOS HOYARAMA SL</span></a></th>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class=""><ul class="paginacion_list "><li class="previous"><a id="" href="javascript:paginar(0);"   title=""><span>Inicio</span></a></li>
+            </ul>
+            <div class="limpiar"></div>
+        </div>
+        <br>
+        <div class="limpiar"></div><ul class="ul_ico margentbr"><li ><a id="" href="javascript:top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,'PCM','1','','EOC_LGU_1');"   title=""><span>Consultar la posición de cuentas de todos sus usuarios</span></a></li>
+            <li ><a id="" href="JavaScript:enviar_form('LGU', '5')"   title=""><span>Cambiar el nombre de los usuarios</span></a></li>
+            <li ><a id="" href="JavaScript:enviar_form('LGU', '7')"   title=""><span>Cambiar el usuario por defecto</span></a></li>
+        </ul>
+        <p class=""><span>(el que aparecerá en cada nueva conexión a banca digital CaixaBankNow por defecto)</span></p>
+        <div class="neteja"></div>
+        <div class="separador"></div>
+        <div class="neteja"></div>
+        <div class="esquerre">
+            <a id="EnlaceBean03" href="javascript:doPagIni('true')"   class="boton boton_26funcion botonsinicon  lfloat ocultar" title=""><img class=" lfloat  superior5  derecha5  "  src="imatge/ul_ico_flecha.gif"  onclick ="" /> <span class="izquierda5 ">Quiero ver esta información al conectarme a banca digital CaixaBankNow</span></a>
+        </div>
+        <input type="hidden" name="PN" value="">
+        <input type="hidden" name="PE" value="">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="refCanviUsuclo" value="phLWWOV5unWmEtZY5Xm6dQAAAXTfUYcDDOYK7SozrSc">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO" value="00000000000">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO" value="0000000000000">
+        <input type="hidden" name="CC1" value="096">
+        <input type="hidden" name="CC2" value="01940274801">
+        <input type="hidden" name="CC3" value="9725029402748">
+        <input type="hidden" name="CONTRATO_CLO" value="9725029402748">
+        <input type="hidden" name="USUARI_DEFECTE_MID" value="RECREATIVOS HOYARAMA SL">
+        <input type="hidden" name="CANVI_USUCLO" value="01940274801">
+        <input type="hidden" name="PRIMERA_CONSULTA" value="1">
+
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=JYmhTRcQ0dQOh8WNiiD2Nc5b5rd-WLN2-kq-jewuGC4DDzNyr1dV!186605500!435612341" method="POST">
+
+        <input type="hidden" name="PE" value="">
+        <input type="hidden" name="ADVORIGPN" value="PPE">
+        <input type="hidden" name="ADVORIGPE" value="1">
+
+
+
+
+
+        <input name="REFVAL_COMPLEJO_7402" value="phLWWOY3nmKmEtZY5jeeYgAAAXTfUYcRzPs0gt_PiNI" type="hidden"><input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+
+</body>
+</html>

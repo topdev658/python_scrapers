@@ -1,0 +1,129 @@
+https://www.santandernetibe.com.br/js/dlbEcc.js
+
+
+
+function initECC(LocalPu,RemotePu) // THIS WAS CALLED
+{
+	var xmlhttp;
+	var responseDL;
+	if (window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}else{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	LocalPu.value = DLECC.init();
+
+	xmlhttp.open("POST","getdadosServer.asp",false);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	xmlhttp.send("LocalPuKey=" + LocalPu.value + "&contextId=" + contextoECC);
+	responseDL = xmlhttp.responseText;
+
+	if (xmlhttp.status==200) {
+
+		if (responseDL.lastIndexOf(":::ERROR:::") > -1){
+			document.forms[0].txtMsgErro.value = responseDL.replace(":::ERROR:::","");
+			document.forms[0].action="NIB_Pre_bridge.asp";
+			document.forms[0].submit();
+		}else{
+			RemotePu.value = responseDL;
+			return true;
+		}
+	}else{
+		RemotePu.value = responseDL;
+		return false;
+	}
+}
+
+function initECCAssn(LocalPu,RemotePu,contextECC)
+{
+	var xmlhttp;
+	var responseDL;
+	if (window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}else{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	LocalPu.value = DLECC.init();
+
+	xmlhttp.open("POST","../../getdadosServer.asp",false);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send("LocalPuKey=" + LocalPu.value + "&contextId=" + contextECC);
+	responseDL = xmlhttp.responseText;
+
+	if (xmlhttp.status==200) {
+
+		if (responseDL.lastIndexOf(":::ERROR:::") > -1){
+			RemotePu.value = responseDL.replace(":::ERROR:::","");
+			return false;
+		}else{
+			RemotePu.value = responseDL;
+			return true;
+		}
+	}else{
+		RemotePu.value = responseDL;
+		return false;
+	}
+}
+
+function SendHeka(Hash,msg,qHeka,contextECC)
+{
+	var xmlhttp;
+	var strhash = "" + Hash.value;
+	var i = 0;
+	while ((i = strhash.indexOf("+", i)) != -1) {
+		strhash = strhash.replace("+", "#");
+	}
+
+	var stringHeka = "txtHeka=";
+	var stringToSend = stringHeka.concat(strhash,"&txtqHeka=",qHeka,"&contextId=",contextECC);
+
+	if (window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}else{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.open("POST","../../RecebeHekaServer.asp",false);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send(stringToSend);
+	msg.value = xmlhttp.responseText;
+	if (xmlhttp.status==200) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function getKsc(sKsc)
+{
+	var xmlhttp;
+	var responseK;
+	if (window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}else{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.open("POST","getKscServer.asp",false);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send();
+	responseK = xmlhttp.responseText;
+
+	if (xmlhttp.status==200) {
+		if (responseK.lastIndexOf(":::ERROR:::") > -1){
+			sKsc.value = responseK.replace(":::ERROR:::","");
+			return false;
+		}else{
+			sKsc.value = responseK;
+			return true;
+		}
+	}else{
+		sKsc.value = responseK;
+		return false;
+	}
+}
+
+

@@ -1,0 +1,1094 @@
+<form name="formBusquedaOperaciones" class="form-filtro col-md-12"
+      novalidate="novalidate" data-ng-init="initBuscarOperaciones()"
+      data-show-validation>
+
+    <div class="row">
+        <div class="col-md-2">
+            <fieldset>
+
+                <label for="comercio">{{'operaciones.ncomercio'|translate}}</label>
+                <!-- Usuario multicomercio -->
+                <!--  	<select data-ng-if="isUserMultiComercio()" data-intro="{{'ayuda.operacion.tipoconsulta'|translate}}" data-position="top"
+                    class="form-control"
+                    name="comercio"
+                    data-ng-options="option as option for option in user.comercios"
+                    data-ng-model="operacionForm.comercio"
+
+                    data-on-enter="submitFiltro1()"
+                    required>
+
+                -->
+                <!-- usuario no multicomercio data-ng-if="!isUserMultiComercio()"-->
+
+                <!--
+                <input data-ng-if="!isUserMultiComercio()" data-intro="{{'ayuda.operacion.ncomercio'|translate}}" data-position="top"
+                    type="text" class="form-control" name="comercio"
+                    placeholder="{{'operaciones.ncomercio.placeholder'|translate}}"
+                    data-ng-model="operacionForm.comercio"
+                    data-fuc-validator
+                    data-on-enter="submitFiltro1()"
+                    data-comercio-usuario
+                    data-ng-required="!(operacionForm.laOpcion=='18' && isUserInterno()) || !(isUserInterno() && (operacionForm.ip.length>0 || operacionForm.codError.length>0))" />
+
+                    -->
+
+                <ui-select data-ng-if="isUserTerminal() || isUserComercio()"
+                           ng-model="operacionForm.comercio" theme="bootstrap"
+                           reset-search-input="false"
+                           data-intro="{{'ayuda.operacion.ncomercio'|translate}}"
+                           data-position="top" data-on-enter="submitFiltro1()"
+                           data-ng-disabled="user.comerciosClient.length<=1"
+                           data-ng-change="operacionForm.terminal=user.comercio_terminal[operacionForm.comercio][0]"
+                           data-ng-required="!(operacionForm.laOpcion=='18' && isUserInterno()) || !(isUserInterno() && (operacionForm.ip.length>0 || operacionForm.codError.length>0))">
+                    <ui-select-match>{{$select.ngModel.$viewValue}}</ui-select-match> <ui-select-choices
+                        repeat="comercio in comerciosSelect | filter: $select.search">
+                    {{comercio}} </ui-select-choices> </ui-select>
+                <input data-ng-if="!(isUserTerminal() || isUserComercio())"
+                       data-intro="{{'ayuda.operacion.ncomercio'|translate}}"
+                       data-position="top" type="text" class="form-control"
+                       name="comercio"
+                       placeholder="{{'totales.ncomercio.placeholder'|translate}}"
+                       data-ng-model="operacionForm.comercio" data-fuc-validator
+                       data-on-enter="submitFiltro1()" data-comercio-usuario
+                       data-ng-required="operacionForm.laOpcion!='18' || !(isUserInterno() && (operacionForm.ip.length>0 || operacionForm.codError.length>0))" />
+
+
+
+
+                <span data-ng-messages="formBusquedaOperaciones.comercio.$error"
+                      data-ng-if="formBusquedaOperaciones.comercio.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </fieldset>
+        </div>
+
+        <div class="col-md-2">
+            <fieldset>
+                <label for="terminal">{{'operaciones.nterminal'|translate}}</label>
+                <input data-ng-if="!isUserTerminal()"
+                       data-intro="{{'ayuda.operacion.terminal'|translate}}"
+                       data-position="top" type="text" class="form-control"
+                       class="numero-terminal" name="terminal"
+                       placeholder="{{'operaciones.nterminal.placeholder'|translate}}"
+                       data-ng-model="operacionForm.terminal"
+                       data-on-enter="submitFiltro1()" data-input-number
+                       data-input-number-integer="4" data-input-number-decimal="0"
+                       data-terminal-usuario data-on-enter="submitFiltro1()"
+                > <span
+                    data-ng-messages="formBusquedaOperaciones.terminal.$error"
+                    data-ng-if="formBusquedaOperaciones.terminal.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+                <ui-select data-ng-if="isUserTerminal()"
+                           data-intro="{{'ayuda.operacion.terminal'|translate}}"
+                           data-position="top" data-ng-model="operacionForm.terminal"
+                           theme="bootstrap" reset-search-input="false"
+                           data-ng-disabled="user.comercio_terminal[operacionForm.comercio].length<=1"
+                           data-on-enter="submitFiltro1()"> <ui-select-match>{{$select.ngModel.$viewValue}}</ui-select-match>
+                    <ui-select-choices
+                            repeat="terminal in user.comercio_terminal[operacionForm.comercio] | filter: $select.search">
+                        {{terminal}} </ui-select-choices> </ui-select>
+            </fieldset>
+        </div>
+
+        <div class="col-md-2">
+            <fieldset>
+                <label for="tiposConsulta">{{'operaciones.tipoconsulta'|translate}}</label>
+
+                <select data-intro="{{'ayuda.operacion.tipoconsulta'|translate}}"
+                        data-position="top" class="form-control" name="tiposConsulta"
+                        data-ng-change="cambioTipoConsulta()"
+                        data-ng-model="operacionForm.laOpcion"
+                        data-ng-options="option.value as option.label|translate for option in tiposConsulta"
+                        data-on-enter="submitFiltro1()" required>
+
+                    <!-- data-ng-init="operacionForm.tipoConsulta=operacionForm.tipoConsulta" -->
+
+                </select> <span
+                    data-ng-messages="formBusquedaOperaciones.tiposConsulta.$error"
+                    data-ng-if="formBusquedaOperaciones.tiposConsulta.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </fieldset>
+        </div>
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-offset-2 col-md-2">
+            <button data-intro="{{'ayuda.operacion.buscar'|translate}}"
+                    data-position="left" type="button" class="btn btn-default"
+                    data-ng-click="submitFiltro1()" data-ng-disabled="operacionesBloqueadas">{{'operaciones.buscar'|translate}}</button>
+
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+
+        <fieldset data-ng-show="estadoTipoRequerido" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="estado">{{'operaciones.estado'|translate}}</label> <select
+                    class="form-control" name="estado"
+                    data-ng-model="operacionForm.estado"
+                    data-ng-options="option.value as option.label|translate for option in estadosOperacion"
+                    data-ng-required="estadoTipoRequerido"
+                    data-on-enter="submitFiltro1()">
+
+            </select>
+
+                <!-- data-ng-init="operacionForm.estado = operacionForm.estado" -->
+                <span data-ng-messages="formBusquedaOperaciones.estado.$error"
+                      data-ng-if="formBusquedaOperaciones.estado.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </div>
+            <div class="col-md-3">
+                <label for="tipoOperacion">{{'operaciones.tiposConsulta.3.tipo'|translate}}</label>
+                <!--  					MULTISELECT DE TIPO DE OPERACION -->
+                <select class="form-control" name="tipoOperacion"
+                        data-ng-model="operacionForm.tipo"
+                        data-ng-options="option.value as option.label|translate for option in selectTipoOperacion"
+                        data-ng-required="estadoTipoRequerido"
+                        data-on-enter="submitFiltro1()" size="7" multiple style="min-width: 260px;">
+                </select>
+                <!-- 					<select class="form-control" -->
+                <!-- 						name="tipoOperacion" -->
+                <!-- 						data-ng-model="operacionForm.selOper"  -->
+                <!-- 						data-ng-options="option.value as option.label|translate for option in selectTipoOperacion" -->
+                <!-- 						data-ng-required="estadoTipoRequerido" -->
+                <!-- 						data-on-enter="submitFiltro1()"> -->
+                <!-- 					</select> -->
+                <span data-ng-messages="formBusquedaOperaciones.formaPago.$error"
+                      data-ng-if="formBusquedaOperaciones.formaPago.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </div>
+
+        </fieldset>
+
+        <fieldset data-ng-if="tarjetaRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="tarjeta">{{'operaciones.tarjeta'|translate}}</label> <input
+                    type="text" class="form-control" name="tarjeta"
+                    placeholder="{{'operaciones.tarjeta'|translate}}"
+                    data-ng-model="operacionForm.tarjeta"
+                    data-input-number-integer="19" data-input-number-decimal="0"
+                    data-on-enter="submitFiltro1()" data-ng-required="tarjetaRequerida">
+
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-if="tarjetaAsteriscadaRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="tarjetaAsteriscada">{{'operaciones.tarjeta.asteriscada'|translate}}</label> <input
+                    type="text" class="form-control" name="tarjetaAsteriscada"
+                    placeholder="{{'operaciones.tarjeta.asteriscada'|translate}}"
+                    data-ng-model="operacionForm.tarjeta"
+                    data-tarjeta-asteriscada-validator
+                    data-on-enter="submitFiltro1()" data-ng-required="tarjetaAsteriscadaRequerida">
+
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="marcaTarjetaRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="marcaTarjeta">{{'operaciones.marcaTarjeta'|translate}}</label>
+
+                <select  data-intro="{{'ayuda.operacion.tipoconsulta'|translate}}" data-position="top"
+                         class="form-control"
+                         name="marcaTarjeta"
+                         data-ng-model="operacionForm.marcaTarjeta"
+                         data-ng-options="option.value as option.label|translate for option in marcasTarjeta"
+                         data-on-enter="submitFiltro1()"
+                         data-ng-required="marcaTarjetaRequerida">
+                </select>
+
+                <span data-ng-messages="formBusquedaOperaciones.marcaTarjeta.$error"
+                      data-ng-if="formBusquedaOperaciones.marcaTarjeta.$dirty"
+                      data-ng-messages-include="error-messages-default">
+				</span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="descripcionRequerida" class="col-md-offset-4">
+            <div class="col-md-5">
+                <label for="descripcion">{{'operaciones.descripcion'|translate}}</label>
+
+                <input type="text" class="form-control" name="descripcion"
+                       placeholder="{{'operaciones.descripcion'|translate}}"
+                       data-ng-model="operacionForm.descripcion"
+                       data-ng-required="descripcionRequerida"
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.descripcion.$error"
+                    data-ng-if="formBusquedaOperaciones.descripcion.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="titularRequerido" class="col-md-offset-4">
+            <div class="col-md-5">
+                <!-- 				<label for="titular">{{'operaciones.titular'|translate}}</label> -->
+                <label for="titular">Titular</label>
+                <input type="text" class="form-control" name="titular"
+                       placeholder="Titular"
+                       data-ng-model="operacionForm.titular"
+                       data-ng-required="titularRequerido"
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.titular.$error"
+                    data-ng-if="formBusquedaOperaciones.titular.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="formaPagoRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="formaPago">{{'operaciones.tiposConsulta.7'|translate}}</label>
+                <select class="form-control" name="tiposConsulta"
+                        data-ng-model="operacionForm.formaPago"
+                        data-ng-options="option.value as option.label|translate for option in selectMetodosPago"
+                        data-on-enter="submitFiltro1()" required>
+                </select> <span data-ng-messages="formBusquedaOperaciones.formaPago.$error"
+                                data-ng-if="formBusquedaOperaciones.formaPago.$dirty"
+                                data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="ipRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="ip">{{'operaciones.tiposConsulta.8'|translate}}</label>
+
+                <input type="text" class="form-control" name="ip"
+                       placeholder="{{'operaciones.tiposConsulta.8'|translate}}"
+                       data-ng-model="operacionForm.ip" data-ip-validator
+                       data-ng-required="ipRequerida" data-on-enter="submitFiltro1()">
+                <span data-ng-messages="formBusquedaOperaciones.ip.$error"
+                      data-ng-if="formBusquedaOperaciones.ip.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="numPedidoRequerido" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="numPedido">{{'operaciones.tiposConsulta.9'|translate}}</label>
+                <!--  El num de pedio se pone en referencia  -->
+                <input type="text" class="form-control" name="numPedido"
+                       placeholder="{{'operaciones.tiposConsulta.9'|translate}}"
+                       data-ng-model="operacionForm.numeroPedido"
+                       data-ng-required="numPedidoRequerido"
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.numPedido.$error"
+                    data-ng-if="formBusquedaOperaciones.numPedido.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="importeRequerido" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="importe">{{'operaciones.tiposConsulta.11'|translate}}</label>
+
+                <input type="text" class="form-control" name="importe"
+                       placeholder="N.NN" data-ng-model="operacionForm.importe"
+                       data-importe-validator data-input-number-min="0"
+                       data-ng-required="importeRequerido" data-on-enter="submitFiltro1()">
+                <span data-ng-messages="formBusquedaOperaciones.importe.$error"
+                      data-ng-if="formBusquedaOperaciones.importe.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="rangoImportesRequerido" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="importeMin">{{'operaciones.tiposConsulta.11'|translate}}</label>
+
+                <table class="col-sm-12">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control left-corners-radius" name="importeMin"
+                                       placeholder="N.NN" data-ng-model="operacionForm.importeMin"
+                                       data-importe-validator data-input-number-min="0"
+                                       data-on-enter="submitFiltro1()" data-ng-required="rangoImportesRequerido" />
+                            </div>
+                        </td>
+                        <td style="padding-bottom: 15px;" class="row">
+                            <span class="independent-input-addon">{{'a' | translate}}</span>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control right-corners-radius" name="importeMax"
+                                       placeholder="N.NN" data-ng-model="operacionForm.importeMax"
+                                       data-importe-validator data-input-number-min="0"
+                                       data-on-enter="submitFiltro1()" data-ng-required="rangoImportesRequerido" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="numeroAutorizacionRequerido" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="importeMin">{{'operaciones.numeroAutorizacion'|translate}}</label>
+
+                <input type="text" class="form-control" name="numAutorizacion"
+                       maxlength="6" data-ng-model="operacionForm.numAutorizacion"
+                       data-ng-required="numeroAutorizacionRequerido" data-on-enter="submitFiltro1()">
+                <span data-ng-messages="formBusquedaOperaciones.numAutorizacion.$error"
+                      data-ng-if="formBusquedaOperaciones.numAutorizacion.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="reglasRequeridas" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="regla">{{'operacionDetalle.regla'|translate}}</label> <input
+                    type="text" class="form-control" name="idRegla"
+                    placeholder="{{'operacionDetalle.regla'|translate}}"
+                    data-ng-model="operacionForm.idRegla"
+                    data-on-enter="submitFiltro1()">
+            </div>
+            <div class="col-md-3">
+                <label for="accion">{{'operacionDetalle.accionregla'|translate}}</label>
+
+                <select class="form-control" name="accionRegla"
+                        data-ng-model="operacionForm.accionRegla"
+                        data-ng-options="option.value as option.label|translate for option in selectAccionRegla"
+                        data-on-enter="submitFiltro1()" required>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="referenciaRequerida" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="referencia">{{'operaciones.tiposConsulta.17'|translate}}</label>
+
+                <input type="text" class="form-control" name="referencia"
+                       placeholder="{{'operaciones.tiposConsulta.17'|translate}}"
+                       data-ng-model="operacionForm.referencia"
+                       data-ng-required="referenciaRequerida"
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.referencia.$error"
+                    data-ng-if="formBusquedaOperaciones.referencia.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <fieldset data-ng-show="rechazadasRequeridas" class="col-md-offset-4">
+            <div class="col-md-3">
+                <label for="numPedidoRecahazada">{{'operaciones.tiposConsulta.9'|translate}}</label>
+                <!--  El num de pedio se pone en referencia  -->
+                <input type="text" class="form-control" name="numPedidoRechazada"
+                       placeholder="{{'operaciones.tiposConsulta.9'|translate}}"
+                       data-ng-model="operacionForm.numeroPedido"
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.numPedidoRechazada.$error"
+                    data-ng-if="formBusquedaOperaciones.numPedidoRechazada.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+            <div class="col-md-3">
+                <label for="ip">{{'operaciones.tiposConsulta.8'|translate}}</label>
+
+                <input type="text" class="form-control" name="ipRechazada"
+                       placeholder="{{'operaciones.tiposConsulta.8'|translate}}"
+                       data-ng-model="operacionForm.ip" data-ip-validator
+                       data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.ipRechazada.$error"
+                    data-ng-if="formBusquedaOperaciones.ipRechazada.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+            <div class="col-md-3">
+                <label for="codError">{{'operaciones.codError'|translate}}</label> <input
+                    type="text" class="form-control" name="codError"
+                    placeholder="{{'operaciones.codError'|translate}}"
+                    data-ng-model="operacionForm.codError"
+                    data-on-enter="submitFiltro1()"> <span
+                    data-ng-messages="formBusquedaOperaciones.codError.$error"
+                    data-ng-if="formBusquedaOperaciones.codError.$dirty"
+                    data-ng-messages-include="error-messages-default"> </span>
+            </div>
+        </fieldset>
+
+        <div data-ng-if="operacionForm.laOpcion != '1'">
+            <br />
+        </div>
+
+        <div class="col-md-4">
+            <fieldset>
+                <label>{{'operaciones.periodo'|translate}}</label>
+
+                <!-- 				<div data-intro="{{'ayuda.operacion.fechas'|translate}}" -->
+                <!-- 					data-position="bottom" -->
+                <!-- 					class="input-daterange input-group form-group" id="datepicker" -->
+                <!-- 					data-set-bootstrap-dp-operaciones> -->
+
+                <!-- 					<input type="text" class="form-control" name="fechaDesde" -->
+                <!-- 						data-ng-model="operacionForm.fechaDesde" -->
+                <!-- 						value="{{operacionForm.fechaDesde}}" -->
+                <!-- 						data-on-enter="submitFiltro1()" required /> <span -->
+                <!-- 						class="input-group-addon">a</span> <input type="text" -->
+                <!-- 						class="form-control" name="fechaHasta" -->
+                <!-- 						data-ng-model="operacionForm.fechaHasta" -->
+                <!-- 						value="{{operacionForm.fechaHasta}}" name="fechaHastaal" -->
+                <!-- 						data-on-enter="submitFiltro1()" required /> -->
+                <!-- 				</div> -->
+
+
+                <div data-intro="{{'ayuda.operacion.fechas'|translate}}"
+                     data-position="bottom">
+
+                    <table class="col-sm-12">
+                        <tr>
+                            <td>
+                                <div data-intro="{{'ayuda.operacion.fechas'|translate}}"
+                                     data-position="bottom"
+                                     class="input-daterange input-group form-group" id="datepicker"
+                                     data-set-bootstrap-dp-operaciones>
+
+                                    <input type="text" class="form-control left-corners-radius" name="fechaDesde"
+                                           data-ng-model="operacionForm.fechaDesde"
+                                           value="{{operacionForm.fechaDesde}}"
+                                           data-on-enter="submitFiltro1()" required />
+                                </div>
+                            </td>
+                            <td style="padding-bottom: 15px;" class="row">
+                                <span class="independent-input-addon">{{'a' | translate}}</span>
+                            </td>
+                            <td>
+                                <div data-intro="{{'ayuda.operacion.fechas'|translate}}"
+                                     data-position="bottom"
+                                     class="input-daterange input-group form-group" id="datepicker"
+                                     data-set-bootstrap-dp-operaciones>
+
+                                    <input type="text"
+                                           class="form-control right-corners-radius" name="fechaHasta"
+                                           data-ng-model="operacionForm.fechaHasta"
+                                           value="{{operacionForm.fechaHasta}}" name="fechaHastaal"
+                                           data-on-enter="submitFiltro1()" required />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <span data-ng-messages="formBusquedaOperaciones.fechaHasta.$error"
+                      data-ng-if="formBusquedaOperaciones.fechaHasta.$dirty"
+                      data-ng-messages-include="error-messages-default"> </span>
+            </fieldset>
+        </div>
+
+        <div class="col-md-2">
+            <fieldset>
+                <label>{{'operaciones.horaInicio'|translate}}</label>
+
+                <div class="input-daterange input-group form-group"
+                     data-intro="{{'ayuda.operacion.horas'|translate}}"
+                     data-position="bottom">
+                    <select class="form-control" name="horaDesde"
+                            data-ng-model="operacionForm.horaDesde"
+                            data-ng-options="option.value as option.label|translate for option in selectHoras"
+                            data-on-enter="submitFiltro1()" required>
+                    </select> <span class="input-group-addon">:</span> <select
+                        class="form-control" name="minutosDesde"
+                        data-ng-model="operacionForm.minutosDesde"
+                        data-ng-options="option.value as option.label|translate for option in selectMinutos"
+                        data-on-enter="submitFiltro1()" required>
+                </select>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-md-2">
+            <fieldset>
+                <label>{{'operaciones.horaFin'|translate}}</label>
+
+                <div class="input-daterange input-group form-group">
+                    <select class="form-control" name="horaHasta"
+                            data-ng-model="operacionForm.horaHasta"
+                            data-ng-options="option.value as option.label|translate for option in selectHoras"
+                            required>
+                    </select> <span class="input-group-addon">:</span> <select
+                        class="form-control" name="minutosHasta"
+                        data-ng-model="operacionForm.minutosHasta"
+                        data-ng-options="option.value as option.label|translate for option in selectMinutos"
+                        required>
+                </select>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-2" style="float: right">
+            <!-- BOTON DESCARGA -->
+            <a href="" data-intro="{{'ayuda.operacion.exportar'|translate}}"
+               data-position="left" class="btn btn-negro descargar"
+               data-ng-click="lanzarPopupExportar()"
+               data-ng-show="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null">
+                {{'operaciones.exp.tabla' | translate}} <i class="fa fa-download"></i>
+            </a>
+            <a href="" class="btn btn-negro descargar"
+               data-ng-click="printDiv('listadoDiv',true)"
+               data-ng-show="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null">
+                {{'imprimir.tabla' | translate}} <i class="fa fa-print"></i>
+            </a>
+        </div>
+    </div>
+
+</form>
+<!-- FIN FILTRO FORMULARIO -->
+
+<form name="formBusquedaOperaciones2" novalidate="novalidate"
+      data-show-validation>
+    <div class="col-md-12"
+         data-ng-show="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null">
+        <div class="row">
+            <div class="col-md-9 btn-com">
+                <button data-intro="{{'ayuda.informe.columnas'|translate}}"
+                        data-position="bottom" type="button" data-ng-if="operacionForm.laOpcion!=18"
+                        data-ng-click="lanzarPopupSelectTh()" class="btn">{{'informe.columnas'
+                    | translate}}</button>
+            </div>
+
+            <div class="col-md-3 text-right">
+
+                <label for="itemsByPage">{{'table.itemsByPage'|translate}}<i
+                        class="fa fa-filter"></i></label> <input
+                    data-intro="{{'ayuda.operacion.registros'|translate}}"
+                    data-position="left" data-chardin-width="200px"
+                    class="filas-pagina-input" type="text" name="pageSize"
+                    data-ng-model="operacionForm.filasEnPantalla"
+                    data-on-enter="submitFiltro1()" data-input-number
+                    data-input-number-max="500" data-input-number-integer="4"
+                    data-input-number-decimal="0"> <span
+                    data-ng-messages="formBusquedaOperaciones2.pageSize.$error"
+                    data-ng-if="formBusquedaOperaciones2.pageSize.$dirty"
+                    data-ng-messages-include="error-messages-default"
+                    data-ng-init="max = 100;"> </span>
+
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+<!-- Listado de Operaciones -->
+<div class="table-responsive col-md-12" id="listadoDiv">
+
+    <table data-st-table="operacionesList.contenido"
+           data-st-tablestate="tableStateOperacionesList"
+           data-st-pipe="operacionesListAsignData"
+           class="table table-striped table-notif">
+
+        <!-- 	Listado de rechazadas -->
+        <thead data-ng-if="operacionForm.laOpcion==18">
+        <tr id="cabeceraListOperaciones">
+            <!-- Cabeceras" -->
+            <th
+                    data-ng-repeat="th in ['comercio','fechaOperacion','terminal','numeroPedido','ipCliente','walletId','errorProducido']"
+                    data-ng-if="columnasOperacionesRechazadas[th].fn_is_showeable(columnasOperacionesRechazadas[th])">{{columnasOperacionesRechazadas[th].fn_i18n_header(th)}}</th>
+            <th class="notprintable">{{'operaciones.opciones'|translate}}</th>
+        </tr>
+        </thead>
+        <tbody
+                data-ng-if="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null && operacionForm.laOpcion==18">
+
+        <tr data-ng-repeat="operacion in operacionesList.contenido">
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.comercio.fn_is_showeable(columnasOperacionesRechazadas.comercio)">{{operacion.comercio}}</td>
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.fechaOperacion.fn_is_showeable(columnasOperacionesRechazadas.fechaOperacion)">{{operacion.horaOper}}
+                {{operacion.fechaOper}}</td>
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.terminal.fn_is_showeable(columnasOperacionesRechazadas.terminal)">{{operacion.terminal}}</td>
+            <td
+                    data-ng-if="operacion.numeroPedidoOperacionPasarela4B!=null && columnasOperacionesRechazadas.numeroPedido.fn_is_showeable(columnasOperacionesRechazadas.numeroPedido)">{{operacion.numeroPedidoOperacionPasarela4B}}</td>
+            <td
+                    data-ng-if="operacion.numeroPedidoOperacionPasarela4B==null && columnasOperacionesRechazadas.numeroPedido.fn_is_showeable(columnasOperacionesRechazadas.numeroPedido)">{{operacion.numeroPedido}}</td>
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.ipCliente.fn_is_showeable(columnasOperacionesRechazadas.ipCliente)">{{operacion.ipCliente}}</td>
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.walletId.fn_is_showeable(columnasOperacionesRechazadas.walletId)">{{operacion.walletId}}</td>
+            <td
+                    data-ng-if="columnasOperacionesRechazadas.errorProducido.fn_is_showeable(columnasOperacionesRechazadas.errorProducido)"
+                    class="text-danger"><span
+                    data-tooltip="{{'error.'+operacion.errorProducido | translate}}">{{operacion.errorProducido}}</span>
+            </td>
+            <td class="detalle" class="notprintable"><a href="" class="notprintable"
+                                                        data-tooltip="{{'operaciones.detalles'|translate}}"
+                                                        data-ng-click="consultaRechazada(operacion)"> <i ng-show="$index == 0"
+                                                                                                         data-intro="{{'ayuda.operacion.ver'|translate}}"
+                                                                                                         data-position="left" data-chardin-width="200px" class="fa fa-eye"></i> <i
+                    ng-show="$index != 0" class="fa fa-eye"></i>
+            </a></td>
+        </tr>
+        </tbody>
+        <!-- 	Fin Listado de rechazadas -->
+
+        <!-- 	Listado de operaciones -->
+        <thead data-ng-if="operacionForm.laOpcion!=18">
+        <tr id="cabeceraListOperaciones">
+            <!-- Cabeceras" -->
+            <th
+                    data-ng-repeat="th in ['fechaOperacion','comercio','terminal','csbAdquirente','litTipoOper','numeroPedido','idAutorizacion','idReglaFraude','idAccionReglaFraude','importeSolicitado','importeNetoTransaccion','cierreSesion','fechaSession','merchantData','litMetodoPago','litMetodoPagoDetalle','tarjeta','marcaTarjeta','nombreTitular','descripcionObjetoCompra',
+				'importeDevuelto','operacionCreditoDebito','referencia','cuentaCorrienteTitular','codigoPaisTarjeta','direcionIpConexion','direcionIpCliente','codigoPaisIp','usuario', 'idCliente', 'idPlan','indicadorEmergencia','tipoEntrada','identificadorTransaccionSafetyPay','codigoPersonalizacion','scoreControlFraude','idOperacion','cier', 'version3DSecure', 'idMensaje3DS2',
+				'metodoAut3DSecure2','codigoEci','usaMpiExterno','exencionPSD2_0', 'exencionPSD2_1', 'nombrePsp', 'versionModulo']"
+                    data-ng-if="columnasOperaciones[th].fn_is_showeable(columnasOperaciones[th])">{{columnasOperaciones[th].fn_i18n_header(th)}}</th>
+            <th class="notprintable">{{'operaciones.opciones'|translate}}</th>
+        </tr>
+        </thead>
+        <tbody
+                data-ng-if="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null && operacionForm.laOpcion!=18">
+        <tr data-ng-repeat="operacion in operacionesList.contenido">
+
+            <td
+                    data-ng-if="columnasOperaciones.fechaOperacion.fn_is_showeable(columnasOperaciones.fechaOperacion)">{{operacion.fechaOper}}<br />{{operacion.horaOper}}
+            </td>
+            <td
+                    data-ng-if="columnasOperaciones.comercio.fn_is_showeable(columnasOperaciones.comercio)">{{operacion.comercio}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.terminal.fn_is_showeable(columnasOperaciones.terminal)">{{operacion.terminal}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.csbAdquirente.fn_is_showeable(columnasOperaciones.csbAdquirente)">{{operacion.csbAdquirente}}
+            </td>
+
+            <td
+                    data-ng-if="columnasOperaciones.litTipoOper.fn_is_showeable(columnasOperaciones.litTipoOper) && !isUser0081() ">{{operacion.litTipoOper
+                | translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.litTipoOper.fn_is_showeable(columnasOperaciones.litTipoOper) && isUser0081() && operacion.litTipoOper=='CONSULTAS.litTipoOperF'">{{'CONSULTAS.litTipoOperFSaba'
+                | translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.litTipoOper.fn_is_showeable(columnasOperaciones.litTipoOper) && isUser0081() && operacion.litTipoOper=='CONSULTAS.litTipoOper38'">{{'CONSULTAS.litTipoOper38Saba'
+                | translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.litTipoOper.fn_is_showeable(columnasOperaciones.litTipoOper) && isUser0081() && (operacion.litTipoOper!='CONSULTAS.litTipoOperF' && operacion.litTipoOper!='CONSULTAS.litTipoOper38')">{{operacion.litTipoOper
+                | translate}}</td>
+
+            <!-- 				<td data-ng-if="columnasOperaciones.numPedido.fn_is_showeable(columnasOperaciones.numPedido)">{{operacion.numPedido}}</td> -->
+            <td
+                    data-ng-if="operacion.numeroPedidoOperacionPasarela4B!=null && columnasOperaciones.numeroPedido.fn_is_showeable(columnasOperaciones.numeroPedido)">{{operacion.numeroPedidoOperacionPasarela4B}}</td>
+            <td
+                    data-ng-if="operacion.numeroPedidoOperacionPasarela4B==null && columnasOperaciones.numeroPedido.fn_is_showeable(columnasOperaciones.numeroPedido)">{{operacion.numeroPedido}}</td>
+
+            <td
+                    data-ng-if="operacion.idAutorizacion=='S' && columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && operacion.metodoPago!='41' && operacion.metodoPago!='42'  && operacion.metodoPago!='52' && operacion.codigoAccion!='9915'"
+                    class="text-success">{{('operaciones.autorizacion.' +
+                operacion.idAutorizacion) | translate }} <span
+                        data-ng-if="operacion.metodoPago!='54'">
+						{{operacion.numAutorizacion }} </span> <span
+                        data-ng-if="operacion.metodoPago=='54' && operacion.estadoPaypal!=null && operacion.estadoPaypal!=''">
+						({{operacion.estadoPaypal}}) </span>
+            </td>
+            <td
+                    data-ng-if="operacion.idAutorizacion=='N' && columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && operacion.litTipoOper!='CONSULTAS.litTipoOperF' && operacion.metodoPago!='41' && operacion.metodoPago!='42'  && operacion.metodoPago!='52' && operacion.codigoAccion!='9915'"
+                    class="text-danger"><span
+                    data-ng-if="operacion.metodoPago=='54' && operacion.codigoAccion!='9999' && operacion.codigoAccion!='9998' && operacion.codigoAccion!='8102' && operacion.codigoAccion!='8210' && operacion.codigoAccion!='9936'"
+                    data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{('operaciones.autorizacion.'
+						+ operacion.idAutorizacion) | translate }}
+						({{operacion.estadoPaypal}})</span> <span
+                    data-ng-if="operacion.metodoPago!='54' && operacion.codigoAccion!='9929' && operacion.codigoAccion!='9999' && operacion.codigoAccion!='9998' && operacion.codigoAccion!='8102' && operacion.codigoAccion!='8210' && operacion.codigoAccion!='9936'"
+                    data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{('operaciones.autorizacion.'
+						+ operacion.idAutorizacion) | translate }}
+						{{operacion.codigoAccion}}</span> <span
+                    data-ng-if="operacion.metodoPago!='54' && (operacion.codigoAccion=='9999' || operacion.codigoAccion=='9998' || operacion.codigoAccion=='8102' || operacion.codigoAccion=='8210')"
+                    data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{('operaciones.autorizacion.sin')
+						| translate }} {{operacion.codigoAccion}}</span>
+                <span
+                        data-ng-if="operacion.metodoPago!='54' && operacion.codigoAccion=='9929'"
+                        data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{'operaciones.anulacion' | translate }}
+						{{operacion.codigoAccion}}</span>
+                <span
+                        data-ng-if="operacion.codigoAccion=='9936'"
+                        data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{'operaciones.tra.fase1' | translate }}
+						{{operacion.codigoAccion}}</span>
+                <span data-ng-if="operacion.estadoOperacion == 'R'"> {{'operaciones.reintento' | translate }}</span>
+                <span data-ng-if="!!operacion.errorCJ" data-tooltip="{{operacion.errorCJ | translate}}"> <br>{{ 'CJ'+operacion.codigoErrorSIS }} </span>
+            </td>
+            <td data-ng-if="operacion.idAutorizacion=='N' && columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && operacion.litTipoOper=='CONSULTAS.litTipoOperF' && operacion.metodoPago!='41' && operacion.metodoPago!='42'  && operacion.metodoPago!='52' && operacion.codigoAccion!='9915'">
+					<span
+                            data-ng-if="operacion.codigoAccion!='9999' && operacion.codigoAccion!='9998' && operacion.codigoAccion!='8102' && operacion.codigoAccion!='8210'"
+                            data-tooltip="{{'denegada.'+operacion.codigoAccion | translate}}">{{('operaciones.autorizacion.'
+						+ operacion.idAutorizacion) | translate }}</span> <span
+                    data-ng-if="operacion.codigoAccion=='9999'  || operacion.codigoAccion=='9998' || operacion.codigoAccion=='8102' || operacion.codigoAccion=='8210'"
+                    class="text-success">{{('operaciones.autorizacion.sin.paygold')
+						| translate }}</span>
+            </td>
+            <td	data-ng-if="columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && (operacion.metodoPago=='41' || operacion.metodoPago=='52') && operacion.codigoAccion!='9915'">
+					<span data-ng-if="operacion.litAutDenegOper=='CONSULTAS.pendiente' || operacion.litAutDenegOper=='DOMICILIACIONES.litEstadoDescargada'">
+						{{'estado.operacion.'+operacion.litAutDenegOper | translate }} {{operacion.litEstadoOper}}</span>
+
+                <span class="text-danger" data-ng-if="operacion.litAutDenegOper!='CONSULTAS.pendiente' && operacion.litAutDenegOper!='DOMICILIACIONES.litEstadoDescargada'">
+						{{('estado.operacion.'+ operacion.litAutDenegOper) | translate }}</span>
+            </td>
+            <td	data-ng-if="columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && operacion.metodoPago=='42' && operacion.codigoAccion!='9915'">
+                <span class="text-success" data-ng-if="operacion.litAutDenegOper=='CONSULTAS.autorizada'">{{'estado.operacion.CONSULTAS.autorizada' | translate }} {{operacion.litEstadoOper}}</span>
+                <span class="text-danger" data-ng-if="operacion.litAutDenegOper!='CONSULTAS.autorizada'">{{'estado.operacion.'+operacion.litAutDenegOper | translate }}</span>
+            </td>
+            <td	data-ng-if="columnasOperaciones.idAutorizacion.fn_is_showeable(columnasOperaciones.idAutorizacion) && operacion.codigoAccion=='9915'">
+                <span class="text-danger">{{'estado.operacion.cancelada' | translate }}</span>
+            </td>
+            <td
+                    data-ng-if="hasRole('CONSULTA_CONTROL_FRAUDE') && columnasOperaciones.idReglaFraude.fn_is_showeable(columnasOperaciones.idReglaFraude)">{{operacion.idReglaFraude}}</td>
+            <td
+                    data-ng-if="hasRole('CONSULTA_CONTROL_FRAUDE') && columnasOperaciones.idAccionReglaFraude.fn_is_showeable(columnasOperaciones.idAccionReglaFraude)">
+					<span data-ng-if="operacion.idAccionReglaFraude != null">{{('operaciones.reglas.accion.'+operacion.idAccionReglaFraude)|
+						translate}}</span>
+
+            </td>
+
+
+            <td
+                    data-ng-if="columnasOperaciones.importeSolicitado.fn_is_showeable(columnasOperaciones.importeSolicitado) && operacion.moneda=='978' && operacion.codigoMonedaOperacionDCC==null">{{operacion.importeSolicitado}}
+                {{('reglas.monedas.tipoMoneda.'+operacion.moneda) | translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.importeSolicitado.fn_is_showeable(columnasOperaciones.importeSolicitado) && operacion.moneda!='978' && operacion.codigoMonedaOperacionDCC==null">{{operacion.importeSolicitado}}
+                {{('reglas.monedas.tipoMoneda.'+operacion.moneda) | translate}}
+                ({{operacion.importeEuros}} {{'reglas.monedas.tipoMoneda.978'|translate}})</td>
+            <td
+                    data-ng-if="columnasOperaciones.importeSolicitado.fn_is_showeable(columnasOperaciones.importeSolicitado) && operacion.codigoMonedaOperacionDCC!=null">{{operacion.importeSolicitado}}
+                {{('reglas.monedas.tipoMoneda.'+operacion.moneda) | translate}}
+                ({{operacion.importeSolicitadoOperacionDCC}}
+                {{'reglas.monedas.tipoMoneda.'+operacion.codigoMonedaOperacionDCC |
+                translate}})</td>
+
+
+            <td
+                    data-ng-if="columnasOperaciones.importeNetoTransaccion.fn_is_showeable(columnasOperaciones.importeNetoTransaccion)">
+                <span data-ng-if="operacion.idAutorizacion=='S'">{{operacion.importeNetoTransaccion}} {{('reglas.monedas.tipoMoneda.978') | translate}}</span>
+            </td>
+            <td
+                    data-ng-if="columnasOperaciones.cierreSesion.fn_is_showeable(columnasOperaciones.cierreSesion) ">
+                {{operacion.indicadorLoteAdquirente}}<span
+                    data-ng-if="operacion.indicadorLoteAdquirente!=null || operacion.indicadorNumeroCajonDescuento!=null">/</span>{{operacion.indicadorNumeroCajonDescuento}}
+            </td>
+
+            <td
+                    data-ng-if="columnasOperaciones.fechaSession.fn_is_showeable(columnasOperaciones.fechaSession)">{{operacion.fechaSession
+                | date:'dd/MM/yyyy'}}</td>
+
+            <td
+                    data-ng-if="columnasOperaciones.merchantData.fn_is_showeable(columnasOperaciones.merchantData)">{{operacion.merchantData}}</td>
+
+
+            <td
+                    data-ng-if="columnasOperaciones.litMetodoPago.fn_is_showeable(columnasOperaciones.litMetodoPago)">{{('operaciones.resultados.tipoPago.'+operacion.litMetodoPago)|
+                translate}}</td>
+
+            <td
+                    data-ng-if="(isUserInterno() || isUserEntidad()) && columnasOperaciones.litMetodoPagoDetalle.fn_is_showeable(columnasOperaciones.litMetodoPagoDetalle)">{{('operaciones.resultados.tipoPago.interno.'+operacion.litMetodoPago)|
+                translate}}</td>
+            <td
+                    data-ng-if="(hasRole('VER_TARJETA_ENMASCARADA') || hasRole('VER_TARJETA_COMPLETA')) && columnasOperaciones.tarjeta.fn_is_showeable(columnasOperaciones.tarjeta)">{{operacion.tarjeta}}
+            </td>
+            <td	data-ng-if="columnasOperaciones.marcaTarjeta.fn_is_showeable(columnasOperaciones.marcaTarjeta)">
+					<span data-ng-if="operacion.marcaTarjeta!=null && operacion.marcaTarjeta>0 && operacion.marcaTarjeta<10">
+					{{'operaciones.marcasTarjetas.'+operacion.marcaTarjeta	| translate}}</span></td>
+            <!-- Fin del listado (Parece que todo se muestra igual) -->
+            <td
+                    data-ng-if="columnasOperaciones.nombreTitular.fn_is_showeable(columnasOperaciones.nombreTitular)">{{operacion.nombreTitular}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.descripcionObjetoCompra.fn_is_showeable(columnasOperaciones.descripcionObjetoCompra)">{{operacion.descripcionObjetoCompra}}</td>
+            <!-- 					<td data-ng-if="columnasOperaciones.numSesion.fn_is_showeable(columnasOperaciones.numSesion)">{{operacion.numSesion}}</td> -->
+            <td
+                    data-ng-if="columnasOperaciones.importeDevuelto.fn_is_showeable(columnasOperaciones.importeDevuelto)">{{operacion.importeDevuelto
+                + ' '}}{{('reglas.monedas.tipoMoneda.'+operacion.moneda)|
+                translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.operacionCreditoDebito.fn_is_showeable(columnasOperaciones.operacionCreditoDebito)">{{('operacion.tipotajeta.'
+                + operacion.operacionCreditoDebito) | translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.referencia.fn_is_showeable(columnasOperaciones.referencia)">{{operacion.referencia}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.codigoPaisTarjeta.fn_is_showeable(columnasOperaciones.codigoPaisTarjeta)">{{('pais.iso.'+operacion.codigoPaisTarjeta+'.nombre')
+                | translate }}</td>
+            <td
+                    data-ng-if="columnasOperaciones.direcionIpConexion.fn_is_showeable(columnasOperaciones.direcionIpConexion)">{{operacion.direcionIpConexion}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.direcionIpCliente.fn_is_showeable(columnasOperaciones.direcionIpCliente)">{{operacion.direcionIpCliente}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.codigoPaisIp.fn_is_showeable(columnasOperaciones.codigoPaisIp)">{{('pais.iso.'+operacion.codigoPaisIp+'.nombre')
+                | translate }}</td>
+            <td
+                    data-ng-if="columnasOperaciones.usuario.fn_is_showeable(columnasOperaciones.usuario)">{{operacion.usuario
+                | uppercase}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.usuario.fn_is_showeable(columnasOperaciones.idCliente)">{{operacion.idCliente}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.usuario.fn_is_showeable(columnasOperaciones.idPlan)">{{operacion.idPlan}}</td>
+            <td
+                    data-ng-if="isUserInterno() && columnasOperaciones.indicadorEmergencia.fn_is_showeable(columnasOperaciones.indicadorEmergencia)">{{operacion.indicadorEmergencia}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.tipoEntrada.fn_is_showeable(columnasOperaciones.tipoEntrada)">{{('CONSULTAS.ENTRADA'+operacion.tipoEntrada)|
+                translate }}</td>
+            <td
+                    data-ng-if="columnasOperaciones.identificadorTransaccionSafetyPay.fn_is_showeable(columnasOperaciones.identificadorTransaccionSafetyPay)">{{operacion.identificadorTransaccionSafetyPay}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.codigoPersonalizacion.fn_is_showeable(columnasOperaciones.codigoPersonalizacion)">{{operacion.codigoPersonalizacion}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.scoreControlFraude.fn_is_showeable(columnasOperaciones.scoreControlFraude)">{{operacion.scoreControlFraude}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.idOperacion.fn_is_showeable(columnasOperaciones.idOperacion)">{{operacion.idOperacion}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.cier.fn_is_showeable(columnasOperaciones.cier)">{{operacion.cier}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.version3DSecure.fn_is_showeable(columnasOperaciones.version3DSecure)">{{operacion.version3DSecure}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.idMensaje3DS2.fn_is_showeable(columnasOperaciones.idMensaje3DS2)">{{operacion.idMensaje3DS2}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.metodoAut3DSecure2.fn_is_showeable(columnasOperaciones.metodoAut3DSecure2)">{{operacion.metodoAut3DSecure2}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.codigoEci.fn_is_showeable(columnasOperaciones.codigoEci)">{{operacion.codigoEci}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.usaMpiExterno.fn_is_showeable(columnasOperaciones.usaMpiExterno)">{{operacion.usaMpiExterno}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.exencionPSD2_0.fn_is_showeable(columnasOperaciones.exencionPSD2_0) && !!operacion.exencionPSD2 && operacion.exencionPSD2.length > 2">{{'operaciones.analisisPSD2.0.'+operacion.exencionPSD2[0]|translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.exencionPSD2_1.fn_is_showeable(columnasOperaciones.exencionPSD2_1) && !!operacion.exencionPSD2 && operacion.exencionPSD2.length > 2">{{'operaciones.analisisPSD2.1.'+operacion.exencionPSD2[1]|translate}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.exencionPSD2_0.fn_is_showeable(columnasOperaciones.exencionPSD2_0) && (!!!operacion.exencionPSD2 || (!!operacion.exencionPSD2 && operacion.exencionPSD2.length <= 2))"></td>
+            <td
+                    data-ng-if="columnasOperaciones.exencionPSD2_1.fn_is_showeable(columnasOperaciones.exencionPSD2_1) && (!!!operacion.exencionPSD2 || (!!operacion.exencionPSD2 && operacion.exencionPSD2.length <= 2))"></td>
+            <td
+                    data-ng-if="columnasOperaciones.nombrePsp.fn_is_showeable(columnasOperaciones.nombrePsp)">{{operacion.nombrePsp}}</td>
+            <td
+                    data-ng-if="columnasOperaciones.versionModulo.fn_is_showeable(columnasOperaciones.versionModulo)">{{operacion.versionModulo}}</td>
+
+
+
+            <td class="detalle" class="notprintable" data-ng-if="!estadoContingencia"><a href=""
+                                                                                         data-tooltip="{{'operaciones.detalles'|translate}}"
+                                                                                         data-ng-click="consultaOperacion(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.ver'|translate}}"
+                    data-chardin-width="200px"
+                    data-position="left" class="fa fa-eye"></i> <i
+                    ng-show="$index != 0" class="fa fa-eye"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion!=3 && operacion.tipoTransaccion!=9 && operacion.tipoTransaccion!=46 && operacion.tipoTransaccion!=47 && operacion.tipoTransaccion!=45 && operacion.tipoTransaccion!=26"
+                    data-tooltip="{{'operaciones.copia.recibo' | translate}}"
+                    data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==3"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==9 || operacion.tipoTransaccion==46 || operacion.tipoTransaccion==47 || operacion.tipoTransaccion==45 || operacion.tipoTransaccion==26"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" class="notprintable"
+                    data-ng-if="operacion.metodoPago=='68' && operacion.estadoOperacion == 'F'"
+                    data-tooltip="{{'operaciones.detalles.bizum'|translate}}"
+                    data-ng-click="consultaBizum(operacion)"> <img
+                    src="static/img/ico_bizum.png" alt="Detalles Bizum" />
+            </a> <a class="notprintable"
+                    data-ng-if="hasRole('PERMITE_DEVOLUCIONES') && operacion.permiteDevolucion==true && operacion.idAutorizacion=='S' && operacion.metodoPago!=107"
+                    href="" data-tooltip="{{'operacionDetalle.devolucion'|translate}}"
+                    data-ng-click="lanzarPopupDevolucion(operacion)"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.devolucion'|translate}}"
+                    data-position="top" class="fa fa-backward"></i> <i
+                    ng-show="$index != 0" class="fa fa-backward"></i>
+                <!-- 				</a> <a class="notprintable" -->
+                <!-- 					data-ng-if="hasRole('PERMITE_DEVOLUCIONES') && operacion.permiteDevolucion==true && operacion.idAutorizacion=='S' && operacion.metodoPago==107" -->
+                <!-- 					href="" data-tooltip="{{'operacionDetalle.devolucion'|translate}}" -->
+                <!-- 					data-ng-click="lanzarPopupDevolucionIPA(operacion)"> <i -->
+                <!-- 						ng-show="$index == 0" -->
+                <!-- 						data-intro="{{'ayuda.operacion.devolucion'|translate}}" -->
+                <!-- 						data-position="top" class="fa fa-backward"></i> <i -->
+                <!-- 						ng-show="$index != 0" class="fa fa-backward"></i> -->
+            </a> <a class="notprintable"
+                    data-ng-if="operacion.importeDevuelto != null && operacion.importeDevuelto!='0,00' && operacion.importeDevuelto!='0.00'"
+                    href=""
+                    data-tooltip="{{'operaciones.resumenDevoluciones'|translate}}"
+                    data-ng-click="lanzarPopupResumenDevoluciones(operacion)"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.resumendevolucion'|translate}}"
+                    data-position="bottom" class="fa fa-bars"></i> <i
+                    ng-show="$index != 0" class="fa fa-bars"></i>
+            </a> <a data-ng-if="operacion.litTipoOper=='CONSULTAS.litTipoOperF' && operacion.estadoOperacion=='S'"
+                    class="notprintable"
+                    aria-hidden="true"
+                    href="" data-tooltip="{{'paygold.title.compartirOperacion'|translate}}"
+                    data-ng-click="lanzarCompartirPaygold(operacion)"> <i
+                    class="fa fa-share-alt"></i>
+            </a><a data-ng-if="isUserInterno() && hasRole('ACTUALIZAR_OPERACION')"
+                   class="notprintable"
+                   href="" data-tooltip="{{'operaciones.actualizar'|translate}}"
+                   data-ng-click="lanzarPopupActualizarOperacion(operacion)"> <i
+                    class="fa fa-wrench"></i>
+            </a></td>
+
+            <td class="detalle" class="notprintable" data-ng-if="estadoContingencia && !estadoContingenciaAvanzado">
+                <a href=""
+                   data-tooltip="{{'operaciones.detalles'|translate}}"
+                   data-ng-click="lanzarPopupContingencia()" class="notprintable"> <i
+                        ng-show="$index == 0"
+                        data-intro="{{'ayuda.operacion.ver'|translate}}"
+                        data-chardin-width="200px"
+                        data-position="left" class="fa fa-eye"></i> <i
+                        ng-show="$index != 0" class="fa fa-eye"></i>
+                </a> <a href="" data-ng-if="operacion.tipoTransaccion!=3 && operacion.tipoTransaccion!=9 && operacion.tipoTransaccion!=46 && operacion.tipoTransaccion!=47 && operacion.tipoTransaccion!=45 && operacion.tipoTransaccion!=26"
+                        data-tooltip="{{'operaciones.copia.recibo' | translate}}"
+                        data-ng-click="lanzarPopupContingencia()" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==3"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarPopupContingencia()" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==9 || operacion.tipoTransaccion==46 || operacion.tipoTransaccion==47 || operacion.tipoTransaccion==45 || operacion.tipoTransaccion==26"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarPopupContingencia()" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" class="notprintable"
+                    data-ng-if="operacion.metodoPago=='68' && operacion.estadoOperacion == 'F'"
+                    data-tooltip="{{'operaciones.detalles.bizum'|translate}}"
+                    data-ng-click="lanzarPopupContingencia()"> <img
+                    src="static/img/ico_bizum.png" alt="Detalles Bizum" />
+            </a> <a class="notprintable"
+                    data-ng-if="hasRole('PERMITE_DEVOLUCIONES') && operacion.permiteDevolucion==true && operacion.idAutorizacion=='S' && operacion.metodoPago!=107"
+                    href="" data-tooltip="{{'operacionDetalle.devolucion'|translate}}"
+                    data-ng-click="lanzarPopupContingencia()"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.devolucion'|translate}}"
+                    data-position="top" class="fa fa-backward"></i> <i
+                    ng-show="$index != 0" class="fa fa-backward"></i>
+            </a> <a class="notprintable"
+                    data-ng-if="hasRole('PERMITE_DEVOLUCIONES') && operacion.permiteDevolucion==true && operacion.idAutorizacion=='S' && operacion.metodoPago==107"
+                    href="" data-tooltip="{{'operacionDetalle.devolucion'|translate}}"
+                    data-ng-click="lanzarPopupContingencia()"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.devolucion'|translate}}"
+                    data-position="top" class="fa fa-backward"></i> <i
+                    ng-show="$index != 0" class="fa fa-backward"></i>
+                <!-- 					</a> <a class="notprintable" -->
+                <!-- 						data-ng-if="operacion.importeDevuelto != null && operacion.importeDevuelto!='0,00' && operacion.importeDevuelto!='0.00'" -->
+                <!-- 						href="" -->
+                <!-- 						data-tooltip="{{'operaciones.resumenDevoluciones'|translate}}" -->
+                <!-- 						data-ng-click="lanzarPopupContingencia()"> <i -->
+                <!-- 							ng-show="$index == 0" -->
+                <!-- 							data-intro="{{'ayuda.operacion.resumendevolucion'|translate}}" -->
+                <!-- 							data-position="bottom" class="fa fa-bars"></i> <i -->
+                <!-- 							ng-show="$index != 0" class="fa fa-bars"></i> -->
+
+            </a><a data-ng-if="operacion.litTipoOper=='CONSULTAS.litTipoOperF' && operacion.estadoOperacion=='S'"
+                   class="notprintable"
+                   aria-hidden="true"
+                   href="" data-tooltip="{{'paygold.title.compartirOperacion'|translate}}"
+                   data-ng-click="lanzarCompartirPaygold(operacion)"> <i
+                    class="fa fa-share-alt"></i>
+            </a><a data-ng-if="isUserInterno() && hasRole('ACTUALIZAR_OPERACION')"
+                   class="notprintable"
+                   href="" data-tooltip="{{'operaciones.actualizar'|translate}}"
+                   data-ng-click="lanzarPopupActualizarOperacion(operacion)"> <i
+                    class="fa fa-wrench"></i>
+            </a></td>
+
+
+            <td class="detalle" class="notprintable" data-ng-if="estadoContingencia && estadoContingenciaAvanzado">
+                <a href=""
+                   data-tooltip="{{'operaciones.detalles'|translate}}"
+                   data-ng-click="consultaOperacion(operacion)" class="notprintable"> <i
+                        ng-show="$index == 0"
+                        data-intro="{{'ayuda.operacion.ver'|translate}}"
+                        data-chardin-width="200px"
+                        data-position="left" class="fa fa-eye"></i> <i
+                        ng-show="$index != 0" class="fa fa-eye"></i>
+                </a> <a href="" data-ng-if="operacion.tipoTransaccion!=3 && operacion.tipoTransaccion!=9 && operacion.tipoTransaccion!=46 && operacion.tipoTransaccion!=47 && operacion.tipoTransaccion!=45 && operacion.tipoTransaccion!=26"
+                        data-tooltip="{{'operaciones.copia.recibo' | translate}}"
+                        data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==3"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+            </a> <a href="" data-ng-if="operacion.tipoTransaccion==9 || operacion.tipoTransaccion==46 || operacion.tipoTransaccion==47 || operacion.tipoTransaccion==45 || operacion.tipoTransaccion==26"
+                    data-tooltip="{{'operaciones.copia.recibo.anulacion' | translate}}"
+                    data-ng-click="lanzarRecibo(operacion)" class="notprintable"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.copiarecibe'|translate}}"
+                    data-position="bottom" class="fa fa-print"></i> <i
+                    ng-show="$index != 0" class="fa fa-print"></i>
+                <!-- 					</a> <a href="" class="notprintable" -->
+                <!-- 						data-ng-if="operacion.metodoPago=='68' && operacion.estadoOperacion == 'F'" -->
+                <!-- 						data-tooltip="{{'operaciones.detalles.bizum'|translate}}" -->
+                <!-- 						data-ng-click="lanzarPopupContingencia()"> <img -->
+                <!-- 							src="static/img/ico_bizum.png" alt="Detalles Bizum" /> -->
+            </a> <a class="notprintable"
+                    data-ng-if="hasRole('PERMITE_DEVOLUCIONES') && operacion.permiteDevolucion==true && operacion.idAutorizacion=='S' && operacion.metodoPago!=107"
+                    href="" data-tooltip="{{'operacionDetalle.devolucion'|translate}}"
+                    data-ng-click="lanzarPopupDevolucion(operacion)"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.devolucion'|translate}}"
+                    data-position="top" class="fa fa-backward"></i> <i
+                    ng-show="$index != 0" class="fa fa-backward"></i>
+            </a> <a class="notprintable"
+                    data-ng-if="operacion.importeDevuelto != null && operacion.importeDevuelto!='0,00' && operacion.importeDevuelto!='0.00'"
+                    href=""
+                    data-tooltip="{{'operaciones.resumenDevoluciones'|translate}}"
+                    data-ng-click="lanzarPopupResumenDevoluciones(operacion)"> <i
+                    ng-show="$index == 0"
+                    data-intro="{{'ayuda.operacion.resumendevolucion'|translate}}"
+                    data-position="bottom" class="fa fa-bars"></i> <i
+                    ng-show="$index != 0" class="fa fa-bars"></i>
+            </a><a data-ng-if="operacion.litTipoOper=='CONSULTAS.litTipoOperF' && operacion.estadoOperacion=='S'"
+                   class="notprintable"
+                   aria-hidden="true"
+                   href="" data-tooltip="{{'paygold.title.compartirOperacion'|translate}}"
+                   data-ng-click="lanzarCompartirPaygold(operacion)"> <i
+                    class="fa fa-share-alt"></i>
+            </a><a data-ng-if="isUserInterno() && hasRole('ACTUALIZAR_OPERACION')"
+                   class="notprintable"
+                   href="" data-tooltip="{{'operaciones.actualizar'|translate}}"
+                   data-ng-click="lanzarPopupActualizarOperacion(operacion)"> <i
+                    class="fa fa-wrench"></i>
+            </a></td>
+
+        </tr>
+        </tbody>
+        <!-- 	Fin Listado de operaciones -->
+
+        <tbody data-ng-show="angular.isUndefined(operacionesList.contenido)"  class="notprintable">
+        <tr>
+            <td colspan="200" style="text-align: center;" class="ver-editar"><i
+                    class="fa fa-4x fa-spinner fa-spin"></i></td>
+        </tr>
+        </tbody>
+        <!-- angular.isUndefined(operacionesList.contenido) || -->
+        <tbody class="notprintable"
+               data-ng-show="operacionBusqueda.comercio!='' && !isLoading && (  operacionesList.contenido==null || operacionesList.contenido.length==0 )">
+        <tr>
+            <td colspan="200" style="text-align: center;" class="ver-editar">{{'BUSQUEDA.SINRESULTADOS'
+                | translate}}</td>
+        </tr>
+        </tbody>
+        <tfoot class="notprintable"
+               data-ng-show="!angular.isUndefined(operacionesList.contenido) && operacionesList.contenido!=null">
+        <tr>
+            <td colspan="200" class="text-center"
+                data-st-template="pagination-operaciones" data-st-pagination=""
+                data-st-items-by-page="operacionesForm.filasEnPantalla"
+                data-st-total-items="operacionesList.totalElementos"></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<!-- Fin Listado -->
+

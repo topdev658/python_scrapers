@@ -1,0 +1,197 @@
+<div class="form-notice-wrap regular-notice small-bluenotice">
+
+    <div class="form-notice clean-notice">
+
+        <div class="form-notice-header text-center">
+
+            <h3>Transaction details</h3>
+
+            <a href="" data-ng-click="vm.closeModal()" class="dismissall"></a>
+
+        </div>
+
+        <no-records-found data-ng-hide="vm.details.length > 0" message="No information available."></no-records-found>
+
+        <div data-ng-show="vm.details.length > 0"  class="useful-icons col-sm-12">
+
+            <ul class="pull-right padtop5">
+
+                <li><a href="" data-ng-click="vm.print()" class="utility-link print_icon">print</a></li>
+
+            </ul>
+
+        </div>
+
+        <div data-ng-repeat="transaction in vm.details" class="modal-body form-horizontal clearfix stripped clearboth">
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Transaction number:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.TransactionReference}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Date:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.TransactionDate | date:'dd/MM/yyyy'}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Account:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.IBAN}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Amount:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.Amount | currency:''}} {{transaction.AmountSign}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Valeur:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.ValueDate | date:'dd/MM/yyyy'}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Details:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.Reason}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group" data-ng-if="vm.isCreditTransaction && transaction.SenderDetails != undefined && transaction.SenderDetails != ''">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Sender details:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.SenderDetails}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group" data-ng-if="!vm.isCreditTransaction && transaction.SenderDetails != undefined && transaction.SenderDetails != ''">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Beneficiary&#39;s details:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.SenderDetails}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group" data-ng-if="transaction.ConversionDetails != undefined && transaction.ConversionDetails != ''">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Conversion details:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.ConversionDetails}}</label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group" data-ng-if="transaction.AdditionalInformation != undefined && transaction.AdditionalInformation != ''">
+
+                    <div class="col-sm-6 text-right">
+
+                        <label>Additional information:</label>
+
+                    </div>
+
+                    <div class="col-sm-6 text-left">
+
+                        <label class="bolder darkblue">{{transaction.AdditionalInformation}}</label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+

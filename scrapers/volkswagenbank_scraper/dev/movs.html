@@ -1,0 +1,3744 @@
+<html>
+<head><title></title>
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <script language="JavaScript1.2">
+        <!--
+
+
+        cuenta = '00100100025438'
+        firmaCuenta = '1693760975'
+
+        var winPDF = false
+        var winCount = 0
+
+
+        if (parseInt(navigator.appVersion) >= 5) {
+            document.layers = document.getElementsByTagName("span")
+        }
+
+        if (document.all) {
+            document.write("<STYLE TYPE='text/css'>")
+            document.write(".regular {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".header {background-color:rgb(0,51,102);color: rgb(255,255,255);text-decoration:none;font-style:bold;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".paragraph {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("body { font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("span {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("td {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;white-space:nowrap;}")
+            document.write(".headType1 {background-color: rgb(0,51,102);}")
+            document.write(".impar {background-color:rgb(127,184,208);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("font {font-family: Arial, Helvetica, Sans-Serif; font-size:8pt;}")
+            document.write(".parell {background-color:rgb(255,255,255);color: rgb(0,0,0);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".senar {background-color:rgb(179,179,179);color: rgb(0,0,0);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".text{font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;color:rgb(0,0,0);font-weight:bold;}")
+            document.write("A {text-decoration: none;color:rgb(0,0,0)}")
+            document.write("a:hover {color: rgb(145,0,69);}")
+            document.write("</STYLE>")
+
+        }
+
+        if ((document.layers) && (parseInt(navigator.appVersion) >= 5)) {
+            document.write("<STYLE TYPE='text/css'>")
+            document.write(".regular {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".header {background-color:rgb(0,51,102);color: rgb(255,255,255);text-decoration:none;font-style:bold;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".paragraph {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("body { font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("span {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("font {font-family: Arial, Helvetica, Sans-Serif; font-size:8pt;}")
+            document.write("td {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;white-space:nowrap;}")
+            document.write(".headType1 {background-color: rgb(0,51,102);}")
+            document.write(".impar {background-color:rgb(127,184,208);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".parell {background-color:rgb(255,255,225);color: rgb(0,0,0));text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".senar {background-color:rgb(179,179,179);color: rgb(0,0,0);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write(".text{font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;color:rgb(0,0,0);font-weight:bold;}")
+            document.write("A {text-decoration: none;color:rgb(0,0,0)}")
+            document.write("a:hover {color: rgb(145,0,69);}")
+            document.write("</STYLE>")
+
+        }
+
+        if ((document.layers) && (parseInt(navigator.appVersion) < 5)) {
+            document.write("<STYLE TYPE='text/css'>")
+            document.write("all.regular {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("all.header {background-color:rgb(0,51,102);color: rgb(255,255,255);text-decoration:none;font-style:bold;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("all.paragraph {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("all.tabla {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("body { font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("span {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("td {font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;white-space:nowrap;}")
+            document.write("all.headType1 {background-color: rgb(0,51,102);}")
+            document.write("font {font-family: Arial, Helvetica, Sans-Serif; font-size:8pt;}")
+            document.write("all.parell {background-color:rgb(255,255,255);color: rgb(0,0,0);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("all.senar {background-color:rgb(179,179,179);color: rgb(0,0,0);text-decoration:none;font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;}")
+            document.write("all.text{font-family: Arial, Helvetica, Sans-Serif; font-size: 8pt;color:rgb(0,0,0);font-weight:bold;}")
+            document.write("A {text-decoration: none;color:rgb(0,0,0)}")
+            document.write("a:hover {color: rgb(145,0,69);}")
+            document.write("</STYLE>")
+
+        }
+
+        function determinarTipoCuenta(cuentaextracto, cuentaoriginal, concepto) {
+            var retval = "01"
+            // Determinar el tipo de cuenta "original" a partir del concepto?
+            if ((concepto == '128') || (concepto == '130') || (concepto == '137') || (concepto == '138') || (concepto == '144'))
+                retval = "04"
+            if ((concepto == '073') || (concepto == '074') || (concepto == '077') || (concepto == '080') || (concepto == '141') || (concepto == '323') || (concepto == '327') || (concepto == '330'))
+                retval = "09"
+            if ((concepto == '046') || (concepto == '259') || (concepto == '260'))
+                retval = "10"
+            if ((concepto == '013') || (concepto == '076') || (concepto == '079') || (concepto == '081') || (concepto == '082') || (concepto == '094') || (concepto == '244') || (concepto == '326') || (concepto == '332') || (concepto == '335') || (concepto == '337') || (concepto == '356'))
+                retval = "12"
+            if ((concepto == '014') || (concepto == '093') || (concepto == '340'))
+                retval = "19"
+            if ((concepto == '151'))
+                retval = "06"
+            if ((concepto == '075') || (concepto == '078') || (concepto == '083') || (concepto == '084') || (concepto == '105') || (concepto == '122') || (concepto == '127') || (concepto == '134') || (concepto == '146') || (concepto == '147') || (concepto == '148') || (concepto == '152') || (concepto == '153') || (concepto == '164') || (concepto == '646') || (concepto == '653'))
+                retval = "07"
+            if ((concepto == '087') || (concepto == '263') || (concepto == '354'))
+                retval = "03"
+            //if ( (concepto=='116') )
+            //	retval = "18";
+            //if ( (concepto=='290') )
+            //	retval = "13";
+            return retval
+        }
+
+        function calcularDigitoControlCuenta(oficina, tipocuenta, numcuenta) {
+            var empresa = String(parseInt('2') - 1)
+            while (empresa.length < 2) {
+                empresa = '0' + empresa
+            }
+
+            n = "0123456789"
+
+            numCE1 = n.indexOf(empresa.substring(0, 1))
+            numCE2 = n.indexOf(empresa.substring(1, 2))
+
+            num01 = n.indexOf(oficina.substring(0, 1))
+            num02 = n.indexOf(oficina.substring(1, 2))
+            num03 = n.indexOf(oficina.substring(2, 3))
+            num04 = n.indexOf(oficina.substring(3, 4))
+            num05 = n.indexOf(tipocuenta.substring(0, 1))
+            num06 = n.indexOf(tipocuenta.substring(1, 2))
+            num07 = n.indexOf(numcuenta.substring(0, 1))
+            num08 = n.indexOf(numcuenta.substring(1, 2))
+            num09 = n.indexOf(numcuenta.substring(2, 3))
+            num10 = n.indexOf(numcuenta.substring(3, 4))
+            num11 = n.indexOf(numcuenta.substring(4, 5))
+            num12 = n.indexOf(numcuenta.substring(5, 6))
+
+            primer = (numCE1 * 61) + (numCE2 * 59) + (num01 * 1) + (num02 * 3) + (num03 * 5) + (num04 * 7) + (num05 * 11) + (num06 * 13) + (num07 * 17) + (num08 * 19) + (num09 * 23) + (num10 * 29) + (num11 * 31) + (num12 * 37)
+            segon = String(primer % 100)
+            while (segon.length < 2) {
+                segon = '0' + segon
+            }
+
+            return segon
+        }
+
+        function visualizarDetalleFastMail(concepto, marcaTrasladoOficina, codini, codfi, cuenta, fechaini, cadenabusqueda, firma, numdias) {
+
+
+            if (!codini) codini = "0025"
+            if (!codfi) codfi = "9999"
+            if (!numdias) numdias = "3"
+
+            var sIDencoded = 'web4-8be_253A5a0f2322_253A1ef87bc51649b045'
+            var firmaEncoded = escape(firma).replace('%', '_')
+            var urlEncoded = "/servlet/FastMailXML?sID=" + sIDencoded + "&numCompte=" + escape(cuenta) + "&firma=" + firmaEncoded + "&codiRebutIni=" + escape(codini) + "&codiRebutFin=" + escape(codfi) + "&dataInici=" + escape(fechaini) + "&numDies=" + numdias + "&concepte=" + escape(concepto) + "&marcaTrasladoOficina=" + escape(marcaTrasladoOficina) + "&cadenaBusqueda=" + escape(cadenabusqueda) + "&file=file.pdf"
+
+            //if( (!winPDF) || (winPDF.closed) ) {
+            winCount = winCount + 1
+            winName = String(Math.random()) + "123"
+            winName = "Impresio" + winName.substring(2, winName.length)
+            winPDF = window.open(urlEncoded, "Impresio" + winName + winCount, "status,scrollbars,resizable,top=0,left=0,width=550,height=520")
+            //} else {
+            //	winPDF.top.window.location = urlEncoded;
+            //	winPDF.focus(true);
+            //}
+
+            setAcrobatReaderCookie()
+        }
+
+        function visualizarDetalleFastMailDeCuentaOriginal(codini, codfi, cuentaextracto, cuentaoriginal, concepto, fechaini, cadenabusqueda, firma1, firma2, numdias) {
+            var cuenta, firma
+            if (cuentaoriginal.length != 10) {
+                while (cuentaoriginal.length != 10) {
+                    cuentaoriginal = "0" + cuentaoriginal
+                }
+            }
+            if ((!cuentaoriginal) || (cuentaoriginal == '0000000000')) {
+                // alert("Extracto sin cuenta original");
+                cuenta = cuentaextracto
+                firma = firma1
+            } else {
+                var oficina = cuentaoriginal.substring(0, 4)
+                var numcuenta = cuentaoriginal.substring(4, 10)
+
+                //alert("cuenta extracto=" + cuentaextracto + ",cuenta original=" + cuentaoriginal + ",concepto=" + concepto);
+                tipocuenta = determinarTipoCuenta(cuentaextracto, cuentaoriginal, concepto)
+                //alert("tipocuenta=" + tipocuenta);
+                digitocontrolcuenta = calcularDigitoControlCuenta(oficina, tipocuenta, numcuenta)
+                //alert("digitocontrol=" + digitocontrolcuenta);
+
+                cuenta = oficina + tipocuenta + numcuenta + digitocontrolcuenta
+                // alert("Cuenta original: " + cuenta);
+                firma = firma2
+            }
+            visualizarDetalleFastMail(concepto, 'N', codini, codfi, cuenta, fechaini, cadenabusqueda, firma, numdias)
+        }
+
+        function downloadAcrobatReader() {
+            var win = window.open("http://www.adobe.es/products/acrobat/readstep2.html", "Instalar", "scrollbars,status,width=748,height=525,left=30,top=30")
+        }
+
+        function ajuda() {
+            var newloc = ""
+            if (navigator.appName == "Netscape" && navigator.platform == "Win32") {
+                newloc = "/ofic24h/fastmail/svinstall_help_nscas.html"
+            }
+            else {
+                newloc = "/ofic24h/fastmail/svinstall_help_cas.html"
+            }
+            var win = window.open(newloc, "Descarrega", "scrollbars,width=748,height=525,left=30,top=30")
+        }
+
+        function GetCookieValor(desplazamiento) {
+            var finstr = document.cookie.indexOf(";", desplazamiento)
+            if (finstr == -1) finstr = document.cookie.length
+            return unescape(document.cookie.substring(desplazamiento, finstr))
+        }
+
+        function Getcookie(nombre) {
+            var aux = nombre + "="
+            var auxlong = aux.length
+            var cooklong = document.cookie.length
+
+            var i = 0
+            while (i < cooklong) {
+                var j = i + auxlong
+                if (document.cookie.substring(i, j) == aux) return GetCookieValor(j)
+                i = document.cookie.indexOf("", i) + 1
+                if (i == 0) break
+            }
+            return null
+        }
+
+        function Setcookie(nombre, valor, date) {
+            servidor = location.hostname
+            if ((servidor.substring(0, 3) == "www") || (servidor.substring(0, 6) == "pegaso")) {
+                dominio = servidor.substring(servidor.indexOf("."), servidor.length)
+                document.cookie = nombre + "=" + valor + ";expires=" + date.toGMTString(date.getTime()) + ";Domain=" + dominio + ";Path=/"
+            }
+            else {
+                document.cookie = nombre + "=" + valor + ";expires=" + date.toGMTString(date.getTime()) + ";Path=/"
+            }
+        }
+
+        function setAcrobatReaderCookie() {
+            var expdate = new Date()
+            expdate.setDate(30)
+            expdate.setMonth(12)
+            expdate.setYear(2004)
+            expdate.getTime(expdate)
+
+            Setcookie('hasAcrobatReader', 'true', expdate)
+        }
+
+        function hasAcrobatReaderCookie() {
+            var valor = Getcookie('hasAcrobatReader')
+            return valor
+        }
+
+        function showAcrobatReaderInfo(visible) {
+            if ((document.layers) && (parseInt(navigator.appVersion) >= 5)) {
+                document.layers['adobe'].style.display = (visible) ? "block" : "none"
+            }
+            if ((document.layers) && (parseInt(navigator.appVersion) < 5)) {
+                document.layers['adobe'].visibility = (visible) ? "show" : "hide"
+            }
+            if (document.all) {
+                document.all['adobe'].style.display = (visible) ? "block" : "none"
+            }
+        }
+
+        function crearFitxer(tipus) {
+            //filCount = filCount + 1;
+            var adreca = "/servlet/GatewayServlet/;jsessionid=web4-8be%3A5a0f2322%3A1ef87bc51649b045?action=crearFitxer&seID=default value&idioma=CAS&nomClasse=B031VB" + tipus
+            winConsulta = window.open(adreca, "", "scrollbars, toolbar, menubar, resizable, top=0,left=0,width=650,height=420")
+        }
+
+        //-->
+    </script>
+</head>
+<body>
+<table width="630" class="paragraph" cellspacing="3" cellpadding="2" border="0">
+    <tr class="headType1">
+        <td width="630"><span class="paragraph"><font style="text-transform:uppercase;" color="white">   <b>Consulta de movimientos</b></font></span>
+        </td>
+    </tr>
+</table>
+<table width="630" cellspacing="3" cellpadding="2" border="0">
+    <tr>
+        <td valign="top" nowrap="true"><font class="text">Cuenta:</font>
+            1480-0010-92-0100025438
+        </td>
+        <td width="350" valign="top" nowrap="true">CUENTA CORRIENTE</td>
+    </tr>
+</table>
+<br>
+<script language="JavaScript1.2">
+    <!--
+
+    if (!hasAcrobatReaderCookie()) {
+        document.write('<table width="630" cellspacing="1" cellpadding="1" bordercolor="rgb(179,179,179)" border="1">')
+        document.write('<tr bordercolor="white">')
+        document.write('    <td bordercolor="white" align="center" width="30"><img src="/ofic24h/imatges/info.gif"></td>')
+        document.write('    <td bordercolor="white">')
+        document.write('	<p align="justify">')
+        document.write('	    <font class="text">')
+        document.write('		Para visualizar el detalle de los movimientos marcados con')
+        document.write('		<img border="0" src="/ofic24h/imatges/clip.gif"/>')
+        document.write("		, necesita tener instalado el programa<br/>")
+        document.write("		Acrobat Reader, que puede descargarse haciendo clic")
+        document.write("	    </font>")
+        document.write('	    <a href="javascript:downloadAcrobatReader()">')
+        document.write('		<font class="text"><u>')
+        document.write("	    		aquí")
+        document.write('		</u></font>')
+        document.write('	    </a>.')
+        document.write('	</p>')
+        document.write('    </td>')
+        document.write('</tr>')
+        document.write('</table>')
+        document.write('<br></br>')
+    } else {
+        document.write('<table width="630" cellspacing="1" cellpadding="1" bordercolor="rgb(179,179,179)" border="1">')
+        document.write('<tr bordercolor="white">')
+        document.write('    <td bordercolor="white" align="center" width="20"><img vspace="2" src="/ofic24h/imatges/info.gif"></td>')
+        document.write('    <td bordercolor="white">')
+        document.write('	<p align="justify">')
+
+        document.write('	    <font class="text">')
+        document.write('		Haga un clic en el concepto de los movimientos marcados con')
+        document.write('		<img border="0" src="/ofic24h/imatges/clip.gif"/>')
+        document.write('		, para visualizar el detalle del movimiento.')
+        document.write("	    </font>")
+
+        document.write('	</p>')
+        document.write('    </td>')
+        document.write('</tr>')
+        document.write('</table>')
+        document.write('</br>')
+    }
+
+    //-->
+</script>
+<table width="630" class="tabla" cellspacing="3" cellpadding="2" border="0">
+    <tr>
+        <td width="55" nowrap="true" class="header">Fecha operación</td>
+        <td width="25" nowrap="true" class="header"> </td>
+        <td width="160" nowrap="true" class="header">Concepto</td>
+        <td width="40" nowrap="true" class="header">Fecha valor</td>
+        <td nowrap="true" class="header" align="center">Importe</td>
+        <td width="110" nowrap="true" class="header" align="center">Saldo</td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">02-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'02-11-2017','29.317,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'02-11-2017','29.317,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">02-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>29.317,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-103.345,89</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">02-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S210955 </td>
+        <td nowrap="true">02-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.632,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-113.978,63</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">02-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S218552 </td>
+        <td nowrap="true">02-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-27.893,11</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-141.871,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">02-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S219104 </td>
+        <td nowrap="true">02-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-21.640,25</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-163.511,99</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">02-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'02-11-2017','3.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'02-11-2017','3.000,00',firmaCuenta,4)"> JOSE
+            M RODRIGUE </a></td>
+        <td nowrap="true">02-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>3.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-160.511,99</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">03-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'03-11-2017','12.900,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'03-11-2017','12.900,00',firmaCuenta,4)"> PAGO
+            HISPAMER N </a></td>
+        <td nowrap="true">03-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>12.900,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-147.611,99</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">03-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'03-11-2017','2.500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'03-11-2017','2.500,00',firmaCuenta,4)"> Resto
+            liquidaci </a></td>
+        <td nowrap="true">03-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>2.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-145.111,99</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">03-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S136911 </td>
+        <td nowrap="true">03-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.516,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-170.628,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">03-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'03-11-2017','10.908,50',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'03-11-2017','10.908,50',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">03-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.908,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-159.720,36</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">03-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'03-11-2017','150,44',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'03-11-2017','150,44',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">03-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>150,44</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-159.569,92</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">06-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('040', '','2285','2285',cuenta,'06-11-2017','8.556,96',firmaCuenta,3)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('040', '','2285','2285',cuenta,'06-11-2017','8.556,96',firmaCuenta,3)"> REB.
+            V.W.FINANC </a></td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-8.556,96</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-168.126,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">06-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','1.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','1.000,00',firmaCuenta,4)"> LUIS
+            MARIA ASTU </a></td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-167.126,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">06-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','1.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','1.000,00',firmaCuenta,4)"> TR.SEPA
+            RAUL FE </a></td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-166.126,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">06-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','60.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','60.000,00',firmaCuenta,4)"> TRASPASO
+            DE KUT </a></td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>60.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-106.126,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">06-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S221417 </td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-35.723,17</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-141.850,05</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">06-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','10.499,59',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'06-11-2017','10.499,59',firmaCuenta,4)"> TR.SEPA
+            ALAIN I </a></td>
+        <td nowrap="true">06-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.499,59</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-131.350,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> INT. VN 10.2017 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-3.795,01</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-135.145,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','94.413,87',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','94.413,87',firmaCuenta,4)"> FACTURAS
+            VN/401 </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>94.413,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-40.731,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','1.500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','1.500,00',firmaCuenta,4)"> COCHE
+            ROSALBA C </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-39.231,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','500,00',firmaCuenta,4)"> Mikel
+            78948386N </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-38.731,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','1.300,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'07-11-2017','1.300,00',firmaCuenta,4)"> TR.SEPA
+            GORKA D </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.300,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-37.431,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S214919 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-30.065,08</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-67.496,68</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S217111 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-29.771,53</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-97.268,21</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S218387 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-28.128,85</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-125.397,06</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S217988 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-28.125,03</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-153.522,09</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S219118 </td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.376,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-178.898,43</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'07-11-2017','30.423,94',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'07-11-2017','30.423,94',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>30.423,94</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-148.474,49</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">07-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'07-11-2017','39.993,56',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'07-11-2017','39.993,56',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">07-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>39.993,56</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-108.480,93</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'08-11-2017','40.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'08-11-2017','40.000,00',firmaCuenta,4)"> TRASPASO
+            A VW </a></td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>40.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-68.480,93</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S213091 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.632,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-79.113,67</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S211995 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-18.353,20</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-97.466,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S217529 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-26.021,68</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-123.488,55</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S207855 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-15.215,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-138.704,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S201650 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-24.887,15</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-163.591,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','15.308,50',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','15.308,50',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>15.308,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-148.283,11</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">08-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','24.808,50',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','24.808,50',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>24.808,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-123.474,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','9.500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','9.500,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>9.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-113.974,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">08-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S218804 </td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-22.098,18</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-136.072,79</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">08-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','21.217,22',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'08-11-2017','21.217,22',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">08-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>21.217,22</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-114.855,57</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','369,17',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','369,17',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>369,17</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-114.486,40</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','24.219,74',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','24.219,74',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>24.219,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-90.266,66</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S219997 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-26.385,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-116.652,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S201657 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.154,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-141.806,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M190081 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.690,14</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-152.496,14</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'09-11-2017','50.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'09-11-2017','50.000,00',firmaCuenta,4)"> TRASPASO
+            DE KUT </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>50.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-102.496,14</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','13.408,50',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','13.408,50',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>13.408,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-89.087,64</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','154,98',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','154,98',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>154,98</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-88.932,66</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M189586 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-13.296,40</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-102.229,06</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M190082 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.452,97</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-112.682,03</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M189175 </td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.990,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-123.672,94</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','10.311,24',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','10.311,24',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.311,24</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-113.361,70</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','161,84',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','161,84',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>161,84</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-113.199,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'09-11-2017','9.100,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'09-11-2017','9.100,00',firmaCuenta,4)"> TXOMIN
+            IBAIBARR </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>9.100,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-104.099,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">09-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','9.500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'09-11-2017','9.500,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">09-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>9.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-94.599,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','10.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','10.000,00',firmaCuenta,4)"> Angel
+            Escobar G </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-84.599,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','12.068,57',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','12.068,57',firmaCuenta,4)"> ALEXANDER
+            IRAZA </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>12.068,57</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-72.531,29</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','22.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'10-11-2017','22.000,00',firmaCuenta,4)"> TRASPASO
+            DE LAB </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>22.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-50.531,29</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','30.717,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','30.717,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>30.717,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-19.814,29</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S224615 </td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-28.116,15</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-47.930,44</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">10-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S224132 </td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-26.852,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-74.782,78</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S219194 </td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-30.344,42</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-105.127,20</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">10-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S223144 </td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.350,30</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-130.477,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S221638 </td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.153,96</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-155.631,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','9.500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','9.500,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>9.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-146.131,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">10-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','622,46',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'10-11-2017','622,46',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">10-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>622,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-145.509,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">11-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','2.383,24',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','2.383,24',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">11-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>2.383,24</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-143.125,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">11-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','99,83',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','99,83',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">11-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>99,83</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-143.025,93</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">11-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','23.321,36',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','23.321,36',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">11-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>23.321,36</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-119.704,57</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">11-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','492,52',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'11-11-2017','492,52',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">11-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>492,52</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-119.212,05</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">13-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M190616 </td>
+        <td nowrap="true">13-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-9.653,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-128.865,81</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">13-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','34.610,84',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','34.610,84',firmaCuenta,4)"> FACTURAS
+            VN/401 </a></td>
+        <td nowrap="true">13-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>34.610,84</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-94.254,97</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">13-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','1.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','1.000,00',firmaCuenta,4)"> PAGA
+            Y SEnAL SE </a></td>
+        <td nowrap="true">13-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-93.254,97</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">13-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','500,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'13-11-2017','500,00',firmaCuenta,4)"> cesar
+            elvis maz </a></td>
+        <td nowrap="true">13-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-92.754,97</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">13-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'13-11-2017','150,44',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'13-11-2017','150,44',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">13-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>150,44</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-92.604,53</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('040', '','2285','2285',cuenta,'14-11-2017','84,70',firmaCuenta,3)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('040', '','2285','2285',cuenta,'14-11-2017','84,70',firmaCuenta,3)"> REB.
+            MOTORFLASH </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-84,70</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-92.689,23</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">14-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S215133 </td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-38.987,68</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-131.676,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','4.400,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','4.400,00',firmaCuenta,4)"> Restante
+            Pago S </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>4.400,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-127.276,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','5.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','5.000,00',firmaCuenta,4)"> Pago
+            Restante S </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>5.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-122.276,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','11.108,50',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','11.108,50',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>11.108,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-111.168,41</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','171,89',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','171,89',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>171,89</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-110.996,52</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','12.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'14-11-2017','12.000,00',firmaCuenta,4)"> TRASPASO
+            DE LAB </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>12.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-98.996,52</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','12.516,57',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','12.516,57',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-12.516,57</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-111.513,09</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','5.813,42',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','5.813,42',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-5.813,42</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-117.326,51</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','4.295,10',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('062', '','0090','1500',cuenta,'14-11-2017','4.295,10',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-4.295,10</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-121.621,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">14-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','10.608,53',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'14-11-2017','10.608,53',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">14-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.608,53</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-111.013,08</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','4.336,02',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','4.336,02',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>4.336,02</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-106.677,06</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','544,15',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','544,15',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>544,15</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-106.132,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','50.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','50.000,00',firmaCuenta,4)"> TRASPASO
+            A VW D </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>50.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-56.132,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','15.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','15.000,00',firmaCuenta,4)"> Ateca
+            Manuel An </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>15.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-41.132,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','25.000,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'15-11-2017','25.000,00',firmaCuenta,4)"> TRASPASO
+            DE KUT </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>25.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-16.132,91</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">15-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S221676 </td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-15.847,98</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-31.980,89</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">15-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S224305 </td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-28.087,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-60.068,63</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">15-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S226446 </td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-26.861,93</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-86.930,56</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','35.955,87',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','35.955,87',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>35.955,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-50.974,69</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">15-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','195,29',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'15-11-2017','195,29',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">15-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>195,29</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-50.779,40</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','2.940,90',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','2.940,90',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>2.940,90</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-47.838,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','250,55',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','250,55',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>250,55</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-47.587,95</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','4.079,34',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','4.079,34',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>4.079,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-43.508,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','209,63',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','209,63',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>209,63</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-43.298,98</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','5.343,45',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','5.343,45',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>5.343,45</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-37.955,53</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','349,61',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','349,61',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>349,61</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-37.605,92</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.567,60',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.567,60',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.567,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-36.038,32</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','97,18',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','97,18',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>97,18</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-35.941,14</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','599,47',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','599,47',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>599,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-35.341,67</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','49,54',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','49,54',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>49,54</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-35.292,13</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.640,15',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.640,15',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.640,15</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-33.651,98</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','570,58',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','570,58',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>570,58</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-33.081,40</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.990,53',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','1.990,53',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.990,53</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-31.090,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','62,01',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','62,01',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>62,01</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-31.028,86</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','26.919,74',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','26.919,74',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>26.919,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-4.109,12</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'16-11-2017','23.250,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'16-11-2017','23.250,00',firmaCuenta,4)"> JANIRE
+            GONZALEZ </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>23.250,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>19.140,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','21.217,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','21.217,00',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>21.217,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>40.357,88</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S223145 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-27.635,78</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>12.722,10</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S226809 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-24.887,12</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-12.165,02</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S212241 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-23.447,71</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-35.612,73</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S224616 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-27.537,93</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-63.150,66</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> M190618 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-9.791,05</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-72.941,71</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S196162 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-37.656,18</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-110.597,89</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S217962 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-21.364,87</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-131.962,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S219289 </td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-28.446,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-160.409,10</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','187,60',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','187,60',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>187,60</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-160.221,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'16-11-2017','7.100,00',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('490', '','0070','0190',cuenta,'16-11-2017','7.100,00',firmaCuenta,4)"> Miguel
+            Saez Gon </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>7.100,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-153.121,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">16-11-17</td>
+        <td valign="middle" align="center"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','10.317,24',firmaCuenta,4)"><img
+                src="/ofic24h/imatges/clip.gif" border="0"></a></td>
+        <td nowrap="true"><a
+                href="javascript:visualizarDetalleFastMail('312', '','0070','0190',cuenta,'16-11-2017','10.317,24',firmaCuenta,4)"> TRANSFE
+            VOLKSWA </a></td>
+        <td nowrap="true">16-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.317,24</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-142.804,26</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> TRANSFE VOLKSWA </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>30.127,79</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-112.676,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> PAGO HISPAMER N </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>4.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-108.176,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> TRASPASO A VW D </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>60.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-48.176,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> MATIAS SANCHEZ </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>8.000,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-40.176,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> OIHANE ECHEVARR </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>14.300,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-25.876,47</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> PAGO VEHICULO C </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>7.997,26</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-17.879,21</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S226155 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-24.344,50</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-42.223,71</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S226447 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-26.687,34</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-68.911,05</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S198553 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-30.129,71</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-99.040,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> TRANSFE VOLKSWA </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>21.217,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-77.823,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> LEON CUPRA - JO </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>1.500,00</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-76.323,76</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S225480 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-22.301,70</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-98.625,46</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S213087 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-10.632,74</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-109.258,20</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> S225123 </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-22.334,10</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-131.592,30</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="senar">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> TRANSFE VOLKSWA </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>10.608,72</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-120.983,58</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="parell">
+        <td nowrap="true">17-11-17</td>
+        <td> </td>
+        <td nowrap="true"> TRANSFE VOLKSWA </td>
+        <td nowrap="true">17-11</td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font>155,18</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+        <td nowrap="true" align="right">
+            <table>
+                <tr>
+                    <td width="90" align="right"><font color="red">-120.828,40</font></td>
+                    <td width="22"> <font>EUR</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td valign="middle"><font class="textnou">Haga un clic en </font></td>
+        <td valign="middle"><a onClick="crearFitxer('Excel')return true" href="#"><img src="/ofic24h/imatges/excel.gif"
+                                                                                       border="0"></a></td>
+        <td valign="middle"><font class="textnou"> para ver los movimientos en formato Excel o en </font></td>
+        <td valign="middle"><a onClick="crearFitxer('Txt')return true" href="#"><img src="/ofic24h/imatges/notepad.gif"
+                                                                                     border="0"></a></td>
+        <td valign="middle"><font class="textnou"> para verlos en formato de texto.</font></td>
+    </tr>
+</table>
+</body>
+</html>

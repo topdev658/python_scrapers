@@ -1,0 +1,956 @@
+
+<HTML>
+<HEAD>
+ <TITLE>Movimientos de cuentas</TITLE>
+<SCRIPT language="JavaScript" SRC="/FicherosGenerales/includes/ValidacionCampos/seleccion.js"></SCRIPT>
+<SCRIPT language="JavaScript" SRC="/FicherosGenerales/includes/ValidacionCampos/Fechas.js"></SCRIPT>
+<SCRIPT language="JavaScript" SRC="/FicherosGenerales/includes/ValidacionCampos/Numerico.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="/FicherosGenerales/Includes/EnlacesPlanes.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+ <!--
+ var sincargar = true;
+ var ejecutado = false;
+
+
+function quitaTipo(Cuenta) {
+	return Cuenta.substr(0,Cuenta.indexOf("@"));
+}
+
+function TipoCuenta(Cuenta) {
+	return Cuenta.substr(Cuenta.indexOf("@")+1,2);
+}
+
+function IniciaPag() {
+	
+		
+	if (document.formCambioCuenta.cuentaA.length == 0){
+		alert ("No hay ninguna Cuenta Corriente que consultar.");
+		return false;
+	}
+	
+	for (cAccount = 0; cAccount < document.formCambioCuenta.cuentaA.options.length; cAccount = cAccount + 1) {
+		if (quitaTipo(document.formCambioCuenta.cuentaA.options[cAccount].value) == "") {
+			document.formCambioCuenta.cuentaA.options[cAccount].selected = true;
+		}
+		else {
+			document.formCambioCuenta.cuentaA.options[cAccount].selected = false;
+		}
+	}
+	if ((navigator.appVersion.indexOf("Macintosh") > -1) ||
+	    (document.formCambioCuenta.cuentaA.length == 1)) {
+	    	document.formCambioCuenta.cuentaA.selectedIndex = 0;
+	}
+	document.formCambioCuenta.cuentaA.focus();
+	
+		document.formCambioCuenta.fechas[0].checked=true;
+		
+		fechasDesde.style.visibility="hidden";
+		fechasDesde.style.display="none";
+		LfechasDesde.style.visibility="visible";
+		LfechasDesde.style.display="block";
+		fechasHasta.style.visibility="hidden";
+		fechasHasta.style.display="none";
+		LfechasHasta.style.visibility="visible";
+		LfechasHasta.style.display="block";
+		
+	
+	self.defaultStatus = "Movimientos de Cuentas.";
+	
+	return true;
+ }
+
+ function FinPag() {
+	self.defaultStatus = "";
+	return true;
+ }
+
+//NUEVO 09/01/2008
+function ListaDeSeleccionados(Objeto)
+{
+	var i;
+	var lisSel = "";
+	var arraia="";
+	for (i = 0; i < Objeto.options.length; i= i + 1) {
+		if (Objeto.options[i].selected == true) {
+			arraia=Objeto.options[i].value;
+			lisSel = lisSel + arraia;
+			//lisSel=lisSel + arraia.substr(0,arraia.indexOf("@"));
+		}
+	}
+	return lisSel;
+}
+
+//NUEVO 09/01/2008
+function TipoDeCuenta(Cuenta,count)
+{
+	var c;
+	c=0;
+	var i;
+	var arraia;
+	var Tipo;
+	Tipo="";
+	var TipoCuenta;
+	TipoCuenta="";
+	
+	for (var j=1;j<=count;j++)
+	{	
+		if (j==1)
+		{ 
+			arraia=Cuenta.substr(0,27);
+			Tipo=arraia.substr(arraia.indexOf("@")+1,2);
+			TipoCuenta=TipoCuenta+Tipo;
+		}
+		else
+		{
+			i=(27*(j-1));
+			arraia=Cuenta.substr(i,27);
+			Tipo=arraia.substr(arraia.indexOf("@")+1,2);
+			TipoCuenta=TipoCuenta+Tipo;
+		}
+		//c=c+1;	
+	}
+	return TipoCuenta;
+}
+
+//NUEVO 09/01/2008
+function quitarTipoASeleccionados(lista,Tipos,count)
+{
+	var arraia;
+	var Cadena;
+	var Lon;
+	var Cant;
+	var TipoCuenta;
+	Cadena = "";
+	i = 0;
+	var Parte1;
+	for (var j=1;j<=count;j++)
+	{	
+		TipoCuenta = Tipos.substr(2*(j-1),2);
+		if (TipoCuenta == "26")
+		{
+			Lon = 26;
+		}
+		else
+		{
+			Lon = 27;
+		}
+		if (j==1)
+		{ 
+			arraia=lista.substr(0,Lon);
+			Parte1=arraia.substr(0,arraia.indexOf("@"));
+			Cadena=Cadena+Parte1;
+			i = Lon;
+		}
+		else
+		{
+			arraia=lista.substr(i,Lon);
+			Parte1=arraia.substr(0,arraia.indexOf("@"));
+			Cadena=Cadena+Parte1;
+			i=i + Lon;
+		}
+	}
+	return Cadena;
+}
+
+function DiferenciarCuenta(cuenta)
+{
+	var tipoC;
+	var comienzo;
+		
+	tipoC=TipoCuenta(cuenta);
+	comienzo=cuenta.substring(0,3);
+		
+	//document.formCambioCuenta.fechas[0].checked=true;
+	
+	
+		//Empresa
+	
+		document.formCambioCuenta.diadesde.value = "24";
+		document.formCambioCuenta.Ldiadesde.value = "24";
+		document.formCambioCuenta.mesdesde.value = "10";
+		document.formCambioCuenta.Lmesdesde.value = "10";
+		document.formCambioCuenta.yeardesde.value = "2022";
+		document.formCambioCuenta.Lyeardesde.value = "2022";
+	
+	
+	
+	if (tipoC=="01" || tipoC=="02" || tipoC=="11" || tipoC=="71") 
+	{
+		
+			document.formAyuda.style.visibility="visible"; 
+		
+		texto71.style.visibility="visible";
+		texto71.style.display="block";
+		texto72.style.visibility="hidden";
+		texto72.style.display="none";
+	}
+	else
+	{	
+		
+			document.formAyuda.style.visibility="hidden";
+		
+		texto71.style.visibility="hidden";
+		texto71.style.display="none";
+		texto72.style.visibility="visible";
+		texto72.style.display="block";		
+	}
+}
+
+function RellenarFechas()
+{ 	
+	// rellenar las fechas dependiendo de la seleccion realizada
+	var valor=radioSeleccionado(document.formCambioCuenta.fechas);
+	switch(strValorRadio)
+	{
+		case "D":
+			//Dia
+			document.formCambioCuenta.diadesde.value = "24";
+			document.formCambioCuenta.Ldiadesde.value = "24";
+			document.formCambioCuenta.mesdesde.value = "10";
+			document.formCambioCuenta.Lmesdesde.value = "10";
+			document.formCambioCuenta.yeardesde.value = "2022";
+			document.formCambioCuenta.Lyeardesde.value = "2022";
+			
+			document.formCambioCuenta.diahasta.value = "24";
+			document.formCambioCuenta.meshasta.value = "10";
+			document.formCambioCuenta.yearhasta.value = "2022";
+					
+			fechasDesde.style.visibility="hidden";
+			fechasDesde.style.display="none";
+			LfechasDesde.style.visibility="visible";
+			LfechasDesde.style.display="block";
+			fechasHasta.style.visibility="hidden";
+			fechasHasta.style.display="none";
+			LfechasHasta.style.visibility="visible";
+			LfechasHasta.style.display="block";
+	
+			break;
+			
+		case "F":
+			//Fechas a seleccionar
+			
+							
+				var sele;
+				sele=ListaSeleccionados(document.formCambioCuenta.cuentaA);				
+			
+				if (sele.length > 10)
+				{
+					//Si tiene mas de 1 cuenta mostrar el dia de hoy
+					
+					document.formCambioCuenta.diadesde.value = "24";
+					document.formCambioCuenta.Ldiadesde.value = "24";
+					document.formCambioCuenta.mesdesde.value = "10";
+					document.formCambioCuenta.Lmesdesde.value = "10";
+					document.formCambioCuenta.yeardesde.value = "2022";
+					document.formCambioCuenta.Lyeardesde.value = "2022";
+				}
+				else
+				{
+					//En caso de tener 1 sola cuenta dependiendo del tipo mostrar las fechas indicadas.
+			
+					var tipoC;
+					var comienzo;
+					var cuenta;
+					cuenta=document.formCambioCuenta.cuentaA.value;
+					tipoC=TipoCuenta(cuenta);
+					comienzo=cuenta.substring(0,3);
+					
+					if (tipoC=="04" && (comienzo=="645" || comienzo=="646" || comienzo=="647"))
+					{
+						document.formCambioCuenta.diadesde.value = "24";
+						document.formCambioCuenta.Ldiadesde.value = "24";
+						document.formCambioCuenta.mesdesde.value = "04";
+						document.formCambioCuenta.Lmesdesde.value = "04";
+						document.formCambioCuenta.yeardesde.value = "2022";
+						document.formCambioCuenta.Lyeardesde.value = "2022";
+					}
+					else
+					{
+						document.formCambioCuenta.diadesde.value = "24";
+						document.formCambioCuenta.Ldiadesde.value = "24";
+						document.formCambioCuenta.mesdesde.value = "10";
+						document.formCambioCuenta.Lmesdesde.value = "10";
+						document.formCambioCuenta.yeardesde.value = "2022";
+						document.formCambioCuenta.Lyeardesde.value = "2022";
+					}			
+				
+				}
+
+			
+			
+			document.formCambioCuenta.diahasta.value = "24";
+			document.formCambioCuenta.meshasta.value = "10";
+			document.formCambioCuenta.yearhasta.value = "2022";
+			
+			fechasDesde.style.visibility="visible";
+			fechasDesde.style.display="block";
+			LfechasDesde.style.visibility="hidden";
+			LfechasDesde.style.display="none";
+			fechasHasta.style.visibility="visible";
+			fechasHasta.style.display="block";
+			LfechasHasta.style.visibility="hidden";
+			LfechasHasta.style.display="none";
+			
+			break;
+				
+		case "S":
+			//Semana
+			document.formCambioCuenta.diadesde.value = "17";
+			document.formCambioCuenta.Ldiadesde.value = "17";
+			document.formCambioCuenta.mesdesde.value = "10";
+			document.formCambioCuenta.Lmesdesde.value = "10";
+			document.formCambioCuenta.yeardesde.value = "2022";
+			document.formCambioCuenta.Lyeardesde.value = "2022";
+			
+			document.formCambioCuenta.diahasta.value = "24";
+			document.formCambioCuenta.meshasta.value = "10";
+			document.formCambioCuenta.yearhasta.value = "2022";
+					
+			fechasDesde.style.visibility="hidden";
+			fechasDesde.style.display="none";
+			LfechasDesde.style.visibility="visible";
+			LfechasDesde.style.display="block";
+			fechasHasta.style.visibility="hidden";
+			fechasHasta.style.display="none";
+			LfechasHasta.style.visibility="visible";
+			LfechasHasta.style.display="block";
+			
+			break;
+			
+		case "Q":
+			//Quincena
+			document.formCambioCuenta.diadesde.value = "09";
+			document.formCambioCuenta.Ldiadesde.value = "09";
+			document.formCambioCuenta.mesdesde.value = "10";
+			document.formCambioCuenta.Lmesdesde.value = "10";
+			document.formCambioCuenta.yeardesde.value = "2022";
+			document.formCambioCuenta.Lyeardesde.value = "2022";
+			
+			document.formCambioCuenta.diahasta.value = "24";
+			document.formCambioCuenta.meshasta.value = "10";
+			document.formCambioCuenta.yearhasta.value = "2022";
+					
+			fechasDesde.style.visibility="hidden";		
+			fechasDesde.style.display="none";
+			LfechasDesde.style.visibility="visible";
+			LfechasDesde.style.display="block";
+			fechasHasta.style.visibility="hidden";
+			fechasHasta.style.display="none";
+			LfechasHasta.style.visibility="visible";
+			LfechasHasta.style.display="block";
+			
+			break;
+			
+		case "M":
+			//Mes
+			document.formCambioCuenta.diadesde.value = "24";
+			document.formCambioCuenta.Ldiadesde.value = "24";
+			document.formCambioCuenta.mesdesde.value = "09";
+			document.formCambioCuenta.Lmesdesde.value = "09";
+			document.formCambioCuenta.yeardesde.value = "2022";
+			document.formCambioCuenta.Lyeardesde.value = "2022";
+			
+			document.formCambioCuenta.diahasta.value = "24";
+			document.formCambioCuenta.meshasta.value = "10";
+			document.formCambioCuenta.yearhasta.value = "2022";
+						
+			fechasDesde.style.visibility="hidden";
+			fechasDesde.style.display="none";
+			LfechasDesde.style.visibility="visible";
+			LfechasDesde.style.display="block";
+			fechasHasta.style.visibility="hidden";
+			fechasHasta.style.display="none";
+			LfechasHasta.style.visibility="visible";
+			LfechasHasta.style.display="block";
+			
+			break;
+	}
+}
+
+function ValidaForm(frm) {
+	var lCuentaAux, Indice, lTipoCuenta;
+
+	if (sincargar) {
+		alert("Espere a que la página se haya terminado de cargar.");
+		return false;
+	}
+	if (ejecutado) {
+		alert("Espere por favor su petición se está procesando");
+		return false;
+	}
+			
+	if (!(Numerico(frm.diadesde.value,frm.diadesde))) return false;
+	if (!(Numerico(frm.mesdesde.value,frm.mesdesde))) return false;
+	if (!(Numerico(frm.yeardesde.value,frm.yeardesde))) return false;
+	if (!(Numerico(frm.diahasta.value,frm.diahasta))) return false;
+	if (!(Numerico(frm.meshasta.value,frm.meshasta))) return false;
+	if (!(Numerico(frm.yearhasta.value,frm.yearhasta))) return false;
+
+	diadesde  = frm.diadesde.value*1;
+	mesdesde  = frm.mesdesde.value*1;
+	aniodesde = frm.yeardesde.value;
+	diahasta  = frm.diahasta.value*1;
+	meshasta  = frm.meshasta.value*1;
+	aniohasta = frm.yearhasta.value;
+
+	if (ValidaFechas() != 0) return false;
+
+	frm.diadesde.value  = diadesde;
+	frm.mesdesde.value  = mesdesde;
+	frm.yeardesde.value = aniodesde;
+	frm.diahasta.value  = diahasta;
+	frm.meshasta.value  = meshasta;
+	frm.yearhasta.value = aniohasta;	
+	
+	frm.FECHAINICIO.value = diadesde + "" + mesdesde +  "" + aniodesde;
+	frm.FECHAFIN.value = diahasta + "" + meshasta +  "" + aniohasta;
+
+	//frm.action = "C020_CuentasTodos.asp";
+	frm.action="C020_Cuentas.asp";
+
+	var lisSel;
+	var cont;
+	cont=0;
+	
+	//NUEVO 09/01/2008
+	//contar cuantas cuentas se han seleccionado
+	cont=0;
+	for (i = 0; i < document.formCambioCuenta.cuentaA.length; i++)
+	{
+		if (document.formCambioCuenta.cuentaA.options[i].selected)
+		{
+			cont=cont+1;
+		}
+	}
+	
+	lisSel=ListaDeSeleccionados(frm.cuentaA)
+	
+		
+	if (lisSel == "") {
+		alert("Seleccione la(s) cuenta(s) de la(s) que desea consultar los últimos movimientos.");
+		frm.cuentaA.focus();
+		return false;
+	}
+	//FIN NUEVO 09/01/2008
+	
+    /*Indice = Seleccionado(frm.cuentaA);
+	if (Indice == -1) {
+		alert("Seleccione una cuenta.");
+		frm.cuentaA.focus();
+		return false;
+	}
+		
+	lCuentaAux = frm.cuentaA[Indice].value;
+	lTipoCuenta = TipoCuenta(lCuentaAux);
+	frm.lcuenta.value = lCuentaAux;*/
+	//lTipoCuenta1 = TipoDeCuenta(lCuentaAux,cont)
+	
+	// NUEVO 09/01/2008
+	frm.lcuenta.value = lisSel;
+	var lTipoCuenta1
+	lTipoCuenta1 = TipoDeCuenta(lisSel,cont)
+	//FIN NUEVO
+
+	blnCSB43 = false;
+	blnDivisas = false;
+	blnCuentas = false;
+	
+	var PoderHacer43;
+	PoderHacer43=0;
+	var tipo;
+	var i;
+	i=0;
+	
+	//MODIFICADO 09/01/2008
+	for (var z=1;z<=cont;z++)
+	{
+		if (z==1)
+		{ 
+			tipo=lTipoCuenta1.substr(0,2);
+			
+			lTipoCuenta=tipo;
+		}
+		else
+		{
+			i=(2*(z-1));
+			tipo=lTipoCuenta1.substr(i,2);
+			
+			lTipoCuenta=tipo;
+		}
+	
+		blnCSB43 = false;
+		
+		switch(lTipoCuenta)
+		{
+			case "01": case "02": case "11": case "71": //cuentas corrientes y prestamos
+				blnCSB43 = true;
+				PoderHacer43 = PoderHacer43 + 1;
+				blnCuentas = true;
+				break;
+			case "05":	//FONDOS
+				frm.action = "C020_Fondos.asp";
+				break;
+			case "07":
+			case "50":
+			case "08":	// PLANES DE PREVISION/PENSION
+				frm.action = "C020_Planes.asp";
+				break;
+			case "12":	//PRESTAMOS DE CUOTA CONSTANTE
+				frm.action = "../Prestamos/ConsulImpagos2.asp";
+				//return true;
+				break;
+			case "23":	//VALORES
+				frm.action = "C020_Valores.asp";
+				break;
+			case "26":    //DIVISAS
+				frm.action = "C020_Divisas.asp";
+				blnDivisas = true;
+				blnCSB43 = true;
+				PoderHacer43 = PoderHacer43 + 1;
+				break;
+			case "04":	//PLAZO
+				var cuenta,numero;
+				cuenta=document.formCambioCuenta.cuentaA.value;
+				numero=cuenta.substr(1,2)
+				if (numero == "46")
+				{
+					document.formCambioCuenta.tipo.value="GO";
+				}
+				frm.action = "C020_Plazo.asp";
+				break;
+			default:
+				//blnCSB43 = true;
+				//PoderHacer43 = PoderHacer43 + 1;
+				blnCuentas = true;
+				break;			
+		}
+			
+		// Para préstamos CLP
+		if ((lTipoCuenta == "31") && (fechadesde < "20010119")) {
+			alert ("Fecha Desde no puede ser inferior a 19-01-2001.");
+			return false;
+		}
+	}
+	//FIN MODIFICADO
+	
+	var mensaje = "0";
+	if (frm.txtCsb43.value == "1")
+	{
+		//if (!blnCSB43)
+		if (PoderHacer43!=cont)
+		{
+			alert("La generación del cuaderno 43 no es válida para alguno(s) de este(os) tipo(s) de cuenta(s).");
+			frm.txtCsb43.value = "0";
+			return false;
+		}
+		else
+		{
+			// NUEVO 09/01/2008
+			frm.cuenta1.value=quitarTipoASeleccionados(lisSel,lTipoCuenta1,cont);
+			frm.count.value=cont;
+			//FIN NUEVO
+			//frm.action = "C020_Csb43Todos.asp";
+			frm.action = "C020_Csb43.asp";
+			
+			frm.txtCsb43.value = "0";
+			if ((parseFloat(frm.diadesde.value) == parseFloat("24")) && (parseFloat(frm.mesdesde.value) == parseFloat("10")) && (parseFloat(frm.yeardesde.value) == parseFloat("2022")))
+			{
+				frm.FECHAINICIO.value = "23" + "10" + "2022";
+				mensaje = "1";
+			}
+			if ((parseFloat(frm.diahasta.value) == parseFloat("24")) && (parseFloat(frm.meshasta.value) == parseFloat("10")) && (parseFloat(frm.yearhasta.value) == parseFloat("2022")))
+			{
+				frm.FECHAFIN.value = "23" + "10" + "2022";
+				mensaje = "1";
+			}
+			if (mensaje=="1")
+			{
+				alert("El fichero contendrá información hasta el día de ayer inclusive.\r\nPuedes seleccionar múltiples cuentas pulsando la tecla 'Control' (usuarios de Mac, usar la tecla 'Shift')");
+				mensaje = "0";
+			}
+			
+		}
+	}
+	else
+	{
+		if (frm.txtExcel.value == "1")
+		{//excel
+			if (cont>1)
+			{
+				alert("No puedes sacar el excel de más de una cuenta!");
+				return false;
+			}
+			else
+			{
+				//if (frm.action == "C020_Divisas.asp")
+				if (blnDivisas)
+				{
+					alert("La generación del Excel no es válida para este tipo de cuenta en este punto. Hágalo desde la página que aparece tras pulsar Aceptar en esta página.");
+					frm.txtExcel.value = "0";
+					return false;
+				}
+				//if (frm.action != "C020_Cuentas.asp")
+				if (!blnCuentas)
+				{
+					alert("La generación del Excel no es válida para este tipo de cuenta.");
+					frm.txtExcel.value = "0";
+					return false;
+				}
+				else
+				{
+					//frm.action = "C020_CuentasTodosExcel.asp";
+					frm.action = "C020_CuentasExcel.asp";
+					frm.txtExcel.value = "0";
+				}
+			}
+		}
+		else
+		{		
+			//aceptar
+			if (cont>1)
+			{
+				alert("No puedes sacar datos de más de una cuenta!");
+				return false;
+			}
+			else
+			{
+			
+				if (lTipoCuenta=="01" || lTipoCuenta=="02" || lTipoCuenta=="11" || lTipoCuenta=="71") 
+				{
+					var d = new Date();
+					var anioMenos7 = d.getFullYear()-7;		
+					if (aniodesde < anioMenos7)
+					{
+						alert ("La fecha desde debe estar dentro de los últimos 7 años");
+						return false;
+					}	
+				}
+				//frm.action="C020_Cuentas.asp";
+				ejecutado = true;
+			}
+		}
+	}
+	return true;
+ }
+ 
+ function Cuentas(form)
+ { 
+	form.action="C212_Sel_Canceladas.asp";
+	//form.action="C212_SelTodos_Canceladas.asp";
+ }
+ 
+ function Buscador()
+ {		
+	window.parent.frames['menu'].clikBuscadorMovs();
+ }
+ function Ingresos()
+ {	
+	window.parent.frames['menu'].clikIngresosGastos();
+ }
+ // -->
+ </SCRIPT>
+<!--hoja de estilos-->
+<link rel="stylesheet" href="/FicherosGenerales/estilosKFF.css" type="text/css">
+<link rel="stylesheet" href="/FicherosGenerales/corporativa2.css" type="text/css">
+
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="XMY5M-CDLQL-U7A82-5B34U-RGB42",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"XMY5M-CDLQL-U7A82-5B34U-RGB42";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="xejqmnacccwjqy2wndea-f-6489280b6-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"33","ak.cp":"1332309","ak.ai":parseInt("799595",10),"ak.ol":"0","ak.cr":39,"ak.ipv":4,"ak.proto":"h2","ak.rid":"28ce43a2","ak.r":30628,"ak.a2":n,"ak.m":"b","ak.n":"essl","ak.bpcip":"185.19.6.0","ak.cport":40560,"ak.gh":"2.16.172.148","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1666607304","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==teozj2ZHUovV5NOPG83V/ufXT9bDEwD+5mEGby8uK9lheBYjZ249RPsGS5egxZTBNlzWdDMVsmLijFzKDwRfCmxPKqdhyrrjiwaY13Q30A5R5T1vgyOKGb6paJYFkZXkNRzhVAevDVP9ER4nwkR6ZX0Ow51cejA5U+IVmcVH253DB28hskmwbA/mZiH/Slmmj8HQ6dUKuW+Q8TseOfFdHfAUDNvQElcAg3ktEZhDHa6f/AM71Htq0GzH1k6ATKWQ2xZC7/KdWOOTXQVq+hRSwEMSs7AQpdklwsTfjP/0IA7c+uIRL6KQbdL2ay2egpLk0SuErD3NrQ8mqKrqZGUmLD7csD5AjveqbUd9KOcd69S4uWmFfsQTkfPoDOXFl4QYKbLHgd3nj6wZKrDEA3mt9D6VPbRt4rQSsNAU9+jT7ho=","ak.pv":"22","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></HEAD>
+<body onLoad="return IniciaPag()" onUnload="return FinPag()" bgcolor="#cccccc" text="#000000" link="#666666" vlink="#666666" alink="#666666">
+<SCRIPT language="JavaScript">
+function Print() {
+  if (document.queryCommandSupported('print')) {
+    document.execCommand('print', false, null);
+	}
+	else {
+    window.parent.ventana_principal.focus();
+    window.print();
+	}
+}
+</SCRIPT>
+<div style="width:100%; height:100%; background-color:#fff; border:0px; margin:0px; padding:0px;">
+ 	
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%; background-color:#fff; border:0px; margin:0px; padding:0px;"> 	
+   <tr style="width:100%; height:10px;" height="10" class="ScreenOnly">
+    <td width="10" height="10" style="width:10px; height:10px;" class="ScreenOnly"><img src="/imk/ai.gif" width="10" height="10" style="width:10px; height:10px;"/></td>
+    <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+    <td width="10" height="10" style="width:10px; height:10px;" class="ScreenOnly"><img src="/imk/ad.gif" width="10" height="10" style="width:10px; height:10px;"/></td>
+   </tr>
+   <tr>
+		<td width="10" style="width:10px;"><img src="/imk/pb.gif" width="10" style="width:10px;"/></td>
+		<td valign="top" style="position:relative;top:0px;">
+
+<center>
+<table width="550" border="0" cellspacing="0" cellpadding="0" align="center" style="background-color:#ffffff;">
+<tr><td colspan="4" width="8" height="8"><img src="/ImgArista/punto.gif" width="8" height="8"/></td></tr>   
+<tr>
+
+    <td width="435"><font face="Verdana, Arial, Helvetica, sans-serif" size="4" color="#666666">Movimientos de cuentas</font></td>
+
+    <td width="10">&nbsp</td>
+
+        <td width="15">&nbsp;</td>
+        <td width="90" class="txtazul"><div align="right">24-10-2022<BR>12:28:24</div></td>
+    </tr>
+    <tr>
+        <td colspan="4" width="550" height="1" bgcolor="#D12176"><img src="/ImgArista/punto.gif" width="2" height="2"/></td>
+    </tr>    
+    
+</table>
+<br/>
+
+  <FORM name ="formCanceladas" action=C212_Sel_Canceladas.asp METHOD="POST">
+  <INPUT TYPE='hidden' NAME='Id' value='740611660' /><input type=hidden name=codreducida value='71659235K' />
+ </FORM>
+<FORM name ="formCambioCuenta" action=C020_Cuentas.asp METHOD="POST" onSubmit="return ValidaForm(this)">
+  <INPUT TYPE='hidden' NAME='Id' value='740611660' /><input type=hidden name=codreducida value='71659235K' />
+ <INPUT TYPE="hidden" NAME="Teradata" VALUE="S">
+ <INPUT TYPE="hidden" NAME="lcuenta">
+ <INPUT TYPE="hidden" NAME="cuenta1">
+ <INPUT TYPE="hidden" NAME="count">  
+ <INPUT TYPE="hidden" NAME="tipo" VALUE="">
+ <INPUT TYPE="hidden" NAME="DesdeMenu" VALUE="**">
+  
+ 
+ <INPUT TYPE="hidden" NAME="ULTIMOREG" VALUE="0">
+ <!--<INPUT TYPE="hidden" NAME="REGISTROS" VALUE="0">
+ <INPUT TYPE="hidden" NAME="NUMREG" VALUE="0">-->
+  
+ 
+ <INPUT TYPE="hidden" NAME="FECHAINICIO">
+ <INPUT TYPE="hidden" NAME="FECHAFIN">
+ <INPUT TYPE="hidden" NAME="FICHERO"   VALUE="0">
+ <INPUT TYPE="hidden" NAME="NUMERO"    VALUE="0">
+ <INPUT TYPE="hidden" NAME="SENTIDO"   VALUE="0">
+ <INPUT TYPE="hidden" NAME="HISTORICO" VALUE="0">
+ <INPUT TYPE="hidden" NAME="PRIMERO"   VALUE="0">
+ <INPUT TYPE="hidden" NAME="FECHAPRIMERO" VALUE="">
+ <INPUT TYPE="hidden" NAME="FECHAULTIMO" VALUE="">
+ <INPUT TYPE="hidden" NAME="REGISTROS" VALUE="0">
+ <INPUT TYPE="hidden" NAME="NUMREG" VALUE="0">
+ <INPUT TYPE="hidden" NAME="SALDONUEVO"  VALUE="00000000000000">
+ <INPUT TYPE="hidden" NAME="SIGNOSALDO"  VALUE=" ">
+
+ 
+ <INPUT TYPE="hidden" NAME="OPCION" VALUE="3">
+ <INPUT TYPE="hidden" NAME="NUMOPE" VALUE="0">
+ <INPUT TYPE="hidden" NAME="SALDO"  VALUE="0">
+ <INPUT TYPE="hidden" NAME="SIGNO"  VALUE=" ">
+
+ 
+ <INPUT TYPE="hidden" NAME="REGOPER"  VALUE="0000000">
+ <INPUT TYPE="hidden" NAME="CONTADOR" VALUE="000">
+
+ 
+ <INPUT TYPE="hidden" NAME="NORDEN" VALUE="9999999999">
+  
+ 
+ <INPUT type="hidden" name="NRegOpe"    value="0000000">
+ <INPUT type="hidden" name="NumRec"     value="00000">
+ <INPUT type="hidden" name="SubNum"     value="00">
+ <INPUT type="hidden" name="NumDis"     value="00">
+ <INPUT type="hidden" name="CapAmorPag" value="00000000000000">
+ <INPUT type="hidden" name="ImpIntPag"  value="00000000000000">
+ <INPUT type="hidden" name="ImpSubPag"  value="00000000000000">
+ <INPUT type="hidden" name="ImpMorPag"  value="00000000000000">
+ <INPUT type="hidden" name="TotalPag"   value="00000000000000">
+ <INPUT type="hidden" name="CapAmorImp" value="00000000000000">
+ <INPUT type="hidden" name="ImpIntImp"  value="00000000000000">
+ <INPUT type="hidden" name="ImpMorImp"  value="00000000000000">
+ <INPUT type="hidden" name="TotalImp"   value="00000000000000">   
+ <INPUT type="hidden" name="txtCsb43" id="txtCsb43" value="">
+ <INPUT type="hidden" name="txtExcel" id="txtExcel" value="">
+ 
+<table border="0" cellspacing="0" cellpadding="0" width="500">
+
+      <tr align="center">
+        <td class="txtazul" colspan="4">Seleccione un n&uacute;mero de cuenta de la lista y pulse en <B>Aceptar</B>.<BR><BR></TD>
+      </tr>
+	  <TR>
+		<TD colspan="4"><img src="/ImgArista/punto.gif" width="1" height="10"></TD>
+	  </TR>
+	  <TR>
+		<TD colspan="4" width='100%'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></TD>
+	  </TR>
+	  <TR>
+		<TD colspan="4" bgcolor="#EEEEEE"><img src="/ImgArista/punto.gif" width="1" height="10"></TD>
+      </TR>
+      <TR>
+		<th colspan="4" class="txtazul" bgcolor="#EEEEEE" align='center'> &nbsp;N&ordm; de Cuenta: &nbsp; &nbsp;</th>
+	  </TR>
+      <tr>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+        <td colspan="2" bgcolor="#EEEEEE" align='center'><SELECT class='campo' multiple size='5' onClick='javascript:DiferenciarCuenta(document.formCambioCuenta.cuentaA.value);' id='cuentaA' onClick='return true' name='cuentaA' size='1 '><OPTION value='1870057839@01@187.0.05783.9'>187.0.05783.9 (Supercuenta)</OPTION></SELECT></td>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+		<TD colspan="4" bgcolor="#EEEEEE"><img src="/ImgArista/punto.gif" width="1" height="6"></TD>
+      </tr>
+
+	  <TR>
+		<TD colspan="4" bgcolor="#EEEEEE"><img src="/ImgArista/punto.gif" width="1" height="10"></TD>
+      </TR>
+</table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="500">
+	<TR>
+		<TD colspan="5" bgcolor="#EEEEEE"><img src="/ImgArista/punto.gif" width="1" height="10"></TD>
+      </TR>
+	<TR>
+		<TH colspan="5" class="txtazul" bgcolor="#EEEEEE" align="left">Selecci&oacute;n de Fechas:</TH>
+    </TR>
+
+	<!--<tr align="center">
+ 	<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+        <td bgcolor="#EEEEEE" class="txtazul" colspan="3"></TD>
+        <td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+	</tr>-->
+	
+	<tr>
+		<td bgcolor="#EEEEEE" width="40">&nbsp;&nbsp;&nbsp;</td>
+        <td align='Right' bgcolor="#EEEEEE" class='txtazul' width="50"><INPUT TYPE="radio" NAME="fechas" VALUE="D" OnClick="javascript:RellenarFechas();">&nbsp; &nbsp;</td>
+        <th bgcolor="#EEEEEE" class="txtazul" align='left' width="330" colspan="2">Movimientos del d&iacute;a</th>
+		<td bgcolor="#EEEEEE" width="80">&nbsp;&nbsp;&nbsp;</td>
+	  </tr>
+	
+	  <tr>
+		<td bgcolor="#EEEEEE" width="40">&nbsp;&nbsp;&nbsp;</td>
+        <td align='Right' bgcolor="#EEEEEE" class='txtazul' width="50"><INPUT TYPE="radio" NAME="fechas" VALUE="S" OnClick="javascript:RellenarFechas();">&nbsp; &nbsp;</td>
+        <th bgcolor="#EEEEEE" class="txtazul" align='left' width="330" colspan="2">&Uacute;ltima semana</th>
+		<td bgcolor="#EEEEEE" width="80">&nbsp;&nbsp;&nbsp;</td>
+	  </tr>
+	
+      <tr>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+        <td align='Right' bgcolor="#EEEEEE" class='txtazul'><INPUT TYPE="radio" NAME="fechas" VALUE="F" OnClick="javascript:RellenarFechas();" >&nbsp; &nbsp;</td>
+        <th class="txtazul" bgcolor="#EEEEEE" align='left' colspan="2">
+        
+        <div id="texto71" style="visibility:visible;display=block">Seleccione fechas en los &uacute;ltimos 7 años</div>
+        <div id="texto72" style="visibility:hidden;display=none">Seleccione fechas</div>
+        
+        </th>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+		<th bgcolor="#EEEEEE" class="txtazul" align="right" width="80">Desde:&nbsp;</th>
+		<td bgcolor="#EEEEEE" align="left" width="250">
+			<div id="fechasDesde" style="visibility:hidden;display=none">
+			<INPUT TYPE="text" name = 'diadesde' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="24">
+			<INPUT TYPE="text" name = 'mesdesde' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="10">
+			<INPUT TYPE="text" name = 'yeardesde' SIZE='5' MAXLENGTH='4' OnFocus = "this.select()" class='campo' value="2022">
+			</div>
+			<div id="LfechasDesde" style="visibility:visible;display=block">
+			<INPUT TYPE="text" name = 'Ldiadesde' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="24" disabled>
+			<INPUT TYPE="text" name = 'Lmesdesde' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="10" disabled>
+			<INPUT TYPE="text" name = 'Lyeardesde' SIZE='5' MAXLENGTH='4' OnFocus = "this.select()" class='campo' value="2022" disabled>
+			</div>
+		</td>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+	  </tr>
+      <tr>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+		<th bgcolor="#EEEEEE" class="txtazul" align="right" width="80">Hasta:&nbsp;</th>
+        <td bgcolor="#EEEEEE" align="left" width="250">
+			<div id="fechasHasta" style="visibility:hidden;display=none">
+			<INPUT TYPE="text" name = 'diahasta' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="24">
+			<INPUT TYPE="text" name = 'meshasta' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="10">	
+			<INPUT TYPE="text" name = 'yearhasta' SIZE='5' MAXLENGTH='4' OnFocus = "this.select()" class='campo' value="2022">
+			</div>
+			<div id="LfechasHasta" style="visibility:visible;display=block">
+			<INPUT TYPE="text" name = 'Ldiahasta' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="24" disabled>
+			<INPUT TYPE="text" name = 'Lmeshasta' SIZE='3' MAXLENGTH='2' OnFocus = "this.select()" class='campo' value="10" disabled>	
+			<INPUT TYPE="text" name = 'Lyearhasta' SIZE='5' MAXLENGTH='4' OnFocus = "this.select()" class='campo' value="2022" disabled>
+			</div>
+		</td>
+		<td bgcolor="#EEEEEE">&nbsp;&nbsp;&nbsp;</td>
+	  </tr>
+
+	  <TR>
+		<TD colspan="5" bgcolor="#EEEEEE"><img src="/ImgArista/punto.gif" width="1" height="10"></TD>
+      </TR>
+</table>
+<br><br>
+<table border="0" cellspacing="0" cellpadding="0" name="t1" name="pru" id="pru">
+   <tr>
+     <td align="center">
+		<table border="0" cellspacing="0" cellpadding="0">
+          <tr bgcolor="#666666">
+            <td><img src="/ImgArista/punto.gif" height="1"></td>
+          </tr>
+          <tr bgcolor="white">
+            <td><img src="/ImgArista/punto.gif" height="1"></td>
+          </tr>
+          <tr>
+            <td height="18" align="center">
+				<a href="javascript:void(document.formCambioCuenta.submit())" class="menu" onClick="document.formCambioCuenta.txtCsb43.value='0';document.formCambioCuenta.txtExcel.value='0';return ValidaForm(document.formCambioCuenta)">Aceptar</a>
+				
+				<ink>&nbsp;&nbsp;|&nbsp;&nbsp;</ink>
+				<a href="javascript:void(document.formCambioCuenta.submit())" class="menu" onClick="document.formCambioCuenta.txtCsb43.value='1';return ValidaForm(document.formCambioCuenta)">A.E.B. 43</a>
+				
+				<ink>&nbsp;&nbsp;|&nbsp;&nbsp;</ink>
+				<a href="javascript:void(document.formCambioCuenta.submit())" class="menu" onClick="document.formCambioCuenta.txtExcel.value='1';return ValidaForm(document.formCambioCuenta)">Excel</a>
+			</td>
+          </tr>
+          <tr bgcolor="white">
+            <td><img src="/ImgArista/punto.gif" height="1"></td>
+          </tr>
+          <tr bgcolor="#666666">
+            <td><img src="/ImgArista/punto.gif" height="1"></td>
+          </tr>
+        </table>
+      </td>
+   </tr>
+</table>
+</form>
+<br>
+
+<form name="formAyuda" action="" METHOD="POST">
+  <INPUT TYPE='hidden' NAME='Id' value='740611660' /><input type=hidden name=codreducida value='71659235K' />
+ 
+<table width="550" border="0" cellspacing="0" cellpadding="2">
+  <tr>
+	<td><img src="/ImgArista/punto.gif" width="1" height="10"></td>
+  </tr>
+  <tr>
+	<td bgcolor="#E4E4E4" align='left' class='txtazul'><b>TE PUEDE AYUDAR</b></td>
+  </tr>
+  <tr>
+	<td bgcolor="#E4E4E4" align='left' class='txtazul'><ink>&#149;</ink> Buscar movimientos utilizando otras variables, en <a href="javascript:void(Buscador());">Buscador de Movimientos</a></td>
+  </tr>
+  <tr>
+	<td bgcolor="#E4E4E4" align='left' class='txtazul'><ink>&#149;</ink> Visualizar tus movimientos por <a href="javascript:void(Ingresos());">Ingresos y Gastos</a></td>
+  </tr>
+
+  <tr>
+	<td bgcolor="#E4E4E4" align='left' class='txtazul'><ink>&#149;</ink> <a href="conceptoscomunesbeypropiosC.pdf">Conceptos comunes Banco Espa&ntilde;a y propios del fichero A.E.B. 43</a></td>
+  </tr>  
+
+  <tr>
+	<td><img src="/ImgArista/punto.gif" width="1" height="10"></td>
+  </tr>
+</table>
+</FORM>
+
+    <br style="font-size: 1px;">
+        <table width="550" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="font-size: 1px;" width="100%" bgcolor="#D12176"><img src="/ImgArista/punto.gif" width="100%" height="2" alt=""/></td>
+        </tr>
+        </table>
+        </center>
+        </td>	
+        <td width="10" style="width: 10px"><img src="/imk/pb.gif" width="10" style="width: 10px" alt=""/></td>
+    </tr>
+</table>
+<br/>
+<br/>   
+<br/>
+
+</div>
+
+</BODY>
+<SCRIPT>
+ sincargar = false;
+</SCRIPT>
+</HTML>

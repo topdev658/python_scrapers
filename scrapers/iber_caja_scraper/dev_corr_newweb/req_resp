@@ -1,0 +1,99 @@
+>>> OPEN RECENT CORR
+await fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Correspondencia/correspondencia", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "PlaybackMode": "Real",
+        "IdContrato": "Z22759",
+        "Orden": "4",
+        "EsNegocio": "true",
+        "NIPTitular": "1A82958075 00",
+        "Authorization": "Bearer B82F51393FEE5A88331900051C4B1B1CBDA00EA14BA7BD0B153E8BA9F0CE0A72",
+        "Content-Type": "application/json",
+        "x-ibercaja-st": "9c942c7b-870e-4c6e-8221-613d37b970a1",
+        "X-XSRF-TOKEN": "CfDJ8BFnZbY3hWlFvo-IHNXnAZ9Vpzb5nuPQqUybasOX9uP_jF947hT_FccarYfpj1aEl66N7ECHxSqNXsUJueUu9Gpw5NvzP8k9uksBmEWZTS8VWpOXWk4OnC1EhA0mJNFM_ipKLBchYEOj-Lm8fCwhRVom-M3GcrDaP7QJDgdEa79XcaxzHgbKgqPQ6wJRfx2Wzw",
+        "Access-Control-Allow-Headers": "X-XSRF-TOKEN"
+    },
+    "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/correspondencia",
+    "body": "{\"columnaOrd\":1,\"agrupacion\":[],\"cuentas\":[],\"fechaDesde\":\"\",\"fechaHasta\":\"\",\"filtroDestacados\":false,\"filtroOtrosDocumentos\":null,\"importeDesde\":0,\"importeHasta\":999999,\"leido\":null,\"orden\":1,\"paginaAMostrar\":1}",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> FILTER CORR PAGE 1
+await fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Correspondencia/correspondencia", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "PlaybackMode": "Real",
+        "IdContrato": "491038",
+        "Orden": "1",
+        "EsNegocio": "true",
+        "NIPTitular": "1B53531380 00",
+        "Authorization": "Bearer 49A2F71CC92F0C8B3DE15337BE5FD47D69555FBFACB2937B40D4C873639C7C39",
+        "Content-Type": "application/json,application/json",
+        "x-ibercaja-st": "666e9381-2273-4530-81e8-521aa3d8f406",
+        "X-XSRF-TOKEN": "CfDJ8ECgtSrVn6tEnQvzamY4CMdy4PHSuvvxbl7h-skS8jv4GMJAnBi-sVaS_VOrX4EWB0dMxNLht_vVHZs7Wzri-NFOhnZDYEupd53f9DbnFnX-PWfqy1O-lXR7rl1JFHmTBvn4Yr_jo4cBwML9rgtJk06CHjg8IYwB5ONnJSekkwOv_pEbQxIqgpRyCLT72cMD1A",
+        "Access-Control-Allow-Headers": "X-XSRF-TOKEN"
+    },
+    "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/correspondencia",
+    "body": "{\"columnaOrd\":1,\"agrupacion\":[],\"cuentas\":[],\"fechaDesde\":\"01/06/2021\",\"fechaHasta\":\"25/06/2021\",\"filtroDestacados\":false,\"filtroOtrosDocumentos\":null,\"importeDesde\":0,\"importeHasta\":999999,\"leido\":null,\"orden\":1,\"paginaAMostrar\":1}",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_resp_corrs.json
+
+
+>>> FILTER CORR PAGE 2
+await fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Correspondencia/correspondencia", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "PlaybackMode": "Real",
+        "IdContrato": "491038",
+        "Orden": "1",
+        "EsNegocio": "true",
+        "NIPTitular": "1B53531380 00",
+        "Authorization": "Bearer 49A2F71CC92F0C8B3DE15337BE5FD47D69555FBFACB2937B40D4C873639C7C39",
+        "Content-Type": "application/json,application/json",
+        "x-ibercaja-st": "666e9381-2273-4530-81e8-521aa3d8f406",
+        "X-XSRF-TOKEN": "CfDJ8ECgtSrVn6tEnQvzamY4CMdy4PHSuvvxbl7h-skS8jv4GMJAnBi-sVaS_VOrX4EWB0dMxNLht_vVHZs7Wzri-NFOhnZDYEupd53f9DbnFnX-PWfqy1O-lXR7rl1JFHmTBvn4Yr_jo4cBwML9rgtJk06CHjg8IYwB5ONnJSekkwOv_pEbQxIqgpRyCLT72cMD1A",
+        "Access-Control-Allow-Headers": "X-XSRF-TOKEN"
+    },
+    "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/correspondencia",
+    "body": "{\"columnaOrd\":1,\"agrupacion\":[],\"cuentas\":[],\"fechaDesde\":\"01/06/2021\",\"fechaHasta\":\"25/06/2021\",\"filtroDestacados\":false,\"filtroOtrosDocumentos\":null,\"importeDesde\":0,\"importeHasta\":999999,\"leido\":null,\"orden\":1,\"paginaAMostrar\":2}",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> DOWNLOAD CORR
+await fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Correspondencia/getdocumento", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "PlaybackMode": "Real",
+        "IdContrato": "491038",
+        "Orden": "1",
+        "EsNegocio": "true",
+        "NIPTitular": "1B53531380 00",
+        "Authorization": "Bearer 325B03F5E765579D785B2A567EE21B67E87E0FE27E3B181CAC2C414EB6ED4BD1",
+        "Content-Type": "application/json,application/json",
+        "x-ibercaja-st": "44e5cd35-98cd-4d3a-8f9c-a763f9bcec52",
+        "X-XSRF-TOKEN": "CfDJ8ECgtSrVn6tEnQvzamY4CMevtJtSbSUzWGgEM1DggxViscvBFRJUs7AT0VPujZghouXn-VUC7wHRCvUftdIXfLqfJ7Y0mzf77QpdNAhVWR6HyMcCVpFd9SeBf8SQ0d-Ja7oKPLogkJkTst4oCSlWP1q3JJwDoZqJPHfeIF3jjJWzDLYILbERJ1oJdx29x6s8Gg",
+        "Access-Control-Allow-Headers": "X-XSRF-TOKEN"
+    },
+    "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/correspondencia",
+    "body": "{\"CodigoReferencia\":[\"2QB4pQN/VdUaXsFq70mWaWC3OD/JfpWZ274RxgiKz+B6IU75yspH/ZVIxfiLCRwu\"]}",
+    "method": "POST",
+    "mode": "cors"
+});

@@ -1,0 +1,28 @@
+>>> FILTER MOVEMENTS
+await fetch("https://canales.redsys.es/admincanales-web/services/operaciones/new/consulta", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "If-Modified-Since": "Mon, 26 Jul 1997 05:00:00 GMT",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "admincanales-language": "es",
+        "admincanales-auth-token": "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",
+        "Content-Type": "application/json;charset=utf-8"
+    },
+    "referrer": "https://canales.redsys.es/admincanales-web/index.jsp",
+    "body": "{\"comercio\":\"336083456\",\"terminal\":\"\",\"fechaDesde\":\"2021-03-10\",\"fechaHasta\":\"2021-03-12\",\"horaDesde\":\"00:00:00.000000\",\"horaHasta\":\"23:59:59.999999\",\"laOpcion\":\"1\",\"marcaTarjeta\":-2,\"tarjeta\":\"\",\"importe\":\"\",\"importeMin\":\"\",\"importeMax\":\"\",\"estado\":\"T\",\"tipo\":[\"\"],\"descripcion\":\"\",\"formaPago\":\"\",\"ip\":\"\",\"numeroPedido\":\"\",\"referencia\":\"\",\"idRegla\":\"\",\"accionRegla\":\"\",\"codError\":\"\",\"direccion\":\"0\",\"filasEnPantalla\":25,\"paginaActual\":0,\"psistInicio\":\"2000-01-01-00.00.00.000000\",\"psistFin\":\"2999-12-31-23.59.59.999999\",\"psistInicioCont\":\"2000-01-01-00.00.00.000000\",\"psistFinCont\":\"2999-12-31-23.59.59.999999\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+BODY
+"direccion":"0" -- 1st page
+paginaActual: 0 -- 1st page
+{"comercio":"336083456","terminal":"","fechaDesde":"2021-03-11","fechaHasta":"2021-03-12","horaDesde":"00:00:00.000000","horaHasta":"23:59:59.999999","laOpcion":"1","marcaTarjeta":-2,"tarjeta":"","importe":"","importeMin":"","importeMax":"","estado":"T","tipo":[""],"descripcion":"","formaPago":"","ip":"","numeroPedido":"","referencia":"","idRegla":"","accionRegla":"","codError":"","direccion":"0","filasEnPantalla":25,"paginaActual":0,"psistInicio":"2000-01-01-00.00.00.000000","psistFin":"2999-12-31-23.59.59.999999","psistInicioCont":"2000-01-01-00.00.00.000000","psistFinCont":"2999-12-31-23.59.59.999999"}
+<<< 20_resp_movs.json
+
+
+TEMPLATE
+https://canales.redsys.es/admincanales-web/static/partials/nuevasoperaciones/buscar-operaciones.html

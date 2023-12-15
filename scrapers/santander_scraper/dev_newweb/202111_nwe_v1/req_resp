@@ -1,0 +1,47 @@
+>>> SWITCH CONTRACT
+await fetch("https://empresas3.gruposantander.es/paas/api/v2/nwe-login-api/public/v1/portal-access", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) like Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "NWEAuthoritationToken": "MTYzOTgyODEwNTE1MyMxNzIuMjIuMTkuMjgjbndlZ2VuMDA0OSMwI1RFRkhWVUZTUkVsQlRVOVNSVWxTUVE9PSNTdXBlcm5ldEVtcHJlc2FzSnV6Z2Fkb3NfMjAxNzA2MTcxMjU4I2tpc0xlSC94MEpkMFhWZjUxaHRzK0pVb1VRZ1ZpYlM2Q0g3cWhYcmhYYlNLais4cmNqT1hua21iSkVvNzlVZm1NWTUwQmE4K2RiY00wSEs0YzNpQkpZWW9vSG1KK0krMmxmYkRVc21oY3QwcVlnbHdXNDd0bk9wQTlsNzROTGgvR0J2b3RHQm5nSkV5VjlGeXZhc0xjM08zV3FsMWt4c1RlMk41VUFxVGVid0t2QnZkem9zdmF4NEVacE1SbWo2TlJnUXR3RDFiRzR6YmoyOVNzQitxdFZtcGp1TXVQenZGV2ZlQzBITUdxejBWN1lvcmtDQ2FGNWEzNVVDbFk1QzNUT0tkZnd3S0VTbjEyOWJET3VlamZjT0N5ZloyRUFJYjl2VFVta1M5VFFzQXQvVHNVb09WVUpMaXN6T2lJZmFtQUgwWGdDVElMMW1ta1RxWktmVHdYeTFubDRSMXROT3U1dUhVbyt6SEFaNFQ5K285U2V4a3FIVDl3ZjRPTXVVaWxPTWxtRVFRaElHaHBHa252Y2E4bStBMzJZZXlDcXN6VzdNQndBRy9TaGdXejhQcXYwT2ZEWE10V0tpcUpGRkttbUtXb3YvTWhxRitWWG1oWGwvMnBOL2RUOW1PTkNtckpxQlFUd29oUVlxS2VacUovZ2hNS3A1TXVDQ3dGWTdtbWE5bmRRcFg0SlpRd2VTRGZsaGNjb3RacVdIQ0hWUk4wM2hHQytZODBLMlVhS2JiMU5vbGZ0Q0JpZTBTaENLbUF2UFBtK1ZjT05zcmQxN2xVUWJ2VnVwWWVvcjRQSzNVNjBDam1GZGlGSWNjb3UzRW00MEFkcWk1T1FjS055QWhYbE9QT1B4SDZuekUyRmNTaDA3MW1rS0YrUUFEU1RqTldxZGIwVFVXZUp0S2QyN09lVkNqWWNTWkFoZ29lYktmMVFLQ3RHWmNDMG89I1NhbkVtcFBST19TSEExd2l0aFJTQSNlN2xwaUF1NzlSbHZ0K3VNVkxjcjFvSE16Smt4SXdxWWJqMmt4UytZbkdUeW00V0d2QVVYT1V3Z1FYbzhPdVJIWWpZMzRpZCtYZm9FajZEbXFjdHpVcW81ekNBOWNGdzZXTitMSWdVaDJhZnV2U0VLS2tXS3Ardkt4RUdKT3k2QjZpOWY4anltclBBV2hiem9sYUhpc3loL1Ztb2FDL2VSeHdHcDhnZUZSNlE9",
+        "x-user-language": "es_ES",
+        "Content-Type": "application/json",
+        "x-frame-channel": "EMP",
+        "X-ClientId": "nwe",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://empresas3.gruposantander.es/paas/loginnwe/seleccion-contrato-v2",
+    "body": "{\"userAlias\":\"LAGUARDIAM001\",\"userPassword\":\"lLvTsoaMlX20P+QU1sRR+CC6SvCHTCQsdJR39YisIEITaLsH0t+XzAkU8rUwfSauqdmfbW9rhvXbuYcEthv0Chkc+1FCusdr8tDfek3rdln7hYIT5WHBcVIJqaEaUhmn7OknDFgRgmvDY5QbMySIAvKz6bCg+dOODVs6q0AIvaD3NHuLT2g/lFjdcVLJItdwxnZCedFlOsWeF4S1L2sYWqdwsvvltYW45KgdaWpGzV0chLmuufyvF8HXw0OrkSwNORj+f7gXtBNUD6SdNrZUeqgfUxHn2al8KziWVUczWaQ55YA665hZWodBp6LOZuvhDdUCSkS8Q2BO7IXCQTLBgA==\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 30_resp_conrtact_switched.json
+
+
+>>> GENERATE COOKIE
+await fetch("https://empresas3.gruposantander.es/empresas/s/cookie/generate", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) like Gecko/20100101 Firefox/94.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://empresas3.gruposantander.es/paas/loginnwe/seleccion-contrato-v2",
+    "body": "fechaUltimoAcceso=20211218&horaUltimoAcceso=10%3A48%3A35&fechaCambioClave=20210531&moreContracts=y&secreto=-----BEGIN+DAT-----+juDoFFJZO4CNRscRClqAHhEqvo1MSjzCjLA6zrVt7jlCVaS93u3VEXHJX0BMqPQS+kIWckRfUuJfrkVcKOHM6mucge%2FqeDnU%2FGPqgfK0knjjIVVv983c6cUcdck3qb9fH+qb3ogkk6%2Bd58%2BouCi3v7%2Fn6UDFfD8cKqQaB5j2WZMjg%3D+-----END+DAT-----&menuID=",
+    "method": "POST",
+    "mode": "cors"
+});
+
+secreto is CookieSecret from cookies after SWITCH CONTRACT
+
+<<< redirected to https://empresas3.gruposantander.es/empresas/

@@ -1,0 +1,7 @@
+To allow nightly scraping, in file project/settings.py set
+IS_ALLOW_ALL_CUSTOMERS_SCRAPING_RUN = True
+(I set it to True now, it was False to avoid unexpected situations)
+
+Then you can start main_launcher without any arguments and it will scrape all customers:
+$ ulimit -s 65536 && python3 main_launcher.py
+if you start it on the server.

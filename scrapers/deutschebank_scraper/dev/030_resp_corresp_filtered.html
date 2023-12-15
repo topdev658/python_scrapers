@@ -1,0 +1,1652 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script language="javascript" type="text/javascript">top.workspace=this;</script><script language="javascript" type="text/javascript">try{top.gData.portalSyncTicket='64EGzl_bvjrWuJdpQD5vY5cF4XojeqSFCt7vyzKiynY2Qms3-1g9!-1773957089!1593547055067_9_20200630220144491';}catch(e){}</script><script src="/portalserver/static/ext-lib/jquery-1.7.2-min.js" type="text/javascript"></script><script language="javascript" src="/DBDIRECT/APP/00/trim.js"></script><script language="javascript" src="/DBDIRECT/APP/00/BUTTONS.JS"></script><script language="javascript" type="text/javascript">
+    // Portaliztion. Needed for getFrmFld
+    top.workspace=this;
+    // Portalization
+</script><style>
+    TR.oddRow
+    {
+        BACKGROUND-COLOR: #efefef;
+    }
+    TR.evenRow
+    {
+        BACKGROUND-COLOR: white;
+    }
+    .label2SpanOdd1
+    {
+        TEXT-ALIGN: left;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+
+    }
+    .label2SpanOdd
+    {
+        TEXT-ALIGN: center;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+    }
+    .label2SpanOddR
+    {
+        TEXT-ALIGN: right;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+    }
+    .label2SpanEven
+    {
+        TEXT-ALIGN: center;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+    }
+    .label2SpanEvenR
+    {
+        TEXT-ALIGN: right;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+    }
+    .label2SpanEven1
+    {
+        TEXT-ALIGN: left;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+
+    }
+    .disabled{
+        BACKGROUND-COLOR: #efefef"
+    }
+    a.hprlnk_pagerEven{
+        color:#0000FF;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        text-align: left;
+        text-decoration:underline ;
+        PADDING-LEFT: 10px;
+
+    }
+    a.hprlnk_pagerOdd{
+        color:#0000FF;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        text-align: left;
+        text-decoration:underline ;
+        PADDING-LEFT: 10px;
+    }
+    a.hprlnk_pagerEvenBlack{
+        COLOR:black;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        text-align: left;
+        text-decoration:underline ;
+        PADDING-LEFT: 10px;
+
+
+    }
+    a.hprlnk_pagerOddBlack{
+        COLOR:black;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        text-align: left;
+        text-decoration:underline ;
+        PADDING-LEFT: 10px;
+    }
+    .labell2
+    {
+        PADDING-RIGHT: 4px;
+        PADDING-LEFT: 4px;
+        FONT-WEIGHT: bold;
+        FONT-SIZE: 10px;
+        PADDING-BOTTOM: 3px;
+        COLOR: #000080;
+        PADDING-TOP: 3px;
+        FONT-FAMILY: Verdana, Geneva, Arial, Helvetica;
+        BACKGROUND-COLOR: #efefef;
+        TEXT-ALIGN: center
+    }
+    .hide{
+        visibility: hidden
+    }
+    .label2SpanOddGrey
+    {
+        TEXT-ALIGN: grey;
+        BACKGROUND-COLOR: #efefef;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        PADDING-LEFT: 10px;
+
+    }
+    .label2SpanEvenGrey
+    {
+        TEXT-ALIGN: grey;
+        BACKGROUND-COLOR: white;
+        font-family: Verdana, Geneva, Arial, Helvetica;
+        font-size: 10px;
+        PADDING-LEFT: 10px;
+
+    }
+</style><script language="javascript">
+    var numpdf=0;
+    var posSel=-1;
+    var ValorActionArgs2='';
+
+
+    function loadPDFDetalle(pVal,pPos)
+    {
+        if (trim(pVal) != "")  {
+            //pVal=pVal.replace("'","");
+            oDETALLE_OCULTO.setActionArgs(pVal);
+            oDETALLE_OCULTO.execute();
+            //top.dbdController.consoleLog("Position select  is "+pPos);
+            oPOS.setFrmFldValue=pPos;
+            posSel=pPos;
+            oVISIBLE.setFrmFldValue="V";
+            oVISIBLE.val="V";
+            document.getElementById("VISIBLE").value="V";
+        }
+        return true;
+    }
+
+
+
+    function loadPDF()
+    {
+        //top.dbdController.consoleLog("loadPDF DOCUID_SP START");
+
+
+        return true;
+    }
+
+
+    function loadProductos(producto){
+        $('#PRODUC_GRUPO').find('option').each(function(){
+            var value=$(this).val();
+
+            if (trim(value) == '')
+            {
+                $(this).remove();
+
+            }
+            else {
+
+                if (trim(producto) == "" || trim(producto) == "undefined") {
+                    if (value.substring(0,2) == 'C2'){
+                        $(this).attr('selected','selected');
+                    }
+                }
+                else {
+                    if (value.substring(0,2) == (trim(producto)))
+                        $(this).attr('selected','selected');
+
+
+                }
+            }
+
+        });
+
+    }
+    function loadDocumentos(documento){
+        $('#DOCUME_GRUPO').find('option').each(function(){
+            var value=$(this).val();
+
+            if (trim(value) == '')
+            {
+                $(this).remove();
+
+            }
+            else {
+                if (trim(documento) == "" || trim(documento) == "undefined") {
+                    if (value.substring(0,2) == '03'){
+                        $(this).attr('selected','selected');
+                    }
+                }
+                else {
+                    if (value.substring(0,2) == (trim(documento)))
+                        $(this).attr('selected','selected');
+
+                }
+            }
+
+        });
+
+    }
+
+    function checkAllDocuments(allDoCs){
+
+        oSELECCION.setFrmFldVal=1;
+        $("#PRODUC_GRUPO").attr("disabled", true);
+        $("#PRODUC_GRUPO").attr("readonly", true);
+        $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+        $("#DOCUME_GRUPO").attr("disabled", true);
+        $("#DOCUME_GRUPO").attr("readonly", true);
+        $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+        document.getElementById("PRODUC_GRUPO").style.backgroundColor ="#efefef";
+        document.getElementById("PRODUC_GRUPO").disabled=true;
+        document.getElementById("PRODUC_GRUPO").readonly=true;
+        document.getElementById("DOCUME_GRUPO").style.backgroundColor ="#efefef";
+        document.getElementById("DOCUME_GRUPO").disabled=true;
+        document.getElementById("DOCUME_GRUPO").readonly=true;
+        oPRODUCTO.val="";
+        oDOCUMENTO.val="";
+        document.getElementById("PRODUCTO").value="";
+        document.getElementById("DOCUMENTO").value="";
+        $('input[type=radio][value="1"]').click();
+        $('input[type=radio][value="1"]').attr("checked",true);
+
+
+    }
+    function checkDocument(documento){
+
+        oSELECCION.setFrmFldVal=2;
+        $("#PRODUC_GRUPO").attr("disabled", true);
+        $("#PRODUC_GRUPO").attr("readonly", true);
+        $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+        $("#DOCUME_GRUPO").attr("disabled", false);
+        $("#DOCUME_GRUPO").attr("readonly", false);
+        $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: white");
+        document.getElementById("PRODUC_GRUPO").style.backgroundColor ="#efefef";
+        document.getElementById("PRODUC_GRUPO").disabled=true;
+        document.getElementById("PRODUC_GRUPO").readonly=true;
+        document.getElementById("DOCUME_GRUPO").style.backgroundColor ="white";
+        document.getElementById("DOCUME_GRUPO").disabled=false;
+        document.getElementById("DOCUME_GRUPO").readonly=false;
+        oFORMULARIO.val='';
+        document.getElementById("FORMULARIO").value="";
+        oPRODUCTO.val="";
+        document.getElementById("PRODUCTO").value="";
+        $("#DOCUME_GRUPO").change();
+        $('input[type=radio][value="2"]').click();
+        $('input[type=radio][value="2"]').attr("checked",true);
+
+
+    }
+    function checkProducto(producto){
+
+        oSELECCION.setFrmFldVal=3;
+        $("#DOCUME_GRUPO").attr("disabled", true);
+        $("#DOCUME_GRUPO").attr("readonly", true);
+        $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+        $("#PRODUC_GRUPO").attr("disabled", false);
+        $("#PRODUC_GRUPO").attr("readonly", false);
+        $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR: white");
+        document.getElementById("PRODUC_GRUPO").style.backgroundColor ="white";
+        document.getElementById("PRODUC_GRUPO").disabled=false;
+        document.getElementById("PRODUC_GRUPO").readonly=false;
+        document.getElementById("DOCUME_GRUPO").style.backgroundColor ="#efefef";
+        document.getElementById("DOCUME_GRUPO").disabled=true;
+        document.getElementById("DOCUME_GRUPO").readonly=true;
+        oFORMULARIO.val='';
+        document.getElementById("FORMULARIO").value="";
+        oDOCUMENTO.val="";
+        document.getElementById("DOCUMENTO").value="";
+        $("#PRODUC_GRUPO").change();
+        $('input[type=radio][value="3"]').click();
+        $('input[type=radio][value="3"]').attr("checked",true);
+    }
+
+
+    function checkRadios(allDoCs,documento,producto){
+
+        //top.dbdController.consoleLog("validate start allDoCs oFORMULARIO.val "+oFORMULARIO.val);
+        //top.dbdController.consoleLog("validate start documento oDOCUMENTO.val"+oDOCUMENTO.val);
+        //top.dbdController.consoleLog("validate start producto oPRODUCTO.val "+oPRODUCTO.val);
+        //top.dbdController.consoleLog("validate start allDoCs oFORMULARIO.getFrmFldVal() "+oFORMULARIO.getFrmFldVal());
+        //top.dbdController.consoleLog("validate start documento oDOCUMENTO.getFrmFldVal()"+oDOCUMENTO.getFrmFldVal());
+        //top.dbdController.consoleLog("validate start producto oPRODUCTO.getFrmFldVal() "+oPRODUCTO.getFrmFldVal());
+
+        if (trim(allDoCs)!="" && trim(documento) =="" && trim(producto) =="")
+        {
+            oFORMULARIO.val="00";
+
+            oDOCUMENTO.val="";
+            oPRODUCTO.val="";
+            checkAllDocuments(allDoCs);
+            //top.dbdController.consoleLog("validate all filled select allDocs");
+            $('input[type=radio][value="1"]').click();
+            $('input[type=radio][value="1"]').attr("checked",true);
+
+        }
+        if (trim(allDoCs)!="" && trim(documento) !="" && trim(producto) !="")
+        {
+            oFORMULARIO.val="00";
+            oDOCUMENTO.val="";
+            oPRODUCTO.val="";
+            checkAllDocuments(allDoCs);
+            loadDocumentos(oDOCUMENTO.val);
+            top.dbdController.consoleLog("validate all filled only allDocs");
+            $('input[type=radio][value="1"]').click();
+            $('input[type=radio][value="1"]').attr("checked",true);
+
+        }
+        if (trim(allDoCs)=="" && trim(documento) !="" && trim(producto) =="")
+        {
+            oFORMULARIO.val="";
+            oPRODUCTO.val="";
+            checkDocument(documento);
+            //top.dbdController.consoleLog("validate all filled only documento");
+            $('input[type=radio][value="2"]').click();
+            $('input[type=radio][value="2"]').attr("checked",true);
+            loadProductos(oPRODUCTO.val);
+            $('#DOCUME_GRUPO').change();
+
+
+
+        }
+        if (trim(allDoCs)=="" && trim(documento) =="" && trim(producto) !="")
+        {
+            oFORMULARIO.val="";
+            oDOCUMENTO.val="";
+            checkProducto(producto);
+            //top.dbdController.consoleLog("validate all filled only producto");
+            $('input[type=radio][value="3"]').click();
+            $('input[type=radio][value="3"]').attr("checked",true);
+            $('#PRODUC_GRUPO').change();
+
+
+        }
+        if (trim(allDoCs)=="" && trim(documento) =="" && trim(producto) =="")
+        {
+            oFORMULARIO.val="00";
+            oDOCUMENTO.val="";
+            oPRODUCTO.val="";
+            checkAllDocuments(allDoCs);
+            //top.dbdController.consoleLog("validate all empty only allDocs");
+            $('input[type=radio][value="1"]').click();
+            $('input[type=radio][value="1"]').attr("checked",true);
+
+        }
+
+    }
+
+
+</script><META CONTENT="0" HTTP-EQUIV="expires">
+    <META CONTENT="no-cache" HTTP-EQUIV="pragma"><script language="javascript" type="text/javascript">
+    document.write('<link href="/DBDIRECT/DOM/STYLE.CSS" rel="stylesheet" type="text/css">');
+</script><link href="/DBDIRECT/DOM/WORKSPACE.CSS" rel="stylesheet" type="text/css"><script language="javascript" type="text/javascript">
+
+    function DBSDFDLblFld(pName,pOName,pVal,pMaxL, pfldClass) {
+        if (arguments.length>0){
+            this.init(pName,pOName,pVal,pMaxL,pfldClass);
+        }
+    }
+
+    DBSDFDLblFld.prototype=new top.DbLblFld()
+    DBSDFDLblFld.prototype.constructor=DBSDFDLblFld
+    DBSDFDLblFld.superclass=top.DbLblFld.prototype
+    DBSDFDLblFld.prototype.init=DBSDFDLblFldInit
+    DBSDFDLblFld.prototype.setFldClass=DBSDFDLblFldsetFldClass
+    DBSDFDLblFld.prototype.getFldClass=DBSDFDLblFldgetFldClass
+    DBSDFDLblFld.prototype.clone=DBSDFDLblFldClone
+
+
+    function DBSDFDLblFldInit(pName,pOName,pVal,pMaxL,pfldClass) {
+        DBSDFDLblFld.superclass.init.call(this,pName,pOName,pVal,pMaxL)
+        if(pfldClass) this.fldClass= pfldClass;
+        else this.fldClass= '';
+        this.setClassName("DBSDFDLblFld");
+    }
+
+    function DBSDFDLblFldsetFldClass(pfldClass){
+        if(pfldClass) this.fldClass=pfldClass;
+    }
+
+    function DBSDFDLblFldgetFldClass(){
+        return this.fldClass;
+    }
+
+    function DBSDFDLblFldClone(){
+        var vName = this.nam
+        var vOName = "CLONED"
+        var vVal = this.val
+        var vMaxL = this.maxL
+        var vFldClass = this.fldClass
+
+        c= new DBSDFDLblFld(vName,vOName,vVal,vMaxL,vFldClass)
+        return c
+    }
+
+    function redirect(){
+        top.dbdController.consoleLog("Ha entrado en el redirect");
+        var idValue=oTRANSID.getFrmFldVal();
+//var urlRoot = "/"+top.gData.product;
+//top.dbdController.consoleLog("URLROOT: " + urlRoot);
+        top.dbdController.consoleLog("oTRANSID: " + idValue);
+        //top.workspace.document.frm.action="/dbdirect.accountinfo/go_transaction_detail.do?transactionId=" + idValue;
+        top.dbdController.publishAction("dbdirect.accountinfo/go_transaction_detail.do?transactionId=" + idValue,"/");
+        //top.workspace.document.frm.submit();
+        //top.dbdController.consoleLog("Submit Lanzado");
+    }
+
+
+    function EscribeHyperlink(Obj)
+    {
+        document.write(Obj.getHTML());
+        return;
+    }
+
+    function DBSDFDForm(pName,pOName,pWin,pProd,pOper,pEvnt) {
+        if (arguments.length>0){
+            this.init(pName,pOName,pWin,pProd,pOper,pEvnt);
+        }
+    }
+    DBSDFDForm.prototype=new top.DbTxForm()
+    DBSDFDForm.prototype.constructor=DBSDFDForm
+    DBSDFDForm.superclass=top.DbTxForm.prototype
+    DBSDFDForm.prototype.init=DBSDFDFormInit
+    DBSDFDForm.prototype.validate=DBSDFDFormValidate
+
+    function DBSDFDFormInit(pName,pOName,pWin,pProd,pOper,pEvnt, pFldClass) {
+        DBSDFDForm.superclass.init.call(this,pName,pOName,pWin,pProd,pOper,pEvnt,pFldClass)
+    }
+
+    function DBSDFDFormValidate(pMand) {
+        var res=new Boolean(true);
+
+        if (res) {
+            // validación normal del formulario
+            res=DBSDFDForm.superclass.validate.call(this, pMand);
+        }
+        return res
+    }
+
+
+    alias="SDFD";
+    desc="Impresión de justificantes";
+    desc1="Buscador de justificantes";
+    desc2="Listado de justificantes";
+    top.gData.idioma="00";
+    onload=init;
+    top.gData.setTx(alias,desc);
+
+    myForm=new top.DbTxForm('frm','myForm','workspace');
+    oFRM_DISABLED= new top.DbLblFld('FRM_DISABLED' , 'oFRM_DISABLED' , '' , 1);
+
+    oCIA=new top.DbTxtInpFld('CIA','oCIA','',false,false,'N','L',0,-1,-1,'','',null);
+    oCIA_GRUPO= new top.DbComboBox('CIA_GRUPO','oCIA_GRUPO','','DATOS/CIA_LISTA',true,false,'L','V',oCIA,'CIA_GRUPO/KEY','CIA_GRUPO/VAL');
+    oCIA_GRUPO.setMonospaced(true);
+
+    oTRANSID=new top.DbTxtInpFld('TRANSID','oTRANSID','',false,false,'N','L',0,-1,-1,'','',null);
+
+    oPOS=new top.DbTxtInpFld('POS','oPOS','',false,false,'N','L',0,-1,-1,'','',null);
+    oFORMULARIO=new top.DbTxtInpFld('FORMULARIO','oFORMULARIO','',false,false,'N','L',0,-1,-1,'','',null);
+
+    oDOCUMENTO=new top.DbTxtInpFld('DOCUMENTO','oDOCUMENTO','',false,false,'N','L',0,-1,-1,'','',null);
+    oPRODUCTO=new top.DbTxtInpFld('PRODUCTO','oPRODUCTO','',false,false,'N','L',0,-1,-1,'','',null);
+    oDOCUID_SP=new top.DbTxtInpFld('DOCUID_SP','oDOCUID_SP','',false,false,'N','L',0,-1,-1,'','',null);
+
+    oDOCUME_GRUPO= new top.DbComboBox('DOCUME_GRUPO','oDOCUME_GRUPO','','DATOS/DOCUME_LISTA',false,false,'L','V',oDOCUMENTO,'DOCUME_GRUPO/KEY','DOCUME_GRUPO/VAL');
+    oDOCUME_GRUPO.setMonospaced(true);
+    oPRODUC_GRUPO= new top.DbComboBox('PRODUC_GRUPO','oPRODUC_GRUPO','','DATOS/PRODUC_LISTA',false,false,'L','V',oPRODUCTO,'PRODUC_GRUPO/KEY','PRODUC_GRUPO/VAL');
+    oPRODUC_GRUPO.setMonospaced(true);
+
+    oFECHADES=new top.DbDatInpFld('FECHADES','oFECHADES','','YYYYMMDD',false,false,'','');
+    oFECHAHAS=new top.DbDatInpFld('FECHAHAS','oFECHAHAS','','YYYYMMDD',false,false,'','');
+    oIMPORDES=new top.DbAmtInpFld('IMPORDES','oIMPORDES','',false,false,false,12,2,'','0','',null);
+    oIMPORHAS=new top.DbAmtInpFld('IMPORHAS','oIMPORHAS','',false,false,false,12,2,'','0','',null);
+    oSELECCION= new top.DbRadGrp('SELECCION','oSELECCION','workspace','');
+    oSELECCION1 = new top.DbRadInpFld('SELECCION','oSELECCION1','','1','Toda la correspondencia',0,false,false);
+    oSELECCION2 = new top.DbRadInpFld('SELECCION','oSELECCION2','','2','Tipo de documento',1,false,false);
+    oSELECCION3 = new top.DbRadInpFld('SELECCION','oSELECCION2','','3','Tipo de producto',2,false,false);
+    oSELECCION.addFld(oSELECCION1);
+    oSELECCION.addFld(oSELECCION2);
+    oSELECCION.addFld(oSELECCION3);
+
+
+    oDATCIA = new top.DbLblFld('DATCIA' , 'oDATCIA' , '' , 50);
+    oDATFORM = new top.DbLblFld('DATFORM' , 'oDATFORM' , '' , 50);
+
+    oSELEC =new top.DbButFld('SELEC','CLONED','','','','','',false,true,'details',true,true);
+    oSELEC.setFldImgSrc("acrobat.jpg",15,15,0);
+    oSELEC.setBorder(0);
+    oCOLSELEC =new top.DbCol('COLSELEC','oCOLSELEC','workspace',oSELEC,' ',4,'c');
+
+    oFECHADOC = new DBSDFDLblFld('FECHADOC' , 'oFECHADOC' , '' ,0);
+    oCOLFECHADOC = new top.DbCol('COLFECHADOC','oCOLFECHADOC','workspace',oFECHADOC,'Fecha',0,'c');
+    oDOCU = new DBSDFDLblFld('DOCU' , 'oDOCU' , '' ,0);
+    oCOLDOCU = new top.DbCol('COLDOCU','oCOLDOCU','workspace',oDOCU,'Documentos',0,'l');
+    oINFADIC = new DBSDFDLblFld('INFADIC' , 'oINFADIC' , '' ,0);
+    oCOLINFADIC = new top.DbCol('COLINFADIC','oCOLINFADIC','workspace',oINFADIC,'Info',0,'l');
+    oIMPORTE = new DBSDFDLblFld('IMPORTE' , 'oIMPORTE' , '' ,0);
+    oCOLIMPORTE = new top.DbCol('COLIMPORTE','oCOLIMPORTE','workspace',oIMPORTE,'Importe',0,'c');
+    oCTA = new DBSDFDLblFld('CTA' , 'oCTA' , '' ,0);
+    oCOLCTA = new top.DbCol('COLCTA','oCOLCTA','workspace',oCTA,'Nº Contrato',0,'c');
+
+    oPOSICIONES_LISTA=new top.DbTable('POSICIONES_LISTA','oPOSICIONES_LISTA','workspace','frm',new Array (oCOLSELEC,oCOLFECHADOC,oCOLDOCU,oCOLIMPORTE,oCOLCTA),'POSICIONES_GRUPO');
+
+    oVISIBLE = new top.DbLblFld('VISIBLE' , 'oVISIBLE' , '' ,0);
+    oCOLVISIBLE = new top.DbCol('COLVISIBLE','oCOLVISIBLE','workspace',oVISIBLE,'',0,'l');
+    oCOLVISIBLE.setPath('POSICIONES_LISTA/POSICIONES_GRUPO')
+
+    oACEPTAR=new top.DbButFld('ACEPTAR','oACEPTAR',top.gData.product,'DESCAPDF','CONSULTA','','Aceptar',true,false,'',true,true);
+    oLIMPIAR=new  top.DbButFld('LIMPIAR','oLIMPIAR',top.gData.product,'DESCAPDF','INICIO','','Limpiar',false,false,'',false,false);
+    oDETALLE_OCULTO=new top.DbButFld('DETALLE_OCULTO','oDETALLE_OCULTO',top.gData.product,'DESCAPDF','DETALLE','','Abrir pdf',false,false,'',false,false);
+
+    /*Boton Volver*/
+    top.act['RETURN']=new top.JSAction("RETURN","redirect()");
+    oCONPF12=new top.DbTxtInpFld('CONPF12','oCONPF12','',false,false,'N','L',0,1,-1,'','',null);
+    oCONPF12.setHidden();
+    oPF12=new top.DbButFld('PF12','oPF12',top.gData.product,'TBD','TBD','','Volver',true,false,'',false,false);
+    oPF12.setAction(top.act['RETURN']);
+
+
+
+    /* Paginación */
+    oAQNUPGDE=new top.DbNumInpFld('AQNUPGDE','oAQNUPGDE','',false,false,false,'L',0,2);
+    oAQNUPGDE.setHidden();
+    oAQNUPGTO=new top.DbNumInpFld('AQNUPGTO','oAQNUPGTO','',false,false,false,'L',0,2);
+    oAQNUPGTO.setHidden();
+    oPAGER=new top.DbPager('PAGER','oPAGER',oAQNUPGDE,oAQNUPGTO,oAQNUPGDE,'DBDIRECT','DESCAPDF','PAGINAR');
+    oPAGER2=new top.DbPager('PAGER2','oPAGER2',oAQNUPGDE,oAQNUPGTO,oAQNUPGDE,'DBDIRECT','DESCAPDF','PAGINAR');
+
+    myForm.addFld(oFRM_DISABLED);
+    myForm.addFld(oCIA);
+    myForm.addFld(oCIA_GRUPO);
+    myForm.addFld(oFORMULARIO);
+    myForm.addFld(oDOCUMENTO);
+    myForm.addFld(oDOCUME_GRUPO);
+    myForm.addFld(oPRODUCTO);
+    myForm.addFld(oPRODUC_GRUPO);
+    myForm.addFld(oFECHADES);
+    myForm.addFld(oFECHAHAS);
+    myForm.addFld(oIMPORDES);
+    myForm.addFld(oIMPORHAS);
+    myForm.addFld(oSELECCION);
+    myForm.addFld(oSELECCION1);
+    myForm.addFld(oSELECCION2);
+    myForm.addFld(oSELECCION3);
+    myForm.addFld(oDOCUID_SP);
+    myForm.addFld(oDATCIA);
+    myForm.addFld(oDATFORM);
+    myForm.addFld(oPOSICIONES_LISTA);
+    myForm.addFld(oAQNUPGTO);
+    myForm.addFld(oAQNUPGDE);
+    myForm.addFld(oPAGER);
+    myForm.addFld(oPAGER2);
+    myForm.addFld(oACEPTAR);
+    myForm.addFld(oLIMPIAR);
+    myForm.addFld(oDETALLE_OCULTO);
+    myForm.addFld(oPOS);
+    myForm.addFld(oVISIBLE);
+    /*Boton Genera PDF*/
+    myForm.addFld(oCONPF12);
+    myForm.addFld(oPF12);
+    myForm.addFld(oTRANSID);
+
+
+
+    notif_oSESION = new top.DBNotif("DATACHANGED","/SESION");top.sessionNotifMgr.notify(notif_oSESION);notif_oID_0 = new top.DBNotif("DATACHANGED","/SESION/ID");notif_oID_0.addAttb("val","8F5E713B714BAE5AB7C7080809990D09");top.sessionNotifMgr.notify(notif_oID_0);notif_oTOKEN_1 = new top.DBNotif("DATACHANGED","/SESION/TOKEN");notif_oTOKEN_1.addAttb("val","SESION_DBDIRECT");top.sessionNotifMgr.notify(notif_oTOKEN_1);notif_oIDIOMA_2 = new top.DBNotif("DATACHANGED","/SESION/IDIOMA");notif_oIDIOMA_2.addAttb("val","00");top.sessionNotifMgr.notify(notif_oIDIOMA_2);notif_oACCION_3 = new top.DBNotif("DATACHANGED","/SESION/ACCION");top.sessionNotifMgr.notify(notif_oACCION_3);notif_oPRODUCTO_3_0 = new top.DBNotif("DATACHANGED","/SESION/ACCION/PRODUCTO");notif_oPRODUCTO_3_0.addAttb("val","DBDIRECT");top.sessionNotifMgr.notify(notif_oPRODUCTO_3_0);notif_oOPERACION_3_1 = new top.DBNotif("DATACHANGED","/SESION/ACCION/OPERACION");notif_oOPERACION_3_1.addAttb("val","DESCAPDF");top.sessionNotifMgr.notify(notif_oOPERACION_3_1);notif_oEVENTO_3_2 = new top.DBNotif("DATACHANGED","/SESION/ACCION/EVENTO");notif_oEVENTO_3_2.addAttb("val","CONSULTA");top.sessionNotifMgr.notify(notif_oEVENTO_3_2);notif_oDATOS = new top.DBNotif("DATACHANGED","/DATOS");top.NotifMgr.notify(notif_oDATOS);notif_oCIA_0 = new top.DBNotif("DATACHANGED","/DATOS/CIA");notif_oCIA_0.addAttb("val","3253688GAMBASTAR, S.L");notif_oCIA_0.addAttb("list","CIA_LISTA");top.NotifMgr.notify(notif_oCIA_0);notif_oFORMULARIO_1 = new top.DBNotif("DATACHANGED","/DATOS/FORMULARIO");notif_oFORMULARIO_1.addAttb("val","");top.NotifMgr.notify(notif_oFORMULARIO_1);notif_oDOCUMENTO_2 = new top.DBNotif("DATACHANGED","/DATOS/DOCUMENTO");notif_oDOCUMENTO_2.addAttb("val","");notif_oDOCUMENTO_2.addAttb("list","DOCUME_LISTA");top.NotifMgr.notify(notif_oDOCUMENTO_2);notif_oPRODUCTO_3 = new top.DBNotif("DATACHANGED","/DATOS/PRODUCTO");notif_oPRODUCTO_3.addAttb("val","");notif_oPRODUCTO_3.addAttb("list","PRODUC_LISTA");top.NotifMgr.notify(notif_oPRODUCTO_3);notif_oFECHADES_4 = new top.DBNotif("DATACHANGED","/DATOS/FECHADES");notif_oFECHADES_4.addAttb("val","20200520");top.NotifMgr.notify(notif_oFECHADES_4);notif_oFECHAHAS_5 = new top.DBNotif("DATACHANGED","/DATOS/FECHAHAS");notif_oFECHAHAS_5.addAttb("val","20200630");top.NotifMgr.notify(notif_oFECHAHAS_5);notif_oIMPORDES_6 = new top.DBNotif("DATACHANGED","/DATOS/IMPORDES");notif_oIMPORDES_6.addAttb("val","");top.NotifMgr.notify(notif_oIMPORDES_6);notif_oIMPORHAS_7 = new top.DBNotif("DATACHANGED","/DATOS/IMPORHAS");notif_oIMPORHAS_7.addAttb("val","");top.NotifMgr.notify(notif_oIMPORHAS_7);notif_oDOCUID_SP_8 = new top.DBNotif("DATACHANGED","/DATOS/DOCUID_SP");notif_oDOCUID_SP_8.addAttb("val","");top.NotifMgr.notify(notif_oDOCUID_SP_8);notif_oTRANSID_9 = new top.DBNotif("DATACHANGED","/DATOS/TRANSID");notif_oTRANSID_9.addAttb("val","000000000000000000");top.NotifMgr.notify(notif_oTRANSID_9);notif_oCIA_LISTA_10 = new top.DBNotif("DATACHANGED","/DATOS/CIA_LISTA");top.NotifMgr.notify(notif_oCIA_LISTA_10);notif_oCIA_GRUPO_10_0 = new top.DBNotif("DATACHANGED","/DATOS/CIA_LISTA/CIA_GRUPO");top.NotifMgr.notify(notif_oCIA_GRUPO_10_0);notif_oKEY_10_0_0 = new top.DBNotif("DATACHANGED","/DATOS/CIA_LISTA/CIA_GRUPO/KEY");notif_oKEY_10_0_0.addAttb("val","3253688GAMBASTAR, S.L");top.NotifMgr.notify(notif_oKEY_10_0_0);notif_oVAL_10_0_1 = new top.DBNotif("DATACHANGED","/DATOS/CIA_LISTA/CIA_GRUPO/VAL");notif_oVAL_10_0_1.addAttb("val","GAMBASTAR, S.L");top.NotifMgr.notify(notif_oVAL_10_0_1);notif_oDOCUME_LISTA_11 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA");top.NotifMgr.notify(notif_oDOCUME_LISTA_11);notif_oDOCUME_GRUPO_11_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_0);notif_oKEY_11_0_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_0_0.addAttb("val","03ADEUDOS Y PAGOS");top.NotifMgr.notify(notif_oKEY_11_0_0);notif_oVAL_11_0_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_0_1.addAttb("val","ADEUDOS Y PAGOS");top.NotifMgr.notify(notif_oVAL_11_0_1);notif_oDOCUME_GRUPO_11_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_1);notif_oKEY_11_1_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_1_0.addAttb("val","04ABONOS / INGRESOS");top.NotifMgr.notify(notif_oKEY_11_1_0);notif_oVAL_11_1_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_1_1.addAttb("val","ABONOS / INGRESOS");top.NotifMgr.notify(notif_oVAL_11_1_1);notif_oDOCUME_GRUPO_11_2 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_2);notif_oKEY_11_2_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_2_0.addAttb("val","05LIQUIDACION DE INT");top.NotifMgr.notify(notif_oKEY_11_2_0);notif_oVAL_11_2_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_2_1.addAttb("val","LIQUIDACION DE INTERESES");top.NotifMgr.notify(notif_oVAL_11_2_1);notif_oDOCUME_GRUPO_11_3 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_3);notif_oKEY_11_3_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_3_0.addAttb("val","02EXTRACTOS");top.NotifMgr.notify(notif_oKEY_11_3_0);notif_oVAL_11_3_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_3_1.addAttb("val","EXTRACTOS");top.NotifMgr.notify(notif_oVAL_11_3_1);notif_oDOCUME_GRUPO_11_4 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_4);notif_oKEY_11_4_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_4_0.addAttb("val","01INFORMACION FISCAL");top.NotifMgr.notify(notif_oKEY_11_4_0);notif_oVAL_11_4_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_4_1.addAttb("val","INFORMACION FISCAL");top.NotifMgr.notify(notif_oVAL_11_4_1);notif_oDOCUME_GRUPO_11_5 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO");top.NotifMgr.notify(notif_oDOCUME_GRUPO_11_5);notif_oKEY_11_5_0 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/KEY");notif_oKEY_11_5_0.addAttb("val","07OTROS");top.NotifMgr.notify(notif_oKEY_11_5_0);notif_oVAL_11_5_1 = new top.DBNotif("DATACHANGED","/DATOS/DOCUME_LISTA/DOCUME_GRUPO/VAL");notif_oVAL_11_5_1.addAttb("val","OTROS");top.NotifMgr.notify(notif_oVAL_11_5_1);notif_oPRODUC_LISTA_12 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA");top.NotifMgr.notify(notif_oPRODUC_LISTA_12);notif_oPRODUC_GRUPO_12_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_0);notif_oKEY_12_0_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_0_0.addAttb("val","C2TRANSFERENCIAS");top.NotifMgr.notify(notif_oKEY_12_0_0);notif_oVAL_12_0_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_0_1.addAttb("val","TRANSFERENCIAS");top.NotifMgr.notify(notif_oVAL_12_0_1);notif_oPRODUC_GRUPO_12_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_1);notif_oKEY_12_1_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_1_0.addAttb("val","C1RECIBOS");top.NotifMgr.notify(notif_oKEY_12_1_0);notif_oVAL_12_1_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_1_1.addAttb("val","RECIBOS");top.NotifMgr.notify(notif_oVAL_12_1_1);notif_oPRODUC_GRUPO_12_2 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_2);notif_oKEY_12_2_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_2_0.addAttb("val","GKDOMICILIACIONES");top.NotifMgr.notify(notif_oKEY_12_2_0);notif_oVAL_12_2_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_2_1.addAttb("val","DOMICILIACIONES");top.NotifMgr.notify(notif_oVAL_12_2_1);notif_oPRODUC_GRUPO_12_3 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_3);notif_oKEY_12_3_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_3_0.addAttb("val","GBCARTERA");top.NotifMgr.notify(notif_oKEY_12_3_0);notif_oVAL_12_3_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_3_1.addAttb("val","CARTERA");top.NotifMgr.notify(notif_oVAL_12_3_1);notif_oPRODUC_GRUPO_12_4 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_4);notif_oKEY_12_4_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_4_0.addAttb("val","OCDOCUMENTARIAS");top.NotifMgr.notify(notif_oKEY_12_4_0);notif_oVAL_12_4_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_4_1.addAttb("val","DOCUMENTARIAS");top.NotifMgr.notify(notif_oVAL_12_4_1);notif_oPRODUC_GRUPO_12_5 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_5);notif_oKEY_12_5_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_5_0.addAttb("val","PMPRESTAMOS");top.NotifMgr.notify(notif_oKEY_12_5_0);notif_oVAL_12_5_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_5_1.addAttb("val","PRESTAMOS");top.NotifMgr.notify(notif_oVAL_12_5_1);notif_oPRODUC_GRUPO_12_6 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_6);notif_oKEY_12_6_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_6_0.addAttb("val","CGCONFIRMING");top.NotifMgr.notify(notif_oKEY_12_6_0);notif_oVAL_12_6_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_6_1.addAttb("val","CONFIRMING");top.NotifMgr.notify(notif_oVAL_12_6_1);notif_oPRODUC_GRUPO_12_7 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO");top.NotifMgr.notify(notif_oPRODUC_GRUPO_12_7);notif_oKEY_12_7_0 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/KEY");notif_oKEY_12_7_0.addAttb("val","C0OTROS");top.NotifMgr.notify(notif_oKEY_12_7_0);notif_oVAL_12_7_1 = new top.DBNotif("DATACHANGED","/DATOS/PRODUC_LISTA/PRODUC_GRUPO/VAL");notif_oVAL_12_7_1.addAttb("val","OTROS");top.NotifMgr.notify(notif_oVAL_12_7_1);notif_oPOSICIONES_LISTA_13 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA");top.NotifMgr.notify(notif_oPOSICIONES_LISTA_13);notif_oPOSICIONES_GRUPO_13_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_0);notif_oSELEC_13_0_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_0_0.addAttb("val","");notif_oSELEC_13_0_0.addAttb("action","DESCAPDF");notif_oSELEC_13_0_0.addAttb("actionArgs","DOCID=202006292000168071");top.NotifMgr.notify(notif_oSELEC_13_0_0);notif_oDOCU_13_0_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_0_1.addAttb("val","RECIBO PTMO./LEASING");top.NotifMgr.notify(notif_oDOCU_13_0_1);notif_oCTA_13_0_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_0_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_0_2);notif_oIMPORTE_13_0_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_0_3.addAttb("val","612,08");top.NotifMgr.notify(notif_oIMPORTE_13_0_3);notif_oFECHADOC_13_0_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_0_4.addAttb("val","29.06.2020");top.NotifMgr.notify(notif_oFECHADOC_13_0_4);notif_oINFADIC_13_0_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_0_5.addAttb("val","00190371050830415266");top.NotifMgr.notify(notif_oINFADIC_13_0_5);notif_oVISIBLE_13_0_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_0_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_0_6);notif_oPOSICIONES_GRUPO_13_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_1);notif_oSELEC_13_1_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_1_0.addAttb("val","");notif_oSELEC_13_1_0.addAttb("action","DESCAPDF");notif_oSELEC_13_1_0.addAttb("actionArgs","DOCID=202006262000113454");top.NotifMgr.notify(notif_oSELEC_13_1_0);notif_oDOCU_13_1_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_1_1.addAttb("val","ADEUDO TRANSFERENCIA");top.NotifMgr.notify(notif_oDOCU_13_1_1);notif_oCTA_13_1_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_1_2.addAttb("val","0019.0371.06.4052033888");top.NotifMgr.notify(notif_oCTA_13_1_2);notif_oIMPORTE_13_1_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_1_3.addAttb("val","175.000,67");top.NotifMgr.notify(notif_oIMPORTE_13_1_3);notif_oFECHADOC_13_1_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_1_4.addAttb("val","26.06.2020");top.NotifMgr.notify(notif_oFECHADOC_13_1_4);notif_oINFADIC_13_1_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_1_5.addAttb("val","GAMBASTAR S.L.");top.NotifMgr.notify(notif_oINFADIC_13_1_5);notif_oVISIBLE_13_1_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_1_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_1_6);notif_oPOSICIONES_GRUPO_13_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_2);notif_oSELEC_13_2_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_2_0.addAttb("val","");notif_oSELEC_13_2_0.addAttb("action","DESCAPDF");notif_oSELEC_13_2_0.addAttb("actionArgs","DOCID=202006190000001016");top.NotifMgr.notify(notif_oSELEC_13_2_0);notif_oDOCU_13_2_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_2_1.addAttb("val","LIQ INTERES/COMISION");top.NotifMgr.notify(notif_oDOCU_13_2_1);notif_oCTA_13_2_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_2_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_2_2);notif_oIMPORTE_13_2_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_2_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_2_3);notif_oFECHADOC_13_2_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_2_4.addAttb("val","19.06.2020");top.NotifMgr.notify(notif_oFECHADOC_13_2_4);notif_oINFADIC_13_2_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_2_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_2_5);notif_oVISIBLE_13_2_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_2_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_2_6);notif_oPOSICIONES_GRUPO_13_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_3);notif_oSELEC_13_3_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_3_0.addAttb("val","");notif_oSELEC_13_3_0.addAttb("action","DESCAPDF");notif_oSELEC_13_3_0.addAttb("actionArgs","DOCID=202005292000147194");top.NotifMgr.notify(notif_oSELEC_13_3_0);notif_oDOCU_13_3_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_3_1.addAttb("val","EXTRACTO DE CUENTA");top.NotifMgr.notify(notif_oDOCU_13_3_1);notif_oCTA_13_3_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_3_2.addAttb("val","0019.0371.06.4052033888");top.NotifMgr.notify(notif_oCTA_13_3_2);notif_oIMPORTE_13_3_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_3_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_3_3);notif_oFECHADOC_13_3_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_3_4.addAttb("val","29.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_3_4);notif_oINFADIC_13_3_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_3_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_3_5);notif_oVISIBLE_13_3_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_3_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_3_6);notif_oPOSICIONES_GRUPO_13_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_4);notif_oSELEC_13_4_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_4_0.addAttb("val","");notif_oSELEC_13_4_0.addAttb("action","DESCAPDF");notif_oSELEC_13_4_0.addAttb("actionArgs","DOCID=202005290000411746");top.NotifMgr.notify(notif_oSELEC_13_4_0);notif_oDOCU_13_4_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_4_1.addAttb("val","EXTRACTO CUENTA");top.NotifMgr.notify(notif_oDOCU_13_4_1);notif_oCTA_13_4_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_4_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_4_2);notif_oIMPORTE_13_4_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_4_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_4_3);notif_oFECHADOC_13_4_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_4_4.addAttb("val","29.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_4_4);notif_oINFADIC_13_4_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_4_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_4_5);notif_oVISIBLE_13_4_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_4_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_4_6);notif_oPOSICIONES_GRUPO_13_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_5);notif_oSELEC_13_5_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_5_0.addAttb("val","");notif_oSELEC_13_5_0.addAttb("action","DESCAPDF");notif_oSELEC_13_5_0.addAttb("actionArgs","DOCID=202005290000411745");top.NotifMgr.notify(notif_oSELEC_13_5_0);notif_oDOCU_13_5_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_5_1.addAttb("val","EXTRACTOS A CLIENTES");top.NotifMgr.notify(notif_oDOCU_13_5_1);notif_oCTA_13_5_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_5_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_5_2);notif_oIMPORTE_13_5_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_5_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_5_3);notif_oFECHADOC_13_5_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_5_4.addAttb("val","29.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_5_4);notif_oINFADIC_13_5_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_5_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_5_5);notif_oVISIBLE_13_5_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_5_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_5_6);notif_oPOSICIONES_GRUPO_13_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_6);notif_oSELEC_13_6_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_6_0.addAttb("val","");notif_oSELEC_13_6_0.addAttb("action","DESCAPDF");notif_oSELEC_13_6_0.addAttb("actionArgs","DOCID=202005282000107527");top.NotifMgr.notify(notif_oSELEC_13_6_0);notif_oDOCU_13_6_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_6_1.addAttb("val","ABONO TRANSFERENCIA");top.NotifMgr.notify(notif_oDOCU_13_6_1);notif_oCTA_13_6_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_6_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_6_2);notif_oIMPORTE_13_6_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_6_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_6_3);notif_oFECHADOC_13_6_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_6_4.addAttb("val","28.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_6_4);notif_oINFADIC_13_6_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_6_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_6_5);notif_oVISIBLE_13_6_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_6_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_6_6);notif_oPOSICIONES_GRUPO_13_7 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_7);notif_oSELEC_13_7_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_7_0.addAttb("val","");notif_oSELEC_13_7_0.addAttb("action","DESCAPDF");notif_oSELEC_13_7_0.addAttb("actionArgs","DOCID=202005282000107526");top.NotifMgr.notify(notif_oSELEC_13_7_0);notif_oDOCU_13_7_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_7_1.addAttb("val","ABONO TRANSFERENCIA");top.NotifMgr.notify(notif_oDOCU_13_7_1);notif_oCTA_13_7_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_7_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_7_2);notif_oIMPORTE_13_7_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_7_3.addAttb("val","155.000,00");top.NotifMgr.notify(notif_oIMPORTE_13_7_3);notif_oFECHADOC_13_7_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_7_4.addAttb("val","28.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_7_4);notif_oINFADIC_13_7_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_7_5.addAttb("val","GAMBASTAR SL");top.NotifMgr.notify(notif_oINFADIC_13_7_5);notif_oVISIBLE_13_7_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_7_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_7_6);notif_oPOSICIONES_GRUPO_13_8 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_8);notif_oSELEC_13_8_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_8_0.addAttb("val","");notif_oSELEC_13_8_0.addAttb("action","DESCAPDF");notif_oSELEC_13_8_0.addAttb("actionArgs","DOCID=202005272000090141");top.NotifMgr.notify(notif_oSELEC_13_8_0);notif_oDOCU_13_8_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_8_1.addAttb("val","RECIBO PTMO./LEASING");top.NotifMgr.notify(notif_oDOCU_13_8_1);notif_oCTA_13_8_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_8_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_8_2);notif_oIMPORTE_13_8_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_8_3.addAttb("val","612,08");top.NotifMgr.notify(notif_oIMPORTE_13_8_3);notif_oFECHADOC_13_8_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_8_4.addAttb("val","27.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_8_4);notif_oINFADIC_13_8_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_8_5.addAttb("val","00190371050830415266");top.NotifMgr.notify(notif_oINFADIC_13_8_5);notif_oVISIBLE_13_8_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_8_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_8_6);notif_oPOSICIONES_GRUPO_13_9 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_9);notif_oSELEC_13_9_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_9_0.addAttb("val","");notif_oSELEC_13_9_0.addAttb("action","DESCAPDF");notif_oSELEC_13_9_0.addAttb("actionArgs","DOCID=202005252000127368");top.NotifMgr.notify(notif_oSELEC_13_9_0);notif_oDOCU_13_9_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_9_1.addAttb("val","OPER.DOCUMENTARIAS");top.NotifMgr.notify(notif_oDOCU_13_9_1);notif_oCTA_13_9_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_9_2.addAttb("val","0019.0371.08.1930006546");top.NotifMgr.notify(notif_oCTA_13_9_2);notif_oIMPORTE_13_9_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_9_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_9_3);notif_oFECHADOC_13_9_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_9_4.addAttb("val","25.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_9_4);notif_oINFADIC_13_9_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_9_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_9_5);notif_oVISIBLE_13_9_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_9_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_9_6);notif_oPOSICIONES_GRUPO_13_10 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_10);notif_oSELEC_13_10_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_10_0.addAttb("val","");notif_oSELEC_13_10_0.addAttb("action","DESCAPDF");notif_oSELEC_13_10_0.addAttb("actionArgs","DOCID=202005252000127367");top.NotifMgr.notify(notif_oSELEC_13_10_0);notif_oDOCU_13_10_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_10_1.addAttb("val","OPER.DOCUMENTARIAS");top.NotifMgr.notify(notif_oDOCU_13_10_1);notif_oCTA_13_10_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_10_2.addAttb("val","0019.0371.08.1930006546");top.NotifMgr.notify(notif_oCTA_13_10_2);notif_oIMPORTE_13_10_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_10_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_10_3);notif_oFECHADOC_13_10_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_10_4.addAttb("val","25.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_10_4);notif_oINFADIC_13_10_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_10_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_10_5);notif_oVISIBLE_13_10_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_10_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_10_6);notif_oPOSICIONES_GRUPO_13_11 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_11);notif_oSELEC_13_11_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_11_0.addAttb("val","");notif_oSELEC_13_11_0.addAttb("action","DESCAPDF");notif_oSELEC_13_11_0.addAttb("actionArgs","DOCID=202005252000127075");top.NotifMgr.notify(notif_oSELEC_13_11_0);notif_oDOCU_13_11_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_11_1.addAttb("val","LIQ. PAGO FINANCIADO");top.NotifMgr.notify(notif_oDOCU_13_11_1);notif_oCTA_13_11_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_11_2.addAttb("val","0019.0371.01.2204003650");top.NotifMgr.notify(notif_oCTA_13_11_2);notif_oIMPORTE_13_11_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_11_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_11_3);notif_oFECHADOC_13_11_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_11_4.addAttb("val","25.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_11_4);notif_oINFADIC_13_11_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_11_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_11_5);notif_oVISIBLE_13_11_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_11_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_11_6);notif_oPOSICIONES_GRUPO_13_12 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_12);notif_oSELEC_13_12_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_12_0.addAttb("val","");notif_oSELEC_13_12_0.addAttb("action","DESCAPDF");notif_oSELEC_13_12_0.addAttb("actionArgs","DOCID=202005252000127074");top.NotifMgr.notify(notif_oSELEC_13_12_0);notif_oDOCU_13_12_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_12_1.addAttb("val","LIQ. PAGO FINANCIADO");top.NotifMgr.notify(notif_oDOCU_13_12_1);notif_oCTA_13_12_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_12_2.addAttb("val","0019.0371.01.2204003650");top.NotifMgr.notify(notif_oCTA_13_12_2);notif_oIMPORTE_13_12_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_12_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_12_3);notif_oFECHADOC_13_12_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_12_4.addAttb("val","25.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_12_4);notif_oINFADIC_13_12_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_12_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_12_5);notif_oVISIBLE_13_12_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_12_6.addAttb("val","V");top.NotifMgr.notify(notif_oVISIBLE_13_12_6);notif_oPOSICIONES_GRUPO_13_13 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_13);notif_oSELEC_13_13_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_13_0.addAttb("val","");notif_oSELEC_13_13_0.addAttb("action","DESCAPDF");notif_oSELEC_13_13_0.addAttb("actionArgs","DOCID=202005212000207483");top.NotifMgr.notify(notif_oSELEC_13_13_0);notif_oDOCU_13_13_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_13_1.addAttb("val","ABONO TRANSFERENCIA");top.NotifMgr.notify(notif_oDOCU_13_13_1);notif_oCTA_13_13_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_13_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_13_2);notif_oIMPORTE_13_13_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_13_3.addAttb("val","");top.NotifMgr.notify(notif_oIMPORTE_13_13_3);notif_oFECHADOC_13_13_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_13_4.addAttb("val","21.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_13_4);notif_oINFADIC_13_13_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_13_5.addAttb("val","");top.NotifMgr.notify(notif_oINFADIC_13_13_5);notif_oVISIBLE_13_13_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_13_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_13_6);notif_oPOSICIONES_GRUPO_13_14 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO");top.NotifMgr.notify(notif_oPOSICIONES_GRUPO_13_14);notif_oSELEC_13_14_0 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/SELEC");notif_oSELEC_13_14_0.addAttb("val","");notif_oSELEC_13_14_0.addAttb("action","DESCAPDF");notif_oSELEC_13_14_0.addAttb("actionArgs","DOCID=202005212000207482");top.NotifMgr.notify(notif_oSELEC_13_14_0);notif_oDOCU_13_14_1 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/DOCU");notif_oDOCU_13_14_1.addAttb("val","ABONO TRANSFERENCIA");top.NotifMgr.notify(notif_oDOCU_13_14_1);notif_oCTA_13_14_2 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/CTA");notif_oCTA_13_14_2.addAttb("val","0019.0371.01.4010014952");top.NotifMgr.notify(notif_oCTA_13_14_2);notif_oIMPORTE_13_14_3 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/IMPORTE");notif_oIMPORTE_13_14_3.addAttb("val","500.000,00");top.NotifMgr.notify(notif_oIMPORTE_13_14_3);notif_oFECHADOC_13_14_4 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/FECHADOC");notif_oFECHADOC_13_14_4.addAttb("val","21.05.2020");top.NotifMgr.notify(notif_oFECHADOC_13_14_4);notif_oINFADIC_13_14_5 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/INFADIC");notif_oINFADIC_13_14_5.addAttb("val","GAMBASTAR SL");top.NotifMgr.notify(notif_oINFADIC_13_14_5);notif_oVISIBLE_13_14_6 = new top.DBNotif("DATACHANGED","/DATOS/POSICIONES_LISTA/POSICIONES_GRUPO/VISIBLE");notif_oVISIBLE_13_14_6.addAttb("val","");top.NotifMgr.notify(notif_oVISIBLE_13_14_6);notif_oMENSAJES_14 = new top.DBNotif("DATACHANGED","/DATOS/MENSAJES");top.NotifMgr.notify(notif_oMENSAJES_14);notif_oMENSAJE_14_0 = new top.DBNotif("DATACHANGED","/DATOS/MENSAJES/MENSAJE");notif_oMENSAJE_14_0.addAttb("val","FIN DE DATOS.");top.NotifMgr.notify(notif_oMENSAJE_14_0);notif_oCONPF12_15 = new top.DBNotif("DATACHANGED","/DATOS/CONPF12");notif_oCONPF12_15.addAttb("val","H");top.NotifMgr.notify(notif_oCONPF12_15);notif_oAQNUPGDE_16 = new top.DBNotif("DATACHANGED","/DATOS/AQNUPGDE");notif_oAQNUPGDE_16.addAttb("val","000");top.NotifMgr.notify(notif_oAQNUPGDE_16);notif_oAQNUPGTO_17 = new top.DBNotif("DATACHANGED","/DATOS/AQNUPGTO");notif_oAQNUPGTO_17.addAttb("val","000");top.NotifMgr.notify(notif_oAQNUPGTO_17);notif_oCTXDBD_18 = new top.DBNotif("DATACHANGED","/DATOS/CTXDBD");top.NotifMgr.notify(notif_oCTXDBD_18);notif_oUSUARIO_18_0 = new top.DBNotif("DATACHANGED","/DATOS/CTXDBD/USUARIO");notif_oUSUARIO_18_0.addAttb("val","J.I.CUEVAS");top.NotifMgr.notify(notif_oUSUARIO_18_0);notif_oDOMINIO_18_1 = new top.DBNotif("DATACHANGED","/DATOS/CTXDBD/DOMINIO");notif_oDOMINIO_18_1.addAttb("val","GAMBAFRESH");top.NotifMgr.notify(notif_oDOMINIO_18_1);notif_oFECHA_18_2 = new top.DBNotif("DATACHANGED","/DATOS/CTXDBD/FECHA");notif_oFECHA_18_2.addAttb("val","30.06.2020");top.NotifMgr.notify(notif_oFECHA_18_2);notif_oHORA_18_3 = new top.DBNotif("DATACHANGED","/DATOS/CTXDBD/HORA");notif_oHORA_18_3.addAttb("val","22:01");top.NotifMgr.notify(notif_oHORA_18_3);
+    oFRM_DISABLED.setHidden();
+    oCIA.setHidden();
+    oFORMULARIO.setHidden();
+    oDOCUMENTO.setHidden();
+    oPRODUCTO.setHidden();
+    oAQNUPGTO.setHidden();
+    oAQNUPGDE.setHidden();
+    oDOCUID_SP.setHidden();
+    oPOS.setHidden();
+    oVISIBLE.setHidden();
+    oDETALLE_OCULTO.setHidden();
+    oTRANSID.setHidden();
+
+
+    function init() {
+        oCIA_GRUPO.onLoad();
+        oDOCUME_GRUPO.onLoad();
+        oPRODUC_GRUPO.onLoad();
+        myForm.onLoad();
+        loadPDF();
+        $('span.efldopc').attr("style","color:#000088");
+        $('span.label2SpanOddGrey').attr("style","color:grey;PADDING-LEFT: 10px");
+        $('span.label2SpanEvenGrey').attr("style","color:grey;PADDING-LEFT: 10px");
+        $('span.hprlnk_pagerEvenBlack').attr("style","color:black");
+        $('span.hprlnk_pagerOddBlack').attr("style","color:black");
+        $('a.hprlnk_pagerOdd').attr("style","color:#0000FF;PADDING-LEFT: 10px;font-weight:bold;");
+        $('a.hprlnk_pagerEven').attr("style","color:#0000FF;PADDING-LEFT: 10px;font-weight:bold;");
+        $('a.hprlnk_pagerOddBlack').attr("style","color:black;PADDING-LEFT: 10px;font-weight:bold;");
+        $('a.hprlnk_pagerEvenBlack').attr("style","color:black;PADDING-LEFT: 10px; font-weight:bold;");
+
+        oPOS.setFrmFldVal=posSel;
+        $('#PRODUC_GRUPO').change(function(){
+
+            var index=document.getElementById("PRODUC_GRUPO").selectedIndex;
+            if (trim(index) == '')
+                index = 0;
+            var valueIndx=document.getElementById("PRODUC_GRUPO").options[index].value;
+            //top.dbdController.consoleLog("PRODUC_GRUPO valueIndx "+valueIndx);
+            oPRODUCTO.val=valueIndx.substring(0,2);
+
+        });
+        $('#DOCUME_GRUPO').change(function(){
+            var index=document.getElementById("DOCUME_GRUPO").selectedIndex;
+            if (trim(index) == '')
+                index = 0;
+            var valueIndx=document.getElementById("DOCUME_GRUPO").options[index].value;
+            //top.dbdController.consoleLog("DOCUME_GRUPO valueIndx "+valueIndx);
+            oDOCUMENTO.val=valueIndx.substring(0,2);
+        });
+        $('input[type=radio][value="1"]').click(function() {
+            //top.dbdController.consoleLog("click checkRadio1:");
+            oSELECCION.setFrmFldVal=1;
+            $("#PRODUC_GRUPO").attr("disabled", true);
+            $("#PRODUC_GRUPO").attr("readonly", true);
+            $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+            $("#DOCUME_GRUPO").attr("disabled", true);
+            $("#DOCUME_GRUPO").attr("readonly", true);
+            $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+            document.getElementById("PRODUC_GRUPO").style.backgroundColor ="#efefef";
+            document.getElementById("PRODUC_GRUPO").disabled=true;
+            document.getElementById("PRODUC_GRUPO").readonly=true;
+            document.getElementById("DOCUME_GRUPO").style.backgroundColor ="#efefef";
+            document.getElementById("DOCUME_GRUPO").disabled=true;
+            document.getElementById("DOCUME_GRUPO").readonly=true;
+            oPRODUCTO.val="";
+            oDOCUMENTO.val="";
+            document.getElementById("PRODUCTO").value="";
+            document.getElementById("DOCUMENTO").value="";
+
+
+        });
+        $('input[type=radio][value="2"]').click(function() {
+            //top.dbdController.consoleLog("click checkRadio2:");
+            oSELECCION.setFrmFldVal=2;
+            $('#DOCUME_GRUPO').change();
+            $("#PRODUC_GRUPO").attr("disabled", true);
+            $("#PRODUC_GRUPO").attr("readonly", true);
+            $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+            $("#DOCUME_GRUPO").attr("disabled", false);
+            $("#DOCUME_GRUPO").attr("readonly", false);
+            $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: white");
+            document.getElementById("PRODUC_GRUPO").style.backgroundColor ="#efefef";
+            document.getElementById("PRODUC_GRUPO").disabled=true;
+            document.getElementById("PRODUC_GRUPO").readonly=true;
+            document.getElementById("DOCUME_GRUPO").style.backgroundColor ="white";
+            document.getElementById("DOCUME_GRUPO").disabled=false;
+            document.getElementById("DOCUME_GRUPO").readonly=false;
+            oFORMULARIO.val='';
+            document.getElementById("FORMULARIO").value="";
+            oPRODUCTO.val="";
+            document.getElementById("PRODUCTO").value="";
+            loadDocumentos(oDOCUMENTO.val);
+            if(oCONPF12.val!="H") {
+                document.getElementById("DOCUME_GRUPO").style.backgroundColor ="#efefef";
+                document.getElementById("DOCUME_GRUPO").disabled=true;
+                document.getElementById("DOCUME_GRUPO").readonly=true;
+            }
+
+
+        });
+        $('input[type=radio][value="3"]').click(function() {
+            //top.dbdController.consoleLog("click checkRadio3:");
+            oSELECCION.setFrmFldVal=3;
+            $('#PRODUC_GRUPO').change();
+            $("#PRODUC_GRUPO").attr("disabled", false);
+            $("#PRODUC_GRUPO").attr("readonly", false);
+            $("#PRODUC_GRUPO").attr("style","BACKGROUND-COLOR:white");
+            $("#DOCUME_GRUPO").attr("disabled", true);
+            $("#DOCUME_GRUPO").attr("readonly", true);
+            $("#DOCUME_GRUPO").attr("style","BACKGROUND-COLOR: #efefef");
+            document.getElementById("PRODUC_GRUPO").style.backgroundColor ="white";
+            document.getElementById("PRODUC_GRUPO").disabled=false;
+            document.getElementById("PRODUC_GRUPO").readonly=false;
+            document.getElementById("DOCUME_GRUPO").style.backgroundColor ="#efefef";
+            document.getElementById("DOCUME_GRUPO").disabled=true;
+            document.getElementById("DOCUME_GRUPO").readonly=true;
+            oFORMULARIO.val='';
+            document.getElementById("FORMULARIO").value="";
+            oDOCUMENTO.val="";
+            document.getElementById("DOCUMENTO").value="";
+            loadProductos(oPRODUCTO.val);
+            if(oCONPF12.val!="H") {
+                document.getElementById("PRODUC_GRUPO").style.backgroundColor ="#efefef";
+                document.getElementById("PRODUC_GRUPO").disabled=true;
+                document.getElementById("PRODUC_GRUPO").readonly=true;
+            }
+
+
+        });
+
+
+
+        loadDocumentos(oDOCUMENTO.val);
+        loadProductos(oPRODUCTO.val);
+
+        if (oFORMULARIO.val != "") {
+
+            $('input[type=radio][value="1"]').click();
+            $('input[type=radio][value="1"]').attr("checked",true);
+        }
+        if (oDOCUMENTO.val != "") {
+            $('#DOCUME_GRUPO').change();
+            //top.dbdController.consoleLog("onchange documento init 1");
+            $('input[type=radio][value="2"]').click();
+            $('input[type=radio][value="2"]').attr("checked",true);
+            $('#DOCUME_GRUPO').change();
+            //top.dbdController.consoleLog("onchange documento init  2");
+        }
+        if (oPRODUCTO.val != ""){
+            $('#PRODUC_GRUPO').change();
+            //top.dbdController.consoleLog("onchange producto init 1");
+            $('input[type=radio][value="3"]').click();
+            $('input[type=radio][value="3"]').attr("checked",true);
+            $('#PRODUC_GRUPO').change();
+            //top.dbdController.consoleLog("onchange producto init 2");
+        }
+
+        top.dbdController.consoleLog("init FORMULARIO "+'');
+        top.dbdController.consoleLog("init DOCUMENTO "+'');
+        top.dbdController.consoleLog("init PRODUCTO "+'');
+        loadDocumentos('');
+        loadProductos('');
+
+        var allDoCs='';
+        var documento='';
+        var producto='';
+
+        if (allDoCs != "") {
+
+            $('input[type=radio][value="1"]').click();
+            $('input[type=radio][value="1"]').attr("checked",true);
+        }
+        if (documento != "") {
+            loadDocumentos('');
+            $('#DOCUME_GRUPO').change();
+            top.dbdController.consoleLog("onchange documento end 1");
+            $('input[type=radio][value="2"]').click();
+            $('input[type=radio][value="2"]').attr("checked",true);
+            $('#DOCUME_GRUPO').change();
+            //top.dbdController.consoleLog("onchange documento end 2");
+        }
+        if (producto != ""){
+
+            loadProductos('');
+            $('#PRODUC_GRUPO').change();
+            top.dbdController.consoleLog("onchange producto end1");
+            $('input[type=radio][value="2"]').click();
+            $('input[type=radio][value="2"]').attr("checked",true);
+            $('#PRODUC_GRUPO').change();
+            //top.dbdController.consoleLog("onchange producto end2");
+        }
+
+        checkRadios(allDoCs,documento,producto);
+    }
+
+
+
+</script></head>
+<body><div id="wrapBody"><script language="javascript">document.write(myForm.getStartHTML());</script><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr valign="top">
+        <td align="right" valign="top"><script language="javascript">document.write(top.gData.getTxTitle(alias));</script></td>
+        <td align="right" valign="bottom"><a href="javascript:top.showHelp(alias);"><img border="0" src="/DBDIRECT/IMG/help1.gif"></a></td>
+    </tr>
+    <tr valign="top">
+        <td align="right" class="contexto" colspan="2">30.06.2020 22:01</td>
+    </tr>
+</table>
+    <table>
+        <tr>
+            <td class="contexto" style="background-color: #EEEEEE;">
+                <li class="msgV">FIN DE DATOS.</li>
+            </td>
+        </tr>
+    </table><br><br><center>
+        <table border="0" width="100%">
+            <tr>
+                <td class="thdr4" colspan="6"><script language="javascript">document.write(desc1);</script></td>
+            </tr>
+            <tr>
+                <td class="label1">Compañía</td>
+                <td align="left" class="label2" colspan="5"><script language="javascript">document.write(oCIA.getHTML());</script><script language="javascript">document.write(oCIA_GRUPO.getHTML());</script></td>
+            </tr>
+            <tr>
+                <td align="left" class="label1" width="23%">Fecha desde</td>
+                <td align="left" class="label2">
+                    <table border="0" width="100%">
+                        <tr>
+                            <td><script language="javascript">document.write(oFECHADES.getHTML())</script></td>
+                            <td align="left" class="etiqueta">(dd.mm.aaaa)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td align="left" class="label1" width="13%">Fecha hasta</td>
+                <td align="left" class="label2">
+                    <table border="0" width="100%">
+                        <tr>
+                            <td><script language="javascript">document.write(oFECHAHAS.getHTML())</script></td>
+                            <td align="left" class="etiqueta">(dd.mm.aaaa)</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" class="label1" width="23%">Importe desde</td>
+                <td align="left" class="label2">
+                    <table>
+                        <tr>
+                            <td><script language="javascript">document.write(oIMPORDES.getHTML())</script></td>
+                        </tr>
+                    </table>
+                </td>
+                <td align="left" class="label1" width="12%">Importe hasta</td>
+                <td align="left" class="label2"><script language="javascript">document.write(oIMPORHAS.getHTML());</script></td>
+            </tr>
+        </table>
+        <table border="0" width="100%">
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <td align="left" class="label1"><script language="javascript" width="23%">document.write(oSELECCION.flds[0].getHTML())</script><script language="javascript">document.write(oFORMULARIO.getHTML());</script></td>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td align="left" class="label1" width="23%"><script language="javascript">document.write(oSELECCION.flds[1].getHTML())</script></td>
+                <td align="left" class="label2" colspan="2"><script language="javascript">document.write(oDOCUME_GRUPO.getHTML())</script><script language="javascript">document.write(oDOCUMENTO.getHTML());</script></td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td align="left" class="label1" width="23%"><script language="javascript">document.write(oSELECCION.flds[2].getHTML())</script></td>
+                <td align="left" class="label2" colspan="2"><script language="javascript">document.write(oPRODUC_GRUPO.getHTML())</script><script language="javascript">document.write(oPRODUCTO.getHTML());</script></td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+        <table border="0">
+            <tr>
+                <td align="center" colspan="6">
+                    <table align="center">
+                        <tr>
+                            <td><script language="javascript">document.write(oACEPTAR.getHTML());</script></td>
+                            <td><script language="javascript">document.write(oLIMPIAR.getHTML());</script></td>
+                            <td><script language="javascript">if(oCONPF12.val!="H"){
+                                document.write(oPF12.getHTML());
+                            }</script></td>
+                            <td><script language="javascript">document.write(oDOCUID_SP.getHTML());</script><script language="javascript">document.write(oDETALLE_OCULTO.getHTML())</script><script language="javascript">document.write(oPOS.getHTML())</script><script language="javascript">document.write(oVISIBLE.getHTML())</script><script language="javascript">document.write(oTRANSID.getHTML())</script></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <td align="left" class="label2"><script language="javascript">document.write(oDATCIA.getHTML())</script></td>
+                <td align="right" class="label2"><script language="javascript">document.write(oDATFORM.getHTML())</script></td>
+            </tr>
+        </table>
+        <table border="0" width="100%">
+            <tr>
+                <td align="center" colspan="7">
+                    <table border="0">
+                        <tr>
+                            <td align="center"><script language="javascript">document.write(oPAGER2.getHTML());</script></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" colspan="7"><a href="#abajo" name="arriba"><img border="0" src="/DBDIRECT/IMG/SORTDOWN.GIF"></a></td>
+            </tr>
+            <tr valign="top">
+                <td class="thdr4" colspan="7" height="23px"><script language="javascript">document.write(desc2);</script></td>
+            </tr>
+            <tr>
+                <td colspan="7"><script language="javascript">
+                    var clsTR = "evenRow";
+                    var clslabel1 ="label";
+                    var clslabel ="label2SpanOdd1";
+                    var clslabelR ="label2SpanOddr";
+                    var clslabel2 ="label2SpanOdd";
+                    var clslabelInfo ="label2SpanOdd";
+                    var clslabelLink ="hprlnk_pagerEven";
+                    var clsRaling = "text-align:right";
+                    var clsRalingC = "center";
+                    var href="javascript:;";
+                    var blackColor="'color:black'";
+                    var docID='';
+                    var ValorActionArgs='';
+                </script><table border="0" id="RESULTS" name="RESULTS" width="100%">
+                    <tr>
+                        <th class="thdr2">Fecha</th>
+                        <th align="center" class="thdr2">Documentos</th>
+                        <th class="thdr2">Nº Cuenta</th>
+                        <th class="thdr2">Importe</th>
+                    </tr><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202006292000168071'";
+                    ValorActionArgs2 = "DOCID=202006292000168071";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">29.06.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">RECIBO PTMO./LEASING</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">00190371050830415266</span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">RECIBO PTMO./LEASING</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">00190371050830415266</span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + ">612,08<br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202006262000113454'";
+                    ValorActionArgs2 = "DOCID=202006262000113454";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">26.06.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">ADEUDO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR S.L.</span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">ADEUDO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR S.L.</span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.06.4052033888<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + ">175.000,67<br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202006190000001016'";
+                    ValorActionArgs2 = "DOCID=202006190000001016";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">19.06.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">LIQ INTERES/COMISION</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">LIQ INTERES/COMISION</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005292000147194'";
+                    ValorActionArgs2 = "DOCID=202005292000147194";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">29.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">EXTRACTO DE CUENTA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">EXTRACTO DE CUENTA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.06.4052033888<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005290000411746'";
+                    ValorActionArgs2 = "DOCID=202005290000411746";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">29.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">EXTRACTO CUENTA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">EXTRACTO CUENTA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005290000411745'";
+                    ValorActionArgs2 = "DOCID=202005290000411745";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">29.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">EXTRACTOS A CLIENTES</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">EXTRACTOS A CLIENTES</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005282000107527'";
+                    ValorActionArgs2 = "DOCID=202005282000107527";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">28.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005282000107526'";
+                    ValorActionArgs2 = "DOCID=202005282000107526";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">28.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR SL</span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR SL</span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + ">155.000,00<br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005272000090141'";
+                    ValorActionArgs2 = "DOCID=202005272000090141";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">27.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">RECIBO PTMO./LEASING</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">00190371050830415266</span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">RECIBO PTMO./LEASING</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">00190371050830415266</span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + ">612,08<br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005252000127368'";
+                    ValorActionArgs2 = "DOCID=202005252000127368";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">25.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">OPER.DOCUMENTARIAS</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">OPER.DOCUMENTARIAS</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.08.1930006546<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005252000127367'";
+                    ValorActionArgs2 = "DOCID=202005252000127367";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">25.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">OPER.DOCUMENTARIAS</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">OPER.DOCUMENTARIAS</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.08.1930006546<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005252000127075'";
+                    ValorActionArgs2 = "DOCID=202005252000127075";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">25.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">LIQ. PAGO FINANCIADO</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">LIQ. PAGO FINANCIADO</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.2204003650<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005252000127074'";
+                    ValorActionArgs2 = "DOCID=202005252000127074";
+                    var visiblePdf="V";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">25.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">LIQ. PAGO FINANCIADO</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">LIQ. PAGO FINANCIADO</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.2204003650<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005212000207483'";
+                    ValorActionArgs2 = "DOCID=202005212000207483";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">21.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + "></span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + "><br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script><script language="javascript">
+
+                    if (clsTR=="evenRow"){
+                        clsTR="oddRow";
+                        clslabel="label2SpanOdd";
+                        clslabel2="label2SpanOdd1";
+                        clslabelLink="hprlnk_pagerOdd";
+                        clslabelR="label2SpanOddR";
+                        clslabelInfo="label2SpanOddGrey";
+                        clslabelLinkVisited="hprlnk_pagerOddBlack";
+                    }
+                    else{
+                        clsTR="evenRow";
+                        clslabel="label2SpanEven";
+                        clslabel2="label2SpanEven1";
+                        clslabelLink="hprlnk_pagerEven";
+                        clslabelR="label2SpanEvenR";
+                        clslabelInfo="label2SpanEvenGrey";
+                        clslabelLinkVisited="hprlnk_pagerEvenBlack";
+                    }
+                    ValorActionArgs = "'DOCID=202005212000207482'";
+                    ValorActionArgs2 = "DOCID=202005212000207482";
+                    var visiblePdf="";
+                    href="javascript:loadPDFDetalle(" + ValorActionArgs+ ","+numpdf+");";
+                    document.write("<tr class=" + clsTR + ">");
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">21.05.2020<br></span></td>");
+
+
+                    if (trim(visiblePdf) != ""){
+                        //top.dbdController.consoleLog("change to black "+numpdf);
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLinkVisited + "><a class=" + clslabelLinkVisited + " href=" +href +" style=" + blackColor + ">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR SL</span></td></tr></table></td>");
+                        oPOS.setFrmFldValue="";
+                    }
+                    else
+                    {
+                        document.write("<td class=" + clslabel2 + "><table><tr><td class=" + clslabel2 + "><span class=" + clslabelLink + "><a class=" + clslabelLink + " href=" +href +">ABONO TRANSFERENCIA</a></span></td></tr>");
+                        document.write("<tr><td class=" + clslabel2 + "><span class=" + clslabelInfo + ">GAMBASTAR SL</span></td></tr></table></td>");
+
+                    }
+                    document.write("<td class=" + clslabel + "><span class=" + clslabel + ">0019.0371.01.4010014952<br></span></td>");
+                    document.write("<td class=" + clslabelR + "><span class=" + clslabelR + ">500.000,00<br></span></td>");
+                    document.write("</tr>");
+                    numpdf=numpdf+1;
+                </script></table>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" colspan="7"><a href="#arriba" name="abajo"><img border="0" src="/DBDIRECT/IMG/SORTUP.GIF"></a></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="7">
+                    <table border="0">
+                        <tr>
+                            <td align="center"><script language="javascript">document.write(oPAGER.getHTML());</script></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><script language="javascript">document.write(oFRM_DISABLED.getHTML())</script></center>
+    <p class="copyright" style="background-color: #EEEEEE;"><script language="javascript">
+        //var today=new Date()
+        //document.write(top.txt[172].replace('**year**',today.getYear()));
+    </script></p><script language="javascript">document.write(myForm.getEndHTML());</script><script>
+
+        //top.dbdController.consoleLog("end allDoCs oFORMULARIO "+document.getElementById("FORMULARIO").value);
+        //top.dbdController.consoleLog("end documento oDOCUMENTO"+document.getElementById("PRODUCTO").value);
+        //top.dbdController.consoleLog("end producto oPRODUCTO "+document.getElementById("DOCUMENTO").value);
+        //top.dbdController.consoleLog("end allDoCs oFORMULARIO.val "+oFORMULARIO.val);
+        //top.dbdController.consoleLog("end documento oDOCUMENTO.val"+oDOCUMENTO.val);
+        //top.dbdController.consoleLog("end producto oPRODUCTO.val "+oPRODUCTO.val);
+        //top.dbdController.consoleLog("end  allDoCs oFORMULARIO.getFrmFldVal() "+oFORMULARIO.getFrmFldVal());
+        //top.dbdController.consoleLog("end documento oDOCUMENTO.getFrmFldVal()"+oDOCUMENTO.getFrmFldVal());
+        //top.dbdController.consoleLog("end producto oPRODUCTO.getFrmFldVal() "+oPRODUCTO.getFrmFldVal());
+        //top.dbdController.consoleLog("end FORMULARIO "+'');
+        //top.dbdController.consoleLog("end DOCUMENTO "+'');
+        //top.dbdController.consoleLog("end PRODUCTO "+'');
+        top.dbdController.consoleLog("Valor oCONPF12: ," + oCONPF12.getFrmFldVal() + ",");
+        if(oCONPF12.val!="H")
+        {
+            oCIA_GRUPO.setDisabled(true);
+            oFECHADES.setDisabled(true);
+            oFECHAHAS.setDisabled(true);
+            oIMPORDES.setDisabled(true);
+            oIMPORHAS.setDisabled(true);
+            oPRODUC_GRUPO.setDisabled(true);
+            oDOCUME_GRUPO.setDisabled(true);
+            oSELECCION1.setDisabled(true);
+            oSELECCION2.setDisabled(true);
+            oSELECCION3.setDisabled(true);
+        }
+        $( document ).ready(function() {
+
+            //top.dbdController.consoleLog("fuera docid= " + '');
+
+            //top.dbdController.consoleLog("en el OTHERWHISE docid= " + '');
+            //top.dbdController.consoleLog("fuera numpdf= " + numpdf);
+            //top.dbdController.consoleLog("fuera ValorActionArgs2= " + ValorActionArgs2);
+            var messageError = '';
+            var swError= '';
+
+
+
+            messageError = "JSTA001";
+
+            if (messageError == 'JEBE928'){
+                swError = 'NOK';
+            }
+
+
+            if(numpdf==1 && ValorActionArgs2!='' && swError==''){
+                loadPDFDetalle(ValorActionArgs2,numpdf);
+            }
+
+            //top.dbdController.consoleLog("fin del ready");
+        });
+    </script></div><div id="clear"></div><div id="wrapIframe"><iframe width="100%" src="/CMS/DBDIRECT/FOOTER_ES.HTM" frameBorder="0" scrolling="no"/></div></body>
+</html>

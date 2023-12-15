@@ -1,0 +1,17 @@
+Check scraping exceptions:
+
+CaixaReceiptsScraper: -u 398774 -a 23006: FUNDACION LANTEGI BATUAK: CorrespondenceDocParsed(type='Préstamos', account_no='ES7021003810820200030647', operation_date=datetime.datetime(2021, 1, 1, 0, 0), value_date=None, amount=2639.6, currency='EUR', descr='Liquidación cuenta de crédito', extra={'currency': 'euros', 'doc_id': '2021010100285000032720', 'amount_str': '2.639,60', 'refval_complejo_param': 'REFVAL_COMPLEJO_6697=PZxoSNoSj5E9nGhI2hKPkQAAAXar3rPp3Idk1Zn9b~k'}): can't download correspondence PDF: HANDLED EXCEPTION
+Traceback (most recent call last):
+  File "/home/context/scrapers/caixa_scraper/caixa_regular_receipts_scraper.py", line 611, in download_correspondence
+    document_text = pdf_funcs.get_text(doc_pdf_content)
+  File "/home/context/custom_libs/pdf_funcs.py", line 14, in get_text
+    pdf = fitz.Document(stream=pdf_content, filetype="pdf")
+  File "/usr/local/lib/python3.5/dist-packages/fitz/fitz.py", line 1764, in __init__
+    this = _fitz.new_Document(filename, stream, filetype, rect, width, height, fontsize)
+RuntimeError: no objects found
+
+-- separated to 2 files multi-page PDF
+
+SEE multi-file-corr-pdf-err.png
+
+https://sentry.io/organizations/vb-kc/issues/2136328015/?project=186600&query=is%3Aunresolved+23006&statsPeriod=24h

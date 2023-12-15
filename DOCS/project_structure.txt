@@ -1,0 +1,70 @@
+.
+├── db_api
+│   ├── db_connector_for_scraper.py
+│   └── db_funcs.py
+├── DOC
+│   ├── DEPLOYMENT
+│   ...
+│   └── DOC.md
+├── js_helpers
+│   ├── bankia_encrypter.js
+│   ...
+│   └── popular_encrypter.js
+├── libs
+│   ├── account_no_format_detector.py
+│   ├── account_no_legal_format_per_country_detector.py
+│   ├── check_ip.py
+│   ├── check_resp.py
+│   ├── convert.py
+│   ├── country_code_converter.py
+│   ├── date_funcs.py
+│   ├── extract.py
+│   ├── iban_builder.py
+│   ├── log.py
+│   ├── myrequests.py
+│   ├── queue.py
+│   ├── raw_http.py
+│   ├── requests_helpers.py
+│   ├── scrape_logger.py
+│   ├── selenium_helpers.py
+│   ├── send_email.py
+│   └── state_reset.py
+├── logs
+│   ├── main_launcher_106458__2017_08_22__22_21_44.log
+│   ...
+│   └── main_launcher_97716__2017_10_10__08_06_26.log
+├── node_modules
+│   └── crypto-js
+│         ├── ...
+├── project
+│   ├── custom_types.py
+│   ├── fin_entities_ids.py
+│   ├── result_codes.py
+│   ├── settings.py
+│   └── structs.py
+├── scrapers
+│   ├── abanca_scraper
+│   │   ├── abanca_scraper.py
+│   │   └── parse_helpers.py
+│   ├── bankia_scraper
+│   │   ├── bankia_scraper.py
+│   │   └── parse_helpers.py
+│   ...
+│   └── triodos_scraper
+│       ├── parse_helpers.py
+│       └── triodos_scraper.py
+├── tests_local_dont_add_to_vcs
+│   ├── test_abanca_scraper_dont_add_to_vcs.py
+│   ├── test_bankia_scraper_dont_add_to_vcs.py
+│   ...
+│   └── test_triodos_scraper_dont_add_to_vcs.py
+├── tinyproxy
+│   ├── 115.conf
+│   ...        
+│   ├── tinyALL.sh
+│   └── tinyproxy
+├── machine_statistics_collector.py
+├── main_launcher.py
+├── scraping_state_observer.py
+└── server_for_scraping_on_demand.py
+

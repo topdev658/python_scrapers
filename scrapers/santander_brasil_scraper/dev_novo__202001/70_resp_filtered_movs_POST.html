@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<partial-response>
+    <changes>
+        <update id="formGeral:geral"><![CDATA[
+            <div id="formGeral:geral" class="ui-outputpanel ui-widget col-xs-12">
+                <div id="formGeral:listasConsultaExtrato" class="ui-outputpanel ui-widget box-shadow">
+                    <div id="formGeral:j_id_74" class="ui-outputpanel ui-widget row">
+                        <div id="formGeral:j_id_75" class="ui-outputpanel ui-widget col-xs-12">
+                            <div id="formGeral:j_id_76" class="ui-outputpanel ui-widget">
+                                <div id="formGeral:j_id_77" class="ui-outputpanel ui-widget row"><span
+                                        id="formGeral:periodoSelecionado"><div id="formGeral:j_id_79"
+                                                                               class="ui-outputpanel ui-widget show-print space-b col-xs-12"><label
+                                        class="space">Opção de Pesquisa:</label>Todos </div><div id="formGeral:j_id_7c"
+                                                                                                 class="ui-outputpanel ui-widget col-xs-6">
+
+
+											<label class="space">Períodos:</label>01/01/2020
+                                                     a
+                                                     19/01/2020 </div><div id="formGeral:j_id_7h"
+                                                                           class="ui-outputpanel ui-widget col-xs-6 text-right">
+
+											<label class="space">Data/Hora:</label>19/01/2020
+                                                     às
+                                                     04h32</div></span></div>
+                                <!-- Inicio Dialog -->
+                                <div id="formGeral:dialogCheque"
+                                     class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow modal-box no-visible">
+                                    <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top">
+                                        <span id="formGeral:dialogCheque_title"
+                                              class="ui-dialog-title">Redirecionamento</span><a href="#"
+                                                                                                class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span
+                                            class="ui-icon ui-icon-closethick"></span></a></div>
+                                    <div class="ui-dialog-content ui-widget-content">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-xs-12 space-b">
+                                                        <p>Você será direcionado para o serviço Cópia de cheques
+                                                        </p>
+
+                                                        <p class="space">
+                                                            Nesta funcionalidade, você poderá visualizar a cópia do
+                                                            cheque número
+                                                            <label id="chequeSelecionado"></label>
+                                                        </p>
+
+
+                                                        <p>Para isso, você precisará inserir sua Senha de internet na
+                                                            próxima tela.</p>
+
+                                                        <p>Deseja ir para área Cópia de Cheques?</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div id="formGeral:j_id_7r"
+                                                     class="ui-outputpanel ui-widget row space-b">
+                                                    <div id="formGeral:j_id_7s"
+                                                         class="ui-outputpanel ui-widget col-xs-12 text-right">
+                                                        <button id="formGeral:j_id_7t" name="formGeral:j_id_7t"
+                                                                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn btn-default btn-cinza"
+                                                                onclick="PrimeFaces.ab({source:'formGeral:j_id_7t',oncomplete:function(xhr,status,args){PF('dialogCheck').hide();}});return false;"
+                                                                type="submit"><span
+                                                                class="ui-button-text ui-c">Cancelar</span></button>
+                                                        <script id="formGeral:j_id_7t_s"
+                                                                type="text/javascript">PrimeFaces.cw('CommandButton', 'widget_formGeral_j_id_7t', {id: 'formGeral:j_id_7t'});</script>
+                                                        <button id="formGeral:j_id_7u" name="formGeral:j_id_7u"
+                                                                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn btn-default"
+                                                                onclick="PrimeFaces.ab({source:'formGeral:j_id_7u'});return false;"
+                                                                type="submit"><span class="ui-button-text ui-c">Continuar</span>
+                                                        </button>
+                                                        <script id="formGeral:j_id_7u_s"
+                                                                type="text/javascript">PrimeFaces.cw('CommandButton', 'widget_formGeral_j_id_7u', {id: 'formGeral:j_id_7u'});</script>
+                                                    </div>
+                                                </div>
+                                                <hr id="formGeral:j_id_7v"
+                                                    class="ui-separator ui-state-default ui-corner-all"/>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                Central de atendimento Santander Empresarial
+                                            </div>
+                                            <div class="col-xs-2">
+                                                SAC
+                                            </div>
+                                            <div class="col-xs-2">
+                                                Ouvidoria
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                Capitais e Regiões Metropolitanas: 4004-2125 | Demais localidades:
+                                                0800-726-2125
+                                            </div>
+                                            <div class="col-xs-2">
+                                                0800-726-7777
+                                            </div>
+                                            <div class="col-xs-2">
+                                                0800-276-0322
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script id="formGeral:dialogCheque_s" type="text/javascript">$(function () {
+                                    PrimeFaces.cw('Dialog', 'dialogCheck', {
+                                        id: 'formGeral:dialogCheque',
+                                        modal: true,
+                                        width: '60%'
+                                    });
+                                });</script>
+                                <!-- Fim Dialog --><span id="formGeral:groupDataTable">
+									<!-- Inicio grid Movimentos --><div id="formGeral:j_id_80"
+                                                                        class="ui-outputpanel ui-widget row"><div
+                                    id="formGeral:j_id_81" class="ui-outputpanel ui-widget col-xs-12"><div
+                                    id="formGeral:j_id_82"
+                                    class="ui-outputpanel ui-widget table-responsive table table-click"></div></div></div>
+                                <!-- Fim grid Movimentos --><div id="formGeral:gridExtratos"
+                                                                 class="ui-outputpanel ui-widget row"><div
+                                    id="formGeral:j_id_8p" class="ui-outputpanel ui-widget col-xs-12"><div
+                                    id="formGeral:j_id_8q"
+                                    class="ui-outputpanel ui-widget table-responsive table table-click"><div
+                                    id="formGeral:extratos" class="ui-datatable ui-widget"><div
+                                    class="ui-datatable-tablewrapper"><table role="grid"><thead
+                                    id="formGeral:extratos_head"><tr role="row"><th id="formGeral:extratos:j_id_8s"
+                                                                                    class="ui-state-default"
+                                                                                    role="columnheader"><span>Data</span></th><th
+                                    id="formGeral:extratos:j_id_8v" class="ui-state-default"
+                                    role="columnheader"><span></span></th><th id="formGeral:extratos:j_id_8x"
+                                                                              class="ui-state-default"
+                                                                              role="columnheader"><span>Histórico</span></th><th
+                                    id="formGeral:extratos:j_id_91" class="ui-state-default text-left"
+                                    role="columnheader"><span>Documento</span></th><th id="formGeral:extratos:j_id_98"
+                                                                                       class="ui-state-default text-right"
+                                                                                       role="columnheader"><span>Valor (R$)</span></th><th
+                                    id="formGeral:extratos:j_id_9b" class="ui-state-default text-right"
+                                    role="columnheader"><span><span>Saldo (R$)</span></span></th></tr></thead><tfoot></tfoot><tbody
+                                    id="formGeral:extratos_data" class="ui-datatable-data ui-widget-content"><tr
+                                    data-ri="0" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:0:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">SALDO ANTERIOR</td><td role="gridcell"
+                                                                                                    class="text-left"></td><td
+                                    role="gridcell" class="text-right"><span></span></td><td role="gridcell"
+                                                                                             class="text-right"><span>0,00</span></td></tr><tr
+                                    data-ri="1" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:1:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">TAR PAGTO SALARIO CREDITO C/C POUP                          </td><td
+                                    role="gridcell" class="text-left">830228</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-27,00</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="2" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:2:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">TAR PAGTO SALARIO MANUTENCAO CONV                           </td><td
+                                    role="gridcell" class="text-left">830228</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-5,00</span></td><td role="gridcell" class="text-right"></td></tr><tr
+                                    data-ri="3" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:3:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">EMISSAO DE DOC E VIA BCE           FERNANDA GUIMARAES DO COU</td><td
+                                    role="gridcell" class="text-left">135113</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-2.801,68</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="4" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:4:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">IOF IMPOSTO OPERACOES FINANCEIRAS  PERIODO: 01/12 A 31/12/19</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-22,09</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="5" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:5:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">IOF ADICIONAL - AUTOMATICO         PERIODO: 01/12 A 31/12/19</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-490,34</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="6" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:6:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">JUROS SALDO UTILIZ ATE LIMITE      PERIODO: 01/12 A 31/12/19</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-1.904,65</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="7" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:7:fechaMovimiento">02/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>5.250,76</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="8"
+                                                                                                      class="ui-widget-content ui-datatable-even"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:8:fechaMovimiento">06/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">TARIFA EMISSAO DOC VIA CANAIS      02/01/2020               </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-10,90</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="9" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:9:fechaMovimiento">06/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">TAR FINANCEIRO RED ROF REGISTRO                             </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-1.100,00</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="10" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:10:fechaMovimiento">06/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">TAR FINANC RED ROF ESQUEMA PAGTO                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-900,00</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="11" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:11:fechaMovimiento">06/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>2.010,90</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="12"
+                                                                                                      class="ui-widget-content ui-datatable-even"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:12:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   CONDOMINIO AHEAD         </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-734,88</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="13" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:13:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   PORTO SEGURO SEGURO SAUDE</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-89,87</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="14" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:14:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO DE TITULOS - BCE         01.910.073/0001-83       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-23,53</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="15" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:15:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO FGTS-CANAIS              INTERNET FGTS GRF CONVENI</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-15.480,81</span></td><td role="gridcell"
+                                                                                     class="text-right"></td></tr><tr
+                                    data-ri="16" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:16:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO CONTA DE TELEFONE EM CANAIS   INTERNET VIVO FIXO NAC   </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-191,11</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="17" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:17:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO DE TITULOS - BCE         91.088.328/0001-67       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-133,81</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="18" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:18:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   99 TECNOLOGIA LTDA       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-1.258,86</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="19" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:19:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   99 TECNOLOGIA LTDA       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-28,00</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="20" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:20:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO CONTA LUZ EM CANAIS      INTERNET AES ELETROPAULO </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-193,37</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="21" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:21:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   KALUNGA COMERCIO E INDUST</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-212,35</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="22" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:22:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">TED DIFERENTE TITULARIDADE CIP     BALLONI D AVILA AGENCIA D</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-9.027,54</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="23" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:23:fechaMovimiento">07/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>27.374,13</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="24"
+                                                                                                      class="ui-widget-content ui-datatable-even"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:24:fechaMovimiento">08/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">TARIFA TED BCE                     07/01/2020               </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-10,90</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="25" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:25:fechaMovimiento">08/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>10,90</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="26"
+                                                                                                      class="ui-widget-content ui-datatable-even"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:26:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">TAR SERV ESPEC CASH/SUPERCASH                               </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-10,00</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="27" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:27:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   RB SERVICOS EMPRESARIAIS </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-6.625,17</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="28" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:28:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO DE TITULOS - BCE         55.537.666/0001-75       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-151,38</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="29" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:29:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO DE TITULOS - BCE         55.537.666/0001-75       </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-10,40</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="30" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:30:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO FGTS-CANAIS              INTERNET FGTS GRRF ELETRO</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-16,58</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="31" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:31:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">EMISSAO DE DOC E VIA BCE           TARCISIO DIAS ANDRADE    </td><td
+                                    role="gridcell" class="text-left">110112</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-385,00</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="32" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:32:fechaMovimiento">09/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>7.198,53</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="33"
+                                                                                                      class="ui-widget-content ui-datatable-odd"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:33:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">TARIFA EMISSAO DOC VIA CANAIS      09/01/2020               </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-10,90</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="34" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:34:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   AGUAS ALEXANDRIA         </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-71,50</span></td><td role="gridcell"
+                                                                                 class="text-right"></td></tr><tr
+                                    data-ri="35" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:35:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PGTO TITULO OUTRO BCO - INTERNET   PORTO SEGURO CIA DE SEGUR</td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-168,01</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="36" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:36:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO CONTA CELULAR EM CANAIS  INTERNET VIVO-SP         </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-875,08</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="37" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:37:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO CONTA CELULAR EM CANAIS  INTERNET VIVO-SP         </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-1.027,90</span></td><td role="gridcell"
+                                                                                    class="text-right"></td></tr><tr
+                                    data-ri="38" class="ui-widget-content ui-datatable-even" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:38:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO CARTAO CREDITO BCE       13/01 15:16 CARTAO MASTER</td><td
+                                    role="gridcell" class="text-left">151604</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-961,71</span></td><td role="gridcell"
+                                                                                  class="text-right"></td></tr><tr
+                                    data-ri="39" class="ui-widget-content ui-datatable-odd" role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:39:fechaMovimiento">13/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">RESGATE AUT CONTAMAX EMPRESARIAL                            </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span>3.115,10</span></td><td
+                                    role="gridcell" class="text-right"><span>0,00</span></td></tr><tr data-ri="40"
+                                                                                                      class="ui-widget-content ui-datatable-even"
+                                                                                                      role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:40:fechaMovimiento">15/01/2020</span></td><td
+                                    role="gridcell"></td><td role="gridcell">PAGAMENTO A FORNECEDORES           EUROP ASSI 01020029000106</td><td
+                                    role="gridcell" class="text-left">010115</td><td role="gridcell" class="text-right"><span>25.405,60</span></td><td
+                                    role="gridcell" class="text-right"></td></tr><tr data-ri="41"
+                                                                                     class="ui-widget-content ui-datatable-odd"
+                                                                                     role="row"><td
+                                    role="gridcell"><span
+                                    id="formGeral:extratos:41:fechaMovimiento">15/01/2020</span></td><td
+                                    role="gridcell"></td><td
+                                    role="gridcell">APLICACAO AUT CONTAMAX EMPRESARIAL                          </td><td
+                                    role="gridcell" class="text-left">000000</td><td role="gridcell" class="text-right"><span
+                                    class="negative-value">-25.405,60</span></td><td role="gridcell" class="text-right"><span>0,00</span></td></tr></tbody></table></div></div><script
+                                    id="formGeral:extratos_s" type="text/javascript">$(function () {
+                                PrimeFaces.cw('DataTable', 'widget_formGeral_extratos', {id: 'formGeral:extratos'});
+                            });</script></div></div></div><div id="formGeral:j_id_9g"
+                                                               class="ui-outputpanel ui-widget no-visible"></div><span
+                                    id="formGeral:j_id_9k"></span><script type="text/javascript">$(function () {
+                                PrimeFaces.focus(null, 'formGeral:panel');
+                            });</script><div id="formGeral:j_id_9l" class="ui-outputpanel ui-widget"><div
+                                    id="formGeral:j_id_9m" class="ui-outputpanel ui-widget row"><div
+                                    id="formGeral:j_id_9n" class="ui-outputpanel ui-widget col-xs-6">
+												<p>a = Bloqueio Dia / ADM</p></div></div><div id="formGeral:j_id_9p"
+                                                                                              class="ui-outputpanel ui-widget row"><div
+                                    id="formGeral:j_id_9q" class="ui-outputpanel ui-widget col-xs-6">
+												<p>b = Bloqueado</p></div></div><div id="formGeral:j_id_9s"
+                                                                                     class="ui-outputpanel ui-widget row"><div
+                                    id="formGeral:j_id_9t" class="ui-outputpanel ui-widget col-xs-6">
+												<p>p = Lançamento Provisionado</p></div></div></div>
+								<script>
+									$(".table-click tbody tr").click(
+                                        function () {
+                                            $(this).toggleClass("yellow");
+                                        });
+								</script></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ]]>
+        </update>
+        <update id="j_id_ew"><![CDATA[
+            <div id="j_id_ew" class="ui-outputpanel ui-widget">
+                <div id="j_id_ex" class="ui-outputpanel ui-widget boxMessagePadrao">
+                    <div id="j_id_ey" class="ui-outputpanel ui-widget">
+                        <div id="j_id_ez" class="ui-outputpanel ui-widget text-left content-modal-text"><img
+                                id="j_id_f0" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt=""/><label
+                                id="j_id_f1" class="ui-outputlabel ui-widget" style="margin-top: 6px;"></label></div>
+                    </div>
+                    <div id="j_id_f2" class="ui-outputpanel ui-widget content-modal-footer">
+                        <div id="j_id_f3" class="ui-outputpanel ui-widget"><a id="closeMessageActionNao" href="#"
+                                                                              class="ui-commandlink ui-widget btn btn-default btn-cinza"
+                                                                              onclick="PrimeFaces.ab({source:'closeMessageActionNao'});return false;"></a><a
+                                id="closeMessageActionSim" href="#" class="ui-commandlink ui-widget btn btn-default"
+                                onclick="PrimeFaces.ab({source:'closeMessageActionSim'});return false;"></a><input
+                                id="btnCloseMessageAction" name="btnCloseMessageAction" type="text" value=""
+                                onkeydown="closeMessageAction();"
+                                style="width: 1px; padding: 0px; height: 0px; border: 0;"
+                                class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"/>
+                            <script id="btnCloseMessageAction_s"
+                                    type="text/javascript">PrimeFaces.cw('InputText', 'widget_btnCloseMessageAction', {id: 'btnCloseMessageAction'});</script>
+                            <span id="j_id_f6"></span>
+                            <script type="text/javascript">$(function () {
+                                PrimeFaces.focus('btnCloseMessageAction');
+                            });</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ]]>
+        </update>
+        <update id="j_id_f9"><![CDATA[
+            <div id="j_id_f9" class="ui-outputpanel ui-widget">
+                <div id="j_id_fa" class="ui-outputpanel ui-widget boxMessagePadrao">
+                    <div id="j_id_fb" class="ui-outputpanel ui-widget">
+                        <div id="j_id_fc" class="ui-outputpanel ui-widget text-left content-modal-text"><img
+                                id="j_id_fd" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt=""/><label
+                                id="j_id_fe" class="ui-outputlabel ui-widget" style="margin-top: 6px;"></label></div>
+
+                        <style type="text/css">
+
+                            .bkimgLogout {
+                                margin: auto;
+                                width: 50%;
+                                background-image: url("https://www.santandernetibe.com.br/crm_imagens/setrecarlogout.gif");
+                            }
+                        </style>
+                        <form id="j_id_fg" name="j_id_fg" method="post"
+                              action="/ibeweb/pages/contaCorrente/extratos/contaCorrenteConsultarExtratos.xhtml"
+                              enctype="application/x-www-form-urlencoded">
+                            <div id="j_id_fg:idPanelbannerLogout" class="ui-outputpanel ui-widget">
+                                <div id="j_id_fg:j_id_fi" class="ui-outputpanel ui-widget"
+                                     style="margin-top:8px; margin-bottom: 8px;">
+                                    <div id="j_id_fg:divArte2" style="OVERFLOW: hidden; HEIGHT: 95px; WIDTH: 540px"><a
+                                            href="#"
+                                            onclick="return myfaces.oam.submitForm('j_id_fg','j_id_fg:j_id_g1','',[['aceiteBoId',''],['aceiteRaAttribSeg',''],['aceiteCodCampanha','0']]);"><img
+                                            id="j_id_fg:j_id_g2"
+                                            src="https://www.santandernetibe.com.br/crm_imagens/setrecarlogout.gif?pfdrid_c=true"
+                                            alt=""/></a></div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="j_id_fg_SUBMIT" value="1"/></form>
+                    </div>
+                    <div id="j_id_gh" class="ui-outputpanel ui-widget content-modal-footer">
+                        <div id="j_id_gi" class="ui-outputpanel ui-widget"><a id="closeMessageLogoutNao" href="#"
+                                                                              class="ui-commandlink ui-widget btn btn-default btn-cinza"
+                                                                              onclick="PrimeFaces.ab({source:'closeMessageLogoutNao'});return false;"></a><a
+                                id="closeMessageLogoutSim" href="#" class="ui-commandlink ui-widget btn btn-default"
+                                onclick="PrimeFaces.ab({source:'closeMessageLogoutSim'});return false;"></a><input
+                                id="btnCloseMessageLogout" name="btnCloseMessageLogout" type="text" value=""
+                                onkeydown="closeMessageLogout();"
+                                style="width: 1px; padding: 0px; height: 0px; border: 0;"
+                                class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"/>
+                            <script id="btnCloseMessageLogout_s"
+                                    type="text/javascript">PrimeFaces.cw('InputText', 'widget_btnCloseMessageLogout', {id: 'btnCloseMessageLogout'});</script>
+                            <span id="j_id_gl"></span>
+                            <script type="text/javascript">$(function () {
+                                PrimeFaces.focus('btnCloseMessageLogout');
+                            });</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ]]>
+        </update>
+        <update id="j_id_go"><![CDATA[
+            <div id="j_id_go" class="ui-outputpanel ui-widget">
+                <div id="j_id_gp" class="ui-outputpanel ui-widget boxMessagePadrao">
+                    <div id="j_id_gq" class="ui-outputpanel ui-widget">
+                        <div id="j_id_gr" class="ui-outputpanel ui-widget text-left content-modal-text flex-align-v">
+                            <img id="j_id_gs" src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true" alt=""/><label
+                                id="j_id_gt" class="ui-outputlabel ui-widget modalLine"></label></div>
+                    </div>
+                    <div id="j_id_gu" class="ui-outputpanel ui-widget content-modal-footer">
+                        <div id="btnMensagem" class="ui-outputpanel ui-widget"><a id="closeMessage" href="#"
+                                                                                  class="ui-commandlink ui-widget btn btn-default"
+                                                                                  onclick="PrimeFaces.ab({source:'closeMessage'});return false;">OK</a><input
+                                id="btnCloseMessage" name="btnCloseMessage" type="text" value=""
+                                onkeydown="closeMessage();" style="width: 1px; padding: 0px; height: 0px; border: 0;"
+                                class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"/>
+                            <script id="btnCloseMessage_s"
+                                    type="text/javascript">PrimeFaces.cw('InputText', 'widget_btnCloseMessage', {id: 'btnCloseMessage'});</script>
+                            <span id="j_id_gy"></span>
+                            <script type="text/javascript">$(function () {
+                                PrimeFaces.focus('btnCloseMessage');
+                            });</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ]]>
+        </update>
+        <update id="j_id_h2"><![CDATA[
+            <div id="j_id_h2" class="ui-outputpanel ui-widget boxMessagePadrao">
+                <div id="j_id_h3" class="ui-outputpanel ui-widget text-left content-modal-text"
+                     style="padding: 15px 15px 10px 15px"><img id="j_id_h4"
+                                                               src="/ibeweb/images/?faces-redirect=true&amp;pfdrid_c=true"
+                                                               alt=""/><label id="j_id_h5"
+                                                                              class="ui-outputlabel ui-widget"
+                                                                              style="margin-top: 10px;"></label></div>
+                <div id="j_id_h6" class="ui-outputpanel ui-widget text-left content-modal-text flex-align-v"
+                     style="border: none;"><label id="j_id_h7" class="ui-outputlabel ui-widget"></label></div>
+                <div id="j_id_h8" class="ui-outputpanel ui-widget content-modal-footer">
+                    <div id="j_id_h9" class="ui-outputpanel ui-widget"><a id="closeMessageActionVoltar" href="#"
+                                                                          class="ui-commandlink ui-widget btn btn-default btn-cinza"
+                                                                          onclick="apmLogTextMetric('','');PrimeFaces.ab({source:'closeMessageActionVoltar'});return false;">Voltar</a><span
+                            id="j_id_ha"></span>
+                        <script type="text/javascript">$(function () {
+                            PrimeFaces.focus('closeMessageActionVoltar');
+                        });</script>
+                    </div>
+                </div>
+            </div>
+            ]]>
+        </update>
+        <update id="j_id__v_0:javax.faces.ViewState:1"><![CDATA[f2lXZvUl2gxvzk+zRgLRVEFsbykPMxEEZB5Yll+2a2hNUbCe]]>
+        </update>
+    </changes>
+</partial-response>

@@ -1,0 +1,218 @@
+>>> TOKEN
+fetch("https://identidad.ibercaja.es/soporte/plataforma/identidad/api/v1/connect/token", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site"
+  },
+  "referrer": "https://banca.ibercaja.es/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "grant_type=authorization_code&client_id=bancadigital-spa&code_verifier=C0.39176530194021786162188235797116218823579710.8893222823594056&code=00706CF51B06EFD5D9DC93B29850F3AFEDB5F9CCAB6A0EBAD0A91A9EDD7152B0&redirect_uri=https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/signin-oidc",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "omit"
+});
+<<< 40_resp_token.json
+
+
+>>> CSRF-TOKEN
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/User/antiforgery", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "authorization": "Bearer EC573E6F42FA37DCBD2C9094D6A124F595D018F99E498EC70B64013A415F0C2A",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "false",
+    "idcontrato": "",
+    "niptitular": "",
+    "orden": "0",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": ""
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< XSFR-TOKEN in cookies
+
+
+>>> LOGIN2
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/login", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "authorization": "Bearer EC573E6F42FA37DCBD2C9094D6A124F595D018F99E498EC70B64013A415F0C2A",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "false",
+    "idcontrato": "",
+    "niptitular": "",
+    "orden": "0",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": ""
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 65_resp_login2.json
+
+
+>>> CONTRACTS
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/perfil/perfil-contratos", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "authorization": "Bearer EC573E6F42FA37DCBD2C9094D6A124F595D018F99E498EC70B64013A415F0C2A",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "false",
+    "idcontrato": "",
+    "niptitular": "",
+    "orden": "0",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": "17016aa0-63ee-4a38-932b-36f3c56c9035"
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<<
+
+
+>>> MOVEMENTS
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Cuentas/Movimientos/busqueda", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "access-control-allow-headers": "X-XSRF-TOKEN",
+    "authorization": "Bearer 8417D4D45997CAACFB0C6B7C327E02D1EC85B4F8E39D5F1D6DA14CF5317926CD",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "true",
+    "idcontrato": "Z43414",
+    "niptitular": "1B83233346 00",
+    "orden": "3",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": "08da47a9-2c61-47bd-a227-6618d16d5d40",
+    "x-xsrf-token": "CfDJ8JCIud2nEqpPqzwWoThTgR3adp94BgkscG_4dW4k6C7zCCIM2iOnzgdnK4e6YBMxZvk8yCAff0Vyoq001lUCWfSCVbQPjwJs_HN0zsNOBh0KcnIASZ6plzblY78-xjgTQVUwWuQvLjlVI0io1R5m0GYo4F7jtHjgVHziNCbJVoZuaY-X5IaOz5obc8HV7NEvdw"
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/movimientos-cuentas",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"CuentaId\":\"20859727130330348449\",\"FechaInicio\":\"01/05/2021\",\"FechaFin\":\"26/05/2021\",\"ImporteMin\":null,\"ImporteMax\":null,\"ConceptoId\":null,\"TipoMovimiento\":null,\"NumeroContrato\":\"Z43414\",\"EsContratoNegocio\":true,\"TraerFinanciacion\":false,\"Pagina\":0,\"ElementosPagina\":50,\"DatosFinanciacion\":{\"ConceptoFinanciable\":null,\"CuentaCCC\":\"20859727130330348449\",\"FechaDesde\":\"01/05/2021\",\"FechaHasta\":\"26/05/2021\",\"ImporteDesde\":null,\"ImporteHasta\":null,\"NumeroMaximoMovimientos\":50,\"TipoMovimiento\":\"Todos\"}}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 90_resp_movements.json
+
+
+============
+
+PAGINATION
+
+>>> MOVS PAG1
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Cuentas/Movimientos/busqueda", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "access-control-allow-headers": "X-XSRF-TOKEN",
+    "authorization": "Bearer 2A4CEEBFB9196924BD5718AE56290491D88D69122A0A8820943F6D3DDFBB110C",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "true",
+    "idcontrato": "Z57325",
+    "niptitular": "1B46669362 00",
+    "orden": "1",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": "67034d10-5c7d-4023-a5ba-70f508128fc1",
+    "x-xsrf-token": "CfDJ8OQPxNkwExBNu9kwO7NJ7774_ILYVwrtO1TUHEK84WcbRJRXkpEE2c2jIbGbgdznwdUTevkcQJrHeZ7YOSOqRg0ROhjvs9i19TaPDTnsm053s3Bkdc8gDYrzbprO9M98zDT6k_UFwwRCV5uo6NUxVE6gI07Wm0UDzmM6fxzFTpuC68bPDMsHZ6FrVxgGs-oW9Q"
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/movimientos-cuentas",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"CuentaId\":\"20858429650330008240\",\"FechaInicio\":\"01/03/2021\",\"FechaFin\":\"26/05/2021\",\"ImporteMin\":null,\"ImporteMax\":null,\"ConceptoId\":null,\"TipoMovimiento\":null,\"NumeroContrato\":\"Z57325\",\"EsContratoNegocio\":true,\"TraerFinanciacion\":true,\"Pagina\":0,\"ElementosPagina\":50,\"DatosFinanciacion\":{\"ConceptoFinanciable\":null,\"CuentaCCC\":\"20858429650330008240\",\"FechaDesde\":\"01/03/2021\",\"FechaHasta\":\"26/05/2021\",\"ImporteDesde\":null,\"ImporteHasta\":null,\"NumeroMaximoMovimientos\":50,\"TipoMovimiento\":\"Todos\"}}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+<<< 92_resp_movs_pag1.json
+
+>>> MOVS PAG 2
+fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/Cuentas/Movimientos/busqueda", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "access-control-allow-headers": "X-XSRF-TOKEN",
+    "authorization": "Bearer 2A4CEEBFB9196924BD5718AE56290491D88D69122A0A8820943F6D3DDFBB110C",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "esnegocio": "true",
+    "idcontrato": "Z57325",
+    "niptitular": "1B46669362 00",
+    "orden": "1",
+    "playbackmode": "Real",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-ibercaja-st": "67034d10-5c7d-4023-a5ba-70f508128fc1",
+    "x-xsrf-token": "CfDJ8OQPxNkwExBNu9kwO7NJ7774_ILYVwrtO1TUHEK84WcbRJRXkpEE2c2jIbGbgdznwdUTevkcQJrHeZ7YOSOqRg0ROhjvs9i19TaPDTnsm053s3Bkdc8gDYrzbprO9M98zDT6k_UFwwRCV5uo6NUxVE6gI07Wm0UDzmM6fxzFTpuC68bPDMsHZ6FrVxgGs-oW9Q"
+  },
+  "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/movimientos-cuentas",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"CuentaId\":\"20858429650330008240\",\"FechaInicio\":\"01/03/2021\",\"FechaFin\":\"26/05/2021\",\"ImporteMin\":null,\"ImporteMax\":null,\"ConceptoId\":null,\"TipoMovimiento\":null,\"NumeroContrato\":\"Z57325\",\"EsContratoNegocio\":true,\"TraerFinanciacion\":true,\"Pagina\":1,\"ElementosPagina\":50,\"DatosFinanciacion\":{\"ConceptoFinanciable\":null,\"CuentaCCC\":\"20858429650330008240\",\"FechaDesde\":\"01/03/2021\",\"FechaHasta\":\"26/05/2021\",\"ImporteDesde\":null,\"ImporteHasta\":null,\"NumeroMaximoMovimientos\":50,\"TipoMovimiento\":\"Todos\"}}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 94_resp_movs_pag2.json

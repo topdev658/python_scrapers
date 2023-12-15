@@ -1,0 +1,1621 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+
+    <!--
+    <title>BANCA INTERNET</title>
+    -->
+    <!-- -->
+
+    <title>BANCA INTERNET</title>
+
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="No-cache">
+    <META HTTP-EQUIV="Pragma" CONTENT="No-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="Now">
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/ValidateTO.js"></script>
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script>
+
+    <script type="text/javascript" >
+
+        var pulsada = 0;
+        var TamLista = 71;
+        var tamanioPagina = 25;
+        var StrListaChequeos = "0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|";
+        var StrListaleido = "0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|";
+        var separador = "|";
+        var arrayChequeos = StrListaChequeos.split(separador);
+        var arrayLeido = StrListaleido.split(separador);
+        var indicePag = 25;
+
+        function completar(pag) {
+            actualizaListaChequeos();
+            document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_LISTA";
+            document.FORM_RVIA_0.submit();
+        }
+
+        function volver(){
+            if (pulsada == 0) {
+                pulsada = 1;
+                document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_INICIO";
+                document.FORM_RVIA_0.submit();
+            }
+        }
+
+        function marcarTodos(checkCabecera){
+            var idSeleccionado = "";
+            for(var i=0; i<TamLista; i++){
+                var posicionPag = i + indicePag;
+                idSeleccionado = "seleccion_" + posicionPag;
+
+                if(!document.getElementById(idSeleccionado).checked && checkCabecera.checked){
+                    document.getElementById(idSeleccionado).checked = true;
+                }else if (document.getElementById(idSeleccionado).checked && !checkCabecera.checked){
+                    document.getElementById(idSeleccionado).checked = false;
+                }
+            }
+        }
+
+        function marcarDesmarcar(posicion){
+            var idSeleccionado = "seleccion_" + posicion;
+            if (document.getElementById(idSeleccionado).checked){
+                arrayChequeos[idSeleccionado] = "1";
+                document.getElementById(idSeleccionado).checked = true;
+            }else{
+                arrayChequeos[idSeleccionado] = "0";
+                document.getElementById(idSeleccionado).checked = false;
+            }
+
+        }
+
+        function marcarLeidos(){
+            var idSeleccionado = "";
+            var validaSeleccion = false;
+            var separadorActualizacionMultiple = "";
+            actualizaListaChequeos();
+            //Inicializa dato
+            document.FORM_RVIA_0.idDocumento.value = "";
+            for(var i=0; i<TamLista; i++){
+                idSeleccionado = "seleccion_" + i;
+                if(document.getElementById(idSeleccionado) && document.getElementById(idSeleccionado).checked){
+                    document.FORM_RVIA_0.idDocumento.value += separadorActualizacionMultiple + document.getElementById(idSeleccionado).value;
+                    separadorActualizacionMultiple = separador;
+                    validaSeleccion = true;
+                }
+            }
+
+            var idSeleccionado = "";
+
+            for(var i=0; i<arrayChequeos.length; i++){
+                idSeleccionado = "seleccion_" + (i);
+
+                if (document.getElementById(idSeleccionado) ){
+                    if ( document.getElementById(idSeleccionado).checked){
+                        arrayChequeos[i] = "1";
+                        var sobre =  "sobre_" + i;
+                        if (document.getElementById(sobre) ){
+
+                            document.getElementById(sobre).src = "/es_ES/img/E/leido.gif";
+
+                            arrayLeido[i] = "1";
+                        }
+                    }
+                    else{
+                        arrayChequeos[i] = "0";
+                    }
+                }
+            }
+            document.FORM_RVIA_0.listaChequeo.value = arrayChequeos.join("|");
+            document.FORM_RVIA_0.listaLeido.value = arrayLeido.join("|");
+
+            var numMarcados = 0;
+            for(var i=0; i<arrayChequeos.length; i++){
+                if(arrayChequeos[i] == "1"){
+                    numMarcados = numMarcados + 1;
+                }
+            }
+
+
+            if(numMarcados < 1){
+                alert('No hay documentos seleccionados');
+                return false;
+            }
+
+
+            document.FORM_RVIA_0.primeraVez.value = "1";
+            document.FORM_RVIA_0.paginaActual.value = document.FORM_RVIA_0.paginaActualAux.value;
+            document.FORM_RVIA_0.tamanioPagina.value = document.FORM_RVIA_0.tamanioPaginaAux.value;
+            document.FORM_RVIA_0.campoPaginacion.value = document.FORM_RVIA_0.campoPaginacionAux.value;
+
+            document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_ACT_VISUALIZADO";
+            document.FORM_RVIA_0.idDocumento.value = "ORACLE-13/10/2020-3060-2020-10-14-05-15-51-46-000004644-B09417932           -A4SPDF#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000046512-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000013457-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-14-04-33-47-54-000011463-B09417932           -TERCIOSPDF#ORACLE-08/10/2020-3060-2020-10-10-14-50-01-38-000018308-B09417932           -A4SPDF#ORACLE-01/10/2020-3060-2020-10-02-05-24-15-04-000315496-B09417932           -TERCIOSPDF#ORACLE-30/09/2020-3060-2020-10-02-05-24-15-04-000315497-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043002-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043001-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-18-04-27-29-99-000029863-B09417932           -TERCIOSPDF#ORACLE-07/09/2020-3060-2020-09-08-04-53-17-12-000095079-B09417932           -TERCIOSPDF#ORACLE-01/09/2020-3060-2020-09-02-08-06-21-75-001081559-B09417932           -TERCIOSPDF#ORACLE-29/08/2020-3060-2020-09-02-08-06-21-75-001081560-B09417932           -TERCIOSPDF#ORACLE-15/08/2020-3060-2020-08-19-04-14-42-83-000099818-B09417932           -TERCIOSPDF#ORACLE-06/08/2020-3060-2020-08-07-06-41-30-57-000245644-B09417932           -TERCIOSPDF#ORACLE-30/07/2020-3060-2020-08-01-04-45-52-89-000105684-B09417932           -TERCIOSPDF#ORACLE-21/07/2020-3060-2020-07-22-04-20-56-72-000074123-B09417932           -TERCIOSPDF#ORACLE-20/07/2020-3060-2020-07-23-04-15-04-54-000068326-B09417932           -TERCIOSPDF#ORACLE-15/07/2020-3060-2020-07-18-04-18-50-27-000001421-B09417932           -TERCIOSPDF#ORACLE-09/07/2020-3060-2020-07-11-04-27-55-52-000086241-B09417932           -TERCIOSPDF#ORACLE-02/07/2020-3060-2020-07-03-06-18-11-18-000526185-B09417932           -TERCIOSPDF#ORACLE-30/06/2020-3060-2020-07-03-06-18-11-18-000526186-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-20-21-41-000017018-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-58-33-40-000008862-B09417932           -A4SPDF#ORACLE-24/06/2020-3060-2020-06-25-04-56-53-96-000004254-B09417932           -A4SPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096199-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096198-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-18-04-23-24-84-000069246-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092571-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092570-B09417932           -TERCIOSPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022049-B09417932           -A4SPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022048-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022051-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022050-B09417932           -A4SPDF#ORACLE-01/06/2020-3060-2020-06-02-05-37-19-69-000001233-B09417932           -TERCIOSPDF#ORACLE-30/05/2020-3060-2020-06-03-04-28-41-53-000089922-B09417932           -TERCIOSPDF#ORACLE-28/05/2020-3060-2020-05-30-04-28-30-17-000113090-B09417932           -TERCIOSPDF#ORACLE-15/05/2020-3060-2020-05-20-04-20-25-19-000077525-B09417932           -TERCIOSPDF#ORACLE-04/05/2020-3060-2020-05-05-07-03-09-34-000082918-B09417932           -TERCIOSPDF#ORACLE-21/04/2020-3060-2020-04-22-04-21-54-76-000061895-B09417932           -TERCIOSPDF#ORACLE-20/04/2020-3060-2020-04-23-04-17-16-58-000047604-B09417932           -TERCIOSPDF#ORACLE-16/04/2020-3060-2020-04-18-04-23-31-81-000033680-B09417932           -TERCIOSPDF#ORACLE-02/04/2020-3060-2020-04-03-11-29-50-01-000650421-B09417932           -TERCIOSPDF#ORACLE-25/03/2020-3060-2020-03-27-04-19-58-96-000061051-B09417932           -TERCIOSPDF#ORACLE-20/03/2020-3060-2020-03-24-04-41-38-41-000007967-B09417932           -A4SPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093577-B09417932           -TERCIOSPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093576-B09417932           -TERCIOSPDF#ORACLE-14/03/2020-3060-2020-03-18-04-19-43-20-000097398-B09417932           -TERCIOSPDF#ORACLE-09/03/2020-3060-2020-03-22-10-51-11-07-000017108-B09417932           -A4SPDF#ORACLE-03/03/2020-3060-2020-03-20-22-53-56-20-000482203-B09417932           -TERCIOSPDF#ORACLE-29/02/2020-3060-2020-03-20-22-53-56-20-000482204-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-22-26-47-000010738-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005205-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005204-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005203-B09417932           -A4SPDF#ORACLE-15/02/2020-3060-2020-02-19-04-22-47-93-000091869-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-16-12-27-000084332-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008654-B09417932           -A4SPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008653-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-04-45-39-88-000102682-B09417932           -TERCIOSPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010563-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010562-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010561-B09417932           -A4SPDF#ORACLE-07/02/2020-3060-2020-02-10-17-30-55-55-000032402-B09417932           -A4SPDF#ORACLE-03/02/2020-3060-2020-02-04-05-38-34-08-000198157-B09417932           -TERCIOSPDF#ORACLE-27/01/2020-3060-2020-01-28-05-04-04-25-000263243-B09417932           -TERCIOSPDF#ORACLE-21/01/2020-3060-2020-01-22-04-08-46-66-000011991-B09417932           -TERCIOSPDF#ORACLE-20/01/2020-3060-2020-01-23-05-28-45-54-000145796-B09417932           -TERCIOSPDF#ORACLE-16/01/2020-3060-2020-01-23-05-28-45-54-000145795-B09417932           -TERCIOSPDF#ORACLE-09/01/2020-3060-2020-01-13-18-50-35-12-000048452-B09417932           -TERCIOSPDF#ORACLE-02/01/2020-3060-2020-01-03-06-15-34-05-000281644-B09417932           -TERCIOSPDF#";
+            document.FORM_RVIA_0.submit();
+
+        }
+
+        function imprimirAgrupados(){
+            var idSeleccionado = "";
+            var validaSeleccion = false;
+            var separadorActualizacionMultiple = "";
+            //Inicializa dato
+            document.FORM_RVIA_0.idDocumento.value = "";
+            for(var i=0; i<TamLista; i++){
+                idSeleccionado = "seleccion_" + i;
+                if(document.getElementById(idSeleccionado) && document.getElementById(idSeleccionado).checked){
+                    document.FORM_RVIA_0.idDocumento.value += separadorActualizacionMultiple + document.getElementById(idSeleccionado).value;
+                    separadorActualizacionMultiple = separador;
+                    validaSeleccion = true;
+                }
+            }
+
+
+            document.FORM_RVIA_0.primeraVez.value = "1";
+            document.FORM_RVIA_0.paginaActual.value = document.FORM_RVIA_0.paginaActualAux.value;
+            document.FORM_RVIA_0.tamanioPagina.value = document.FORM_RVIA_0.tamanioPaginaAux.value;
+            document.FORM_RVIA_0.campoPaginacion.value = document.FORM_RVIA_0.campoPaginacionAux.value;
+
+            document.FORM_RVIA_0.listaChequeo.value = "";
+            document.FORM_RVIA_0.listaLeido.value = "";
+
+
+            var idSeleccionado = "";
+
+            for(var i=0; i<arrayChequeos.length; i++){
+                idSeleccionado = "seleccion_" + (i);
+
+                if (document.getElementById(idSeleccionado) ){
+                    if ( document.getElementById(idSeleccionado).checked){
+                        arrayChequeos[i] = "1";
+                        var sobre =  "sobre_" + i;
+                        if (document.getElementById(sobre) ){
+
+                            document.getElementById(sobre).src = "/es_ES/img/E/leido.gif";
+
+                            arrayLeido[i] = "1";
+                        }
+                    }
+                    else{
+                        arrayChequeos[i] = "0";
+                    }
+                }
+            }
+            document.FORM_RVIA_0.listaChequeo.value = arrayChequeos.join("|");
+            document.FORM_RVIA_0.listaLeido.value = arrayLeido.join("|");
+
+            var numMarcados = 0;
+            for(var i=0; i<arrayChequeos.length; i++){
+                if(arrayChequeos[i] == "1"){
+                    numMarcados = numMarcados + 1;
+                }
+            }
+
+
+            if(numMarcados < 1){
+                alert('No hay documentos seleccionados');
+                return false;
+            }
+
+
+            if(numMarcados>50){
+                alert('El número de documentos seleccionados no puede ser superior a 50');
+                return false;
+            }
+
+            document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_DETALLE_DOCUMENTO_AGRUPADO";
+            document.FORM_RVIA_0.idDocumento.value = "ORACLE-13/10/2020-3060-2020-10-14-05-15-51-46-000004644-B09417932           -A4SPDF#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000046512-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000013457-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-14-04-33-47-54-000011463-B09417932           -TERCIOSPDF#ORACLE-08/10/2020-3060-2020-10-10-14-50-01-38-000018308-B09417932           -A4SPDF#ORACLE-01/10/2020-3060-2020-10-02-05-24-15-04-000315496-B09417932           -TERCIOSPDF#ORACLE-30/09/2020-3060-2020-10-02-05-24-15-04-000315497-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043002-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043001-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-18-04-27-29-99-000029863-B09417932           -TERCIOSPDF#ORACLE-07/09/2020-3060-2020-09-08-04-53-17-12-000095079-B09417932           -TERCIOSPDF#ORACLE-01/09/2020-3060-2020-09-02-08-06-21-75-001081559-B09417932           -TERCIOSPDF#ORACLE-29/08/2020-3060-2020-09-02-08-06-21-75-001081560-B09417932           -TERCIOSPDF#ORACLE-15/08/2020-3060-2020-08-19-04-14-42-83-000099818-B09417932           -TERCIOSPDF#ORACLE-06/08/2020-3060-2020-08-07-06-41-30-57-000245644-B09417932           -TERCIOSPDF#ORACLE-30/07/2020-3060-2020-08-01-04-45-52-89-000105684-B09417932           -TERCIOSPDF#ORACLE-21/07/2020-3060-2020-07-22-04-20-56-72-000074123-B09417932           -TERCIOSPDF#ORACLE-20/07/2020-3060-2020-07-23-04-15-04-54-000068326-B09417932           -TERCIOSPDF#ORACLE-15/07/2020-3060-2020-07-18-04-18-50-27-000001421-B09417932           -TERCIOSPDF#ORACLE-09/07/2020-3060-2020-07-11-04-27-55-52-000086241-B09417932           -TERCIOSPDF#ORACLE-02/07/2020-3060-2020-07-03-06-18-11-18-000526185-B09417932           -TERCIOSPDF#ORACLE-30/06/2020-3060-2020-07-03-06-18-11-18-000526186-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-20-21-41-000017018-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-58-33-40-000008862-B09417932           -A4SPDF#ORACLE-24/06/2020-3060-2020-06-25-04-56-53-96-000004254-B09417932           -A4SPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096199-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096198-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-18-04-23-24-84-000069246-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092571-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092570-B09417932           -TERCIOSPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022049-B09417932           -A4SPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022048-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022051-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022050-B09417932           -A4SPDF#ORACLE-01/06/2020-3060-2020-06-02-05-37-19-69-000001233-B09417932           -TERCIOSPDF#ORACLE-30/05/2020-3060-2020-06-03-04-28-41-53-000089922-B09417932           -TERCIOSPDF#ORACLE-28/05/2020-3060-2020-05-30-04-28-30-17-000113090-B09417932           -TERCIOSPDF#ORACLE-15/05/2020-3060-2020-05-20-04-20-25-19-000077525-B09417932           -TERCIOSPDF#ORACLE-04/05/2020-3060-2020-05-05-07-03-09-34-000082918-B09417932           -TERCIOSPDF#ORACLE-21/04/2020-3060-2020-04-22-04-21-54-76-000061895-B09417932           -TERCIOSPDF#ORACLE-20/04/2020-3060-2020-04-23-04-17-16-58-000047604-B09417932           -TERCIOSPDF#ORACLE-16/04/2020-3060-2020-04-18-04-23-31-81-000033680-B09417932           -TERCIOSPDF#ORACLE-02/04/2020-3060-2020-04-03-11-29-50-01-000650421-B09417932           -TERCIOSPDF#ORACLE-25/03/2020-3060-2020-03-27-04-19-58-96-000061051-B09417932           -TERCIOSPDF#ORACLE-20/03/2020-3060-2020-03-24-04-41-38-41-000007967-B09417932           -A4SPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093577-B09417932           -TERCIOSPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093576-B09417932           -TERCIOSPDF#ORACLE-14/03/2020-3060-2020-03-18-04-19-43-20-000097398-B09417932           -TERCIOSPDF#ORACLE-09/03/2020-3060-2020-03-22-10-51-11-07-000017108-B09417932           -A4SPDF#ORACLE-03/03/2020-3060-2020-03-20-22-53-56-20-000482203-B09417932           -TERCIOSPDF#ORACLE-29/02/2020-3060-2020-03-20-22-53-56-20-000482204-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-22-26-47-000010738-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005205-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005204-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005203-B09417932           -A4SPDF#ORACLE-15/02/2020-3060-2020-02-19-04-22-47-93-000091869-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-16-12-27-000084332-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008654-B09417932           -A4SPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008653-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-04-45-39-88-000102682-B09417932           -TERCIOSPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010563-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010562-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010561-B09417932           -A4SPDF#ORACLE-07/02/2020-3060-2020-02-10-17-30-55-55-000032402-B09417932           -A4SPDF#ORACLE-03/02/2020-3060-2020-02-04-05-38-34-08-000198157-B09417932           -TERCIOSPDF#ORACLE-27/01/2020-3060-2020-01-28-05-04-04-25-000263243-B09417932           -TERCIOSPDF#ORACLE-21/01/2020-3060-2020-01-22-04-08-46-66-000011991-B09417932           -TERCIOSPDF#ORACLE-20/01/2020-3060-2020-01-23-05-28-45-54-000145796-B09417932           -TERCIOSPDF#ORACLE-16/01/2020-3060-2020-01-23-05-28-45-54-000145795-B09417932           -TERCIOSPDF#ORACLE-09/01/2020-3060-2020-01-13-18-50-35-12-000048452-B09417932           -TERCIOSPDF#ORACLE-02/01/2020-3060-2020-01-03-06-15-34-05-000281644-B09417932           -TERCIOSPDF#";
+            document.FORM_RVIA_0.submit();
+
+        }
+
+        function detalleDocumento(cuenta, idDocumento, codigoFormulario, fecha, visualizado, nomDocumento, numeroDocumento, posicion){
+
+            document.FORM_RVIA_0.cuenta.value = cuenta;
+            document.FORM_RVIA_0.idDocumento.value = idDocumento;
+            document.FORM_RVIA_0.codigoFormulario.value = codigoFormulario;
+            document.FORM_RVIA_0.fecha.value = fecha;
+            document.FORM_RVIA_0.visualizado.value = visualizado;
+            document.FORM_RVIA_0.nomDocumento.value = nomDocumento;
+            document.FORM_RVIA_0.nDocum.value = numeroDocumento;
+
+            document.FORM_RVIA_0.primeraVez.value = document.FORM_RVIA_0.primeraVezAux.value;
+            document.FORM_RVIA_0.paginaActual.value = document.FORM_RVIA_0.paginaActualAux.value;
+            document.FORM_RVIA_0.tamanioPagina.value = document.FORM_RVIA_0.tamanioPaginaAux.value;
+            document.FORM_RVIA_0.campoPaginacion.value = document.FORM_RVIA_0.campoPaginacionAux.value;
+
+            var sobre =  "sobre_" + posicion;
+            if (document.getElementById(sobre) ){
+
+                document.getElementById(sobre).src = "/es_ES/img/E/leido.gif";
+
+                arrayLeido[posicion] = "1";
+            }
+            actualizaListaChequeos();
+            //if (pulsada == 0) {
+            //	pulsada = 1;
+            document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_DETALLE_DOCUMENTO";
+            document.FORM_RVIA_0.submit();
+            //}
+
+        }
+
+        function actualizaListaChequeos(){
+            var idSeleccionado = "";
+            for(var i=0; i<arrayChequeos.length; i++){
+                idSeleccionado = "seleccion_" + (i);
+
+                if (document.getElementById(idSeleccionado) ){
+                    if ( document.getElementById(idSeleccionado).checked){
+                        arrayChequeos[i] = "1";
+                    }
+                    else{
+                        arrayChequeos[i] = "0";
+                    }
+                }
+            }
+            document.FORM_RVIA_0.listaChequeo.value = arrayChequeos.join("|");
+            document.FORM_RVIA_0.listaLeido.value = arrayLeido.join("|");
+        }
+
+        function descargar(){
+            actualizaListaChequeos();
+            var validaSeleccion = false;
+
+
+            document.FORM_RVIA_0.primeraVez.value = document.FORM_RVIA_0.primeraVezAux.value;
+            document.FORM_RVIA_0.paginaActual.value = document.FORM_RVIA_0.paginaActualAux.value;
+            document.FORM_RVIA_0.tamanioPagina.value = document.FORM_RVIA_0.tamanioPaginaAux.value;
+            document.FORM_RVIA_0.campoPaginacion.value = document.FORM_RVIA_0.campoPaginacionAux.value;
+            for(var i=0; i<TamLista; i++){
+                idSeleccionado = "seleccion_" + i;
+                if(document.getElementById(idSeleccionado) && document.getElementById(idSeleccionado).checked){
+                    validaSeleccion = true;
+                    break;
+                }
+            }
+
+            var numMarcados = 0;
+            for(var i=0; i<arrayChequeos.length; i++){
+                if(arrayChequeos[i] == "1"){
+                    numMarcados = numMarcados + 1;
+                }
+            }
+
+
+            if(numMarcados < 1){
+                alert('No hay documentos seleccionados');
+                return false;
+            }
+
+            for(var i=0; i<TamLista; i++){
+                var sobre = "sobre_" + i;
+                var idSeleccion = "seleccion_" + i;
+                if (document.getElementById(sobre) && document.getElementById(idSeleccion).checked ){
+
+                    document.getElementById(sobre).src = "/es_ES/img/E/leido.gif";
+
+                    arrayLeido[i] = "1";
+
+                }
+            }
+
+            document.FORM_RVIA_0.clavePagina.value = "BDP_BZVIRTUAL_GENERA_ZIP";
+            document.FORM_RVIA_0.submit();
+        }
+
+    </script>
+
+
+
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/skin.css?id=001">
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/skin.css?id=001">
+
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/skin.css?id=001">
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/bi/style.css">
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/bi/style_MZ.css">
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/3060/skin.css?id=001">
+
+
+    <NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script></NO_TRANSFORM>
+
+
+
+
+    <NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/multicanalidad.js"></script></NO_TRANSFORM>
+
+
+
+    <script language="JavaScript">
+        <!--
+        openMenuA = null;
+        openMenuB = null;
+
+        function cambiaKK(capa1, capa2){
+            oculta(capa1);
+            visualiza(capa2);
+            if (openMenuA != null){
+                oculta(openMenuB);
+                visualiza(openMenuA);
+            }
+            if (openMenuA == capa2){
+                openMenuA = null;
+                openMenuB = null;
+            }else{
+                openMenuA = capa1;
+                openMenuB = capa2;
+            }
+        }
+
+        function oculta(capaId){
+            capa = document.getElementById(capaId);
+            capa.style.display = 'none';
+            i = 0;
+            while (document.getElementById(capaId + "_" + i)){
+                caux = document.getElementById(capaId + "_" + i);
+                caux.style.display = 'none';
+                i++;
+            }
+        }
+
+        function visualiza(capaId){
+            capa = document.getElementById(capaId);
+            capa.style.display = 'block';
+            i = 0;
+            while (document.getElementById(capaId + "_" + i)){
+                caux = document.getElementById(capaId + "_" + i);
+                caux.style.display = 'block';
+                i++;
+            }
+        }
+
+
+
+
+
+
+        function pintarTablaMenu(texto)
+        {
+            document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+            document.write("	<table cellpadding='0' cellspacing='0' border='0'>");
+            document.write("	<tr>");
+            document.write("		<td nowrap='true' id='opcion'>" + texto + "</td>");
+            document.write("	</tr>");
+            document.write("	</table>");
+            document.write("</td>");
+        }
+
+        function pintarTablaMenuSeleccionada(texto)
+        {
+            document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+            document.write("			<table cellpadding='0' cellspacing='0' border='0'>");
+            document.write("			<tr>");
+            document.write("	 			<td class='izqFin' nowrap='true'></td>");
+            document.write("	 			<td class='centroFin' nowrap='true'>&nbsp;" + texto + "&nbsp;</td>");
+            document.write("				<td class='dchaFin' nowrap='true'>&nbsp;</td>");
+            document.write("			</tr>");
+            document.write("		 	</table>");
+            document.write("		</td>");
+
+
+        }
+
+        function pintarFinTablaMenu()
+        {
+            document.write("<td class='fondoMenu' style='vertical-align: bottom; padding-top:5px;' width='100%'>");
+            document.write("<table cellpadding='0' cellspacing='0' border='0' width='100%'>");
+            document.write("	<tr>");
+            document.write("		<td id='opcion'>&nbsp;</td>");
+            document.write("	</tr>");
+            document.write("	</table>");
+            document.write("</td>");
+        }
+
+        //-->
+    </script>
+    <script language="Javascript">
+        <!--
+        ie4 = (document.all)? true:false;
+        function pulsarTecla (e){
+            if ((ie4 && (event.keyCode == 13)) || (! ie4 && (e.which == 13))){
+                return false;
+            }
+        }
+        document.onkeydown = pulsarTecla;
+        //-->
+
+    </script>
+    <script language="javascript" src="/javascripts_portal/utils/funciones.js"></script>
+</head>
+
+<BODY>
+<DIV ID="RESOLUCION">
+
+    <!--CABECERA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script language="JavaScript">
+        <!--
+        function resolucion(valor){
+            if (valor == "TM1"){
+                var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a 800 x 600 píxeles.";
+                alert(tx);
+            }else{
+                var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a un resolución mínima de 1024 x 768 píxeles.";
+                alert(tx);
+            }
+            url = window.location.href;
+            if (url.indexOf("?") != -1){
+                indice = url.indexOf("?");
+                if (indice != -1){
+                    window.location.href = url.substring(0, indice) + "?RES=" + valor;
+                }else{
+                    window.location.href = url + "&RES=" + valor;
+                }
+            }else{
+                window.location.href = url + "?RES=" + valor;
+            }
+        }
+        //-->
+
+        function salirConfirmacion(url){
+            load(url);
+            //location.href="/isum/srv.BDP_EXCLUSIVE_SALIR_EMP.BDP_EXCLUSIVE_SALIR_EMP";
+        }
+
+        var pgLogout = null ;
+
+        function load(url) {
+
+
+
+
+            url= 'https://bancaelectronica.evobanco.com'+url;
+
+
+            if (typeof window.ActiveXObject != 'undefined' ) {
+                pgLogout = new ActiveXObject("Microsoft.XMLHTTP");
+                pgLogout.onreadystatechange = process ;
+            }
+            else {
+                pgLogout = new XMLHttpRequest();
+                pgLogout.onload = process ;
+            }
+            pgLogout.open( 'POST', url, true );
+            pgLogout.send( null );
+        }
+
+        function process() {
+            if (pgLogout.readyState != 4 ) return ;
+            document.getElementById('CONTENIDO').innerHTML = pgLogout.responseText ;
+        }
+
+
+    </script>
+
+    <div class=CABECERA>
+
+        <div id=LOGO></div>
+        <div id=BARRALITERAL>
+
+
+
+            <a href="/isum/interfaces/ruralvia2005b/Logout.jsp?entidad=3060&modo_autenticacion=1" id="botonSalir" ></a>
+
+
+
+            <div id=CBLITERAL01>
+
+
+                <a href='Main?ISUM_ID=cabecera&ISUM_SCR=serviceScr&ISUM_CIPH=M63WiTIty2SHKdYevV%2FtPcClu8vx0ZfC5Zch00BVtcw%3D' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('desconectar','','/es_ES/img/desconectar_b.gif',1)"><img name="desconectar" border="0" src="/es_ES/img/desconectar_a.gif" alt="Desconectar" ></a>
+
+
+
+            </div> <!-- CBLITERAL01 -->
+
+
+
+
+
+
+            <div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=BTqHo39K5H8bnE0Pqm%2FyrQ%3D%3D" target="_blank">Atención al Cliente</a>&nbsp;|&nbsp;</div>
+
+
+
+
+
+            <div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=mpYhsP4nMGS87zKN8r8WhA%3D%3D" target="_blank">Seguridad</a>&nbsp;|&nbsp;</div>
+
+
+
+            <!--Adaptación Resoluciones-->
+
+
+
+            <!--***** P00009735 -- INICIO ***********-->
+
+            <!-- /*************************** P00017411 12/08/2013 INICIO *************************************** -->
+
+
+            <div id="CBLOGOTXT">
+                Cajaviva Caja Rural
+
+
+                <div class="bix">BIC: BCOEESMM060</div>
+
+            </div>
+            <!-- /*************************** P00017411 12/08/2013 FIN ****************************************** -->
+
+            <!--***** P00009735 -- FIN ***********-->
+
+
+            <div id=contrato_tit>
+                <p class=contrato><span>Contrato:  </span>00000000002085498190</p>
+                <p class=titular><span>Titular:  </span>GAMBASTAR S.L.</p>
+            </div>
+
+
+
+
+
+        </div> <!-- BARRALITERAL -->
+
+
+        <div id=ENTORNO>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=tP3H%2B8EtFS%2BBXVFTTQl5sHdoZziljXOhgzqWl61zZz0%3D" id="BDP_RVIA05_BANCA_PRIVADA_EMP">Banca Privada</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=i9PZ0SKCZUzXv50%2FMW%2B8jev2ehxgC1H9LSkKIN2U8IM%3D" id="BDP_RVIA05_COMERCIO_EMP">Comercio</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/srv.EMPRESA.BDP_RVIA05_SERV_CABECERA_GEST_FICHEROS"  id="EMPRESA_IA">Gestión de Ficheros</a></div>
+
+            <INPUT type="hidden" name="EMPRESA_IA_REDIRECT" id="EMPRESA_IA_REDIRECT" value="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=GiNrEqlI8SXEtxOJhJzhcbtEKn4Wj6X5M%2BINFupyzso%3D">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </DIV>
+
+
+
+
+
+
+
+    <!--MENU SUPERIOR-->
+
+
+
+
+
+
+
+
+
+
+    <!--	<DIV MENU> //-->
+    <div id="menuHorizontal">
+        <table cellpadding="0" align="center" cellspacing="0" border="0" style="border-top: 1px solid #000000; border-left: 1px solid #949494;">
+            <tr>
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=KTjqF1bBM7meFFwNMPYJOUqWEm9JYz9qSytemQR9VgQ%3D">Inicio</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=W8WZhhAuUqYlB%2FlZA%2BFg7Sqo64REfkzzR4y9hPSUdJs%3D">Cuentas</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=zr8u86JWmXMpALZkX9JRZRduMilTgIRMn6N44jbqf2A%3D">Transferencias</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=hjz8HacjwPIlZJkCnn4tn4pQWRKaseSdWwj5PJvZMWs%3D">Tarjetas</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=ew5%2FZt2myrt2hHMVuhddis85PT0gzsYqEgdhqNlgkus%3D">Ahorro/Inversión</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=lL12ajtPUoOBcB8KZobWpYlaBgvl%2FMeNpjODdXfg%2FJo%3D">Valores</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=t0aFPMMpFyk%2F0wpjE6QCd5eT6V8HoZFlibqLO9vBSA4%3D">Financiación</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=7%2BhEdeSNkxuBUKch5kxrLVabOXhYN7Xq0K2USP0NO9s%3D">Internacional</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=LzzO3AKXOo7CFpOKHldR2CmVirr2NAuXA%2FAb1Y%2BD5uY%3D">Seguros</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=2%2BaXcJymoGDkzpASjZyXgsOJmLpSnbpdK8mWomua4xk%3D">Impuestos</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=y5U95ScONS0oa7ynCrAVXZ0QahmIMz55I5SoylEk0Ic%3D">Ficheros</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=lcqdbsblnHbzln52DXsstN8NvQVTC91I%2FRhGWz1Yyuk%3D">Servicios</a>');</script>
+
+
+                <script>pintarTablaMenuSeleccionada('Buzón');</script>
+
+                <script>pintarFinTablaMenu();</script>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script language="JavaScript">
+        <!--
+        desplegar =  false;
+        //-->
+    </script>
+    <DIV class="MENU2">
+
+
+        <div class="opcionGm2">Correspondencia</div>
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=qMuq5IafiKumLPXXdX%2FllR3V5xlBgmcw1bwuHSCi9LQ%3D" >Consulta</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=azID1rhDn8ChKT2pIMQFlQ0Jb1JT%2B0qQHJTjAEOHess%3D" >Alta Buzón Virtual</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=hNpZi7IEvpRoOp1MvLz9fccIb0YqSMN6DRGhYY38N1w%3D" >Baja Buzón Virtual</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=MkxYvoEas4GXMnWgiJuAwQ2zzvHL%2B0g1PBDk1gtd42o%3D" >Alta Infomail</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=In29t9TF1%2FFG4NW0LBJUmiH2LaUpPugtj8YOWDDbjIw%3D" >Baja Infomail</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=uILX6fa20MoHvFpMCrjb8fK1ffN774sj8wZBwdVcwyA%3D" >Gestión de Correspondencia</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ml4vJz916%2BtHjMbHYSy6m9hsgW0GHDxuMSWNjffus2c%3D" >Gestión de Correspondencia</a></div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="opcionGm2">Mensajes Personales</div>
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=XtfzfwprkskCyDNDapwNH29VC7Ig2FXbjv6Oxg4hWHM%3D" >Nuevo Mensaje</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=dyP7Q49nziQcZBqoivvIh0Jdhz5UCr5G11K6pnNqnzE%3D" >Recibidos</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=gurRZU8NM5sN6pIrYrDjkENoBDHrFKN8BWeoYLf8Vlc%3D" >Enviados</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=jLkDI2Ry5QSqEIKeDO%2BFPhN%2F1ONho902ewjbbryiSqQ%3D" >Archivados</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=AQS1XtdGwew3xM0G76wvWAIT%2FMnE9%2BpnU7VRpF2P%2FBU%3D" >Borrados</a></div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="opcionGm2">Gestión de documentación</div>
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=TXHT5vmoawcPOn1I1R%2FrpT7JGvHljXQBgDosJ60gh%2FU%3D" >Enviar Documentos</a></div>
+        </div>
+
+
+
+
+        <div class="fondopciones">
+            <div class="subopcionm2"><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=jrclO6g8SQdfNj7rxdhvgqU43DaVSFYOH3e8tNOupJc%3D" >Consultar documentos</a></div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </DIV>
+    <script language="JavaScript">
+        <!--
+        if (desplegar)
+            cambiaKK(toHide, toShow);
+        //-->
+    </script>
+
+
+
+
+
+
+
+
+    <div id="AdminToolbar">
+
+    </div>
+
+    <!--CONTENIDO-->
+    <DIV id="CONTENIDO" class="pos_global">
+
+
+
+
+
+        <!--div style="position: relative"-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <FORM name="FORM_RVIA_0" method="post" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKbYFvdUm4421PSl0aM9Y%2F4ahdwl7p1I5dP12%2FKhlLeQjjnEiP%2BTHPBejtXYpFKgVP0rWBd9C7%2B7GA2aKPReAKZYPCszg4GpxHnEs48hylgRBLltzag1dhpw6kXqyghSBXiSRfZECsyBlyQZIILBi7RQQd%2FXjiFi6%2FEuUcW8lLdoqdBckeS9NrbS954KJjEhhdaGWrSVbUt2GUo3W6OCilKD" ><input type="hidden" name="ISUM_OLD_METHOD" value="POST"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+            <INPUT type='hidden' name='paginaActualAux' value="1" />
+            <INPUT type='hidden' name='tamanioPaginaAux' value="25" />
+            <INPUT type='hidden' name='primeraVezAux' value="0" />
+            <INPUT type='hidden' name='campoPaginacionAux' value="ListaCorrespondencia" />
+            <INPUT type="hidden" name="clavePagina" value="" />
+            <INPUT type="hidden" name="clavePaginaVolver" value="BDP_BZVIRTUAL_LISTA" />
+            <INPUT type='hidden' name='idDocumento' value="" />
+            <INPUT type='hidden' name='fechaDesde' value="01-01-2020" />
+            <INPUT type='hidden' name='fechaHasta' value="15-10-2020" />
+            <INPUT type='hidden' name='TIPO' value="0" />
+            <INPUT type='hidden' name='listaCategorias' value="0" />
+            <INPUT type='hidden' name='sVisualizado' value="" />
+            <INPUT type='hidden' name='codigoFormulario' value="" />
+            <INPUT type='hidden' name='fecha' value="" />
+            <INPUT type='hidden' name='visualizado' value="" />
+            <INPUT type='hidden' name='nomDocumento' value="" />
+            <INPUT type='hidden' name='nDocum' value="" />
+            <INPUT type='hidden' name='cuenta' value="" />
+            <INPUT type='hidden' name='SELCTA' value="0" />
+            <INPUT type='hidden' name='listaCuentas' value="30603001212070456427|30603001242317022925|30603001222279261925|" />
+            <INPUT type='hidden' name='acuerdoBE' value="2085498190" />
+            <INPUT type='hidden' name='listaChequeo' value="" />
+            <INPUT type='hidden' name='listaLeido' value="" />
+
+
+            <div id="PORTLET-SECTION-HEADER">
+                <div id="HEADER">Lista de Documentos</div>
+            </div>
+
+            <div id="EXPLICA">A continuación se muestran los documentos. Si desea consultar los datos del documento pulse sobre el nombre.</div>
+
+
+
+
+
+
+
+            <script language="Javascript" >
+
+                function paginar(pag){
+                    document.FORM_RVIA_0.primeraVez.value = "0";
+                    document.FORM_RVIA_0.paginaActual.value = pag;
+                    document.FORM_RVIA_0.tamanioPagina.value = "25";
+                    document.FORM_RVIA_0.campoPaginacion.value = "ListaCorrespondencia";
+                    document.FORM_RVIA_0.pagXpag.value = "5";
+                    completar();
+                }
+
+            </script>
+
+
+
+            <div id="PAGINAR" align="right">
+
+
+                Página
+
+                <a class="pag" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKajF4QWq%2BZHyNrqUpjsE77X" onClick="javascript:paginar('0');return false;" >1 - </a>
+
+                &nbsp;2 -
+
+                <a class="pag" href="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKajF4QWq%2BZHyNrqUpjsE77X" onClick="javascript:paginar('2');return false;" >3</a>
+
+            </div>
+            <INPUT type='hidden' name='primeraVez' value=''>
+            <INPUT type='hidden' name='paginaActual' value=''>
+            <INPUT type='hidden' name='tamanioPagina' value=''>
+            <INPUT type='hidden' name='campoPaginacion' value=''>
+            <INPUT type='hidden' name='pagXpag' value=''>
+
+
+            <div id="PORTLET-LISTA">
+                <div id="BODY_LISTA">
+                    <table BORDER="0" CELLPADDING="0" CELLSPACING="0" width="100%" >
+                        <tr >
+                            <td class="cblistaC" width="2%" >&nbsp;</td>
+                            <td class="cblistaC" width="2%" >&nbsp;</td>
+                            <td class="cblistaC" width="6%" >Selección <input id="checkCabecera" name="checkCabecera" value="1" type="checkbox" onclick="marcarTodos(this);"></td>
+                            <td class="cblistaC" width="10%" >Fecha</td>
+                            <td class="cblistaC" width="24%" >Cuenta</td>
+                            <td class="cblistaC" width="14%" >Importe (EUR)</td>
+                            <td class="cblistaC" >Documento</td>
+                        </tr>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_25" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_25" width="2%" >26</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_25" name="seleccion_25" value="ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096199-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('25'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="CUADRO DE AMORTIZACIÓN DE PRÉSTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096199-B09417932           -TERCIOSPDF', 'ACV0HMA3A01', '2020-06-16', '0', 'CUADRO DE AMORTIZACIÓN DE PRÉSTAMO', '000096199', '25'  );return false;" >
+                                    CUADRO DE AMORTIZACIÓN DE PRÉSTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_26" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_26" width="2%" >27</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_26" name="seleccion_26" value="ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096198-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('26'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="AVISO CAMBIO DE TIPO DE INTERES - PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096198-B09417932           -TERCIOSPDF', 'ACV0ADB1A01', '2020-06-16', '0', 'AVISO CAMBIO DE TIPO DE INTERES - PRESTAMO', '000096198', '26'  );return false;" >
+                                    AVISO CAMBIO DE TIPO DE INTERES - P...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_27" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_27" width="2%" >28</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_27" name="seleccion_27" value="ORACLE-16/06/2020-3060-2020-06-18-04-23-24-84-000069246-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('27'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >1.472,85</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECIBO PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/06/2020-3060-2020-06-18-04-23-24-84-000069246-B09417932           -TERCIOSPDF', 'ACV0AFB1A01', '2020-06-16', '1', 'RECIBO PRESTAMO', '000069246', '27'  );return false;" >
+                                    RECIBO PRESTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_28" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_28" width="2%" >29</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_28" name="seleccion_28" value="ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092571-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('28'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >10-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >119.056,47</td>
+                            <td class="listaI" >
+                                <a href="#" title="CARTA DE PAGO DE DOCUMENTO ANTICIPADO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092571-B09417932           -TERCIOSPDF', 'KAR0EJA1A01', '2020-06-10', '1', 'CARTA DE PAGO DE DOCUMENTO ANTICIPADO', '000092571', '28'  );return false;" >
+                                    CARTA DE PAGO DE DOCUMENTO ANTICIPA...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_29" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_29" width="2%" >30</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_29" name="seleccion_29" value="ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092570-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('29'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >10-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >256.124,98</td>
+                            <td class="listaI" >
+                                <a href="#" title="CARTA DE PAGO DE DOCUMENTO ANTICIPADO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092570-B09417932           -TERCIOSPDF', 'KAR0EJA1A01', '2020-06-10', '1', 'CARTA DE PAGO DE DOCUMENTO ANTICIPADO', '000092570', '29'  );return false;" >
+                                    CARTA DE PAGO DE DOCUMENTO ANTICIPA...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_30" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_30" width="2%" >31</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_30" name="seleccion_30" value="ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022049-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('30'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >09-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >25.000,00</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECEPCION DE OMT" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022049-B09417932           -A4SPDF', 'EXW0GPA1A01', '2020-06-09', '0', 'RECEPCION DE OMT', '000022049', '30'  );return false;" >
+                                    RECEPCION DE OMT
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_31" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_31" width="2%" >32</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_31" name="seleccion_31" value="ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022048-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('31'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >09-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >325.000,00</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECEPCION DE OMT" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022048-B09417932           -A4SPDF', 'EXW0GPA1A01', '2020-06-09', '0', 'RECEPCION DE OMT', '000022048', '31'  );return false;" >
+                                    RECEPCION DE OMT
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_32" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_32" width="2%" >33</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_32" name="seleccion_32" value="ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022051-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('32'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >08-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >215.236,90</td>
+                            <td class="listaI" >
+                                <a href="#" title="LIQUIDACIÓN DE ANTICIPOS IMPORT-EXPORT" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022051-B09417932           -A4SPDF', 'KAL0HOA1A01', '2020-06-08', '1', 'LIQUIDACIÓN DE ANTICIPOS IMPORT-EXPORT', '000022051', '32'  );return false;" >
+                                    LIQUIDACIÓN DE ANTICIPOS IMPORT-EXP...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_33" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_33" width="2%" >34</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_33" name="seleccion_33" value="ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022050-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('33'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >08-06-2020</td>
+                            <td class="listaC" width="24%" >ES90 3060 3001 2222 7926 1925 </td>
+                            <td class="listaD" width="14%" >236.615,49</td>
+                            <td class="listaI" >
+                                <a href="#" title="EMISION DE ORDEN DE PAGO (8)" class="dato" onclick="detalleDocumento('30603001222279261925', 'ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022050-B09417932           -A4SPDF', 'EXT0EXA1A01', '2020-06-08', '1', 'EMISION DE ORDEN DE PAGO (8)', '000022050', '33'  );return false;" >
+                                    EMISION DE ORDEN DE PAGO (8)
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_34" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_34" width="2%" >35</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_34" name="seleccion_34" value="ORACLE-01/06/2020-3060-2020-06-02-05-37-19-69-000001233-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('34'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >01-06-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="DETALLE DE MOVIMIENTOS" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-01/06/2020-3060-2020-06-02-05-37-19-69-000001233-B09417932           -TERCIOSPDF', 'PVO0ATA1B01', '2020-06-01', '1', 'DETALLE DE MOVIMIENTOS', '000001233', '34'  );return false;" >
+                                    DETALLE DE MOVIMIENTOS
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_35" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_35" width="2%" >36</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_35" name="seleccion_35" value="ORACLE-30/05/2020-3060-2020-06-03-04-28-41-53-000089922-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('35'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >30-05-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >312,50</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECIBO PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-30/05/2020-3060-2020-06-03-04-28-41-53-000089922-B09417932           -TERCIOSPDF', 'ACV0AFB1A01', '2020-05-30', '0', 'RECIBO PRESTAMO', '000089922', '35'  );return false;" >
+                                    RECIBO PRESTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_36" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_36" width="2%" >37</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_36" name="seleccion_36" value="ORACLE-28/05/2020-3060-2020-05-30-04-28-30-17-000113090-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('36'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >28-05-2020</td>
+                            <td class="listaC" width="24%" >ES90 3060 3001 2222 7926 1925 </td>
+                            <td class="listaD" width="14%" >215.236,90</td>
+                            <td class="listaI" >
+                                <a href="#" title="COMPRA DE DIVISA" class="dato" onclick="detalleDocumento('30603001222279261925', 'ORACLE-28/05/2020-3060-2020-05-30-04-28-30-17-000113090-B09417932           -TERCIOSPDF', 'EXT0GQA1A01', '2020-05-28', '0', 'COMPRA DE DIVISA', '000113090', '36'  );return false;" >
+                                    COMPRA DE DIVISA
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_37" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_37" width="2%" >38</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_37" name="seleccion_37" value="ORACLE-15/05/2020-3060-2020-05-20-04-20-25-19-000077525-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('37'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >15-05-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >1.472,85</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECIBO PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-15/05/2020-3060-2020-05-20-04-20-25-19-000077525-B09417932           -TERCIOSPDF', 'ACV0AFB1A01', '2020-05-15', '0', 'RECIBO PRESTAMO', '000077525', '37'  );return false;" >
+                                    RECIBO PRESTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_38" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_38" width="2%" >39</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_38" name="seleccion_38" value="ORACLE-04/05/2020-3060-2020-05-05-07-03-09-34-000082918-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('38'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >04-05-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="DETALLE DE MOVIMIENTOS" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-04/05/2020-3060-2020-05-05-07-03-09-34-000082918-B09417932           -TERCIOSPDF', 'PVO0ATA1B01', '2020-05-04', '1', 'DETALLE DE MOVIMIENTOS', '000082918', '38'  );return false;" >
+                                    DETALLE DE MOVIMIENTOS
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_39" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_39" width="2%" >40</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_39" name="seleccion_39" value="ORACLE-21/04/2020-3060-2020-04-22-04-21-54-76-000061895-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('39'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >21-04-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="AVISO CAMBIO DE TIPO DE INTERES - CREDITO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-21/04/2020-3060-2020-04-22-04-21-54-76-000061895-B09417932           -TERCIOSPDF', 'ACV0CJA1A01', '2020-04-21', '0', 'AVISO CAMBIO DE TIPO DE INTERES - CREDITO', '000061895', '39'  );return false;" >
+                                    AVISO CAMBIO DE TIPO DE INTERES - C...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_40" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_40" width="2%" >41</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_40" name="seleccion_40" value="ORACLE-20/04/2020-3060-2020-04-23-04-17-16-58-000047604-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('40'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >20-04-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >200,00</td>
+                            <td class="listaI" >
+                                <a href="#" title="LIQUIDACION DEUDORA CUENTA DE CREDITO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-20/04/2020-3060-2020-04-23-04-17-16-58-000047604-B09417932           -TERCIOSPDF', 'LIQ0BDB4A01', '2020-04-20', '1', 'LIQUIDACION DEUDORA CUENTA DE CREDITO', '000047604', '40'  );return false;" >
+                                    LIQUIDACION DEUDORA CUENTA DE CREDI...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_41" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_41" width="2%" >42</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_41" name="seleccion_41" value="ORACLE-16/04/2020-3060-2020-04-18-04-23-31-81-000033680-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('41'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-04-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >1.472,85</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECIBO PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/04/2020-3060-2020-04-18-04-23-31-81-000033680-B09417932           -TERCIOSPDF', 'ACV0AFB1A01', '2020-04-16', '0', 'RECIBO PRESTAMO', '000033680', '41'  );return false;" >
+                                    RECIBO PRESTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_42" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_42" width="2%" >43</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_42" name="seleccion_42" value="ORACLE-02/04/2020-3060-2020-04-03-11-29-50-01-000650421-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('42'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >02-04-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="DETALLE DE MOVIMIENTOS" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-02/04/2020-3060-2020-04-03-11-29-50-01-000650421-B09417932           -TERCIOSPDF', 'PVO0ATA1B01', '2020-04-02', '0', 'DETALLE DE MOVIMIENTOS', '000650421', '42'  );return false;" >
+                                    DETALLE DE MOVIMIENTOS
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_43" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_43" width="2%" >44</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_43" name="seleccion_43" value="ORACLE-25/03/2020-3060-2020-03-27-04-19-58-96-000061051-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('43'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >25-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >166.443,34</td>
+                            <td class="listaI" >
+                                <a href="#" title="CARTA DE PAGO DE DOCUMENTO ANTICIPADO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-25/03/2020-3060-2020-03-27-04-19-58-96-000061051-B09417932           -TERCIOSPDF', 'KAR0EJA1A01', '2020-03-25', '0', 'CARTA DE PAGO DE DOCUMENTO ANTICIPADO', '000061051', '43'  );return false;" >
+                                    CARTA DE PAGO DE DOCUMENTO ANTICIPA...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_44" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_44" width="2%" >45</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_44" name="seleccion_44" value="ORACLE-20/03/2020-3060-2020-03-24-04-41-38-41-000007967-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('44'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >20-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >170.000,00</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECEPCION DE OMT" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-20/03/2020-3060-2020-03-24-04-41-38-41-000007967-B09417932           -A4SPDF', 'EXW0GPA1A01', '2020-03-20', '0', 'RECEPCION DE OMT', '000007967', '44'  );return false;" >
+                                    RECEPCION DE OMT
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_45" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_45" width="2%" >46</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_45" name="seleccion_45" value="ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093577-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('45'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="CUADRO DE AMORTIZACIÓN DE PRÉSTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093577-B09417932           -TERCIOSPDF', 'ACV0HMA3A01', '2020-03-16', '0', 'CUADRO DE AMORTIZACIÓN DE PRÉSTAMO', '000093577', '45'  );return false;" >
+                                    CUADRO DE AMORTIZACIÓN DE PRÉSTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_46" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_46" width="2%" >47</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_46" name="seleccion_46" value="ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093576-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('46'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >16-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="AVISO CAMBIO DE TIPO DE INTERES - PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093576-B09417932           -TERCIOSPDF', 'ACV0ADB1A01', '2020-03-16', '0', 'AVISO CAMBIO DE TIPO DE INTERES - PRESTAMO', '000093576', '46'  );return false;" >
+                                    AVISO CAMBIO DE TIPO DE INTERES - P...
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_47" src="/es_ES/img/E/leido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_47" width="2%" >48</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_47" name="seleccion_47" value="ORACLE-14/03/2020-3060-2020-03-18-04-19-43-20-000097398-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('47'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >14-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >1.472,85</td>
+                            <td class="listaI" >
+                                <a href="#" title="RECIBO PRESTAMO" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-14/03/2020-3060-2020-03-18-04-19-43-20-000097398-B09417932           -TERCIOSPDF', 'ACV0AFB1A01', '2020-03-14', '1', 'RECIBO PRESTAMO', '000097398', '47'  );return false;" >
+                                    RECIBO PRESTAMO
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="IMPAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_48" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_48" width="2%" >49</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_48" name="seleccion_48" value="ORACLE-09/03/2020-3060-2020-03-22-10-51-11-07-000017108-B09417932           -A4SPDF" type="checkbox"  onchange="marcarDesmarcar('48'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >09-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" >170.006,38</td>
+                            <td class="listaI" >
+                                <a href="#" title="EMISION DE OMT" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-09/03/2020-3060-2020-03-22-10-51-11-07-000017108-B09417932           -A4SPDF', 'EXV0GOA1A01', '2020-03-09', '0', 'EMISION DE OMT', '000017108', '48'  );return false;" >
+                                    EMISION DE OMT
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                        <tr id="TrColor" class="PAR" >
+                            <td class="bzdetalp2" width="2%" >
+                                <img id="sobre_49" src="/es_ES/img/E/noleido.gif" title="Sobre">
+
+                            </td>
+                            <td class="listaC" id="indiceLista_49" width="2%" >50</td>
+                            <td class="listaC" width="6%" >
+                                <input id="seleccion_49" name="seleccion_49" value="ORACLE-03/03/2020-3060-2020-03-20-22-53-56-20-000482203-B09417932           -TERCIOSPDF" type="checkbox"  onchange="marcarDesmarcar('49'); return false;">
+                            </td>
+                            <td class="listaC" width="10%" >03-03-2020</td>
+                            <td class="listaC" width="24%" >ES55 3060 3001 2120 7045 6427 </td>
+                            <td class="listaD" width="14%" ></td>
+                            <td class="listaI" >
+                                <a href="#" title="DETALLE DE MOVIMIENTOS" class="dato" onclick="detalleDocumento('30603001212070456427', 'ORACLE-03/03/2020-3060-2020-03-20-22-53-56-20-000482203-B09417932           -TERCIOSPDF', 'PVO0ATA1B01', '2020-03-03', '0', 'DETALLE DE MOVIMIENTOS', '000482203', '49'  );return false;" >
+                                    DETALLE DE MOVIMIENTOS
+                                </a>
+                            </td>
+                        </TR>
+
+
+
+                    </table>
+                </div>
+
+                <INPUT type='hidden' name='codigoFormularioTotal' value="EXU0EYA1A01#MAIMULTIC01#MAIMULTIC01#KAR0EJA1A01#EXW0GPA1A01#PVO0ATA1B01#ACV0AFB1A01#ACV0HMA3A01#ACV0ADB1A01#ACV0AFB1A01#ACV0ANA1A01#PVO0ATA1B01#ACV0AFB1A01#ACV0AFB1A01#PVO0ATA1B01#ACV0AFB1A01#ACV0CJA1A01#LIQ0BDB4A01#ACV0AFB1A01#TRA0AMB4A01#PVO0ATA1B01#ACV0AFB1A01#KAR0EJA1A01#KAL0HOA1A01#EXW0GPA1A01#ACV0HMA3A01#ACV0ADB1A01#ACV0AFB1A01#KAR0EJA1A01#KAR0EJA1A01#EXW0GPA1A01#EXW0GPA1A01#KAL0HOA1A01#EXT0EXA1A01#PVO0ATA1B01#ACV0AFB1A01#EXT0GQA1A01#ACV0AFB1A01#PVO0ATA1B01#ACV0CJA1A01#LIQ0BDB4A01#ACV0AFB1A01#PVO0ATA1B01#KAR0EJA1A01#EXW0GPA1A01#ACV0HMA3A01#ACV0ADB1A01#ACV0AFB1A01#EXV0GOA1A01#PVO0ATA1B01#LIQ0BDB2A01#EXT0GQA1A01#KAL0HOA1A01#EXU0EYA1A01#EXT0EXA1A01#ACV0AFB1A01#EXT0GQA1A01#KAL0HOA1A01#EXT0EXA1A01#KAR0EJA1A01#KAL0HOA1A01#EXU0EYA1A01#EXU0EYA1A01#EXW0GPA1A01#PVO0ATA1B01#PVO0FGD1B01#ACV0CJA1A01#LIQ0BDB4A01#ACV0AFB1A01#TRA0AMB4A01#PVO0ATA1B01#"/>
+                <INPUT type='hidden' name='fechaDocumentoTotal' value="2020-10-13#2020-10-09#2020-10-09#2020-10-09#2020-10-08#2020-10-01#2020-09-30#2020-09-16#2020-09-16#2020-09-16#2020-09-07#2020-09-01#2020-08-29#2020-08-15#2020-08-06#2020-07-30#2020-07-21#2020-07-20#2020-07-15#2020-07-09#2020-07-02#2020-06-30#2020-06-25#2020-06-25#2020-06-24#2020-06-16#2020-06-16#2020-06-16#2020-06-10#2020-06-10#2020-06-09#2020-06-09#2020-06-08#2020-06-08#2020-06-01#2020-05-30#2020-05-28#2020-05-15#2020-05-04#2020-04-21#2020-04-20#2020-04-16#2020-04-02#2020-03-25#2020-03-20#2020-03-16#2020-03-16#2020-03-14#2020-03-09#2020-03-03#2020-02-29#2020-02-25#2020-02-25#2020-02-25#2020-02-25#2020-02-15#2020-02-12#2020-02-12#2020-02-12#2020-02-10#2020-02-10#2020-02-10#2020-02-10#2020-02-07#2020-02-03#2020-01-27#2020-01-21#2020-01-20#2020-01-16#2020-01-09#2020-01-02#"/>
+                <INPUT type='hidden' name='idDocumentoTotal' value="ORACLE-13/10/2020-3060-2020-10-14-05-15-51-46-000004644-B09417932           -A4SPDF#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000046512-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-15-04-01-45-62-000013457-B09417932           -MULTIC#ORACLE-09/10/2020-3060-2020-10-14-04-33-47-54-000011463-B09417932           -TERCIOSPDF#ORACLE-08/10/2020-3060-2020-10-10-14-50-01-38-000018308-B09417932           -A4SPDF#ORACLE-01/10/2020-3060-2020-10-02-05-24-15-04-000315496-B09417932           -TERCIOSPDF#ORACLE-30/09/2020-3060-2020-10-02-05-24-15-04-000315497-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043002-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-17-04-29-43-69-000043001-B09417932           -TERCIOSPDF#ORACLE-16/09/2020-3060-2020-09-18-04-27-29-99-000029863-B09417932           -TERCIOSPDF#ORACLE-07/09/2020-3060-2020-09-08-04-53-17-12-000095079-B09417932           -TERCIOSPDF#ORACLE-01/09/2020-3060-2020-09-02-08-06-21-75-001081559-B09417932           -TERCIOSPDF#ORACLE-29/08/2020-3060-2020-09-02-08-06-21-75-001081560-B09417932           -TERCIOSPDF#ORACLE-15/08/2020-3060-2020-08-19-04-14-42-83-000099818-B09417932           -TERCIOSPDF#ORACLE-06/08/2020-3060-2020-08-07-06-41-30-57-000245644-B09417932           -TERCIOSPDF#ORACLE-30/07/2020-3060-2020-08-01-04-45-52-89-000105684-B09417932           -TERCIOSPDF#ORACLE-21/07/2020-3060-2020-07-22-04-20-56-72-000074123-B09417932           -TERCIOSPDF#ORACLE-20/07/2020-3060-2020-07-23-04-15-04-54-000068326-B09417932           -TERCIOSPDF#ORACLE-15/07/2020-3060-2020-07-18-04-18-50-27-000001421-B09417932           -TERCIOSPDF#ORACLE-09/07/2020-3060-2020-07-11-04-27-55-52-000086241-B09417932           -TERCIOSPDF#ORACLE-02/07/2020-3060-2020-07-03-06-18-11-18-000526185-B09417932           -TERCIOSPDF#ORACLE-30/06/2020-3060-2020-07-03-06-18-11-18-000526186-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-20-21-41-000017018-B09417932           -TERCIOSPDF#ORACLE-25/06/2020-3060-2020-06-27-04-58-33-40-000008862-B09417932           -A4SPDF#ORACLE-24/06/2020-3060-2020-06-25-04-56-53-96-000004254-B09417932           -A4SPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096199-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-17-04-19-04-85-000096198-B09417932           -TERCIOSPDF#ORACLE-16/06/2020-3060-2020-06-18-04-23-24-84-000069246-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092571-B09417932           -TERCIOSPDF#ORACLE-10/06/2020-3060-2020-06-12-04-19-49-91-000092570-B09417932           -TERCIOSPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022049-B09417932           -A4SPDF#ORACLE-09/06/2020-3060-2020-06-10-09-45-49-39-000022048-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022051-B09417932           -A4SPDF#ORACLE-08/06/2020-3060-2020-06-10-09-45-49-39-000022050-B09417932           -A4SPDF#ORACLE-01/06/2020-3060-2020-06-02-05-37-19-69-000001233-B09417932           -TERCIOSPDF#ORACLE-30/05/2020-3060-2020-06-03-04-28-41-53-000089922-B09417932           -TERCIOSPDF#ORACLE-28/05/2020-3060-2020-05-30-04-28-30-17-000113090-B09417932           -TERCIOSPDF#ORACLE-15/05/2020-3060-2020-05-20-04-20-25-19-000077525-B09417932           -TERCIOSPDF#ORACLE-04/05/2020-3060-2020-05-05-07-03-09-34-000082918-B09417932           -TERCIOSPDF#ORACLE-21/04/2020-3060-2020-04-22-04-21-54-76-000061895-B09417932           -TERCIOSPDF#ORACLE-20/04/2020-3060-2020-04-23-04-17-16-58-000047604-B09417932           -TERCIOSPDF#ORACLE-16/04/2020-3060-2020-04-18-04-23-31-81-000033680-B09417932           -TERCIOSPDF#ORACLE-02/04/2020-3060-2020-04-03-11-29-50-01-000650421-B09417932           -TERCIOSPDF#ORACLE-25/03/2020-3060-2020-03-27-04-19-58-96-000061051-B09417932           -TERCIOSPDF#ORACLE-20/03/2020-3060-2020-03-24-04-41-38-41-000007967-B09417932           -A4SPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093577-B09417932           -TERCIOSPDF#ORACLE-16/03/2020-3060-2020-03-22-20-10-14-20-000093576-B09417932           -TERCIOSPDF#ORACLE-14/03/2020-3060-2020-03-18-04-19-43-20-000097398-B09417932           -TERCIOSPDF#ORACLE-09/03/2020-3060-2020-03-22-10-51-11-07-000017108-B09417932           -A4SPDF#ORACLE-03/03/2020-3060-2020-03-20-22-53-56-20-000482203-B09417932           -TERCIOSPDF#ORACLE-29/02/2020-3060-2020-03-20-22-53-56-20-000482204-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-22-26-47-000010738-B09417932           -TERCIOSPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005205-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005204-B09417932           -A4SPDF#ORACLE-25/02/2020-3060-2020-02-27-04-55-43-07-000005203-B09417932           -A4SPDF#ORACLE-15/02/2020-3060-2020-02-19-04-22-47-93-000091869-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-16-12-27-000084332-B09417932           -TERCIOSPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008654-B09417932           -A4SPDF#ORACLE-12/02/2020-3060-2020-02-14-04-39-07-27-000008653-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-04-45-39-88-000102682-B09417932           -TERCIOSPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010563-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010562-B09417932           -A4SPDF#ORACLE-10/02/2020-3060-2020-02-12-06-06-23-90-000010561-B09417932           -A4SPDF#ORACLE-07/02/2020-3060-2020-02-10-17-30-55-55-000032402-B09417932           -A4SPDF#ORACLE-03/02/2020-3060-2020-02-04-05-38-34-08-000198157-B09417932           -TERCIOSPDF#ORACLE-27/01/2020-3060-2020-01-28-05-04-04-25-000263243-B09417932           -TERCIOSPDF#ORACLE-21/01/2020-3060-2020-01-22-04-08-46-66-000011991-B09417932           -TERCIOSPDF#ORACLE-20/01/2020-3060-2020-01-23-05-28-45-54-000145796-B09417932           -TERCIOSPDF#ORACLE-16/01/2020-3060-2020-01-23-05-28-45-54-000145795-B09417932           -TERCIOSPDF#ORACLE-09/01/2020-3060-2020-01-13-18-50-35-12-000048452-B09417932           -TERCIOSPDF#ORACLE-02/01/2020-3060-2020-01-03-06-15-34-05-000281644-B09417932           -TERCIOSPDF#"/>
+                <INPUT type='hidden' name='visualizadoTotal' value="0#0#0#0#1#0#0#0#1#1#0#0#0#0#0#0#1#0#1#1#0#0#1#1#0#0#0#1#1#1#0#0#1#1#1#0#0#0#1#0#1#0#0#0#0#0#0#1#0#0#1#1#1#1#1#1#1#1#1#1#1#1#1#0#0#0#0#1#0#0#0#"/>
+
+                <div id="FOOTER">
+                    <div id="BOT"><a href="#" onclick="javascript:marcarLeidos(); return false;" >Marcar como leído</a></div>
+                    <div id="BOT"><a href="#" onclick="javascript:descargar(); return false;" >Descargar documentos seleccionados</a></div>
+                    <div id="BOT"><a href="#" onclick="javascript:imprimirAgrupados(); return false;" >Imprimir documentos</a></div>
+                    <div id="BOT"><a href="#" onclick="javascript:volver(); return false;" >Volver</a></div>
+                </div>
+
+
+            </div>
+
+        </FORM>
+
+        <FORM name="FORM_RVIA_1" method="post" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKbYFvdUm4421PSl0aM9Y%2F4ahdwl7p1I5dP12%2FKhlLeQjjnEiP%2BTHPBejtXYpFKgVP0rWBd9C7%2B7GA2aKPReAKZYPCszg4GpxHnEs48hylgRBLltzag1dhpw6kXqyghSBXiSRfZECsyBlyQZIILBi7RQQd%2FXjiFi6%2FEuUcW8lLdoqdBckeS9NrbS954KJjEhhdaGWrSVbUt2GUo3W6OCilKD" ><input type="hidden" name="ISUM_OLD_METHOD" value="POST"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+            <INPUT type="hidden" name="clavePagina" value="BDP_BZVIRTUAL_PDF_APERTURA" />
+        </FORM>
+
+
+
+        <!--/div-->
+
+
+
+
+
+    </DIV>
+
+
+
+
+
+
+
+</DIV>
+
+<script language="Javascript">
+
+
+    var vcontrolBotonAtras = window.sessionStorage.getItem("controlBotonAtras");
+    if(vcontrolBotonAtras == 1){
+
+        console.log("Entro por aqui");
+        history.forward();
+    }else{
+        console.log("Me voy por el else");
+    }
+
+
+
+
+</script>
+
+</BODY>
+</html>
+
+

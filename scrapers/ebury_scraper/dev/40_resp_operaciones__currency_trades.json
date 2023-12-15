@@ -1,0 +1,887 @@
+{
+  "total": 28,
+  "trades": [
+    {
+      "sell_currency": "USD",
+      "additional_reference": null,
+      "rate": 1.162,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20210929",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPBTR2207908",
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": false,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 1,
+      "rate_direction": 1.0,
+      "status": {
+        "trade": {
+          "codes": [],
+          "message": "Operaci\u00f3n confirmada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "funds": {
+          "codes": [
+            21
+          ],
+          "message": "Fondos totalmente recibidos",
+          "show_next": true,
+          "status": "completed"
+        },
+        "payments": {
+          "codes": [
+            31
+          ],
+          "message": "Fondos asignados",
+          "show_next": true,
+          "status": "completed"
+        },
+        "maturity_date": {
+          "codes": [
+            32
+          ],
+          "message": "Fecha de vencimiento alcanzada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "completed": {
+          "codes": [
+            40,
+            41
+          ],
+          "message": "Operaci\u00f3n cerrada",
+          "show_next": false,
+          "status": "active"
+        },
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "spot",
+      "rolled": false,
+      "sell_amount": 365140.0,
+      "buy_amount": 314234.08,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.860585,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210929",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210929",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-09-29T14:45:00",
+      "product_name": "Operaci\u00f3n al contado"
+    },
+    {
+      "sell_currency": "EUR",
+      "additional_reference": null,
+      "forward_reference": "EBPBTR2087115",
+      "rate": 1.162,
+      "buy_currency": "USD",
+      "final_expected_clearing_date": "20210929",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPBTR2207894",
+      "fee": {
+        "currency": "EUR",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 1,
+      "rate_direction": 0.0,
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos totalmente recibidos",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos asignados",
+            "status": "completed"
+          },
+          {
+            "message": "Pago ejecutado",
+            "status": "completed"
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": "active"
+          }
+        ],
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "drawdown",
+      "rolled": false,
+      "sell_amount": 314234.08,
+      "buy_amount": 365140.0,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.860585,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210929",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210929",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-09-29T21:00:00",
+      "product_name": "Disposiciones"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": "",
+      "rate": 1.205976,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20210907",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPOTR2184405",
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 0,
+      "rate_direction": 1.0,
+      "status": {
+        "trade": {
+          "codes": [],
+          "message": "Operaci\u00f3n confirmada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "funds": {
+          "codes": [
+            21
+          ],
+          "message": "Fondos totalmente recibidos",
+          "show_next": true,
+          "status": "completed"
+        },
+        "payments": {
+          "codes": [
+            31
+          ],
+          "message": "Fondos asignados",
+          "show_next": true,
+          "status": "completed"
+        },
+        "maturity_date": {
+          "codes": [
+            32
+          ],
+          "message": "Fecha de vencimiento alcanzada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "completed": {
+          "codes": [
+            40,
+            41
+          ],
+          "message": "Operaci\u00f3n cerrada",
+          "show_next": false,
+          "status": "active"
+        },
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "spot",
+      "rolled": false,
+      "sell_amount": 100000.0,
+      "buy_amount": 82920.39,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.829204,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210907",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210907",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-09-07T14:45:00",
+      "product_name": "Operaci\u00f3n al contado"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": null,
+      "buy_balance": 101006.91,
+      "rate": 1.205,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20220902",
+      "amount_not_funded_out": 101006.91,
+      "id": "EBPBTR2181241",
+      "drawdowns": 0,
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": "window",
+        "original_type": "forward"
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 121713.33,
+      "open_date": "20210902",
+      "trade_direction": 0,
+      "rate_direction": 1.0,
+      "deposit": {
+        "currency": "USD",
+        "amount": 0.0,
+        "balance": 0.0,
+        "outstanding_balance": 0.0,
+        "currency_decimals": 2
+      },
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Dep\u00f3sito inicial no necesario",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos disponibles para disposici\u00f3n",
+            "status": "active"
+          },
+          {
+            "message": "Esperando fecha valor",
+            "status": ""
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": ""
+          }
+        ],
+        "current": "Fondos disponibles para disposici\u00f3n"
+      },
+      "trade_type": "forward",
+      "rolled": false,
+      "sell_amount": 121713.33,
+      "funding_account": {
+        "name": "Ebury USD Client Acc",
+        "humanized_name": "78787099 / BARCGB22",
+        "currency": "USD",
+        "iban": "GB40BARC20060578787099",
+        "account_number": "78787099",
+        "bank_identifier": "200605",
+        "bank_identifier_type": "Sort Code",
+        "swift": "BARCGB22"
+      },
+      "buy_amount": 101006.91,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.829876,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210902",
+      "margin_call": 6085.66,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20220902",
+      "beneficiaries": [],
+      "payments": [],
+      "funding_due_datetime": "2022-09-02T14:45:00",
+      "product_name": "Seguro abierto"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": null,
+      "buy_balance": 101427.5,
+      "rate": 1.2,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20220502",
+      "amount_not_funded_out": 101427.5,
+      "id": "EBPBTR2181238",
+      "drawdowns": 0,
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": "window",
+        "original_type": "forward"
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 121713.0,
+      "open_date": "20210902",
+      "trade_direction": 0,
+      "rate_direction": 1.0,
+      "deposit": {
+        "currency": "USD",
+        "amount": 0.0,
+        "balance": 0.0,
+        "outstanding_balance": 0.0,
+        "currency_decimals": 2
+      },
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Dep\u00f3sito inicial no necesario",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos disponibles para disposici\u00f3n",
+            "status": "active"
+          },
+          {
+            "message": "Esperando fecha valor",
+            "status": ""
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": ""
+          }
+        ],
+        "current": "Fondos disponibles para disposici\u00f3n"
+      },
+      "trade_type": "forward",
+      "rolled": false,
+      "sell_amount": 121713.0,
+      "funding_account": {
+        "name": "Ebury USD Client Acc",
+        "humanized_name": "78787099 / BARCGB22",
+        "currency": "USD",
+        "iban": "GB40BARC20060578787099",
+        "account_number": "78787099",
+        "bank_identifier": "200605",
+        "bank_identifier_type": "Sort Code",
+        "swift": "BARCGB22"
+      },
+      "buy_amount": 101427.5,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.833333,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210902",
+      "margin_call": 6085.65,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20220502",
+      "beneficiaries": [],
+      "payments": [],
+      "funding_due_datetime": "2022-05-02T14:45:00",
+      "product_name": "Seguro abierto"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": null,
+      "buy_balance": 101852.16,
+      "rate": 1.195,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20220103",
+      "amount_not_funded_out": 101852.16,
+      "id": "EBPBTR2181237",
+      "drawdowns": 0,
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": "window",
+        "original_type": "forward"
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 121713.33,
+      "open_date": "20210902",
+      "trade_direction": 0,
+      "rate_direction": 1.0,
+      "deposit": {
+        "currency": "USD",
+        "amount": 0.0,
+        "balance": 0.0,
+        "outstanding_balance": 0.0,
+        "currency_decimals": 2
+      },
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Dep\u00f3sito inicial no necesario",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos disponibles para disposici\u00f3n",
+            "status": "active"
+          },
+          {
+            "message": "Esperando fecha valor",
+            "status": ""
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": ""
+          }
+        ],
+        "current": "Fondos disponibles para disposici\u00f3n"
+      },
+      "trade_type": "forward",
+      "rolled": false,
+      "sell_amount": 121713.33,
+      "funding_account": {
+        "name": "Ebury USD Client Acc",
+        "humanized_name": "78787099 / BARCGB22",
+        "currency": "USD",
+        "iban": "GB40BARC20060578787099",
+        "account_number": "78787099",
+        "bank_identifier": "200605",
+        "bank_identifier_type": "Sort Code",
+        "swift": "BARCGB22"
+      },
+      "buy_amount": 101852.16,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.83682,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210902",
+      "margin_call": 6085.66,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20220103",
+      "beneficiaries": [],
+      "payments": [],
+      "funding_due_datetime": "2022-01-03T14:45:00",
+      "product_name": "Seguro abierto"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": "",
+      "rate": 1.231534,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20210603",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPOTR2092334",
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 1,
+      "rate_direction": 1.0,
+      "status": {
+        "trade": {
+          "codes": [],
+          "message": "Operaci\u00f3n confirmada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "funds": {
+          "codes": [
+            21
+          ],
+          "message": "Fondos totalmente recibidos",
+          "show_next": true,
+          "status": "completed"
+        },
+        "payments": {
+          "codes": [
+            31
+          ],
+          "message": "Fondos asignados",
+          "show_next": true,
+          "status": "completed"
+        },
+        "maturity_date": {
+          "codes": [
+            32
+          ],
+          "message": "Fecha de vencimiento alcanzada",
+          "show_next": true,
+          "status": "completed"
+        },
+        "completed": {
+          "codes": [
+            40,
+            41
+          ],
+          "message": "Operaci\u00f3n cerrada",
+          "show_next": false,
+          "status": "active"
+        },
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "spot",
+      "rolled": false,
+      "sell_amount": 120160.77,
+      "buy_amount": 97570.0,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.811995,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210602",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210603",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-06-03T14:45:00",
+      "product_name": "Operaci\u00f3n al contado"
+    },
+    {
+      "sell_currency": "EUR",
+      "additional_reference": null,
+      "buy_balance": 0.0,
+      "rate": 1.162,
+      "buy_currency": "USD",
+      "final_expected_clearing_date": "20220128",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPBTR2087115",
+      "drawdowns": 1,
+      "fee": {
+        "currency": "EUR",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": "window",
+        "original_type": "forward"
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "open_date": "20210929",
+      "trade_direction": 1,
+      "rate_direction": 0.0,
+      "deposit": {
+        "currency": "EUR",
+        "amount": 0.0,
+        "balance": 0.0,
+        "outstanding_balance": 0.0,
+        "currency_decimals": 2
+      },
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Dep\u00f3sito inicial no necesario",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos disponibles para disposici\u00f3n",
+            "status": "completed"
+          },
+          {
+            "message": "Esperando fecha valor",
+            "status": "completed"
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": "active"
+          }
+        ],
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "forward",
+      "rolled": false,
+      "sell_amount": 314234.08,
+      "funding_account": {
+        "name": "Ebury Partners Belgium NV - EUR Barclays Spain",
+        "humanized_name": "0060000087 / BPLCESMM",
+        "currency": "EUR",
+        "iban": "ES9201520348990060000087",
+        "account_number": "0060000087",
+        "bank_identifier": null,
+        "bank_identifier_type": null,
+        "swift": "BPLCESMM"
+      },
+      "buy_amount": 365140.0,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.860585,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210528",
+      "margin_call": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20220128",
+      "beneficiaries": [],
+      "payments": [],
+      "funding_due_datetime": "2022-01-28T21:00:00",
+      "product_name": "Seguro abierto"
+    },
+    {
+      "sell_currency": "EUR",
+      "additional_reference": null,
+      "forward_reference": "EBPBTR1732778",
+      "rate": 1.162,
+      "buy_currency": "USD",
+      "final_expected_clearing_date": "20210528",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPBTR2087108",
+      "fee": {
+        "currency": "EUR",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": false,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 1,
+      "rate_direction": 0.0,
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos totalmente recibidos",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos asignados",
+            "status": "completed"
+          },
+          {
+            "message": "Pago ejecutado",
+            "status": "completed"
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": "active"
+          }
+        ],
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "drawdown",
+      "rolled": false,
+      "sell_amount": 314234.08,
+      "buy_amount": 365140.0,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.860585,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210528",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210528",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-05-28T21:00:00",
+      "product_name": "Disposiciones"
+    },
+    {
+      "sell_currency": "USD",
+      "additional_reference": null,
+      "forward_reference": "EBPBTR1732799",
+      "rate": 1.192,
+      "buy_currency": "EUR",
+      "final_expected_clearing_date": "20210524",
+      "amount_not_funded_out": 0.0,
+      "id": "EBPBTR2081143",
+      "fee": {
+        "currency": "USD",
+        "amount": 0.0
+      },
+      "trade_conditions": {
+        "subtype": null
+      },
+      "inverse_rate_symbol": "USDEUR",
+      "tr": true,
+      "is_cover": false,
+      "sell_balance": 0.0,
+      "trade_direction": 0,
+      "rate_direction": 1.0,
+      "status": {
+        "history": [
+          {
+            "message": "Operaci\u00f3n confirmada",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos totalmente recibidos",
+            "status": "completed"
+          },
+          {
+            "message": "Fondos asignados",
+            "status": "completed"
+          },
+          {
+            "message": "Pago ejecutado",
+            "status": "completed"
+          },
+          {
+            "message": "Operaci\u00f3n cerrada",
+            "status": "active"
+          }
+        ],
+        "current": "Operaci\u00f3n cerrada"
+      },
+      "trade_type": "drawdown",
+      "rolled": false,
+      "sell_amount": 100000.0,
+      "buy_amount": 83892.62,
+      "sell_currency_decimals": 2,
+      "inverse_rate": 0.838926,
+      "client_id": "EBPCLI466830",
+      "order_date": "20210524",
+      "buy_balance": 0.0,
+      "buy_currency_decimals": 2,
+      "rate_symbol": "EURUSD",
+      "maturity_date": "20210524",
+      "beneficiaries": [],
+      "payments": [],
+      "can_perform_add_payments": {
+        "reasons": [
+          {
+            "message": "There is not amount available to add payments",
+            "code": "1186"
+          },
+          {
+            "message": "Deal has funds in",
+            "code": "1010"
+          },
+          {
+            "message": "Deal has reached maturity",
+            "code": "1010"
+          }
+        ],
+        "buy_amount": 0.0,
+        "sell_amount": 0.0,
+        "allowed": false
+      },
+      "funding_due_datetime": "2021-05-24T14:45:00",
+      "product_name": "Disposiciones"
+    }
+  ]
+}

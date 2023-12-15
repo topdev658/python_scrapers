@@ -1,0 +1,568 @@
+<div class="blockMe">
+
+    <div id="filtroDinamicoDASH" style="visibility:hidden!important">
+        <div class=" pos_relative inferior10 clearfix superior10">
+            <form id="cercador">
+                <div class="dinb pos_relative fselect" id="selectTipoComunicado"><p class="no_margins dinb"><span>Todos los tipos</span>
+                </p><img style="border: 0px;padding:0px;" src="../imatge/select.png" width="14" height="14"
+                         class="dinb">
+                    <div id="selectTipoComunicadox" class="downselect ml ocult"><label class=""><input type="checkbox"
+                                                                                                       title=""
+                                                                                                       value="1"
+                                                                                                       name="0"
+                                                                                                       id="cat_0"
+                                                                                                       onclick="javascript:selectTipoComunicado('0','0','TODOS_LOS_TIPOS')"
+                                                                                                       checked>
+                        <span>Todos los tipos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="7" id="cat_1"
+                                                    onclick="javascript:selectTipoComunicado('7','1','lbl_Recibos')"
+                                                    checked>
+                            <span>Recibos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="2" id="cat_2"
+                                                    onclick="javascript:selectTipoComunicado('2','2','lbl_Dto')"
+                                                    checked>
+                            <span>Descuentos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="1" id="cat_3"
+                                                    onclick="javascript:selectTipoComunicado('1','3','lbl_Ahorro')"
+                                                    checked>
+                            <span>Ahorro</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="4" id="cat_4"
+                                                    onclick="javascript:selectTipoComunicado('4','4','lbl_Fons')"
+                                                    checked>
+                            <span>Fondos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="9" id="cat_5"
+                                                    onclick="javascript:selectTipoComunicado('9','5','lbl_Tarj')"
+                                                    checked>
+                            <span>Tarjetas</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="10" id="cat_6"
+                                                    onclick="javascript:selectTipoComunicado('10','6','lbl_Comercios')"
+                                                    checked>
+                            <span>Comercios</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="6" id="cat_7"
+                                                    onclick="javascript:selectTipoComunicado('6','7','lbl_Prestamos')"
+                                                    checked>
+                            <span>Préstamos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="8" id="cat_8"
+                                                    onclick="javascript:selectTipoComunicado('8','8','lbl_Seguros')"
+                                                    checked>
+                            <span>Seguros</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="5" id="cat_9"
+                                                    onclick="javascript:selectTipoComunicado('5','9','lbl_Pensiones')"
+                                                    checked>
+                            <span>Pensiones</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="11" id="cat_10"
+                                                    onclick="javascript:selectTipoComunicado('11','10','lbl_Valores')"
+                                                    checked>
+                            <span>Valores</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="12" id="cat_11"
+                                                    onclick="javascript:selectTipoComunicado('12','11','lbl_Varios')"
+                                                    checked>
+                            <span>Varios</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="18" id="cat_12"
+                                                    onclick="javascript:selectTipoComunicado('18','12','lbl_Mifid')"
+                                                    checked>
+                            <span>Informe anual de costes y gastos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="19" id="cat_13"
+                                                    onclick="javascript:selectTipoComunicado('19','13','lbl_RentingAutos')"
+                                                    checked>
+                            <span>Renting Autos</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="20" id="cat_14"
+                                                    onclick="javascript:selectTipoComunicado('20','14','lbl_RentingOtros')"
+                                                    checked>
+                            <span>Renting Otros</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="3" id="cat_15"
+                                                    onclick="javascript:selectTipoComunicado('3','15','lbl_Fiscales')"
+                                                    checked>
+                            <span>Fiscales</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="16" id="cat_16"
+                                                    onclick="javascript:selectTipoComunicado('16','16','lbl_Barclays')"
+                                                    checked>
+                            <span>Barclays</span></label>
+                        <br/><label class=""><input type="checkbox" title="" value="1" name="17" id="cat_17"
+                                                    onclick="javascript:selectTipoComunicado('17','17','lbl_Corresponsales')"
+                                                    checked>
+                            <span>Corresponsales</span></label>
+                        <br/></div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        if (!(typeof document.selectTipoComunicado_inicializado !== 'undefined')) {
+                            document.selectTipoComunicado_inicializado = 9175705;
+                            initEventsSelect('selectTipoComunicado');
+                        } else if (document.selectTipoComunicado_inicializado != 9175705) {
+                            initEventsSelect('selectTipoComunicado');
+                        }
+                    });
+                </script>
+                <div class="dinb pos_relative fselect cta" id="selectFechaGenerico"><p class="no_margins dinb"><span>Últimos 12 meses</span>
+                </p><input id="selectFechaGenericoInput" name="selectFechaGenericoInput" type="hidden"
+                           value="<span>Últimos 12 meses</span>"/><img style="border: 0px;padding:0px;"
+                                                                       src="../imatge/select.png" width="14" height="14"
+                                                                       class="dinb rfloat
+">
+                    <div id="
+selectFechaGenericox" class="downselect clk noscroll nowrap lnk ocult"><a href="#" class="no_subrayado" title=""
+                                                                          onClick="javascript:selectPeriodo(this, '20190501,20200529', 'L_UltAño');"><span>Últimos 12 meses</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="javascript:selectPeriodo(this, '20191101,20200529', 'L_UltSemestre');"><span>Últimos 6 meses</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="javascript:selectPeriodo(this, '20200201,20200529', 'L_UltTrimestre');"><span>Últimos 3 meses</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="javascript:selectPeriodo(this, '20200429,20200529', 'L_UltMes');"><span>Del último mes</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="javascript:selectPeriodo(this, '20200522,20200529', 'L_UltSemana');"><span>De la última semana</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="javascript:selectPeriodo(this, '20200528,20200529', 'L_Ayer');"><span>De ayer</span></a><br/>
+                        <div class="limpiar"></div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        if (!(typeof document.selectFechaGenerico_inicializado !== 'undefined')) {
+                            document.selectFechaGenerico_inicializado = 7616346;
+                            initEventsSelect('selectFechaGenerico');
+                        } else if (document.selectFechaGenerico_inicializado != 7616346) {
+                            initEventsSelect('selectFechaGenerico');
+                        }
+                    });
+                </script>
+                <div class="dinb pos_relative fselect cta" id="idSelectAnosFiscales"><p class="no_margins dinb">2019</p>
+                    <input id="idSelectAnosFiscalesInput" name="idSelectAnosFiscalesInput" type="hidden"
+                           value="2019"/><img style="border: 0px;padding:0px;" src="../imatge/select.png" width="14"
+                                              height="14" class="dinb rfloat
+">
+                    <div id="
+idSelectAnosFiscalesx" class="downselect clk noscroll nowrap lnk ocult"><label for="20200101#20201231">2019</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20190101#20191231">2018</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20180101#20181231">2017</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20170101#20171231">2016</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20160101#20161231">2015</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20150101#20151231">2014</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20140101#20141231">2013</label><br/>
+                        <div class="limpiar"></div>
+                        <label for="20130101#20131231">2012</label><br/>
+                        <div class="limpiar"></div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        if (!(typeof document.idSelectAnosFiscales_inicializado !== 'undefined')) {
+                            document.idSelectAnosFiscales_inicializado = 1957339;
+                            initEventsSelect('idSelectAnosFiscales');
+                        } else if (document.idSelectAnosFiscales_inicializado != 1957339) {
+                            initEventsSelect('idSelectAnosFiscales');
+                        }
+                    });
+                </script>
+                <div class="dinb pos_relative fselect cta" id="idSelectCuentas"><p class="no_margins dinb"><span>Todas mis cuentas</span>
+                </p><input id="idSelectCuentasInput" name="idSelectCuentasInput" type="hidden"
+                           value="<span>Todas mis cuentas</span>"/><img style="border: 0px;padding:0px;"
+                                                                        src="../imatge/select.png" width="14"
+                                                                        height="14" class="dinb rfloat
+">
+                    <div id="
+idSelectCuentasx" class="downselect clk noscroll nowrap lnk ocult"><a id="linkPagCtasSig" href="#"
+                                                                      onclick="seleccionaCuenta(this,'*','idSelectCuentas','idSelectCuentas','Todas mis cuentas','N')"
+                                                                      title=""><span>Todas mis cuentas</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="seleccionaCuenta(this,'HD2pjRkvgd4cPamNGS~B3gAAAXJgFjDrB05__5jKGcc','idSelectCuentas','idSelectCuentas','ES24 2100 3692 8722 1000 0126','N','1')"><span>ES24 2100 3692 8722 1000 0126</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="seleccionaCuenta(this,'HD2pjRkgGkocPamNGSAaSgAAAXJgFjDrH0_Gr1aiWPo','idSelectCuentas','idSelectCuentas','ES93 2100 3692 8172 0000 5389','N','2')"><span>ES93 2100 3692 8172 0000 5389</span></a><br/>
+                        <div class="limpiar"></div>
+                        <a href="#" class="no_subrayado" title=""
+                           onClick="seleccionaCuenta(this,'HD2pjRjUBIYcPamNGNQEhgAAAXJgFjDrpHviJR_sZMQ','idSelectCuentas','idSelectCuentas','ES85 2100 8657 0272 0030 0183','N','3')"><span>ES85 2100 8657 0272 0030 0183</span></a><br/>
+                        <div class="limpiar"></div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        if (!(typeof document.idSelectCuentas_inicializado !== 'undefined')) {
+                            document.idSelectCuentas_inicializado = 6385416;
+                            initEventsSelect('idSelectCuentas');
+                        } else if (document.idSelectCuentas_inicializado != 6385416) {
+                            initEventsSelect('idSelectCuentas');
+                        }
+                    });
+                </script>
+                <div class="dinb pos_relative fselect cta" id="selectListaEmisores"><p class="no_margins dinb">Todos los
+                    emisores</p><input id="selectListaEmisoresInput" name="selectListaEmisoresInput" type="hidden"
+                                       value="Todos los emisores"/><img style="border: 0px;padding:0px;"
+                                                                        src="../imatge/select.png" width="14"
+                                                                        height="14" class="dinb rfloat
+">
+                    <div id="
+selectListaEmisoresx" class="downselect clk noscroll nowrap lnk ocult"><label for="">&nbsp;</label><br/>
+                        <div class="limpiar"></div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        if (!(typeof document.selectListaEmisores_inicializado !== 'undefined')) {
+                            document.selectListaEmisores_inicializado = 7798873;
+                            initEventsSelect('selectListaEmisores');
+                        } else if (document.selectListaEmisores_inicializado != 7798873) {
+                            initEventsSelect('selectListaEmisores');
+                        }
+                    });
+                </script>
+                <div class="dinb vatop izquierda10"><a href="#" onclick="javascript:buscarCorrespondencia();"
+                                                       class="boton boton_26funcionb dinb superior7 lfloat"><span>Buscar correspondencia</span></a>
+                </div>
+                <a id="restaurar_filtros_dash" href="#"
+                   onclick="javascript:restaurarFiltrosBuscador('NORMAL', 'DASHBOARD_MAILBOX')"
+                   class=" dinb derecha10 superior10 izquierda10" title=""><span>Restaurar filtros</span></a><a
+                    href="JavaScript:top.Titol.obtenerAyudaCampo('COX', '1', 'COMAGR');JavaScript:OmnitureClicatElement('B_AyudaPeticionComAgrup')"
+                    id="tooltipHelp2"
+                    class="info_vinculada_sol2 dinb vamid iefnone nodeco dinb derecha10 superior10 rfloat"
+                    title=""><span></span></a><a
+                    href="javascript:goPN_PE('COM','300','FLX_MBX_1','FLUJO=MBX,1,:GFI,7,')"
+                    class="icon_mes_info no_subrayado dinb inferior10 dinb superior10 rfloat" title=""><span>Petición de comunicados agrupados</span></a>
+            </form>
+        </div>
+        <div class="limpiar"></div>
+        <div class="modul_blaufosc no_margins ocultar ">
+            <span class="left"></span><span class="right"></span>
+            <div class="middle">
+                <div class="limpiar"></div>
+
+                <div class="lfloat  medida80 ocultar ">
+
+                    <div style="float:left; padding-top:5px !important;">
+                        <span class="bold ">Accesos directos a comunicados</span><span class="bold ">:&nbsp;</span> <a
+                            id="enlaceIrRecibos" href="javascript:irCategoria('7','L_Recibos')" title="Recibos"><span>Recibos</span></a>
+                        <span>&nbsp;|&nbsp;</span> <a id="enlaceIrTarjetas"
+                                                      href="javascript:irCategoria('9','L_Tarjetas')"
+                                                      title="Tarjetas"><span>Tarjetas</span></a>
+                    </div>
+                    <div style="position:relative; float:right; padding-bottom:10px !important;">
+
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <span>Los comunicados estarán disponibles a los dos días hábiles de la operación.</span>
+
+                <br>
+            </div>
+            <div class="bottom"></div>
+        </div>
+        <div class="limpiar"></div>
+
+    </div>
+
+    <table class="box_table" id="tablacorresp">
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005280046500009570"
+            name="202005280046500009570" class="" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_0" href="javascript:marcarComoFavorito('fav_0')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_0");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('0','202005280046500009570','','REFVAL_COMPLEJO_5862=HD2pjRqVSHUcPamNGpVIdQAAAXJgFjLjcoGTO152NmQ');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Normativa EMIR Refit</span></a></td>
+            <td class="ltxt ">Varios</td>
+            <td class="ltxt "><span>28/05/2020</span></td>
+            <td class="rtxt "><span></span></td>
+            <td class="ltxt "><span></span></td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005280036900068251"
+            name="202005280036900068251" class=" unread" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_1" href="javascript:marcarComoFavorito('fav_1')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_1");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('1','202005280036900068251','','REFVAL_COMPLEJO_3045=HD2pjRp0SSEcPamNGnRJIQAAAXJgFjLiZ5LK04Au7M8');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Liquidación fac. TIR 126063912</span></a>
+            </td>
+            <td class="ltxt ">Varios</td>
+            <td class="ltxt "><span>28/05/2020</span></td>
+            <td class="rtxt "><span></span></td>
+            <td class="ltxt "><span></span></td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005280036900068242"
+            name="202005280036900068242" class=" unread" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_2" href="javascript:marcarComoFavorito('fav_2')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_2");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('2','202005280036900068242','','REFVAL_COMPLEJO_9991=HD2pjRrYWsEcPamNGthawQAAAXJgFjLiCh2kEnOq9RU');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Liquidación fac. TIR 126063911</span></a>
+            </td>
+            <td class="ltxt ">Varios</td>
+            <td class="ltxt "><span>28/05/2020</span></td>
+            <td class="rtxt "><span></span></td>
+            <td class="ltxt "><span></span></td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005270019900228423"
+            name="202005270019900228423" class="" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_3" href="javascript:marcarComoFavorito('fav_3')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_3");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('3','202005270019900228423','','REFVAL_COMPLEJO_1474=HD2pjRqG1Z0cPamNGobVnQAAAXJgFjLgIzasWNFQoIM');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Recibos de préstamos</span></a></td>
+            <td class="ltxt ">Préstamos</td>
+            <td class="ltxt "><span>27/05/2020</span></td>
+            <td class="rtxt "><span>937,50</span></td>
+            <td class="ltxt "><span>euros</span></td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005260038802646624"
+            name="202005260038802646624" class="" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_4" href="javascript:marcarComoFavorito('fav_4')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_4");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('4','202005260038802646624','','REFVAL_COMPLEJO_9990=HD2pjRqEh20cPamNGoSHbQAAAXJgFjLfV1x1cwJCtGg');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Abono transferencia recibida</span></a>
+            </td>
+            <td class="ltxt ">Ahorro</td>
+            <td class="ltxt "><span>26/05/2020</span></td>
+            <td class="rtxt "><span>6.753,04</span></td>
+            <td class="ltxt "><span>euros</span></td>
+        </tr>
+        <tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="202005260015600008445"
+            name="202005260015600008445" class=" unread" style="">
+            <td scope="row" class=" medida5"><a class="favorits tooltip_activen" data-tooltip-position="bottom"
+                                                id="fav_5" href="javascript:marcarComoFavorito('fav_5')"
+                                                title="Marcar como destacado"></a>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        initMailboxTooltip("fav_5");
+                    });
+                </script>
+            </th>
+            <td class="ltxt "><a
+                    href="javascript:detalleComunicado('5','202005260015600008445','','REFVAL_COMPLEJO_9416=HD2pjRrGHLEcPamNGsYcsQAAAXJgFjLeZSc62HtIlnk');"
+                    class="no_subrayado" title="" onClick="this.blur();"><span>Extracto de ahorro</span></a></td>
+            <td class="ltxt ">Ahorro</td>
+            <td class="ltxt "><span>26/05/2020</span></td>
+            <td class="rtxt "><span></span></td>
+            <td class="ltxt "><span></span></td>
+        </tr>
+    </table>
+
+    <div id='OmnitureDIV' style="display:none;visibility:hidden"></div>
+    <div style="display:none;visibility:hidden">
+
+        <script language="JavaScript" type="text/javascript" src="./js/s_code_basic.js"></script>
+
+        <script language="JavaScript" type="text/javascript">
+
+            function setTrackerHTML(code) {
+                document.getElementById('OmnitureDIV').innerHTML = code;
+            };
+
+            function OmnitureClicatElement(pQuin) {
+                try {
+                    if (typeof window.top.sendLink === 'function') {
+                        window.top.sendLink({
+                            event_category: '',
+                            event_action: '',
+                            event_label: '',
+                            event_description: pQuin
+                        })
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+                ;
+            };
+
+            var sendLink = function (objeto) {
+                if (typeof window.top.sendLink === 'function') {
+                    try {
+                        window.top.sendLink(objeto);
+                    } catch (e) {
+                    }
+                }
+            }
+
+
+            function testHuella() {
+
+                try {
+
+                    s.channel = "Linea Abierta"
+                    s.pageName = "Linea Abierta:MailBox:Dashboard"
+
+                    s.events = "event24"
+                    s.prop1 = "MailBox"
+
+                    s.prop5 = "Dashboard"
+                    s.prop17 = "es"
+                    s.eVar17 = s.prop17
+                    s.prop18 = "Cliente"
+                    s.eVar18 = s.prop18
+
+
+                    if (typeof digitalData != "object") {
+                        digitalData = {
+                            client_login_status: 'logado',
+                            page_typology: 'pagina',
+                            device: 'desktop',
+                            page_language: 'es',
+                            page_area: 'privada',
+                            page_environment: 'produccion',
+                            client_id: 'FEDA19C83878170A14D0D440F44EA738',
+                            client_type: 'cliente',
+                            client_segment: 'empresas',
+                            heavy_digital: 'no',
+                            ind_holabank: 'false',
+                            ind_autonomo: 'false',
+                            ind_negocios: 'false',
+                            treatment_online: 'false',
+                            consent_ccee: 'false',
+                            consent_profiling: 'true',
+                            form_maxloan_limit: '0'
+                        };
+                        if (top && typeof top.CookiePolicy === 'object') digitalData.gdpr_facebook = '' + top.CookiePolicy.isAllowedComponent('facebook');
+                    }
+
+                    if (typeof window.top.sendView === 'function') {
+                        window.top.sendView(digitalData, s);
+                    }
+                    if (navigator.appVersion.indexOf('MSIE') >= 0) setTrackerHTML(unescape('%3C') + '\!-' + '-')
+                } catch (err) {
+                    console.log(err);
+                }
+                ;
+
+            }
+
+            function OmnitureAddLoadEvent(func) {
+                var oldonload = window.onload;
+                if (typeof window.onload != 'function') {
+                    window.onload = func;
+                } else {
+                    window.onload = function () {
+                        oldonload();
+                        func();
+                    };
+                }
+            }
+
+
+            OmnitureAddLoadEvent(new Function('setTimeout("testHuella();",50)'));
+        </script>
+
+    </div>
+</div>
+<script>
+    claveContinuacionCta = "";
+    emisorSel = "";
+
+    var tablacorresp_RefVal1 = new Array('HD2pjRoAAsYcPamNGgACxgAAAXJgFjLQfIPZ6aUL9ZA', 'HD2pjRnes~IcPamNGd6z4gAAAXJgFjLQAYY4eBtNLoA', 'HD2pjRnF3SwcPamNGcXdLAAAAXJgFjLQrffdW3uiNwk', 'HD2pjRnuCuscPamNGe4K6wAAAXJgFjLQVXOrPXSe7ts', 'HD2pjRniAIgcPamNGeIAiAAAAXJgFjLQxAKBQsubPxE', 'HD2pjRlfSSccPamNGV9JJwAAAXJgFjLQLr4frcEZzIc', 'HD2pjRlzAXwcPamNGXMBfAAAAXJgFjLQ93eWek5bGjU', 'HD2pjRkdjzocPamNGR2POgAAAXJgFjLQb5_gy_VClb0', 'HD2pjRlR4PccPamNGVHg9wAAAXJgFjLQWVM8sKnEgas', 'HD2pjRlZYh4cPamNGVliHgAAAXJgFjLQk3WgMw0yMQo', 'HD2pjRlEWQocPamNGURZCgAAAXJgFjLQbwTUe_Legi8', 'HD2pjRkaAJMcPamNGRoAkwAAAXJgFjLQ0jui8hfJgH4', 'HD2pjRkb_yYcPamNGRv_JgAAAXJgFjLQI9jTY0fctOg', 'HD2pjRkiO9ccPamNGSI71wAAAXJgFjLQCe4tYGJJs58', 'HD2pjRnsisocPamNGeyKygAAAXJgFjLQ1CCoBSex2sY');
+
+    var numMBX1 = "0";
+    var titolMBX1 = "Correspondencia";
+    var newTitolMBX1 = titolMBX1 + " (" + numMBX1 + ")";
+
+    function initTituloMBX1() {
+
+        var divTitle = document.getElementById("M1TitleContainer");
+        buscaEnHijos(divTitle, titolMBX1, newTitolMBX1);
+
+    }
+
+    $(document).ready(function () {
+
+        initTituloMBX1();
+
+        HEAVY_USER = false;
+        if (HEAVY_USER) {
+
+
+        }
+        refrescaComboMultiSelect("#selectTipoComunicado");
+        restauraEscenario();
+        inicializaCombosDesples("",
+            "", "", "");
+        removeStyleVisibility('filtroDinamicoDASH');
+        setOmnitureInformation()
+    });
+
+    function setOmnitureInformation() {
+        if (typeof OmnitureClicatElement != "undefined") {
+            var tipoCorrespondencia = $('#selectTipoComunicado p, #selectTipoComunicado img');
+            var periodoCorrespondencia = $('#selectFechaGenerico p, #selectFechaGenerico img');
+            var cuentas = $('#idSelectCuentas p, #idSelectCuentas img');
+            var anysFiscales = $('#idSelectAnosFiscales p, #idSelectAnosFiscales img');
+            var anysFiscalesOpciones = $("#idSelectAnosFiscales .downselect.clk label");
+
+            tipoCorrespondencia.click(function (e) {
+                OmnitureClicatElement("C_TiposCorresp");
+            });
+
+            periodoCorrespondencia.click(function (e) {
+                OmnitureClicatElement("C_PeriodoCorresp");
+            });
+
+            cuentas.click(function (e) {
+                OmnitureClicatElement("C_Cuentas");
+            });
+
+            if ($.trim($('[id*=idSelectCuentasx]').html()) == '') {
+                cuentas.click(function (e) {
+                    solicitarCuentas('V', null, 'idSelectCuentas', 'idSelectCuentas', 'L_IrInicioCuentas');
+                });
+            }
+
+            anysFiscales.click(function (e) {
+                OmnitureClicatElement("C_PeriodoCorresp_Fiscales");
+            });
+            anysFiscalesOpciones.click(function (e) {
+                var any = $(this).html();
+                var indice = 1;
+                anysFiscalesOpciones.each(function (i) {
+                    if (any == $(this).html()) {
+                        indice = i;
+                    }
+                });
+                OmnitureClicatElement("Ch_Año[" + indice + "]");
+            });
+        }
+    }
+</script>

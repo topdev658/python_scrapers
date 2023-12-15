@@ -1,0 +1,253 @@
+>>> KEY EXCHANGE
+await fetch("https://api.grupocaminos.es/key-exchange", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnwygfHTQUBMfZz2ZNjhsseisqsvzNINKGvbv1DvzQ2tV+oyF+uwnwVa9TwtpvvkU49Mu0zJzqi+z47jwjVNDvkpf8Xr85x7oEcPwYMA2W4GRNQaXM06b8JsJHwa0uFi27VLe87ycUl0uaFbwywEEVJmA1N5kGrkFe59GqMWUoUmEzKnCYFGnIzfFLLZvqwD8eLb+Ol6pwa+KPGNQypfVbxSu2CgpNkWbJKRV9EZbgnGnLUIUaALe0azT1UYqoYUfQknyDLJJQ3CKGV7fBP6lazUP0dNRb8T0tXxmGJZ0SrPyOx6ECw38uVEluvITo9q3gkmjL5EeAiap6bEqwWAsAQIDAQAB",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OR
+
+curl --proxy 192.168.195.114:8115 'https://api.grupocaminos.es/key-exchange' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnwygfHTQUBMfZz2ZNjhsseisqsvzNINKGvbv1DvzQ2tV+oyF+uwnwVa9TwtpvvkU49Mu0zJzqi+z47jwjVNDvkpf8Xr85x7oEcPwYMA2W4GRNQaXM06b8JsJHwa0uFi27VLe87ycUl0uaFbwywEEVJmA1N5kGrkFe59GqMWUoUmEzKnCYFGnIzfFLLZvqwD8eLb+Ol6pwa+KPGNQypfVbxSu2CgpNkWbJKRV9EZbgnGnLUIUaALe0azT1UYqoYUfQknyDLJJQ3CKGV7fBP6lazUP0dNRb8T0tXxmGJZ0SrPyOx6ECw38uVEluvITo9q3gkmjL5EeAiap6bEqwWAsAQIDAQAB' -H 'Origin: https://clientes-bancocaminos.grupocaminos.es' -H 'DNT: 1' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-site' -H 'Referer: https://clientes-bancocaminos.grupocaminos.es/' -H 'Connection: keep-alive' -H 'Content-Length: 0'
+curl --proxy 192.168.195.114:8115 'https://api.grupocaminos.es/key-exchange' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvqVhBXwBvoDvKuMtso1O/PpGuaEhJJA2yoUu1fYUyA3OGGCTji8RZmtjlOCpAOi6qN/nyh6lE5PLBUroCLwkvMKDpwZGkN7d0jh+GxM53z68w9Fa2uaaduTm2bU/OOSFTLCVxaWzfCMt056bBQmZTDd+vE5QAmWH/xbL6a0EKcMXFrOWRQHdW3RnlIYMnItyO2AB+vCT8RaOiqmPXtjr21zV9R8klf7FVNYGv2bUM0OCigmlNDnlFCjOi50kW6SFeVZlJQm2eAKw9v1qXAUJE3nvLiGRljUEN7osNH8+mAtRYN5n8wIqSkjnSWwzfEWRicJCzMu5vVyNc9I+q5GxwwIDAQAB' -H 'Origin: https://clientes-bancocaminos.grupocaminos.es' -H 'DNT: 1' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-site' -H 'Referer: https://clientes-bancocaminos.grupocaminos.es/' -H 'Connection: keep-alive' -H 'Content-Length: 0'
+<<< 10_resp_key_exchange.json
+
+
+>>> PRELOGIN
+await fetch("https://api.grupocaminos.es/prelogin/communications?language=es&company=BC", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "00188467-4809-471b-adcb-edc125b9f4ed",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+<<<
+
+>>> LOGIN
+await fetch("https://api.grupocaminos.es/login", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "56f39720-bf93-4078-81f7-416e372753ba",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "body": "{\"payload\":\"DhG8vJGkf0YFT/8PzJ2FS8jvCmtXs0MRKm7X5TsPti28oeXSWPk8U/DRfA1vAYNv9S3ruQ2vbdG1Sh31BcG/ovfTpi0Q7oREhz0XhKWIeOBpoHcbzqHCZ33STojghKVMPYRjZWI1IkrppV/FtmIxKptV2bpJf02vmtCLDx/CfbY1DePd+FwALMTbjWt3aUGU\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OR
+
+curl 'https://api.grupocaminos.es/login' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/json' -H 'uuid: 56f39720-bf93-4078-81f7-416e372753ba' -H 'Origin: https://clientes-bancocaminos.grupocaminos.es' -H 'DNT: 1' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-site' -H 'Referer: https://clientes-bancocaminos.grupocaminos.es/' -H 'Connection: keep-alive' -H 'TE: trailers' --data-raw '{"payload":"DhG8vJGkf0YFT/8PzJ2FS8jvCmtXs0MRKm7X5TsPti28oeXSWPk8U/DRfA1vAYNv9S3ruQ2vbdG1Sh31BcG/ovfTpi0Q7oREhz0XhKWIeOBpoHcbzqHCZ33STojghKVMPYRjZWI1IkrppV/FtmIxKptV2bpJf02vmtCLDx/CfbY1DePd+FwALMTbjWt3aUGU"}'
+
+>>> CONTRACTS
+await fetch("https://api.grupocaminos.es/contracts", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "367a4c76-e9be-4f77-a1d5-025359307a1d",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+>>> PRODUCTS
+await fetch("https://api.grupocaminos.es/products/", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "367a4c76-e9be-4f77-a1d5-025359307a1d",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+>>> CASHFLOW (daily in-out flow, not useful)
+await fetch("https://api.grupocaminos.es/cashflow", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "367a4c76-e9be-4f77-a1d5-025359307a1d",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+curl 'https://api.grupocaminos.es/cashflow' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/json' -H 'uuid: 367a4c76-e9be-4f77-a1d5-025359307a1d' -H 'Origin: https://clientes-bancocaminos.grupocaminos.es' -H 'DNT: 1' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-site' -H 'Referer: https://clientes-bancocaminos.grupocaminos.es/' -H 'Connection: keep-alive' -H 'TE: trailers'
+
+
+>>> MOVS
+await fetch("https://api.grupocaminos.es/products/8043ca8e-d841-44fa-aa22-2a6c03bf4ac2/movements", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "a3d74324-1e12-4c3c-9b14-4c3a8993cf58",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+await fetch("https://api.grupocaminos.es/products/8043ca8e-d841-44fa-aa22-2a6c03bf4ac2/movements?dateFrom=20211101&dateTo=20211203", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "a3d74324-1e12-4c3c-9b14-4c3a8993cf58",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+
+////////// BANCOFAR-related extra requests
+
+await fetch("https://api.grupocaminos.es/contracts", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "fa453e5d-4455-4159-85ca-75fad8306c92",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://clientes-bancocaminos.grupocaminos.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+// Switch to a contract
+await fetch("https://api.grupocaminos.es/contracts/ba9b078c-7ee0-4016-9b0a-af4ffd7a8302", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "fa453e5d-4455-4159-85ca-75fad8306c92",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "cross-site"
+    },
+    "referrer": "https://www.bancofaronline.es/",
+    "method": "PATCH",
+    "mode": "cors"
+});
+
+
+// Look for "usuarioBE=4C016079&tokenSSO=32df5121-9425-4a39-8e03-0179a9cb80d8"
+await fetch("https://api.grupocaminos.es/products/sso/rsi", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "fa453e5d-4455-4159-85ca-75fad8306c92",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "cross-site"
+    },
+    "referrer": "https://www.bancofaronline.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+
+await fetch("https://api.grupocaminos.es/current/user/", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/json",
+        "uuid": "fa453e5d-4455-4159-85ca-75fad8306c92",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "cross-site"
+    },
+    "referrer": "https://www.bancofaronline.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+
+await fetch("https://banca.bancofaronline.es/isum/Main?ISUM_SCR=login&loginType=accesoSSO&ISUM_Portal=115&forceNewSession=true&acceso_idioma=es_ES", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://www.bancofaronline.es/",
+    "body": "usuarioBE=4C016079&tokenSSO=32df5121-9425-4a39-8e03-0179a9cb80d8",
+    "method": "POST",
+    "mode": "cors"
+});
+
+

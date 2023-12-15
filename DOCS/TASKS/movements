@@ -1,0 +1,23 @@
+Talking about movements integration.
+I've facilitated you an stored procedure called StatementsAdd to integrate the movements filled in a Statements variable.
+Here you have an example.
+
+-- Statements declaration and load.
+DECLARE @Statements AS Statements;
+INSERT INTO @Statements ([OperationalDate],[ValueDate],[StatementDescription],[Amount],[TempBalance],[AccountId])
+SELECT '2016-12-01', '2016-12-01', 'Gastos bancarios 32432974367', 1200.33, 2342367.75, 1
+
+-- SP execution
+DECLARE	@return_value int
+EXEC	@return_value = [dbo].[StatementsAdd]
+@STM = @Statements
+SELECT	'Return Value' = @return_value
+GO
+
+
+
+Hi Vladimir,
+You'll have to take in consideration the time to fill the Statements parameter.
+
+Here you have one c# example on how to fill it in a good way.
+http://www.codemag.com/Article/1701101

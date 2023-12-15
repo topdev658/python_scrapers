@@ -1,0 +1,1190 @@
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+
+    <script type="text/javascript" src="./js/EloGenB000003.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+    <script type="text/javascript" src="./js/gestionTablas.js"></script>
+    <script type="text/javascript" src="./js/AjaxQueue.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+    <script id="TablaBean01EvalScript" language="javascript" type="text/javascript">var TablaBean01_RefVal1= new Array("TReTcVoapQBNF5NxWhqlAAAAAXSs82lssjsTa~3YLJ4","TReTcVnhZXRNF5NxWeFldAAAAXSs82ltfFddXwcPCe8");
+        var TablaBean01_RefVal2= new Array("CUENTA+IMAGIC","");
+        var TablaBean01_RefVal3= new Array("N","");
+    </script>
+
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <script type="text/javascript" src="./js/EloGenB000005.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000004.js"></script>
+    <script type="text/javascript" src="./js/EloGenB001100.js"></script>
+    <script type="text/javascript" src="./js/elogctb000100.js"></script>
+    <script type="text/javascript" src="./js/elotrfb000100.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.metadata.js"></script>
+    <script type="text/javascript" src='../js/gct/PaginacionUtils.js'></script>
+    <script type="text/javascript" src='../js/gct/RecargaSaldos.js'></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/jquery.blockUI-2.57.0.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+    <script type="text/javascript" src="./js/arq/init/jsHandlerTablaV2.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/c-box.js"></script>
+    <script type="text/javascript" language="JavaScript">
+
+        var PNAjuda="GCT";
+        var PEAjuda="11";
+    </script>
+    <script type="text/javascript" language="JavaScript">
+        var ultimoRegistroPintado = "";
+        var urlBaseAjax = '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789';
+        var SCRIPTLET_SESION  = "/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789";
+        var LIT_NO_DISPONIBLE = "En estos momentos no está disponible.";
+        $( document ).ready(function() {
+            $("#TablaBean01").children("thead").addClass( "display--none" );
+            anadirPaginacion("0");
+        });
+        function imprimir() {
+            if (window.print) {
+                window.print();
+            }
+            else {
+                InicializaErrores();
+                AddError("<TagLO:lit idBean='ERROR_NAVEGADOR_NO_SOPORTADO'/>");
+                ProcesaErrores("<TagLO:lit idBean='TITULO'/>");
+            }
+        }
+        function descargaPdf() {
+            var formName = "goPNPE";
+            with (document.forms[formName]) {
+                target="Oculto";
+                submit();
+            }
+        }
+        function enlaces(PNDestino,PEDestino, url, EntornoMenu,PNMenu,PEMenu,clickOrig){
+
+            var url_aux = url;
+            var idx1=-1;
+            var idx2=0;
+            var seguir = true;
+            var error = false;
+            var aux1= "";
+            var aux1Var;
+            var myeval = "";
+            while (seguir) {
+                idx1 = url.indexOf("{", idx1+1);
+
+                if (idx1==-1) {
+                    seguir = false;
+                } else {
+                    idx2=url.indexOf("}", idx1);
+                    if (idx2==-1) {
+                        seguir = false;
+                        error = true;
+                    } else {
+                        aux1 = url.substring(idx1 + 1, idx2);
+                        eval ('aux1Var='+aux1);
+                        url_aux = url_aux.replace("{"+aux1+"}", aux1Var);
+                    }
+                }
+            }
+            if (!error) {
+                url = url_aux;
+            }
+            if (PNDestino == PNMenu && PEDestino == PEMenu){
+                PNMenu = "";
+                PEMenu = "";
+            }
+            if(PNDestino == "AGE" && PEDestino == "1"){
+                url+= "PN="+PNDestino+"&PE="+PEDestino+"&VOLVER_PN=GCT&VOLVER_PE=11";
+            }
+
+
+            top.Inferior.Menu.lanzarLO(EntornoMenu,PNDestino,PEDestino,url,clickOrig,PNMenu,PEMenu);
+        }
+        function irOtrosBancos(pn, pe) {
+            var f =document.forms[0];
+            f.PN.value = pn;
+            f.PE.value = pe;
+            f.CLICK_ORIG.value = "EOC_"+ f.PN.value+"_" + f.PE.value;
+            f.VOLVER_PN.value="GCT";
+            f.VOLVER_PE.value="11";
+            f.target = "Cos";
+            f.submit();
+        }
+        function enviar(indice, codMoneda){
+            var f = document.forms[0];
+            f.REFVAL_SIMPLE_NUMERO_CUENTA.value = TablaBean01_RefVal1[indice-1];
+            f.ORIGEN_INVOCACION.value = f.PN.value + f.PE.value;
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value;
+            f.ALIAS_CUENTA.value = TablaBean01_RefVal2[indice-1];
+            f.FLAG_KEEP_THE_CHANGE.value = TablaBean01_RefVal3[indice-1];
+            f.MONEDA.value = codMoneda;
+            f.PN.value="GCT";
+            f.PE.value="16";
+            f.target = "Cos";
+            f.submit();
+        }
+        function verSiguientes() {
+            var f = document.forms[0];
+            f.PN.value = "GCT";
+            f.PE.value = "111";
+            ultimoRegistroPintado = parseInt($(".filaValida").length);
+            f.CLICK_ORIG.value = "PAG_"+ f.PN.value+"_11";
+            f.CLAVE_CONTINUACION_CLCOTG.value=f.CLAVE_CONTINUACION_CLCOTG_SIG.value;
+            f.CLAVE_CONTINUACION_TOOFCU.value=f.CLAVE_CONTINUACION_TOOFCU_SIG.value;
+            f.CLAVE_CONTINUACION_TOGECU.value=f.CLAVE_CONTINUACION_TOGECU_SIG.value;
+            recuperarDatosTablaPaginacionGCT(ultimoRegistroPintado, urlBaseAjax, '111', 'formPrincipal');
+
+        }
+
+        function traspasoRapido(urlParams, id_origen, id_destino){
+            idFila = id_origen;
+
+            var div = $('#'+idFila+'Oculta').find('div#' + idFila + 'DivAjax');
+            var atr_display_tr = $('#'+idFila+'Oculta').css('display');
+            var error_extracto_reducido = $('#'+idFila+'Oculta').find("div#errorExtractoReducido");
+            var divTablaBeanExtractoReducido = $('#'+idFila+'Oculta').find("#tablaBeanExtractoReducido");
+
+            borrarContenidoFilasOcultas();
+
+            if (error_extracto_reducido.length && error_extracto_reducido.html().trim()!="") {
+
+
+                if (atr_display_tr=="table-row") {
+
+                    abrirFilaTraspasoRapido(id_origen);
+                }
+
+
+                bloquearCursor();
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK);
+                procesaAjaxQueueMB(AjaxQueueMB,true);
+                abrirFilaTraspasoRapido(id_origen);
+
+            } else {
+
+
+                if (divTablaBeanExtractoReducido.length!=0) {
+
+
+                    if (atr_display_tr=="table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen);
+                    }
+
+
+                    bloquearCursor();
+                    AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK);
+                    procesaAjaxQueueMB(AjaxQueueMB,true);
+                    abrirFilaTraspasoRapido(id_origen);
+
+                } else {
+
+
+                    if (atr_display_tr=="table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen);
+
+                    } else {
+
+
+                        bloquearCursor();
+                        AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK);
+                        procesaAjaxQueueMB(AjaxQueueMB,true);
+                        abrirFilaTraspasoRapido(id_origen);
+                    }
+                }
+            }
+        }
+        function borrarContenidoFilasOcultas() {
+            $('#TablaBean01 tr[id^="data_"]').each(function (index) {
+                $(this).find('*[id*=DivAjax]').each(function (index) {
+                    $(this).html("");
+
+                });
+            });
+        }
+        function traspasoRapidoOK() {
+            desbloquearCursor();
+        }
+        function traspasoRapidoNOK() {
+            ControlError (null, null, null, null);
+        }
+
+
+        function continuarTraspasoRapido(cuentaOrig) {
+            InicializaErroresTR();
+            ProcesaErroresTR();
+            var cuentaDest = "";
+            var elemento = document.getElementById("selectCuentaDestino");
+            if (elemento!=null) {
+                cuentaDest = elemento.options[elemento.selectedIndex].value;
+                if (cuentaDest == 'INI' || cuentaDest == 'SIG'  || cuentaDest == 'SEL' || cuentaDest == '') {
+                    AddErrorTR("Debe seleccionar una cuenta destino");
+                    AddErrorTipoTR("selectCuentaDestino");
+                }
+            }
+            var importe = "";
+            elemento = document.getElementById("campoImporte");
+            if (elemento!=null) {
+                importe = validaImporte2("campoImporte");
+            }
+            if (ProcesaErroresTR()) {
+                var urlParams = "PN=TTU&PE=37";
+                urlParams += "&IMPORTE=";
+                urlParams += importe;
+                urlParams += "&REFVAL_SIMPLE_CUENTA_ORIGEN=";
+                urlParams += cuentaOrig;
+                urlParams += "&REFVAL_SIMPLE_CUENTA_DESTINO=";
+                urlParams += cuentaDest;
+                urlParams += "&idFilaCuenta=";
+                urlParams += idFila;
+                urlParams += "&CLICK_ORIG=";
+                urlParams += "FLX_GCT_11";
+                bloquearCursor();
+                refValComplejoDestino = cuentaDest;
+
+                var id_origen = idFila;
+                var id_destino = idFila + 'DivAjax';
+                abrirFilaTraspasoRapido(id_origen);
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, refrescaResultadoTraspasoRapido], errorRefrescaResultadoTraspasoRapido);
+                procesaAjaxQueueMB(AjaxQueueMB,true);
+                abrirFilaTraspasoRapido(id_origen);
+            }
+        }
+        function refrescaResultadoTraspasoRapido(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var divOcultoTR = document.getElementById("divOcultoTR");
+            divOcultoTR.innerHTML = data;
+            var temp = objOrigen[0].id;
+            var res = temp.split("_");
+            temp = res[1].replace("DivAjax", "");
+
+            if(document.getElementById("evaluaScript_ttu37")){
+                recargarSaldos(temp);
+            } else {
+
+
+
+
+
+                divOcultoTR.innerHTML = "";
+
+                desbloquearCursor();
+            }
+            desbloquearCursor();
+        }
+        function errorRefrescaResultadoTraspasoRapido() {
+            var html = '';
+            html+='<div id="errorResultadoTraspasoRapido">';
+            html+='<div class="ltxt">';
+            html+='<span class="bold ">';
+            html+=LIT_NO_DISPONIBLE;
+            html+='</span>';
+            html+='</div>';
+            html+='</div>';
+
+            document.getElementById(idFila + 'DivAjax').innerHTML = html;
+            desbloquearCursor();
+        }
+
+
+        function seleccionCuentaDestinoTraspasoRapido(param1, param2, param3) {
+
+            var selectBox = document.getElementById("selectCuentaDestino");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+            var params=selectedValue.split("::");
+            if (params.length==3) {
+                param1=params[0];
+                param2=params[1];
+                param3=params[2];
+            } else{
+                param1=selectedValue;
+            }
+
+
+
+            if (param1=="INI" || param1=="SIG") {
+                var urlParams = "PN=GCT&PE=134";
+                urlParams += "&REFVAL_SIMPLE_CLAU_CONTINUACIO=";
+                if (param1=="INI") {
+                    var CLAU_CONTINUACIO_INI = "TReTcVnd22JNF5NxWd3bYgAAAXSs82lt5ZED~oOH8JQ"
+                    ;
+                    urlParams += CLAU_CONTINUACIO_INI;
+                } else {
+                    urlParams += param2;
+                }
+                urlParams += "&REFVAL_SIMPLE_NUMERO_CUENTA=";
+                urlParams += param3;
+                urlParams += "&ORIGEN_INVOCACION=PAG_CUENTA_DESTINO";
+                urlParams += "&TIPO_LISTA_CUENTAS_TRASPASO_RAPIDO=DESTINO";
+                urlParams += "&CLICK_ORIG=";
+                urlParams += "PAG_GCT_134";
+                bloquearCursor();
+                enviaAsincrono(SCRIPTLET_SESION, urlParams, 'DIVSelectCuentasDestino', 'POST', refrescaSelectCuentasDestino, errorRefrescaSelectCuentasDestino);
+            }
+        }
+        function refrescaSelectCuentasDestino() {
+            var html = http_request.responseText;
+            if (html!=null && $.trim(html)!="" && html.indexOf("divListaCuentasTraspasoRapidoError") > -1) {
+                document.getElementById(idFila + 'DivAjax').innerHTML = html;
+            } else {
+                $('#selectCuentaDestino').parent().html(html);
+            }
+            desbloquearCursor();
+        }
+        function errorRefrescaSelectCuentasDestino() {
+            var html = '';
+            html+='<div id="errorRefrescaSelectCuentasDestino">';
+            html+='<div class="ltxt">';
+            html+='<span class="bold ">';
+            html+=LIT_NO_DISPONIBLE;
+            html+='</span>';
+            html+='</div>';
+            html+='</div>';
+
+            document.getElementById(idFila + 'DivAjax').innerHTML = html;
+            desbloquearCursor();
+        }
+
+
+        function pagInicio(){
+            var f =document.forms[0];
+            var capa_pta = document.getElementById("PTS0");
+            f.PN.value = "GCT";
+            f.PE.value = "111";
+            f.CLAVE_CONTINUACION_CLCOTG.value="000"
+            f.CLAVE_CONTINUACION_TOOFCU.value="000000000000000 000000000000000 "
+            f.CLAVE_CONTINUACION_TOGECU.value="00000000000 000000000000000 "
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+
+            f.CLICK_ORIG.value = "PAG_"+ f.PN.value+"_11";
+            var paramsAjax=$("form[name=formPrincipal]").serialize();
+            bloquearCursor();
+            enviaAsincrono(SCRIPTLET_SESION, paramsAjax, 'contenedorTablaInventarioCuentas', 'POST', paginacionInventarioCuentasOK, paginacionInventarioCuentasNOK);
+        }
+        function pagSiguiente() {
+            var f = document.forms[0];
+            var capa_pta = document.getElementById("PTS0");
+            f.PN.value = "GCT";
+            f.PE.value = "111";
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+
+            f.CLICK_ORIG.value = "PAG_"+ f.PN.value+"_11";
+            f.CLAVE_CONTINUACION_CLCOTG.value=f.CLAVE_CONTINUACION_CLCOTG_SIG.value;
+            f.CLAVE_CONTINUACION_TOOFCU.value=f.CLAVE_CONTINUACION_TOOFCU_SIG.value;
+            f.CLAVE_CONTINUACION_TOGECU.value=f.CLAVE_CONTINUACION_TOGECU_SIG.value;
+            var paramsAjax=$("form[name=formPrincipal]").serialize();
+            bloquearCursor();
+            enviaAsincrono(SCRIPTLET_SESION, paramsAjax, 'contenedorTablaInventarioCuentas', 'POST', paginacionInventarioCuentasOK, paginacionInventarioCuentasNOK);
+        }
+        function paginacionInventarioCuentasOK() {
+            var html = http_request.responseText;
+
+            var divOculto = document.getElementById("divOculto");
+            divOculto.innerHTML = html;
+
+            $(divOculto).find('#contenedorTablaInventarioCuentasAJAX').each(function () {
+                document.getElementById('contenedorTablaInventarioCuentas').innerHTML = $(this).html();
+            });
+
+            if(document.getElementById("evaluaScript_GCT111_ERROR")){
+
+                eval(document.getElementById("evaluaScript_GCT111_ERROR").innerHTML);
+            } else {
+
+
+                if(document.getElementById("evaluaScript_GCT111")){
+
+                    eval(document.getElementById("evaluaScript_GCT111").innerHTML);
+
+                    $(divOculto).find("#TablaBean01EvalScript").each(function (index) {
+                        jQuery.globalEval($(this).html());
+                    });
+
+                    var divOcultoTR = document.getElementById("divOcultoTR");
+
+                    if (divOcultoTR!=null && divOcultoTR.innerHTML!="") {
+
+                        if(document.getElementById("evaluaScript_ttu37")){
+                            eval(document.getElementById("evaluaScript_ttu37").innerHTML);
+                        }
+
+                        var divTraspasoRapido = $('#'+idFila+'Oculta').find('div#' + idFila + 'DivAjax');
+
+                        $(divTraspasoRapido).html(divOcultoTR.innerHTML);
+
+                        abrirFilaTraspasoRapido(idFila);
+
+
+
+                        divOcultoTR.innerHTML = "";
+                    }
+                }
+            }
+
+            divOculto.innerHTML = "";
+
+            initTooltips();
+
+            desbloquearCursor();
+        }
+        function paginacionInventarioCuentasNOK() {
+            var html = '';
+            html+='<div id="errorSolicitarInfoTraspasoRapido" style="padding:0 14px 0 14px;">';
+            html+='<div class="ltxt">';
+            html+='<span class="bold ">';
+            html+=LIT_NO_DISPONIBLE;
+            html+='</span>';
+            html+='</div>';
+            html+='</div>';
+            document.getElementById('contenedorTablaInventarioCuentas').innerHTML = html;
+            desbloquearCursor();
+        }
+
+        function ControlError (codigoError, http_request_table, idTabla, tr_select) {
+            var div = $('#'+idFila+'Oculta').find('div#' + idFila + 'DivAjax');
+            var html='';
+            html+='<div id="errorExtractoReducido" style="padding:0 14px 0 14px;">';
+            html+='<div class="ltxt">';
+            html+='<span class="bold ">';
+            html+=LIT_NO_DISPONIBLE;
+            html+='</span>';
+            html+='</div>';
+            html+='</div>';
+            div.html(html);
+            desbloquearCursor();
+        }
+        function cerrarDetalles(idFilaCuenta) {
+            var href = $("#" + idFilaCuenta).find('[id^="celdaExtractoReducido"] a').attr('href');
+            window.location.href = href;
+        }
+        function cerrarDetallesTraspasoRapido(idFilaCuenta) {
+            InicializaErrores();
+            var href = $("#" + idFilaCuenta).find('[id^="celdaTraspasoRapido"] a').attr('href');
+            window.location.href = href;
+        }
+        function cerrarTodosLosDetallesAbiertos(borrarContenido) {
+            $('#TablaBean01 tr[id^="data_"]').each(function (index) {
+                if ($(this).attr('id').indexOf('Oculta') > -1 ) {
+                    if ( $(this).css('display')=='' || $(this).css('display')=='block' || $(this).css('display')=='table-row')  {
+                        $(this).attr('style','display:none');
+                        $(this).addClass('ocultar');
+                        if (borrarContenido) {
+                            $(this).find("div#TablaBean01DivAjax").each(function (index) {
+                                $(this).html("");
+                            });
+                        }
+                    }
+                }
+            });
+        }
+        function verTodosMovimientosCuenta(idFilaCuenta) {
+            var href = $("#" + idFilaCuenta).find('td a').attr('href');
+            window.location.href = href;
+        }
+        function bloquearCursor(){
+            $.blockUI({overlayCSS: {backgroundColor: '#7F97A7', opacity: .5 }, message: null});
+        }
+        function desbloquearCursor(){
+            $.unblockUI({ fadeOut: 200 });
+        }
+        String.prototype.trim = function(){
+            return this.replace(/^[\s\xA0]+/g,'').replace(/[\s(&nbsp;)]+$/g,'');
+        }
+        function validaImporte(campoImporte) {
+            var importe_formateado = "";
+            var importe = $('#' + campoImporte).val();
+
+            if($.trim(importe)==""){
+                AddErrorTR("<TagLO:lit idBean='LIT_ERROR_NO_IMPORTE'/>");
+                AddErrorTipoTR("campoImporte");
+            } else {
+
+                var res1 = Verifica_Importe(importe, "E");
+                if (res1 != 0) {
+                    if (res1 == 2) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    }
+                    if (res1 == 5) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    }
+                    if (res1 == 3) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    }
+                    if (res1 == 4) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    }
+                    if (res1 == 1 || res1 == 6) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    }
+                } else {
+                    importe = Eliminar_Formato(importe);
+
+                    if (importe > 999999999999999) {
+                        AddErrorTR("<TagLO:lit idBean='LIT_ERROR_IMPORTE_INCORRECTO'/>");
+                        AddErrorTipoTR("campoImporte");
+                    } else {
+                        importe_formateado = Rellenar_Importe(importe,15);
+                        $('#' + campoImporte).val(formatoImporteHOST2Importe(importe_formateado));
+                    }
+                }
+            }
+            return importe_formateado;
+        }
+        function validaImporte2(campoImporte) {
+            var importe_formateado = "";
+            var temp_import = $('#' + campoImporte).val();
+            var errorAct = 0;
+
+            if (temp_import=='') {
+                AddErrorTR("Debes introducir el importe");
+                AddErrorTipoTR("campoImporte");
+                errorAct=1
+            }
+
+            var impaux = Eliminar_FormatoImporte(Eliminar_espacios(temp_import), "E")
+            if (impaux > 9999999900){
+                AddErrorTR("El importe no puede ser mayor que 99.999.999");
+                AddErrorTipoTR("campoImporte");
+                errorAct=1
+            }
+
+            if (temp_import.charAt(0) == " ") {
+                AddErrorTR("El importe contiene caracteres blancos");
+                AddErrorTipoTR("campoImporte");
+            }
+            var res = Verifica_Importe2(temp_import, "E")
+            if (res != 0){
+                if (res == 2) {
+                    AddErrorTR("El importe contiene caracteres no admisibles");
+                    AddErrorTipoTR("campoImporte");
+                }
+                if (res == 5) {
+                    AddErrorTR("El importe contiene caracteres blancos");
+                    AddErrorTipoTR("campoImporte");
+                }
+                if (res == 3) {
+                    AddErrorTR("En el importe sólo se permiten dos decimales");
+                    AddErrorTipoTR("campoImporte");
+                }
+                if (res == 4) {
+                    AddErrorTR("Formato del importe incorrecto");
+                    AddErrorTipoTR("campoImporte");
+                }
+                if (res == 1 ||res == 6) {
+                    AddErrorTR("Importe introducido incorrecto");
+                    AddErrorTipoTR("campoImporte");
+                }
+                if (res == 20){
+                    AddErrorTR("Importe incorrecto: Use coma (,) para los céntimos, ej. 234,34");
+                    AddErrorTipoTR("campoImporte");
+                }
+                errorAct=1
+            }
+
+
+            if (errorAct != 1 && impaux == 0) {
+                AddErrorTR("Debes introducir el importe");
+                AddErrorTipoTR("campoImporte");
+                errorAct=1
+            }
+            if (errorAct != 1) {
+                temp_import = Eliminar_Formato(temp_import);
+                importe_formateado = Rellenar_Importe(temp_import,15);
+                $('#' + campoImporte).val(formatoImporteHOST2Importe(importe_formateado));
+            }
+            return importe_formateado;
+        }
+
+        function formatoImporteHOST2Importe(str) {
+            if (str!=null && $.trim(str)!="") {
+                var d = parseFloat($.trim(str)) / 100;
+                return formatoImporte(d);
+            } else {
+                return "";
+            }
+        }
+        function formatoImporte(num) {
+            return num
+                .toFixed(2)
+                .replace(".", ",")
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+        function importeFormatoImporteHOST(cadena, longitud) {
+            var cadena_res = Eliminar_Formato(cadena);
+            var signo = "";
+            if (cadena.substring(0,1) == "-") {
+                signo = "-";
+                cadena_res = cadena.substring(1);
+            }
+            var longAux = longitud - cadena_res.length;
+            for (var i=0; i < longAux; i++)
+                cadena_res = "0" + cadena_res;
+            cadena_res = signo + cadena_res;
+            return cadena_res;
+        }
+        function descargaPdf() {
+            var formName = "goPNPE";
+            with (document.forms[formName]) {
+                target="Oculto";
+                submit();
+            }
+        }
+        function isDefined(variable) {
+            return (typeof variable == "undefined")?  false: true;
+        }
+        function enviarUrl(url) {
+            window.open(url,'window','toolbar=yes,width=650,height=400,directories=no,status=no,scrollbars=yes,resizable=yes,menubar=yes');
+        }
+        function getFieldValueFormById(formName, fieldId) {
+            return $('form[name=' + formName + '] input[id='+ fieldId +']').val();
+        }
+        function getFieldValueForm(formName, fieldName) {
+            return $('form[name=' + formName + '] input[name='+ fieldName +']').val();
+        }
+        function addFormField(formName, fieldName, fieldValue) {
+            $('form[name="' + formName + '"]').append('<input type="hidden" name="' + fieldName + '" value="' + fieldValue + '" />');
+        }
+        function removeAllFormField(formName) {
+            $('form[name="' + formName + '"] input').remove();
+        }
+        function removeFormField(formName, fieldName) {
+            return $('form[name=' + formName + '] input[name='+ fieldName +']').remove();
+        }
+        function setFieldValueForm(formName, fieldName, value) {
+            $('form[name=' + formName + '] input[name='+ fieldName +']').val(value);
+        }
+        function initTooltips() {
+            existTooltipError = false;
+            $(function() {
+                $( ".tooltip_active[title]" ).tooltip({
+                    show: false,
+                    hide: false,
+                    position: {
+                        at: "left top+10",
+                        using: function( position, feedback ) {
+                            if ($(feedback.target.element).data("tooltip-position") == "left") {
+                                position.left -= 12;
+                            }
+                            $( this ).css( position );
+                            $( "<div>" )
+                                .addClass( "arrow" )
+                                .addClass( feedback.vertical )
+                                .addClass( feedback.horizontal )
+                                .appendTo( this );
+                        }
+                    }
+                });
+                if ($(".tooltip_active[title]").length > 0){
+                    existTooltipError = true;
+                }
+            });
+        }
+        function enviaOperativaLinkPrioritario(pn, pe, opt1,opt2,opt3,opt4,opt5,opt6,opt7,opt8,opt9,opt10,
+                                               opt11,opt12,opt13,opt14,opt15,opt16,opt17,opt18,opt19,opt20,opt21,opt22,opt23,opt24,opt25,opt26,
+                                               entorno,pnmenu,pemenu,parametroFijo,tipoLink,tornaPN,tornaPE){
+            var formName = "goPNPE";
+            removeAllFormField(formName);
+            with (document.forms[formName]) {
+                target="Cos";
+                addFormField(formName, "VTACREU_PN", pn);
+                addFormField(formName, "VTACREU_PE", pe);
+                addFormField(formName, "NUMERO_MOVIMIENTO", opt1);
+                addFormField(formName, "FECHA_CONTABLE", opt2);
+                addFormField(formName, "INDICADOR_COMUNICADOS", opt3);
+                addFormField(formName, "IMPORTE_COM", opt4);
+                addFormField(formName, "FECHA_COM", opt5);
+                addFormField(formName, "MONEDA_COM", opt6);
+                addFormField(formName, "CLOPWW", opt7);
+                addFormField(formName, "SUBCLO", opt8);
+
+                addFormField(formName, "TIPO_COMUNICADO", opt10);
+
+                addFormField(formName, "TIPO_BUSQUEDA", opt12);
+                addFormField(formName, "NUMERO_RECIBO", opt13);
+                addFormField(formName, "REFVAL_SIMPLE_NUMERO_CUENTA", opt14);
+                addFormField(formName, "FLAG_TITULO", opt15);
+                addFormField(formName, "REF_CUENTA", opt16);
+                addFormField(formName, "FLUJO_T", opt17);
+                addFormField(formName, "SIGNO_IMPORTE_COM", opt18);
+                addFormField(formName, "SIGNO_SALDO_ACTUAL", opt19);
+                addFormField(formName, "SALDO_ACTUAL", opt20);
+                addFormField(formName, "SIGNO_SALDO_RETENIDO", opt21);
+                addFormField(formName, "SALDO_RETENIDO", opt22);
+                addFormField(formName, "FECHA_VALOR", opt23);
+                addFormField(formName, "INDICA_SALDO", opt24);
+                addFormField(formName, "FLAG_KEEP_THE_CHANGE", opt25);
+                addFormField(formName, "INDICADOR_CANCELADA", opt26);
+                addFormField(formName, "PARAMETRO_FIJO", parametroFijo);
+                addFormField(formName, "TORNA_PN", tornaPN);
+                addFormField(formName, "TORNA_PE", tornaPE);
+                addFormField(formName, "PN", "GCT");
+                addFormField(formName, "PE", "104");
+                addFormField(formName, "FLAG_PE", top.flagPE);
+                var tornaPN_tornaPE = tornaPN + "_" + tornaPE;
+                if (tipoLink=="G"){
+                    addFormField(formName, "CLICK_ORIG", "GLO_" + tornaPN_tornaPE);
+                }else if (tipoLink=="B"){
+                    addFormField(formName, "CLICK_ORIG", "BOT_" + tornaPN_tornaPE);
+                }else {
+                    addFormField(formName, "CLICK_ORIG", "EOC_" + tornaPN_tornaPE);
+                }
+                if (entorno=="*") entorno=top.flagPE;
+                if (pnmenu=="*") pnmenu="";
+                if (pemenu=="*") pemenu="";
+                var url= "";
+                url = url + "&";
+                url = url + $("form[name=" + formName + "]").serialize();
+                url = url + "&DESC_COMUNICADO=" + URLEncode(opt9);
+                url = url + "&REMITENTE="       + URLEncode(opt11);
+                top.Inferior.Menu.lanzarLO(entorno,"GCT","104",url,CLICK_ORIG.value,pnmenu,pemenu);
+            }
+        }
+        function ejecutaScript(textoAsincrono, id_container) {
+            var scripts = new Array();
+            var scriptsJS = new Array();
+            var p=textoAsincrono.indexOf("<script");
+            var j=0;
+            while(p!=-1){
+                var f=textoAsincrono.indexOf("</script",p);
+            if(f>p){
+            var p1=textoAsincrono.indexOf('>',p);
+            if(p1+1<f) {
+    var texAux=textoAsincrono.substring(p,p1);
+    if (texAux.indexOf("evaluaScript_102") < 0) {
+    scripts.push(textoAsincrono.substring(p1+1, f));
+    }
+    }else if (p1+1==f){
+    var j=textoAsincrono.indexOf("js/",p);
+    var j1=textoAsincrono.indexOf(".js",p);
+    scriptsJS.push(textoAsincrono.substring(j,j1+3));
+    }
+    p=textoAsincrono.indexOf("<script",f+1);
+    }else{
+    p=-1;
+    }
+    }
+
+
+
+    for(var i=0; i<scriptsJS.length; i++) {
+    $.ajax({
+    url: "./"+scriptsJS[i],
+    async: false,
+    dataType: "script"
+    })
+    }
+
+    for(var i=0; i<scripts.length; i++) {
+    var nuevoscript = document.createElement('script');
+    nuevoscript.text = scripts[i];
+    nuevoscript.id = 'jsCampanya';
+    nuevoscript.type = 'text/javascript';
+    if(scripts[i].src!=null && scripts[i].src.length>0) {
+    nuevoscript.src = scripts[i].src;
+    }
+    document.getElementById(id_container).appendChild(nuevoscript);
+    }
+    }
+    function mostrarDisponiblePAI(imagen_landing, importe_formateado, tagOmniture) {
+    document.forms["pai"].LND_IMAGEN.value=imagen_landing;
+    document.forms["pai"].LND_VALOR1.value=importe_formateado;
+    document.forms["pai"].submit();
+    }
+    function mostrarAntiPAI(parametros) {
+    if (parametros!=null && parametros!="") {
+    var formName = "antipai";
+    var click_orig = getFieldValueForm(formName, "CLICK_ORIG")
+    removeAllFormField(formName);
+    var params = parametros.split("&");
+    var param = null;
+    for (var i=0; i < params.length; i++) {
+    param = params[i].split("=");
+    addFormField(formName, param[0], param[1]);
+    }
+    addFormField(formName, "CLICK_ORIG", click_orig);
+    document.forms[formName].submit();
+    }
+    }
+
+    var erroresTR = new Array();
+    var erroresTipoTR = new Array();
+    function InicializaErroresTR() {
+    erroresTR = new Array();
+    erroresTipoTR = new Array();
+    var elemento = document.getElementById("id_errorTR");
+    if (elemento!=null) {
+    elemento.innerHTML = "";
+    }
+    }
+    function AddErrorTR(errorTR) {
+    erroresTR.push(errorTR);
+    }
+    function AddErrorTipoTR(errorTipoTR) {
+    erroresTipoTR.push(errorTipoTR);
+    }
+    function ProcesaErroresTR() {
+    var elemento = document.getElementById("id_errorTR");
+    if (elemento!=null) {
+    elemento.innerHTML = "";
+    if (erroresTR.length > 0) {
+    for (var i=0; i < erroresTR.length; i++) {
+    elemento.innerHTML += "<p>";
+        elemento.innerHTML += erroresTR[i];
+        elemento.innerHTML += "</p>";
+        }
+        $('#id_errorTR').removeClass('dnone');
+        marcarErrorCamposFormulario();
+        } else {
+            $('#id_errorTR').addClass('dnone');
+            desmarcarErrorCamposFormulario();
+            return true;
+        }
+        }
+        return false;
+        }
+        function marcarErrorCamposFormulario() {
+            if (erroresTR.length > 0) {
+                for (var i=0; i < erroresTipoTR.length; i++) {
+                    if (!$('#' + erroresTipoTR[i]).hasClass('euros_form_error')) {
+                        $('#' + erroresTipoTR[i]).addClass('euros_form_error');
+                    }
+                }
+            }
+        }
+        function desmarcarErrorCamposFormulario() {
+            $('#selectCuentaDestino').removeClass('euros_form_error');
+            $('#campoImporte').removeClass('euros_form_error');
+        }
+
+        function masInfo(){
+            var id_destino="bloquePromoDesplegable01ContenedorBloqueDesplegableVideo";
+            var contenidoVideo = document.getElementById(id_destino).innerHTML;
+
+            if (contenidoVideo.trim()!="") {
+                controlfilahucha();
+            }else{
+                var urlParams = "PN=GCT&PE=150";
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, refrescaResultadoVideo], errorRefrescaResultadoVideo);
+                procesaAjaxQueueMB(AjaxQueueMB,true);
+            }
+        }
+        function controlfilahucha(){
+
+            if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+                $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show();
+            } else{
+                pauseVideoBrightcove('#videobc');
+                $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide();
+            }
+        }
+        function refrescaResultadoVideo (data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+            $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show();
+        }
+        function errorRefrescaResultadoVideo () {
+
+            var parrafoError= "<p class='mens_error_rojo_pq'><span>";
+            parrafoError+="En estos momentos el vídeo no está disponible, sentimos las molestias.";
+            parrafoError+="</span></p>";
+            document.getElementById("bloquePromoDesplegable01ContenedorBloqueDesplegableVideo").innerHTML=parrafoError;
+            $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+            $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show();
+        }
+        function abrirUnaHucha() {
+            var EntornoMenu = "P";
+            var PNDestino = "GDL";
+            var PEDestino = "10";
+            var url = "&TORNA_PN=GCT&TORNA_PE=11";
+            var clickorig = "EOC_"+ document.forms[0].PN.value+"_" + document.forms[0].PE.value;
+            var PNMenu = "GDL";
+            var PEMenu = "1";
+            top.Inferior.Menu.lanzarLO(EntornoMenu,PNDestino,PEDestino,url,clickorig,PNMenu,PEMenu);
+        }
+        function mostrarRetencionesSaldo(refvalcuenta) {
+            var formName = "goPNPE";
+            removeAllFormField(formName);
+            with (document.forms[formName]) {
+                target="Cos";
+                addFormField(formName, "FLUJO", "GCT,11,'':GFI,7,''");
+                addFormField(formName, "CLICK_ORIG", "FLX_GCT_11");
+                addFormField(formName, "REFVAL_SIMPLE_NUMERO_CUENTA", refvalcuenta);
+                addFormField(formName, "PN", "GCT");
+                addFormField(formName, "PE", "18");
+                submit();
+            }
+        }
+        function masInfo2(){
+            var id_destino="bloquePromoDesplegable01ContenedorBloqueDesplegableVideo";
+            if (id_destino!=null) {
+                if (document.getElementById(id_destino).innerHTML.trim() == "") {
+                    document.getElementById(id_destino).innerHTML = "<img class='' src='" + "./imatge/CAST_misfinanzas.png" + "'>";
+                }
+            }
+            if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+                $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show();
+            } else{
+                $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide();
+            }
+        }
+        function anyadirAgregacion() {
+            var formName = "goPNPE";
+            removeAllFormField(formName);
+            with (document.forms[formName]) {
+                target="Cos";
+                addFormField(formName, "FLUJO", "GCT,11,'':GFI,7,''");
+                addFormField(formName, "CLICK_ORIG", "FLX_GCT_11");
+                addFormField(formName, "VOLVER_PN", "GCT");
+                addFormField(formName, "VOLVER_PE", "11");
+                addFormField(formName, "PN", "AGF");
+                addFormField(formName, "PE", "1");
+                submit();
+            }
+        }
+        </script>
+        </head>
+<body id="cos" class="margen_top5 " bgcolor="white">
+<script>var PNLomilu='GCT';var PELomilu='14';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+    <div class="u-flex u-flex-align-item-center u-flex-justify-content-between margin--bottom-normal">
+        <div class="font--size-130 font--weight-semibold">
+            <h1>
+                Cuentas nacionales		</h1>
+        </div>
+        <div>
+            <ul class="funciones_tit">
+                <li><a title="" class="printgreen" href="javascript:imprimir();">Imprimir</a></li>
+            </ul>
+        </div></div>
+    <div class="u-flex_container">
+        <div class="u-flex u-flex-wrap u-flex-justify-content-center u-row--sep-10 margin--bottom-superextrabig padding--bottom-superextrabig">
+            <div id="contenedorTablaInventarioCuentas" class="u-col--width-9/12c u-col-medium--width-12/12c margin-st-medium--bottom-normal u-flex-st-medium--order-2">
+                <div id="TablaBean01ContainerFinal">
+                    <table class="table_generica ltxt"  id="TablaBean01"><thead>
+                        <tr  id="" class="" style="">
+                            <th  scope="col"  class="    ltxt" ></th>
+                            <th  scope="col"  class="    " ></th>
+                            <th  scope="col"  class="    " ></th>
+                            <th  scope="col"  class="    " ></th>
+                        </tr>
+                        </thead><tbody>
+                        <tr id="Oculta"    class="ocultar" style="display:none">
+                            <td width="100%" colspan="99">
+                                <div id="TablaBean01DivAjax"></div>
+                            </td>
+                        </tr>
+                        <tr id="data_1" name="data_1" class=" filaValida" style="">
+                            <td scope="row"  class="ltxt "  id="colNumCuenta" ><a id="" href="JavaScript:enviar(1, '')"   title=""><span><span class="font--weight-bold">CUENTA IMAGIC</span> ... 0005 7936</span></a></th>
+                            <td class="rtxt "  id="colExtractoAQM" >-27.543,69 &#8364;</td>
+                            <td class="ocultar "  id="celdaTraspasoRapido1" ><div class="boto_taula">
+                                    <a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono1" href="#" onclick="JavaScript:traspasoRapido('PN=GCT&PE=133&idFilaCuenta=data_1&REFVAL_COMPLEJO_6368=TReTcVnRxn9NF5NxWdHGfwAAAXSs82lmMuF6M9wjxs0','data_1','data_1DivAjax')"  title="Traspaso rápido">
+                                        <span class="ico ico_transfer"></span>
+                                    </a>
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function() {
+                                        initMailboxTooltip("enlaceicono1");
+                                    });
+                                </script>
+                            </td>
+                            <td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_1" >
+                                    <div class="contenedor-boton clearfix">
+                                        <span class="image-superior-izquierda"></span>
+                                        <span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_1');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                                    </div>
+                                    <div class="desplegable">
+                                        <div class="listado">
+                                            <ul>
+                                                <li><a href="javascript:enviar(1);"><span>Ver los movimientos</span></a></li>
+                                                <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100464720220600000057936&CCOri_ent=2100&CCOri_of=4647&CCOri_dc=**&CCOri_no=2200057936','E','UNI','0','EOC7');"><span>Traspaso rápido</span></a></li>
+                                                <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto...</span></a></li>
+                                                <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar el alias de la cuenta</span></a></li>
+                                                <li><a href="javascript:enlaces('GVC','1',' ','E','GCT','11','EOCF');"><span>Configurar visibilidad de mis cuentas</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="data_1Oculta"class="bg_azulclaro fila_activa" style="display:none">
+                            <td colspan="99" class="pos_relative">
+                                <div id="data_1BlockContainer">
+                                    <div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+                                    <div id="data_1DivAjax"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="data_2" name="data_2" class=" filaValida" style="">
+                            <td scope="row"  class="ltxt "  id="colNumCuenta" ><a id="" href="JavaScript:enviar(2, '')"   title=""><span>ES14 2100 8651 3172 0030 7809</span></a></th>
+                            <td class="rtxt "  id="colExtractoAQM" >-15,09 USD (-12,97 &#8364;)</td>
+                            <td class="ocultar "  id="celdaTraspasoRapido2" ></td>
+                            <td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_2" >
+                                    <div class="contenedor-boton clearfix">
+                                        <span class="image-superior-izquierda"></span>
+                                        <span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_2');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                                    </div>
+                                    <div class="desplegable">
+                                        <div class="listado">
+                                            <ul>
+                                                <li><a href="javascript:enlaces('TCD','2',' ','E','GCT','11','EOC9');"><span>Traspaso rápido</span></a></li>
+                                                <li><a href="javascript:enlaces('TDI','9',' ','E','UNI','0','EOCD');"><span>Hacer una transferencia</span></a></li>
+                                                <li><a href="javascript:enlaces('XEC','1',' ','E','TDX','25','EOCE');"><span>Emisión de cheques</span></a></li>
+                                                <li><a href="javascript:enlaces('GVC','1',' ','E','GCT','11','EOCG');"><span>Configurar visibilidad de mis cuentas</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="data_2Oculta"class="bg_azulclaro fila_activa" style="display:none">
+                            <td colspan="99" class="pos_relative">
+                                <div id="data_2BlockContainer">
+                                    <div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+                                    <div id="data_2DivAjax"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="TablaBean01ContainerTmp" style="display:none;"></div>
+
+
+            </div>
+            <div class="u-col--width-3/12c u-col-medium--width-12/12c u-flex-st-medium--order-1">
+                <div class="c-box--simple c-box--simple--small-dropdown"><div class="c-box--simple__title">Accesos directos</div><div class="c-box--simple__body c-box--simple__body--nopadding">               <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('AGE','1','','E','AGE','1','PPA_GCT_11')" onclick="JavaScript:enlaces('AGE','1','','E','AGE','1','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small">                       <span class="color--secureblue loicon--size-24px loicon-account"></span>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Ver mis otros bancos                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('FTR','70','','E','FTR','70','PPA_GCT_11')" onclick="JavaScript:enlaces('FTR','70','','E','FTR','70','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small">                       <span class="color--secureblue loicon--size-24px loicon-download"></span>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Descarga de extractos C43                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('RCE','1','','E','GCT','11','PPA_GCT_11')" onclick="JavaScript:enlaces('RCE','1','','E','GCT','11','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small">                       <span class="color--secureblue loicon--size-24px loicon-document"></span>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Certificados de cuenta                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('GVC','1','','E','GCT','11','EOC14')" onclick="JavaScript:enlaces('GVC','1','','E','GCT','11','EOC14')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small"><img class="element-height--24px" src="c-images/html-images/icons/24x24/ico_eye.svg"/>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Configurar visibilidad de mis cuentas                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('SCF','1','','E','SCF','1','PPA_GCT_11')" onclick="JavaScript:enlaces('SCF','1','','E','SCF','1','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small">                       <span class="color--secureblue loicon--size-24px loicon-graph-donut"></span>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Centralización de fondos                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('PCM','1','','E','GCT','11','PPA_GCT_11')" onclick="JavaScript:enlaces('PCM','1','','E','GCT','11','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small">                       <span class="color--secureblue loicon--size-24px loicon-euro"></span>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Ver saldos de mis otras sociedades                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('GCT','100','&&amp;PN=GCT&amp;PE=101&amp;OPERACION_NUEVO_EXTRACTO=SALDO_Y_EXTRACTOS&amp;REFCLAVE_CONTINUACION_3792=&amp;TIPO_CUENTAS=CAN&amp;ORIGEN_INVOCACION=GCT11&amp;TORNA_PN=GCT&amp;TORNA_PE=11','E','GCT','11','EOC15')" onclick="JavaScript:enlaces('GCT','100','&&amp;PN=GCT&amp;PE=101&amp;OPERACION_NUEVO_EXTRACTO=SALDO_Y_EXTRACTOS&amp;REFCLAVE_CONTINUACION_3792=&amp;TIPO_CUENTAS=CAN&amp;ORIGEN_INVOCACION=GCT11&amp;TORNA_PN=GCT&amp;TORNA_PE=11','E','GCT','11','EOC15')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small"><img class="element-height--24px" src="c-images/html-images/icons/24x24/ico_no_money.svg"/>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Ver cuentas canceladas                       </span>                    </span>                </a>                <a class="c-cta_clean c-cta_clean--after_border_bottom padding--horizontal-normal" href="JavaScript:enlaces('BCO','1','','E','GCT','11','PPA_GCT_11')" onclick="JavaScript:enlaces('BCO','1','','E','GCT','11','PPA_GCT_11')" ">                  <span class="padding--vertical-small u-flex u-flex-align-item-center padding--right-small"><img class="element-height--24px" src="c-images/html-images/icons/24x24/ico_international_account.svg"/>                   </span>                       <span class="padding--vertical-small border-bottom--color-gray840 border-bottom--width-1px border-bottom--style-solid u-flex-11auto padding--right-small u-flex u-flex--direction-column u-flex-fixie u-flex-align-item-start">                       <span class="color--gray400">Ver cuentas corresponsales                       </span>                    </span>                </a> </div></div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none !important;" id="divOculto"></div>
+    <div style="display: none !important;" id="divOcultoTR"></div>
+    <form action="/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789" method="POST" name="formPrincipal">
+
+        <input type="hidden" name="PN" value="GCT">
+        <input type="hidden" name="PE" value="11">
+        <input type="hidden" name="NCTREL" value="002">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU" value="00000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG_SIG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU_SIG" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU_SIG" value="00000000000 000000000000000 ">
+        <input type="hidden" name="SUMA_OFICINA_P" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_P" value="-4585042.0">
+        <input type="hidden" name="SUMA_OFICINA_E" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_E" value="-27556.66">
+        <input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="">
+        <input type="hidden" name="ORIGEN_INVOCACION" value="">
+        <input type="hidden" name="FLAG_PE" value="E">
+        <input type="hidden" name="TORNA_PN_CCT" value="GCT">
+        <input type="hidden" name="TORNA_PE_CCT" value="11">
+        <input type="hidden" name="ALIAS_CUENTA" value="">
+        <input type="hidden" name="FLAG_MONEDA" value="0">
+        <input type="hidden" name="NumFilasTabla" value="1">
+        <input type="hidden" name="FLAG_KEEP_THE_CHANGE" value="">
+        <input type="hidden" name="MONEDA" value="">
+        <input type="hidden" name="MOSTRAR_TRASPASO_RAPIDO" value="S">
+        <input type="hidden" name="ultimoRegistroPintado" value="">
+        <input type="hidden" name="VOLVER_PN">
+        <input type="hidden" name="VOLVER_PE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789" method="POST" name="goPNPE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789" method="POST" name="pdf">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=5ObUjV1mRYqf0xPQnHa7xb0ZbcdBIxGsQF9_m5KziPq1NI4UDAtG!-1305859171!696134789" method="POST" name="fRecargaSaldos">
+
+        <input type="hidden" name="PN" value="GCT">
+        <input type="hidden" name="PE" value="11">
+        <input type="hidden" name="NCTREL" value="002">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU" value="00000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG_SIG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU_SIG" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU_SIG" value="00000000000 000000000000000 ">
+        <input type="hidden" name="SUMA_OFICINA_P" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_P" value="-4585042.0">
+        <input type="hidden" name="SUMA_OFICINA_E" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_E" value="-27556.66">
+        <input type="hidden" name="ORIGEN_INVOCACION" value="">
+        <input type="hidden" name="FLAG_PE" value="E">
+        <input type="hidden" name="TORNA_PN_CCT" value="GCT">
+        <input type="hidden" name="TORNA_PE_CCT" value="11">
+        <input type="hidden" name="ALIAS_CUENTA" value="">
+        <input type="hidden" name="FLAG_MONEDA" value="0">
+        <input type="hidden" name="NumFilasTabla" value="1">
+        <input type="hidden" name="FLAG_KEEP_THE_CHANGE" value="">
+        <input type="hidden" name="MONEDA" value="">
+        <input type="hidden" name="MOSTRAR_TRASPASO_RAPIDO" value="S">
+        <input type="hidden" name="ultimoRegistroPintado" value="">
+        <input type="hidden" name="idFilaDestino" value="">
+        <input type="hidden" name="REFVAL_SIMPLE_CUENTA_DESTINO" value="">
+        <input type="hidden" name="VOLVER_PN">
+        <input type="hidden" name="VOLVER_PE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="limpiar"></div>
+
+</body>
+</html>

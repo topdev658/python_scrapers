@@ -1,0 +1,108 @@
+// RESP WITH COMPANY TITLE
+>>> https://eob.officebanking.cl/CTA.UI.Web/saldoctacre/?servicioId=CTACDT_SDOCTACDT
+<<<
+...
+<header>
+<h2>Saldo <strong>de L&iacute;neas de Cr&eacute;dito</strong></h2>
+    <ul>
+        <li><strong>Sr. (a):</strong> SOCAIRE Y COMSA CONSTRA FERROV &#160; &#160;</li>
+        <li><strong>Empresa:</strong> COMSA MEDIO AMBIENTE DE CHILE S.A.</li>
+        <li><strong>RUT empresa:</strong> 96.717.240-5</li>
+        <li><strong>Fecha:</strong> 24 de noviembre de 2018 <span class="br"><strong>Hora:</strong> 20:15</span></li>
+    </ul>
+</header>
+...
+
+// GET API TOKEN
+
+>>> POST https://eob.officebanking.cl/CTA.UI.Services/Token
+HEADERS
+Content-Type	application/x-www-form-urlencoded; charset=UTF-8
+X-Requested-With	XMLHttpRequest  <------------------- !!
+Cookie	utag_main=v_id:01673d86a79b000bee71812090e300044001d0090086e$_sn:3$_ss:0$_st:1543101902741$ses_id:1543098217284%3Bexp-session$_pn:22%3Bexp-session; _ga=GA1.2.2125091237.1542925495; _gid=GA1.2.455680696.1543048666; OBT=T0lWMDAyUVJBQ0xNVFlPSVlUTldOT1NIIzE4MC4xMjIuMjE0LjEzNiMxNTQzMTAwMDk1MzI1I1BEOTRiV3dnZG1WeWMybHZiajBpTVM0d0lpQmxibU52WkdsdVp6MGlTVk5QTFRnNE5Ua3RNU0kvUGp4MGIydGxia1JsWm1sdWFYUnBiMjQrTURrMk56RTNNalF3TlR3dmRHOXJaVzVFWldacGJtbDBhVzl1UGc9PSNBRVMvQ0JDL1BLQ1M1UGFkZGluZyMxLjAjTEdVI2taZHEzdDNLekg2b05SckdPTW9FWnVBYmZjRmw1Zkw2Mk1oV0dVTWthUUxZVDludE1pMnBwYVZYb2tHTzZsM0dPcUVLWEl5Y3RhYUcrc05mT3hYMGxrK0NSRmZ0Sng1K08weW1VR0E2ZE5TT0pLc3ZlcDVjQU4wdlo5LzY4aGtCYWdBVll0bk1VU2N2RThkdjd6R0tHOWJyME9rUkJSODN4RU1zU3VoZmpEKzU5UDBreFpsZTJ1Y09vcE5mOC9wbUZsV1JMaDcrNjNReDd2ekFqaUJNVlBoTzBsVWIvTjh3V0p1eWFHajN3K3ZqNXNWRzd4UVB4alV6U3AxRVpHMitpQ29aRjh1RURuWnhoZDM2RUhwYlBOYUcvNTBnbk51MVdhUE8zTXJ5V3BjbGk4TEZUMitNcVI1bjlUN0VGWWdEV0dSOFZXZ2ljemJUanQrOXVpNjFCNTQrZTJ2SFhsalhBbU9zL0VpbXh5dlJRZHMxVjYyR0VsK05ZM1pVWUFZWkU4Z3QxNHVNeEp5Mk9EM3pudFVURFNOdG5LWWpNZUVHbUVIeDAzSFd0MG9JNkZuZk9wdWlLUlh3TitndTVYcWxpUHN1SENEN0ZZa1pEdUsxNDV5NGJYZ3BrSjVLZVZMQVpzMXhIM2JSTEFLTVlGTTV5SE9vQWdVM1RKbG1nNXQ1ZWxpQ3lnOHUza1hrSGE1MDVxaDhaQ2M1SC9HWTdyN3c3amJoL2lTRFVOaz0jU0hBMXdpdGhSU0EjNGMyZDFjNzViMWEyOTllN2E2YWQwZDcxZmRlYWU5Y2JkZGNhMzQ3MWIyYzE2ZjQyZGQ0ZDkwYTE2MDk5NmUxYjI4ZTU1NDUzY2Q2YjU3ZGYyMzg0ZjVkM2UyZmYxYTllYWU3MDc2YzEzZDlhNDBkM2Y4MzQyNjkxZGE1ZmU3YWYzNjYzMWMzYjE3OGU1OWFlODc5OWRhMjBkYWVlM2ZlY2QzM2RhMTkyZDMxOWY5N2U4NTM0YTNiODUzYjc4Y2M5ZWZiNmY4OWVkZmU0YzM5MjE5OWYzNGNiZGQ2ZTRkMWVmOTJiMjE2M2RmZjQ2NGQxZjIyOGNlYmE5ZTRhMTk2MA==; EOBT=5jnp5GJrp6dxZygXspws8po8jhFSOaI_bbW9bcU6UtWZe_aaar6QTnAxlvsIlXkCdtB6k0aDTuCK1_S2YuJCnlz9T9rObifTk8po-UFpTA6juF-PBIrAE_mf3fBkdkqcJMFoHd-ze-_evl6Zg_ekziORv3k6rUT7f1gqD13fYkJ3GSZb2U_GyRmNKPeAtCEkTKxxSlD7QaaqIjaZDwO1uaC4J6piV4cvMJ0uyVIWWHPh5frXyXRPDFo_wXjHhdUVCibhN5aOQjhbp7k80Td3GDxdhFZlgonGWTaoKyfHJVIjlOuRo98AyPB8-8ANlKFI4_r4LaxNBCZbMdmiGupd5PxioMsWXJ7uRkSDTP_QiV7GWndmDX-hN2AaumMWS9dalMe4DFonu00c-wjtOnxrc7Cs-GPaVpoOxZmjSUXTaasCy4E4iKyPBjuCaW351MjTtAOkbvS1zAgxBM8Ee3AJW7MhhEnnIVATAc_gb3IBxn8
+Connection	keep-alive
+DATA
+grant_type=password
+<<< {"access_token":"Q8-KuxcF8i1_SOQAnIKRHm83FNZp16AeioDSqH8IqevbfvFNmB5boimy4R7doH5tIcLHiAyesT4roaiA39cAHrZ8OnRzB9kIBWn24fDZNvNhfKeyuFrC7vaRxLm7NAlqDuch6ICGP2fQSpalHbKrd8Fh36lZaIQTBOtneHuuDDtw-T8ctxnLeoCy2fH_cSnScOLzjpnFu1DsBOZp2ZMzBGfBSfOanopZ4qpGQQDFFx-Vz2u0TED5e-KjKYbwAHF2RsLTnC_dFZmC-EDZLRTJj_UK0xkgFC0RYX3coUUSXd1dd2IIUf79m3nUB19LD0bd1nOK1HWb08eeWIvcBods9gAxrp2OhLhplj-jeIFFREkJOOiZtlOb5HWeeCkH0Y7gJNWOJu3IzoBp8EGzhkFo3BGc0fm0DVUdjCYYX_F2ZJRNQcMOuhCZNTnWE4wdUO6cURdIfqG6Uy0WfqZvp-an5g_-oLMx-V7dwgbKtb4cVZ0","token_type":"bearer","expires_in":899,".issued":"Sat, 24 Nov 2018 22:55:02 GMT",".expires":"Sat, 24 Nov 2018 23:10:02 GMT"}
+
+// GET LIST OF ACCOUNTS
+
+>>> GET https://eob.officebanking.cl/CTA.UI.Services/api/saldocuentacorriente/cuentas
+HEADERS
+(Request-Line)	GET /CTA.UI.Services/api/saldocuentacorriente/cuentas HTTP/1.1
+Host	eob.officebanking.cl
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	*/*
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+Referer	https://eob.officebanking.cl/CTA.UI.Web/saldoctacte/?servicioId=TRNCNA_SDOCTACTE
+Content-Type	application/json
+Authorization	Bearer Q8-KuxcF8i1_SOQAnIKRHm83FNZp16AeioDSqH8IqevbfvFNmB5boimy4R7doH5tIcLHiAyesT4roaiA39cAHrZ8OnRzB9kIBWn24fDZNvNhfKeyuFrC7vaRxLm7NAlqDuch6ICGP2fQSpalHbKrd8Fh36lZaIQTBOtneHuuDDtw-T8ctxnLeoCy2fH_cSnScOLzjpnFu1DsBOZp2ZMzBGfBSfOanopZ4qpGQQDFFx-Vz2u0TED5e-KjKYbwAHF2RsLTnC_dFZmC-EDZLRTJj_UK0xkgFC0RYX3coUUSXd1dd2IIUf79m3nUB19LD0bd1nOK1HWb08eeWIvcBods9gAxrp2OhLhplj-jeIFFREkJOOiZtlOb5HWeeCkH0Y7gJNWOJu3IzoBp8EGzhkFo3BGc0fm0DVUdjCYYX_F2ZJRNQcMOuhCZNTnWE4wdUO6cURdIfqG6Uy0WfqZvp-an5g_-oLMx-V7dwgbKtb4cVZ0
+X-Requested-With	XMLHttpRequest
+Connection	keep-alive
+
+<<< [{"NumeroCuenta":"20109939","CodigoProductoCuenta":"0","NumeroCuentaFormated":"0-000-2010993-9"}]
+
+// GET ACCOUNT CURRENCY
+
+>>> GET https://eob.officebanking.cl/CTA.UI.Services/api/saldocuentacorriente/datoscliente/20109939
+HEADERS with auth token
+<<< {"Result":{"CodigoMoneda":"CLP","GlosaMoneda":"PESOS DE CHILE","CuentaNumero":"0-000-2010993-9","GlosaSucursal":"Principal","CodigoSucursal":"0250","FechaHoy":"0001-01-01T00:00:00"},"ErrorCode":null,"ErrorDescription":null,"ErrorSource":null,"Mensaje":null,"Status":2}
+
+// GET ACCOUNT BALANCE
+
+>>> GET https://eob.officebanking.cl/CTA.UI.Services/api/saldocuentacorriente/saldos/20109939/CLP
+HEADERS
+(Request-Line)	GET /CTA.UI.Services/api/saldocuentacorriente/saldos/20109939/CLP HTTP/1.1
+Host	eob.officebanking.cl
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	*/*
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+Referer	https://eob.officebanking.cl/CTA.UI.Web/saldoctacte/?servicioId=TRNCNA_SDOCTACTE
+Content-Type	application/json
+Authorization	Bearer Q8-KuxcF8i1_SOQAnIKRHm83FNZp16AeioDSqH8IqevbfvFNmB5boimy4R7doH5tIcLHiAyesT4roaiA39cAHrZ8OnRzB9kIBWn24fDZNvNhfKeyuFrC7vaRxLm7NAlqDuch6ICGP2fQSpalHbKrd8Fh36lZaIQTBOtneHuuDDtw-T8ctxnLeoCy2fH_cSnScOLzjpnFu1DsBOZp2ZMzBGfBSfOanopZ4qpGQQDFFx-Vz2u0TED5e-KjKYbwAHF2RsLTnC_dFZmC-EDZLRTJj_UK0xkgFC0RYX3coUUSXd1dd2IIUf79m3nUB19LD0bd1nOK1HWb08eeWIvcBods9gAxrp2OhLhplj-jeIFFREkJOOiZtlOb5HWeeCkH0Y7gJNWOJu3IzoBp8EGzhkFo3BGc0fm0DVUdjCYYX_F2ZJRNQcMOuhCZNTnWE4wdUO6cURdIfqG6Uy0WfqZvp-an5g_-oLMx-V7dwgbKtb4cVZ0
+X-Requested-With	XMLHttpRequest
+Cookie	utag_main=v_id:01673d86a79b000bee71812090e300044001d0090086e$_sn:3$_ss:0$_st:1543101902741$ses_id:1543098217284%3Bexp-session$_pn:22%3Bexp-session; _ga=GA1.2.2125091237.1542925495; _gid=GA1.2.455680696.1543048666; OBT=T0lWMDAyUVJBQ0xNVFlPSVlUTldOT1NIIzE4MC4xMjIuMjE0LjEzNiMxNTQzMTAwMDk1MzI1I1BEOTRiV3dnZG1WeWMybHZiajBpTVM0d0lpQmxibU52WkdsdVp6MGlTVk5QTFRnNE5Ua3RNU0kvUGp4MGIydGxia1JsWm1sdWFYUnBiMjQrTURrMk56RTNNalF3TlR3dmRHOXJaVzVFWldacGJtbDBhVzl1UGc9PSNBRVMvQ0JDL1BLQ1M1UGFkZGluZyMxLjAjTEdVI2taZHEzdDNLekg2b05SckdPTW9FWnVBYmZjRmw1Zkw2Mk1oV0dVTWthUUxZVDludE1pMnBwYVZYb2tHTzZsM0dPcUVLWEl5Y3RhYUcrc05mT3hYMGxrK0NSRmZ0Sng1K08weW1VR0E2ZE5TT0pLc3ZlcDVjQU4wdlo5LzY4aGtCYWdBVll0bk1VU2N2RThkdjd6R0tHOWJyME9rUkJSODN4RU1zU3VoZmpEKzU5UDBreFpsZTJ1Y09vcE5mOC9wbUZsV1JMaDcrNjNReDd2ekFqaUJNVlBoTzBsVWIvTjh3V0p1eWFHajN3K3ZqNXNWRzd4UVB4alV6U3AxRVpHMitpQ29aRjh1RURuWnhoZDM2RUhwYlBOYUcvNTBnbk51MVdhUE8zTXJ5V3BjbGk4TEZUMitNcVI1bjlUN0VGWWdEV0dSOFZXZ2ljemJUanQrOXVpNjFCNTQrZTJ2SFhsalhBbU9zL0VpbXh5dlJRZHMxVjYyR0VsK05ZM1pVWUFZWkU4Z3QxNHVNeEp5Mk9EM3pudFVURFNOdG5LWWpNZUVHbUVIeDAzSFd0MG9JNkZuZk9wdWlLUlh3TitndTVYcWxpUHN1SENEN0ZZa1pEdUsxNDV5NGJYZ3BrSjVLZVZMQVpzMXhIM2JSTEFLTVlGTTV5SE9vQWdVM1RKbG1nNXQ1ZWxpQ3lnOHUza1hrSGE1MDVxaDhaQ2M1SC9HWTdyN3c3amJoL2lTRFVOaz0jU0hBMXdpdGhSU0EjNGMyZDFjNzViMWEyOTllN2E2YWQwZDcxZmRlYWU5Y2JkZGNhMzQ3MWIyYzE2ZjQyZGQ0ZDkwYTE2MDk5NmUxYjI4ZTU1NDUzY2Q2YjU3ZGYyMzg0ZjVkM2UyZmYxYTllYWU3MDc2YzEzZDlhNDBkM2Y4MzQyNjkxZGE1ZmU3YWYzNjYzMWMzYjE3OGU1OWFlODc5OWRhMjBkYWVlM2ZlY2QzM2RhMTkyZDMxOWY5N2U4NTM0YTNiODUzYjc4Y2M5ZWZiNmY4OWVkZmU0YzM5MjE5OWYzNGNiZGQ2ZTRkMWVmOTJiMjE2M2RmZjQ2NGQxZjIyOGNlYmE5ZTRhMTk2MA==; EOBT=5jnp5GJrp6dxZygXspws8po8jhFSOaI_bbW9bcU6UtWZe_aaar6QTnAxlvsIlXkCdtB6k0aDTuCK1_S2YuJCnlz9T9rObifTk8po-UFpTA6juF-PBIrAE_mf3fBkdkqcJMFoHd-ze-_evl6Zg_ekziORv3k6rUT7f1gqD13fYkJ3GSZb2U_GyRmNKPeAtCEkTKxxSlD7QaaqIjaZDwO1uaC4J6piV4cvMJ0uyVIWWHPh5frXyXRPDFo_wXjHhdUVCibhN5aOQjhbp7k80Td3GDxdhFZlgonGWTaoKyfHJVIjlOuRo98AyPB8-8ANlKFI4_r4LaxNBCZbMdmiGupd5PxioMsWXJ7uRkSDTP_QiV7GWndmDX-hN2AaumMWS9dalMe4DFonu00c-wjtOnxrc7Cs-GPaVpoOxZmjSUXTaasCy4E4iKyPBjuCaW351MjTtAOkbvS1zAgxBM8Ee3AJW7MhhEnnIVATAc_gb3IBxn8
+Connection	keep-alive
+<<< {"Result":{"SaldoTotal":"$ 7.413.469","EsCashPooling":false,"SaldoDisponibleConsolidado":"$ 7.413.469","SaldoDisponible":"$ 7.413.469","Cheque1":"8190224","Cheque2":"8190225","Cheque3":"1344130","Cheque4":"8190228","DepositosConRetenciones":"$ 0","Retenciones1Dia":"Sin información","Retenciones2a4Dias":"Sin información","Retenciones4Mas":"Sin información","SaldoCuentaAsociada":"$ 0"},"ErrorCode":null,"ErrorDescription":null,"ErrorSource":null,"Mensaje":null,"Status":2}
+
+// GET LIST OF CREDIT ACCOUNTS
+
+>>> GET https://eob.officebanking.cl/CTA.UI.Services/api/saldocuentacredito/cuentas
+HEADERS: auth headers (should updated auth token before)
+<<< {"Result":{"SaldoTotal":"$ 7.413.469","EsCashPooling":false,
+"SaldoDisponibleConsolidado":"$ 7.413.469","SaldoDisponible":"$ 7.413.469",
+"Cheque1":"8190224","Cheque2":"8190225","Cheque3":"1344130","Cheque4":"8190228",
+"DepositosConRetenciones":"$ 0","Retenciones1Dia":"Sin información",
+"Retenciones2a4Dias":"Sin información","Retenciones4Mas":"Sin información",
+"SaldoCuentaAsociada":"$ 0"},"ErrorCode":null,"ErrorDescription":null,"ErrorSource":null,
+"Mensaje":null,"Status":2}
+
+// GET ACCOUNT MAX DATE
+
+>>> GET https://eob.officebanking.cl/CTA.UI.Services/api/ConsultaMovimientosCtaCte/datoscliente/65031000
+<<<  {"Result":{"CodigoMoneda":"CLP","GlosaMoneda":"PESOS DE CHILE","CuentaNumero":"0-000-6503100-0","GlosaSucursal":"B. CORPORATIVA","CodigoSucursal":"0181","FechaHoy":"2018-12-01T00:00:00-03:00"},"ErrorCode":null,"ErrorDescription":null,"ErrorSource":null,"Mensaje":null,"Status":2}
+
+// GET MOVEMENTS
+
+>>> POST https://eob.officebanking.cl/CTA.UI.Services/api/ConsultaMovimientosCtaCte/ObtenerMovimientos
+HEADERS
+(Request-Line)	POST /CTA.UI.Services/api/ConsultaMovimientosCtaCte/ObtenerMovimientos HTTP/1.1
+Host	eob.officebanking.cl
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	*/*
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+Referer	https://eob.officebanking.cl/CTA.UI.Web/movimientoctacte/?servicioId=TRNCNA_CONMOV
+Content-Type	application/json
+Authorization	Bearer WsEA2VxNZtwYCrl1MH7cTUMf2I1mOPDEAfhKLaOZEgUpBM9exeM8sVbPnW3W_scDycYr_YOPIfzkfG849NHEyLxM9tig7ovHH6oOiGD2xUvghbpPEVsmSogqoplXbvdUWgR4Veirm8eUnWuSnB6DdBQqsS6Czv07D9JSFU7fPFn9-lGU3U0w6W0SjTPmyNiB5GIWvPPuE8TFfAErS8oShciatsp4u8DDYJSbehI4DQa91q8DwGZB069IQ62Ea-OU038wnoFd1YiM3DWsFZ9GlPnQZgwqfdsZDgFuDUE0LnX5kSlmwCWdCFVSraFrxZ1GbOo0BtRzum64L-f03QFvxgRUwOx1l9aGsoTZ0hFj6be2hlO2KktZQCUJ7OnqDH6-kTJkWzXde2Ph72gKDSbJHP87b0sWxKjEPWOyjYohtNzBCz-6oKbQ_m-pm4oy6NR8K272oAybcDjKh34Ko3r5ag7SwbWHyAMY61xQHIP4ANc
+X-Requested-With	XMLHttpRequest
+Content-Length	203
+Cookie	utag_main=v_id:01673d86a79b000bee71812090e300044001d0090086e$_sn:3$_ss:0$_st:1543103257387$ses_id:1543098217284%3Bexp-session$_pn:27%3Bexp-session; _ga=GA1.2.2125091237.1542925495; _gid=GA1.2.455680696.1543048666; OBT=OERTODdLVVFITDExRTRDOTIwM1I5NTRUIzE4MC4xMjIuMjE0LjEzNiMxNTQzMTAxNTI4NzYxI1BEOTRiV3dnZG1WeWMybHZiajBpTVM0d0lpQmxibU52WkdsdVp6MGlTVk5QTFRnNE5Ua3RNU0kvUGp4MGIydGxia1JsWm1sdWFYUnBiMjQrTURrMk56RTNNalF3TlR3dmRHOXJaVzVFWldacGJtbDBhVzl1UGc9PSNBRVMvQ0JDL1BLQ1M1UGFkZGluZyMxLjAjTEdVI2taZHEzdDNLekg2b05SckdPTW9FWnVBYmZjRmw1Zkw2Mk1oV0dVTWthUUxZVDludE1pMnBwYVZYb2tHTzZsM0dPcUVLWEl5Y3RhYUcrc05mT3hYMGxrK0NSRmZ0Sng1K08weW1VR0E2ZE5TT0pLc3ZlcDVjQU4wdlo5LzY4aGtCYWdBVll0bk1VU2N2RThkdjd6R0tHOWJyME9rUkJSODN4RU1zU3VoZmpEKzU5UDBreFpsZTJ1Y09vcE5mOC9wbUZsV1JMaDcrNjNReDd2ekFqaUJNVlBoTzBsVWIvTjh3V0p1eWFHajN3K3ZqNXNWRzd4UVB4alV6U3AxRVpHMitpQ29aRjh1RURuWnhoZDM2RUhwYlBOYUcvNTBnbk51MVdhUE8zTXJ5V3BjbGk4TEZUMitNcVI1bjlUN0VGWWdEV0dSOFZXZ2ljemJUanQrOXVpNjFCNTQrZTJ2SFhsalhBbU9zL0VpbXh5dlJRZHMxVjYyR0VsK05ZM1pVWUFZWkU4Z3QxNHVNeEp5Mk9EM3pudFVURFNOdG5LWWpNZUVHbUVIeDAzSFd0MG9JNkZuZk9wdWlLUlh3TitndTVYcWxpUHN1SENEN0ZZa1pEdUsxNDV5NGJYZ3BrSjVLZVZMQVpzMXhIM2JSTEFLTVlGTTV5SE9vQWdVM1RKbG1nNXQ1ZWxpQ3lnOHUza1hrSGE1MDVxaDhaQ2M1SC9HWTdyN3c3amJoL2lTRFVOaz0jU0hBMXdpdGhSU0EjNWQ5ZDY1MTA4ZmNkNDdlYjQzZDg4YTVhOWI5M2VkZTUyMzhjYWU0MGUyYmEwYzZlNjUyMTIxYTVlYmRmOGI4MzVmNzIzMjM5MjZhYWU0OGMyOTYwYjQ5MmIzNmU5ZjdkZDE5MzU1ZWQzNTc5M2YwOGIzNzkzZTdkMWYyNzQyNjhjOWQzMzE1ZWNkMjdjYWIxNjRjZWNlMmMwMjZiNzU3ZDNiNWE3ZmE2NTk2OGE0Nzg5MmU3YTQ4Y2IxYjQ1NjI4YjE0ZWIyZTZlM2RjMWM1NGE4NTM3YjY0YzE1YTExZDNmYzRlZjQ0NzA4MDU2MTg5OTdjZTJlZDFmNGYzYzIwZg==; EOBT=FW23LLctAhCM7mRtF3uf5hcanmY1sY8wad28Mvx3rCAmyivB1n_wcLqj9D_oV4jd852OoZ0iMmvazZHDjfoUJ84xj24bOTeeKZps8IkfFL4gdiOWX8yLd97kzoHnpn40z36CF4zSzaglYfX0dsiNCRHxekyjXSfPLnblaifvY3KnWGGXaRnv_yBSneDiz8TANuD2JLHRfvNTMyYl-OaavFP7K4SbZpKMNSGeSJJUvD9dtDvWOHwzb9D48okz93avR-IvF81lmgyfjqg1v64uzv9nsAKKFc4q2HSXZ2nn6_fJEynERLhFD2FxmBBCnIktJr6YitW8SowkT9I7KfouWdoVZMniSHvmuoOX-PfleJnNtiY6BveZyZiE_sGim2KTGPLF1FavOKz9cnDQAPlM6UAXYAzadoXfelSGNUabNKAg8leljoZYDjogzZFXL_N5dIJgSocb2BqBHbVKdEb_3aZq82oIp07u4Jfj_0EBiB8
+Connection	keep-alive
+
+DATA-JSON
+{"FechaDesde":"2018-08-31T21:00:00.0000000+03:00","FechaHasta":"2018-11-24T21:00:00.0000000+03:00","CodigoMoneda":"CLP","NumeroCuenta":"20109939","MovimientoDesde":"","MovimientoHasta":"","TimeStamp":""}
+
+<<< {"Result":{"CCC":null,"Divisa":null,"FechaDesde":null,"FechaHasta":null,"MovimientoDesde":null,"MovimientoHasta":null,"TimeStamp":null,"Errores":null,"Detalle":[{"Importe":-6255.00,"ImporteFormateado":"$ 6.255","NuevoSaldo":7413469.00,"NuevoSaldoFormateado":"$ 7.413.469","FechaContable":"15/11/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"IVA","CodigoSucursal":"0401","NroMovimiento":"000000868","TipoMovimiento":"D","CodigoOperacion":576,"Descripcion":"IVA","FechaContableMovimiento":"2018-11-15T00:00:00","Monto":-6255.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0576","MontoConDecimales":0.0,"LinkDetalle":"IVA"},{"Importe":-32919.00,"ImporteFormateado":"$ 32.919","NuevoSaldo":7419724.00,"NuevoSaldoFormateado":"$ 7.419.724","FechaContable":"15/11/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"Comisión Mensual Office Banking","CodigoSucursal":"0401","NroMovimiento":"000000867","TipoMovimiento":"D","CodigoOperacion":635,"Descripcion":"Comisión Mensual Office Banking","FechaContableMovimiento":"2018-11-15T00:00:00","Monto":-32919.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0635","MontoConDecimales":0.0,"LinkDetalle":"Comisión Mensual Office Banking"},{"Importe":-6237.00,"ImporteFormateado":"$ 6.237","NuevoSaldo":7452643.00,"NuevoSaldoFormateado":"$ 7.452.643","FechaContable":"12/10/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"IVA","CodigoSucursal":"0401","NroMovimiento":"000000866","TipoMovimiento":"D","CodigoOperacion":576,"Descripcion":"IVA","FechaContableMovimiento":"2018-10-12T00:00:00","Monto":-6237.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0576","MontoConDecimales":0.0,"LinkDetalle":"IVA"},{"Importe":-32825.00,"ImporteFormateado":"$ 32.825","NuevoSaldo":7458880.00,"NuevoSaldoFormateado":"$ 7.458.880","FechaContable":"12/10/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"Comisión Mensual Office Banking","CodigoSucursal":"0401","NroMovimiento":"000000865","TipoMovimiento":"D","CodigoOperacion":635,"Descripcion":"Comisión Mensual Office Banking","FechaContableMovimiento":"2018-10-12T00:00:00","Monto":-32825.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0635","MontoConDecimales":0.0,"LinkDetalle":"Comisión Mensual Office Banking"},{"Importe":-6222.00,"ImporteFormateado":"$ 6.222","NuevoSaldo":7491705.00,"NuevoSaldoFormateado":"$ 7.491.705","FechaContable":"14/09/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"IVA","CodigoSucursal":"0401","NroMovimiento":"000000864","TipoMovimiento":"D","CodigoOperacion":576,"Descripcion":"IVA","FechaContableMovimiento":"2018-09-14T00:00:00","Monto":-6222.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0576","MontoConDecimales":0.0,"LinkDetalle":"IVA"},{"Importe":-32745.00,"ImporteFormateado":"$ 32.745","NuevoSaldo":7497927.00,"NuevoSaldoFormateado":"$ 7.497.927","FechaContable":"14/09/2018","Cheque":"000000000","Sucursal":"AGUSTINAS","DetalleMovimiento":"Comisión Mensual Office Banking","CodigoSucursal":"0401","NroMovimiento":"000000863","TipoMovimiento":"D","CodigoOperacion":635,"Descripcion":"Comisión Mensual Office Banking","FechaContableMovimiento":"2018-09-14T00:00:00","Monto":-32745.00,"NroDocumento":"000000000","GlosaSucursal":"AGUSTINAS","ClaseCssImporte":"dwn","MovimientoMonto":null,"Detalle":null,"Fecha":null,"FechaFormatted":null,"NumeroDocumento":null,"NumeroSecMovimiento":null,"ClaseCssMonto":null,"CodigoMovimiento":"0635","MontoConDecimales":0.0,"LinkDetalle":"Comisión Mensual Office Banking"}],"Editable":true,"ID":0,"Description":null},"ErrorCode":null,"ErrorDescription":null,"ErrorSource":null,"Mensaje":null,"Status":2}

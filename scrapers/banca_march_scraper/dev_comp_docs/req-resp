@@ -1,0 +1,71 @@
+>>> GET https://telemarch.bancamarch.es/htmlVersion/XTransManager?frmId=frmConsultaCorresponencia&tr=OP&num=03112&op=corrListado&bb=3&claveContratoSip=&tipoDocumento3=1&conFechas=1&fechaDesde=01%2F05%2F2020&fechaHasta=&salida=pant&inZip=false&btnOk=Aceptar&OWASP-CSRFTOKEN=5RYY-28RN-9UFV-EUHB-OT36-L7ON-G28W-C23U
+
+FILTER
+>>> curl 'https://telemarch.bancamarch.es/htmlVersion/XTransManager?frmId=frmConsultaCorresponencia
+&tr=OP
+&num=03112
+&op=corrListado
+&bb=2
+&claveContratoSip=
+&tipoDocumento3=1
+&conFechas=1
+&fechaDesde=01%2F05%2F2020
+&fechaHasta=11%2F06%2F2020
+&salida=pant
+&inZip=false
+&btnOk=Aceptar
+&OWASP-CSRFTOKEN=NXBD-VU6F-DV7F-FATA-6MO2-D19D-METD-ZL9H'
+
+
+FILTERED PAGE 1
+>>> GET
+curl 'https://telemarch.bancamarch.es/htmlVersion/XTransManager?frmId=frmConsultaCorresponencia&tr=OP&num=03112&op=corrListado&bb=3&claveContratoSip=&tipoDocumento3=1&conFechas=1&fechaDesde=01%2F04%2F2020&fechaHasta=&salida=pant&inZip=false&btnOk=Aceptar&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Referer: https://telemarch.bancamarch.es/htmlVersion/XTransManager?ts=1591864646443&tr=OP&testnw=H&idioma=0&num=03112&idopmenu=19&origen=principal&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH' -H 'Cookie: entorno=1; entorno=2; JSESSIONID=3A954A04028979C8CB41069FBCD1944C; TS016af2b9=01301e525b584bad352ed8811780e36cdb3f621d6cd098335474fd06393563241b1348530c1e4d5cf6dba78185213f70fd75fca1274272f44e055f2a1e841b0c3af9018cc1; _ga=GA1.2.1207571882.1563699523; idioma=es; UBD001=1; UBD002=P; UBD003=170; TS0184b070=01301e525bce5bc3707091d9416d7d794c891c878544c3b3ce4c10a8781ce799097aa282b8263b8d374d1ff573ce4c5d93f65590f64d2e11134c188781156910e02d29faf6ddbf3260d74d97bba00723d6342720d443e96e7fb8253ce5a15c5f98921033d5a2a430bb44d2836e7e56a7ce0804d3015d6479e403f64316ca9b7f159a45bd3c; TS0184b070_30=01fa5b527af8181a249b0eef03892f6f72325c26f42d8edc4db4177835df712c960fb3ae2ccce69c713b3c53175eddfbf8a1e412f9; rxVisitor=1591864231301QVRRISEQFV6H6LU4F42LCUMK540EBBFR; dtPC=1$64257266_208h-vTKPWMWIQKNVRZKGASUUNOGRAJPSFICAC; rxvt=1591866095463|1591864231307; dtSa=-; dtLatC=33; dtCookie==3=srv=1=sn=PG6ULHDJADNIRC39QDJAD5H39BK013P4=app:3a92cbbe7313465c=1=ol=0=perc=100000=mul=1' -H 'Upgrade-Insecure-Requests: 1'
+
+FILTERED PAGE 2
+>>> POST
+curl 'https://telemarch.bancamarch.es/htmlVersion/XTransManager' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+-H 'Accept-Language: en-US,en;q=0.5'
+--compressed
+-H 'Content-Type: application/x-www-form-urlencoded'
+-H 'Origin: https://telemarch.bancamarch.es'
+-H 'DNT: 1'
+-H 'Connection: keep-alive'
+-H 'Referer: https://telemarch.bancamarch.es/htmlVersion/XTransManager?frmId=frmConsultaCorresponencia&tr=OP&num=03112&op=corrListado&bb=3&claveContratoSip=&tipoDocumento3=1&conFechas=1&fechaDesde=01%2F04%2F2020&fechaHasta=&salida=pant&inZip=false&btnOk=Aceptar&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH' -H 'Cookie: entorno=1; entorno=2; JSESSIONID=3A954A04028979C8CB41069FBCD1944C; TS016af2b9=01301e525b584bad352ed8811780e36cdb3f621d6cd098335474fd06393563241b1348530c1e4d5cf6dba78185213f70fd75fca1274272f44e055f2a1e841b0c3af9018cc1; _ga=GA1.2.1207571882.1563699523; idioma=es; UBD001=1; UBD002=P; UBD003=170; TS0184b070=01301e525bce5bc3707091d9416d7d794c891c878544c3b3ce4c10a8781ce799097aa282b8263b8d374d1ff573ce4c5d93f65590f64d2e11134c188781156910e02d29faf6ddbf3260d74d97bba00723d6342720d443e96e7fb8253ce5a15c5f98921033d5a2a430bb44d2836e7e56a7ce0804d3015d6479e403f64316ca9b7f159a45bd3c; TS0184b070_30=01fa5b527af8181a249b0eef03892f6f72325c26f42d8edc4db4177835df712c960fb3ae2ccce69c713b3c53175eddfbf8a1e412f9; rxVisitor=1591864231301QVRRISEQFV6H6LU4F42LCUMK540EBBFR; dtPC=1$64257266_208h-vTKPWMWIQKNVRZKGASUUNOGRAJPSFICAC; rxvt=1591866095463|1591864231307; dtSa=-; dtLatC=33; dtCookie==3=srv=1=sn=PG6ULHDJADNIRC39QDJAD5H39BK013P4=app:3a92cbbe7313465c=1=ol=0=perc=100000=mul=1' -H 'Upgrade-Insecure-Requests: 1'
+--data-raw 'frmId=frmConsultaCorresponencia
+&tr=OP
+&num=03112
+&op=corrMas
+&codigos=%3Clista%2F%3E -- "<lista/>"
+&pag=a6URwHoVpo5QWUOePeJUCCkz2fL8toubwznIdMXUgbR4nFvzloG1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaKAgYGBEQCvihu8
+&inZip=false
+&bb=3&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH'
+
+DOWNLOAD PDF (from 01/04 page 2, LIQUIDACION CUSTODIA 	ES50 0061 0373 1100 1271 0116 	24/04/2020 )
+>>> POST
+curl 'https://telemarch.bancamarch.es/htmlVersion/XTransManager' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://telemarch.bancamarch.es' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Referer: https://telemarch.bancamarch.es/htmlVersion/XTransManager' -H 'Cookie: entorno=1; entorno=2; JSESSIONID=3A954A04028979C8CB41069FBCD1944C; TS016af2b9=01301e525b584bad352ed8811780e36cdb3f621d6cd098335474fd06393563241b1348530c1e4d5cf6dba78185213f70fd75fca1274272f44e055f2a1e841b0c3af9018cc1; _ga=GA1.2.1207571882.1563699523; idioma=es; UBD001=1; UBD002=P; UBD003=170; TS0184b070=01301e525bce5bc3707091d9416d7d794c891c878544c3b3ce4c10a8781ce799097aa282b8263b8d374d1ff573ce4c5d93f65590f64d2e11134c188781156910e02d29faf6ddbf3260d74d97bba00723d6342720d443e96e7fb8253ce5a15c5f98921033d5a2a430bb44d2836e7e56a7ce0804d3015d6479e403f64316ca9b7f159a45bd3c; TS0184b070_30=01fa5b527af8181a249b0eef03892f6f72325c26f42d8edc4db4177835df712c960fb3ae2ccce69c713b3c53175eddfbf8a1e412f9; rxVisitor=1591864231301QVRRISEQFV6H6LU4F42LCUMK540EBBFR; dtPC=1$64257266_208h-vTKPWMWIQKNVRZKGASUUNOGRAJPSFICAC; rxvt=1591866095463|1591864231307; dtSa=-; dtLatC=33; dtCookie==3=srv=1=sn=PG6ULHDJADNIRC39QDJAD5H39BK013P4=app:3a92cbbe7313465c=1=ol=0=perc=100000=mul=1' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'frmId=frmConsultaCorresponencia&tr=OP&num=03112&op=corrDescarga&codigos=%3Clista%3E%0D%0A%09%3Cnodo%3E%3Ccodigo%3E201140040040977%3C%2Fcodigo%3E%3Cpdf%3E201140040040977%3C%2Fpdf%3E%3Ctipo%3E0%3C%2Ftipo%3E%3Cmd5%3E84f094672c964af778a0356fc4f19086%3C%2Fmd5%3E%3C%2Fnodo%3E%0D%0A%3C%2Flista%3E&pag=XjQMtB21v%2BBm%2FVCx5Hbq%2FvakBDKmywnTPCnnkQWi0l94nFvzloG1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaKAgYGBCQCvixu9&inZip=false&bb=3&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH'
+where DATA
+
+frmId=frmConsultaCorresponencia
+tr=OP
+num=03112
+op=corrDescarga
+codigos=<lista>
+	<nodo><codigo>201140040040977</codigo><pdf>201140040040977</pdf><tipo>0</tipo><md5>84f094672c964af778a0356fc4f19086</md5></nodo>
+</lista>
+pag=XjQMtB21v+Bm/VCx5Hbq/vakBDKmywnTPCnnkQWi0l94nFvzloG1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaKAgYGBCQCvixu9
+inZip=false
+bb=3
+OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH
+
+
+DOWNLOAD PDF (from 01/04 page 2, LIQUIDACION 	ES50 0061 0373 1100 1271 0116 	25/05/2020 	-39,40 €)
+>>> POST
+curl 'https://telemarch.bancamarch.es/htmlVersion/XTransManager' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://telemarch.bancamarch.es' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Referer: https://telemarch.bancamarch.es/htmlVersion/XTransManager' -H 'Cookie: entorno=1; entorno=2; JSESSIONID=3A954A04028979C8CB41069FBCD1944C; TS016af2b9=01301e525b584bad352ed8811780e36cdb3f621d6cd098335474fd06393563241b1348530c1e4d5cf6dba78185213f70fd75fca1274272f44e055f2a1e841b0c3af9018cc1; _ga=GA1.2.1207571882.1563699523; idioma=es; UBD001=1; UBD002=P; UBD003=170; TS0184b070=01301e525b93444fb6b34a06d445d57d702702c032ce17e787516bccbe095b1b39f39c990b16772d1d06f6f54853c15e93ed3f6ce6af9c96372c54c8995b328ed972e425b3d44a0bf837d07393782c229378c02918996a04fb2e9019a830f94e2b29c73e7b2b9aecc18a08ca5f0d741f3842f7a44632f28a3093c589b7d8e3e17fe900d333; TS0184b070_30=01fa5b527af8181a249b0eef03892f6f72325c26f42d8edc4db4177835df712c960fb3ae2ccce69c713b3c53175eddfbf8a1e412f9; rxVisitor=1591864231301QVRRISEQFV6H6LU4F42LCUMK540EBBFR; dtPC=1$64257266_208h-vTKPWMWIQKNVRZKGASUUNOGRAJPSFICAC; rxvt=1591866095463|1591864231307; dtSa=-; dtLatC=33; dtCookie==3=srv=1=sn=PG6ULHDJADNIRC39QDJAD5H39BK013P4=app:3a92cbbe7313465c=1=ol=0=perc=100000=mul=1' -H 'Upgrade-Insecure-Requests: 1'
+--data-raw '
+frmId=frmConsultaCorresponencia&tr=OP
+&num=03112
+&op=corrDescarga
+&codigos=%3Clista%3E%0D%0A%09%3Cnodo%3E%3Ccodigo%3E201460020024921%3C%2Fcodigo%3E%3Cpdf%3E201460020024921%3C%2Fpdf%3E%3Ctipo%3E0%3C%2Ftipo%3E%3Cmd5%3E11f3a75cd7b5dcd5008bf30fc7019b8d%3C%2Fmd5%3E%3C%2Fnodo%3E%0D%0A%3C%2Flista%3E&pag=XjQMtB21v%2BBm%2FVCx5Hbq%2FvakBDKmywnTPCnnkQWi0l94nFvzloG1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaKAgYGBCQCvixu9
+&inZip=false
+&bb=3
+&OWASP-CSRFTOKEN=U81B-4D90-88T4-VNK1-CW0I-QJ50-X2F6-SXTH'

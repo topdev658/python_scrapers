@@ -1,0 +1,74 @@
+$ cd ovpn_eurowall
+$ ./start_ovpn_eurowall.sh
+
+# log in to 192.168.195.114
+$ ssh raul_eurowall
+
+
+If Problems
+  $ route
+  # be sure that new addreses are available
+  # 192.168.195.0   10.0.11.77      255.255.255.0   UG    0      0        0 tun0
+  # 192.168.196.0   10.0.11.77      255.255.255.0   UG    0      0        0 tun0
+
+
+test allowed exrternal IPs
+
+$ wget --bind-address=217.113.248.114 http://ip-api.com/json
+$ wget --bind-address=217.113.248.115 http://ip-api.com/json
+$ wget --bind-address=217.113.248.116 http://ip-api.com/json
+$ wget --bind-address=217.113.248.117 http://ip-api.com/json
+$ wget --bind-address=217.113.248.118 http://ip-api.com/json
+$ wget --bind-address=217.113.248.119 http://ip-api.com/json
+
+
+#  check available IPs
+$ nmap -sP 192.168.195.0/24
+$ nmap -sP 192.168.196.0/24
+
+SET firewall
+$ sudo vim /etc/firewall/fwup.sh
+  ADD LINES
+    # custom http server ports
+    iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+    iptables -A INPUT -s 192.168.195.0/24 -p tcp --dport 8080 -j ACCEPT
+    # warning: block external connections at app level (i.e. tinyproxy)
+    # to allow use proxies from vpn or using local ip instead of localhost name
+    iptables -A INPUT -p tcp --dport 8115 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 8116 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 8117 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 8118 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 8119 -j ACCEPT
+
+and restart
+$ sudo /etc/firewall/fwup.sh
+
+test ports
+# should be ok if tunyproxy is started or refused of not started
+nc -zv 192.168.195.114 8119
+# should be refused in any case
+nc -zv 217.113.248.114 8119
+
+
+USE TINYPROXY
+https://tinyproxy.github.io/
+fix 'Bind' option:
+https://github.com/tinyproxy/tinyproxy/issues/15
+https://gitlab.labs.nic.cz/turris/openwrt-packages/commit/7c01da4a72e6f0b7613a86529547659ea4007eba
+
+use manually compiled file with fixed 'Bind' option (OR JUST USE FOLDER 'tinyproxy' with already compiled file with fixes)
+
+LAUNCH TINYPROXY on ports 8115-8119 bound to IPs 217.113.248.115-119
+$ cd tinyproxy
+$ ./tinyALL.sh
+
+
+TEST PROXY from dev machine
+# ok
+curl --proxy 192.168.195.114:8119 api.ipify.org && echo
+
+# should be failed
+curl --proxy 217.113.248.114:8119 api.ipify.org && echo
+
+
+

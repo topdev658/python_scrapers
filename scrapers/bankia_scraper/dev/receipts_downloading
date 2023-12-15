@@ -1,0 +1,58 @@
+SHOULD CHECK EACH MOVEMENT WHERE
+['indicadorMovimientoCorrespondencia'] == 'true'
+
+IT MAY content file or not
+
+
+>>>> GET  https://oficinaempresas.bankia.es/api/1.0/saps/comunes/movimientos/consultarexistenciacorrespondenciamovimientos?request={"codigoMovimiento":"255","fechaMovimiento":{"valor":"2018-07-31"},"fechaValor":{"valor":"2018-07-31"},"referencias":[{"codigoCampo":"MVREF3","codigoPlantilla":"0300","descripcion":"PRESTAMO  16.230.455/64  00031 20180731","nombreCorto":"CONCEPTO         :","longitudPlantilla":"60"},{"codigoCampo":"","codigoPlantilla":"","descripcion":"","nombreCorto":"","longitudPlantilla":"0"},{"codigoCampo":"","codigoPlantilla":"","descripcion":"","nombreCorto":"","longitudPlantilla":"0"},{"codigoCampo":"","codigoPlantilla":"","descripcion":"","nombreCorto":"","longitudPlantilla":"0"},{"codigoCampo":"","codigoPlantilla":"","descripcion":"","nombreCorto":"","longitudPlantilla":"0"},{"codigoCampo":"","codigoPlantilla":"","descripcion":"","nombreCorto":"","longitudPlantilla":"0"}]}&_ts1535828919654
+
+HAS
+<<<< {"indicadorCorrespondencia":"S","localizadorDocumento":{"baseDatos":"IPLCORRESP","expediente":"CORRESPOND","clavesCorrespondencia":[{"valor":"00000","tipo":"int"},{"valor":"10600","tipo":"int"},{"valor":"00041236000013510","tipo":"int"},{"valor":"01.08.2018","tipo":"string"},{"valor":"00000048","tipo":"int"},{"valor":"00001","tipo":"int"}]}}
+
+NO
+<<<< {"indicadorCorrespondencia":"N","localizadorDocumento":{"baseDatos":"IPLCORRESP","expediente":"CORRESPOND","clavesCorrespondencia":[{"valor":"","tipo":"int"},{"valor":"","tipo":"int"},{"valor":"","tipo":"int"},{"valor":"","tipo":"string"},{"valor":"","tipo":"int"},{"valor":"","tipo":"int"}]}}
+
+
+
+
+>>>> GET https://oficinaempresas.bankia.es/api/1.0/saps/comunes/iplus/obtenerdocumentos?request={"entradaConsultaExpediente":{"baseDatos":"IPLCORRESP","expediente":"CORRESPOND","ordenDocumento":"1","claves":{"claveExpediente":[{"identificadorClave":"1","valorClave":"00000"},{"identificadorClave":"2","valorClave":"10600"},{"identificadorClave":"3","valorClave":"00041236000013510"},{"identificadorClave":"4","valorClave":"01.08.2018"},{"identificadorClave":"5","valorClave":"00000048"},{"identificadorClave":"6","valorClave":"00001"}]}}}&_ts1535825289388
+
+
+
+<<<< {"documentos":[{"codigoEstado":"M","identificadorUsuario":"CORRESP","extensionDocumento":"PDF","fechaAlta":{"microsegundos":"000000","date":"Aug 2, 2018 12:00:00 AM","timeZone":"Europe/Madrid","codigo":"2018-08-02-00.00.00.000000","fecha":{"codigo":"2018-08-02","año":2018,"mes":8,"diaDelMes":2,"diaDeLaSemana":4,"diasDesdeUnoDeEnero":214,"fechaGregorianCalendar":"Aug 2, 2018 1:01:01 AM","literalDiaDeLaSemana":"Jueves","literalMesDelAño":"Agosto","ultimoDiaDelMes":31,"bisiesto":false},"rfc822TimeZone":"+0200","horas":"00","minutos":"00","segundos":"00","timestampSQL":"Aug 2, 2018 12:00:00 AM"},"metadatosDocumento":[],"identificadorDocumento":"UHOMDFNEUQBLIM5RN1M54285H6MONF83UT8EDB95","nombreDocumento":" ","numeroOrden":1,"numeroOrdenPresentacion":0}],"clavePaginacionOut":"0"}
+
+>>>> GET https://oficinaempresas.bankia.es/api/1.0/saps/comunes/iplus/documentos/UHOMDFNEUQBLIM5RN1M54285H6MONF83UT8EDB95?x-j_gid_cod_app=o2&_ts1535825291129
+
+<<<< {"codigoEstado":" ","codigoUsuario":"CORRESP","extensionDocumento":"PDF","fechaAlta":"2018-08-02-00.00.00.000000","metadatosDocumento":[],"numeroOrdenPresentacion":0,"localizadorDocumento":"generica/A153676_7118507408111634344___552018-09-0120.08.1198351148/00001/00001/001/1.PDF","nombreDocumento":" ","numeroOrden":0}
+
+>>>> GET https://oficinaempresas.bankia.es/api/1.0/sap/commons/transmission/get/EWDCZZZG/generica/A153676_7118507408111634344___552018-09-0120.08.1198351148/00001/00001/001/1.PDF?x-j_gid_cod_app=o2
+
+<<<< 1.PDF
+
+
+
+
+
+
+
+CHECK
+3510
+
+<class 'list'>: [
+{'fechaMovimiento': {'valor': '2018-08-31'}, 'referenciaRecibo': '', 'indicadorDevolucionReciboManyana': 'false', 'oficina': '0606', 'referencias': [{'longitudPlantilla': '60', 'nombreCorto': 'CONCEPTO         :', 'descripcion': 'PRESTAMO  16.230.455/64  00032 20180831', 'codigoPlantilla': '0300', 'codigoCampo': 'MVREF3'}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}], 'codigoMovimiento': '255', 'indicadorDevolucionRecibo': 'true', 'indicadorMovimientoCorrespondencia': 'true', 'saldoPosterior': {'importe': 76547, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'concepto': 'RECIBO DE PRESTAMO', 'importe': {'importe': -198565, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'beneficiarioOEmisor': '', 'indicadorTransferencia': 'false', 'fechaValor': {'valor': '2018-08-31'}},
+
+
+{'fechaMovimiento': {'valor': '2018-08-02'}, 'referenciaRecibo': '', 'indicadorDevolucionReciboManyana': 'false', 'oficina': '4123', 'referencias': [{'longitudPlantilla': '40', 'nombreCorto': 'ORDENAN./LIBRADOR', 'descripcion': 'BANKIA', 'codigoPlantilla': '0404', 'codigoCampo': 'MVREF4'}, {'longitudPlantilla': '40', 'nombreCorto': 'BENEFICIARIO     :', 'descripcion': '73003 COMUNIDAD DE MURCIA', 'codigoPlantilla': '0500', 'codigoCampo': 'MVREF5'}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}], 'codigoMovimiento': '261', 'indicadorDevolucionRecibo': 'true', 'indicadorMovimientoCorrespondencia': 'true', 'saldoPosterior': {'importe': 237250, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'concepto': 'RECIBO IMPUESTOS O CONTRIBUCION', 'importe': {'importe': -22500, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'beneficiarioOEmisor': '', 'indicadorTransferencia': 'false', 'fechaValor': {'valor': '2018-08-02'}},
+
+{'fechaMovimiento': {'valor': '2018-07-31'}, 'referenciaRecibo': '', 'indicadorDevolucionReciboManyana': 'false',
+'oficina': '0606', 'referencias': [{'longitudPlantilla': '60', 'nombreCorto': 'CONCEPTO         :', 'descripcion': 'PRESTAMO  16.230.455/64  00031 20180731', 'codigoPlantilla': '0300', 'codigoCampo': 'MVREF3'}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}], 'codigoMovimiento': '255',
+'indicadorDevolucionRecibo': 'true',  ------ ????
+'indicadorMovimientoCorrespondencia': 'true', ---- ????
+'saldoPosterior': {'importe': 0, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'concepto': 'RECIBO DE PRESTAMO', 'importe': {'importe': -198565, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'beneficiarioOEmisor': '',
+'indicadorTransferencia': 'false',
+'fechaValor': {'valor': '2018-07-31'}}, -- TRUE
+
+{'fechaMovimiento': {'valor': '2018-06-30'}, 'referenciaRecibo': '', 'indicadorDevolucionReciboManyana': 'false', 'oficina': '0606', 'referencias': [{'longitudPlantilla': '60', 'nombreCorto': 'CONCEPTO         :', 'descripcion': 'PRESTAMO  16.230.455/64  00030 20180630', 'codigoPlantilla': '0300', 'codigoCampo': 'MVREF3'}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}], 'codigoMovimiento': '255', 'indicadorDevolucionRecibo': 'false', 'indicadorMovimientoCorrespondencia': 'true', 'saldoPosterior': {'importe': 166325, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'concepto': 'RECIBO DE PRESTAMO', 'importe': {'importe': -198565, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'beneficiarioOEmisor': '', 'indicadorTransferencia': 'false', 'fechaValor': {'valor': '2018-06-30'}},
+
+{'fechaMovimiento': {'valor': '2018-05-31'}, 'referenciaRecibo': '', 'indicadorDevolucionReciboManyana': 'false', 'oficina': '0606', 'referencias': [{'longitudPlantilla': '60', 'nombreCorto': 'CONCEPTO         :', 'descripcion': 'PRESTAMO  16.230.455/64  00029 20180531', 'codigoPlantilla': '0300', 'codigoCampo': 'MVREF3'}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}, {'longitudPlantilla': '0', 'nombreCorto': '', 'descripcion': '', 'codigoPlantilla': '', 'codigoCampo': ''}], 'codigoMovimiento': '255', 'indicadorDevolucionRecibo': 'false', 'indicadorMovimientoCorrespondencia': 'true', 'saldoPosterior': {'importe': 117528, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'concepto': 'RECIBO DE PRESTAMO', 'importe': {'importe': -198565, 'numeroDecimales': 2, 'nombreMoneda': 'EUR'}, 'beneficiarioOEmisor': '', 'indicadorTransferencia': 'false', 'fechaValor': {'valor': '2018-05-31'}}]
+

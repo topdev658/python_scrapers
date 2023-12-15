@@ -1,0 +1,84 @@
+>>> LOGIN
+POST https://secure.alpha.gr/Login/Login/DoLogin
+DATA
+
+// __RequestVerificationToken -- Cerberus COOKIE
+OrderedDict([('__RequestVerificationToken',
+              'DJ9ziDo3CEmDIJFcQVIbAAh2fnJupWdatSEDX9m51_S9PxBsRKEWb84XkpIuwrtrNHTI35vjZYo9LbNSAE0RC8ZNLcupu9vh0sklMNuqGkA1'),
+             ('Username', 'Saldos12'),
+             ('Password',
+              '9159c481d9912ff4e1ae861d240c08c384001fb2e950419ac3cf585fc5b77d5697b5c3285e0f9952c19b491839da74218b94e582ff041cb6ea5b6352cf9d656bf36b25b10260f406ae249418df4a36f0709783a803845f6f383b4e9356872993f0d42b7c060742c1f9f8e403eb12fb16a1de12ed964e4cd7583ec97f5101e6f9262e85458ffd89771ae9937c748914ae1ed78db64e5c576d6085539bec01c065e7b8c095f7470fd90ac475d39eebcd30003bd89e11b909eb67367c3f038d6c1634a3bccc2871f531a52d79264294d520753630bc14cafbd653e5c2098988a91f2265b2f38d0d38a3823ee0540b435a124aad4b00f81d4b09b9ed9551fc098918'),
+             ('E', '010001'),
+             ('N',
+              'CD179D4C60EB089FF42DD5076429730C4FBD4BFF7F401D924A526C32F25A856297A1B69C78E2BE9F632DE67DBA03A767459CEAF855793927A509AFA500AC999F68EC48921BC3B49B66BD9C0111848E24F07DCF6433DD6EDC77E2B51D3148F2B094EFCE4805FAD438C7B188B18EF834DBEAAEFF15B0AFEE7B47E26D3D0203A4F1E7997F9851BC39290C6CAB755B360D4FE03AC8994945BEA0F8647220EA00D9049D94704F40B04BADBD8BF800F0439A44A49A6225B3F2981F50659C5A26FBEF7A689F4937AF41B86A39B8E7F770EBB76E234B03E19AEC7B07F5BEA1F8C127E0374D617D46CD13FF40DDE57ACF59F3287E5DC7C3A7383192B9892C1745FADA2297'),
+             ('ActivityDateTime', '2019-07-03T06:47:21Z'),
+             ('UniqueIdentifier', '0b421ec7-3004-4e4d-a170-3a85c3171f8d'),
+             ('RedirectTo', ''),
+             ('LoginType', 'Corporate'),
+             ('IFrameType', '2')])
+
+<<< 200 OK
+HEADERS
+Request-Context: appId=cid-v1:5d2fc027-4605-48f6-9841-83703a3803ce
+Set-Cookie: Ebanking=bh1cO1PDdVjNky%2b6hopUER%2fQUgazlNaW3TCxPqBF3kn0WbKG7ba%2ftVX%2bwgR4ayDVrjzf6%2f8o4Qg9o1GM2J9ivn5sAeyL57c5FZal2hhbBlupcuxZSVZ13oT%2bwp7Saj1X2BdhmFKRCdXrNwwWMBCtHJJSAWiSD2WwVovZNg46uIwxyTMaMVfnZazljDAbbZaMSxjpA8Q7UwpxkOyJIi9u1DK60G24sVAnEOdE66frGImX5plNkAGLW2%2bzQqbgLISefNEuRVxXgNv%2bN7rS9aprC%2bCyY3pW8RsrEJbVBOTWe5qN0DjYrnAgFzsL3PLO2ap%2f3Pxsk3q2TXHZSn4NNb%2fXhC%2bblmOEPaNMQEdTEaC4XgQ9k%2b7Ra5rEo7XN9urgI3IPffk2EIRYZ6ovVEXjXjRdp1BcOTDGjSeX1umNyDiaa8QHlOFeQtSvkFQAw%2f026TbllNP%2b8LHeFR%2bBetbGkU7aNuSPOsprOURe7%2bVQQAdnlytKR8VjTZ6UEbcaXMlg%2bPhNAb3tRuO76iO9LCL9I0ejf7ZO%2bLlUDbjbv%2fWxF%2fnmYOy7Zsq5eZcdku2DqeWFAEbjwdTeJF0ptii0JhalYU6JbxYmAHuV7WlLZO76IjBEeDYZd5qyFWiveer6s2JI%2bEdM3r%2fMwV7lLdjB6i90QWuW92YIrfeN4qz0MnUdsPXF8QR7YCj39Be%2bZxdRAvgKCR6irm25E4q0Kswy7dwGbmvSBA%3d%3d; path=/; secure; HttpOnly
+
+>>> GET https://secure.alpha.gr/ebanking/
+
+
+
+>>> POST https://secure.alpha.gr/eBanking/api/Security.svc/getUserSessionInfo
+DATA
+{"UpdateContacts":false,"ActivityDateTime":"2019-07-07T18:31:26.504Z","UniqueIdentifier":"d1b5fd2e-ee3d-4dcc-8553-70f6f3bdfece"} // uuid random?
+HEADERS
+Referer: https://secure.alpha.gr/ebanking/
+application-id: web-banking
+x-xsrf-token: 2iF89MxruyNpzVfF3ItluavWOs13twCPN4OcKJv-TqorzfZlBRqNao4cpsyyD62KR7Y_qMLay7sR_oufmzUOFBhKLD-_C3hb5FAe76Nvi3A1
+<<<
+{"ResultCode":0,"AWITFlag":0,"Address":"ΜΕΝΑΝΔΡΟΥ 58 10432 ΑΘΗΝΑ, ΕΛΛΑΔΑ","CDINumber":"000000018378415","Channel":3,"CompanyUserContacts":{"Email":"javier.perez@smallworldfs.com","Fax":"","MobilePhone":"6976980367","PrimaryEmail":"","PrimaryTelephone":"","Telephone":"2109818771"},"CurrentWorkingDate":"8/7/2019","Email":"javier.perez@smallworldfs.com","Fax":"","LastSignOn":"7/5/2019 10:15:47 PM","Message":"","MobilePhone":"6976980367","Name":"Ramos","Name_Latin":"","OTPActivationCode":"","OTPChannel":0,"OTPStatus":2,"OrdererName":"LCC TRANS -SENDING LIMITED LCC TRAN","OriginType":0,"OtpPromptOptions":{"AdminUsersCount":1,"ApproverUsersCount":0,"CompanyLegalTypeLevel1":"0800","CompanyLegalTypeLevel2":"0808","IsAwitSubscription":false,"IsSpecialCompanySubscription":false},"PasswordValidityStatus":0,"PrimaryEmail":"","PrimaryTelephone":"","Profile":{"BII":"VYgUJZVGMZj5Rftrs/Rp+41CD9NejpBoYx3i7esfwjA=","SubscriptionID":1770616,"UserID":1803906},"ProfileProductInfo":{"HasAccounts":true,"HasCards":false,"HasInvestments":false,"HasLoans":false},"SessionLanguage":"en-US","Sex":"0","ShowBreakCompatibilityMessage":false,"SmsOTPEnabled":false,"SurName":"Eduardo","SurName_Latin":"","SyncStatus":true,"Telephone":"2109818771","UserInfo":{"CompanyInfo":{"ApprovalLevelIsolatedJobLimit":0,"ApprovalLevelMultiJobLimit":0,"CorpExpirationDate":"","EditAccountRestricted":false,"GeneralInfoRestricted":false,"InsuranceClearanceExpiryDate":"","IsSpecialSubscription":false,"LegalEntityExpiryDate":"20210604","MaxAmountLimitNonAlpha":100000,"MaxAmountLimitPerMultiJob":999999999999,"MaxAmountLimitPerTransaction":99999999,"MaxApprovalLevel":1,"MaxApprovalLevelForMaintenance":1,"MaxApprovalLevelForTransferPayment":1,"Name":"LCC TRANS -SENDING LIMITED","QueryRestricted":false,"TaxClearanceExpiryDate":"","Title":"LCC TRANS - SENDING LIMITED","TokenRequired":0,"TokenRequiredBeforeActivation":0},"Features":["AWEB_Enabled"],"LazyPermissions":[],"Permissions":["EditOverviewProduct","EditColorProduct","ViewSubscriptionUsers","EditUsername","EditPassword","ViewAccounts","ViewAccountGrossBalance","ViewCards","ViewLoans","ViewInvestments","ViewCheques","ViewProfile","PrepareAllTransfers","PrepareTransfers","PrepareAllPayments","PreparePayments","AddJob","AddMultiTransfers","ViewJobHistory","PrepareInterbankTransfer","PrepareIntrabankTransfer","PrepareInternationalTransfer","PrepareSimpleImportsTransfer","PrepareCMTransaction","PreparePayrollTransfer","PreparePrepaidCardCharge","PrepareSupplierTransfer","PrepareOtherTransfer","PreparePublicSectorPayment","PrepareOtherPayment","PrepareMultiPayments","PrepareMultiTransfers"],"Role":8},"VAT":"0"}
+
+
+ACCOUNTS
+>>> https://secure.alpha.gr/eBanking/api/products.svc/getProfileProductsNew
+POST  {"ReturnMode":0,"RequestCriteria":{"MaxRecords":10,"MaxRecordsSpecified":true,"ProductTypes":["51"],"SearchStringInfo":{"SearchTerm":"","SearchField":2,"SearchFieldSpecified":true},"FromRowNumber":0},"ActivityDateTime":"2019-07-07T18:35:35.897Z","UniqueIdentifier":"d40f4e17-4d68-4093-a683-9e85373a99c7"}
+HEADERS
+(Request-Line)	POST /eBanking/api/products.svc/getProfileProductsNew HTTP/1.1
+Host	secure.alpha.gr
+User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+Accept	application/json, text/plain, */*
+Accept-Language	en-US,en;q=0.5
+Accept-Encoding	gzip, deflate, br
+x-xsrf-token	1Ot400wbIz-HhnFwlfdf_dkz_o6RTA4Bp1R19v0XszMKdxkPIFwec8z_pRdCYypakFusC5SQ_fPTAE8rzbBbUhP-FoLCPR6hsFr0EtpJLRk1
+application-id	web-banking
+Content-Type	application/json;charset=utf-8
+// Microsoft.ApplicationInsights.UtilHelpers.newId(): KRDiW, wQVdk, 3ZBCL, Vw/yJ
+Request-Id	|jGAAe.tkScx   /// '|' + t + '.' + Microsoft.ApplicationInsights.UtilHelpers.newId();
+Request-Context	appId=cid-v1:54d45c5d-9142-4893-bc82-cd01df78a6f5
+x-ms-request-root-id	jGAAe  /// t
+Referer	https://secure.alpha.gr/ebanking/
+Content-Length	304
+Cookie	...
+Connection	keep-alive
+
+<<<
+{"ResultCode":0,"HasMore":false,"ReplyRecords":1,"TotalRecords":1,"IsLastPage":true,"LastRowNumber":1,"Products":[{"Code":"GR4301401040104002002026634","ProductID":7833611,"Title":"","TypeID":3,"Uses":[],"AlertsCrossBorderCashActivated":false,"AlertsCrossBorderSalesActivated":false,"AlertsDomesticCashActivated":false,"AlertsDomesticSalesActivated":false,"BonusPoints":0,"CategoryGroup":-1,"CategoryType":10001,"Color":0,"CreditLimit":0,"CreditLimitSign":null,"CreditsCurDay":0,"CurrentBalance":0,"CurrentBalanceSign":null,"DebitsCurDay":0,"HasCheques":true,"HasEStatementsActivated":false,"HasLoyalty":false,"IsAlphaBankProduct":false,"IsCorporate":true,"IsPreferred":false,"LoyaltyPoints":0,"LoyaltyPointsString":"0","LoyaltyScheme":0,"Order":0,"Overdraft":0,"PointsExpirationDate":null,"PointsToExpire":0,"PointsToExpireStr":"0","ProviderID":0,"RequestTypes":[0,31,21],"Result":0,"TotalBloks":0,"TypeName":"ALPHA 290"}]}
+
+JS:
+if (n.method == 'POST' && window.appInsights && window.appInsights.context && window.appInsights.context.operation) {
+  var t = window.appInsights.context.operation.id,
+  i = '|' + t + '.' + Microsoft.ApplicationInsights.UtilHelpers.newId();
+  n.requestStartTime = (new Date).getTime();
+  n.headers['Request-Id'] = i;
+  n.headers['Request-Context'] = 'appId=cid-v1:' + v;
+  n.headers['x-ms-request-root-id'] = t  // NOTE check here
+}
+
+
+Request-Id	|jGAAe.tkScx   /// '|' + t + '.' + Microsoft.ApplicationInsights.UtilHelpers.newId();
+x-ms-request-root-id
+
+WHERE
+
+
+POST XHR https://monitoring.alpha.gr/appinsights/ [HTTP/1.1 200 OK 493ms]Headers
+JSON
+[{"time":"2019-07-11T14:19:08.623Z","iKey":"00ced89a-f71e-4c8f-94bc-90eae5cb233a","name":"Microsoft.ApplicationInsights.00ced89af71e4c8f94bc90eae5cb233a.RemoteDependency","tags":{"ai.session.id":"LTTNs","ai.device.id":"browser","ai.device.type":"Browser","ai.internal.sdkVersion":"javascript:1.0.20","ai.user.id":"K29uQ","ai.user.authUserId":"6LrQaGRMJaa79zZBRrNID8I66qpOnFOCZBF8lh0YQic_","ai.operation.id":"Egb4z","ai.operation.name":"/ebanking/","ai.cloud.role":"myAlpha Web","ai.cloud.roleInstance":"AlphaFarm03"},"data":{"baseType":"RemoteDependencyData","baseData":{"id":"|Egb4z.iC813","ver":2,"name":"POST /api/products.svc/getProfileProductsNew","resultCode":"200","duration":"00:00:00.724","success":true,"data":"POST api/products.svc/getProfileProductsNew","target":"secure.alpha.gr | cid-v1:5d2fc027-4605-48f6-9841-83703a3803ce","type":"Ajax","properties":{"uniqueIdentifier":"c2e1a38e-471c-4b91-b772-98a36caf851c","server":"AlphaFarm03","prop_App":"cb","isDarkThemeSelected":"false","nstate":"root.accounts.list","isTouchDevice":"false","browserWidth":"1257","browserHeight":"528","telemetryDataVersion":"2.0"}}}},{"time":"2019-07-11T14:19:09.355Z","iKey":"00ced89a-f71e-4c8f-94bc-90eae5cb233a","name":"Microsoft.ApplicationInsights.00ced89af71e4c8f94bc90eae5cb233a.RemoteDependency","tags":{"ai.session.id":"LTTNs","ai.device.id":"browser","ai.device.type":"Browser","ai.internal.sdkVersion":"javascript:1.0.20","ai.user.id":"K29uQ","ai.user.authUserId":"6LrQaGRMJaa79zZBRrNID8I66qpOnFOCZBF8lh0YQic_","ai.operation.id":"Egb4z","ai.operation.name":"/ebanking/","ai.cloud.role":"myAlpha Web","ai.cloud.roleInstance":"AlphaFarm03"},"data":{"baseType":"RemoteDependencyData","baseData":{"id":"|Egb4z.gjkyz","ver":2,"name":"POST /api/products.svc/getProfileProductsNew","resultCode":"200","duration":"00:00:00.726","success":true,"data":"POST api/products.svc/getProfileProductsNew","target":"secure.alpha.gr | cid-v1:5d2fc027-4605-48f6-9841-83703a3803ce","type":"Ajax","properties":{"uniqueIdentifier":"2d8fe5ee-1b01-4474-b8fe-9b4f968344f0","server":"AlphaFarm03","prop_App":"cb","isDarkThemeSelected":"false","nstate":"root.accounts.list","isTouchDevice":"false","browserWidth":"1257","browserHeight":"528","telemetryDataVersion":"2.0"}}}}]

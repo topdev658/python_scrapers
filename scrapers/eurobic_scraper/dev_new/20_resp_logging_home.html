@@ -1,0 +1,180 @@
+
+<html>
+<head>
+    <title>Login | EuroBic Identity Provider Server</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" contentType="text/html; charset=ISO-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="icon" href="/img/favicon.ico">
+
+
+    <link rel="stylesheet" href="/css/vendor.min.css?v=suznkMapjp_weEjL02NNx4Q0Mgz0OcP7Sbe9Y_XfRu8" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/toastr.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-social.css">
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/login_bootstrap.css" />
+
+</head>
+<body>
+
+
+
+
+
+
+<!-- Modal HTML embedded directly into document -->
+<div id="ex1" hidden class="modal">
+    <form action="/Mfa/Verify" method="post">
+        <input type="hidden" id="ReturnUrl" name="ReturnUrl" value="/connect/authorize/callback?client_id=homebanking&amp;redirect_uri=https%3A%2F%2Fapps.eurobic.pt%2FLogin_eUI%2FNoPermission.aspx&amp;response_type=code&amp;scope=openid&amp;response_mode=form_post&amp;state=d9a76c2d-b0d8-4f9b-98a6-9d7faa8f5ef3&amp;nonce=1712153210" />
+
+        <div class="row">
+            <div class="col-md-12 pt-0">
+                <span class="modal_title">Inserir código</span>
+                <label class="modal_description pt-2">Envi&#xE1;mos-lhe um SMS Token para o telem&#xF3;vel . Introduza o c&#xF3;digo para confirmar a transa&#xE7;&#xE3;o.</label>
+
+                <div class="form-group pt-5 pt-0">
+                    <p class="">Código Token</p>
+                    <input type="password" maxlength="10" autofocus class="inputTextModal" tabindex="1" autocorrect="off" autocapitalize="off" autocomplete="off" data-val="true" data-val-required="The Code field is required." id="Code" name="Code" />
+                    <img src="/img/view.svg" class="eye eye_code" />
+                </div>
+                <p class="text_modal pt-3">
+                    Caso n&#xE3;o receba nenhum SMS Token do EuroBic por favor clique
+                    <button type="button" name="button" value="resend" class="btnLogin_resend" onclick=";" formnovalidate id="btnResend" >aqui</button>
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-end pt-5 pt-0">
+            <div class="col-11 row d-flex justify-content-end modal_button">
+                <button type="button" class="btnLogin modal_cancel"><a href="#close-modal" rel="modal:close" class="btnLogin btnLogin_cancel">Cancelar</a></button>
+                <button type="submit" value="verify" name="button" class="btnLogin btlLogin_sided" id="btnLogin " >Continuar</button>
+            </div>
+        </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EpM0DzrPyxKvDWYsVyYyvGWuK-qeigAMmhv0oYApzlx21Y0GesYlCIlayLXF1OwRkBWt8FAKWXMM4RAewcu_lgVF-Y_flRU8vb2bUH3e03-xdJrv16B23anEfNWGHqSOZ5l3rWzF_csfUNcu2hba8s" /></form>
+</div>
+
+<div class="container-fluid">
+    <div class="row login_left_row">
+        <div class="col-md-7 login_left">
+            <div class="login__left-wrap row d-flex justify-content-center pt-3 pt-md-0 pr-3 pl-3 pr-md-0 pl-md-0 ">
+                <!--Grid column-->
+                <div class="col-md-11 col-lg-10 col-xl-7 items-end flex-column">
+                    <div class="row login_left_row intro">
+                        <div class="col-12 pt-3">
+                            <img class="logo" alt="eurobic_logo" src="/img/logo_branca.svg">
+                            <h2 class="private white bold_600 paddingtop">&#xC1;rea Privada EuroBic NET</h2>
+                            <span class="private_description white">
+                                Esta &#xE9; uma &#xE1;rea exclusivamente reservada a clientes particulares e empresariais que permite o acesso a um vasto leque de consultas e opera&#xE7;&#xF5;es que podem ser feitas on-line.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="big-links row mt-auto pt-3 pt-md-0 pb-3">
+                        <div class="col-6 col-lg-5 col-xl-5">
+                            <img class="login_call_logo" src="/img/call.svg">
+                        </div>
+                        <div class="col-6 col-lg-7 col-xl-7">
+                            <div class="row ">
+                                <p class="big-links__title white font-weight-bold">LINKS ÚTEIS</p>
+                                <ul class="big-links__utils">
+                                    <li><a href="https://www.eurobic.pt/eurobic/politica-de-privacidade">Privacidade</a></li>
+                                    <li><a href="https://www.eurobic.pt/eurobic/aviso-legal">Aviso legal</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 login_right">
+            <div class="row login_right_row d-flex justify-content-center pr-3 pl-3 pr-md-0 pl-md-0">
+                <div class="col-md-11 col-lg-8 intro">
+
+                    <form action="/Account/Login" method="post">
+                        <input id="returnUrl" type="hidden" name="ReturnUrl" value="/connect/authorize/callback?client_id=homebanking&amp;redirect_uri=https%3A%2F%2Fapps.eurobic.pt%2FLogin_eUI%2FNoPermission.aspx&amp;response_type=code&amp;scope=openid&amp;response_mode=form_post&amp;state=d9a76c2d-b0d8-4f9b-98a6-9d7faa8f5ef3&amp;nonce=1712153210" />
+                        <label class="login_login pt-3 pt-0 pb-5">Login<a class="login_register" href="https://apps.eurobic.pt/Login_eUI/RegisterMC.aspx"> | Registo</a></label>
+                        <div class="form-group pb-4 padding12">
+                            <span>Nº de utilizador</span>
+                            <input type="text" autofocus class="form-control login_input" tabindex="1" autocorrect="off" autocapitalize="off" autocomplete="off" data-val="true" data-val-required="The Username field is required." id="Username" name="Username" value="" />
+                        </div>
+                        <div class="form-group pt-3 pt-md-0">
+                            <div class="pb-2 pb-md-0">
+                                <span>Password</span>
+                                <input type="password" class="form-control login_input" autocomplete="off" tabindex="2" autocorrect="off" autocapitalize="off" id="__chave" data-val="true" data-val-required="The Password field is required." name="Password" />
+                                <img src="/img/view.svg" class="eye eye_code_login" />
+                            </div>
+                            <label class="pt-3 line_17">Esqueci-me dos meus códigos de acesso. <br /><a class="resend" href="https://apps.eurobic.pt/Login_eUI/AskToResendMC.aspx">Reenviar.</a></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 pt-4 pt-md-4 d-flex justify-content-end">
+                                <button type="submit" name="button" value="login" class="btnLogin" id="btnLogin">Confirmar</button>
+                            </div>
+                        </div>
+
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EpM0DzrPyxKvDWYsVyYyvGWuK-qeigAMmhv0oYApzlx21Y0GesYlCIlayLXF1OwRkBWt8FAKWXMM4RAewcu_lgVF-Y_flRU8vb2bUH3e03-xdJrv16B23anEfNWGHqSOZ5l3rWzF_csfUNcu2hba8s" /></form>
+
+
+                    <div class="row copyright  justify-content-center d-none d-md-flex">
+                        <div class="col-12">
+                            <div class="row pt-3 pt-md-0 pb-3 ">
+                                <div class="col-12 col-md-4 col-lg-3 align-self-sm-end">
+                                    <a href="#"
+                                       onclick="window.open('https://www.eurobic.pt/eurobic/recomendacoes-seguranca-eurobic-net', 'newwindow');">
+                                        <img src="/img/seguranca.png" class="pb-3 security" />
+                                    </a>
+
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-9 pt-3 pt-md-0 d-flex align-items-end">
+                                    <p class="copyright_label">&copy; 2021  Banco BIC Portugu&#xEA;s, S.A. Todos os direitos Reservados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 d-block d-md-none">
+                    <div class="col-12">
+                        <div>
+                            <hr class="d-block d-md-none" />
+
+                        </div>
+                        <div class="row ">
+                            <div class="col-12  col-md-3">
+                                <a href="#"
+                                   onclick="window.open('https://www.eurobic.pt/eurobic/recomendacoes-seguranca-eurobic-net', 'newwindow');">
+                                    <img src="/img/seguranca.png" />
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-7 pt-3 pt-md-0">
+                                <p class="copyright_label">&copy; 2021  Banco BIC Portugu&#xEA;s, S.A. Todos os direitos Reservados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/site.js"></script>
+<script src="/js/jquery-modal.js"></script>
+<script src="/js/modalexec.js"></script>
+
+
+
+<input id="AppInsightsInstrumentationKey" type="hidden" value="a8d2324c-1b44-498d-85b8-3c97f2186a2d" />
+<input id="AppInsightsOperationId" type="hidden" value="b3776ab435760f459545953293be4887" />
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=735471170"></script>
+</body>
+</html>

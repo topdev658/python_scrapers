@@ -1,0 +1,92 @@
+GET
+https://oficinaempresas.bankia.es/api/1.0/login/key
+RESP
+{"j_gid_response_rsa":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZlFZwx+iwRB3bU/iFz0V2bjMWEP2s3b4bSH5wgTAnPTRw1gAzc4QID2rj+J45kCscNeN3tAbRRHgODxNRlylwHzZn7kHXLpDcfVnoxG/N3pDGiMNEJqvgxyuvdzwGqgRNVq0i6l34eWzY7toHCZKu7wkqxf1170dGTrrQRvbEsQIDAQAB","j_gid_response_url":"/login_fr.jsp","j_gid_response_domain":".bankia.es","j_gid_response_lt":"TL-11168100-dFCHLBETGsSOVYHvPg4XxemK9eL0Bh3VQOL","version-gid-client":"1.0.25-05","j_gid_response_original_request":"/api/1.0/login/key"}
+
+
+
+
+POST
+https://oficinaempresas.bankia.es/api/1.0/escenariocliente/personalizacion/login
+DATA
+j_gid_action=login
+j_gid_cod_app=o2
+j_gid_num_usuario=0001
+j_gid_password=KcbmS/7YpytIi8OJsiVmnDZvGRpTY32VFBngFQSPeem8Aq7oAxsoDQwaCuVYrcuWE17v8FbRn3NpT poKVs0kCz3x5 CLcschU5HmJnMEFclpJAuwi7JFYR6fzzE2z2OWGbW0wQ13uLWkP9/s4Og73mWF9oyHPU  7vVE2Wp0pM=
+j_gid_num_contrato=0
+
+
+j_gid_password=FqnPusm3N7tOIBiw1 Ak/4d PmvnmDMk9vgYwJyorjNEL4PqM9AP0faq EpRnSJdyZPiPIUkdsqvFAHukGoJfxrYBmEK0UbT7/9P RLGqONm5FT0JvzIr2VPh2GTSQ5xvjBsyQrLtUuf0m5AwuPEzyf7gLa3heFEBAEMOco6of0=
+
+
+
+00:33:01.799	1.084	1573	156	GET	200	application/json	https://oficinaempresas.bankia.es/api/1.0/sap/contratosmultiacceso
+
+00:33:06.081	0.976	1744	177	POST	200	application/json	https://oficinaempresas.bankia.es/api/1.0/posicionglobal/productos
+POSTDATA {"idVista":"1"}
+
+
+Scripts
+
+
+
+AuthSrv...js
+
+41 ... jsEncrypt.setKey(passwordRSAKey); <--- passwordRSAKey = j_gid_response_rsa
+60: ...deferred.resolve(jsEncrypt.encrypt(string));...
+102 ... obj['j_gid_password'] = value;
+
+
+eval jsEncrypt.encrypt(string), string = j_gid_response_rsa
+
+    angular.module('bankia.oie.login')
+        .factory('AuthSrv', ['$q', '$window', 'BkHttp', 'BkAppConfig',
+            function ($q, $window, BkHttp, BkAppConfig) {
+                var passwordRSAKey,
+                    jsEncrypt = new JSEncrypt(),
+                    dataConfig = BkAppConfig.getAppConfig(),
+                    baseUrl = dataConfig.apiBaseUrl,
+                    appCode = dataConfig.codeApp;
+
+                function reject(deferred) {
+                    return function (data) {
+                        passwordRSAKey = data.j_gid_response_rsa;
+                        jsEncrypt.setKey(passwordRSAKey);
+                        deferred.reject(data);
+                    };
+                }
+
+                function getPasswordKey() {
+                    var deferred = $q.defer();
+                    if (passwordRSAKey) {
+                        deferred.resolve(passwordRSAKey);
+                    } else {
+                        BkHttp.get(baseUrl + '/login/key')   <----------
+                            .success(function (data) {
+                                passwordRSAKey = data.j_gid_response_rsa;  <-----
+                                jsEncrypt.setKey(passwordRSAKey);  <-------------
+                                deferred.resolve(passwordRSAKey);
+                            }).error(function (data, status) {
+                                if (status === 307 || status === 403) {
+                                    passwordRSAKey = data.j_gid_response_rsa;
+                                    jsEncrypt.setKey(passwordRSAKey);
+                                    deferred.resolve(passwordRSAKey);
+                                } else {
+                                    deferred.reject(data);
+                                }
+                            });
+                    }
+                    return deferred.promise;
+                }
+
+                function encrypt(string) {
+                    var deferred = $q.defer();
+
+                    getPasswordKey().then(function () {
+                        deferred.resolve(jsEncrypt.encrypt(string));  <------------
+                    }, reject(deferred));
+
+                    return deferred.promise;
+                }
+
+jsencrypt...js

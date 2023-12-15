@@ -1,0 +1,25 @@
+1. USE TEST DB
+2. scrape 97716 BBVA
+3. 14 accounts
+Then operate with account ES6801822346110201514244 (acceess 3622)
+4. delete one movememt in the middle of the last date
+    try to fix - should fix - fixed - OK
+
+5. delete first movement
+    try delete first mov - should: balance integrity error, can't fix
+
+
+
+no prev movements: should upload - PASSED
+
+balance integrity error in the middle of last date: should fix since broken movement - PASSED
+
+no first (of date to rescrape) movement into the db of in the DB (deleted) , but scraped now: should
+    balance int error - PASSED
+    can't fix - PASSED
+notifications if fixed last scraped date: PASSED
+send err notification if try_to_fix = False: PASSED
+check balance integrity error of movements in the DB after PROD fixed:
+
+
+

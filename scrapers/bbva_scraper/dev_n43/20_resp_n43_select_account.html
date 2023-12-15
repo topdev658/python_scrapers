@@ -1,0 +1,2803 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+    <script type="text/javascript" src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/scripts/css_browser_selector.js"></script>
+    <script type="text/javascript" src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/scripts/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/scripts/jquery-ui-1.9.1.custom.min.js"></script>
+
+    <script type="text/javascript" src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/scripts/kyos_posCuentas_all.js?v=1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+	var variableCoronita = false;
+	var globales={};
+
+	globales["fechaLimiteSuperada"] = true;
+	globales["diasProfundidadMax"] =1080;
+	globales["usuarioCX"]=false;
+	globales["mesesExtracto"] = "Enero/Febrero/Marzo/Abril/Mayo/Junio/Julio/Agosto/Septiembre/Octubre/Noviembre/Diciembre";
+
+    function kyos_isPortal() {
+        var isPortal = false;
+        //Se toma la url y se ve si contiene puerto (:)
+        if (window.location.host.indexOf(":")==-1) {
+            isPortal = true;
+        }
+        return isPortal;
+    }
+
+    function kyos_getJunction() {
+        var kyos_junction = '';
+        if (kyos_isPortal()) {
+            kyos_junction = '/SESEYOZ';
+        } else {
+            kyos_junction = '';
+        }
+        return kyos_junction;
+    }
+
+    function kyos_getRutaEstaticos(){
+
+        var kyos_rutaEstaticos = '';
+        if(window.location.host.indexOf("localhost")==-1){
+                kyos_rutaEstaticos = kyos_getJunction()+'/eyoz_mult_web_pub/';
+        }
+        else{
+                kyos_rutaEstaticos = kyos_getJunction()+'/eyoz_mult_web_posicioncuentas_01/resources/';
+        }
+        return kyos_rutaEstaticos;
+	}
+</script>
+
+
+
+    <script type="text/javascript" >
+
+function queryString() {
+  var qsParm = new Array();
+  var query = window.location.href.split('?');
+  console.log('Parámetros url');
+  console.log(query);
+  var parms = [];
+  if(query[1] !== undefined){
+    parms = query[1].split('&');
+  }
+  console.log(parms);
+  for (var i = 0; i < parms.length; i++) {
+    var pos = parms[i].indexOf('=');
+    if (pos > 0) {
+      var key = parms[i].substring(0, pos);
+      var val = parms[i].substring(pos + 1);
+      qsParm[key] = val;
+    }
+  }
+  console.log(qsParm);
+  return qsParm;
+}
+
+function getQueryString(key) {
+  var arr = queryString();
+  return arr[key];
+}
+
+function applyCoronitaTheme() {
+  var link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('type', 'text/css');
+  if (window.top.isInformationalArchitecture || getQueryString('isInformationalArchitecture') !== undefined) {
+	link.setAttribute('href', kyos_getRutaEstaticos()+"posicioncuentas/css/main_SyM.css");
+	document.getElementsByTagName('head')[0].appendChild(link);
+    window.top.isInformationalArchitecture = true;
+    variableCoronita=true;
+  } else {
+	  variableCoronita=false;
+	  controlarCSS();
+  }
+}
+
+
+applyCoronitaTheme();
+
+function controlarCSS(){
+
+
+var fileref2=document.createElement("link");
+fileref2.setAttribute("rel", "stylesheet");
+fileref2.setAttribute("type", "text/css");
+
+if(kyos_isPortal()){
+//	if(true){
+		var fileref=document.createElement("link");
+		fileref.setAttribute("rel", "stylesheet");
+		fileref.setAttribute("type", "text/css");
+
+		var fileref3=document.createElement("link");
+		fileref3.setAttribute("rel", "stylesheet");
+		fileref3.setAttribute("type", "text/css");
+
+		var fileref4=document.createElement("link");
+		fileref4.setAttribute("rel", "stylesheet");
+		fileref4.setAttribute("type", "text/css");
+
+	    pnm_stylesCSS='../../SESKYOP/kyop_mult_web_pub/resources/css/pnm_styles.css?vkyop=v0.5';
+		estructurasCSS='../../SESKYOP/kyop_mult_web_pub/resources/css/pnm_estructuras.css?vkyop=v0.5';
+
+		/*pnm_stylesCSS='http://ai003.igrupobbva:6812/kyop_mult_web_pub/resources/css/pnm_styles.css?vkyop=v0.';
+	    estructurasCSS='http://ai003.igrupobbva:6812/kyop_mult_web_pub/resources/css/pnm_estructuras.css?vkyop=v0.';*/
+
+		nuestrosCSS=kyos_getRutaEstaticos()+"posicioncuentas/css/util.css";
+		fileref.setAttribute("href", pnm_stylesCSS);
+		 document.getElementsByTagName("head")[0].appendChild(fileref);
+
+		fileref3.setAttribute("href", estructurasCSS);
+			document.getElementsByTagName("head")[0].appendChild(fileref3);
+
+		fileref4.setAttribute("href", nuestrosCSS);
+			document.getElementsByTagName("head")[0].appendChild(fileref4);
+}else{
+	variableCoronita=true;
+ 	//nuestrasFonts=kyos_getRutaEstaticos()+"posicioncuentas/css/main_SyM_extendido.css";
+ 	nuestrasFonts=kyos_getRutaEstaticos()+"posicioncuentas/css/main_SyM.css";
+	fileref2.setAttribute("href", nuestrasFonts);
+	document.getElementsByTagName("head")[0].appendChild(fileref2);
+}
+
+
+}
+
+</script>
+    <script type="text/javascript" >
+
+	var fileref5=document.createElement("script");
+	fileref5.setAttribute("language", "javascript");
+	fileref5.setAttribute("type", "text/javascript");
+
+	if(kyos_isPortal()){
+		portalJS='../../SESKYOP/kyop_mult_web_pub/external/utilPortalKyop.js';
+	}else{
+		portalJS=kyos_getRutaEstaticos()+'posicioncuentas/scripts/utilPortalKyop.js';
+	}
+
+	fileref5.setAttribute("src", portalJS);
+	document.getElementsByTagName("head")[0].appendChild(fileref5);
+</script>
+    <script type="text/javascript">
+
+
+	window.kyos_borrarCache=false;
+	window.kyos_bloquearClickCuentas=true;
+	window.kyos_paginarCuentas=false;
+	window.kyos_contratadas=new Array();
+	window.kyos_limiteCuentas=0;
+
+	window.kyos_maximoSaldoMostrar=9999999999999.99
+	window.kyos_enableAcortarCuentas=false;
+
+	window.kyos_calendariosNoCargados=true;
+	window.kyos_locale = "es";
+	window.kyos_formatoFecha = "dd/MM/yyyy";
+	window.kyos_formatoImporte = "#.##0,00";
+	window.kyos_refUser="";
+	window.kyos_codProducto="";
+	window.kyos_codProductoFinet="210";
+	window.kyos_codProcedencia = "0276";
+	window.kyos_consMov_fechaSel = 0;
+	window.kyos_consMov_fechaDesde = '';
+	window.kyos_consMov_fechaHasta = '';
+	window.kyos_consMov_importeDesde = '';
+	window.kyos_consMov_importeHasta = '';
+
+	window.kyos_consCert_fechaSel = 0;
+	window.kyos_consCert_fechaDesde = '';
+	window.kyos_consCert_fechaHasta = '';
+
+	window.kyos_tempPosCuentas=1;
+	window.temporizadorPC;
+	window.temporizadorMov;
+ 	window.temporizadorSaldo;
+
+	window.kyos_cargaInicialConceptoMov = true;
+	window.kyos_conceptosMovSel = [];
+	window.kyos_conceptos;
+
+	window.kyos_isReset = false;
+
+	window.kyos_numdivisas = 0;
+	window.kyos_divisas = [];
+	window.kyos_numCuentasPorDivisas = new Array();
+	window.kyos_indices = new Array();
+	window.kyos_cuentas = [];
+	window.kyos_cuentasSinSaldo = new Array();
+	window.kyos_cuentasConSaldo = new Array();
+	window.kyos_saldoDisponible = [];
+	window.kyos_timeout=60000;
+
+	window.kyos_esRecargaPC = true;
+	window.kyos_noFavoritas = [];
+	window.kyos_divisasFavoritas = [];
+
+	window.kyos_fechas=[];
+	window.kyos_saldos=[];
+	window.kyos_importesNegativos=[];
+	window.kyos_importesPositivos=[];
+	window.kyos_importeTotal=[];
+
+	window.kyos_ultimoMovimiento=0;
+	window.kyos_descargaDetalleMovimiento =[];
+
+	window.kyos_customerCuentaGrid = new Array();
+	window.kyos_paginacionTLSMT017 = new Array();
+	window.kyos_paginacionTLSMT016 = new Array();
+	window.kyos_paginacionTLSMT016131 = new Array();
+	window.kyos_paginacionMOVDIA = new Array();
+	window.kyos_paginacionMovSaldos = new Array();
+	window.kyos_ultimaFechaMovimientos = new Array();
+	window.kyos_esReset = new Array();
+	window.kyos_movimientos_ishide= new Array();
+	window.kyos_movimientos_ultima_paginacion= new Array();
+	window.kyos_parametros  = new Array();
+
+	window.kyos_numdivisasSinFiltrar = 0;
+	window.kyos_divisasSinFiltrar = [];
+	window.kyos_numCuentasPorDivisasSinFiltrar = new Array();
+	window.kyos_indicesSinFiltrar = new Array();
+	window.kyos_cuentasSinFiltrar = [];
+	window.kyos_esPrimerFiltrado = true;
+
+	window.kyos_esRangoFechas = false;
+
+	window.kyos_primeraCargaDivisas=true;
+	window.kyos_esPrimerAcceso = true;
+	window.kyos_tipoCambioManual = false;
+	window.kyos_temporizadorNoInicializado=true;
+	window.kyos_temporizadorSaldosNoInicializado=true;
+	window.kyos_divisaOrig;
+	window.kyos_consolidados = new Array();
+	window.kyos_comboDivisas = "";
+	window.kyos_primeraCargaTotalGlobalTooltip=true;
+
+	window.kyos_bancos = new Array();
+
+	window.kyos_cuentas_seleccionadas = [];
+	window.kyos_numCuentasSeleccionadas = 0;
+	window.kyos_cuentas_seleccionadasDescarga = [];
+
+	window.kyos_paisCuenta = new Array();
+	window.kyos_DivisaDefecto = "EUR";
+	//--inicializamos a false por si no ha pasado por el update (por ejemplo desde Posicion de Usuario)
+	window.kyos_estadoUpdate=2;
+
+	window.kyos_tipoSaldo=undefined;
+	window.invocador_inverso = undefined;
+	window.redireccionExterna = false;
+	window.kyos_volverAPortada = false;
+	window.kyos_maxInformes=false;
+	window.kyos_maxInformesCreados = 15;
+
+	window.kyos_serviciosRelacionadosPath='';
+	window.kyos_serviciosRel=[];
+	window.kyos_invocadorInverso=[];
+	window.kyos_informes=[];
+
+	window.kyos_cargandoTooltip=true;
+
+	window.kyos_ultimosMovimientos=false;
+	window.kyos_ultimosMovimientosNumMostrar=0;
+
+	window.kyos_referencia='';
+
+	window.kyos_detalleFromExtractoCargado=new Array();
+	window.kyos_hayExtracto=new Array();
+	window.kyos_esMovClienteEspecial=new Array();
+	window.kyos_ultimoSaldo = new Array();
+    window.kyos_ultimaFecha = new Array();
+    window.kyos_falgASC = false;
+    /*Esta variable almacena si ya hemos llamado al update de ES para no repetir llamadas*/
+    window.kyos_llamadaUpdateES = false;
+/*
+LUIS ORDENACION
+*/
+	window.paginationOrder = new Object();
+	window.allowTableSorterOrder = false;
+	window.kyos_ordenar=true;
+	window.kyos_firstOrderPpal=true;
+	window.kyos_cajaAbierta=false;
+	window.kyos_columnasTablas=new Array();
+
+	window.kyos_listadoCertificados = new Array();
+	window.kyos_listadoCClient = new Array();
+	window.kyos_solicitarCertificado = new Array();
+
+	window.kyos_codProceso = "";
+	window.isFinetBoton=false;
+
+	//kyos_generarTablaPosicionCuentasDivisas(5);
+
+	$(document).ready(function() {
+		window.isFinetBoton=$('#kyos_isFinetBoton').val();
+		kyos_resetTraza("Carga de portada Posicion Cuentas",true);
+		kyos_pintarTraza(0);
+		checkVistaCompatible();
+		var invocador_inverso=$('#kyos_invocador_inverso').val();
+		var redireccionExterna =$('#kyos_redireccionExterna').val();
+		kyos_cargarCalendariosPC();
+
+		if(window.kyos_codProducto==window.kyos_codProductoFinet){
+			$('#kyos_seleccionarListadoCuentas').html($('#kyos_FINETSeleccionarListadoCuentas').html());
+			$('#kyos_totalCuentasContabilizadas')[0].style.display ="none";
+			$('#kyos_ultimosMovimientosText').html($('#kyos_FINETUltimosMovimientosText').html());
+			$('#kyos_tempPosCuentas').html($('#kyos_FINETActualizadoText').html());
+		}
+
+		if(invocador_inverso=='false'){
+			kyos_temporizadorActualizaDatos('PC');
+			kyos_pintarTraza(1);
+			kyos_generarTablaPosicionCuentasDivisas(5);
+
+
+
+			kyos_iniciarCaseInsesitive();
+			kyos_cargarAdjustDate();
+		}else {
+			var cuentaMovCuenta=$('#kyos_cuentaMovCuenta').val();
+			var aliasMovCuenta=$('#kyos_aliasMovCuenta').val();
+			var divisaMovCuenta=$('#kyos_divisaMovCuenta').val();
+			var bancoMovCuenta=$('#kyos_bancoMovCuenta').val();
+			var referenciaMovCuenta=$('#kyos_referenciaMovCuenta').val();
+			var saldoCuenta = $('#kyos_saldoCuenta').val();
+			var saldoContable = $('#kyos_saldoContable').val();
+			var titularCuenta = $('#kyos_titularCuenta').val();
+			var errorRedex = $('#kyos_errorRedex').val();
+			//Campos que solo se informan en la redireccion de alertas con filtro
+			var fechaFiltro=$('#kyos_fechaFiltro').val();
+			var importeFiltro=$('#kyos_importeFiltro').val();
+			window.kyos_bloquearClickCuentas=false;
+			if(redireccionExterna=='true'){
+				window.redireccionExterna=true;
+				kyos_lanzarPosCuentasBckgnd();
+			}
+			//kyos_refrescarSaldoDisponible(cuentaMovCuenta,bancoMovCuenta);
+			kyos_irAMovsCuenta(cuentaMovCuenta,aliasMovCuenta,divisaMovCuenta,'',bancoMovCuenta,referenciaMovCuenta,true,saldoCuenta, titularCuenta, undefined, fechaFiltro, importeFiltro, undefined, saldoContable);
+		}
+
+		if($('body').hasClass('rwd-smartphone')){
+			window.kyos_ordenar=false;
+		}
+		/*
+		LUIS ORDENACION
+		*/
+		if(window.kyos_ordenar){
+			kyos_pintarTraza(2);
+			$('.tablesorter').delegate('', 'sortStart',function() {
+				//do something
+		    }).delegate('', 'sortBegin',function(e, table) {
+				if (window.allowTableSorterOrder) {
+					e.isDefaultPrevented();
+				} else {
+					e.preventDefault();
+				}
+			}).delegate('', 'sortEnd',function(e, table) {
+				$('.kyos_camposFiltroOrdenacion').remove();
+				if ($('#'+$(this).attr('id')+' .tablesorter-headerAsc').length > 0
+						|| $('#'+$(this).attr('id')+' .tablesorter-headerDesc').length > 0) {
+					eliminarFilasFechas(window.kyos_falgASC,$(this).attr('id'));
+				}
+				window.allowTableSorterOrder = false;
+				window.paginationOrder.indexCelda = undefined;
+		    });
+
+			$('.tablesorter th').delegate('', 'click', function(){
+			});
+
+
+			function colocarCaja(obj,esPpal){
+				var clase='kyos_camposFiltroOrdenacion';
+				if(esPpal==true)
+					clase='kyos_camposFiltroOrdenacionPpal';
+
+				var positionElement = $(obj).position();
+
+				var alturaCabecera = $(obj).outerHeight() + positionElement.top;
+				$('.'+clase).css('top', alturaCabecera+'px');
+				if($('.'+clase).hasClass('kyos_lastHeadChild')) {
+					var rightPosition = $('.'+clase).parent().css('padding-left');
+					$('.'+clase).css('right', rightPosition);
+				} else {
+					$('.'+clase).css('left', positionElement.left+'px');
+				}
+				$('.'+clase).css('min-width', $(obj).width()-10);
+
+			}
+
+			$('.kyos_camposFiltroOrdenacion li').delegate('', 'click', function(){
+				if($(this).hasClass('kyos_linkOcultarCol')){
+					kyos_mostrarFiltroColumnas(false);
+					return false;
+				}else{
+					if(!$(this).hasClass('kyfb_ocultarCol')){
+						var typeOrder = 0;
+						if ($(this).hasClass('kyos_desc')) {
+							typeOrder = 1;
+						}
+
+						$('.kyos_camposFiltroOrdenacion').remove();
+
+						window.allowTableSorterOrder = true;
+						var sorting = [[window.paginationOrder.indexCelda,typeOrder]];
+				        $('#'+window.paginationOrder.id).trigger("sorton",[sorting]);
+					}
+				}
+			});
+
+			$('.kyos_camposFiltroOrdenacionPpal li').delegate('', 'click', function(){
+				if($(this).hasClass('kyos_linkOcultarCol')){
+					kyos_mostrarFiltroColumnas(false);
+					return false;
+				}else{
+					if(!$(this).hasClass('kyfb_ocultarCol')){
+						var typeOrder = 0;
+						if ($(this).hasClass('kyos_desc')) {
+							typeOrder = 1;
+						}
+
+						$('.kyos_camposFiltroOrdenacionPpal').remove();
+
+						window.allowTableSorterOrder = true;
+						var sorting = [[window.paginationOrder.indexCelda,typeOrder]];
+						if(window.kyos_firstOrderPpal)
+							unirEnUnaTabla();
+				       	$('#kyos_tablaCuentasPpal').trigger("sorton",[sorting]);
+					}
+				}
+			});
+
+		 	$.tablesorter.addParser({
+		        id: 'importes',
+		        is: function(s) {
+		            return false;
+		        },
+		        format: function(s) {
+		            s = s.replace(/\./g,"");
+		            s = s.replace(/\,/g,"");
+		            s = s.replace(/\ /g,"");
+		            s = s.replace(/[a-zA-Z]/g,"");
+		            s = s.replace(/[()]/g,"");
+
+		            s = s.substring(0, s.length - 2) + "." + s.substring(s.length - 2, s.length);
+		            return s;
+		        },
+		        type: 'numeric'
+		    });
+
+			function unirEnUnaTabla(){
+				window.kyos_firstOrderPpal=false;
+				var htmlToInsert='';
+				htmlToInsert+= '<table id="kyos_tablaCuentasPpal" class="tableSorter">'
+				htmlToInsert+='<thead></thead>';
+				htmlToInsert+='<tbody></tbody>';
+				htmlToInsert+= '</table>';
+				$('#kyos_tablaSinConsolidarPC').append(htmlToInsert);
+				$('#kyos_tablaCuentasPpal thead').append($('#kyos_cabeceraPpal tr'));
+				$('#kyos_cabeceraPpal').hide();
+
+				for(var i=0; i<window.kyos_numdivisas; i++){
+					$('#kyos_posicionCuentasCabeceraDesplegable_'+i).hide();
+					$('#kyos_posicionCuentasGridInterno_'+i).hide();
+					var filas = $('#kyos_tablaGrid_'+i+' tr');
+					$('#kyos_tablaCuentasPpal tbody').append(filas);
+					$('[id^=kyos_posicionCuentasGridInterno_'+i+'_importeColumna3_] span').removeClass('marginRight10');
+					$('#kyos_tablaGrid_'+i).hide();
+				}
+				$('#kyos_tablaCuentasPpal').tablesorter({
+					cssChildRow: "tablesorter-childRow",
+					headers : {
+						0 : {sorter: false},
+						3 : {sorter: 'importes', empty: 'bottom', string: 'bottom'},
+						4 : {sorter: 'importes', empty: 'bottom', string: 'bottom'}
+					}
+				});
+			}
+			kyos_pintarTraza(3);
+	   }
+
+	});
+</script>
+    <script type="text/javascript" >
+	function fechaMinima(){
+		var minDate=new Date();
+		minDate.setDate(01);
+		minDate.setMonth(01);
+		minDate.setMonth(minDate.getMonth()-72);
+		var fechMinima = '0'+minDate.getDate()+'/0'+minDate.getMonth()+'/'+minDate.getFullYear();
+		document.getElementById('fechamin').innerHTML = fechMinima;
+	}
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9;IE=8"/>
+</head>
+<body>
+
+
+
+<style>
+
+	.rtsNotification {
+	        padding: 20px;
+	        font-size: 14px;
+	        background-color: #d4edfc;
+	        margin-bottom: 30px;
+	    }
+	.rtsNotiText{
+	    color: black;
+
+	    opacity:1;
+	}
+
+	#iconWarningError{
+		color:#b92a45;
+		margin-right: 10px;
+	}
+	#cruzCerrar{
+		float: right;
+	}
+	#divErrorTK, #divErrorSMS, #divErrorEmail {
+		font-size: 12px;
+		padding:15px 25px;
+		margin-bottom: 25px;
+	}
+	.azulCorporativo{
+	color:#237aba;
+	}
+	#iconoInfoNoti{
+		position: relative;
+		top: -10px;
+		font-size: 18px;
+	}
+	#kyfb_ventanaModal2F{
+		border: 1px solid #d3d3d3;
+	}
+	#rtsNotification{
+		background-color:#F4EEDA;
+		padding: 15px 40px 15px 18px;
+		font-size: 14px;
+		margin-bottom: 15px;
+	}
+	#tablaNoti{
+		background: transparent;
+		font-size: inherit;
+		border: none;
+		color: #000;
+	}
+	#tablaNoti:hover{
+		background: transparent;
+	}
+	.modalTitle{
+		font-size: 25px;
+		font-family: arial, sans-serif;
+	}
+	#iconRed{
+		color: red;
+	}
+	.mensajeError{
+		color:black;
+		margin: 15px 0px;
+		font-size: 11px;
+	}
+	#instruccionesToken{
+		margin-left: -6px;
+		margin-top: 25px;
+	}
+	#RTS_OTP{
+		margin-left: -4px;
+	}
+	#iconWarningErrorInput{
+		color: #b92a45;
+		font-size: 16px;
+	}
+	.rtsNotiText{
+		color: #666 !important;
+	}
+
+</style>
+<span id="idSesion2FA" style="display: none"></span>
+
+
+<input type="hidden" id="eyoz_2fa_haIntroducido" value="Ha introducido un c&oacute;digo incorrecto."/>
+
+
+<input type="hidden" id="eyoz_2fa_codigoCaducado" value="El c&oacute;digo de seguridad ha caducado. Solicite uno nuevo."/>
+
+
+<div id="modalTK" style="display: none;">
+    <div id="fondoModal2F" class="fondoTransparente mostrar"></div>
+    <div id="kyfb_ventanaModal2F" style="max-width: 600px; margin:auto;top:50px;" class="ventanaModal alturaAuto overFlowXHiddenMovil mostrar mostrarEnPrint">
+        <div id="rtsTituloM"class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de movimientos</h1>
+        </div>
+        <div id="rtsTituloS" class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de saldos</h1>
+        </div>
+        <div class="right" onclick="$('#modalTK').hide();scrollToBottom();">
+            <i class="icon-icn_t-iconLib_G10-64px cursorHand ocultarCoronita"></i>
+        </div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="2FError" class="ocultar"></div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="rtsNotification">
+            <table id="tablaNoti">
+                <tr>
+                    <td class="sinBordeInf">
+                        <span id="iconoInfoNoti" class="icon-icn_t-iconLib_D06-64px azulCorporativo"></span>
+                    </td>
+                    <td class="sinBordeInf">
+                        <p class="rtsNotiText">
+
+                            Para consultar información de antigüedad superior a 90 días
+                            <span class="TKF">introduzca el código de seguridad generado por su token físico </span>
+                            <span class="TKS" style="display:none;">introduzca el código de seguridad generado por su token (app Net Cash)</span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="left">
+            <h3>
+                <label class="darker">CÓDIGO DE SEGURIDAD</label>
+            </h3>
+        </div>
+        <div class="clearAll"></div>
+        <div id="challengeDiv" class="leftContainer">
+            <div id="kyfb_autenticarFirmasLeftContainerBody_eliminar" class="">
+                <div id="kyfb_RTSChallenge" class="mostrar">
+                    <br>
+                    <p class="TKF" style="">Introduzca en su token físico el identificador de esta operación:</p>
+                    <p class="TKS" style="display: none;">Introduzca en su token móvil el identificador de esta operación:</p>
+                    <br>
+                    <span style="font-weight: 100; letter-spacing: 10px; font-size: 21px;" class="fontBigger mostDarker RTSChallenge" id="desafio"></span>
+                    <br>
+                </div>
+                <div id="RTS_OTP" class="interior marginLeft0Movil ">
+                    <div style="padding: 10px 0px;" class="interior marginRightCero ">
+                        <label class="TKF" style="">Su token físico generará, a continuación, un código que debe teclear aquí:</label>
+                        <label class="TKS" style="display: none;">Su token móvil generará, a continuación, un código que debe teclear aquí:</label>
+                    </div>
+                    <div class="marginLeft0Movil ">
+                        <input type="text" maxlength="8" minlength="8" name="rts_inputtoken" placeholder="Código de seguridad" class="width75PxMovil left marginTop5 ancho200 altura25 "
+                               id="otp" onkeyup="validateMinLength(this);" > </div>
+                    <br>
+                    <div class="clearAll "></div>
+                    <span id="divErrorTK" class="rtsNotiText mensajeError"><span id="iconWarningErrorInput" class="icon-icon_alerta_Login-64px "></span> <span id="mensajeErr"></span></span>
+                    <div id="instruccionesToken" class="TKF" style="">
+
+                        <a  href="https://www.bbvacib.com//mov/LM/Criptocalculadora.pdf" target ="_blank" > <i class="icon-icn_t-iconLib_L01-64px"></i> Instrucciones de uso del token físico </a>
+                    </div>
+                    <div id="opcionSMS" class="containerFooter" style="">
+                        <br>
+                        <hr>
+                        <br>
+                        <div>
+                            <span style="color:#5bbeff;font-size:18px;" class="icon-icn_t-iconLib_D06-64px"></span> Como alternativa, puede obtener ahora el
+                            <a class="TKS" style="display: none;" onclick="viaSMS('TKS');">código de seguridad vía SMS</a>
+                            <a class="TKF" style="display:none;" onclick="viaSMS('TKF');">código de seguridad vía SMS</a>
+                            (****** <span id="telefono"></span>).
+                            <br>
+                            <span style="margin-left: 29px;line-height: 20px;">
+<!--                             <span>Coste: 0,18€/SMS (IVA incluido)</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearAll"></div>
+        <div class="marginTop10 right">
+            <button id=" "  value="" type="submit" class="grandote    azul left" onclick="validaDesafioDL();">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="modalSMS" style="display: none;">
+    <div id="fondoModal2F" class="fondoTransparente mostrar"></div>
+    <div id="kyfb_ventanaModal2F" style="max-width: 600px; margin:auto;top:50px;" class="ventanaModal alturaAuto overFlowXHiddenMovil mostrar mostrarEnPrint">
+        <div id="rtsTituloM"class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de movimientos</h1>
+        </div>
+        <div id="rtsTituloS" class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de saldos</h1>
+        </div>
+        <div class="right" onclick="$('#modalSMS').hide();scrollToBottom();">
+            <i class="icon-icn_t-iconLib_G10-64px cursorHand ocultarCoronita"></i>
+        </div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="2FError" class="ocultar"></div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="rtsNotification">
+            <table id="tablaNoti">
+                <tr>
+                    <td class="sinBordeInf">
+                        <span id="iconoInfoNoti" class="icon-icn_t-iconLib_D06-64px azulCorporativo"></span>
+                    </td>
+                    <td class="sinBordeInf">
+                        <p class="rtsNotiText">
+                            Para consultar información de antigüedad superior a 90 días introduzca el código de seguridad que le enviaremos vía SMS.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="left">
+            <h3>
+                <label class="darker">CÓDIGO DE SEGURIDAD</label>
+            </h3>
+        </div>
+        <div class="clearAll"></div>
+        <div id="infoDivSMS" class="leftContainer" style="display: none;">
+            <div id="kyfb_autenticarFirmasLeftContainerBody_eliminar" class="">
+                <div id="RTS_OTP" class="interior marginLeft0Movil ">
+                    <div style="padding: 10px 0px;" class="interior marginRightCero ">
+                        <label>Le enviaremos un código de seguridad por SMS al número de móvil: (****** <span id="telefono2"></span>):</label>
+                        <br>
+                        <!-- 	                        <label><span>Coste: 0,18€/SMS (IVA incluido)</label> -->
+
+                    </div>
+                    <div class="clearAll "></div>
+
+                </div>
+            </div>
+        </div>
+        <div id="challengeDivSMS" class="leftContainer" style="display: none;">
+            <div id="kyfb_autenticarFirmasLeftContainerBody_eliminar" class="">
+                <div id="RTS_OTP" class="interior marginLeft0Movil ">
+                    <div style="padding: 10px 0px;" class="interior marginRightCero ">
+                        <label><label>Introduzca el código de seguridad que habrá recibido via SMS:</label>
+                    </div>
+                    <div class="marginLeft0Movil ">
+                        <input type="text" maxlength="6" minlength="6" name="rts_inputtoken" placeholder="Código de seguridad" class="width75PxMovil left marginTop5 ancho200 altura25 "
+                               id="otp_sms" onkeyup="validateMinLength(this);" > </div>
+                    <br>
+                    <div class="clearAll "></div>
+                    <span id="divErrorSMS" class="rtsNotiText mensajeError"> <span id="iconWarningErrorInput" class="icon-icon_alerta_Login-64px"></span> <span id="mensajeErr"></span></span>
+
+
+                    <div class="marginTop20">
+                        <a class="cursorPointer" onclick="enviaOtpDLSMS()">Enviar nuevo SMS.</a>
+                        <!-- 		                    <span>Coste: 0,18€/SMS (IVA incluido)</span>		                     -->
+                    </div>
+
+                    <div id="opcionSMS" class="containerFooter" style="">
+
+                        <div id="viaTKF" class="containerFooter" style="display: none;">
+                            <br>
+                            <hr>
+                            <br>
+                            <div>
+                                <a onclick="viaToken()"><label>Acceder con dispositivo de seguridad (token fisico)</a>
+                            </div>
+                        </div>
+                        <div id="viaTKS" class="containerFooter" style="display: none;">
+                            <br>
+                            <hr>
+                            <br>
+                            <div>
+                                <a onclick="viaToken()"><label>Acceder con token móvil (app Net Cash)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearAll"></div>
+        <div id="challengeDivSMSBoton" class="marginTop10 right">
+            <button id=" " value="" type="submit" class="grandote    azul left" onclick="validaOtpDLSMS();">Aceptar</button>
+        </div>
+        <div id="infoDivSMSBoton" class="marginTop10 right">
+            <button id="" value="" type="submit" class="grandote azul left" onclick="irModalSMS2();">Enviar SMS</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="modalEmail" style="display: none;">
+    <div id="fondoModal2F" class="fondoTransparente mostrar"></div>
+    <div id="kyfb_ventanaModal2F" style="max-width: 600px; margin:auto;top:50px;" class="ventanaModal alturaAuto overFlowXHiddenMovil mostrar mostrarEnPrint">
+        <div id="rtsTituloM"class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de movimientos</h1>
+        </div>
+        <div id="rtsTituloS" class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de saldos</h1>
+        </div>
+        <div class="right" onclick="$('#modalEmail').hide();scrollToBottom();">
+            <i class="icon-icn_t-iconLib_G10-64px cursorHand ocultarCoronita"></i>
+        </div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="2FError" class="ocultar"></div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="rtsNotification">
+            <table id="tablaNoti">
+                <tr>
+                    <td class="sinBordeInf">
+                        <span id="iconoInfoNoti" class="icon-icn_t-iconLib_D06-64px azulCorporativo"></span>
+                    </td>
+                    <td class="sinBordeInf">
+                        <p class="rtsNotiText">
+                            Para consultar información de antigüedad superior a 90 días introduzca el código de seguridad que le enviaremos vía correo electrónico.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="left">
+            <h3>
+                <label class="darker">CÓDIGO DE SEGURIDAD</label>
+            </h3>
+        </div>
+        <div class="clearAll"></div>
+        <div id="infoDivEmail" class="leftContainer" style="display: none;">
+            <div id="kyfb_autenticarFirmasLeftContainerBody_eliminar" class="">
+                <div id="RTS_OTP" class="interior marginLeft0Movil ">
+                    <div style="padding: 10px 0px;" class="interior marginRightCero ">
+                        <label>Le enviaremos un código de seguridad via e-mail: (*** <span id="emailSpan"></span>):</label>
+
+                    </div>
+                    <div class="clearAll "></div>
+
+                </div>
+            </div>
+        </div>
+        <div id="challengeDivEmail" class="leftContainer" style="display: none;">
+            <div id="kyfb_autenticarFirmasLeftContainerBody_eliminar" class="">
+                <div id="RTS_OTP" class="interior marginLeft0Movil ">
+                    <div style="padding: 10px 0px;" class="interior marginRightCero ">
+                        <label >Introduzca el código de seguridad que habrá recibido via correo electrónico:</label>
+                    </div>
+                    <div class="marginLeft0Movil ">
+                        <input type="text" maxlength="6" minlength="6" name="rts_inputtoken" placeholder="Código de seguridad" class="width75PxMovil left marginTop5 ancho200 altura25 "
+                               id="otp_email" onkeyup="validateMinLength(this);" > </div>
+                    <br>
+                    <div class="clearAll "></div>
+                    <span id="divErrorEmail" class="rtsNotiText mensajeError"> <span id="iconWarningErrorInput" class="icon-icon_alerta_Login-64px"></span> <span id="mensajeErr"></span></span>
+                    <div class="marginTop20">
+                        <a class="cursorPointer" onclick="enviaOtpEmail()">Enviar nuevo e-mail.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearAll"></div>
+        <div id="challengeDivEmailBoton" class="marginTop10 right" style="display: none;">
+            <button id=" " value="" type="submit" class="grandote    azul left" onclick="validaOtpEmail();">Aceptar</button>
+        </div>
+        <div id="infoDivEmailBoton" class="marginTop10 right" style="display: none;">
+            <button id="" value="" type="submit" class="grandote azul left" onclick="irEmail2();">Enviar e-mail</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="modalSinOpcion" style="display: none;">
+    <div id="fondoModal2F" class="fondoTransparente mostrar"></div>
+    <div id="kyfb_ventanaModal2F" style="max-width: 600px; margin:auto;top:50px;" class="ventanaModal alturaAuto overFlowXHiddenMovil mostrar mostrarEnPrint">
+        <div id="rtsTituloM"class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de movimientos</h1>
+        </div>
+        <div id="rtsTituloS" class="left">
+            <h1 class="marginBottom10 modalTitle">Consulta de saldos</h1>
+        </div>
+        <div class="right" onclick="$('#modalSinOpcion').hide();scrollToBottom();">
+            <i class="icon-icn_t-iconLib_G10-64px cursorHand ocultarCoronita"></i>
+        </div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="2FError" class="ocultar"></div>
+        <div class="clearAll"></div>
+        <br>
+        <div id="rtsNotification">
+            <table id="tablaNoti">
+                <tr>
+                    <td class="sinBordeInf">
+                        <span id="iconoInfoNoti" class="icon-icn_t-iconLib_D06-64px azulCorporativo"></span>
+                    </td>
+                    <td class="sinBordeInf">
+                        <p class="rtsNotiText">
+                            Para consultar información de antigüedad superior a 90 días es necesario disponer de un teléfono o una dirección de correo electrónico validados. Contacte con el administrador de usuarios de su Net Cash o con su oficina.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="prueba" class="contenido">
+    <div id="kyos_contenidoPrincipal" class="fondoContenido">
+        <div class="interior">
+            <span id="idSesion" style="display: none"></span>
+            <span id="telefonoSpan" style="display: none"></span>
+            <input
+                    type="hidden" id="esPilotoPSD2" value="true"> <input type="hidden"
+                                                                         id="esPilotoGNC" value="false"> <input type="hidden"
+                                                                                                                id="kyos_invocador_inverso" value="false"> <input
+                type="hidden" id="kyos_isFinetBoton" value="false">
+            <input type="hidden" id="kyos_redireccionExterna"
+                   value=""> <input type="hidden"
+                                    id="kyos_cuentaMovCuenta" value=""> <input
+                type="hidden" id="kyos_aliasMovCuenta" value="">
+            <input type="hidden" id="kyos_divisaMovCuenta"
+                   value=""> <input type="hidden"
+                                    id="kyos_bancoMovCuenta" value=""> <input
+                type="hidden" id="kyos_referenciaMovCuenta"
+                value=""> <input type="hidden"
+                                 id="kyos_saldoCuenta" value=""> <input type="hidden"
+                                                                        id="kyos_saldoContable" value=""> <input
+                type="hidden" id="kyos_titularCuenta" value="">
+            <input type="hidden" id="kyos_errorRedex" value="">
+            <input type="hidden" id="kyos_referenciaExterna"
+                   value=""> <input type="hidden"
+                                    id="kyos_fechaDesde" value=""> <input
+                type="hidden" id="kyos_fechaHasta" value=""> <input
+                type="hidden" id="kyos_importeDesde" value="">
+            <input type="hidden" id="kyos_importeHasta" value="">
+            <input type="hidden" id="kyos_codConcepto" value="">
+            <input type="hidden" id="kyos_fechaFiltro" value="">
+            <input type="hidden" id="kyos_importeFiltro"
+                   value=""> <input type="hidden"
+                                    id="kyos_origen" value=""> <input type="hidden"
+                                                                      id="kyos_parametersGrafica" value="" />
+            <div id="kyos_templateMsgGrafica" style="display: none;">
+                <input type="hidden" id="kyos_estadoUpdate" value=""> <input
+                    type="hidden" id="kyos_volverAPortada">
+
+                <!-- Hidden para popups -->
+                <input type="hidden" id="kyos_entradaUltimosMovimientos" >
+                <input type="hidden" id="kyos_InProgressFlag" value="false">
+                <input type="hidden" id="kyos_desdeImporteSaldosInProgress">
+                <input type="hidden" id="kyos_hastaImporteSaldosInProgress">
+                <input type="hidden" id="kyos_seleccionarFechaConsultaInProgress">
+                <input type="hidden" id="kyos_fechaHastaPCInProgress"> <input
+                    type="hidden" id="kyos_fechaDesdePCInProgress"> <input
+                    type="hidden"
+                    id="kyos_mostrarConceptosSeleccionadosMovimientosTooltipInProgress">
+
+
+                <span id="kyos_msg_grafica_saldo">Saldo</span>
+                <span id="kyos_msg_grafica_ingresos">Ingresos</span>
+                <span id="kyos_msg_grafica_gastos">Gastos</span>
+
+                <span id="kyos_msg_grafica_mes_1">Enero</span>
+                <span id="kyos_msg_grafica_mes_2">Febrero</span>
+                <span id="kyos_msg_grafica_mes_3">Marzo</span>
+                <span id="kyos_msg_grafica_mes_4">Abril</span>
+                <span id="kyos_msg_grafica_mes_5">Mayo</span>
+                <span id="kyos_msg_grafica_mes_6">Junio</span>
+                <span id="kyos_msg_grafica_mes_7">Julio</span>
+                <span id="kyos_msg_grafica_mes_8">Agosto</span>
+                <span id="kyos_msg_grafica_mes_9">Septiembre</span>
+                <span id="kyos_msg_grafica_mes_10">Octubre</span>
+                <span id="kyos_msg_grafica_mes_11">Noviembre</span>
+                <span id="kyos_msg_grafica_mes_12">Diciembre</span>
+            </div>
+
+            <div id="kyos_templateMsgsTooltipMov" style="display: none;">
+                <span id="kyos_desdeMsgsTooltipMov">Desde</span> <span
+                    id="kyos_hastaMsgsTooltipMov">Hasta</span> <span
+                    id="kyos_nombreInformeMsgsTooltipMov">* Nombre del informe</span> <span
+                    id="kyos_nombreInformeInformesText">Nombre del informe</span>
+            </div>
+            <div id="kyos_templateMsgsDetalleMov" style="display: none;">
+                <span id="kyos_importeMsgsDetalleMov">Importe</span> <span
+                    id="kyos_paisMsgsDetalleMov">Pa&iacute;s</span> <span
+                    id="kyos_cuentaMsgsDetalleMov">N&uacute;mero de cuenta</span> <span
+                    id="kyos_bancoMsgsDetalleMov">Banco</span> <span
+                    id="kyos_divisaMsgsDetalleMov">Divisa</span> <span
+                    id="kyos_oficinaMsgsDetalleMov">Oficina</span> <span
+                    id="kyos_infoAdicionalMsgsDetalleMov">Informaci&oacute;n adicional</span> <span
+                    id="kyos_codOficinaOrigenDetalleMov">C&oacute;digo de oficina</span> <span
+                    id="kyos_fechaOperacionMsgsDetalleMov">Fecha de operaci&oacute;n</span> <span
+                    id="kyos_fechaValorMsgsDetalleMov">Fecha valor</span> <span
+                    id="kyos_codigoMsgsDetalleMov">C&oacute;digo</span> <span
+                    id="kyos_conceptoMsgsDetalleMov">Observaciones</span> <span
+                    id="kyos_extracto48horasMsgsDetalleMov">El extracto de este movimiento estar&aacute; disponible en 48 horas</span> <span
+                    id="kyos_remesaMsgsDetalleMov">Remesa</span> <span
+                    id="kyos_nombreEmisora">Nombre Emisora </span> <span
+                    id="kyos_comision">Comisi&oacute;n</span> <span
+                    id="kyos_cambioAplicado">Cambio aplicado</span>
+                <span id="kyos_fechaPlazo">Fecha plazo</span> <span
+                    id="kyos_numeroRegistro">N&uacute;mero de registro</span>
+            </div>
+
+            <div style="display: none;" id="kyos_tipo_certificados">
+
+                <span id="kyos_certificadosError">Error al listar los certificados</span> <span
+                    id="kyos_CERT_tipo_0490">Cargo de impuesto</span>
+                <span id="kyos_CERT_tipo_0491">Cargo de adeudos</span>
+                <span id="kyos_CERT_tipo_0492">Saldo Cero pr&eacute;stamo</span>
+                <span id="kyos_CERT_tipo_0493">Denegaci&oacute;n de aval</span>
+                <span id="kyos_CERT_tipo_0494">Denegaci&oacute;n de pr&eacute;stamo</span>
+                <span id="kyos_CERT_tipo_0495">Saldo a fecha, l&iacute;mite cuenta de cr&eacute;dito</span>
+                <span id="kyos_CERT_tipo_0496">Saldo de cuenta a una fecha</span>
+                <span id="kyos_CERT_tipo_0497">Saldo medio de cuenta</span>
+                <span id="kyos_CERT_tipo_0498">Saldo a fecha de dep&oacute;sito</span>
+                <span id="kyos_CERT_tipo_0499">Saldo medio de dep&oacute;sito </span>
+                <span id="kyos_CERT_tipo_0500">Solvencia con cuenta y saldos</span>
+                <span id="kyos_CERT_tipo_0501">Solvencia Viajes</span>
+                <span id="kyos_CERT_tipo_0502">Titularidad con IBAN y SWIFT</span>
+                <span id="kyos_CERT_tipo_0503">Titularidad con intervinientes</span>
+                <span id="kyos_CERT_tipo_0504">Titularidad de cuenta reubicada con cuenta origen y destino</span>
+                <span id="kyos_CERT_tipo_0505">Transferencia emitida</span>
+                <span id="kyos_CERT_tipo_0506">Transferencia recibida</span>
+                <span id="kyos_CERT_tipo_0604">Pensiones recibidas</span>
+                <span id="kyos_CERT_tipo_0605">N&oacute;minas recibidas</span>
+                <span id="kyos_CERT_tipo_0606">N&oacute;minas emitidas</span>
+                <span id="kyos_CERT_tipo_0611">Pago Seguros Sociales</span>
+                <span id="kyos_CERT_tipo_0612">Movimientos en cuenta o dep&oacute;sito</span> <span
+                    id="kyos_CERT_tipo_0609">Solvencia de renovaci&oacute;n de tarjeta de transporte</span>
+                <span id="kyos_CERT_Seleccion">Seleccione un tipo de certificado</span> <span
+                    id="kyos_consultarCertificado">Consultar Certificado</span>
+                <span id="kyos_CERT_requerido_usuario">U</span> <span
+                    id="kyos_CERT_requerido_front">F</span> <span
+                    id="kyos_detalleCertificado_fecha">fecha</span>
+                <span id="kyos_detalleCertificado_fechaDesdeHasta">fechaDesdeHasta</span> <span
+                    id="kyos_detalleCertificado_titular">titular</span>
+                <span id="kyos_CERT_Text_Client">Seleccione un titular</span>
+                <span id="kyos_CERT_Text_Cabecera">Seleccionar tipo de certificado</span>
+                <span id="kyos_CERT_Text_Seleccion_Titulo">Seleccione el tipo de certificado que desea solicitar</span>
+                <span id="kyos_CERT_Text_Titular">Seleccione un titular</span>
+                <span id="kyos_CERT_Text_Seleccion_Defecto">Elija tipo de certificado</span> <span
+                    id="kyos_CERT_Text_Boton">Seleccionar Certificado</span>
+                <span id="kyos_guardarSinFirmarCertificado">Se ha guardado sin firmar el certificado</span>
+                <span id="kyos_operacionAltaCertificado">Operaci&oacute;n realizada correctamente</span> <span
+                    id="kyos_operacionNoAltaCertificado">No se ha podido realizar la operaci&oacute;n correctamente, por favor, int&eacute;ntelo m&aacute;s tarde</span>
+                <span id="kyos_sinCertificadoEntontrado">No se ha encontrado ning&uacute;n certificado</span> <span
+                    id="kyos_justiTest">Solicitar justificante</span>
+                <span id="kyos_justiTest2">¿Qué desea hacer con el justificante?</span>
+                <span id="kyos_justiTestImp">Imprimir</span>
+                <span id="kyos_justiTestPDF">Exportar PDF</span>
+                <span id="kyos_justiTestMail">Enviar por mail</span> <span
+                    id="kyos_justiTestBoton">Aceptar</span>
+                <span id="kyos_mailDesText">Mail del destinatario</span> <span
+                    id="kyos_asunDestText">Asunto</span>
+                <span id="kyos_pdfEnviado">El mail ha sido enviado correctamente</span> <span
+                    id="kyos_pdfNoEnviado">Error en el env&iacute;o del PDF</span>
+                <span id="kyos_errorRecuperarUsuariosCertificados">Error al recuperar los datos del certificado</span>
+                <span id="kyos_tituloCertificadosPestana">Certificados</span>
+                <span id="kyos_errorTemporalContrato">En estos momentos no es posible visualizar el contrato, por favor, int&eacute;ntelo m&aacute;s tarde</span>
+                <span id="kyos_errorNoContrato">No es posible visualizar el contrato. Consulte con su gestor BBVA para m&aacute;s informaci&oacute;n</span>
+
+
+                <span id="kyos_cer_guardar">Guardar y firmar en otro momento</span>
+                <span id="kyos_cer_guardarYfirmar">Guardar y firmar</span>
+                <span id="kyos_noHayDatosCertificados">La consulta no devuelve resultados.</span> <span
+                    id="kyos_importeCertificado_0609">La cantidad máxima es de </span> <span
+                    id="kyos_errorASOCreateCertificate_00783003">No es posible generar el certificado. Consulte con su oficina.</span>
+                <span id="kyos_errorASOCreateCertificate_00783069">No es posible generar el certificado. El importe no puede superar el saldo de su cuenta.</span>
+
+                <span id="kyos_errorObtenerJustificante">Error al obtener el justificante</span> <span
+                    id="kyos_errorDireccionCorreo">Dirección de correo incorrecta</span> <span
+                    id="kyos_TraspasoOnline">Traspaso online</span> <span
+                    id="kyos_finet_refBBVA">BBVA</span>
+                <span id="kyos_finet_refCorresponsal">Corresponsal</span> <span
+                    id="kyos_finet_referencias">Referencias</span> <span
+                    id="kyos_aviso_movProvisional">Los movimientos marcados con "P" son provisionales, sólo serán definitivos cuando sean confirmados con el MT950 correspondiente.</span>
+                <span id="kyos_aviso_salProvisional">Los saldos marcados con "P" son provisionales, sólo serán definitivos cuando sean confirmados con el MT950 correspondiente.</span>
+                <span id="kyos_finet_refBBVA">BBVA</span>
+                <span id="kyos_finet_refCorresponsal">Corresponsal</span> <span
+                    id="kyos_FINETErrorInforme">Se ha producido un error al recuperar el informe</span>
+                <span id="kyos_FINETDetalleAACAvisoServicioContratado">Si desea disponer de este servicio, por favor contacte con su gestor.</span>
+                <span id="kyos_FINETSeleccionarListadoCuentas">Para consultar saldos o movimientos, seleccione previamente la(s) cuenta(s)</span>
+                <span id="kyos_FINETCodigoConceptoGrid">CÓDIGO BBVA</span> <span
+                    id="kyos_FINETActualizadoText">Última actualización hace menos de 1 minuto</span>
+                <span id="kyos_FINETActualizado">Actualizado hace</span> <span
+                    id="kyos_FINETAgo"></span> <span
+                    id="kyos_FINETUltimosMovimientosText">Últimas transacciones</span> <span
+                    id="kyos_FINETDesdeElText">Desde</span>
+
+                <span id="kyos_FINETDetalleAACReportTitulo">Detalle TAA</span>
+                <span id="kyos_tituloCuentasdepositos">Informe de T.A.A.</span>
+
+                <span id="kyos_informeTAA">Statement</span>
+                <span id="kyos_detalleTAA">Details</span>
+                <span id="kyos_certificados_certificado">Certificado</span>
+            </div>
+
+            <div id="kyos_template_Graf" style="display: none;">
+                <span id="kyos_verGrafico">Ver</span> <span
+                    id="kyos_ocultarGrafico">Ocultar</span>
+            </div>
+
+
+
+            <!-- kyos_consultarMovimientosTooltip -->
+            <div id="kyos_consultarMovimientosTooltip"
+                 class="kyos_popUpMovil kyos_popUpMovimientos kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                 style="display: none; height: auto;">
+                <div class="left">
+                    <h2>
+                        Consultar movimientos
+                    </h2>
+                </div>
+                <div class="kyos_closePopUp"
+                     onclick="kyos_ocultarConsultarMovimientosTooltip(true);">
+                    <img
+                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                            class="ocultarCoronita" /> <i class="icon-Cruz ocultarCoronita"
+                                                          onclick="kyos_ocultarConsultarMovimientosTooltip(true);"></i>
+                </div>
+                <div class="clearAll"></div>
+                <div id="kyos_alertasConsMov" style="display: none"></div>
+                <div class="kyos_columnaIzquierda"
+                     id="kyos_columnaDeFechasConsultaMov">
+                    <label>Seleccionar fechas:
+                    </label> <input type="hidden" id="kyos_seleccionarFechaConsultaDescarga"
+                                    value="0" /> <select id="kyos_seleccionarFechaConsulta"
+                                                         class="marginTop5Movil" onchange="kyos_seleccionarFechaSaldos();">
+                    <option value="0">
+                        Último día procesado
+                    </option>
+                    <option value="1">
+                        Rango de fechas
+                    </option>
+                    <option value="2">
+                        5 últimos días
+                    </option>
+                    <option value="3">
+                        10 últimos días
+                    </option>
+                    <option value="4">
+                        20 últimos días
+                    </option>
+                    <option value="5">
+                        30 últimos días
+                    </option>
+                    <option value="6">
+                        45 últimos días
+                    </option>
+                </select>
+                    <ul class="kyos_selectorFecha marginTop5Movil"
+                        id="kyos_fechadDesdePCUL" style="display: none">
+                        <li class="sinIcono kyos_fechaTexto"><input
+                                class="fecha text grisaceo marginBottom5Movil" type="text"
+                                value="Desde"
+                                id="kyos_fechaDesdePC"
+                                onclick="kyos_resetCampo('kyos_fechaDesdePC');"
+                                onfocus="kyos_borrarValorFechaInput('kyos_fechaDesdePC','Desde');"
+                                onblur="kyos_insertarValorFechaInput('kyos_fechaDesdePC','Desde');" />
+                        </li>
+                        <li class="sinIcono kyos_fechaIco">
+                            <div align="right" class="" id="kyos_datepickerDesdePC"></div>
+                            <div class="menuDrop">
+                                <button id="kyos_imgFechaDesdePC" value=""
+                                        class="grandote corto marginTop0" onclick="return false;">
+                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="kyos_selectorFecha marginTop5Movil"
+                        id="kyos_fechadHastaPCUL" style="display: none">
+                        <li class="sinIcono kyos_fechaTexto"><input
+                                class="fecha text left grisaceo" type="text"
+                                id="kyos_fechaHastaPC"
+                                value="Hasta"
+                                onclick="kyos_resetCampo('kyos_fechaHastaPC');"
+                                onfocus="kyos_borrarValorFechaInput('kyos_fechaHastaPC', 'Hasta');"
+                                onblur="kyos_insertarValorFechaInput('kyos_fechaHastaPC', 'Hasta');" />
+                        </li>
+                        <li class="sinIcono kyos_fechaIco">
+                            <div align="right" id="kyos_datepickerHastaPC"></div>
+                            <div class="menuDrop">
+                                <button id="kyos_imgFechaHastaPC" value=""
+                                        class="grandote corto marginTop0" onclick="return false;">
+                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                        class="kyos_columnaDerecha kyos_posicionColumnaDerechaMovimientosMovil"
+                        id="capaImportesBuscadorMovimientos">
+                    <label class="window.kyfb_referenciaEsFX">Importe: </label>
+                    <ul class="marginTop6 kyul_listInput marginTop5Movil">
+                        <li class="sinIcono"><input
+                                class="grisaceo marginBottom5Movil" type="text"
+                                value="Desde"
+                                id="kyos_desdeImporteSaldos"
+                                onclick="kyos_resetCampo('kyos_desdeImporteSaldos');"
+                                onfocus="kyos_borrarValorInput('kyos_desdeImporteSaldos','Desde');"
+                                onblur="kyos_insertarValorInput('kyos_desdeImporteSaldos', 'Desde');" />
+                        </li>
+                        <!-- 						<div class="clearAll"></div> -->
+                        <li class="sinIcono marginTop5Movil"><input class="grisaceo"
+                                                                    type="text"
+                                                                    value="Hasta"
+                                                                    id="kyos_hastaImporteSaldos"
+                                                                    onclick="kyos_resetCampo('kyos_hastaImporteSaldos');"
+                                                                    onfocus="kyos_borrarValorInput('kyos_hastaImporteSaldos', 'Hasta');"
+                                                                    onblur="kyos_insertarValorInput('kyos_hastaImporteSaldos', 'Hasta');">
+                        </li>
+                        <div class="clearAll"></div>
+
+                    </ul>
+                </div>
+
+                <div class="clearAll"></div>
+
+                <div style="display: none"
+                     class="kyos_columnaIzquierda kyos_posicionColumnaDerechaMovimientosMovil marginTop10"
+                     id="capafiltroReferenciasFinet">
+                    <label class="window.kyfb_referenciaEsFX">Referencias:</label>
+                    <ul class="marginTop20 kyul_listInput marginTop5Movil">
+                        <li class="sinIcono"><input
+                                class="grisaceo marginBottom5Movil" type="text"
+                                value="BBVA"
+                                id="kyos_referenciaBBVA"
+                                onclick="kyos_resetCampo('kyos_referenciaBBVA');"
+                                onfocus="kyos_borrarValorInput('kyos_referenciaBBVA','BBVA');"
+                                onblur="kyos_insertarValorInput('kyos_referenciaBBVA', 'BBVA');">
+                        </li>
+                        <div class="clearAll"></div>
+                        <li class="sinIcono marginTop10 marginTop5Movil"><input
+                                class="grisaceo" type="text"
+                                value="Corresponsal"
+                                id="kyos_referenciaCorresponsal"
+                                onclick="kyos_resetCampo('kyos_referenciaCorresponsal');"
+                                onfocus="kyos_borrarValorInput('kyos_referenciaCorresponsal', 'Corresponsal');"
+                                onblur="kyos_insertarValorInput('kyos_referenciaCorresponsal', 'Corresponsal');">
+                        </li>
+                        <div class="clearAll"></div>
+
+                    </ul>
+                </div>
+
+
+
+                <div class="clearAll"></div>
+
+                <div class="kyos_ordenacion" id="kyos_ordenacionTotal">
+                    <p>
+                        Mostrar primero:
+                    </p>
+                    <div>
+                        <input class="formulario" type="radio" id="kyos_ordenReciente"
+                               checked="checked" name="ordenMovimiento"
+                               onclick="deleteDateLimit()"
+                               style="cursor: pointer;"> <label id="masNuevoId"
+                                                                class="elementoFormulario" for="kyos_ordenReciente"
+                                                                style="cursor: pointer;">Movimiento más reciente </label>
+                    </div>
+                    <div>
+                        <input class="formulario" type="radio" id="kyos_ordenAntiguo"
+                               onclick="setDateLimit()" name="ordenMovimiento"
+                               style="cursor: pointer;"> <label id="masAntiguoId"
+                                                                class="elementoFormulario" for="kyos_ordenAntiguo"
+                                                                style="cursor: pointer;">Movimiento más antiguo </label>
+                    </div>
+                </div>
+
+
+                <!-- 		<div class="clearAll"></div> -->
+
+                <div class="kyos_consulta kyos_ocultarEnMovil marginTop10"
+                     id="capaConceptoBuscadorMovimientos">
+                    <label>Concepto: </label>
+                    <button class="azul botonIconoCorto anchoAuto"
+                            onclick="kyos_mostrarOcultarConceptosMovimientosTooltip();return false;">
+                        Buscar concepto
+                        <img
+                                src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/movimientos.png" />
+                    </button>
+                </div>
+
+                <div id="noExistenMov">
+                    <p id="kyos_ceroConceptosSeleccionadosMovimientosTooltip">
+                        No existe ning&uacute;n concepto seleccionado
+                    </p>
+                </div>
+                <span id="kyos_mostrarConceptosSeleccionadosMovimientosTooltip"
+                      style="display: none"></span>
+                <div class="clearAll"></div>
+                <div class="menuDrop">
+                    <div class="marginBottom10 right marginTop10 consultarMovimientos">
+                        <button class="botonIconoCorto botonPrincipalCoronita"
+                                type="button" value="consultarMovimientoTooltip"
+                                onclick="kyos_comprobadorConsultaMovimientos();"
+                                value="consultarMovimiento">
+                            Consultar
+                            <img class="marginLeft10Movil" alt=""
+                                 src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonConsultar.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- kyos_conceptosMovimientosTooltip -->
+            <div id="kyos_conceptosMovimientosTooltip"
+                 class="kyos_popUpMovimientos kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7 tooltipBoton"
+                 style="display: none; height: auto;">
+
+                <div id="kyos_conceptosMovTooltipTemplate">
+                    <div class="left">
+                        <h2 class="marginBottom10">
+                            Seleccionar conceptos
+                        </h2>
+                    </div>
+
+                    <div class="right">
+                        <img id="cerrarConceptos" style="cursor: pointer; cursor: hand"
+                             src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                             onclick="kyos_ocultarConceptosMovimientosTooltip();"
+                             class="ocultarCoronita" /> <i id="cerrarConceptosCoronita"
+                                                           style="cursor: pointer; cursor: hand"
+                                                           class="icon-Cruz ocultarCoronita"
+                                                           onclick="kyos_ocultarConceptosMovimientosTooltip();"></i>
+                    </div>
+
+                    <div class="clearAll"></div>
+
+                    <div class="dropDown dropTabla">
+                        <p class="grisaceo left marginLeft10 marginTop5">
+                            <span class="darker">Lista de conceptos </span>
+                        </p>
+                        <div class="interiorRight">
+                            <ul class="contenedorDrop">
+                                <li class="sinIcono">
+                                    <div class="menuDrop">
+                                        <input id="kyos_inputBuscarConceptosMov"
+                                               class="grisaceo ancho100 marginRight10" type="text"
+                                               name="buscar"
+                                               value="Buscar"
+                                               onkeyup="kyos_cargarBotonesOcultosConceptoTooltip();"
+                                               onfocus="kyos_borrarValorInput('kyos_inputBuscarConceptosMov', 'Buscar');"
+                                               onblur="kyos_insertarValorInput('kyos_inputBuscarConceptosMov', 'Buscar');">
+
+                                    </div>
+                                </li>
+
+                                <li class="sinIcono">
+                                    <button class="corto marginTop0 marginLeft5" value="Buscar">
+                                        <script>
+											console.log(variableCoronita);
+											if(variableCoronita)
+												document.write('<i class="icon-icn_t-iconLib_N09-64px ocultarCoronita"></i>');
+											else
+												document.write('<img src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonBuscar.png" class="ocultarCoronita"/>');
+
+											</script>
+
+                                    </button>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                        <div class="clearAll"></div>
+
+                    </div>
+
+                    <table>
+                        <thead>
+                        <input type="hidden" id="kyos_numConceptosMov" value="0">
+                        <input id="kyos_numConceptosMovSel" type="hidden" value="0">
+                        <tr>
+                            <th class="selectora sinBordeLateral" style="width: 15px;"><input
+                                    type="hidden" id="kyos_seleccionarTodosConceptosMov" /></th>
+                            <th class="ancho150">código</th>
+                            <th>Descripción</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                    <div id="kynf_scrollPosicionConceptosMov"
+                         class="scroll_scrollbarContent">
+                        <div class="scroll_scrollbar">
+                            <div class="scroll_track">
+                                <div class="scroll_thumb">
+                                    <div class="scroll_end"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll_viewport">
+                            <div class="scroll_overview">
+                                <table id="kyos_tablaConceptosMovTooltip">
+                                    <tbody id="kyos_conceptosMovimientosTBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearAll"></div>
+
+                    <div class="menuDrop">
+                        <div class="interiorRight marginBottom10 marginRight0">
+                            <button type="button" class="botonIconoCorto"
+                                    onclick="kyos_volverAConsultaMov();">
+                                Aceptar
+                                <img alt=""
+                                     src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/movimientos.png" />
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="kyos_cuerpo_container">
+
+                <div>
+                    <div class="left">
+                        <h1 class="kyos_newFont">
+                            Cuentas BBVA
+
+                            <span id="kyos_cuentasConsolidadasEn" class="grisaceo"></span>
+                        </h1>
+                    </div>
+
+                </div>
+                <div class="clearAll"></div>
+
+                <div id="kyos_actualizarPC"
+                     class="right kyos_actualizarDatosHead kyos_ocultarEnMovil">
+                    <a href="" onclick="kyos_recargaPosicionCuentas();return false;"
+                       style="float: right; padding-right: 5px"><i
+                            class="icon-Refrescar-64px"></i>
+                        Actualizar datos</a><br>
+                    <span><div class="marginLeft20" id="kyos_tempPosCuentas">
+								Actualizado hace menos de 1 minuto</span>
+                </div>
+                <!-- <a href="" onclick="kyos_recargaPosicionCuentas();return false;">Actualizar datos</a> -->
+
+            </div>
+
+            <img class="left marginTop8 ocultarCoronita"
+                 src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/total-consolidado.png" />
+            <i
+                    class="icon-icn_t-iconLib_C23-64px left marginTop8 ocultarCoronita"></i>
+            <div>
+                <div>
+                    <h2 class="paddingLeft40 kyos_newFont kyos_ocultarEnMovil">
+							<span class="fontSize18">Saldo global<span
+                                    id="kyos_consolidadoContable" style="display: none;"> consolidado</span></span> <span
+                            style="color: green;" id="kyos_totalGlobalContableConsolidado"></span>
+                        <span class="fontSize14 darker" style="color: green;"
+                              id="kyos_divisaTotalContableGlobalConsolidado"></span> <span
+                            onmouseout="kyos_ocultarInfoTotalGlobalConsolidadoTooltip();"
+                            onmouseover="kyos_mostrarInfoTotalGlobalConsolidadoTooltip(); return false;">
+								<!-- <img id="kyos_iconoInfoConsolidado" class="kyos_cursorPointer ocultarCoronita"  style="display: none;" src="/eyoz_mult_web_pub/posicioncuentas/img/iconoAlertaInfo.png" /> -->
+								<i id="kyos_iconoInfoConsolidado"
+                                   class="icon-icn_t-iconLib_D04-64px kyos_cursorPointer"
+                                   style="display: none;"></i>
+							</span> <br> <span class="fontSize16">Saldo disponible global</span>
+
+                        <span id="kyos_consolidado" style="display: none;"> consolidado</span> <span
+                            id="kyos_totalGlobalConsolidado"></span> <span
+                            class="fontSize14 darker" id="kyos_divisaTotalGlobalConsolidado"></span>
+                        </span>
+
+                        <div id="kyos_errorAPIFinanciero" style="display: none"
+                             class="fontSizeStandard errorConsolidacion">
+                            Actualmente no podemos ofrecerle el total consolidado de sus cuentas debido a un fallo en la recuperaci&oacute;n de contavalores. Si lo desea puede calcular este total usted mismo pulsando en el siguiente link:
+                        </div>
+                    </h2>
+                    <h2
+                            class="paddingLeft40 kyos_newFont kyos_ocultarEnPC kyos_mostrarEnMovil">
+							<span class="fontSize14Negrita">Saldo global<span
+                                    id="kyos_consolidadoContable" style="display: none;"> consolidado</span></span>
+                        <div id="kyos_divTotalContableMovil" class="">
+								<span class="" style="color: green;"
+                                      id="kyos_totalGlobalContableConsolidadoMovil"></span> <span
+                                class="fontSize14 darker" style="color: green;"
+                                id="kyos_divisaTotalContableGlobalConsolidadoMovil"></span> <span
+                                onmouseout="kyos_ocultarInfoTotalGlobalConsolidadoTooltip();"
+                                onmouseover="kyos_mostrarInfoTotalGlobalConsolidadoTooltip(); return false;">
+									<!-- <img id="kyos_iconoInfoConsolidadoMovil"  style="display:none" class="kyos_cursorPointer"  src="/eyoz_mult_web_pub/posicioncuentas/img/iconoAlertaInfo.png" /> -->
+									<i id="kyos_iconoInfoConsolidadoMovil"
+                                       class="icon-icn_t-iconLib_D04-64px kyos_cursorPointer"
+                                       style="display: none;"></i>
+								</span>
+                        </div>
+                        <span class="fontSize14Negrita"> Saldo disponible global <span
+                                id="kyos_consolidado" style="display: none;"> consolidado
+							</span>
+
+							</span> <span class="fontSize15">
+								<p class="kyos_mostrarEnMovil">
+									<span style="color: green;"
+                                          id="kyos_totalGlobalConsolidadoMovil"></span> <span
+                                        class="fontSize14 darker" style="color: green;"
+                                        id="kyos_divisaTotalGlobalConsolidadoMovil"></span>
+
+
+								</p> <span id="kyos_totalGlobalConsolidadoMovil"></span> <span
+                            class="fontSize14 darker"
+                            id="kyos_divisaTotalGlobalConsolidadoMovil"></span>
+							</span>
+
+                        <div id="kyos_errorAPIFinanciero" style="display: none"
+                             class="fontSizeStandard errorConsolidacion">
+                            Actualmente no podemos ofrecerle el total consolidado de sus cuentas debido a un fallo en la recuperaci&oacute;n de contavalores. Si lo desea puede calcular este total usted mismo pulsando en el siguiente link:
+                        </div>
+                    </h2>
+                </div>
+                <div class="clearAll"></div>
+                <div id="kyos_enlaceDivisa"
+                     class="paddingLeft40 kyos_linkCambioDivisa linkCambioDivisaMovil">
+                    <!--	#INC000002530308  - ELIMINAMOS EL ENLACE
+                        <a id="kyos_linkCambiarDivisa" href=""  onclick="kyos_mostrarVerOtraDivisaTooltip();return false;" style="display: none;" class="fontSizeStandard">Ver en otra divisa</a>
+-->
+                </div>
+
+                <div id="kyos_infoTotalGlobalConsolidadoTooltip"
+                     class="fondoDiferenciado kyop-tootip-background kyos_popUpInfoTiposCambio tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                     style="display: none; height: auto;"
+                     onclick="kyos_ocultarInfoTotalGlobalConsolidadoTooltip();">
+
+                    <div class="clearAll"></div>
+                    <span>Los tipos de cambio mostrados por defecto son meramente informativos. Para realizar una simulaci&oacute;n, modif&iacute;quelos a su conveniencia.</span>
+                </div>
+                <div class="clearAll"></div>
+                <div id="kyos_verOtraDivisaTooltip"
+                     class="kyos_popUpConsolidar kyos_consolidarUp kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                     style="display: none; height: auto;"></div>
+            </div>
+            <div class="clearAll"></div>
+            </br>
+
+            <div style="display: none;" id="kyos_plantillaErrores">
+                <span id="kyos_errorNoHayFecha">Indique un período de consulta</span> <span
+                    id="kyos_errorSeleccionarDivisa">Seleccione una divisa</span> <span
+                    id="kyos_errorFechaDesde">La fecha desde no puede ser superior a la actual</span>
+                <span id="kyos_errorFechaHasta">La fecha hasta no puede ser superior a la actual</span>
+                <span id="kyos_errorRangoFechas">Indique una fecha desde menor que la fecha hasta</span>
+                <span id="kyos_errorFechaMinima">La fecha de consulta no puede ser anterior a
+							<span id="fechamin"></span></span>
+                <span id="kyos_errorCatorceMeses">Seleccione una fecha menor de 14 meses</span>
+                <span id="kyos_errorSuperior1Ano">La fecha hasta no puede ser superior a un a&ntilde;o</span>
+                <span id="kyos_errorPosteriorFechaActual">La fecha hasta no puede ser superior a la fecha actual</span>
+                <span id="kyos_errorCambioNoNumerico">El valor del tipo de cambio ha de ser de tipo numérico</span>
+                <span id="kyos_errorImporteDesdeMayor">El importe introducido no es válido: el importe "Desde" no puede ser mayor que el importe "Hasta"</span>
+                <span id="kyos_errorImporteDesdeNegativoYDesdePositivo">Debe introducir un ímporte válido.</span>
+                <span id="kyos_errorImporteDesdeNegativoYDesdePositivoSignos">Puede filtrar por importes positivos o negativos, pero no es posible mezclarlos.</span>
+                <span
+                        id="kyos_errorImporteDesdeNegativoYDesdePositivoSignosEjemplos">Ejemplos de ímportes aceptados:</span>
+                <span id="kyos_errorImporteDesde">El importe desde no tiene el formato correcto</span>
+                <span id="kyos_errorImporteHasta">El importe hasta no tiene el formato correcto</span>
+                <span id="kyos_errorNombreVacio">Indique un nombre de informe</span> <span
+                    id="kyos_errorNombreLargo">Indique un nombre de informe de menos de 40 caracteres</span>
+                <span id="kyos_errorNoCuentaSelecc">Seleccione, al menos, una cuenta</span> <span
+                    id="kyos_errorNoPeriodoSelecc">Seleccione un tipo de consulta</span> <span
+                    id="kyos_errorMasMovimientos">El número de movimientos a mostrar es demasiado elevado y se han omitido algunos resultados</span>
+                <span
+                        id="kyos_errorExtractoMensual">El extracto se ha solicitado con éxito. Lo tendrá disponible próximamente en Firmas y Ficheros > Recibir del banco > Listado de Movimientos: Extracto Mensual (EM2).</span>
+                <span
+                        id="kyos_errorExtractoMensualP1">El extracto se ha solicitado con éxito. Lo tendrá disponible a partir del día</span>
+                <span
+                        id="kyos_errorExtractoMensualP2">en Firmas y Ficheros > Recibir del banco > Listado de Movimientos: Extracto Mensual (EM2).</span>
+                <span
+                        id="kyos_errorExtractoMensualRE">El extracto mensual solicitado tiene mas de 2500 movimientos. No ha sido posible llevar a cabo la operación.</span>
+                <span
+                        id="kyos_avisoExtractoMensual">Si el extracto mensual que va a solicitar tiene mas de 2500 movimientos, lo tendrá disponible próximamente en Firmas y Ficheros > Recibir del banco > Listado de Movimientos: Extracto Mensual (EM2)</span>
+                <span
+                        id="kyos_avisoExtractoMensualRE">Si el extracto mensual que va a solicitar tiene mas de 2500 movimientos no podrá ser generado por la aplicación.</span>
+                <span id="kyos_NoPeriodoConsulta">Indique el período de consulta (número natural)</span>
+                <span id="kyos_errorPeriodoConsulta">El periodo de consulta no es válido. Por limitaciones del servicio, el periodo máximo es de </span>
+                <span id="kyos_errorGuardarInforme">No se ha podido guardar el informe</span> <span
+                    id="kyos_guardarInformeOk">Se ha guardado el informe correctamente</span>
+                <span id="kyos_errorEliminarInforme">No se ha podido eliminar los informes seleccionados</span>
+                <span id="kyos_eliminarInformeOk">Se ha eliminado los informes seleccionados correctamente</span>
+                <span id="kyos_errorFecha">La fecha introducida no es correcta</span> <span
+                    id="kyos_errorTitular">El titular indicado no es correcto</span> <span
+                    id="kyos_cer_errorFechaMayor3Years">La fecha desde no puede ser anterior a tres años desde la fecha actual</span>
+                <span id="kyos_cer_errorRangoMayor1Year">El intervalo entre las fechas introducidas debe ser inferior a un año</span>
+                <span id="kyos_cer_errorSaldoNegativo">Para obtener un certificado de titularidad el saldo de la cuenta no puede ser negativo</span>
+
+                <span id="kyos_cer_errorFechaHastaCert">Por favor, revise el formato de la fecha hasta y recuerde que debe ser inferior a la actual</span>
+                <span id="kyos_cer_errorFechaDesdeCert">Por favor, revise el formato de la fecha desde y recuerde que debe ser inferior a la actual</span>
+
+                <span id="kyos_errorRangoProfundidadMaxima">El rango de fechas supera la profundidad máxima de la consulta</span>
+                <span id="kyos_errorSupActual">La fecha no puede ser superior o igual a la fecha actual</span>
+                <span id="kyos_errorDiaSupUltHabil">La fecha informada es mayor que el ultimo dia hábil</span>
+                <span id="kyos_errorImporteNoInformado">Debe informar el importe</span> <span
+                    id="kyos_importeMayorSaldoCuenta">El importe no puede superar el saldo de su cuenta.</span>
+                <span id="kyos_importeMayorPermitido">El importe no puede superar el valor de 99.999.999,99.</span>
+
+            </div>
+
+            <div style="display: none;" id="kyos_plantillaMulti">
+                <span id="kyos_movimientosText">Movimientos</span>
+                <span id="kyos_liquidityText">Herramientas de liquidez</span>
+                <span id="kyos_volverAPCText">Volver</span>
+                <span id="kyos_volverASyM">Ir a saldos y movimientos</span> <span
+                    id="kyos_cerrarText">Cerrar</span> <span
+                    id="kyos_msg_table_sort_asc">Ordenar en forma ascendente</span> <span
+                    id="kyos_msg_table_sort_desc">Ordenar en forma descendente</span> <span
+                    id="kyos_msg_table_restaurar">Restaurar configuración</span> <span
+                    id="kyos_msg_table_sort_ocultar">Ver columnas</span> <span id="kyos_actualizado">Actualizado hace</span> <span id="kyos_horas">horas</span>
+                <span id="kyos_actualizarDatos">Actualizar datos</span> <span
+                    id="kyos_consolidadoEn">(consolidadas en</span> <span
+                    id="kyos_numCuentaPC">Nº Cuenta</span>
+                <span id="kyos_aliasCuentaPC">Alias de la cuenta</span> <span
+                    id="kyos_saldoContablePC">Saldo</span>
+                <span id="kyos_saldoValorPC">Disponible</span>
+                <span id="kyos_saldoConsolidadoPC">Saldo consolidado</span> <span
+                    id="kyos_monedaPC">Divisa</span> <span
+                    id="kyos_totalPC">TOTAL</span> <span
+                    id="kyos_verMasPC">Ver más cuentas</span> <span
+                    id="kyos_totalConsolidadoPC">Total consolidado</span> <span
+                    id="kyos_consolidacionSaldos">Consolidar saldos</span> <span
+                    id="kyos_divisaConsolidacion">Divisa de consolidación</span> <span
+                    id="kyos_consolidar">Consolidar</span> <span
+                    id="kyos_enlaceRelacionado"></span>
+                <span id="kyos_webPC"></span> <span
+                    id="kyos_parrafoConsolidar">Los tipos de cambio mostrados por defecto son meramente informativos. Para realizar una simulación, modifíquelos a su conveniencia.</span>
+                <span id="kyos_resultadosConsultaTxt">Resultados de la consulta</span> <span
+                    id="kyos_seleccioneFormatosRMTxt">Seleccionar formato</span> <span
+                    id="kyos_PDFRMTxt">PDF</span> <span id="kyos_XLSRMTxt">XLS</span>
+                <span id="kyos_AEB43Txt">Formato AEB43 </span> <span id="kyos_CSVTxt">CSV</span>
+                <span id="kyos_descargarBotonInformes">Descargar</span> <span
+                    id="kyos_descargarBotonInformes">Descargar</span> <span id="kyos_descargarRMTxt">Descargar</span>
+                <span id="kyos_justificanteTituloTransferencias">Transferencia</span> <span
+                    id="kyos_justificanteTransferenciaTxt">Justificante</span> <span
+                    id="kyos_descargarMovimientosRMTxt">Descargar movimientos</span> <span
+                    id="kyos_verGraficoRMTxt">Ver gráfico</span>
+                <span id="kyos_modificarBusquedaRMTxt">Modificar búsqueda</span> <span
+                    id="kyos_texto1RMTxt">Está viendo movimientos desde</span> <span
+                    id="kyos_texto2RMTxt">realizados
+					</span> <span id="kyos_verEnGrid">Ver</span> <span
+                    id="kyos_referenciaGrid">Ref</span> <span id="kyos_movimientoDGrid">Importe movimiento (D)</span> <span
+                    id="kyos_movimientoHGrid">Importe movimiento (H)</span> <span
+                    id="kyos_fechaValorGrid">F. VALOR</span>
+                <span id="kyos_saldoValorFinalGrid">Saldo valor final</span> <span
+                    id="kyos_fechaContableGrid">F. CONTABLE</span> <span
+                    id="kyos_saldoContableFinalGrid">SALDO CONTABLE FINAL</span> <span
+                    id="kyos_importeGrid">IMPORTE</span> <span id="kyos_codigoGrid">SALDO</span>
+                <span id="kyos_codigoConceptoGrid">CÓDIGO</span> <span id="kyos_conceptoGrid">CONCEPTO</span> <span id="kyos_oficinaGrid">Oficina</span> <span id="kyos_verTodosGrid">Ver todos los movimientos</span> <span
+                    id="kyos_descargarGrid">Descargar</span> <span id="kyos_verGrid">Ver</span>
+                <span id="kyos_buscarGrid">Buscar</span>
+                <span id="kyos_maximoInformesAlcanzado">Actualmente existen 15 informes para esta referencia,
+elimine alguno para poder crear uno nuevo</span>
+                <span id="kyos_completarCampos">Debe completar todos los campos</span> <span
+                    id="kyos_actualizadoHaceText">Actualizado hace</span> <span
+                    id="kyos_horasText">horas</span> <span
+                    id="kyos_minutosText">minutos</span>
+                <span id="kyos_horaText">hora</span>
+                <span id="kyos_minutoText">minuto</span>
+                <span id="kyos_actualizadoText">Actualizado hace menos de 1 minuto</span> <span
+                    id="kyos_avisoNoCuentas">No existen cuentas disponibles</span> <span
+                    id="kyos_nota">Nota</span> <span
+                    id="kyos_descargarBotonInformes">Descargar</span> <span
+                    id="kyos_soloDescarga500">Se descargarán un máximo de 500 movimientos</span> <span
+                    id="kyos_soloDescarga2500">Se descargarán un máximo de 2500 movimientos</span> <span
+                    id="kyos_seleccionarFormatoInforme">Seleccionar formato</span> <span
+                    id="kyos_infoDelMov">Detalle de movimiento</span>
+                <span id="kyos_todosSaldos">Todos</span>
+                <span id="kyos_todasSaldos">Todas</span>
+                <span id="kyos_oficinaText">Oficina</span>
+                <span id="kyos_importeText">Importe</span>
+                <span id="kyos_fechaOperacionText">Fecha operación</span> <span
+                    id="kyos_fechaValorText">Fecha valor</span>
+                <span id="kyos_codigoText">Código</span>
+                <span id="kyos_conceptoMovimientoText">Concepto movimiento</span>
+                <span 	id="kyos_avisoNoMovimientos">No existen movimientos disponibles</span>
+                <span 	id="kyos_avisoNoMovimientos90">No existen movimientos disponibles en los últimos 90 días</span>
+
+                <span
+                        id="kyos_avisoNoSaldos">No existen saldos disponibles</span> <span
+                    id="kyos_enElText">En el</span> <span
+                    id="kyos_enLosText">En los</span> <span
+                    id="kyos_ultimoDiaSaldos">Último día procesado</span> <span
+                    id="kyos_ultimos10DiasSaldos">10 últimos días</span> <span
+                    id="kyos_ultimos20DiasSaldos">20 últimos días</span> <span
+                    id="kyos_ultimos30DiasSaldos">30 últimos días</span> <span
+                    id="kyos_ultimos45DiasSaldos">45 últimos días</span> <span
+                    id="kyos_ultimos5DiasSaldos">5 últimos días</span> <span id="kyos_hoyText">Hoy</span>
+                <span id="kyos_desdeElText">Desde el</span>
+                <span id="kyos_alText">al</span> <span
+                    id="kyos_hastaSaldos">Hasta</span>
+                <span id="kyos_desdeSaldos">Desde</span>
+                <span id="kyos_guardarConsultaMov">Guardar consulta realizada - Movimientos</span>
+                <span id="kyos_conceptosSel">Conceptos seleccionados</span> <span
+                    id="kyos_seleccioneFechasSaldos">Seleccione las fechas de consulta</span> <span
+                    id="kyos_rango_periodo_consulta">Rango de importe</span> <span
+                    id="kyos_periodoText">Período</span>
+                <span id="kyos_ultimosMovimientosText">Últimos movimientos (90 días)</span> <span
+                    id="kyos_datos_consulta">Datos de consulta</span> <span
+                    id="kyos_conceptoInformes">Concepto</span>
+                <span id="kyos_verMasMov">Ver más movimientos</span> <span
+                    id="kyos_saldoInicialText">Saldo inicial a</span> <span
+                    id="kyos_saldoFinalText">Saldo final a</span> <span
+                    id="kyos_fechaContableCol">fecha contable</span> <span
+                    id="kyos_fechaValorCol">fecha valor</span>
+                <span id="kyos_codigoCol">código</span>
+                <span id="kyos_conceptoCol">concepto</span>
+                <span id="kyos_importeCol">importe</span>
+                <span id="kyos_saldoCol">saldo</span>
+                <span id="kyos_oficinaCol">oficina</span>
+                <span id="kyos_extractoCol">correspondencia</span>
+                <span id="kyos_accionesCol">acciones</span>
+                <span id="kyos_financiaCol">FINANCIACIÓN</span>
+                <span id="kyos_seleccConcepto">Seleccionar un concepto</span> <span
+                    id="kyos_grafCuenta">Gráfico de cuenta</span> <span
+                    id="kyos_guardarConsultaSaldos">Guardar consulta como informe nuevo</span> <span
+                    id="kyos_formatoDescarga">Elija formatos descarga</span> <span
+                    id="kyos_imprimirText">Imprimir</span>
+                <span id="kyos_correspondenciaText">Correspondencia</span> <span
+                    id="kyos_movimientosCuenta">Movimientos de cuenta</span> <span
+                    id="kyos_saldoDispText">Saldo disponible</span> <span
+                    id="kyos_seleccionSaldoValor">Saldo valor</span> <span
+                    id="kyos_seleccionSaldoContable">Saldo contable</span> <span
+                    id="kyos_marcaAguaDesde">Desde</span>
+                <span id="kyos_marcaAguaHasta">Hasta</span>
+                <span id="kyos_saldo">Saldo</span>
+                <span id="kyos_extractoMensual">Extracto Mensual</span>
+                <span id="kyos_extractoMensualMes">Seleccione el mes</span>
+                <span id="kyos_extractoMensualAno">Seleccione el año</span> <span
+                    id="kyos_guardarConsultaRealizada">Guardar la consulta realizada</span> <span
+                    id="kyos_nombreInformeConsulta">Nombre del informe</span> <span
+                    id="kyos_seleccioneFechasConsulta">Seleccione las fechas de consulta:</span> <span
+                    id="kyos_guardarPlantillaInforme">Guardar informe</span> <span
+                    id="kyos_tipoTooltipDetalleInforme">Tipo</span> <span id="kyos_periodoDetalle">Días</span>
+                <span id="kyos_importeDesdeTooltipDetalleInforme">importe desde</span> <span
+                    id="kyos_importeHastaTooltipDetalleInforme">Importe hasta</span> <span
+                    id="kyos_cuentasTooltipdetalleInforme">Cuenta</span> <span id="kyos_verDetalles">Ver detalles</span>
+                <span id="kyos_ocultarDetalles">Ocultar detalles</span>
+                <span id="kyos_cargandoText">Cargando operativa personalizada</span>
+                <span id="kyos_operacionesHabituales">Operaciones habituales</span> <span
+                    id="kyos_sinOperacionesHabituales">Cuenta sin operaciones</span> <span
+                    id="kyos_cuentaSinInformes">No hay informes para la cuenta</span> <span
+                    id="kyos_informesText">Informes</span>
+                <span id="kyos_informesCuentaText">Informes de la cuenta</span> <span
+                    id="kyos_notaSaldos">Los saldos son sobre los apuntes existentes</span> <span
+                    id="kyos_titularCuenta">Titular	</span>
+                <span id="kyos_contableText">Contable</span>
+                <span id="kyos_valorText">Valor</span>
+                <span id="kyos_extractoError">En estos momentos el documento al que ha intentado acceder no está disponible.</span> <span
+                    id="kyos_extractoError2">Por favor, inténtelo más tarde.</span> <span
+                    id="kyos_extractoErrorExtracto">El documento no ha sido generado todavía. Por favor, consulte más tarde</span>
+                <span id="kyos_textoEspera">Procesando su petición, por favor espere...</span>
+                <span id="kyos_seleccionarCuentas">Para consultar saldos, movimientos u operar, seleccione previamente la(s) cuenta(s)</span>
+                <span id="kyos_cuentaFavoritaText">Cuenta favorita</span> <span
+                    id="kyos_divisaDes_AUD">d&oacute;lares australianos</span>
+                <span id="kyos_divisaDes_BRL">reales brasileros</span>
+                <span id="kyos_divisaDes_CAD">d&oacute;lares canadienses</span>
+                <span id="kyos_divisaDes_CNY">yuanes renminbi chinos</span>
+                <span id="kyos_divisaDes_CZK">coronas checas</span>
+                <span id="kyos_divisaDes_CHF">francos suizos</span>
+                <span id="kyos_divisaDes_DKK">coronas danesas</span>
+                <span id="kyos_divisaDes_EUR">euros</span> <span
+                    id="kyos_divisaDes_GBP">libras esterlinas</span>
+                <span id="kyos_divisaDes_HKD">d&oacute;lares de Hong Kong</span>
+                <span id="kyos_divisaDes_HUF">flor&iacute;nes h&uacute;ngaros</span>
+                <span id="kyos_divisaDes_JPY">yenes japoneses</span>
+                <span id="kyos_divisaDes_MXN">pesos mexicanos</span>
+                <span id="kyos_divisaDes_NOK">coronas noruegas</span>
+                <span id="kyos_divisaDes_NZD">d&oacute;lares neozelandeses</span>
+                <span id="kyos_divisaDes_PLN">zlotys polacos</span>
+                <span id="kyos_divisaDes_SEK">corona suecas</span>
+                <span id="kyos_divisaDes_SGD">d&oacute;lares singapurenses</span>
+                <span id="kyos_divisaDes_USD">d&oacute;lares estadounidenses</span>
+                <span id="kyos_divisaDes_ZAR">randes sudafricanos</span>
+                <span id="kyos_divisaDes_SAR">riyales de Arabia Saudita</span>
+                <span id="kyos_divisaDes_THB">bahtes tailandeses</span>
+                <span id="kyos_divisaDes_TND">dinares tunisios</span>
+                <span id="kyos_divisaDes_MAD">d&iacute;rhams marroqu&iacute;es</span>
+                <span id="kyos_divisaDes_HRK">kunas croatas</span>
+                <span id="kyos_divisaDes_LVL">lates letones</span>
+                <span id="kyos_divisaDes_RON">nuevos leus rumanos</span>
+                <span id="kyos_divisaDes_BGN">levas b&uacute;lgaras</span>
+                <span id="kyos_divisaDes_LTL">litas lituanos</span>
+                <span id="kyos_divisaDes_TRY">liras turcas</span> <span
+                    id="kyos_divisaDes_PEN">nuevos soles peruanos</span>
+                <span id="kyos_divisaDes_RUB">rublos rusos</span> <span
+                    id="kyos_divisaDes_ESP">pesetas</span> <span
+                    id="kyos_tituloSaldosOnline">Saldos on-line</span>
+                <span id="kyos_cuentaNumSaldosOnline">Cuenta N&ordm;</span>
+                <span id="kyos_subtipoSaldosOnline">Subtipo</span>
+                <span id="kyos_oficinaSaldosOnline">Oficina Titular</span>
+                <span id="kyos_fechaSaldosOnline">Fecha</span> <span
+                    id="kyos_saldoDisponibleSaldosOnline">Saldo disponible</span>
+                <span id="kyos_saldoRetenidoSaldosOnline">Saldo retenido</span>
+                <span id="kyos_saldoContableSaldosOnline">Saldo contable</span>
+                <span id="kyos_saldoAutorizadoSaldosOnline">Saldo autorizado</span>
+                <span id="kyos_monedaSaldosOnline">Divisa</span> <span
+                    id="kyos_alertSaldosOnline1">Los</span> <span
+                    id="kyos_alertSaldosOnline2">Saldos on-line</span>
+                <span id="kyos_alertSaldosOnline3">s&oacute;lo est&aacute;n disponibles para las cuentas de Portugal</span>
+                <span id="kyos_informar_ordenacion">Debido a los modificaciones en la ordenaci&oacute;n, el saldo inicial y final del d&iacute;a no se mostrar&aacute;</span>
+                <span id="kyos_reutilizarOperacion">Reutilizar</span> <span
+                    id="kyos_correspondenciaNounivoca">Por favor, para consultar este documento diríjase a la opción de correspondencia virtual.</span>
+
+                <span id="kyos_avisoRedex">Es posible que los saldos y movimientos de sus cuentas no se muestren actualizados.</span>
+                <span id="kyos_avisoSValor">Saldo disponible no actualizado </span> <span
+                    id="kyos_avisoSContable">Saldo no actualizado. </span>
+                <span id="kyos_verContratoText">Ver contrato</span>
+
+                <!-- LITERALES FINANCIACIÓN -->
+                <span id="kyos_financiado">Financiado</span>
+                <span id="kyos_financiar">Financiar</span>
+                <span id="kyos_botonFinanciar">Financiar movimiento</span> <span
+                    id="kyos_tooltipFinanciarTitulo">Financie este movimiento</span> <span
+                    id="kyos_tooltipFinanciarSubtitulo">Con el límite de crédito que tiene contratado</span>
+                <span id="kyos_tooltipFinanciarBullet1">Abono Inmediato</span> <span
+                    id="kyos_tooltipFinanciarBullet2">Sin documentación, ni justificantes</span> <span
+                    id="kyos_tooltipFinanciarBullet3">Solo pagos de hace 7 días o menos</span> <span
+                    id="kyos_tooltipFinanciarboton">Calcular costes</span> <span
+                    id="kyos_bannerFinanciarTitulo">Financie pagos ya realizados con su límite</span>
+                <span id="kyos_bannerFinanciarDescripcion">Ahora puede utilizar su límite de crédito para financiar movimientos directamente desde aquí, sin necesidad de documentación ni justificantes. Se podrán financiar los pagos de los últimos 7 días que cumplan los requisitos para ser financiados.</span>
+                <span id="kyos_infoDetFinTitulo">Detalle de la financiación</span> <span
+                    id="kyos_infoDetFinNumero">Nº de contrato del límite</span> <span
+                    id="kyos_infoDetFinTipo">Tipo de límite</span> <span
+                    id="kyos_infoDetFinFecha">Fecha de vencimiento</span>
+                <span id="kyos_infoDetFinImporte">Importe solicitado</span> <span
+                    id="kyos_infoDetFinPlazo">Plazo</span>
+                <span id="kyos_infoDetFinDestino">Destino</span>
+                <span id="kyos_infoDetFinDocumento">Contrato financiación</span> <span
+                    id="kyos_infoDetFinAlerta">Movimiento financiado con el LIMITE CLICK&PAY</span>
+                <span id="kyos_mensajeConsultarFinanciacion">No se puede mostrar su información de financiación en esta sección. Puede consultar y solicitar disposiciones desde Posición integral/Financiación.</span>
+
+                <!-- FIN LITERALES FINANCIACIÓN -->
+            </div>
+
+            <div class="right"></div>
+            <div class="clearAll"></div>
+
+            <div class="tituloTabla sinBordeInf kyos_resetHeight"
+                 id="kyos_tituloTablaSinConsolidar">
+                <div class="resultado left colorCabecera">
+                    <span class="darker" id="posicionTodasCuentasPc">Posici&oacute;n de todas las cuentas </span>
+                </div>
+                <div class="resultado right colorCabecera"
+                     id="kyos_totalCuentasContabilizadas">
+
+                    <span id="kyos_posicion_cuentas_num" class="darker">0 </span> <span
+                        class="darker">cuentas totales </span>
+                </div>
+                <div class="clearAll"></div>
+                <div id="kyos_mensajeFinet" style="display: none;"></div>
+                <div class="clearAll"></div>
+            </div>
+
+
+            <div
+                    class="dropDown dropTabla borderRight1Gris borderLeft1Gris borderTop1Gris kyos_resetButtonBold kyos_resetHeight kyos_positionPopUps"
+                    style="width: auto;">
+                <div class="interiorLeft marginLeft0 maxWidth60porCiento"
+                     id="kyos_parteIzquierdaDropTablaSinConsolidar">
+                    <ul class="contenedorDrop">
+
+                        <li class="sinIcono marginLeft0Movil">
+                            <div class="menuDrop" id="kyos_botonConsultarMovimientosPC"
+                                 style="display: none;">
+                                <button type="button" class="botonIcono" value="movimientos"
+                                        onclick="kyos_mostrarOcultarConsultarMovimientosTooltip(true);">
+                                    <span class=" ">Movimientos</span>
+                                    <img alt=""
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/movimientos.png"
+                                         class="ocultarCoronita"> <i
+                                        class="icon-icn_t-iconLib_C08-64px ocultarCoronita verEnMovil"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="sinIcono">
+                            <div id="kyos_consultarSaldoTooltip"
+                                 class="kyos_popUpSaldos kyos_popUpCabBotonera fondoDiferenciado kyos_maxWidth45porCiento kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7 kyos_"
+                                 style="display: none; height: auto;">
+                                <div class="left">
+                                    <h2>
+                                        Consultar saldo
+                                    </h2>
+                                </div>
+                                <div class="kyos_closePopUp"
+                                     onclick="kyos_ocultarConsultarSaldoTooltip();">
+                                    <img
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                            class="ocultarCoronita" /> <i
+                                        class="icon-Cruz ocultarCoronita"></i>
+                                </div>
+                                <div class="clearAll"></div>
+                                <div id="kyos_alertasConsSaldos" style="display: none"></div>
+                                <div class="kyos_opcion">
+                                    <label>Seleccionar una opción:</label>
+                                    <div class="kyos_radioButton marginTop5Movil">
+                                        <input id="kyos_saldoValorConsultaSaldo"
+                                               class="formulario marginBottom5Movil" name="campoRadio"
+                                               type="radio" value="opcion1" checked="checked"
+                                               onclick="kyos_saldoValorSeleccionadoConsultarSaldos();" />
+                                        <label for="" class="elementoFormulario marginBottom5Movil">Saldo valor</label>
+                                        <div class="clearAll kyos_ocultarEnPC kyos_mostrarEnMovil"></div>
+                                        <input id="kyos_saldoContableConsultaSaldo"
+                                               class="formulario marginLeft20 marginTop0Movil marginBottom5Movil"
+                                               name="campoRadio" type="radio" value="option2"
+                                        / onclick="kyos_saldoContableSeleccionadoConsultarSaldos();">
+                                        <label for=""
+                                               class="elementoFormulario marginTop0Movil marginBottom5Movil">Saldo contable</label>
+                                        <div class="clearAll kyos_ocultarEnPC kyos_mostrarEnMovil"></div>
+                                        <input style="display: none"
+                                               id="kyos_saldoOnlineConsultaSaldo"
+                                               class="formulario marginLeft20 marginTop0Movil marginBottom5Movil"
+                                               name="campoRadio" type="radio" value="option3"
+                                        / onclick="kyos_saldoOnlineSeleccionadoConsultarSaldos();">
+                                        <label id="kyos_saldosOnlineRadioButtonLabel"
+                                               style="display: none" for=""
+                                               class="elementoFormulario marginTop0Movil marginBottom5Movil">Saldos on-line</label>
+                                    </div>
+                                </div>
+                                <div class="clearAll"></div>
+                                <div class="kyos_columnaIzquierda marginTop5Movil"
+                                     id="kyos_columnaFechasConsultarSaldo">
+                                    <label>Seleccionar fechas:</label>
+                                    <select id="kyos_seleccionarFechaConsulta2"
+                                            class="marginTop5Movil"
+                                            onchange="kyos_seleccionarFechaSaldos2();">
+                                        <option value="0">
+                                            Último día procesado
+                                        </option>
+                                        <option value="1">
+                                            Rango de fechas
+                                        </option>
+                                        <option value="2">
+                                            5 últimos días
+                                        </option>
+                                        <option value="3">
+                                            10 últimos días
+                                        </option>
+                                        <option value="4">
+                                            20 últimos días
+                                        </option>
+                                        <option value="5">
+                                            30 últimos días
+                                        </option>
+                                        <option value="6">
+                                            45 últimos días
+                                        </option>
+                                    </select>
+                                    <ul class="kyos_selectorFecha marginTop5Movil"
+                                        id="kyos_fechadDesdePC2UL" style="display: none">
+                                        <li class="sinIcono kyos_fechaTexto"><input
+                                                class="fecha text grisaceo marginBottom5Movil" type="text"
+                                                value="Desde"
+                                                id="kyos_fechaDesdePC2"
+                                                onclick="kyos_resetCampo('kyos_fechaDesdePC2');"
+                                                onfocus="kyos_borrarValorFechaInput('kyos_fechaDesdePC2','Desde');"
+                                                onblur="kyos_insertarValorFechaInput('kyos_fechaDesdePC2','Desde');" />
+                                        </li>
+                                        <li class="sinIcono kyos_fechaIco">
+                                            <div id="kyos_datepickerDesdePC2"></div>
+                                            <div class="menuDrop">
+                                                <button id="kyos_imgFechaDesdePC2" value=""
+                                                        class="grandote corto marginTop0" onclick="return false;">
+                                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="clearAll"></div>
+                                    <ul class="kyos_selectorFecha marginTop5Movil"
+                                        id="kyos_fechadHastaPC2UL" style="display: none">
+                                        <li class="sinIcono kyos_fechaTexto"><input
+                                                class="fecha text grisaceo" type="text"
+                                                id="kyos_fechaHastaPC2"
+                                                value="Hasta"
+                                                onclick="kyos_resetCampo('kyos_fechaHastaPC2');"
+                                                onfocus="kyos_borrarValorFechaInput('kyos_fechaHastaPC2', 'Hasta');"
+                                                onblur="kyos_insertarValorFechaInput('kyos_fechaHastaPC2', 'Hasta');" />
+                                        </li>
+                                        <li class="sinIcono kyos_fechaIco">
+                                            <div id="kyos_datepickerHastaPC2"></div>
+                                            <div class="menuDrop">
+                                                <button id="kyos_imgFechaHastaPC2" value=""
+                                                        class="grandote corto marginTop0" onclick="return false;">
+                                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div
+                                        class="kyos_columnaDerecha columnaImporteConsultarSaldo marginTop5Movil"
+                                        id="kyos_columnaImporteConsultarSaldo">
+                                    <label>Importe: </label>
+                                    <ul class="marginTop20 kyul_listInput marginTop5Movil">
+                                        <li class="sinIcono"><input class="grisaceo" type="text"
+                                                                    value="Desde"
+                                                                    id="kyos_desdeImporteSaldos2"
+                                                                    onclick="kyos_resetCampo('kyos_desdeImporteSaldos2');"
+                                                                    onfocus="kyos_borrarValorInput('kyos_desdeImporteSaldos2','Desde');"
+                                                                    onblur="kyos_insertarValorInput('kyos_desdeImporteSaldos2', 'Desde');" />
+                                        </li>
+                                        <div class="clearAll"></div>
+                                        <li class="sinIcono marginTop10"><input class="grisaceo"
+                                                                                type="text"
+                                                                                value="Hasta"
+                                                                                id="kyos_hastaImporteSaldos2"
+                                                                                onclick="kyos_resetCampo('kyos_hastaImporteSaldos2');"
+                                                                                onfocus="kyos_borrarValorInput('kyos_hastaImporteSaldos2', 'Hasta');"
+                                                                                onblur="kyos_insertarValorInput('kyos_hastaImporteSaldos2', 'Hasta');">
+                                        </li>
+                                        <div class="clearAll"></div>
+
+                                    </ul>
+                                </div>
+
+                                <div class="clearAll"></div>
+                                </br>
+
+                                <div class="clearAll"></div>
+
+                                <div class="menuDrop">
+                                    <div class="marginBottom10 right marginTop10">
+                                        <button class="botonIconoCorto" type="button"
+                                                value="consultarSaldosTooltip"
+                                                onclick="kyos_comprobadorConsultaSaldos();"
+                                                value="consultarMovimiento">
+                                            Consultar
+                                            <img class="marginLeft10Movil" alt=""
+                                                 src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonConsultar.png">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menuDrop" id="kyos_botonConsultarSaldoPC"
+                                 style="display: none;">
+                                <button type="button" class="botonIcono kyos_mostrarEnMovil"
+                                        value="buscar" onclick="kyos_mostrarConsultarSaldoTooltip();">
+                                    <span class=" ">Saldo</span> <img
+                                        alt=""
+                                        src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonConsultar.png"
+                                        class="ocultarCoronita"> <i
+                                        class="icon-icn_t-iconLib_C09-64px ocultarCoronita verEnMovil"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="sinIcono">
+                            <!-- kyos_consultarExtractoMensualTooltip -->
+                            <div id="kyos_consultarExtractoMensualTooltip"
+                                 class="kyos_popUpExtractoMensual kyos_popUpMovil kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                 style="height: auto; display: none;">
+                                <div class="left">
+                                    <h2>
+                                        Descargar extracto mensual
+                                    </h2>
+                                </div>
+                                <div class="kyos_closePopUp"
+                                     onclick="kyos_mostrarOcultarConsultarExtractoMensualTooltip();">
+                                    <img
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                            class="ocultarCoronita" /> <i
+                                        class="icon-Cruz ocultarCoronita"></i>
+                                </div>
+                                <div class="clearAll"></div>
+                                <div id="kyos_alertasAvisoExtMen" style="display: none"></div>
+                                <div id="kyos_alertasExtMen" style="display: none"></div>
+                                <div style="overflow: auto;">
+                                    <div class="kyos_columnaIzquierda">
+                                        <label for="mesValoracion" wfd-id="96">Seleccione el mes</label> <select
+                                            id="mesValoracion" name="mesValoracion" wfd-id="84">
+                                    </select>
+                                        </td> <label for="anoValoracion" wfd-id="95">Seleccione el año</label> <select
+                                            id="anoValoracion" name="anoValoracion"
+                                            onchange="kyos_cambiarMesesExtracto();" wfd-id="83">
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="clearAll"></div>
+                                <div id="kyos_ExtractoMensualEspera"
+                                     class="borderLeft1Gris borderRight1Gris borderBottom1Gris"
+                                     style="display: none"></div>
+                                <div class="menuDrop">
+                                    <div class="marginBottom10 right marginTop10">
+                                        <button class="botonIconoCorto"
+                                                id="consultarExtractoMensualTooltip"
+                                                onclick="kyos_descargarExtractoMensual()" wfd-id="91">
+                                            Aceptar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuDrop kyos_positionOperarEspecial"
+                                 id="kyos_botonConsultarExtractoMensual" style="display: none;">
+                                <button type="button" class="botonIcono kyos_mostrarEnMovil"
+                                        value="buscar"
+                                        onclick="kyos_mostrarOcultarConsultarExtractoMensualTooltip();">
+                                    <span class=" ">Extracto Mensual</span> <img alt=""
+                                                                                 src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonConsultar.png"
+                                                                                 class="ocultarCoronita"> <i
+                                        class="icon-icn_t-iconLib_C09-64px ocultarCoronita verEnMovil"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="sinIcono">
+                            <div class="menuDrop" id="kyos_botonLiquidity"
+                                 style="display: none;">
+                                <button type="button" class="botonIcono" value="liquidity"
+                                        onclick="kyos_liquidityRedirect();">
+                                    <span class=" ">Herramientas de liquidez</span>
+                                    <img alt=""
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/movimientos.png"
+                                         class="ocultarCoronita"> <i
+                                        class="icon-icn_t-iconLib_K01-64px ocultarCoronita verEnMovil"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li class="sinIcono kyos_ocultarEnMovil">
+                            <div class="menuDrop kyos_positionOperarEspecial">
+                                <div style="display: none"
+                                     class="kyos_popUpConsultar kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                     id="kyos_tooltipOperar">
+                                    <div class="right" id="cruz_tooltipOperar">
+                                        <img style="cursor: pointer; cursor: hand"
+                                             src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                             onclick="kyos_mostrarOperarTooltip();"
+                                             class="ocultarCoronita" /> <i
+                                            class="icon-Cruz ocultarCoronita"
+                                            style="cursor: pointer; cursor: hand"
+                                            onclick="kyos_mostrarOperarTooltip();"></i>
+                                    </div>
+                                    <div class="clearAll"></div>
+                                    <div id="kyos_tooltipOperarContenido" class="minWidth150"></div>
+                                </div>
+
+                                <div style="display: none" id="kyos_botonOperarPC">
+                                    <button type="button" class="botonIcono kyos_ocultarEnMovil"
+                                            value="buscar" onclick="kyos_mostrarOperarTooltip();">
+                                        <span>Operar</span> <img
+                                            alt=""
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/Operar.png"
+                                            class="ocultarCoronita"> <i
+                                            class="icon-icn_t-iconLib_F01_2-64px ocultarCoronita verEnMovil"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Tooltip de Certificados en espera -->
+                        <li class="sinIcono kyos_ocultarEnMovil"
+                            style="margin-left: 0px;">
+                            <div style="display: none; height: auto;"
+                                 class="kyos_popUpMovil kyos_popUpCertificados kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                 id="kyos_tooltipCertificadosWait">
+                                <div class="kyos_closePopUp"
+                                     onclick="kyos_ocultarCertificadosTooltip();">
+                                    <img
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                            class="ocultarCoronita" /> <i
+                                        class="icon-Cruz ocultarCoronita"></i>
+                                </div>
+                                <br></br>
+                                <div class="esperaVerMasCertificado">
+                                    <img class="alineacionVertical ocultarCoronita"
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/loader_vermas.gif" />
+                                    <img class="alineacionVertical ocultarCoronita"
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/Spinner-16.gif" />
+                                    <span class="textoEsperaVerMas marginLeft20 marginRight40">
+											Procesando su petici&oacute;n, por favor espere...
+										</span>
+                                </div>
+                                <br></br>
+                            </div>
+                        </li>
+
+                        <!-- Tooltip de Certificados principal-->
+                        <li class="sinIcono kyos_ocultarEnMovil">
+                            <div style="display: none; height: auto; width: 300px;"
+                                 class="kyos_popUpMovil kyos_popUpCertificados kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                 id="kyos_tooltipCertificados">
+                                <div class="kyos_closePopUp"
+                                     onclick="kyos_ocultarCertificadosTooltip();">
+                                    <img
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                            class="ocultarCoronita" /> <i
+                                        class="icon-Cruz ocultarCoronita"></i>
+                                </div>
+
+                                <h2>
+                                    Seleccionar tipo de certificado
+                                </h2>
+                                <input type="hidden" id="kyos_seleccionarTipoCertificados"
+                                       value="0" />
+
+                                <div class="clearAll"></div>
+                                <div id="kyos_alertasConsCertificados" style="display: none"></div>
+                                <!-- Tipo de certificado-->
+                                <select id="kyos_seleccionarCertificado"
+                                        class="marginTop5Movil"
+                                        onchange="kyos_buscarDetalleCertificado();">
+                                </select>
+
+                                <div class="clearAll"></div>
+                                <!-- Certificados de titularidad-->
+                                <select id="kyos_seleccionTitularidad" class="marginTop5Movil">
+                                    <option value="0">Seleccione un titular</option>
+                                </select> <input type="text" disabled
+                                                 id="kyos_seleccionTitularidadInput" class="marginTop5Movil"
+                                                 style="margin-bottom: 5px; display: none;" /><br> <input
+                                    type="hidden" id="kyos_codigoTitularUnico" val="" />
+
+
+
+
+                                <!-- Tooltip espera obtener detalle certificado -->
+                                <div class="marginTop5Movil"
+                                     id=kyos_tooltipDetalleCertificadosWait>
+                                    <div class="esperaVerMasCertificado">
+                                        <img class="alineacionVertical ocultarCoronita"
+                                             src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/loader_vermas.gif" />
+                                        <img class="alineacionVertical ocultarCoronita"
+                                             src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/Spinner-16.gif" />
+                                        <span class="textoEsperaVerMas marginLeft20"> Procesando su petici&oacute;n, por favor espere...
+											</span>
+                                    </div>
+                                    <br></br>
+                                </div>
+
+
+                                <div class="kyos_columnaIzquierda"
+                                     id="kyos_columnaDeFechasConsultaMov">
+
+                                    <!-- Inserción de Fecha -->
+                                    <div class="marginTop5Movil" id=kyos_textoFechaCert>
+                                        <label> Fecha:
+                                        </label>
+                                    </div>
+
+                                    <!-- Inserción de Fecha Desde -->
+                                    <div class="clearAll"></div>
+                                    <div class="marginTop5Movil" id=kyos_textoDesdeCert>
+                                        <label> Fecha Desde:
+                                        </label>
+                                    </div>
+
+                                    <ul class="kyos_selectorFecha marginTop5Movil"
+                                        id="kyos_fechaDesdeCertificadoPC" style="display: none">
+                                        <li class="sinIcono kyos_fechaTexto"><input
+                                                class="fecha text grisaceo marginBottom5Movil" type="text"
+                                                id="kyos_fechaDesdeCertificado"
+                                                onclick="kyos_resetCampo('kyos_fechaDesdeCertificado');"
+                                                onfocus="kyos_borrarValorFechaInput('kyos_fechaDesdeCertificado','');"
+                                                onblur="kyos_insertarValorFechaInput('kyos_fechaDesdeCertificado','');" />
+                                        </li>
+                                        <li class="sinIcono kyos_fechaIco">
+                                            <div align="right" class="" id="kyos_datepickerDesdeCERT"></div>
+                                            <div class="menuDrop">
+                                                <button id="kyos_imgFechaDesdeCert" value=""
+                                                        class="grandote corto marginTop0" onclick="return false;">
+                                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Inserción de Fecha Hasta -->
+                                    <div class="clearAll"></div>
+                                    <div class=" marginTop5Movil" id="kyos_textoHastaCert"
+                                         style="margin-top: 10px;">
+                                        <label> Fecha Hasta:
+                                        </label>
+                                    </div>
+
+                                    <div class="clearAll"></div>
+                                    <ul class="kyos_selectorFecha marginTop5Movil"
+                                        id="kyos_fechaHastaCertificadoPC" style="display: none">
+                                        <li class="sinIcono kyos_fechaTexto"><input
+                                                class="fecha text left grisaceo" type="text"
+                                                id="kyos_fechaHastaCertificado"
+                                                onclick="kyos_resetCampo('kyos_fechaHastaCertificado');"
+                                                onfocus="kyos_borrarValorFechaInput('kyos_fechaHastaCertificado', '');"
+                                                onblur="kyos_insertarValorFechaInput('kyos_fechaHastaCertificado', '');" />
+                                        </li>
+                                        <li class="sinIcono kyos_fechaIco">
+                                            <div align="right" id="kyos_datepickerHastaCERT"></div>
+                                            <div class="menuDrop">
+                                                <button id="kyos_imgFechaHastaCert" value=""
+                                                        class="grandote corto marginTop0" onclick="return false;">
+                                                    <img class="marginLeftCeroMovil ocultarCoronita"
+                                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonCalendario.png" />
+                                                    <i class="icon-icn_t-iconLib_G27-64px ocultarCoronita"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearAll"></div>
+                                <div id="kyos_columnaImporte">
+                                    <!-- Inserción de importe Certificado -->
+                                    <div class="marginTop5Movil" id="kyos_textoImporteCert">
+                                        <label> Importe exigido para renovar la tarjeta de transporte:
+                                        </label>
+                                    </div>
+                                    <ul class="kyos_selectorFecha marginTop5Movil"
+                                        id="kyos_ImporteCertificadoPC" style="display: none">
+                                        <li class="sinIcono"><input class="grisaceo" type="text"
+                                                                    id="kyos_ImporteCertificado"
+                                                                    onclick="kyos_resetCampo('kyos_ImporteCertificado');" /></li>
+                                        <li id="divisaImporteCertificado" style="display: inline;"></li>
+                                        <li id="ImporteMaximoCertificado">La cantidad máxima es de </li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearAll"></div>
+
+                                <div
+                                        class="marginBottom10 right marginTop10 consultarMovimientos"
+                                        id="kyos_botonDetalle">
+                                    <button value="" class="botonIcono" type="submit"
+                                            onclick="kyos_generarCertificado();"
+                                            style="margin-top: 15px;">
+                                        <span>Generar certificado</span> <img alt=""
+                                                                              src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/certificado_blanco.png">
+                                    </button>
+                                </div>
+
+
+                            </div>
+                            <div style="display: none" id="kyos_botonCertificadosPC"
+                                 class="kyos_ocultarEnMovil">
+                                <button type="button" class="botonIcono kyos_ocultarEnMovil"
+                                        value="buscar" onclick="kyos_mostrarConsultaCertificadoEYPH();">
+                                    <span>Solicitar certificado</span>
+                                    <img alt=""
+                                         src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/certificado_blanco.png">
+                                </button>
+                            </div>
+
+                        </li>
+
+                        <!-- Visualizacion Contrato Cuebtas -->
+                        <!-- <li class ="sinIcono marginLeft0Movil">
+                                <div class="menuDrop" id="kyos_botonVerContratoContratoPC" style="display:none;">
+                                    <button type="button" class="botonIcono" value="contrato" onclick="kyos_verContratoTooltip(false);">
+                                        <span class=" ">Ver contrato</span>
+                                        <img alt="" src="/eyoz_mult_web_pub/posicioncuentas/img/movimientos.png" class="ocultarCoronita">
+                                        <i class="icon-icn_t-iconLib_C08-64px ocultarCoronita verEnMovil"></i>
+                                    </button>
+                                </div>
+                            </li> -->
+
+
+
+                        <li class="sinIcono kyos_ocultarEnMovil">
+                            <div class="menuDrop">
+									<span id="kyos_seleccionarListadoCuentas"
+                                          class="kyos_ocultarEnTablet kyos_ocultarEnMovil"
+                                          style="display: none">Para consultar saldos, movimientos u operar, seleccione previamente la(s) cuenta(s)</span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="interiorLeft marginTop5"
+                     id="kyos_parteIzquierdaDropTablaConsolidada" style="display: none"></div>
+
+                <div
+                        class="interiorRight marginRight5 marginLeft0 marginRight0Movil">
+                    <ul class="contenedorDrop">
+                        <li class="sinIcono">
+                            <div class="menuDrop">
+                                <input id="kyos_buscarCuentas" type="text" name="buscar"
+                                       class="ancho100 grisaceo"
+                                       value="Buscar"
+                                       onkeyup="kyos_cargarBotonesOcultosPosicionCuentas();"
+                                       onfocus="kyos_borrarValorInput('kyos_buscarCuentas','Buscar');"
+                                       onblur="kyos_insertarValorInput('kyos_buscarCuentas','Buscar');" />
+
+                                <input type="hidden" id="val_kyos_buscarCuentas" />
+
+                            </div>
+                        <li class="sinIcono marginRightMenos3Movil">
+                            <div class="menuDrop">
+                                <button type="button" class="botonIconoNormal corto"
+                                        value="buscar">
+                                    <script>
+											console.log(variableCoronita);
+											if(variableCoronita)
+												document.write('<i class="icon-icn_t-iconLib_N09-64px ocultarCoronita"></i>');
+											else
+												document.write('<img src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/botonBuscar.png" class="ocultarCoronita"/>');
+
+											</script>
+                                </button>
+                            </div> <!--	#INC000002530308  ELIMINAMOS BOTON DE CONSOLIDACION
+								<li class="sinIcono">
+									<div id="kyos_consolidarDivisaTooltip"
+										class="kyos_popUpConsolidar kyos_consolidarBottom kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+										style="display: none; height: auto;">
+										<div class="left">
+											<h2>
+												Consolidar saldos
+											</h2>
+										</div>
+
+										<div class="kyos_closePopUp"
+												onclick="kyos_ocultarConsolidarTooltip();" >
+											<img src="/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"/>
+										</div>
+										<div class="clearAll"></div>
+										<div id="kyos_alertaConsolidacion" style="display:none"></div>
+										<div id="kyos_errorConsolidacion" style="display:none" class="fontSizeStandard marginBottom25">Actualmente no podemos ofrecerle la consolidación de sus cuentas debido a un fallo en la recuperación de contavalores. Si lo desea puede realizar la consolidación introduciendo usted mismo los contravalores.</div>
+										<div class="clearAll"></div>
+
+										<div class="kyos_selectConsolidar">
+											<label for="campo3partes">Divisa de consolidación :</label>
+											<select
+												id="kyos_consolidarDivisaSelectTooltip"
+												onchange="kyos_cargarTipoCambioTooltip(false,undefined,true);">
+											</select>
+										</div>
+										<div class="clearAll"></div>
+										<div class="scrollHolder kyos_maxHeight200 kyos_tablaConsolidar">
+											<table id="kyos_tiposCambio">
+												<tbody id="kyos_tiposCambioBody"></tbody>
+											</table>
+										</div>
+										<div class="clearAll"></div>
+										<div class="marginBottom10 right">
+											<button type="button" class="botonIconoCorto anchoAuto" value="consolidarTooltip"	onclick="kyos_consolidarBotonTooltip('1',false);">
+											Consolidar
+											<img class = "marginLeft10Movil" alt="" src="/eyoz_mult_web_pub/posicioncuentas/img/consolidar_divisa.png"></button>
+										</div>
+										<div class="clearAll"></div>
+
+										<p class="kyos_notaConsolidar">
+											<span class="left marginRight5" style="font-weight: bold">Nota:</span>
+											Los tipos de cambio mostrados por defecto son meramente informativos. Para realizar una simulación, modifíquelos a su conveniencia.<br>
+											<span></span>
+										</p>
+									</div>
+									<div class="menuDrop">
+										<button id="kyos_consolidarDivisaBotonPosicionCuentas"
+											type="button" class="botonIcono" value="consolidarDivisa"
+											style="display: none;" onclick="kyos_mostrarConsolidarTooltip();">
+											<span>Consolidar</span>
+											<img src="/eyoz_mult_web_pub/posicioncuentas/img/consolidar_divisa.png">
+										</button>
+									</div>
+								</li>
+-->
+                        <li class="sinIcono">
+                            <div id="kyos_filtrosTooltipPC"
+                                 class="kyos_popUpFiltro kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                 style="display: none; height: auto;">
+                                <div class="left">
+                                    <h2>
+                                        Filtrar cuentas
+                                    </h2>
+                                </div>
+
+                                <div class="kyos_closePopUp"
+                                     onclick="kyos_ocultarFiltrosTooltipPC();">
+                                    <img
+                                            src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                                            class="ocultarCoronita" /> <i
+                                        class="icon-Cruz ocultarCoronita"></i>
+                                </div>
+                                <div class="clearAll"></div>
+                                <div class="kyos_columnaIzquierda">
+                                    <div class="interior">
+                                        <label>Banco </label>
+                                        <div class="scrollHolder kyos_maxHeight200">
+                                            <table>
+                                                <tbody id="kyos_bancos_filtrado">
+                                                <tr>
+
+                                                    <td class="selectora"><input checked
+                                                                                 id="kyos_bancoSeleccionarTodo" type="checkbox"
+                                                                                 onclick="kyos_seleccionarDeseleccionarTodoBancosPC();" />
+                                                    </td>
+                                                    <td>Todos</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="kyos_columnaDerecha">
+                                    <div class="interior">
+                                        <label>Divisa
+                                        </label>
+                                        <div class="scrollHolder kyos_maxHeight200">
+                                            <table>
+                                                <tbody id="kyos_divisas_filtrado">
+                                                <tr>
+
+                                                    <td class="selectora"><input checked
+                                                                                 id="kyos_divisaSeleccionarTodo" type="checkbox"
+                                                                                 onclick="kyos_seleccionarDeseleccionarTodoDivisasPC();" />
+                                                    </td>
+
+                                                    <td>Todos</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearAll"></div>
+                                <div class="menuDrop">
+                                    <div class="marginBottom10 right marginTop10">
+                                        <button type="button" value="filtrarCuentasTooltip"
+                                                onclick="kyos_filtrarBotonTooltip();" value="filtrar">
+                                            Filtrar
+
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="menuDrop">
+                                <button type="button" class="botonIcono kyos_ocultarEnMovil"
+                                        value="filtros" onclick="kyos_mostrarFiltrosTooltipPC();">
+                                    <span>Filtrar</span>
+
+                                </button>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="clearAll"></div>
+            </div>
+            <div class="clearAll"></div>
+            <div id="kyos_error_no_seleccionListadoCuentas"
+                 style="display: none;"></div>
+        </div>
+        <div id="kyos_cuerpo_container_resMov" style="display: none"></div>
+        <div id="kyos_mensajeErrorFinet" style="display: none;"></div>
+        <div id="kyos_mensajeErrorRedex" style="display: none;"></div>
+        <div id="kyos_mensajeContrato" style="display: none;"></div>
+        <div id="kyos_container_resSaldosOnline" style="display: none">
+            <div id="kyos_cabecera_container_resSaldosOnline">
+                <div class="left paddingLeft5">
+                    <h1>
+                        Saldos on-line
+                    </h1>
+                </div>
+                <div class="right kyos_actualizarDatosHead kyos_ocultarEnMovil">
+						<span><div class="marginLeft20" id="kyos_tempSaldoOnline">
+								Actualizado hace menos de 1 minuto
+							</div></span> <a href="" onclick="kyos_recargaSaldosOnline();return false;">Actualizar datos</a>
+                </div>
+            </div>
+            <div id="kyos_cuerpo_container_resSaldosOnline"></div>
+        </div>
+        <div id="kyos_cuerpo_container_resSaldos" style="display: none">
+            <div>
+                <div class="left paddingLeft5">
+                    <h1>
+                        Resultados de la consulta
+                    </h1>
+                </div>
+                <div class="right kyos_actualizarDatosHead kyos_ocultarEnMovil">
+						<span><div class="marginLeft20" id="kyos_tempSaldo">
+								Actualizado hace menos de 1 minuto
+							</div></span> <a href="" onclick="kyos_recargaSaldos();return false;">Actualizar datos</a>
+                </div>
+            </div>
+            <div class="clearAll"></div>
+            <div id="kyos_mensajeGuardarInformeSaldos" style="display: none;"></div>
+            <div class="clearAll"></div>
+            <div class="kyos_cabeceraResultadosConsulta kyos_tamanno_decente">
+                <ul class="contenedorDrop">
+                    <li class="sinIcono right ">
+                        <div id="kyos_guardarConsultaSaldoTooltip"
+                             class="kyos_guardarConsulta kyos_popUpCabBotonera fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                             style="display: none; height: auto;"></div>
+                        <button type="button" id="kyos_guardarConsultaSaldoBoton"
+                                class="kyos_btnEspecialDerecha"
+                                onclick="kyos_mostrarOcultarGuardarConsultaSaldoTooltip();">
+                            <img
+                                    src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/boton_guardar.png"
+                                    class="ocultarCoronita"> <i
+                                class="icon-icn_t-iconLib_N02-64px ocultarCoronita"></i>
+                        </button>
+                    </li>
+                </ul>
+
+                <h2>
+                    Datos de consulta
+                </h2>
+                <div class="kyos_infoCabecera">
+                    <span class="darker">Saldo: </span> <span
+                        id="kyos_tipoSaldoResSaldo"></span>
+                    <div id="kyos_tooltipSaldosValor" style="display: none"
+                         class="fondoDiferenciado kyop-tootip-background kyos_popUpSaldoValor tooltip kyop-header-tooltip kyop-header-tooltip-ie7 marginTop20 marginLeft40">
+                        <p>
+                            Los saldos son sobre los apuntes existentes
+                        </p>
+                    </div>
+                    <!--  <img class="kyos_positionIco kyos_cursorPointer ocultarCoronita" id="kyos_divSaldosValor" onclick="kyos_abrirTooltipSaldos();return false;" src="/eyoz_mult_web_pub/posicioncuentas/img/imagen_Ayuda.png"/>-->
+                    | <i class="icon-icn_t-iconLib_D04-64px" id="kyos_divSaldosValor"
+                         onmouseover="kyos_abrirTooltipSaldos();return false;"
+                         onmouseout="kyos_abrirTooltipSaldos();return false;"></i> <span
+                        class="darker">Período: </span> <span
+                        id="kyos_fechaResSaldos"></span> <span id="kyos_barraSeparadora"></span>
+                    <span class="darker" id="kyos_rangoImporte"></span> <span
+                        id="kyos_importeResSaldos"></span>
+                </div>
+            </div>
+            <div id="kyos_mensajeFinetSaldos" style="display: none;"></div>
+        </div>
+
+        <!-- 				<div id="kyos_cuerpo_container_movsCuenta" style="display: none"></div> -->
+        <div id="kyos_tabla_container"
+             class="borderLeft1Gris borderRight1Gris borderBottom1Gris"></div>
+        <div id="kyos_VerMasEspera"
+             class="borderLeft1Gris borderRight1Gris borderBottom1Gris"
+             style="display: none"></div>
+        <div id="kyos_tabla_container_resMov" style="display: none"></div>
+        <div id="kyos_tabla_container_resSaldos" style="display: none">
+        </div>
+        <div id="kyos_tabla_container_movsCuenta" style="display: none"></div>
+    </div>
+</div>
+
+<div id="kyos_pie_container">
+    <div class="left" style="display: none"
+         id="kyos_volverAPosicionCuentas">
+				<span><a class="iconLinkBack" href=""
+                         onclick="kyos_volverAPC();return false;">Volver
+				</a> </span>
+    </div>
+
+    <div class="left" style="display: none" id="kyos_volverAPortada">
+				<span><a class="iconLinkBack" href=""
+                         onclick="kyos_volverAPortada();return false;">Volver a cuentas favoritas </a> </span>
+    </div>
+    <div class="left" style="display: none"
+         id="kyos_volverAPosicionGlobal">
+				<span><a class="iconLinkBackPosGlobal" href=""
+                         onclick="kyos_volverAPosicionGlobal();return false;">Posici&oacute;n global </a> </span>
+    </div>
+    <div class="right">
+        <div id="kyos_descargarPosicionCuentasTooltip"
+             class="kyos_descargaTooltip tooltipBoton margin220Neg derecha"
+             style="display: none; height: auto;">
+            <div class="left">
+                <h2 class="marginBottom10">
+                    Descargar
+                </h2>
+            </div>
+            <div class="right">
+                <img style="cursor: pointer; cursor: hand"
+                     src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/cerrar.png"
+                     onclick="kyos_ocultarDescargarPosicionCuentasTooltip();"
+                     class="ocultarCoronita" /> <i class="icon-Cruz ocultarCoronita"
+                                                   style="cursor: pointer; cursor: hand"
+                                                   onclick="kyos_ocultarDescargarPosicionCuentasTooltip();"></i>
+            </div>
+            <div class="clearAll"></div>
+            <p>
+                <span>Seleccionar formato:</span>
+            </p>
+            <div class="clearAll"></div>
+            <div>
+                <div class="interior">
+                    <table>
+                        <tbody>
+                        <tr class="">
+                            <td class="selectora"><input id="kyos_PDFDescargar"
+                                                         type="radio" name="formatoInforme" checked="checked" /></td>
+                            <td>PDF</td>
+                        </tr>
+                        <tr class="">
+                            <td class="selectora"><input id="kyos_XLSDescargar"
+                                                         type="radio" name="formatoInforme" /></td>
+                            <td>XLS</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clearAll"></div>
+            <div class="menuDrop">
+                <div class="marginBottom10 right marginTop10 ">
+                    <button type="button" value="filtrarCuentasTooltip"
+                            onclick="kyos_aceptarDescargarCuentas(false);" value="filtrar"
+                            class="botonPrimario">
+                        Descargar
+                        <img class="marginLeft10 ocultarCoronita"
+                             src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/boton_guardar.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="azul grandote kyos_ocultarEnMovil botonPrimario"
+                onclick="kyos_mostrarOcultarDescargarTooltip();"
+                style="display: none;" id="kyos_BotonDescargarGrande">
+            Descargar
+            <img alt="descargar todo"
+                 src="/SESEYOZ/eyoz_mult_web_pub/posicioncuentas/img/boton_guardar.png"
+                 class="ocultarCoronita" />
+        </button>
+    </div>
+
+    <a href="" style="display: none;" class="iconLinkBack"
+       id="kyos_volverAPosicionCuentasLink"
+       onclick="kyos_cargarPosicionCuentas();return false;">Volver a cuentas BBVA </a>
+
+
+</div>
+
+<div id="kyos_ventanaEntera" class="fondoTransparente"
+     style="display: none;"></div>
+
+<div id="kyos_pdfDescarga" style="display:none"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+>>> RECENT MOVS
+await fetch("https://lkweb.laboralkutxa.com/srv/api/cuentas/0/movimientos", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "lkid": "bd8f4ef4-8ef7-4df0-8bff-c1bb2f78d46f",
+        "origen": "web",
+        "Request-Id": "|c641e0e7695141699d529732e7f44966.294f62dd484b47a9",
+        "Request-Context": "appId=cid-v1:7cfeada0-7857-4443-8232-b19edbfaab73"
+    },
+    "referrer": "https://lkweb.laboralkutxa.com/cuentas/0/movimientos",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_recent_movs.json
+
+>>> FILTER MOVS AS N43
+await fetch("https://lkweb.laboralkutxa.com/srv/api/cuentas/0/movimientos/aeb43", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "lkid": "bd8f4ef4-8ef7-4df0-8bff-c1bb2f78d46f",
+        "origen": "web",
+        "Content-Type": "application/json;charset=utf-8",
+        "Request-Id": "|c641e0e7695141699d529732e7f44966.63fa86d5d0224537",
+        "Request-Context": "appId=cid-v1:7cfeada0-7857-4443-8232-b19edbfaab73"
+    },
+    "referrer": "https://lkweb.laboralkutxa.com/cuentas/0/movimientos",
+    "body": "{\"id\":\"0\",\"fechaDesde\":\"2021-03-27T21:00:00.000Z\",\"fechaHasta\":\"2021-06-23T21:00:00.000Z\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_containing_n43.json
+
+

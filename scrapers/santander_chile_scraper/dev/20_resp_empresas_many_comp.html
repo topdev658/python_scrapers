@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8">
+    <title>Empresas</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="/Opinator/js/CargarOpinator.js"></script>
+
+    <link rel="stylesheet" href="Estilo/estilos_empresas.css">
+    <script>
+        $(document).ready(function () {
+
+            $(".loading").css("display", "inherit");
+            try {
+                var $row = $("tbody tr:has(input):first");
+                if ($row != null) {
+                    $row.find('input').prop('checked', true);
+                    $row.find('.circle').css('opacity', '1');
+                    $row.addClass("seleccion");
+                    var x = $row.position();
+                    var $table = $("#tabla_empresas")
+                    var empSel1 = $row.find('input');
+                    $table.scrollTop(x.top - $table.position().top);
+                }
+                $.ajax({
+                    type: "GET",
+                    url: "tipo_portal.asp",
+                    data: $("#empresas-form").serialize(),
+                    contentType: "text/plain; charset=utf-8",
+                    dataType: "html",
+                    success: function (result) {
+                        if(result == "aceptado.asp"){
+                            empSel1.val(empSel1.val().replace(/ñ|Ñ/g, '%D1'));
+                        }else{
+                            empSel1.val(empSel1.val().replace(/ñ|Ñ/g,'N'));
+                        }
+                        $("#empresas-form").attr("action", result);
+                    }
+                });
+            } catch(e) {
+                //console.log(e);
+            } finally {
+                $(".loading").css("display", "none");
+            }
+
+            $('tbody tr:has(input)').click(function () {
+                var nameInput = $(this).find('input').attr('name');
+                $('.radioBtn input').filter('[name="' + nameInput + '"]').parent().find('.circle').css('opacity', '0');
+                $(this).find('input').prop('checked', true);
+                $(this).find('.circle').css('opacity', '1');
+                $('tbody tr').removeClass("seleccion");
+                $(this).addClass("seleccion");
+                var empSel1 = $(this).find('input');
+                $.ajax({
+                    type: "GET",
+                    url: "tipo_portal.asp",
+                    data: $("#empresas-form").serialize(),
+                    contentType: "text/plain; charset=utf-8",
+                    dataType: "html",
+                    success: function (result) {
+                        if(result == "aceptado.asp"){
+                            empSel1.val(empSel1.val().replace(/ñ|Ñ/g, '%D1'));
+                        }else{
+                            empSel1.val(empSel1.val().replace(/ñ|Ñ/g,'N'));
+                        }
+                        $("#empresas-form").attr("action", result);
+                    }
+                });
+            });
+
+            loadLibsOpinator("True", "True");
+
+            var requestOpinator = new Object();
+            requestOpinator.token = "hAITjRf1gZpaCT6Q8qzrPyBGITLOZS6HqwoyyhmyCoENyAsYbRNey0bQnKJmJINqltrkP";
+            requestOpinator.KeyHMACSHA256 = "ttemN37UQznmUSHha3DntptwDgbNHBdTB0O3pIdKgAlyOOAyVTk3fdtCHrXfEUHWXR1M28WjJhg4NSXyRNNy9nRLNeI4F0eC5xABr5EKdJpL7fgv6gVeOCgxok5NoyEt";
+            requestOpinator.designator = "OPI_Empresas_01";
+            requestOpinator.contextNumber = "61";
+            requestOpinator.canal = "06";
+            requestOpinator.contextActive = "True";
+            requestOpinator.urlBase = "https://www.opinator.com/";
+            requestOpinator.uriContext = "external-api/api/v2/opis/context.json?";
+            requestOpinator.uriSaturation = "external-api/api/v2/opis/saturation.json?";
+            requestOpinator.prefijOpinator = "opi/";
+
+            loadOpinator(requestOpinator);
+        });
+
+    </script>
+</head>
+<body>
+<div class="loading">
+    <div class="cnt-load">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="27px" height="25px" viewBox="-12 0 150.178 141.878" enable-background="new -12 0 150.178 141.878"
+             xml:space="preserve">
+				<path fill="#EC0000" d="M95.634,64.945c-0.223-5.147-1.664-10.256-4.33-14.873L67.791,9.346c-1.793-3.105-3.03-6.434-3.719-9.846
+				  l-0.983,1.701c-5.82,10.08-5.82,22.498,0,32.578l18.811,32.582c5.82,10.08,5.82,22.498,0,32.578l-0.983,1.702
+				  c-0.688-3.411-1.926-6.739-3.719-9.847L59.976,60.968L48.981,41.925c-1.793-3.104-3.031-6.435-3.719-9.847l-0.983,1.701
+				  c-5.8,10.047-5.818,22.416-0.057,32.478l-0.002,0.002l18.869,32.683c5.82,10.08,5.82,22.498,0,32.577l-0.983,1.703
+				  c-0.688-3.412-1.926-6.739-3.719-9.849L34.874,82.65c-3.153-5.463-4.594-11.611-4.33-17.703C5.373,71.523-12,85.486-12,101.654
+				  c0,22.49,33.619,40.724,75.089,40.724c41.471,0,75.089-18.231,75.089-40.724C138.178,85.488,120.808,71.521,95.634,64.945"/>
+            <div class='uil-ring-css'><div></div></div>
+    </div>
+</div>
+<form name="empresas" action="" method="post" target="_top" id="empresas-form">
+    <input type=hidden name=ModoAcceso value="B">
+    <input type=hidden name=changeEmp value="Falso">
+    <input type=hidden name=Autenticado value="Verdadero">
+    <input type=hidden name=nom_prsna_etcdo value="MARIA IGNACIA SILVA ROBLES">
+    <input type=hidden name=Autorizado value="Verdadero">
+    <input type=hidden name=UsuarioNoOFB value="0">
+    <input type=hidden name=UsuarioOFB value="1">
+    <input type=hidden name=TipoAutenticacion value="NRM">
+    <input type=hidden name=GLS_SEGMENTO value="CLIENTES">
+    <input type=hidden name=nro_prsna_usr value="0170892100">
+    <input type=hidden name=Login_Autorizado_HE value="Verdadero">
+    <input type=hidden name=EstadoTCC value="">
+    <input type=hidden name=CLVSP001 value="">
+    <input type=hidden name=Cod_srv value="LOGIN_USR">
+    <input type=hidden name=url_btn_ses value="https&#58;&#47;&#47;www.officebanking.cl">
+    <input type=hidden name=btnpnc value="0">
+    <input type=hidden name=btnDFTN value="PantOB_Blanca.asp">
+    <input type=hidden name=btnDFT3 value="https&#58;&#47;&#47;www.officebanking.cl&#47;campna&#47;CAMPANAS_OB&#47;PAGO_TC_APP&#47;">
+    <input type=hidden name=btnDFT4 value="ERC">
+    <input type=hidden name=btnDFT6 value="ERC">
+    <input type=hidden name=btnDFT92 value="https&#58;&#47;&#47;www.officebanking.cl&#47;campna&#47;CAMPANAS_OB&#47;APO_DELEGADO&#47;BANNER.ASPX">
+    <input type=hidden name=btnDFT00 value="ERC">
+    <input type=hidden name=NoticiaOFB20 value="">
+
+    <div class="content-ob-seleccion">
+        <h2>Bienvenido a Office Banking</h2>
+        <h3>Sr.(a) MARIA IGNACIA SILVA ROBLES</h3>
+        <div class="alert"><p>Recuerde que toda modificaci&oacute;n de sus poderes bancarios debe ser informada de inmediato a Banco Santander. <br>Cont&aacute;ctese para ello con su ejecutivo de cuentas.</p></div>
+        <br/>
+        <p class="encabezado">Seleccione la empresa con la que desea trabajar:</p>
+        <table>
+            <thead>
+            <tr>
+                <th colspan="3" align="left"><strong>N&#176; Contrato</strong></th>
+                <th class="border-left" align="left"><strong>Rol Usuario</strong></th>
+                <th class="border-left" align="left"><strong>Rut Empresa</strong></th>
+                <th class="border-left" align="left"><strong>Nombre Empresa</strong></th>
+            </tr>
+            </thead>
+            <tbody id="tabla_empresas">
+            <tr class="selectable"><td></td><td><label for="" class="radioBtn"><input type="radio" name="empSel" value="0002000100069001399450005916298080EMTE&#32;CHILE&#32;S.L.&#32;AGENCIA&#32;EN&#32;CHILE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;" checked/><span class="circle" style="opacity:1;"></span></label></td>
+                <td class="borde-right">000690013994500</td>
+                <td class="borde-right">
+                    Controller
+                </td>
+                <td class="borde-right">59.162.980-8</td>
+                <td>EMTE CHILE S.L. AGENCIA EN CHILE                                                                                        </td>
+            </tr>
+            <tr class="selectable"><td></td><td><label for="" class="radioBtn"><input type="radio" name="empSel" value="0100000100069001399450005916298080EMTE&#32;CHILE&#32;S.L.&#32;AGENCIA&#32;EN&#32;CHILE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;"/><span class="circle"></span></label></td>
+                <td class="borde-right">000690013994500</td>
+                <td class="borde-right">
+                    Supervisor
+                </td>
+                <td class="borde-right">59.162.980-8</td>
+                <td>EMTE CHILE S.L. AGENCIA EN CHILE                                                                                        </td>
+            </tr>
+            <tr class="selectable"><td></td><td><label for="" class="radioBtn"><input type="radio" name="empSel" value="0002000100069001456733009684753040COMSA&#32;INDUSTRIAL&#32;CHILE&#32;S.A."/><span class="circle"></span></label></td>
+                <td class="borde-right">000690014567330</td>
+                <td class="borde-right">
+                    Controller
+                </td>
+                <td class="borde-right">96.847.530-4</td>
+                <td>COMSA INDUSTRIAL CHILE S.A.</td>
+            </tr>
+            <tr class="selectable"><td></td><td><label for="" class="radioBtn"><input type="radio" name="empSel" value="0100000100069001456733009684753040COMSA&#32;INDUSTRIAL&#32;CHILE&#32;S.A."/><span class="circle"></span></label></td>
+                <td class="borde-right">000690014567330</td>
+                <td class="borde-right">
+                    Supervisor
+                </td>
+                <td class="borde-right">96.847.530-4</td>
+                <td>COMSA INDUSTRIAL CHILE S.A.</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <button class="btn-primario">Ingresar</button>
+    </div>
+</form>
+<input id='penumperPersona' type='hidden' value=08220423><input id='Rol' type='hidden' value=2>
+
+<!-- opinator -->
+<div class="div-opinator" id="div-opinator"></div>
+</body>
+</html>

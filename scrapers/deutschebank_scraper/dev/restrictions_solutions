@@ -1,0 +1,25 @@
+cannot use mobile web app "Deutsche Bank" because can'y use BurpSuite's certificate - it is blocked by the app. and even if could, the app uses auth by branch-account number-subaccount-PIN - another than for dbdirect. Same auth at "Meine Bank" app; "O Meu Banko" uses credential for person (passport + reference number), not company
+
+so, due it uses another auth approach for mobile apps and mobile web site, only dbdirect can be scraped for now with current credentials (see below)
+
+
+only one user session allowed at https://www.deutschebank-dbdirect.com or all sessions will be blocked
+
+the changing of IP is not allowed during the session
+
+many tabs for session are not allowed by default but it is possible to close modal blocked message from browser's console and continue in second tab (doing requests), BUT! there are no possibility to go to the second page fro different "tabs" (with different accounts) because the get params just ?page=2 and it will display same results for all acounts (based on last active account request). Solution: use excel
+
+
+
+== Execution flow ==
+
+log into dbdirect
+open account summary to get balances
+
+then open each account parallel
+extract movements from excel, filtered by date filter
+
+log out correctly after all - this is important for further calls or they will be blocked
+PROFIT
+==
+

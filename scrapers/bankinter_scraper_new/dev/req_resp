@@ -1,0 +1,157 @@
+>>> HANDSHAKE (after gen rsa key)
+await fetch("https://seguridad.bankinter.com/seguridad/api/authorization/v0/authorizations/5df8Vv9IrfXWhO8PLmWhl1kb1zhEqGEgGiZj9/handshake", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-GB",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "application/json",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://seguridad.bankinter.com/seguridad/companiesbanking/en-gb/?authorizationId=5df8Vv9IrfXWhO8PLmWhl1kb1zhEqGEgGiZj9",  // from 20_resp_authorize.html->authorizationData
+    "body": "{\"key\":{\"kty\":\"RSA\",\"n\":\"rKxhy1-1WH_Q0Ow2Z6Cn7wqNk3SBrXD9Zc6PwXVnmymTvhUcMOp9asB-cJF41izwfHzu1CmYYyPacdyP_PyN9eA1NB0Hs9hYMT9nxZe9awLPH5xAeZYJs199B9PrDO4WW3AUSYm_TlF6ZZuIkIesRQUiXnW9JA5Y54x7nBCakK0\",\"e\":\"AQAB\"}}",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> USER MIGRATION INFO
+await fetch("https://empresasapi.bankinter.com/api/companyusers/v2/users/5d399MZu5Qk5AEDqx/userMigration", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/posicion-global",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< JSON: {"migratedUser":true}
+
+>>> MULTICURRENCY ACCOUNTS
+await fetch("https://empresasapi.bankinter.com/api/credits/v1/summary?type=multicurrency&authorised=5d399MZu5Qk5AEDqx", {
+        "credentials": "include",
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "es-ES",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-BkCompany": "c5cdxcDHDDfs", // contract
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Site": "same-site"
+        },
+        "referrer": "https://empresas.bankinter.com/secure/es/posicion-global",
+        "method": "GET",
+        "mode": "cors"
+    });
+<<< 120_resp_multycurrency_accounts__no_accs.json
+
+>>> ACCOUNTS
+await fetch("https://empresasapi.bankinter.com/api/accounts/v1/summary?authorised=5d399MZu5Qk5AEDqx", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/posicion-global",
+    "method": "GET",
+    "mode": "cors"
+});
+<<<
+
+
+>>> MOVS
+await fetch("https://empresasapi.bankinter.com/api/accounts/v1/accounts/56c2229fB9DsBxw9Je9cccOwxO2cDOODfHDxoxo2/transactions?continuationsNumber=2&continuationTokenInd=true&sort=DESC&to=2022-03-26&from=2021-12-26", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas?id=56c2229fB9DsBxw9Je9cccOwxO2cDOODfHDxoxo2&type=CURRENT&tab=movements",
+    "method": "GET",
+    "mode": "cors"
+});
+<<<
+
+==========================
+
+>>> N43 step1 (filter)
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/accounts/df85x2ssf9HfsoJfssSwccOwwxS9ODexf2HB8sow?isReference=false&isMovements=false&isDescription=true&isValueDate=true&to=2022-03-28&from=2022-03-01&authorised=208293esrSYSXjkaj", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "3b7bs9DxcDfD",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43/peticion-cuenta/confirmacion",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< {"id":"6706ccxDB"}
+
+
+>>> N43 step2
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/xmlConverter/fileDownload/6706ccxDB", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "3b7bs9DxcDfD",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43/peticion-cuenta/confirmacion",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< {"webId":"77ed602fa0d64e3e9959ebdf2c7e4153.069"}
+
+
+>>> N43 step3: file download action
+await fetch("https://empresasapi.bankinter.com/api/filetickets/v1/filesDownload/77ed602fa0d64e3e9959ebdf2c7e4153.069/liftRedirect", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "3b7bs9DxcDfD",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43/peticion-cuenta/confirmacion",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< FILE CONTENT

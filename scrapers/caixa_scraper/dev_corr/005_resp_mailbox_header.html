@@ -1,0 +1,2918 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/c-progress_steps.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <style type="text/css">
+
+
+
+        .placeholderBox {
+            background:#EFF3FD;
+            border:3px dashed #C4CDEC;
+            width:100%;
+        }
+        .box .content, .box .saldo {
+            min-height: 54px !important;
+        }
+        .fselect p {
+            max-width: 330px;
+        }
+        .medida80 {
+            width: 100% !important;
+        }
+    </style>
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/jquery.custom-scrollbar.min.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/jcarousel.basic.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/jsSelectExtendidoHandler.js"></script>
+    <script type="text/javascript" src="./js/arq/init/jsHandlerTablaV2.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/jsDashboardV2Handler_type_columns.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+    <script type="text/javascript" src="./js/elomktb000100.js"></script>
+
+    <script type="text/javascript" src="./js/elomktb000200.js"></script>
+
+    <script language='JavaScript' type='text/javascript' src='./js/arq/mailbox/AjaxQueueMB.js'></script>
+    <script type="text/javascript" src="./js/EloGenB001100.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script language='JavaScript' type='text/javascript' src='./js/jquery.blockUI-2.57.0.js'></script>
+    <script type="text/javascript" src="./js/popupMultiple.js"></script>
+    <script type="text/javascript" src="./js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.metadata.js"></script>
+    <script>
+        var PNAjuda="MBX";
+        var PEAjuda="1";
+        var npe1tit = '0150D36D';
+        var codmis=new Array();
+        var nummis=new Array();
+        var imatge=new Array();
+        var idgrmis=new Array();
+        var jsEncodeURL=new Array();
+        var tickmis=new Array();
+        var mkt_origen=new Array();
+        var offerspace=new Array();
+        var codmisOPP=new Array();
+        var nummisOPP=new Array();
+        var imatgeOPP=new Array();
+        var idgrmisOPP=new Array();
+        var jsEncodeURLOPP=new Array();
+        var tickmisOPP=new Array();
+        var mkt_origenOPP=new Array();
+        var offerspaceOPP=new Array();
+        var codmisAV=new Array();
+        var nummisAV=new Array();
+        var imatgeAV=new Array();
+        var idgrmisAV=new Array();
+        var jsEncodeURLAV=new Array();
+        var tickmisAV=new Array();
+        var mkt_origenAV=new Array();
+        var offerspaceAV=new Array();
+        var HEAVY_USER = false;
+        var TIPO_LISTA_CUENTAS="";
+        var ULTIM_ANY_FILTER = "20190501,20200525";
+        var ULTIM_ANY_FISCAL = "20200101#20201231";
+        var FLAG_JURIDICA = "J";
+        var DNISIGUALES = "N";
+        var LIT_TODAS_LAS_CATEGORIAS = "Todos los tipos";
+        var JS_AJAX_CALLBACK_GRAFICOS = "callBackGraficos";
+        var JS_AJAX_CALLBACK_ERROR = "ajaxCallbackError";
+        var ID_TABLA_CORRESPONDENCIA_MARGEN = "tablacorrespMargen";
+        var LIT_ERROR_NO_DISPONIBLE = "no dsiponible";
+        var indCtaForzada = "N";
+        var claveContinuacionCta = "68IZBpLXGAbrwhkGktcYBgAAAXJMjFCgM_IJsqt1OZE";
+        var graficaRecargable = false;
+        var eliminarGrafica = false;
+        var graficoBarrasCalculado = false;
+        var emisorSel = "";
+        var emisorSelRefVal = "";
+
+        var numeroCuentaReciboRefVal = "";
+
+        var nombreCompanyiaSelRefVal ="";
+
+        var FLAG_DESPLEGAR_COMBO = true;
+        var LIT_ERROR_NUM_IBAN = "Los 22 últimos caracteres del IBAN deben ser numéricos";
+        var LIT_ERROR_TEXTO_IBAN = "El campo IBAN debe comenzar por ES";
+        var LIT_ERROR_LONGITUD_IBAN = "Longitud del IBAN incorrecto. Debe rellenar todos los campos por completo.";
+        var IMG_UP = '../imatge/ico_fletxa_up.png';
+        var IMG_DOWN = '../imatge/select.png';
+        $(document).ready(function() {
+
+
+
+            if (isDefined(window.top.Inferior.Niveles.informaBuzon)) {
+                top.Inferior.Niveles.informaBuzon("");
+            }
+
+            if (isDefined(window.top.Inferior.Niveles.informaAlertas)) {
+                top.Inferior.Niveles.informaAlertas("");
+            }
+
+            if (isDefined(window.top.Inferior.Menu.fijarCoordenadasMenu)) {
+                top.Inferior.Menu.fijarCoordenadasMenu('MBX','1');
+            }
+            initJcarouselGrafico();
+            initCalls();
+            comprobarDragables();
+            setOmnitureInformation();
+            setGuardarEstado();
+            var escenario = calculaEscenario();
+            if (escenario=="FISCALES") {
+
+                setFechasBusquedaSimple(ULTIM_ANY_FILTER);
+            }else{
+
+                setFechaPeriodoFiscalInicial();
+            }
+            $('.uncol').on( "sortstop", function( event, ui ) {
+                if(ui.item.attr('id') == "M5"){
+                    if (eliminarGrafica){
+                        if (AmCharts.charts[AmCharts.charts.length -1].type == "serial"){
+                            AmCharts.charts.splice(AmCharts.charts.length - 1, 1);
+                        }else{
+                            AmCharts.charts.splice(AmCharts.charts.length - 2, 1);
+                        }
+                        eliminarGrafica = false;
+                    }
+
+                }
+
+                if (typeof OmnitureClicatElement != "undefined") {
+                    var containerMoved = ui.item.attr('id');
+                    switch (containerMoved){
+                        case "M2":
+                            OmnitureClicatElement("D_OpPend");
+                            break;
+                        case "M3":
+                            OmnitureClicatElement("D_Avisos");
+                            break;
+                        case "M4":
+                            OmnitureClicatElement("D_Docs");
+                            break;
+                        case "M5":
+                            OmnitureClicatElement("D_Graf");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                callGuardar();
+            });
+
+            $("body").click(function(evento){
+
+
+                if (evento.target.parentNode!=null) {
+                    var aux = evento.target.parentNode;
+                    var auxTipoPadre = evento.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+                    var auxCuentaPadre = evento.target.parentNode.parentNode.parentNode;
+                    var auxTexto = evento.target.parentNode.parentNode;
+
+
+
+
+
+                    if (aux.id!="selectTipoComunicado" && auxTexto.id!="selectTipoComunicado" &&  $('#selectTipoComunicadox').is(':visible')) {
+                        if (auxTipoPadre.id!="selectTipoComunicado") {
+                            $('#selectTipoComunicadox').hide();
+                            $('#selectTipoComunicado').removeClass("on");
+                            $('#selectTipoComunicado').first().find("img").attr("src",IMG_DOWN);
+                        }
+                    }
+
+                    if (aux.id!="selectFechaGenerico" && auxTexto.id!="selectFechaGenerico" &&  $("[id*='selectFechaGenericox']").is(':visible')) {
+                        $("[id*='selectFechaGenericox']").hide();
+                        $('#selectFechaGenerico').removeClass("on");
+                        $('#selectFechaGenerico').first().find("img").attr("src",IMG_DOWN);
+                    }
+
+                    if (aux.id!="idSelectCuentas" && auxTexto.id!="idSelectCuentas" &&  $("[id*='idSelectCuentasx']").is(':visible')) {
+                        if (auxCuentaPadre.id!="idSelectCuentas") {
+                            $("[id*='idSelectCuentasx']").hide();
+                            $('#idSelectCuentas').removeClass("on");
+                            $('#idSelectCuentas').first().find("img").attr("src",IMG_DOWN);
+                        }
+                    }
+
+                    if (aux.id!="selectListaEmisores" && auxTexto.id!="selectListaEmisores" &&  $("[id*='selectListaEmisoresx']").is(':visible')) {
+                        $("[id*='selectListaEmisoresx']").hide();
+                        $('#selectListaEmisores').removeClass("on");
+                        $('#selectListaEmisores').first().find("img").attr("src",IMG_DOWN);
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $("#dashboardUncolLfloat").addClass("display--none");
+            $("#dashboardUncolRfloat").addClass("display--none");
+        });
+        function isDefined(variable) {
+            return (typeof variable == "undefined")?  false: true;
+        }
+
+        function sendAjaxGenerica(params, id_origen, id_destino, evalScripts){
+            AjaxQueueMB.set("POST", true, 120000, '/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559', params, $('#'+id_origen+''), $('#'+id_destino+''), evalScripts, [callBackGenericaMB, callBackModulos], null);
+            procesaAjaxQueueMB(AjaxQueueMB);
+        }
+        function callBackModulos(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+            var j=0;
+
+            codmis=new Array();
+            nummis=new Array();
+            imatge=new Array();
+            idgrmis=new Array();
+            jsEncodeURL=new Array();
+            tickmis=new Array();
+            mkt_origen=new Array();
+            offerspace=new Array();
+            if (window.codmisOPP && codmisOPP.length>0) {
+                recargar_array(data, "codmisOPP");
+                recargar_array(data, "nummisOPP");
+                recargar_array(data, "imatgeOPP");
+                recargar_array(data, "idgrmisOPP");
+                recargar_array(data, "jsEncodeURLOPP");
+                recargar_array(data, "tickmisOPP");
+                recargar_array(data, "mkt_origenOPP");
+                recargar_array(data, "offerspaceOPP");
+
+                for (i=0; i<codmisOPP.length;i++) {
+                    codmis[j]=codmisOPP[i];
+                    nummis[j]=nummisOPP[i];
+                    imatge[j]=imatgeOPP[i];
+                    idgrmis[j]=idgrmisOPP[i];
+                    jsEncodeURL[j]=jsEncodeURLOPP[i];
+                    tickmis[j]=tickmisOPP[i];
+                    mkt_origen[j]=mkt_origenOPP[i];
+                    offerspace[j]=offerspaceOPP[i];
+                    j++;
+                }
+
+            }
+            if (window.codmisAV && codmisAV.length > 0) {
+                recargar_array(data, "codmisAV");
+                recargar_array(data, "nummisAV");
+                recargar_array(data, "imatgeAV");
+                recargar_array(data, "idgrmisAV");
+                recargar_array(data, "jsEncodeURLAV");
+                recargar_array(data, "tickmisAV");
+                recargar_array(data, "mkt_origenAV");
+                recargar_array(data, "offerspaceAV");
+
+                for (i=0; i<codmisAV.length;i++) {
+                    codmis[j]=codmisAV[i];
+                    nummis[j]=nummisAV[i];
+                    imatge[j]=imatgeAV[i];
+                    idgrmis[j]=idgrmisAV[i];
+                    jsEncodeURL[j]=jsEncodeURLAV[i];
+                    tickmis[j]=tickmisAV[i];
+                    mkt_origen[j]=mkt_origenAV[i];
+                    offerspace[j]=offerspaceAV[i];
+                    j++;
+                }
+
+            }
+
+
+
+
+
+
+            var divContainer = $('#bloqueCarruselBGC').parent('div');
+            if(objDestino.attr('id') == divContainer.attr('id') || objOrigen.attr('id') == divContainer.attr('id')){
+                var plegar = [];
+                for(var i=0; i<plegar.length; i++){
+                    if (document.getElementById(plegar[i]+"ContentContainer").id == divContainer.attr('id')){
+                        var divTitle = document.getElementById(plegar[i]+"TitleContainer").id;
+                        $('div#' + divTitle +' span.minimize').click();
+                    }
+                }
+            }
+        }
+        function recargar_array(codigo_html, nombre_array) {
+
+            var inicio = codigo_html.indexOf(nombre_array, 0);
+            if (inicio==-1) return null;
+
+            var final = codigo_html.indexOf(");", inicio);
+            if (final==-1) return null;
+
+            eval(codigo_html.substring(inicio,final+2));
+        }
+        function refrescaComboMultiSelect(idCombo) {
+
+            var p=$("#selectTipoComunicado p:first span")
+            var cks=$(idCombo).find("input:checked");
+            var txt="";
+            var coma =", ";
+            cks.each(function(){
+                if(txt!=""){
+                    txt+=coma+ $(this).parent().text();
+                }else{
+                    txt=$(this).parent().text();
+                }
+            });
+
+            if(p.attr("copia-titulo") == null) {
+
+                p.attr("copia-titulo", p.html());
+            }
+            if(txt==""){
+
+                txt=p.attr("copia-titulo");
+                p.attr("copia-titulo", null);
+            }
+            else{
+                var limit=19;
+                if(txt.length>limit){
+                    txt= txt.substr(0,limit) + "...";
+                }
+            };
+            p.html(txt);
+            $(idCombo).hide();
+        }
+
+        function firmaOperacion(oper,codspr,codtpr){
+            if (typeof OmnitureClicatElement != "undefined") {
+                if (oper!=null && oper!="") {
+                    var idx = parseInt(oper,10) + 1;
+                    OmnitureClicatElement("L_DetalleOpPend[" +  idx + "]");
+                }
+            }
+            var f = document.forms["F_MULTIFIRMA"];
+            f.PN.value = "AMF";
+            f.PE.value = "40";
+            f.TITULO.value = "MTF1";
+            f.submit();
+        }
+        function firmaOperacionFDF(){
+
+
+
+
+
+
+
+            f = document.forms["F_OPP_FDF"];
+            f.PN.value = "MSG";
+            f.PE.value = "1";
+            f.submit();
+        }
+        function accederSolicitudHipoteca(idSolicitud, idAplicacion) {
+
+
+
+
+
+
+
+            f = document.forms["F_TRACKING_HIP"];
+            if (idSolicitud!="") {
+                f.ID_SOLICITUD.value = idSolicitud;
+
+                if (idAplicacion=="HIP") {
+                    f.PN.value = "HIP";
+                    f.PE.value = "50";
+
+                } else if (idAplicacion=="PRE") {
+                    f.PN.value = "PST";
+                    f.PE.value = "50";
+                }else{
+                    f.PN.value = "PIC";
+                    f.PE.value = "60";
+                }
+            }else{
+                f.PN.value = "PIC";
+                f.PE.value = "60";
+            }
+            f.submit();
+        }
+
+        function enviarDatosDetalleDocumento(fila, tipoODB, tiquet,docId) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("L_DetalleDoc[" + fila + "]");
+            }
+            var formulario="verDocumentos";
+            with (document.forms[formulario]) {
+                PN.value="DOX";
+                PE.value="2";
+                TIPO_ODB.value=tipoODB;
+                TIQUET.value=tiquet;
+                DOCID_DOX.value=docId;
+                CLICK_ORIG.value = "FLX_MBX_1";
+                submit();
+            }
+        }
+
+        function calculaGrafico(paramNoOb,opcContadors,dateIni,dateEnd,objOrig,objDest,input) {
+
+
+
+
+            var params='PN=COX&PE=10&PARAM_NO_OBLIGATORIO='+paramNoOb+'&OPCION_CONTADORS='+opcContadors+'&FLAG_OPERATIVA_CORRESPONDENCIA=DASHBOARD_MAILBOX&PETICION_AJAX=S&CLICK_ORIG=AJX_MBX_1';
+            if (dateIni!=null && dateIni!='')
+                params+='&FECHA_DESDE='+dateIni;
+            if (dateEnd!=null && dateEnd!='')
+                params+='&FECHA_HASTA='+dateEnd;
+            if ((dateIni!=null && dateIni!='') || (dateEnd!=null && dateEnd!=''))
+                $("#selFecha_GRAFICO_TARTAInput").attr("value",dateIni+','+dateEnd);
+
+
+
+
+
+
+            if (graficaRecargable && paramNoOb == 'GRAFICO_BARRAS'){
+                AjaxQueueMB.set("POST", true, 10000, '/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559', params, $('#'+objOrig+''), $('#'+objOrig+''), null, callBackGenericaMB, null);
+                var quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar = true;
+                procesaAjaxQueueMB(AjaxQueueMB,quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar);
+                graficaRecargable = false;
+                eliminarGrafica = true;
+            }else{
+                if ($('#'+objDest).find('div').attr('id')=="undefined" || $('#'+objDest).find("div").attr('id')==null || $('#'+objDest).find("div").attr('id')=="") {
+                    AjaxQueueMB.set("POST", true, 10000, '/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559', params, $('#'+objOrig+''), $('#'+objOrig+''), null, callBackGenericaMB, null);
+                    var quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar = true;
+                    procesaAjaxQueueMB(AjaxQueueMB,quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar);
+                }
+            }
+        }
+        function callBackGraficos(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+
+            $(objDestino).html(data);
+
+
+        }
+        function sendAjaxFiltroCorrespondenciaGraficos(params, id_origen, id_destino, evalScripts){
+            sendAjaxGenerica(params, 'M5ContentContainer', 'M5ContentContainer', true);
+        }
+        function buscarCorrespondenciaGraficos(tipo){
+            var sepIds='#~$#';
+            var SEP_IDS = "#~$#";
+
+            var categorias = "";
+            $("#selectTipoComunicado input[type=checkbox]").each(function () {
+                if ($(this).attr("checked")=="checked") {
+
+                    if ($(this).attr("name")=="0") {
+                        categorias = "";
+                        return false;
+                    }
+                    categorias+=$(this).attr("name").replace("cat_","")+sepIds;
+                }
+            });
+            if (categorias!="")
+                categorias=categorias.substr(0,categorias.length-SEP_IDS.length);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var fechaDesde = "20190501";
+            var fechaHasta = "20200525";
+
+
+            var params = "PN=COX&PE=10&CLICK_ORIG=AJX_MBX_1&FLAG_OPERATIVA_CORRESPONDENCIA=DASHBOARD_MAILBOX";
+            params = params + "&LISTA_CATEGORIAS="+categorias;
+            params = params + "&FECHA_DESDE="+fechaDesde;
+            params = params + "&FECHA_HASTA="+fechaHasta;
+            params = params + "&PETICION_AJAX=S";
+            params = params + "&PARAM_NO_OBLIGATORIO="+tipo;
+            params = params + "&OPCION_CONTADORS=C";
+            sendAjaxFiltroCorrespondenciaGraficos(params, 'M5ContentContainer', 'M5ContentContainer', true)
+
+
+        }
+        function graficoTartaClick(categoria){
+            var fechaDesde = "20190501";
+            var fechaHasta = "20200525";
+            var params = "PN=COX&PE=1&CLICK_ORIG=AJX_MBX_1";
+            params = params + "&LISTA_CATEGORIAS="+categoria;
+            params = params + "&FECHA_DESDE="+fechaDesde;
+            params = params + "&FECHA_HASTA="+fechaHasta;
+            params = params + "&TIPO_BUSCADOR_ACTIVO_COX=GRAFICO";
+            var myAjaxBaseUrl="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559";
+            document.location.href = myAjaxBaseUrl+"?"+params;
+        }
+        function graficoBarrasClick(fechaDesde,fechaHasta){
+            var params = "PN=COX&PE=1&CLICK_ORIG=AJX_MBX_1";
+            params = params + "&LISTA_CATEGORIAS=";
+            params = params + "&FECHA_DESDE="+fechaDesde;
+            params = params + "&FECHA_HASTA="+fechaHasta;
+            params = params + "&TIPO_BUSCADOR_ACTIVO_COX=GRAFICO";
+            var myAjaxBaseUrl="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559";
+            document.location.href = myAjaxBaseUrl+"?"+params;
+        }
+        function pressMissatge(pe,datcre,horcre,tipmen, nummen,dato1,dato1valor,dato2,dato2valor,dato3,dato3valor,pnAccio,peAccio, convivencia, nombreclase, idxAvisos,refvalCuenta) {
+
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("L_ClicConceptoAviso[" + idxAvisos + "]");
+            }
+            var f=document.forms["F_AVISOS_VER"];
+            f.PN.value = "GBP";
+            f.PE.value = pe;
+            f.DATCRE.value = datcre;
+            f.HORCRE.value = horcre;
+            if ((tipmen=="LI0")||(tipmen=="LI1")) {
+                f.PNACCIO.value = dato1valor.substring(0,3);
+                if ((VerificaCampoNumerico(f.PNACCIO.value,3) != 1) && (VerificaCampoNumerico(f.PNACCIO.value,3) != 2)) {
+                    convivencia = " ";
+                }
+                f.PEACCIO.value = dato1valor.substring(3,5);
+            } else {
+                f.PNACCIO.value = pnAccio;
+                f.PEACCIO.value = peAccio;
+            }
+            f.TIPMEN.value = tipmen;
+            f.NUMMEN.value = nummen;
+            f.DATO1.value = dato1;
+            f.DATO1VALOR.value = dato1valor;
+            if (tipmen=="LI1") {
+                f.BUFFER.value = dato2valor;
+            } else {
+                f.DATO2VALOR.value = dato2valor;
+            }
+            f.DATO3.value = dato3;
+            f.DATO3VALOR.value = dato3valor;
+            f.CONVIVENCIA.value = convivencia;
+            f.NOMBRECLASE.value = nombreclase;
+
+
+            f.CLICK_ORIG.value = "FLX_MBX_1";
+
+
+
+            if (pe != 3)
+            {
+                if (f.PNACCIO.value == "COM")
+                {
+
+                    f.BUSQUEDACLO.value="0";
+                    f.ACCESODIRECTO.value="1";
+                    f.REFVAL_SIMPLE_NUMERO_CUENTA.value=refvalCuenta;
+                    f.ALIAS.value = "";
+
+                    if (tipmen == "C01") f.LISTA_CATEGORIAS.value="1";
+                    if (tipmen == "C02") f.LISTA_CATEGORIAS.value="2";
+                    if (tipmen == "C03") f.LISTA_CATEGORIAS.value="3";
+                    if (tipmen == "C04") f.LISTA_CATEGORIAS.value="4";
+                    if (tipmen == "C05") f.LISTA_CATEGORIAS.value="5";
+                    if (tipmen == "C06") f.LISTA_CATEGORIAS.value="6";
+                    if (tipmen == "C07") f.LISTA_CATEGORIAS.value="7";
+                    if (tipmen == "C08") f.LISTA_CATEGORIAS.value="8";
+                    if (tipmen == "C09") f.LISTA_CATEGORIAS.value="9";
+                    if (tipmen == "C10") f.LISTA_CATEGORIAS.value="10";
+                    if (tipmen == "C11") f.LISTA_CATEGORIAS.value="11";
+                    if (tipmen == "C12") f.LISTA_CATEGORIAS.value="12";
+
+
+                    f.FECHA_DESDE.value="2020"+"04"+"25";
+                    f.FECHA_HASTA.value="2020"+"05"+"25";
+
+                    f.PN.value = "COX"
+                    f.PE.value = "1"
+                    f.FLUJO.value = "MBX,1,:GFI,7,''";
+                    f.DATCRE.value = "";
+                    f.HORCRE.value = "";
+                    f.TIPMEN.value = "";
+                    f.CLICK_ORIG.value = "EOC_MBX_1";
+
+                }
+            }
+
+            f.submit();
+        }
+        window.pressMissatgeInternBFP= function(pn,pe, idxAvisos) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("L_DetalleAviso[" + idxAvisos + "]");
+            }
+            var f=document.forms["F_CORRESPONDENCIA"];
+            f.PN.value = "GBP";
+            f.PE.value = "2";
+            f.PNACCIO.value = pn;
+            f.PEACCIO.value = pe;
+            f.CONVIVENCIA.value = "";
+            f.CLICK_ORIG.value = "FLX_MBX_1";
+            f.submit();
+        }
+        function myAjaxCall(params,objOrigen,objDestino,callback,objDestinoEvalScript,callbackError,bloquear_pantalla) {
+
+            objOrigenHtml=$(objOrigen).html();
+            $("#showErrors").html("");
+
+            var JS_AJAX_CALLBACK_ERROR = "ajaxCallbackError";
+            objOrigen=$(objOrigen);
+            objDestino=$(objDestino);
+            callback=eval(callback);
+            if (callbackError==null)
+                callbackError=JS_AJAX_CALLBACK_ERROR;
+            callbackError=eval(callbackError);
+            var method="POST";
+            var async=true;
+            var timeout=60000;
+            params=params+'&PETICION_AJAX=S';
+            var myAjaxBaseUrl = '/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559';
+            AjaxQueueMB.set(method, async, timeout, myAjaxBaseUrl, params, objOrigen, objDestino, objDestinoEvalScript, callback, callbackError);
+            if (bloquear_pantalla) bloqueaPantalla();
+
+            procesaAjaxQueueMB(AjaxQueueMB, true);
+        }
+
+        var arrayListL_modulos_old = "";
+        var arrayListR_modulos_old = "";
+        var arrayListL_estados_old = "";
+        var arrayListR_estados_old = "";
+        var arrayListM1_estados_old = "";
+        function callGuardar(){
+
+            var arrayListL = getElementsList('dashboardUncolLfloat');
+            var arrayListR = getElementsList('dashboardUncolRfloat');
+            var arrayListL_modulos = getStrLista(arrayListL);
+            var arrayListR_modulos = getStrLista(arrayListR);
+            var arrayListL_estados = getStrEstados(arrayListL);
+            var arrayListR_estados = getStrEstados(arrayListR);
+            var arrayListM1_estados = getEstadoModulo('M1');
+
+
+
+
+            if(sonIguals(arrayListR_modulos, arrayListL_modulos, arrayListR_estados, arrayListL_estados, arrayListM1_estados)){
+
+            }
+            else {
+
+                var method="POST";
+                var async=true;
+                var timeout=10000;
+                var urlStr='/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559';
+                var params = "PN=MBX&PE=2";
+
+
+
+
+
+
+
+
+                params = params + "&ESTADOM1="+getEstadoModulo('M1');
+                params = params + "&LISTL="+arrayListL_modulos;
+                params = params + "&ESTADOSL="+arrayListL_estados;
+                params = params + "&LISTR="+arrayListR_modulos;
+                params = params + "&ESTADOSR="+arrayListR_estados;
+                params = params + "&CLICK_ORIG=FLX_MBX_1";
+
+                AjaxQueueMB.set(method, async, timeout, urlStr, params, null, null, null, ajaxCallbackGuardar, null);
+                procesaAjaxQueueMB(AjaxQueueMB);
+            }
+
+        }
+        function getStrLista(array1){
+            var strModulos = "";
+            var modulo = "";
+            for(var i=0; i<array1.length; i++){
+                modulo = array1[i];
+                if(modulo!=""){
+                    strModulos = strModulos + modulo + ",";
+                }
+            }
+            return strModulos;
+        }
+        function getStrEstados(array1){
+            var strModulos = "";
+            var modulo = "";
+            for(var i=0; i<array1.length; i++){
+                modulo = array1[i];
+                if(modulo!=""){
+                    strModulos = strModulos + getEstadoModulo(modulo) + ",";
+                }
+            }
+            return strModulos;
+        }
+        function getEstadoModulo(modulo){
+            var divContainer = document.getElementById(modulo+"ContentContainer");
+            if(divContainer.style.display == 'none'){
+                return "M";
+            }
+            return "H";
+        }
+        function sonIguals(arrayR_modulos, arrayL_modulos, arrayR_estados, arrayL_estados, arrayM1_estados){
+            if(	arrayR_modulos == arrayListR_modulos_old
+                && arrayL_modulos == arrayListL_modulos_old
+                && arrayR_estados == arrayListR_estados_old
+                && arrayL_estados == arrayListL_estados_old
+                && arrayM1_estados == arrayListM1_estados_old){
+                return true;
+            }
+            else {
+                arrayListL_modulos_old = arrayL_modulos;
+                arrayListR_modulos_old = arrayR_modulos;
+                arrayListL_estados_old = arrayL_estados;
+                arrayListR_estados_old = arrayR_estados;
+                arrayListM1_estados_old = arrayM1_estados;
+                return false;
+            }
+        }
+
+        function ajaxCallbackGuardar(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+
+
+            desbloqueaPantalla();
+        }
+
+        function plegarModulos(){
+            var plegar = [];
+            var divContainer = $('#bloqueCarruselBGC').parent('div');
+            for(var i=0; i<plegar.length; i++){
+                if (document.getElementById(plegar[i]+"ContentContainer").id != 'M5ContentContainer'){
+                    var divTitle = document.getElementById(plegar[i]+"TitleContainer").id;
+                    $('div#' + divTitle +' span.minimize').click();
+                }
+            }
+        }
+        function initCalls(){
+            plegarModulos();
+        }
+
+
+
+
+
+
+
+    </script>
+    <script>
+
+
+        var NAME_DETALLE_COMUNICADO_FORM='detalleComunicado';
+
+
+        function sendAjaxFiltroCorrespondencia(params, id_origen, id_destino, evalScripts){
+
+
+
+
+
+            bloqueaPantalla();
+            sendAjaxGenerica(params, 'M1ContentContainer', 'M1ContentContainer', true)
+        }
+        function callBackFiltroCorrespondencia(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript){
+            $(objDestino).replaceWith(data);
+            desbloqueaPantalla();
+
+        }
+        function buscarCorrespondencia(){
+            InicializaErrores();
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("B_BuscarCorresp");
+            }
+
+            var escenario = calculaEscenario();
+            var sepIds='#~$#';
+            var SEP_IDS = "#~$#";
+
+            var categorias = "";
+            $("#selectTipoComunicado input[type=checkbox]").each(function () {
+                if ($(this).attr("checked")=="checked") {
+
+                    if ($(this).attr("name")=="0") {
+                        categorias = "";
+                        return false;
+                    }
+                    categorias+=$(this).attr("name").replace("cat_","")+sepIds;
+                }
+            });
+            if (categorias!="")
+                categorias=categorias.substr(0,categorias.length-SEP_IDS.length);
+
+            var fechaSelectGenerico=null;
+            var fechaDesde = "";
+            var fechaHasta = "";
+
+            if (escenario=="FISCALES") {
+                var rangoFechas = $('#idSelectAnosFiscalesInput').val();
+                var arrayFechas="";
+                if (rangoFechas!=null && rangoFechas!="") {
+                    arrayFechas = rangoFechas.split('#');
+                }else{
+                    arrayFechas = ULTIM_ANY_FISCAL.split("#");
+                }
+
+                fechaDesde=arrayFechas[0];
+
+                fechaHasta=arrayFechas[1];
+            } else {
+
+                if (document.forms["cercador"].selectFechaGenericoInput.value=="") {
+                    setFechasBusquedaSimple(ULTIM_ANY_FILTER);
+                }
+                fechaSelectGenerico=document.forms["cercador"].selectFechaGenericoInput.value;
+                if (fechaSelectGenerico!=null) {
+
+                    var camposFecha = fechaSelectGenerico.split(',');
+                    fechaDesde=camposFecha[0];
+                    fechaHasta=camposFecha[1];
+                }
+            }
+
+
+            var iban=getIban("");
+
+            var cuentaManual=false;
+            if (iban!=null && iban.length > 0) {
+                if (validarIBAN(iban)) {
+                    cuentaManual = true;
+                } else iban=null;
+            }
+            var emisorSel="";
+            if (escenario=="RECIBOS") {
+                if (TIPO_LISTA_CUENTAS=="C"){
+                    emisorSel = "";
+                }else{
+                    emisorSel = $('#selectListaEmisoresInput').val();
+
+                    emisorSelRefVal = "";
+                    numeroCuentaReciboRefVal = "";
+                    nombreCompanyiaSelRefVal ="";
+                }
+            }
+            var params = "PN=COX&PE=1&CLICK_ORIG=AJX_MBX_1&FLAG_OPERATIVA_CORRESPONDENCIA=DASHBOARD_MAILBOX";
+            params = params + "&LISTA_CATEGORIAS="+categorias;
+            params = params + "&FECHA_DESDE="+fechaDesde;
+            params = params + "&FECHA_HASTA="+fechaHasta;
+            params = params + "&REFVAL_SIMPLE_CLAVE_CONTINUACION_CUENTAS="+claveContinuacionCta;
+
+
+            if (iban!=null && iban!="") {
+                params = params + "&FILTRO_CLIENTE_CUENTA_MANUAL="+iban;
+            }else{
+                if ($('#idSelectCuentasInput').val()!="*") {
+                    params = params + "&REFVAL_SIMPLE_NUMERO_CUENTA="+$('#idSelectCuentasInput').val();
+                    params = params + "&IND_CTA_FORZADA="+indCtaForzada;
+                }
+            }
+
+
+            params = params + "&CON_FILTRO=true";
+            if (emisorSel!="") {
+                params = params + "&EMISOR_SEL="+emisorSel;
+            }
+            if (ProcesaErrores()) {
+
+                $('.downselect').hide();
+
+                sendAjaxFiltroCorrespondencia(params, 'M1ContentContainer', 'M1ContentContainer', true);
+            }
+        }
+        function validarIBAN(iban) {
+            var correcto = true;
+            if(iban.length!=24) {
+                AddError(LIT_ERROR_LONGITUD_IBAN);
+                correcto = false;
+            }
+            if(iban.length>=2 && iban.substring(0,2)!="ES") {
+                AddError(LIT_ERROR_TEXTO_IBAN);
+                correcto = false;
+            }
+            if(iban.length==24 && (isNaN(iban.substring(2)) || VerificaCampoNumerico(iban.substring(2),22)==1 || VerificaCampoNumerico(iban.substring(2),22)==2)) {
+                AddError(LIT_ERROR_NUM_IBAN);
+                correcto = false;
+            }
+            return correcto;
+        }
+        function restaurarFiltrosBuscador(tipo_buscador, operativa_correspondencia) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("L_RestaurarFiltros");
+            }
+            bloqueaPantalla();
+            var params = "PN=COX&PE=1&CLICK_ORIG=AJX_MBX_1&FLAG_OPERATIVA_CORRESPONDENCIA=" + operativa_correspondencia;
+            sendAjaxFiltroCorrespondencia(params, 'M1ContentContainer', 'M1ContentContainer', true);
+        }
+        function marcarComoFavorito(linkId) {
+            var filaDocumento = parseInt(linkId.substring(linkId.length - 1)) + 1;
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement("Ch_Prioritario[" + filaDocumento + "]");
+            }
+
+            var PN_PE_PERSONALIZAR="PN=COX&PE=5";
+            var LISTA_CLAVE_COMUNICADO="LISTA_CLAVE_COMUNICADO";
+            var LISTA_FAVORITO="LISTA_FAVORITO";
+            var JS_AJAX_CALLBACK_FAVORITOS = "ajaxCallbackFavoritos";
+            var JS_AJAX_CALLBACK_ERROR = "ajaxCallbackError";
+            var idx = parseInt(linkId.substr(4),10);
+            var claveCom=tablacorresp_RefVal1[idx];
+
+            var favoritosParams=!($('#'+linkId).hasClass("favorits_actiu"))?"S":"N";
+            var params=PN_PE_PERSONALIZAR+'&'+LISTA_CLAVE_COMUNICADO+'='+claveCom+'&'+LISTA_FAVORITO+'='+favoritosParams+'&CLICK_ORIG=FLX_MBX_1';
+            myAjaxCallCOX(params,'#'+linkId,'#'+linkId,JS_AJAX_CALLBACK_FAVORITOS,null,JS_AJAX_CALLBACK_ERROR,true);
+        }
+        function myAjaxCallCOX(params,objOrigen,objDestino,callback,objDestinoEvalScript,callbackError,bloquear_pantalla) {
+
+            objOrigenHtml=$(objOrigen).html();
+            $("#showErrors").html("");
+
+            objOrigen=$(objOrigen);
+            objDestino=$(objDestino);
+            callback=eval(callback);
+            if (callbackError==null)
+                callbackError=JS_AJAX_CALLBACK_ERROR;
+            callbackError=eval(callbackError);
+            var method="POST";
+            var async=true;
+            var timeout=60000;
+            params=params+'&PETICION_AJAX=S';
+            var myAjaxBaseUrl="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559";
+            AjaxQueueMB.set(method, async, timeout, myAjaxBaseUrl, params, objOrigen, objDestino, objDestinoEvalScript, callback, callbackError);
+            if (bloquear_pantalla) bloqueaPantalla();
+
+            procesaAjaxQueueMB(AjaxQueueMB, true);
+        }
+        function ajaxCallbackFavoritos(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var LIT_MARCAR_FAVORITO = "Marcar como destacado";
+            var LIT_DESMARCAR_FAVORITO = "Desmarcar como destacado";
+            if (hasErrors(data)) {
+
+                showErrors(data);
+            } else {
+
+
+
+
+                $(objOrigen).toggleClass("favorits_actiu");
+                $(objOrigen).toggleClass("favorits");
+
+
+                var isFavorito = $(objOrigen).attr("class").indexOf("favorits_actiu");
+                if (isFavorito >= 0) {
+
+                    $(objOrigen).attr("title", LIT_DESMARCAR_FAVORITO);
+                } else {
+
+                    $(objOrigen).attr("title", LIT_MARCAR_FAVORITO);
+                }
+                $(objOrigen).find("div").remove();
+            }
+            desbloqueaPantalla();
+        }
+
+        function ajaxCallbackError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            showErrors(textStatus,data);
+            if (objOrigen!=null)
+                $(objOrigen).html(objOrigenHtml);
+            desbloqueaPantalla();
+        }
+        function bloqueaPantalla() {
+            $('div.blockMe').block({
+                message: null ,
+                overlayCSS:  {
+                    backgroundColor:	'#000',
+                    opacity:			0.1,
+                    cursor:				'wait'
+                }
+            });
+        }
+        function desbloqueaPantalla() {
+            $('div.blockMe').unblock();
+        }
+        function showErrors(textStatus,data) {
+
+            if (data==null || data=='')
+                data=textStatus;
+            else {
+                data=$("<div/>").html(data).find("#errors").html();
+            }
+            var html=$("<div style='color: red; font-weight: bold;'/>").html(data);
+            if ($(html).find("div#errorItem").length>0) {
+                $("#showErrors").html($(html).find("div#errorItem"));
+
+                return;
+            }
+            $("#showErrors").html(data);
+
+        }
+        function hasErrors(data) {
+
+            var errors=$("<div/>").html(data).find("div#errorItem");
+            if ($(errors).length>0 || isErrorPage(data))
+                return true;
+            return false;
+        }
+        function isErrorPage(data) {
+
+
+            if ((""+data).indexOf("PANTALLA_DE_ERROR")==-1) {
+
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function buscaEnHijos(nodo, p_titulo, p_newTitulo){
+            var trobat = false;
+            var i = 0;
+            var oldTitulo = "";
+
+            if(nodo.nodeName == 'SPAN'){
+
+
+
+                if(nodo.childNodes.length==1) {
+
+                    oldTitulo = getText(nodo);
+
+                    if(oldTitulo.length>p_titulo.length){
+                        oldTitulo = oldTitulo.substring(0,p_titulo.length);
+                    }
+                    if(oldTitulo == p_titulo){
+
+
+
+                        changeText(nodo, p_newTitulo)
+                        return true;
+                    }
+                }
+
+                if(nodo.childNodes.length>0){
+                    while (i < nodo.childNodes.length && !trobat){
+                        trobat = buscaEnHijos(nodo.childNodes[i], p_titulo, p_newTitulo);
+                        i++;
+                    }
+                }
+            } else {
+
+                if (nodo.childNodes.length>0){
+                    while (i < nodo.childNodes.length && !trobat){
+                        trobat = buscaEnHijos(nodo.childNodes[i], p_titulo, p_newTitulo);
+                        i++;
+                    }
+                }
+                else {
+
+                    return false;
+                }
+            }
+            return trobat;
+        }
+        function getText(elem) {
+            if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
+                return elem.textContent;
+            } else {
+                return elem.innerText;
+            }
+        }
+        function changeText(elem, changeVal) {
+            if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
+                elem.textContent = changeVal;
+            } else {
+                elem.innerText = changeVal;
+            }
+        }
+
+
+
+
+        function canviaMinimizePerMaximize(nodo){
+            var trobat = false;
+            var i = 0;
+
+            if(nodo.nodeName == 'SPAN'){
+
+
+
+
+
+
+                if(getClassName(nodo)=='minimize'){
+
+                    changeClassName(nodo, 'minimize maximize');
+                    return true;
+                }
+
+                if(nodo.childNodes.length>0){
+                    while (i < nodo.childNodes.length && !trobat){
+                        trobat = canviaMinimizePerMaximize(nodo.childNodes[i]);
+                        i++;
+                    }
+                }
+            } else {
+
+                if (nodo.childNodes.length>0){
+                    while (i < nodo.childNodes.length && !trobat){
+                        trobat = canviaMinimizePerMaximize(nodo.childNodes[i]);
+                        i++;
+                    }
+                }
+                else {
+
+                    return false;
+                }
+            }
+            return trobat;
+        }
+        function changeClassName(elem, changeVal) {
+
+            if ((elem.className) && (typeof (elem.className) != "undefined")) {
+
+                elem.className = changeVal;
+                return;
+            }
+            if ((elem.getAttribute("class")) && (typeof (elem.getAttribute("class")) != "undefined")) {
+
+                elem.setAttribute("class",changeVal);
+                return;
+            }
+        }
+        function getClassName(elem) {
+
+            if ((elem.className) && (typeof (elem.className) != "undefined")) {
+
+
+                return elem.className;
+            }
+            if ((elem.getAttribute("class")) && (typeof (elem.getAttribute("class")) != "undefined")) {
+
+
+                return elem.getAttribute("class");
+            }
+        }
+        function getPopUpUrl(obj, params) {
+            var url = "/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559";
+            document.forms["verCampanyaWEIWEF"].CLICK_ORIG.value="EOC_MBX_1";
+            var parametros=$("form[name=verCampanyaWEIWEF]").serialize();
+            url = url+ "?"+parametros+params;
+
+            return url;
+        }
+        function getMensajeProcesando() {
+
+            return '<div style="margin: 0 auto; width: 65px"><img style="border: 0px !important; margin-top:50px;" src="../imatge/loading.gif"/></div>';
+        }
+
+        function selectTipoComunicado(tipoComunicado, indice, literalCategoria) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                if (indice!=null && indice!="") {
+                    var idx = parseInt(indice,10) + 1;
+
+                    OmnitureClicatElement("Ch_Tipo_" + literalCategoria + "");
+                }
+            }
+
+            var opcionesConceptos = $('#' + 'selectTipoComunicadox' + ' input[type=checkbox]');
+            var opcionChequeada = false;
+            for(i=0; i< opcionesConceptos.length; i++){
+                if (opcionesConceptos[i].name == tipoComunicado){
+
+                    opcionChequeada = opcionesConceptos[i].checked;
+                }
+            }
+
+            if (tipoComunicado=="0") {
+
+                if (opcionChequeada) {
+
+                    for(i=0; i< opcionesConceptos.length; i++){
+                        opcionesConceptos[i].checked = true;
+                    }
+
+                } else {
+
+                    for(i=0; i< opcionesConceptos.length; i++){
+                        opcionesConceptos[i].checked = false;
+                    }
+                }
+
+            } else {
+
+                if (opcionChequeada) {
+
+
+                    var todosChequeados = true;
+                    for(i=0; i< opcionesConceptos.length; i++){
+                        if (opcionesConceptos[i].name != "0"){
+                            if (!opcionesConceptos[i].checked) {
+                                todosChequeados = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (todosChequeados) {
+                        for(i=0; i< opcionesConceptos.length; i++){
+                            if (opcionesConceptos[i].name == "0"){
+                                opcionesConceptos[i].checked = true;
+                                break;
+                            }
+                        }
+                    }
+
+                } else {
+
+
+                    for(i=0; i< opcionesConceptos.length; i++){
+                        if (opcionesConceptos[i].name == "0"){
+                            opcionesConceptos[i].checked = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            $('[id*=idSelectCuentasx]').each(function() {
+                $(this).hide();
+            });
+            $('[id*=selectFechaGenericox]').each(function() {
+                $(this).hide();
+            });
+            $('[id*=selectListaEmisoresx]').each(function() {
+                $(this).hide();
+            });
+            restauraEscenario(false);
+        }
+        function restauraEscenario() {
+
+
+
+            var seleccionamos_fiscales = $("#selectTipoComunicado input[name=3]").attr("checked")=="checked";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var escenario = calculaEscenario();
+
+            var isEmpresa = FLAG_JURIDICA=="J"?true:false;
+            var dnisIguales = DNISIGUALES=="S"?true:false;
+
+
+
+
+
+
+
+
+            if (escenario == "FISCALES") {
+
+                setFechasBusquedaSimple(ULTIM_ANY_FILTER);
+
+                $('#selectFechaGenerico').attr('style','display: none !important;');
+
+
+
+                $('#idSelectCuentas').attr('style','display: none !important');
+
+
+                removeStyleDisplay('idSelectAnosFiscales');
+
+                if (isEmpresa || !dnisIguales) {
+
+                    $("#idEnlaceDuplicadosFiscales a").removeClass("rfloat");
+                    $("#idEnlaceDuplicadosFiscales .icon_mes_info").addClass("lfloat");
+                    msgIntoTablaComunicadosHTML($("#idEnlaceDuplicadosFiscales").html());
+
+                    $('#idSelectAnosFiscales').attr('style','display: none !important');
+
+
+
+                    $('#buscarCorespondencia').attr('style','display: none !important');
+
+                } else {
+
+
+
+                    removeStyleDisplay('idSelectAnosFiscales');
+
+
+
+                    removeStyleDisplay('buscarCorespondencia');
+                }
+
+                $('#selectListaEmisores').attr('style','display: none !important');
+
+            } else if (escenario == "PERSONAL") {
+
+                removeStyleDisplay('selectFechaGenerico');
+
+                setFechaPeriodoFiscalInicial();
+
+                $('#idSelectCuentas').attr('style','display: none !important');
+
+                $('#idSelectAnosFiscales').attr('style','display: none !important');
+
+                $('#selectListaEmisores').attr('style','display: none !important');
+            } else if (escenario == "RECIBOS") {
+                var listaEmisoresArray = new Array();
+                $("#selectListaEmisores label").map(function(i) {
+                    listaEmisoresArray[i]=$(this).attr("for");
+                });
+
+
+                if (listaEmisoresArray.length==1 && listaEmisoresArray[0]=="") {
+                    solicitarListaEmisores("N","selectListaEmisores", "selectListaEmisores", "L_Recibos")
+                }
+
+                removeStyleDisplay('selectListaEmisores');
+
+                removeStyleDisplay('buscarCorespondencia');
+
+                removeStyleDisplay('selectFechaGenerico');
+
+
+                removeStyleDisplay('idSelectCuentas');
+
+                setFechaPeriodoFiscalInicial();
+
+                $('#idSelectAnosFiscales').attr('style','display: none !important;');
+
+            } else {
+
+
+
+                removeStyleDisplay('buscarCorespondencia');
+
+                removeStyleDisplay('selectFechaGenerico');
+
+
+
+                removeStyleDisplay('idSelectCuentas');
+
+
+                setFechaPeriodoFiscalInicial();
+
+                $('#idSelectAnosFiscales').attr('style','display: none !important;');
+
+                $('#selectListaEmisores').attr('style','display: none !important');
+            }
+
+            if (document.forms["cercador"].selectFechaGenericoInput.value=="") {
+                setFechasBusquedaSimple(ULTIM_ANY_FILTER);
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+        function calculaEscenario() {
+            var escenario = "ORDINARIOS";
+            var seleccionamos_fiscales = $("#selectTipoComunicado input[name=3]").attr("checked")=="checked";
+
+            var numCheckeds = 0;
+            $("#selectTipoComunicado input[type=checkbox]").each(function () {
+                if($(this).attr("checked")=="checked") {
+                    numCheckeds++;
+                }
+            });
+            if (numCheckeds==0) {
+                $("#selectTipoComunicado p:first span").html(LIT_TODAS_LAS_CATEGORIAS);
+            }
+            if (seleccionamos_fiscales && numCheckeds == 1) {
+                escenario = "FISCALES";
+            }
+
+            var seleccionamos_recibos = $("#selectTipoComunicado input[name=7]").attr("checked")=="checked";
+
+            if (seleccionamos_recibos && numCheckeds == 1) {
+                escenario = "RECIBOS";
+            }
+
+            var seleccionamos_informes = $("#selectTipoComunicado input[name=13]").attr("checked")=="checked";
+            var seleccionamos_resumen = $("#selectTipoComunicado input[name=14]").attr("checked")=="checked";
+            var seleccionamos_personal = $("#selectTipoComunicado input[name=15]").attr("checked")=="checked";
+            var seleccionamos_barclays = $("#selectTipoComunicado input[name=16]").attr("checked")=="checked";
+            var seleccionamos_corresponsales = $("#selectTipoComunicado input[name=17]").attr("checked")=="checked";
+
+            if (seleccionamos_informes && numCheckeds == 1) {
+                escenario = "PERSONAL";
+            }
+
+            if (seleccionamos_resumen && numCheckeds == 1) {
+                escenario = "PERSONAL";
+            }
+
+            if (seleccionamos_personal && numCheckeds == 1) {
+                escenario = "PERSONAL";
+            }
+
+            if (seleccionamos_barclays && numCheckeds == 1) {
+                escenario = "PERSONAL";
+            }
+
+            if (seleccionamos_corresponsales && numCheckeds == 1) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 2 && (
+                (seleccionamos_informes && seleccionamos_resumen)
+                || (seleccionamos_informes && seleccionamos_personal)
+                || (seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_barclays && seleccionamos_resumen)
+                || (seleccionamos_barclays && seleccionamos_informes)
+                || (seleccionamos_barclays && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen)
+                || (seleccionamos_corresponsales && seleccionamos_informes)
+                || (seleccionamos_corresponsales && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_barclays)
+            )) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 2 && seleccionamos_fiscales && (seleccionamos_informes || seleccionamos_resumen || seleccionamos_personal || seleccionamos_barclays || seleccionamos_corresponsales)) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 3 && (
+                (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_barclays)
+                || (seleccionamos_informes && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_resumen)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+            )) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 3 && seleccionamos_fiscales &&(
+                (seleccionamos_informes && seleccionamos_resumen)
+                || (seleccionamos_informes && seleccionamos_personal)
+                || (seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_barclays && seleccionamos_informes)
+                || (seleccionamos_barclays && seleccionamos_personal)
+                || (seleccionamos_barclays && seleccionamos_resumen)
+                || (seleccionamos_corresponsales && seleccionamos_informes)
+                || (seleccionamos_corresponsales && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen)
+                || (seleccionamos_corresponsales && seleccionamos_barclays)
+            )) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 4 && (
+                (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_corresponsales)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_barclays && seleccionamos_corresponsales)
+                || (seleccionamos_informes && seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_resumen && seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+            )){
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 4 && seleccionamos_fiscales && (
+                (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_barclays)
+                || (seleccionamos_informes && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_resumen)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen && seleccionamos_personal)
+                || (seleccionamos_corresponsales && seleccionamos_resumen && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_informes && seleccionamos_barclays)
+                || (seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+            )) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 5 &&
+                (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays && seleccionamos_corresponsales)
+            ){
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 5 && seleccionamos_fiscales && (
+                (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_corresponsales)
+                || (seleccionamos_informes && seleccionamos_resumen && seleccionamos_barclays && seleccionamos_corresponsales)
+                || (seleccionamos_informes && seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+                || (seleccionamos_resumen && seleccionamos_corresponsales && seleccionamos_personal && seleccionamos_barclays)
+            )) {
+                escenario = "PERSONAL";
+            }
+
+            if (numCheckeds == 6 && seleccionamos_fiscales &&  seleccionamos_informes && seleccionamos_resumen && seleccionamos_personal && seleccionamos_barclays && seleccionamos_corresponsales) {
+                escenario = "PERSONAL";
+            }
+
+            return escenario;
+        }
+        function solicitarListaEmisores(paginacionEmisores,objOrigen, objDestino, etiquetaOmniture) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement(etiquetaOmniture);
+            }
+            limpiaErrorTablaComunicados();
+            var params="PN=COX&PE=19&ID_SELECT="+objDestino;
+            params+="&PAGINACION_EMISORES="+paginacionEmisores;
+            if (emisorSel!=null && emisorSel!="") {
+                params+="&EMISOR_SEL="+emisorSel;
+            }
+            if (emisorSelRefVal!=null && emisorSelRefVal!="") {
+                params+="&REFVAL_SIMPLE_EMISOR_SEL="+emisorSelRefVal;
+            }
+            if (numeroCuentaReciboRefVal!=null && numeroCuentaReciboRefVal!="") {
+                params+="&REFVAL_SIMPLE_NUMERO_CUENTA_RECIBO="+numeroCuentaReciboRefVal;
+            }
+            if (nombreCompanyiaSelRefVal!=null && nombreCompanyiaSelRefVal!="") {
+                params+="&REFVAL_SIMPLE_NOMBRE_EMISOR_SEL="+nombreCompanyiaSelRefVal;
+            }
+            myAjaxCall(params,'#'+objOrigen,'#'+objDestino,"ajaxCallBackActualizaEmisores",null,"ajaxCallBackActualizaEmisoresError",true,false);
+            return false;
+        }
+        function ajaxCallBackActualizaEmisores(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var desbloqueaPan = true;
+            if (hasErrors(data)) {
+                $(objOrigen).html(objOrigenHtml);
+                showErrors(data);
+            } else {
+
+
+                if(document.getElementById("evaluaScript_COX1900")){
+                    eval(document.getElementById("evaluaScript_COX1900").innerHTML);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                if (objDestino){
+                    $(objDestino).replaceWith(data);
+                }else if (objOrigen){
+                    $(objOrigen).replaceWith(data);
+                }
+            }
+            initEventsSelect($(objOrigen).attr("id")+"x");
+
+            if (desbloqueaPan) {
+                desbloqueaPantalla();
+            }
+
+            if (typeof OmnitureClicatElement != "undefined") {
+                $('#selectListaEmisores p, #selectListaEmisores img').click(function(e) {
+                    OmnitureClicatElement("C_Recibos");
+                });
+            }
+
+            $("div[id*='selectListaEmisoresx']").find("label").each(function (){
+                $(this).on("click", function(){ $('.downselect').hide();});
+            });
+        }
+        function ajaxCallBackActualizaEmisoresError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+
+
+
+
+
+
+            if (data==null || data=="") {
+
+                msgIntoTablaComunicados(null);
+
+            } else {
+                msgIntoTablaComunicadosHTML($("<div/>").html(data).find("div#div_Error02").html());
+            }
+
+
+
+
+
+            desbloqueaPantalla();
+        }
+        function removeStyleDisplay(elemento) {
+            $('#'+elemento).attr('style', function(i, style) {
+                if (style!=null && style!=undefined) {
+                    return style.replace(/display[^;]+;?/g, '');
+                }
+            });
+        }
+        function removeStyleVisibility(elemento) {
+            $('#'+elemento).attr('style', function(i, style) {
+                if (style!=null && style!=undefined) {
+                    return style.replace(/visibility[^;]+;?/g, '');
+                }
+            });
+        }
+        function msgIntoTablaComunicadosHTML(msg) {
+            if (msg!=null) {
+                var html = '';
+                html +='<tr id="" class="" style="background-color: rgb(255, 255, 255);" name="" onmouseout="TrOver(this, 0)" onmouseover="TrOver(this, 1)">';
+                html +='<th id = "filaErrorTablaComunicados" class=" vamid" colspan="99" scope="row">';
+                html += msg;
+                html +='</th>';
+                html +='</tr>';
+                $("#tablacorresp").find("tbody").html(html);
+            }
+        }
+        function setFechasBusquedaSimple(periodo) {
+            document.forms["cercador"].selectFechaGenericoInput.value=periodo;
+
+            $("div[id*='idSelectAnosFiscalesx']").find("label").each(function (){
+                $(this).on("click", function(){ $('.downselect').hide();});
+            });
+        }
+        function setFechaPeriodoFiscalInicial() {
+
+
+            var strAnyFiscal = ULTIM_ANY_FISCAL.substring(0,4);
+            var intAnyFiscal = parseInt(strAnyFiscal,10);
+            intAnyFiscal--;
+            strAnyFiscal = "" + intAnyFiscal;
+            var p = $('#idSelectAnosFiscales p:first');
+            p.html(strAnyFiscal);
+
+            $('#idSelectAnosFiscalesInput').attr('value',ULTIM_ANY_FISCAL);
+        }
+        function selectPeriodo(obj, periodo, tagOmniture) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement(tagOmniture);
+            }
+
+            var p = $(obj).parents("div.downselect").siblings("p:first");
+            var txt=$(obj).html();
+            p.html(txt);
+
+            $('.downselect').hide();
+
+            setFechasBusquedaSimple(periodo);
+        }
+        function inicializaCombosDesples(selectFechaGenericoInputV, idSelectAnosFiscalesInputV, idSelectCuentasInputV, idSelectListaEmisoresV) {
+            var escenario = calculaEscenario();
+            if (escenario=="FISCALES") {
+                if (idSelectAnosFiscalesInputV!=null && idSelectAnosFiscalesInputV!="") {
+                    document.forms["cercador"].idSelectAnosFiscalesInput.value=idSelectAnosFiscalesInputV;
+                }
+            } else {
+                if (selectFechaGenericoInputV!=null && selectFechaGenericoInputV!="") {
+                    setFechasBusquedaSimple(selectFechaGenericoInputV);
+                }
+                if (idSelectCuentasInputV!=null && idSelectCuentasInputV!="") {
+                    document.forms["cercador"].idSelectCuentasInput.value=idSelectCuentasInputV;
+                }
+            }
+        }
+
+        function detalleComunicado(filaId,clave,tagOmniture,param) {
+            if (filaId!=-1) {
+                if (typeof OmnitureClicatElement != "undefined") {
+                    var idx = parseInt(filaId,10) + 1;
+                    OmnitureClicatElement("L_ConceptoDetalleCorresp[" + idx + "]");
+                }
+                leido=($("#"+clave).hasClass("unread")?"N":"S");
+                favorito=($("#"+clave+" a#fav_"+filaId).hasClass("favorits_actiu")?"S":"N");
+            }
+
+
+
+
+
+
+
+
+
+
+
+            var form=$("form[name="+NAME_DETALLE_COMUNICADO_FORM+"]");
+
+
+
+
+
+            removeFormField("buscadorCorrespondencia", "CLAVE_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "REFVAL_SIMPLE_CLAVE_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "REFVAL_SIMPLE_CONTRATO_VINCULADO");
+            removeFormField("buscadorCorrespondencia", "CLAVE_CONTINUACION_LISTA_COMUNICADOS");
+            removeFormField("buscadorCorrespondencia", "FORMATO_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "TIPO_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "TIPO_CUENTA_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "LEIDO_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "FAVORITO_COMUNICADO");
+            removeFormField("buscadorCorrespondencia", "TOTAL_PAGINAS");
+
+
+            var formBuscador=$("form[name=buscadorCorrespondencia]");
+            $(formBuscador).find(':input').each(function() {
+                if ($(this).attr('name')!="PN" && $(this).attr('name')!="PE" && $(this).attr('name')!="CLICK_ORIG") {
+                    $(form).append("<input name='"+$(this).attr('name')+"' type='hidden' value='"+$(this).attr('value')+"'/>");
+                }
+            });
+
+
+
+
+
+
+
+
+            var formCTX=$("form[name=contextoPantalla]");
+            $(formCTX).find(':input').each(function() {
+                if ($(this).attr('name')!="PN" && $(this).attr('name')!="PE" && $(this).attr('name')!="CLICK_ORIG") {
+                    $(form).append("<input name='"+$(this).attr('name')+"' type='hidden' value='"+$(this).attr('value')+"'/>");
+                }
+            });
+
+            if (param!=null && param!="") {
+                removeAllRefvalComplejo(NAME_DETALLE_COMUNICADO_FORM);
+
+                var rvc = param.split("=");
+                addFormField(NAME_DETALLE_COMUNICADO_FORM,rvc[0],rvc[1]);
+            }
+            var sepIds='#~$#';
+            var SEP_IDS = "#~$#";
+
+            var categorias = "";
+            $("#selectTipoComunicado input[type=checkbox]").each(function () {
+                if ($(this).attr("checked")=="checked") {
+
+                    if ($(this).attr("name")=="0") {
+                        categorias = "";
+                        return false;
+                    }
+                    categorias+=$(this).attr("name").replace("cat_","")+sepIds;
+                }
+            });
+            if (categorias!="") {
+                categorias=categorias.substr(0,categorias.length-SEP_IDS.length);
+                addFormField(NAME_DETALLE_COMUNICADO_FORM,"LISTA_CATEGORIAS",categorias);
+            }
+
+
+            var escenario = calculaEscenario();
+
+            var fechaSelectGenerico=null;
+            var fechaDesde = "";
+            var fechaHasta = "";
+
+            if (escenario=="FISCALES") {
+                var rangoFechas = $('#idSelectAnosFiscalesInput').val();
+                var arrayFechas="";
+                if (rangoFechas!=null && rangoFechas!="") {
+                    arrayFechas = rangoFechas.split('#');
+                }else{
+                    arrayFechas = ULTIM_ANY_FISCAL.split("#");
+                }
+
+                fechaDesde=arrayFechas[0];
+
+                fechaHasta=arrayFechas[1];
+            } else {
+
+                if (document.forms["cercador"].selectFechaGenericoInput.value=="") {
+                    setFechasBusquedaSimple(ULTIM_ANY_FILTER);
+                }
+                fechaSelectGenerico=document.forms["cercador"].selectFechaGenericoInput.value;
+                if (fechaSelectGenerico!=null) {
+
+                    var camposFecha = fechaSelectGenerico.split(',');
+                    fechaDesde=camposFecha[0];
+                    fechaHasta=camposFecha[1];
+                }
+            }
+            if (fechaDesde!="") {
+                addFormField(NAME_DETALLE_COMUNICADO_FORM,"FECHA_DESDE",fechaDesde);
+            }
+            if (fechaHasta!="") {
+                addFormField(NAME_DETALLE_COMUNICADO_FORM,"FECHA_HASTA",fechaHasta);
+            }
+
+            var emisorSel="";
+            if (escenario=="RECIBOS") {
+                emisorSel = $('#selectListaEmisoresInput').val();
+                if (emisorSel!="") {
+                    addFormField(NAME_DETALLE_COMUNICADO_FORM,"EMISOR_SEL",emisorSel);
+                }
+            }
+
+
+            var iban=getIban("");
+
+            var cuentaManual=false;
+            if (iban!=null && iban.length > 0) {
+                if (validarIBAN(iban)) {
+                    cuentaManual = true;
+                } else iban=null;
+            }
+            if (iban!=null && iban!="") {
+                addFormField(NAME_DETALLE_COMUNICADO_FORM,"FILTRO_CLIENTE_CUENTA_MANUAL",iban);
+            }else{
+                if ($('#idSelectCuentasInput').val()!="*") {
+                    addFormField(NAME_DETALLE_COMUNICADO_FORM,"REFVAL_SIMPLE_NUMERO_CUENTA",$('#idSelectCuentasInput').val());
+                    addFormField(NAME_DETALLE_COMUNICADO_FORM,"IND_CTA_FORZADA",indCtaForzada);
+                }
+            }
+
+
+            document.forms[NAME_DETALLE_COMUNICADO_FORM].submit();
+        }
+        function seleccionaCuenta(obj, cuenta, objOrigen, objDestino, ctaFormateada,indCtaForz,indiceCuenta) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                if (indiceCuenta==undefined) {
+                    OmnitureClicatElement("L_TodasCuentas");
+                } else {
+                    OmnitureClicatElement("L_Cuenta[" + indiceCuenta + "]");
+                }
+            }
+
+            $('#'+objOrigen+'Input').attr("value",cuenta);
+
+            indCtaForzada = indCtaForz;
+
+
+            var p = $(obj).parents("div.downselect").siblings("p:first");
+            var txt=$(obj).html();
+            p.html(txt);
+
+            $('.downselect').hide();
+
+            setIBAN(null);
+        }
+        function setIBAN(valor) {
+            if (valor==null || valor.length!=24) {
+                $("#ctaIban_pais").val("");
+                $("#ctaIban_dc").val("");
+                $("#ctaIban_nc1").val("");
+                $("#ctaIban_nc2").val("");
+                $("#ctaIban_nc3").val("");
+                $("#ctaIban_nc4").val("");
+            } else {
+                $("#ctaIban_pais").val(valor.substr(0,4));
+                $("#ctaIban_dc").val(valor.substr(4,8));
+                $("#ctaIban_nc1").val(valor.substr(8,12));
+                $("#ctaIban_nc2").val(valor.substr(12,16));
+                $("#ctaIban_nc3").val(valor.substr(16,20));
+                $("#ctaIban_nc4").val(valor.substr(20,24));
+            }
+        }
+        function getIban(suffix) {
+            var iban = null;
+            if (suffix==null) {
+                suffix="";
+            }
+            if ($("#ctaIban"+suffix+"_pais").length > 0 ) {
+                iban=$("#ctaIban"+suffix+"_pais").attr("value")+$("#ctaIban"+suffix+"_dc").attr("value")+$("#ctaIban"+suffix+"_nc1").attr("value")+
+                    $("#ctaIban"+suffix+"_nc2").attr("value")+$("#ctaIban"+suffix+"_nc3").attr("value")+$("#ctaIban"+suffix+"_nc4").attr("value");
+            }
+            return iban;
+        }
+        function solicitarCuentas(tipoListaCtas, claveContinuacion, objOrigen, objDestino, tagOmniture) {
+            if (typeof OmnitureClicatElement != "undefined") {
+                OmnitureClicatElement(tagOmniture);
+            }
+            limpiaErrorTablaComunicados();
+            var params="PN=COX&PE=9&TIPO_LISTA_CUENTAS="+tipoListaCtas+"&ID_SELECT="+objDestino+"&FLAG_OPERATIVA_CORRESPONDENCIA=DASHBOARD_MAILBOX&PAGINAR_CUENTA=S";
+            if (claveContinuacion!=null)
+                params+="&REFVAL_SIMPLE_CLAVE_CONTINUACION_CUENTAS="+claveContinuacion;
+            myAjaxCall(params,'#'+objOrigen,'#'+objDestino,"ajaxCallBackActualizaCuentas",null,"ajaxCallBackActualizaCuentasError",true);
+            return false;
+        }
+        function limpiaErrorTablaComunicados() {
+            $("#filaErrorTablaComunicados").html("");
+        }
+        function ajaxCallBackActualizaCuentas(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var desbloqueaPan = true;
+            if (hasErrors(data)) {
+                $(objOrigen).html(objOrigenHtml);
+                showErrors(data);
+            } else {
+                if(document.getElementById("evaluaScript_COX900")){
+                    eval(document.getElementById("evaluaScript_COX900").innerHTML);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                if (objDestino){
+                    $(objDestino).replaceWith(data);
+                }else if (objOrigen){
+                    $(objOrigen).replaceWith(data);
+                }
+            }
+            initEventsSelect($(objOrigen).attr("id")+"x");
+
+            if (desbloqueaPan) {
+                desbloqueaPantalla();
+            }
+
+            if (typeof OmnitureClicatElement != "undefined") {
+                $('#idSelectCuentas p, #idSelectCuentas img').click(function(e) {
+                    OmnitureClicatElement("C_Cuentas");
+                });
+            }
+
+            if ($.trim($('[id*=idSelectCuentasx]').html())=='') {
+                FLAG_DESPLEGAR_COMBO = true;
+                $('#idSelectCuentas p, #idSelectCuentas img').click(function(e) {
+                    solicitarCuentas('V',null,'idSelectCuentas','idSelectCuentas','L_IrInicioCuentas');
+                });
+            }
+            if (FLAG_DESPLEGAR_COMBO) {
+                $("div[id~='idSelectCuentasx']").css("display", "block");
+            }
+            FLAG_DESPLEGAR_COMBO = false;
+        }
+        function ajaxCallBackActualizaCuentasError(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+
+            if (data==null || data=="") {
+
+                msgIntoTablaComunicados(null);
+
+            } else {
+                msgIntoTablaComunicadosHTML($("<div/>").html(data).find("div#div_Error02").html());
+
+                if ($("<div/>").html(data).find("div#idSelectCuentas").length>0) {
+                    var elemento = document.getElementById("idSelectCuentas");
+                    if (elemento!=null){
+                        elemento.innerHTML = $("<div/>").html(data).find("div#idSelectCuentas").html();
+                        evalAllScripts_COX("" + data);
+                    }
+                }
+            }
+
+
+
+
+
+            desbloqueaPantalla();
+        }
+        function evalAllScripts_COX(response) {
+            var source = response;
+            var scripts = new Array();
+            while (source.toLowerCase().indexOf("<script") > -1 || source.toLowerCase().indexOf("</script") > -1) {
+            var s = source.toLowerCase().indexOf("<script");
+    var s_e = source.indexOf(">", s);
+    var e = source.toLowerCase().indexOf("</script", s);
+    var e_e = source.indexOf(">", e);
+    var scriptFull = source.substring(s_e+1, e);
+    var scriptPartial = scriptFull;
+    if (scriptFull.indexOf("$(document).ready") >-1){
+    scriptPartial = scriptFull.replace("$(document).ready(function() {","");
+    scriptPartial = scriptPartial.replace("});","");
+    } else if (scriptFull.indexOf("jQuery(document)") >-1){
+    scriptPartial = scriptFull.replace("jQuery(document).ready(function(){","");
+    scriptPartial = scriptPartial.replace("});","");
+    }
+    scripts.push(scriptPartial);
+    source = source.substring(0, s) + source.substring(e_e+1);
+    }
+    for (var i=0; i<scripts.length; i++) {
+    jQuery.globalEval( ""+ scripts[i] +"");
+    }
+    }
+    function setFieldValueForm(formName, fieldName, value) {
+    $('form[name=' + formName + '] input[name='+ fieldName +']').val(value);
+    }
+    function addFormField(formName, fieldName, fieldValue) {
+    $('form[name="' + formName + '"]').append('<input type="hidden" name="' + fieldName + '" value="' + fieldValue + '" />');
+    }
+
+    function marcarComoFavoritoDOX(linkId) {
+    var filaDocumento = parseInt(linkId.substring(linkId.length - 1)) + 1;
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement("Ch_PrioritarioDoc[" + filaDocumento + "]");
+    }
+
+    var claveDoc=$('#'+linkId).parents("tr").attr("id");
+    var favoritosParams=!($('#'+linkId).hasClass("favorits_actiu"))?"S":"N";
+    var params= 'PN=DOX&PE=5&LISTA_CLAVE_DOCUMENTO='+claveDoc+'&LISTA_FAVORITO='+favoritosParams+'&CLICK_ORIG=FLX_MBX_1';
+    myAjaxCall(params,'#'+linkId,'#'+linkId,'ajaxCallbackFavoritos',null,'ajaxCallbackError',true);
+
+    }
+
+    function calculaGenerico(urlParams, id_origen, id_destino){
+    AjaxQueueMB.set("POST", true, 10000, '/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559', urlParams, $('#'+id_origen+''), $('#'+id_destino+''), null, [callBackGenericaMB,callBackGraficos2], null);
+    var quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar = true;
+    procesaAjaxQueueMB(AjaxQueueMB,quieroImagenCargandoMientrasEsperoALaPeticionAjaxAQueCargueElResultadoQueHeDeseadoEnAlgunMomentoDeMiVidaCargar);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function goPN_PE(pn,pe,clickOrig,addParams) {
+    with (document.forms["pn_pe"]) {
+    PN.value=pn;
+    PE.value=pe;
+    if (clickOrig!=null)
+    CLICK_ORIG.value=clickOrig;
+    if (addParams!=null && addParams!='') {
+    var prms=addParams.split("&");
+    for (i=0; i<prms.length; i++) {
+    var parVal=prms[i].split("=");
+    $("form[name=pn_pe]").append("<input type='hidden' name='"+parVal[0]+"' value='"+parVal[1].replace("'","''")+"'/>");
+    }
+    }
+
+    submit();
+    }
+    }
+    function cargaJSMemoria(listaNombre){
+    for (i=0;i<listaNombre.length;i++){
+    var nombre = listaNombre[i];
+    var oHead = document.getElementsByTagName('HEAD').item(0);
+    var oScript= document.createElement("script");
+    oScript.type = "text/javascript";
+    oScript.src=nombre;
+    oHead.appendChild(oScript);
+    }
+    }
+    function existeJSCargado(nombre) {
+    var objJSMig1 = document.getElementsByTagName('HEAD').item(0);
+    if (objJSMig1){
+    var objJS = objJSMig1.getElementsByTagName('script');
+    if (objJS){
+    for(var k=0;k<objJS.length;k++){
+    scs = objJS.item(k);
+    if(scs && scs.src && scs.src.indexOf(nombre)>-1){
+    return true;
+    }
+    }
+    }
+    }
+    return false;
+    }
+    function mCapa(url,id){
+    var height = 'auto';
+    var width = '640px';
+    setPopUpMultiple("#"+id,height, width, 6, url);
+    $("#"+id).click();
+    }
+    function setOmnitureInformation(){
+    if (typeof OmnitureClicatElement != "undefined") {
+    var minCorrespondencia = $('#M1TitleContainer span.minimize');
+    var maxCorrespondencia = $('#M1TitleContainer span.maximize');
+    var infoCorrespondencia = $('#M1FooterContainer a#infoVinculada50');
+    var irCorrespondencia = $('#M1FooterContainer a.fnewsgotbold span, #M1FooterContainer a.fnewsgotbold img');
+    var minOperacioesPendientes = $('#M2TitleContainer span.minimize');
+    var maxOperacionesPendientes = $('#M2TitleContainer span.maximize');
+    var infoOperacionesPendientes = $('#M2FooterContainer a#infoVinculada51');
+    var irOperacionesPendientes = $('#M2FooterContainer a.fnewsgotbold span, #M2FooterContainer a.fnewsgotbold img');
+    var minAvisos = $('#M3TitleContainer span.minimize');
+    var maxAvisos = $('#M3TitleContainer span.maximize');
+    var infoAvisos = $('#M3FooterContainer a#infoVinculada52');
+    var irAvisos = $('#M3FooterContainer a.fnewsgotbold span, #M3FooterContainer a.fnewsgotbold img');
+    var minDocumentos = $('#M4TitleContainer span.minimize');
+    var maxDocumentos = $('#M4TitleContainer span.maximize');
+    var infoDocumentos = $('#M4FooterContainer a#infoVinculada53');
+    var irDocumentos = $('#M4FooterContainer a.fnewsgotbold span, #M4FooterContainer a.fnewsgotbold img');
+    var minGraficos = $('#M5TitleContainer span.minimize');
+    var maxGraficos = $('#M5TitleContainer span.maximize');
+    var infoGraficos = $('#M5FooterContainer a#infoVinculada54');
+    var irGraficos = $('#M5FooterContainer a.fnewsgotbold span, #M5FooterContainer a.fnewsgotbold img');
+
+    minCorrespondencia.click(function(e) {
+    OmnitureClicatElement("B_MinCorresp");
+    });
+    maxCorrespondencia.click(function(e) {
+    OmnitureClicatElement("B_MaxCorresp");
+    });
+
+    infoCorrespondencia.mouseover(function(e) {
+    OmnitureClicatElement("B_InfoCorresp");
+    });
+    irCorrespondencia.click(function(e) {
+    OmnitureClicatElement("B_IrCorresp");
+    });
+
+    minOperacioesPendientes.click(function(e) {
+    OmnitureClicatElement("B_MinOpPend");
+    });
+    maxOperacionesPendientes.click(function(e) {
+    OmnitureClicatElement("B_MaxOpPend");
+    });
+
+    infoOperacionesPendientes.mouseover(function(e) {
+    OmnitureClicatElement("B_InfoOpPend");
+    });
+    irOperacionesPendientes.click(function(e) {
+    OmnitureClicatElement("B_IrOpPend");
+    });
+
+    minAvisos.click(function(e) {
+    OmnitureClicatElement("B_MinAvisos");
+    });
+    maxAvisos.click(function(e) {
+    OmnitureClicatElement("B_MaxAvisos");
+    });
+
+    infoAvisos.mouseover(function(e) {
+    OmnitureClicatElement("B_InfoAvisos");
+    });
+    irAvisos.click(function(e) {
+    OmnitureClicatElement("B_IrAvisos");
+    });
+
+    minDocumentos.click(function(e) {
+    OmnitureClicatElement("B_MinDocs");
+    });
+    maxDocumentos.click(function(e) {
+    OmnitureClicatElement("B_MaxDocs");
+    });
+
+    infoDocumentos.mouseover(function(e) {
+    OmnitureClicatElement("B_InfoDocs");
+    });
+    irDocumentos.click(function(e) {
+    OmnitureClicatElement("B_IrDocs");
+    });
+
+    minGraficos.click(function(e) {
+    OmnitureClicatElement("B_MinGraf");
+    });
+    maxGraficos.click(function(e) {
+    OmnitureClicatElement("B_MaxGraf");
+    });
+
+    infoGraficos.mouseover(function(e) {
+    OmnitureClicatElement("B_InfoGraf");
+    });
+    irGraficos.click(function(e) {
+    OmnitureClicatElement("B_IrCorrespondenciaGraficos");
+    });
+    }
+    }
+    function setGuardarEstado() {
+    var minCorrespondencia = $('#M1TitleContainer span.minimize');
+    var maxCorrespondencia = $('#M1TitleContainer span.maximize');
+    var minOperacioesPendientes = $('#M2TitleContainer span.minimize');
+    var maxOperacionesPendientes = $('#M2TitleContainer span.maximize');
+    var minAvisos = $('#M3TitleContainer span.minimize');
+    var maxAvisos = $('#M3TitleContainer span.maximize');
+    var minDocumentos = $('#M4TitleContainer span.minimize');
+    var maxDocumentos = $('#M4TitleContainer span.maximize');
+    var minGraficos = $('#M5TitleContainer span.minimize');
+    var maxGraficos = $('#M5TitleContainer span.maximize');
+
+    minCorrespondencia.click(function(e) {
+    callGuardar();
+    });
+    maxCorrespondencia.click(function(e) {
+    callGuardar();
+    });
+
+    minOperacioesPendientes.click(function(e) {
+    callGuardar();
+    });
+    maxOperacionesPendientes.click(function(e) {
+    callGuardar();
+    });
+
+    minAvisos.click(function(e) {
+    callGuardar();
+    });
+    maxAvisos.click(function(e) {
+    callGuardar();
+    });
+
+    minDocumentos.click(function(e) {
+    callGuardar();
+    });
+    maxDocumentos.click(function(e) {
+    callGuardar();
+    });
+
+    minGraficos.click(function(e) {
+    callGuardar();
+    });
+    maxGraficos.click(function(e) {
+    callGuardar();
+    });
+    }
+    function irCategoria(categoria, etiquetaOmniture) {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement(etiquetaOmniture);
+    }
+    document.forms["irCategoria"].LISTA_CATEGORIAS.value=categoria;
+    document.forms["irCategoria"].submit();
+    }
+    function dejarRecibirCorrespondenciaEnPapel(etiquetaOmniture) {
+    if (typeof OmnitureClicatElement != "undefined") {
+    OmnitureClicatElement(etiquetaOmniture);
+    }
+    document.forms["dejarRecibirCorreo"].submit();
+    }
+    function removeAllRefvalComplejo(formContenedora) {
+    $('form[name=' + formContenedora + '] input[type=hidden]').each(function() {
+    if ($(this).attr('name').indexOf('REFVAL_COMPLEJO')!=-1) {
+    removeFormField(formContenedora, $(this).attr('name'));
+    }
+    });
+    }
+    function removeFormField(formName, fieldName) {
+    return $('form[name=' + formName + '] input[name='+ fieldName +']').remove();
+    }
+    function irCaixaBankFactura(){
+    document.forms["EnlaceCaixaBankFactura"].submit();
+    }
+    function comprobarDragables(){
+
+    $("#M1").find( "span.drag" ).remove();
+
+    $("#M2").find( "span.drag" ).remove();
+
+    $("#M3").find( "span.drag" ).remove();
+
+    $("#M4").find( "span.drag" ).remove();
+
+    }
+    function irCertificados(){
+    f = document.forms['pn_pe'];
+    f.PN.value="RCE";
+    f.PE.value="1";
+    f.submit();
+    }
+    function irRecepcionFicheros(){
+    f = document.forms['pn_pe'];
+    f.PN.value="FTR";
+    f.PE.value="70";
+    f.submit();
+    }
+    function irCaixaBank(){
+    f = document.forms['pn_pe'];
+    f.PN.value="CFA";
+    f.PE.value="1";
+    f.submit();
+    }
+    function irDevoluIVA(){
+    f = document.forms['pn_pe'];
+    f.PN.value="IVA";
+    f.PE.value="1";
+    f.submit();
+    }
+    </script>
+    </head>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+
+    <div  class="apple_overlay" id="overlay">
+        <div class="capa_liquida" >
+        <div class="top"><span></span></div>
+    <div class="center-content2" >
+        <div class="center-content clearfix">
+        <div id="infoCont" class="contentWrap clearfix"></div>
+        </div>
+        <div class="limpiar"></div>
+        </div>
+        <div class="bottom_liq"><span></span></div>
+    </div>
+    </div>
+
+
+    <body id="cos" class="margen_top5 " style="background-color: rgb(239, 244, 255);">
+        <script>var PNLomilu='MBX';var PELomilu='1';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+    <div id="lo_contenido">
+        <div class="correspondencia">
+
+
+
+
+
+            <script language="JavaScript" type="text/javascript">
+
+                function enviaEventApiTealium(datos){
+                    if(typeof window.top.sendLink === 'function'){window.top.sendLink(datos);}
+                }
+
+
+                function loadTealium(){
+
+
+                    var digitalData={
+                        page_section:'linia abierta',
+                        page_category:'mailbox',
+                        page_subcategory1:'dashboard',
+                        page_subcategory2:'l_caixabankfactura2',
+                        page_name:'linia abierta:mailbox:dashboard:l_caixabankfactura2',
+                        page_language:'es',
+                        page_area:'privada',
+                        page_typology:'pagina',
+                        page_environment:'desarrollo',
+                        page_version:'normal',
+                        device:'desktop',
+                        client_id:'FEDA19C83878170A14D0D440F44EA738',
+                        client_type:'cliente',
+                        client_login_status:'logado',
+                        client_segment:'empresas',
+                        heavy_digital:'no',
+                        ind_holabank:'false',
+                        ind_autonomo:'false',
+                        ind_negocios:'false',
+                        treatment_online:'false',
+                        consent_ccee:'false',
+                        consent_profiling:'true',
+                        form_maxloan_limit:'0'
+                    };
+
+
+
+                    if (top && typeof top.CookiePolicy === 'object') digitalData.gdpr_facebook = ''+top.CookiePolicy.isAllowedComponent('facebook');
+
+                    if(typeof window.top.sendView === 'function'){window.top.sendView(digitalData);}
+                }
+
+                function TealiumAddLoadEvent(func){
+                    var oldonload = window.onload;
+                    if (typeof window.onload != 'function') {
+                        window.onload = func;
+                    }
+                    else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                        };
+                    }
+                }
+
+
+                TealiumAddLoadEvent(new Function('setTimeout("loadTealium();",50)'));
+            </script>
+
+
+            <div class="limpiar">&nbsp;</div>
+            <div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.",null,"errores");</script></div>
+            <div id="showErrors" class="limpiar"></div>
+            <div class="dashboard2">
+                <div class="inferior10 lfloat medida100" id="dashboard">
+                    <div class="mostrar"><div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa" /></div><div class="rfloat">Fecha impresión: <strong>25/05/2020</strong>&nbsp;</div><div class="limpiar"></div></div><div class=""><h1 class="inline lfloat derecha15 fnewsgotbold"><span>MailBox - Mis documentos</span></h1>
+                    <div class="rfloat nowrap"><ul class="funciones_tit "><li><a href="javascript:reduir();" title="a -" id="linkred" class="amenos noactivo">a -</a></li><li><a href="javascript:augmentar();" title="a +" id="linkaug" class="amas">a +</a></li></ul></div></div></div>
+                <div class="limpiar"></div>
+                <div class="box effect7" id="M1">
+                    <div id="M1TitleContainer" class="tit corres blauf altura40px ">
+                        <h2 class="dinb negro big fnewsgot">
+                            <span class="corres dinb vamid derecha15"></span>
+                            <a id="" href="?PN=COX&PE=1&PAGINAR_CUENTA=S&CLICK_ORIG=EOC_MBX_1"   title=""><span>Correspondencia</span></a> <span class="bigger "></span></h2>
+                        <div class="utils">
+                            <span class="minimize"></span>
+                            <span class="maximize" style="display: none !important"></span>
+                        </div>
+                    </div>
+                    <div id="M1ContentContainer"
+                         class="blaufbot  content "  style="display: block;" ><img id="imagenAjax"  class=" "  src="./imatge/loading.gif" style="display:block; margin: 5px auto;" title="Cargando...Espere por favor"  onclick ="" /><script>$(document).ready(function() {sendAjaxGenerica('PN=COX&PE=1&CLICK_ORIG=AJX_MBX_1&FLAG_OPERATIVA_CORRESPONDENCIA=DASHBOARD_MAILBOX', 'M1ContentContainer', 'M1ContentContainer', true) });</script></div>
+                    <div id="M1FooterContainer" class="peu bg_blanc  no_border">
+                        <a  id="infoVinculada50" href="#"   class="info_db_bf lfloat vamid iefnone nodeco tooltip_activen"  data-tooltip-position="bottom"  title="Consulte hasta 10 años de correspondencia" ><span></span></a><script type="text/javascript">
+                        $(document).ready(function() {
+                            initMailboxTooltip("infoVinculada50");
+                        });
+                    </script>
+                        <a href='?PN=COX&PE=1&PAGINAR_CUENTA=S&CLICK_ORIG=EOC_MBX_1'  class="rfloat fnewsgotbold"  title=''><span>Toda la correspondencia</span><img src='imatge/ico_mesinfo.png' class='vamid izquierda3' height='20' width='20' /></a>
+                    </div>
+                </div>
+                <div class="box effect7" id="M4">
+                    <div id="M4TitleContainer" class="tit docsr blauc altura40px ">
+                        <h2 class="dinb negro big fnewsgot">
+                            <span class="docsr dinb vamid derecha15"></span>
+                            <a id="" href="?PN=DOX&PE=1&CLICK_ORIG=EOC_MBX_1"   title=""><span>Documentos y contratos</span></a> <span class="bigger "></span></h2>
+                        <div class="utils">
+                            <span class="drag derecha5"></span>
+                            <span class="minimize"></span>
+                            <span class="maximize" style="display: none !important"></span>
+                        </div>
+                    </div>
+                    <div id="M4ContentContainer"
+                         class="blaucbot  content "  style="display: block;" ><img id="imagenAjax"  class=" "  src="./imatge/loading.gif" style="display:block; margin: 5px auto;" title="Cargando...Espere por favor"  onclick ="" /><script>$(document).ready(function() {sendAjaxGenerica('PN=DOX&PE=1&PETICION_AJAX=S&DASHBOARD=S&CLICK_ORIG=AJX_MBX_1', 'M4ContentContainer', 'M4ContentContainer', true) });</script></div>
+                    <div id="M4FooterContainer" class="peu bg_blanc  no_border">
+                        <a  id="infoVinculada53" href="#"   class="info_db_bf lfloat vamid iefnone nodeco tooltip_activen"  data-tooltip-position="bottom"  title="Consulte todos los documentos firmados digitalizados" ><span></span></a><script type="text/javascript">
+                        $(document).ready(function() {
+                            initMailboxTooltip("infoVinculada53");
+                        });
+                    </script>
+                        <a href='?PN=DOX&PE=1&CLICK_ORIG=EOC_MBX_1'  class="rfloat fnewsgotbold"  title=''><span>Todos los documentos</span><img src='imatge/ico_mesinfo.png' class='vamid izquierda3' height='20' width='20' /></a>
+                    </div>
+                </div>
+                <div class="limpiar"></div>
+                <div class="dashboard">
+                    <div class="doscol">
+                        <div id="dashboardUncolLfloat" class="uncol lfloat">
+                        </div>
+                        <div id="dashboardUncolRfloat" class="uncol rfloat">
+                        </div>
+                    </div>
+                </div>
+                <div class="limpiar"></div>
+            </div>
+
+            <div id ="idEnlaceDuplicadosFiscales" style="display:none">
+                <a href="javascript:goPN_PE('COF','2','FLX_COX_1','FLUJO=COX,1,:GFI,7,')"  class="icon_mes_info no_subrayado dinb inferior10 rfloat"  title=""><span>Solicitar un duplicado de todos los comunicados de sus contratos</span></a>
+                <a href="JavaScript:top.Titol.obtenerAyudaCampo('COX', '1', 'DUPFIS');JavaScript:OmnitureClicatElement('B_AyudaPeticionDuplicadosFiscales')" id="tooltipHelp0"  class="info_vinculada_sol2 dinb vamid iefnone nodeco rfloat"  title="" ><span></span></a>
+            </div>
+
+
+            <div id='OmnitureDIV' style="display:none;visibility:hidden"></div>
+            <div style="display:none;visibility:hidden">
+
+                <script language="JavaScript" type="text/javascript" src="./js/s_code_basic.js"></script>
+
+                <script language="JavaScript" type="text/javascript">
+
+                    function setTrackerHTML(code){
+                        document.getElementById('OmnitureDIV').innerHTML=code;
+                    };
+
+                    function OmnitureClicatElement(pQuin){
+                        try{
+                            if(typeof window.top.sendLink === 'function') {  window.top.sendLink({event_category:'', event_action:'', event_label:'', event_description:pQuin})  }
+                        } catch (err) {console.log(err);};
+                    };
+
+                    var sendLink = function(objeto){
+                        if(typeof window.top.sendLink === 'function'){
+                            try{window.top.sendLink(objeto);}catch(e){}
+                        }
+                    }
+
+
+                    function testHuella() {
+
+                        try{
+
+                            s.channel="Linea Abierta"
+                            s.pageName="Linea Abierta:MailBox:Dashboard"
+
+                            s.events="event24"
+                            s.prop1="MailBox"
+
+                            s.prop5="Dashboard"
+                            s.prop17="es"
+                            s.eVar17=s.prop17
+                            s.prop18="Cliente"
+                            s.eVar18=s.prop18
+
+
+                            if (typeof digitalData != "object") {
+                                digitalData={
+                                    client_login_status:'logado',
+                                    page_typology:'pagina',
+                                    device:'desktop',
+                                    page_language:'es',
+                                    page_area:'privada',
+                                    page_environment:'desarrollo',
+                                    client_id:'FEDA19C83878170A14D0D440F44EA738',
+                                    client_type:'cliente',
+                                    client_segment:'empresas',
+                                    heavy_digital:'no',
+                                    ind_holabank:'false',
+                                    ind_autonomo:'false',
+                                    ind_negocios:'false',
+                                    treatment_online:'false',
+                                    consent_ccee:'false',
+                                    consent_profiling:'true',
+                                    form_maxloan_limit:'0'};
+                                if (top && typeof top.CookiePolicy === 'object') digitalData.gdpr_facebook = ''+top.CookiePolicy.isAllowedComponent('facebook');
+                            }
+
+                            if(typeof window.top.sendView === 'function') { window.top.sendView(digitalData,s);  }
+                            if(navigator.appVersion.indexOf('MSIE')>=0)  setTrackerHTML(unescape('%3C')+'\!-'+'-')
+                        } catch (err) {console.log(err);};
+
+                    }
+
+                    function OmnitureAddLoadEvent(func)
+                    {
+                        var oldonload = window.onload;
+                        if (typeof window.onload != 'function') {
+                            window.onload = func;
+                        }
+                        else {
+                            window.onload = function() {
+                                oldonload();
+                                func();
+                            };
+                        }
+                    }
+
+
+                    OmnitureAddLoadEvent(new Function('setTimeout("testHuella();",50)'));
+                </script>
+
+            </div>
+            <div id="g-standalone__component" class="g-standalone__component g-standalone__component--capture_force_block  ">
+                <div class="u-flex u-flex-wrap u-row--sep-10 u-row--height-equal margin--bottom-normal">
+                    <div class="u-col--width-3/12c u-col-small--width-6/12c margin--bottom-normal">
+                        <div class="c-card-simple c-card-simple--text">
+                            <div class="u-flex u-flex-justify-content-center margin--bottom-small">
+                                <div class="g-content__grid__item__icon " data-visualguide-dependencies="css/lo_master.css" 			data-visualguide-id="LI024" data-visualguide-type="icon">				<img src="../../../../../c-images/html-images/icons/48x48/ico_civil_liability.svg" class="element-height--48px" alt="Mailbox">
+                                </div>
+                            </div>
+                            <div class="c-card-simple__body">
+                                <div class="font--weight-semibold text--align-center font--size-120 margin--bottom-normal">
+                                    Certificados
+                                </div>
+                                <div class="margin--bottom-normal ">
+                                    Descarga los certificados de las <b>cuentas de tu empresa</b> o solicita de nuevos.
+                                </div>
+                            </div>
+                            <div class="c-card-simple__footer">
+                                <a class="btn btn--lg btn--block btn--primary" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en producto',event_label:'certificados'});};irCertificados()">
+                                    Ir a mis certificados
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-col--width-3/12c u-col-small--width-6/12c margin--bottom-normal">
+                        <div class="c-card-simple c-card-simple--text">
+                            <div class="u-flex u-flex-justify-content-center margin--bottom-small">
+                                <div class="g-content__grid__item__icon " data-visualguide-dependencies="css/lo_master.css" 			data-visualguide-id="LI024" data-visualguide-type="icon">				<img src="../../../../../c-images/html-images/icons/48x48/ico_documentation_up.svg" class="element-height--48px" alt="Mailbox">
+                                </div>
+                            </div>
+                            <div class="c-card-simple__body">
+                                <div class="font--weight-semibold text--align-center font--size-120 margin--bottom-normal">
+                                    Recepción de ficheros
+                                </div>
+                                <div class="margin--bottom-normal ">
+                                    Accede a tus <b>ficheros pendientes de descarga</b>, realiza una nueva petición o consulta y gestiona tus peticiones.
+                                </div>
+                            </div>
+                            <div class="c-card-simple__footer">
+                                <a class="btn btn--lg btn--block btn--primary" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en producto',event_label:'recepcion ficheros'});};irRecepcionFicheros()">
+                                    Ir a recepción de ficheros
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-col--width-3/12c u-col-small--width-6/12c margin--bottom-normal">
+                        <div class="c-card-simple c-card-simple--text">
+                            <div class="u-flex u-flex-justify-content-center margin--bottom-small">
+                                <div class="g-content__grid__item__icon " data-visualguide-dependencies="css/lo_master.css" 			data-visualguide-id="LI024" data-visualguide-type="icon">				<img src="../../../../../c-images/html-images/icons/48x48/ico_documentation_caixabankfacturas.svg" class="element-height--48px" alt="Mailbox">
+                                </div>
+                            </div>
+                            <div class="c-card-simple__body">
+                                <div class="font--weight-semibold text--align-center font--size-120 margin--bottom-normal">
+                                    CaixaBankFactura
+                                </div>
+                                <div class="margin--bottom-normal ">
+                                    Consulta facturas recibidas o crea de nuevas a través de nuestro servicio de <b>facturación electrónica</b>.
+                                </div>
+                            </div>
+                            <div class="c-card-simple__footer">
+                                <a class="btn btn--lg btn--block btn--primary" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en producto',event_label:'caixabankfactura'});};irCaixaBank()">
+                                    Ir a CaixaBankFactura
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-col--width-3/12c u-col-small--width-6/12c margin--bottom-normal">
+                        <div class="c-card-simple c-card-simple--text">
+                            <div class="u-flex u-flex-justify-content-center margin--bottom-small">
+                                <div class="g-content__grid__item__icon " data-visualguide-dependencies="css/lo_master.css" 			data-visualguide-id="LI024" data-visualguide-type="icon">				<img src="../../../../../c-images/html-images/icons/48x48/ico_devoluiva.svg" class="element-height--48px" alt="Mailbox">
+                                </div>
+                            </div>
+                            <div class="c-card-simple__body">
+                                <div class="font--weight-semibold text--align-center font--size-120 margin--bottom-normal">
+                                    DevoluIVA
+                                </div>
+                                <div class="margin--bottom-normal ">
+                                    Consulta las <b>facturas</b> cuyo <b>IVA puedes deducir</b> gracias al servicio DevoluIVA.
+                                </div>
+                            </div>
+                            <div class="c-card-simple__footer">
+                                <a class="btn btn--lg btn--block btn--primary" href="javascript:if(typeof enviaEventApiTealium === 'function'){enviaEventApiTealium({event_category:'click to action',event_action:'click en producto',event_label:'devoluiva'});};irDevoluIVA()">
+                                    Ir DevoluIVA
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="fposition">
+
+                <input type="hidden" id="PN" name="PN" value="MBX">
+                <input type="hidden" id="PE" name="PE" value="2">
+                <input type="hidden" id="LISTL" name="LISTL" value="">
+                <input type="hidden" id="LISTR" name="LISTR" value="">
+                <input type="hidden" name="CLICK_ORIG" value="FLX_MBX_1">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="F_MULTIFIRMA">
+
+                <input type="hidden" id="PN" name="PN" value="">
+                <input type="hidden" id="PE" name="PE" value="">
+                <input type="hidden" id="TITULO" name="TITULO" value="">
+                <input type="hidden" name="CLICK_ORIG" value="FLX_MBX_1">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="F_OPP_FDF">
+                <input type="hidden" name="PN" value="">
+                <input type="hidden" name="PE" value="">
+                <input type="hidden" name="FILTRO_PENDIENTES" value="1">
+                <input type="hidden" name="CLICK_ORIG" value="FLX_MBX_1">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="F_TRACKING_HIP">
+                <input type="hidden" name="PN" value="">
+                <input type="hidden" name="PE" value="">
+                <input type="hidden" name="ID_SOLICITUD" value="">
+                <input type="hidden" name="CLICK_ORIG" value="FLX_GBX_1">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="detalleComunicado" target="Cos">
+                <input type="hidden" id="PN" name="PN" value="COX">
+                <input type="hidden" id="PE" name="PE" value="2">
+                <input type="hidden" id="TORNA_PN" name="TORNA_PN" value="MBX">
+                <input type="hidden" id="TORNA_PE" name="TORNA_PE" value="1">
+                <input type="hidden" name="TORNA_PN_BACKUP" value="MBX">
+                <input type="hidden" name="TORNA_PE_BACKUP" value="1">
+                <input type="hidden" name="CLICK_ORIG" value="FLX_MBX_1">
+            </form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="verDocumentos">
+                <input type="hidden" name="PN" value="">
+                <input type="hidden" name="PE" value="">
+                <input type="hidden" name="TIPO_ODB" value="">
+                <input type="hidden" name="TIQUET" value="">
+                <input type="hidden" name="DOCID_DOX" value="">
+                <input type="hidden" name="TORNA_PN" value="MBX">
+                <input type="hidden" name="TORNA_PE" value="1">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="verCampanyaWEIWEF">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="verBuscadorGrafico">
+                <input type="hidden" name="PN" value="COX">
+                <input type="hidden" name="PE" value="1">
+                <input type="hidden" name="TIPO_BUSCADOR_ACTIVO_COX" value="GRAFICO">
+                <input type="hidden" name="CATEGORIAS_ACTIVAS" value="">
+                <input type="hidden" name="FECHA_DESDE" value="">
+                <input type="hidden" name="FECHA_HASTA" value="">
+                <input type="hidden" name="LEIDOS" value="">
+                <input type="hidden" name="TIPO_GRAFICO_INIT" value="">
+                <input type="hidden" name="LISTA_CATEGORIAS" value="">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="F_CORRESPONDENCIA">
+                <input type="hidden" name="PN" value="">
+                <input type="hidden" name="PE" value="">
+                <input type="hidden" name="PNACCIO" value="">
+                <input type="hidden" name="PEACCIO" value="">
+                <input type="hidden" name="CONVIVENCIA" value="">
+                <input type="hidden" name="CLICK_ORIG" value=""></form>
+
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="pn_pe" target="Cos">
+                <input type="hidden" id="PN" name="PN">
+                <input type="hidden" id="PE" name="PE">
+                <input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="FLX_MBX_1">
+            </form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" id="F_AVISOS_VER" name="F_AVISOS_VER">
+                <input type="hidden" name="PN" value="">
+                <input type="hidden" name="PE" value="">
+                <input type="hidden" name="CLICK_ORIG" value="">
+
+                <input type="hidden" name="DATCRE" value="">
+                <input type="hidden" name="HORCRE" value="">
+                <input type="hidden" name="TIPMEN" value="">
+                <input type="hidden" name="NUMMEN" value="">
+                <input type="hidden" name="DATO1" value="">
+                <input type="hidden" name="DATO1VALOR" value="">
+                <input type="hidden" name="DATO2" value="">
+                <input type="hidden" name="DATO2VALOR" value="">
+                <input type="hidden" name="DATO3" value="">
+                <input type="hidden" name="DATO3VALOR" value="">
+                <input type="hidden" name="DATO4" value="">
+                <input type="hidden" name="DATO4VALOR" value="">
+                <input type="hidden" name="DATO5" value="">
+                <input type="hidden" name="DATO5VALOR" value="">
+                <input type="hidden" name="CONVIVENCIA" value="">
+                <input type="hidden" name="PNACCIO" value="">
+                <input type="hidden" name="PEACCIO" value="">
+                <input type="hidden" name="NOMBRECLASE" value="">
+                <input type="hidden" name="BUSTIA" value="">
+                <input type="hidden" name="FLAG_DESEO" value="">
+                <input type="hidden" name="BUFFER" value="">
+                <input type="hidden" name="BUSQUEDACLO" value="">
+                <input type="hidden" name="ACCESODIRECTO" value="">
+                <input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="">
+                <input type="hidden" name="ALIAS" value="">
+                <input type="hidden" name="FECHA_DESDE" value="">
+                <input type="hidden" name="FECHA_HASTA" value="">
+                <input type="hidden" name="FLUJO" value="">
+
+
+                <input type="hidden" name="LISTA_CATEGORIAS" value="">
+
+            </form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="irCategoria">
+                <input type="hidden" id="PN" name="PN" value="COX">
+                <input type="hidden" id="PE" name="PE" value="1">
+                <input type="hidden" id="LISTA_CATEGORIAS" name="LISTA_CATEGORIAS" value="">
+                <input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="FLX_COX_1">
+            </form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="dejarRecibirCorreo">
+                <input type="hidden" id="PN" name="PN" value="SCP">
+                <input type="hidden" id="PE" name="PE" value="40">
+                <input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="FLX_COX_1">
+            </form>
+            <form action="/GPeticiones;WebLogicSession=QfRM8-pJOP9yaDoWIgrPqLuDDy6NZ1hU96tC3993jmRv0kaZmp34!-1375651842!1348180559" method="POST" name="EnlaceCaixaBankFactura">
+                <input type="hidden" id="PN" name="PN" value="CFA">
+                <input type="hidden" id="PE" name="PE" value="1">
+                <input type="hidden" id="CLICK_ORIG" name="CLICK_ORIG" value="FLX_COX_1">
+            </form>
+        </div>
+    </div>
+    <div class="limpiar"></div>
+
+    </body>
+</html>

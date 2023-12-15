@@ -1,0 +1,8 @@
+self.logger.info(
+  'process_account: {}: dates from {} to {}: movements: {}'.format(
+      account_no,
+      date_from_str,
+      self.date_to_str,
+      movements_scraped
+  )
+)

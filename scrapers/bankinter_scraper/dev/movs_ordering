@@ -1,0 +1,13 @@
+The movements of the current day may be moved to any position of the current day.
+There is no way to detect their final position in the end of the day:
+see Movs__09_10__17_44.png (means 09/10 17:44 ESP) and Movs__09_10__22_11.png (means 09/10 22:11 ESP)
+- no any system for the movements from 09/10 - there were reordered 'randomly'.
+
+General ways:
+1. fix balance integrity errors manually (the current approach) if auto-fix doesn't work.
+2. don't scrape today movements
+3. implement more intellectual approach for date_from:
+   instead '15 days offset' use
+   'scrape since the last date with movs less or eq 15 days offset'.
+   That means if there are correct previous movements, doesn't matter how long time ago,
+   then the scraper has a possibility to auto-fix the broken movements.

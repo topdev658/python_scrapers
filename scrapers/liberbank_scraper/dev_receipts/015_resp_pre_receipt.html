@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!--Nuevo js comun BEWEB-->
+    <script type="text/javascript">
+        try
+        {
+            document.domain="liberbank.es";//para poder hablar entre frames y el dominio de cep.ceca.es(tiene que estar en todos los frames)
+        }
+        catch( _ex )
+        {
+            if( "liberbank.es" == "bmn.es" )
+
+                document.domain="sanostra.es";
+        }
+        var rutaBEcontenido="https://banca-distancia.liberbank.es";
+        var ruta_beweb_estatico="/5485";
+        var rutaCGI="https://banca-distancia.liberbank.es/cgi-bin/INclient_5485";
+        var salto1004="https://banca-distancia.liberbank.es/cgi-bin/INclient_5485?OPERACION=1004&IDIOMA=01&OPERAC=6578&LLAMADA=E3D1F2H0R1C0A0A1R0F2&CLIENTE=2048099385&CAJA=2048&CAMINO=5485";
+        var salto1004M="https://banca-distancia.liberbank.es/cgi-bin/INclient_5485?OPERACION=1004M&IDIOMA=01&OPERAC=6578&LLAMADA=E3D1F2H0R1C0A0A1R0F2&CLIENTE=2048099385&CAJA=2048&CAMINO=5485";
+    </script>
+    <script src="/5485/js/comunBEWEB.js" type="text/javascript"></script>
+
+    <script src="/5485/js/incluyeDomain.js" type="text/javascript"></script>
+    <script src="/5485/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="/5485/js/decideCss2016.js?date=112016" type="text/javascript"></script>
+    <script src="/5485/js/t_utilidades2016.js?date=028062017" type="text/javascript"></script>
+    <script src="/5485/js/t_enlacesinf.js" type="text/javascript"></script>
+    <script src="/5485/js/t_seguimiento.js" type="text/javascript"></script>
+    <link href="/5485/css/t_estilos.css?date=2109" rel="stylesheet" type="text/css" />
+    <link href="/5485/css/t_estilosNuevo.css?date=2109" rel="stylesheet" type="text/css" />
+    <link href="/5485/css/menu2016.css" rel="stylesheet" type="text/css" />
+    <link href="/5485/css/t_estilos_print.css?date=24072017" rel="stylesheet" type="text/css" media="print" />
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="/5485/js/selectivizr-min.js"></script>
+    <![endif]-->
+    <script src="/5485/js/media_analyticsv2.js" type="text/javascript"></script>
+    <script src="/5485/js/sha256.js" type="text/javascript"></script>
+    <title>Liberbank - FASTMAIL (6578dCMO)</title>
+    <script src="/5485/js/01verif2016.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var cualmostrar=0;
+        if("0"!="")
+            cualmostrar=parseInt("0");
+
+        function enviar(){
+            document.muestrapdf.FECHA.value = documentos[cualmostrar].fecha;
+            document.muestrapdf.CUENTA.value = documentos[cualmostrar].cuenta;
+            document.muestrapdf.DESDE_REGISTRO.value = documentos[cualmostrar].desderegistro;
+            document.muestrapdf.HASTA_REGISTRO.value = documentos[cualmostrar].hastaregistro;
+            document.muestrapdf.FORMATO_INICIAL.value = documentos[cualmostrar].formatoinicial;
+            document.muestrapdf.submit();
+        }
+
+        var contador = 0;
+        var documentos = new Array();
+        documentos[contador] = new Object();
+        documentos[contador].cuenta = '20482178763400008898';
+        documentos[contador].fecha = '05-11-2020';
+        documentos[contador].desderegistro = '3671752';
+        documentos[contador].hastaregistro = '3671752';
+        documentos[contador].formatoinicial = '0021';
+        contador++;
+
+    </script>
+</head>
+<body id="central" onload="javascript:enviar();" style="display:none">
+<form name="muestrapdf" id="muestrapdf" action="/BEWeb/2048/5485/not6580_d_FST.action?OPERACION=not6580_d_FST&IDIOMA=01&OPERAC=6578&LLAMADA=E3D1F2H0R1C0A0A1R0F2&CLIENTE=2048099385&CAJA=2048&CAMINO=5485" method="post" enctype="application/x-www-form-urlencoded">
+    <input name="LLAMADA" id="LLAMADA" type="hidden" value="E3D1F2H0R1C0A0A1R0F2" />
+    <input name="CLIENTE" id="CLIENTE" type="hidden" value="2048099385" />
+    <input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+    <input name="CAJA"    id="CAJA"    type="hidden" value="2048" />
+    <input name="OPERAC"  id="OPERAC"  type="hidden" value="6578" />
+    <input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+    <input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+    <input name="GCUENTA" id="GCUENTA" type="hidden" value="20480121780000763400008898" />
+    <input name="FECHA"  id="FECHA" type="hidden" value="" />
+    <input name="CUENTA" id="CUENTA" type="hidden" value="" />
+    <input name="DESDE_REGISTRO" id="DESDEREGISTRO" type="hidden" value="" />
+    <input name="HASTA_REGISTRO" id="HASTAREGISTRO" type="hidden" value="" />
+    <input name="FORMATO_INICIAL" id="FORMATOINICIAL" type="hidden" value="" />
+
+</form>
+</body>
+</html>

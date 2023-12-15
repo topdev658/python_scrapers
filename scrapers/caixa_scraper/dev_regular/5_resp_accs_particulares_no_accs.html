@@ -1,0 +1,198 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+
+<HEAD>
+    <title>Errores producidos en la operación</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <link href="./css/pagerror.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/EloGenK000200.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css">
+    <script type="text/javascript" src="./js/EloGenB001100.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        function doLinkError_PNPE(pn, pe, esBO, buffer, clickorigen)
+        {
+            if(clickorigen == null)
+                clickorigen = 'ERH_GCT_11';
+            if (esBO == null || esBO == "")
+                esBO = top.flagBorsa;
+            if (esBO)
+                top.frames['Inferior'].frames['Menu'].lanzarB(pn,pe,buffer,clickorigen);
+            else
+                top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,pn,pe,buffer,clickorigen);
+        }
+        function doLinkError_URL(url)
+        {
+            document.location.href=url;
+        }
+    </script>
+    <script language="JavaScript1.2" type="text/javascript">
+        function volver(){
+            f = document.forms[0];
+
+
+            f.PN.value="GFI";
+            f.PE.value="7";
+
+
+            f.submit();
+        }
+
+        function siguiente()
+        {
+
+            document.forms[0].PN.value="PPE";
+            document.forms[0].PE.value="";
+            document.forms[0].DESDE.value="0";
+            document.forms[0].submit();
+        }
+        function initMif(){
+
+        }
+        function imprimir(){
+            window.print();
+        }
+
+
+        function guardar_test_mifid(){
+
+            if (top.Inferior.Oculto.cargado)
+                top.Inferior.Oculto.cargarPdf();
+
+        }
+
+
+        function descargaPDF_MIF(tipoDoc, nombreDoc, ticketODB, mifTarget, torna_pn, torna_pe){
+            var f = document.forms["MIF_DOC_ODB"];
+            var target1 = f.target;
+            f.PN.value="DOC";
+            f.PE.value="1";
+            f.TORNA_PN.value=torna_pn;
+            f.TORNA_PE.value=torna_pe;
+            f.TIPO_DOC.value=tipoDoc;
+            f.NOMBRE_DESCARGA.value=nombreDoc;
+            f.formURLtiquet.value = ticketODB;
+            f.target = mifTarget;
+            f.submit();
+            f.target = target1;
+        }
+
+    </script>
+</HEAD>
+<body bgcolor="#FFFFFF" id="cos" onLoad="initMif()">
+<a href="JavaScript:volver()" class="icon_tornar_petit">Volver</a>
+<div class="limpiar"></div>
+<h1 class="inline lfloat derecha15">Mis cuentas</h1>
+
+<div class="rfloat">
+    <ul class="funciones_tit">
+        <li><a href="JavaScript:imprimir();" class="printgreen" title="Imprimir">Imprimir</a></li>
+        <li><a href="javascript:void(0);" onclick="reduir();" class="amenos noactivo" title="a -">a-</a></li>
+        <li> <a href="javascript:void(0);" onclick="augmentar();" class="amas " title="a +">a +</a></li>
+    </ul>
+</div>
+<div class="limpiar"></div>
+
+
+
+</div>
+<div class="esquerra">
+    <p class="pag">Fecha : 19/ 12/ 2020&nbsp;&nbsp; Hora 21:58
+
+
+
+    </p>
+</div>
+
+
+
+
+
+<div class="round_corn_error superior10 inferior30 clearfix">
+
+    <p class="error-rojo">Se ha detectado la siguiente situación en la operación que estaba realizando.
+
+
+
+
+
+
+
+
+
+
+
+    </p>
+
+
+
+
+    <ul class="ul_ico_rojo izquierda30">
+        <li>Sin cuentas a la vista disponibles</li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div align="center">
+
+
+
+</div>
+<a href="JavaScript:volver()" class="icon_tornar_petit">Volver</a>
+<form action="/GPeticiones;WebLogicSession=9LR8y5JgTYqMcRHth26TmFRklwd6cbHbec182bexFoOe50FLazvc!176194818!-1597032793" method="POST" target="_self">
+    <input type="Hidden" name="PN" value="GFI">
+    <input type="Hidden" name="PE" value="7">
+    <input type="Hidden" name="CLICK_ORIG" value="ERG_GCT_11">
+
+
+
+    <input type="hidden" name="FLAG_ENTORNO" value="P">
+    <input type="hidden" name="FLAG_ENLACE_BKB" value="0">
+    <input type="hidden" name="REFVAL_SIMPLE_FLAG_EXTRACTO_AQM_POSICION_CUENTAS" value="qk86srUhMkKqTzqytSEyQgAAAXZ8tDQBZVjKGhHtihw">
+    <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG" value="000">
+    <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU" value="000000000000000 000000000000000 ">
+    <input type="hidden" name="FLAG_PE" value="P">
+    <input type="hidden" name="REFVAL_SIMPLE_FLAG_EXTRACTO_REDUCIDO_POSICION_CUENTAS" value="qk86srV8x6WqTzqytXzHpQAAAXZ8tDQBiUFDhcryHB0">
+    <input type="hidden" name="presentacion" value="/jsp/eregengerro06.jsp">
+    <input type="hidden" name="FLAG_MONEDA" value="0">
+    <input type="hidden" name="CLAVE_CONTINUACION_TOGECU" value="00000000000 000000000000000 ">
+
+</form>
+
+<form action="/GPeticiones;WebLogicSession=9LR8y5JgTYqMcRHth26TmFRklwd6cbHbec182bexFoOe50FLazvc!176194818!-1597032793" method="POST" target="_self" name="MIF_DOC_ODB" id="MIF_DOC_ODB">
+    <input type="Hidden" name="PN" value="" >
+    <input type="Hidden" name="PE" value="" >
+    <input type="Hidden" name="TORNA_PN" value="" >
+    <input type="Hidden" name="TORNA_PE" value="" >
+    <input type="Hidden" name="TIPO_DOC" value="" >
+    <input type="Hidden" name="NOMBRE_DESCARGA" value="" >
+    <input type="Hidden" name="formURLtiquet" value="" >
+</form>
+
+</body>
+</HTML>

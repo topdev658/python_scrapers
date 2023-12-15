@@ -1,0 +1,1036 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Montepio24 | Banco Montepio</title>
+    <meta name="robots" content="none">
+    <meta name="googlebot" content="noarchive">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cache-control" content="no-cache, no-store">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=1280">
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <meta http-equiv="content-language" content="pt-pt">
+    <meta name="X-CEMG-LEVEL1-NODE" content="ixmw5icm">
+    <link href="https://www.bancomontepio.pt/resources/SiteMontepio/css/app.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/jquery/jquery-ui-1.9.1.min.css" rel="StyleSheet" type="text/css" />
+    <link href="/css/estilosNet24_2020.css" rel="StyleSheet" type="text/css" />
+    <link href="/css/estilosNet24Print_2020.css" rel="StyleSheet" type="text/css" media="print" />
+    <link href="/css/estilosNet24Print_ie_2020.css" rel="stylesheet" type="text/css" media="print" />
+    <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-ui-1.9.1.min.js"></script>
+
+
+    <script type="text/javascript" src="https://www.bancomontepio.pt/resources/SiteMontepio/scripts/app.js" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="/js/funcoes.js"></script>
+    <script type="text/javascript" src="/js/scriptValidacoes.js"></script>
+    <script type="text/javascript" src="/js/highcharts/highcharts-3.0.4.min.js"></script>
+    <script type="text/javascript" src="/js/easytabs/jquery.easytabs.min.js"></script>
+
+    <SCRIPT type="text/javascript" src="/js/json/jsonrpc.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="/js/generaljsonrpc.js"></SCRIPT>
+    <SCRIPT type="text/javascript">	var spinUrl = '/imagens/ajax_loading.gif';</SCRIPT>
+
+    <link href="/css/LayerSeg/style_modal.css" rel="stylesheet" type="text/css" />
+    <script src="/js/LayerSeg/jquery.simplemodal.1.4.4.min.js" type="text/javascript"></script>
+
+    <style id="antiClickjack">body{display:none !important;}</style>
+    <script type="text/javascript">
+        if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            top.location = self.location;
+        }
+    </script>
+    <SCRIPT language="JavaScript">
+        function gotoEMSG(url, errorMessage){
+            document.open();
+            document.write('<form name=formErrorMessage method=POST action='+url+'>');
+            document.write('<input type=hidden name=postMethod value=true>');
+            document.write('<input type=hidden name=errorMessage value='+escape(errorMessage)+'>');
+            document.write('</form>');
+            document.close();
+            document.formErrorMessage.submit();
+            return true;
+        }
+        window.onerror = errorHandler;
+
+        function errorHandler(message, url, line, col, error)
+        {
+            try{
+                stackAux = "";
+                colAux = "";
+                ua = navigator.userAgent.toLowerCase();
+
+                if(error!=undefined){
+                    stackAux= error.stack;
+                }
+                if(col!=undefined){
+                    colAux= col;
+                }
+
+                invoke(logJSLibraryName, "logERROR", [message, url, line, colAux, stackAux, ua] , null, null);
+            }
+            catch(err) {
+                console.log("ERRO" + err);
+            }
+
+            return false;
+        }
+
+    </SCRIPT>
+</head>
+<body class="skin-empresas">
+
+<DIV class="ls-area fixed-to-top" id="cabecalho">
+    <DIV class="ls-area-body" id="ls-gen2-ls-area-body">
+        <DIV class="ls-cmp-wrap ls-1st" id="w1487264765663">
+            <DIV class="iw_component" id="1487264765663">
+                <DIV class="net24-bar" id="barraNet24">
+                    <DIV class="net24">
+                        <DIV class="container-fluid logged-in">
+                            <DIV class="lock fl">
+                                <DIV class="lock-logo"></DIV>
+                            </DIV>
+                            <DIV class="logo fl js-net24-toggle">Net
+                                <SPAN class="number">24</SPAN>
+                            </DIV>
+                            <DIV class="user-name">Bem Vindo
+                                <SPAN class="name"> RICARDO SANTOS</SPAN>
+                            </DIV>
+                            <DIV class="links">
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/estrangeiro/consultaCambios.jsp" method="post" name="LinkForm1">
+                                    <INPUT name="selectedNode" type="hidden" value="787"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="Câmbios"></INPUT>
+                                </FORM>
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/pagamentos/pagamentoNetGlobal.jsp" method="post" name="LinkForm2">
+                                    <INPUT name="selectedNode" type="hidden" value="1005"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="NetGlobal"></INPUT>
+                                </FORM>
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/gestaonet24/ctaLimitesDiarios.jsp" method="post" name="LinkForm3">
+                                    <INPUT name="selectedNode" type="hidden" value="817"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="Limites Operações"></INPUT>
+                                </FORM>
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/gestaonet24/assinatura.jsp" method="post" name="LinkForm4">
+                                    <INPUT name="selectedNode" type="hidden" value="810"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="Assinatura"></INPUT>
+                                </FORM>
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/gestaonet24/consultaTransaccoesPesquisa.jsp" method="post" name="LinkForm5">
+                                    <INPUT name="selectedNode" type="hidden" value="816"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="Consulta Transações"></INPUT>
+                                </FORM>
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/contasordem/posicaoIntegrada.jsp" method="post" name="LinkForm6">
+                                    <INPUT name="selectedNode" type="hidden" value="701"></INPUT>
+                                    <INPUT class="btnLink" type="submit" value="Posição Integrada"></INPUT>
+                                </FORM>
+                            </DIV>
+                            <DIV class="logout fr">
+                                <FORM action="https://net24.bancomontepio.pt/Net24-Web/func/acesso/logoff.jsp" method="post" name="loginForm">
+                  <SPAN>
+                    <INPUT id="net24Submit" type="submit" value="Sair X"></INPUT>
+                  </SPAN>
+                                </FORM>
+                            </DIV>
+                        </DIV>
+                    </DIV>
+                    <DIV class="cf"></DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+        <DIV class="ls-cmp-wrap" id="w1487264765664">
+            <DIV class="iw_component" id="1487264765664">
+                <NOSCRIPT>
+                    <IFRAME height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-PZB7TW" style="display:none;visibility:hidden" width="0"></IFRAME>
+                </NOSCRIPT>
+                <DIV id="menu">
+                    <NAV class="menu-bar js-menu-bar">
+                        <DIV class="container-fluid">
+                            <DIV class="button fl js-menu-main-toggle">Menu</DIV>
+                            <DIV class="logo-container fl">
+                                <A class="logo" href="https://www.bancomontepio.pt/"></A>
+                            </DIV>
+                            <DIV class="search-container js-menu-search-toggle fr">
+                                <DIV class="search"></DIV>
+                            </DIV>
+                        </DIV>
+                    </NAV>
+                    <DIV class="menu-open js-menu-open">
+                        <DIV class="container-fluid">
+                            <DIV class="col-md-3 container-left">
+                                <DIV class="hidden-md hidden-lg">
+                                    <SPAN class="close js-menu-main-toggle"></SPAN>
+                                </DIV>
+                                <DIV class="area-selection">
+                                    <DIV class="label">Selecione uma área:</DIV>
+                                    <DIV class="selection js-menu-tab-selection"></DIV>
+                                    <UL class="selection-options js-menu-tab-selection-options">
+                                        <LI data-cat="ixmw5i4e">Particulares</LI>
+                                        <LI data-cat="ixmw5icm">Empresas</LI>
+                                        <LI data-cat="ixmw5ico">Economia Social</LI>
+                                        <LI data-cat="ixmw5ins">Mercados</LI>
+                                        <LI data-cat="ixmw5icq">Institucional</LI>
+                                        <LI data-cat="jhkox01x">Imóveis</LI>
+                                    </UL>
+                                </DIV>
+                                <DIV class="secondary-options hidden-sm hidden-xs">
+                                    <A class="link" href="https://www.bancomontepio.pt/eu-sou">
+                                        <IMG alt="Eu sou" src="https://www.bancomontepio.pt/resources/SiteMontepio/images/menu-icon-profile.png" title="Eu sou"></IMG>
+                                        <BR></BR>Eu sou
+                                    </A>
+                                </DIV>
+                            </DIV>
+                            <DIV class="col-md-9 container-right clearfix">
+                                <DIV class="col-md-8">
+                                    <DIV class="link-category js-menu-links-ixmw5i4e">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/dia-a-dia" style="color:#424242;">Dia a Dia</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/dia-a-dia/contas-ordem">Contas à Ordem</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/dia-a-dia/montepio24">Montepio24</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/dia-a-dia/pagamentos-transferencias">Pagamentos e Transferências</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/dia-a-dia/solucoes">Soluções</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/dia-a-dia">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/cartoes" style="color:#424242;">Cartões</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/cartoes/debito">Cartões de Débito</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/cartoes/credito">Cartões de Crédito</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/cartoes/pre-pagos">Cartões Pré-pagos</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/cartoes">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/poupar-investir" style="color:#424242;">Poupar e Investir</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/poupar-investir/depositos-prazo">Depósitos a Prazo</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/poupar-investir/fundos-investimento">Fundos de Investimento</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/poupar-investir/modalidades-mutualistas-poupanca">Modalidades Mutualistas de Poupança</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/poupar-investir/ppr-fundos-pensoes">Fundos de Pensões &amp; PPR's</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/poupar-investir">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/credito" style="color:#424242;">Crédito</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/credito/pessoal">Pessoal</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/credito/habitacao">Habitação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/credito/automovel">Automóvel</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/credito">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/seguros-protecao" style="color:#424242;">Seguros e Proteção</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/seguros-protecao/auto">Auto</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/seguros-protecao/saude">Saúde</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/seguros-protecao/habitacao">Habitação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/seguros-protecao/vida">Vida</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/seguros-protecao">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/produtos-prestigio" style="color:#424242;">Produtos Prestígio</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/produtos-prestigio/apple">Apple</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/produtos-prestigio/samsung">Samsung</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/produtos-prestigio/tecnologia">Tecnologia</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/particulares/produtos-prestigio/vinhos-douro">Vinhos Douro</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/particulares/produtos-prestigio">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/simuladores" style="color:#424242;">Simuladores</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/simulador-credito-pessoal" target="_blank">Simulador Crédito Pessoal</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/simulador-credito-habitacao" target="_blank">Simulador Crédito Habitação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/simulador-poupanca-complementar" target="_blank">Simulador Poupança Complementar</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/simuladores">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-ixmw5icm">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria" style="color:#424242;">Gestão de Tesouraria</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria/contas-ordem">Contas à Ordem</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria/confirming">Confirming</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria/montepio24-empresas">Montepio24 Empresas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria/pagamentos-transferencias">Pagamentos e Transferências</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/gestao-tesouraria">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/cartoes" style="color:#424242;">Cartões</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/cartoes/debito">Cartões de Débito</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/cartoes/credito">Cartões de Crédito</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/cartoes/pre-pagos">Cartões Pré-pagos</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/cartoes">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/aplicacoes-financeiras" style="color:#424242;">Aplicações Financeiras</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/aplicacoes-financeiras/depositos-prazo">Depósitos a Prazo</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/aplicacoes-financeiras/ppr-fundos-pensoes">Fundos de Pensões &amp; PPR's</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/aplicacoes-financeiras/fundos-investimento">Fundos de Investimento</A>
+                                                <A class="link" href="https://www.montepio.pt/mercados">Mercados</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/aplicacoes-financeiras">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/financiamento" style="color:#424242;">Financiamento</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/financiamento/linhas-protocoladas">Linhas de Crédito Protocoladas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/financiamento/garantias-bancarias">Garantias Bancárias</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/financiamento/antecipar-receitas">Antecipação de Receitas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/financiamento/fundo-maneio">Fundo de Maneio</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/financiamento">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/negocio-internacional" style="color:#424242;">Negócio Internacional</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/negocio-internacional/importacao">Importação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/negocio-internacional/exportacao">Exportação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/negocio-internacional/cobertura-risco-financeiro">Cobertura de Risco Financeiro</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/negocio-internacional/ordens-sobre-estrangeiro">Ordens de Pagamento sobre o Estrangeiro</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/negocio-internacional">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/seguros-protecao" style="color:#424242;">Seguros e Proteção</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/seguros-protecao/equipamentos-instalacoes">Equipamentos e Instalações</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/seguros-protecao/saude">Saúde</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/seguros-protecao/vida-profissionais">Vida e Riscos Profissionais</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/seguros-protecao/auto-viagem">Auto e Viagem</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/seguros-protecao">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/parcerias" style="color:#424242;">Parcerias</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/parcerias/startup-tech">Montepio StartUp Tech</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/parcerias/startup-commerce">Montepio StartUp Commerce</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/parcerias/lisboa-empreende">Montepio Lisboa Empreende</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/parcerias/associacao-empresarial-sintra">Associação Empresarial de Sintra</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/parcerias">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/beneficios-colaborador" style="color:#424242;">Benefícios para o Colaborador</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/empresas/beneficios-colaborador/vales-sociais-educacao">Vales Sociais de Educação</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/cartao-menu-colaboradores">Cartão Montepio Menu</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/empresas/beneficios-colaborador">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-ixmw5ico">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria" style="color:#424242;">Gestão de Tesouraria</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria/solucoes-globais">Soluções Globais</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria/contas-ordem">Contas à Ordem</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria/montepio24-empresas">Montepio24 Empresas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria/pagamentos-transferencias">Pagamentos e Transferências</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/gestao-tesouraria">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/aplicacoes-financeiras" style="color:#424242;">Aplicações Financeiras</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/aplicacoes-financeiras/depositos-prazo">Depósitos a Prazo</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/aplicacoes-financeiras/fundos-investimento">Fundos de Investimento</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/aplicacoes-financeiras/ppr-fundos-pensoes">Fundos de Pensões &amp; PPR's</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/aplicacoes-financeiras">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/financiamento" style="color:#424242;">Financiamento</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/financiamento/fundo-maneio">Fundo de Maneio</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/financiamento/linhas-protocoladas">Linhas de Crédito Protocoladas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/financiamento/antecipar-receitas">Antecipação de Receitas</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/financiamento/garantias-bancarias">Garantias Bancárias</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/financiamento">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/seguros-protecao" style="color:#424242;">Seguros e Proteção</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/seguros-protecao/equipamentos-instalacoes">Equipamentos e Instalações</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/seguros-protecao/saude">Saúde</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/seguros-protecao/vida-profissionais">Vida e Riscos Profissionais</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/seguros-protecao/auto-flex">Auto</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/seguros-protecao">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/parcerias-protocolos" style="color:#424242;">Parcerias e Protocolos</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/parcerias-protocolos/parcerias">Parcerias</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/parcerias-protocolos/protocolos">Protocolos</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/parcerias-protocolos">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/beneficios-fiscais" style="color:#424242;">Benefícios Fiscais</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/economia-social/beneficios-fiscais/vales-sociais-educacao">Vales Sociais de Educação</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/economia-social/beneficios-fiscais">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-ixmw5ins">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/negociacao" style="color:#424242;">Negociação</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/negociacao/cotacoes">Cotações</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/mercados/negociacao">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/informacao-mercados" style="color:#424242;">Informação de Mercados</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/informacao-mercados/market-report">Market Report</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/informacao-mercados/informacao-investidor">Informação ao Investidor</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/informacao-mercados/relatorio-mercados-financeiros">Relatórios de Mercados Financeiros</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/mercados/informacao-mercados">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/dmif" style="color:#424242;">DMIF</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/dmif/diretiva-dmif-ii">Diretiva de Mercados e Instrumentos Financeiros - DMIF II</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/dmif/codigo-lei">Código LEI</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/mercados/dmif">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/academia-trader" style="color:#424242;">Academia Trader</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/academia-trader/acoes">Ações</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/academia-trader/futuros">Futuros</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/academia-trader/cfd">CFD</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/academia-trader/etf">ETF</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/mercados/academia-trader">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/montepio-trader-go" style="color:#424242;">Montepio Trader GO</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.montepiotrader.pt/Login/" target="_blank">Acesso Plataforma</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/mercados/montepio-trader-go/acesso-demo">Acesso Demo</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/mercados/montepio-trader-go">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-ixmw5icq">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/modelo-governo" style="color:#424242;">Modelo de Governo</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/modelo-governo/missao-estrategia">Missão e Estratégia</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/modelo-governo/orgaos-sociais">Órgãos Sociais</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/modelo-governo/grupo-banco-montepio">Grupo Banco Montepio</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/resources/SiteMontepio/documentos/institucional/estatutos-caixa-economica-montepio-geral.pdf" target="_blank">Estatutos</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/institucional/modelo-governo">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/informacao-investidores" style="color:#424242;">Informação aos Investidores</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/informacao-investidores/relatorios-informacao-financeira">Relatórios e Informação Financeira</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/informacao-investidores/comunicacao-resultados">Comunicação de Resultados</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/informacao-investidores/disciplina-mercado">Disciplina de Mercado</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/informacao-investidores/divida-funding-programmes">Dívida - Funding Programmes</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/institucional/informacao-investidores">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/investor-relations" style="color:#424242;">Investor Relations</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/investor-relations/governance">Governance</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/investor-relations/reports-accounts">Reports and Accounts</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/investor-relations/results-press-release">Results' Press Release</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/investor-relations/market-discipline">Market Discipline</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/institucional/investor-relations">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/sala-imprensa" style="color:#424242;">Sala de Imprensa</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/sala-imprensa/press-releases">Press Releases</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/sala-imprensa/banco-imagens">Banco de Imagens</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/sala-imprensa/contactos-imprensa">Contactos para Imprensa</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/institucional/sala-imprensa">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/marca" style="color:#424242;">A Marca</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/marca/identidade">Identidade</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/marca/premios-distincoes">Prémios e Distinções</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/institucional/marca/patrocinios-eventos">Patrocínios e Eventos</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/institucional/marca">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-jhkox01x">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/SiteMontepio/pt_PT/detalhe/detalhe-sem-barra-lateral-sem-produtos-relacionados.page?altcode=REDIRECTIM" style="color:#424242;" target="_blank">Imóveis Montepio</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://imoveismontepio.pt/Comprar/" target="_blank">Comprar</A>
+                                                <A class="link" href="https://imoveismontepio.pt/Arrendar/" target="_blank">Arrendar</A>
+                                                <A class="link" href="https://imoveismontepio.pt/Investir/Imoveis-para-investimento/?tab=255&amp;ttab=254" target="_blank">Imóveis para Investimento</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/SiteMontepio/pt_PT/detalhe/detalhe-sem-barra-lateral-sem-produtos-relacionados.page?altcode=REDIRECTIM">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                    <DIV class="link-category js-menu-links-j2t43uoo">
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/about-us" style="color:#424242;">About us</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link-all" href="https://www.bancomontepio.pt/about-us">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                        <DIV class="col-sm-6 links-block">
+                                            <H3 class="title js-toggle-links">
+                                                <A class="link" href="https://www.bancomontepio.pt/investors" style="color:#424242;">Investor Relations</A>
+                                            </H3>
+                                            <DIV class="links-container js-link-list">
+                                                <A class="link" href="https://www.bancomontepio.pt/reports">Reports and Accounts</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/results">Results? Press Release</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/market-discipline">Market Discipline</A>
+                                                <A class="link" href="https://www.bancomontepio.pt/market-relations-officer">Market Relations Officer</A>
+                                                <A class="link-all" href="https://www.bancomontepio.pt/investors">Ver todos</A>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                </DIV>
+                                <DIV class="col-md-4 hidden-sm hidden-xs contacts">
+                                    <SPAN class="close js-menu-main-toggle"></SPAN>
+                                    <A href="https://www.bancomontepio.pt/institucional/apoio-cliente">
+                                        <IMG alt="Apoio ao cliente " src="https://www.bancomontepio.pt/resources/SiteMontepio/images/footer-icon-tel.png" title="Apoio ao cliente "></IMG>
+                                        <H3 class="title">Apoio ao cliente</H3>
+                                        <DIV class="big-text">707 20 20 24</DIV>
+                                        <DIV class="small-text">Atendimento Personalizado todos os dias das 08h às 00h</DIV>
+                                    </A>
+                                    <A href="https://www.bancomontepio.pt/onde-estamos">
+                                        <IMG alt="Onde estamos" src="https://www.bancomontepio.pt/resources/SiteMontepio/images/footer-icon-map.png" title="Onde estamos"></IMG>
+                                        <H3 class="title">Balcões</H3>
+                                        <DIV class="big-text">Onde estamos</DIV>
+                                        <DIV class="small-text">Encontre o balcão mais próximo de si</DIV>
+                                    </A>
+                                </DIV>
+                            </DIV>
+                            <DIV class="col-sm-12 hidden-md hidden-lg container-left clearfix">
+                                <DIV class="secondary-options">
+                                    <A class="link" href="https://www.bancomontepio.pt/eu-sou">
+                                        <IMG alt="Eu sou" src="https://www.bancomontepio.pt/resources/SiteMontepio/images/menu-icon-profile.png" title="Eu sou"></IMG>
+                                        <BR></BR>Eu sou
+                                    </A>
+                                </DIV>
+                            </DIV>
+                        </DIV>
+                    </DIV>
+                    <DIV class="search-bar js-menu-search-bar">
+                        <DIV class="container-fluid">
+                            <DIV class="col-xs-12">
+                                <FORM accept-charset="UTF-8" action="https://www.bancomontepio.pt/pesquisa" method="post" name="frmPesquisa">
+                                    <INPUT class="input js-search-bar-focus" name="searchTerm" placeholder="Pesquisar" type="text"></INPUT>
+                                    <BUTTON class="button" type="submit">Pesquisar</BUTTON>
+                                    <SPAN class="close js-menu-search-toggle"></SPAN>
+                                </FORM>
+                            </DIV>
+                        </DIV>
+                    </DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+
+
+<!-- START MODAL WINDOW HTML -->
+<div id="modalContent" style="display:none" class="modalContent">
+
+    <!-- main message content -->
+    <div class="modalMainContent">
+        <p><img src="/imagens/logotipo_mg2.gif" /></p>
+        <br/>
+        <hr/>
+        <br/>
+        <p id="msgSessao" class="descSmall">Por questões de segurança a sessão expira dentro de <span id="tempo"></span> segundos. Pretende renová-la?</p>
+
+        <hr/>
+        <br/>
+        <p class="descSmall" align="right">
+            <input id="renova_sessao_sim" type="button" class="btnSimples" value="Sim" />
+            <input id="renova_sessao_nao" type="button" class="btnSimples" value="Nâo" />
+        </p>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+<!-- END MODAL WINDOW HTML -->
+
+<script>
+
+
+
+    var idSessionTimeout;
+    var idModalTimeout;
+
+    function startTime(segundo) {
+
+        if(segundo==30){
+            document.getElementById("msgSessao").innerHTML = 'Por questões de segurança a sessão expira dentro de <span id="tempo"></span> segundos. Pretende renová-la?';
+            jQuery('#renova_sessao_sim').show();
+            jQuery('#renova_sessao_nao').show();
+            jQuery('#renova_sessao_nao').val('Não');
+        }
+
+        segundo = parseInt(segundo)-1;
+
+        // add a zero in front of numbers<10
+        segundo = checkTime(segundo);
+
+
+        if(segundo==-1){
+
+            document.getElementById("msgSessao").innerHTML = 'Por questões de segurança a sua sessão expirou.';
+
+            jQuery('#renova_sessao_sim').hide();
+            jQuery('#renova_sessao_nao').val('Ok');
+
+            jQuery('#renova_sessao_sim').click(function() {document.location.href='../acesso/logoff.jsp';});
+
+            segundo = 0;
+
+            clearTimeout(idSessionTimeout);
+            clearTimeout(idModalTimeout);
+            clearTimeout(t);
+
+            return;
+        }else{
+            document.getElementById("tempo").innerHTML = segundo;
+        }
+
+        t = setTimeout(function(){ startTime(segundo) }, 1000);
+    }
+
+    function checkTime(i) {
+        if (i<10 && i>0) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    function triggerRenovaSessao(){
+
+        //setup da modal window
+        jQuery('#modalContent').modal({
+            escClose:false,
+            onShow:function(dialog){
+                dialog.iframe && dialog.iframe.css({height: jQuery(window).height(), width: jQuery(window).width()});
+                dialog.overlay.css({height: jQuery(window).height(), width: jQuery(window).width()});
+            }
+        });
+
+        jQuery('#renova_sessao_sim').click(function() {
+            //limpo o timeout activo
+            clearTimeout(idSessionTimeout);
+            clearTimeout(idModalTimeout);
+            clearTimeout(t);
+            // se renovar, efectua chamada
+            invoke("SessionLibrary", "keepSessionAlive", [], setTrigger, setTrigger);
+            // e fecha
+            jQuery.modal.close();
+
+        });
+
+        jQuery('#renova_sessao_nao').click(function() {
+            //limpo os timeouts activos
+            clearTimeout(idSessionTimeout);
+            clearTimeout(idModalTimeout);
+            // se não renovar, fecha
+            jQuery.modal.close();
+            document.location.href='../acesso/logoff.jsp';
+        });
+
+        startTime(30);
+
+    };
+
+    // trigger ao fim de x minutos
+    idSessionTimeout=setTimeout(triggerRenovaSessao, 270000);
+
+    function setTrigger(result){
+        //coloca novo timer sessao
+        idSessionTimeout=setTimeout(triggerRenovaSessao, 270000);
+    }
+
+    function triggerCloseModal(){
+        jQuery.modal.close();
+    }
+
+</script>
+
+<div align="center">
+    <table border="0" width="1200px" cellspacing="0" cellpadding="1" style="vertical-align: top;">
+        <tr>
+            <td width="300px" style="vertical-align: top; padding-right: 20px;">
+
+
+
+
+
+                <link rel="StyleSheet" href="/css/MGTreeIV_2020.css" type="text/css">
+                <link href="/css/layerIndisponibilidade.css" rel="stylesheet" type="text/css" />
+                <SCRIPT language="JavaScript" src="../../func/general/constroiMenuIV.jsp?V&500462812"></SCRIPT>
+                <SCRIPT language="JavaScript" src="../../func/general/constroiPermissoesMenuIV.jsp?V&500462812"></SCRIPT>
+                <TABLE border="0" width="260px" cellspacing="0" cellpadding="0" style="margin-bottom: 32px;">
+                    <TR><TD width="200px" height="5px"></TD></TR>
+                    <TR>
+                        <TD width="200px" align="left">
+                            <div id="arvore" class="tdiv"></div>
+
+                            <script language="JavaScript" src="/js/MGTreeIV_2.js"></script>
+                            <script>
+                                createTree(Tree,"9","/");
+                            </script>
+
+                            <!-- START MODAL WINDOW HTML -->
+                            <script src="/js/LayerSeg/jquery.simplemodal.1.4.4.min.js" type="text/javascript"></script>
+                            <div id="modalMenuOffline" style="display:none">
+                                <img id="closeImg" src="/imagens/icon-fechar.png" onclick="jQuery.modal.close();"/>
+                                <img id="msgImg" src="/imagens/aviso-trx-indisp.jpg"/>
+                            </div>
+                        </TD>
+                    </TR>
+                </TABLE></td>
+            <td width="100%" style="vertical-align: top;">
+                <script language="Javascript">
+                    function ultMovimentos(){
+                        document.formDados.ultimosMovimentos.disabled=true;
+                        document.formDados.pesquisaMovimentos.disabled=true;
+
+                        contaOrigem=document.formDados.seleccaoConta.value.split('|')[0];
+                        descConta = document.formDados.seleccaoConta.value.split("||")[1];
+
+                        document.formDados.numCtaOrdem.value = contaOrigem;
+
+                        document.formDados.descproduto_IN.value = descConta;
+                        document.formDados.tipoPesquisa.value="ultimos";
+                        document.formDados.action = "ctaOrdemMovimentosResultadoDC57.jsp";
+                        document.formDados.seleccaoConta.disabled=true;
+                        disableAllButtons();
+                        document.formDados.submit();
+                    }
+
+                    function pesqMovimentos(){
+                        document.formDados.action="ctaOrdemMovimentosCriterios.jsp";
+
+                        contaOrigem=document.formDados.seleccaoConta.value.split('|')[0];
+                        descConta = document.formDados.seleccaoConta.value.split("||")[1];
+
+                        document.formDados.numCtaOrdem.value = contaOrigem;
+                        document.formDados.descproduto_IN.value = descConta;
+
+                        document.formDados.ultimosMovimentos.disabled=true;
+                        document.formDados.pesquisaMovimentos.disabled=true;
+                        disableAllButtons();
+                        document.formDados.submit();
+
+                    }
+                </script>
+
+
+                <SCRIPT type="text/javascript" >logJSLibraryName = 'com_cemg_net24_logJS_LogJSLibrary__func_contasordem_ctaOrdemMovimentos_jsp';</SCRIPT>
+                <SCRIPT language="JavaScript" src="/js/constroiCabecalho.js"></SCRIPT>
+
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" class="tabelaCabecalho">
+                    <tr>
+                        <td class="txtTituloPrincipal" width="70%" align="left" valign="middle" height="45px">Consulta de Movimentos</td>
+                        <td width="30%" valign="middle">
+                            <table width="99%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td align="right" colspan="2" height="20px" valign="top" nowrap="nowrap"> <a href="javascript:help()" title="Ajuda" alt="Ajuda"><IMG src="/imagens/iconAjuda2020.svg" width="22" height="24" border="0" title="Ajuda" alt="Ajuda"></a> </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <tr><td height="20px"></td></tr>
+                </table>
+                <div id="wrapper2">
+                    <form name="formDados" method="post">
+                        <input type="hidden" name="numCtaOrdem" value="">
+                        <input type="hidden" name="descproduto_IN" value="">
+                        <input type="hidden" name="tipoPesquisa" value="">
+                        <TABLE border="0" cellspacing="1" cellpadding="0">
+                            <TR>
+                                <TD class="tdSeta"><IMG src="/imagens/setaAzul.gif" width="11" height="11"></TD>
+                                <TD class="txtSubTitulo">Nº Conta à Ordem:</TD>
+                                <TD>
+
+                                    <SELECT NAME="seleccaoConta" >
+
+                                        <OPTION value="041100367600|041.10.036760-0 CONTA EMPRESAS||CONTA EMPRESAS" selected>041.10.036760-0 CONTA EMPRESAS</OPTION>
+
+                                    </SELECT>
+
+                                </TD>
+                            </TR>
+                            <TR>
+                                <TD height="15px" colspan="3"></TD>
+                            </TR>
+                            <tr>
+                                <td align="right" colspan="3">
+                                    <input type="button" class="btnSimples" name="ultimosMovimentos" value="Últimos Movimentos" onclick="ultMovimentos()" style="width: 150px;">&nbsp;
+                                    <input type="button" class="btnSimples" name="pesquisaMovimentos" value="Pesquisa Movimentos" onclick="pesqMovimentos()" style="width: 150px;">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+
+
+
+
+            </td>
+            <td width="30px" valign="bottom"></td>
+        </tr>
+    </table>
+</div>
+
+<DIV class="ls-area" id="rodape">
+    <DIV class="ls-area-body" id="ls-gen8-ls-area-body">
+        <DIV class="ls-cmp-wrap ls-1st" id="w1487264765793">
+            <DIV class="iw_component" id="1487264765793">
+                <DIV class="social-bar">
+                    <DIV class="container-fluid">
+                        <A class="social-icon linkedin" href="https://www.linkedin.com/company/montepio/" target="_blank"></A>
+                        <A class="social-icon youtube" href="https://www.youtube.com/BancoMontepioVideos" target="_blank"></A>
+                    </DIV>
+                </DIV>
+                <FOOTER class="main-footer">
+                    <DIV class="container-fluid">
+                        <DIV class="blocks">
+                            <DIV class="col-xs-12 col-sm-4 col-lg-3">
+                                <DIV class="icon-container">
+                                    <DIV class="fl">
+                                        <DIV class="icon tel"></DIV>
+                                    </DIV>
+                                    <DIV class="fl right-to-icon">
+                                        <H3 class="title">Apoio ao cliente</H3>
+                                        <DIV class="big-text">707 20 20 24
+                                            <DIV style="font-size: 1.1rem;">+351 217 241 624</DIV>
+                                        </DIV>
+                                        <DIV class="small-text">
+                                            <B>Contactos móveis</B>
+                                            <BR></BR>96 590 20 24
+                                            <BR></BR>93 130 20 24
+                                            <BR></BR>91 740 20 24
+                                            <BR></BR>
+                                            <BR></BR>Atendimento personalizado todos os dias das 08h às 00h
+                                        </DIV>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV class="col-xs-12 col-sm-4 col-lg-3">
+                                <DIV class="icon-container">
+                                    <DIV class="fl">
+                                        <DIV class="icon map"></DIV>
+                                    </DIV>
+                                    <DIV class="fl right-to-icon">
+                                        <A href="https://www.bancomontepio.pt/onde-estamos">
+                                            <H3 class="title">Balcões</H3>
+                                            <DIV class="big-text">Onde estamos</DIV>
+                                        </A>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV class="col-xs-12 col-sm-4 col-lg-3">
+                                <DIV class="icon-container">
+                                    <DIV class="fl">
+                                        <DIV class="icon chat"></DIV>
+                                    </DIV>
+                                    <DIV class="fl right-to-icon">
+                                        <H3 class="title">Fale connosco</H3>
+                                        <A class="footer-link" href="https://chat24.bancomontepio.pt/Collab/Montepio/Request.aspx?campaign=CHAT_Rout&amp;request=1&amp;itr_type=collab&amp;language=pt&amp;gwused=GW" target="_blank">Webchat</A>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/institucional/apoio-cliente">Apoio ao Cliente</A>
+                                    </DIV>
+                                </DIV>
+                                <DIV class="icon-container">
+                                    <DIV class="fl">
+                                        <A href="https://www.livroreclamacoes.pt/inicio" target="_blank">
+                                            <DIV class="icon livro-reclamacoes"></DIV>
+                                        </A>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV class="col-xs-12 col-sm-4 col-lg-3">
+                                <DIV class="icon-container">
+                                    <DIV class="fl">
+                                        <DIV class="icon links"></DIV>
+                                    </DIV>
+                                    <DIV class="fl right-to-icon">
+                                        <H3 class="title">Links Úteis</H3>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/precario">Preçário</A>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/investor-relations">Investor Relations (EN)</A>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/seguranca-online">Segurança Online</A>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/atualizacao-dados-online">Atualização de Dados Online</A>
+                                        <A class="footer-link" href="https://www.bancobem.pt" target="_blank">Banco de Empresas Montepio</A>
+                                        <A class="footer-link" href="https://www.bancomontepio.pt/developers/apis-open-banking">API's Open Banking (Developers)</A>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                        </DIV>
+                        <DIV class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 disclaimer-links">
+                            <DIV class="copyright">
+                                <SPAN>Banco Montepio</SPAN> © 2020
+                            </DIV>
+                            <A href="https://www.bancomontepio.pt/condicoes-gerais-utilizacao">Condições Gerais de Utilização do Site</A>
+                            <A href="https://www.bancomontepio.pt/privacidade">Política de Privacidade</A>
+                            <A href="https://www.bancomontepio.pt/institucional/politica-cookies">Política de Cookies</A>
+                            <A href="https://www.bancomontepio.pt/institucional/politica-gestao-reclamacoes">Política de Gestão de Reclamações</A>
+                            <A href="https://www.bancomontepio.pt/iwov-resources/SitePublico/documentos/pt_PT/aviso-legal/regulamento-comunicacao-irregularidades.pdf" target="_blank">Regulamento de Comunicação de Irregularidades</A>
+                            <A href="https://www.bancomontepio.pt/institucional/incumprimento-contratos-credito">Incumprimento de Contratos de Crédito</A>
+                            <A href="https://www.bancomontepio.pt/institucional/resolucao-alternativa-conflitos-consumo">Resolução Alternativa de Conflitos de Consumo</A>
+                            <A href="https://www.bancomontepio.pt/iwov-resources/SitePublico/documentos/pt_PT/pdf-pmc/Montepio-Registo-ISP.pdf" target="_blank">Aviso Legal - ASF</A>
+                            <A href="https://www.bancomontepio.pt/acessibilidade-site">Acessibilidade</A>
+                            <DIV class="disclaimer-links">
+                                <SPAN>Este site contém informação de natureza institucional e publicitária.</SPAN>
+                            </DIV>
+                        </DIV>
+                    </DIV>
+                </FOOTER>
+            </DIV>
+        </DIV>
+        <DIV class="ls-cmp-wrap" id="w1576507213390">
+            <DIV class="iw_component" id="1576507213390">
+                <DIV class="cookie-bar js-cookie-bar">
+                    <DIV class="container">
+                        <SPAN class="icon"></SPAN>
+                        <DIV class="text">
+                            <DIV class="title">Política de Cookies</DIV>
+                            <P>O site da Caixa Económica Montepio Geral utiliza cookies de modo a proporcionar-lhe a melhor experiência de navegação e aceder a todas as funcionalidades. Para aceitar a sua utilização, continue a sua navegação.
+                                <A class="read-more" href="https://www.bancomontepio.pt/institucional/politica-cookies">Saiba mais</A>
+                            </P>
+                        </DIV>
+                        <SPAN class="close js-cookie-bar-close"></SPAN>
+                    </DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+        <DIV class="ls-cmp-wrap" id="w1576507213391">
+            <DIV class="iw_component" id="1576507213391">
+                <DIV></DIV>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+
+
+
+
+
+</body>
+
+</html>

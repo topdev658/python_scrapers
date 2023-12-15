@@ -1,0 +1,52 @@
+Hola Raúl,
+
+Ya tienes ampliado el servidor Ubuntu de 1 a 2 cores.
+
+He utilizado un benchmark estándar para poder saber la capacidad de cálculo de la CPU.
+
+Es para Linux y se llama sysbench, en Debian o Ubuntu se instala con:
+sudo apt-get install sysbench
+
+El valor que te da este benchmark es el tiempo en segundos que tarda en calcular los primeros 20.000 números primos. Para tener un valor ponderado, lo he lanzado con 1, 2, 4 y 8 threads, con el mismo comando pero variando el parámetro de "num-threads”. Da varios resultado pero lo que hay que mirar es el "total time”.
+
+El servidor donde está el Ubuntu procesadores modelo Intel Xeon E5645 2.40GHZ
+
+Los resultados que he obtenido en el servidor, con 1 core son:
+
+cores=1, num-threads=1
+total time: 33.4465s
+
+cores=1, num-threads=2
+total time: 33.6281s
+
+cores=1, num-threads=4
+total time: 33.5544s
+
+cores=1, num-threads=8
+total time: 33.2623s
+
+Los resultados que he obtenido en el servidor, con 2 cores, después de ampliar son:
+
+cores=2, num-threads=1
+total time: 29.4127s
+
+cores=2, num-threads=2
+total time: 14.7891s
+
+cores=2, num-threads=4
+total time: 14.7953s
+
+cores=2, num-threads=8
+total time: 14.8949s
+
+
+Por lo que tengo entendido en Azure tienen procesadores Intel Xeon E5-2673 2.4 GHz
+
+Deberíais lanzar estos 4 benchmarks, los mismos que he lanzado yo, para comparar lo mismo:
+
+sudo sysbench --test=cpu --cpu-max-prime=20000 --num-threads=1 run
+sudo sysbench --test=cpu --cpu-max-prime=20000 --num-threads=2 run
+sudo sysbench --test=cpu --cpu-max-prime=20000 --num-threads=4 run
+sudo sysbench --test=cpu --cpu-max-prime=20000 --num-threads=8 run
+
+A ver si puedes mandarme resultados sobre el servidor Azure para poder comparar objetivamente.

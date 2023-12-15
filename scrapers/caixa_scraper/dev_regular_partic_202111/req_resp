@@ -1,0 +1,289 @@
+>>> RECENT MOVS
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151",
+    "body": "PN=GCT&PE=16&NCTREL=002&CLAVE_CONTINUACION_CLCOTG=000&CLAVE_CONTINUACION_TOOFCU=000000000000000+000000000000000+&CLAVE_CONTINUACION_TOGECU=00000000000+000000000000000+&CLAVE_CONTINUACION_CLCOTG_SIG=000&CLAVE_CONTINUACION_TOOFCU_SIG=000000000000000+000000000000000+&CLAVE_CONTINUACION_TOGECU_SIG=00000000000+000000000000000+&SUMA_OFICINA_P=0.0&SUMA_TOTAL_P=1.44759666E8&SUMA_OFICINA_E=0.0&SUMA_TOTAL_E=870023.11&REFVAL_SIMPLE_NUMERO_CUENTA=uxd8rmnLWEC7F3yuactYQAAAAX0GXzhJw6kM%7ELLe7fU&ORIGEN_INVOCACION=GCT11&FLAG_PE=P&TORNA_PN_CCT=GCT&TORNA_PE_CCT=11&ALIAS_CUENTA=&FLAG_MONEDA=0&NumFilasTabla=1&FLAG_KEEP_THE_CHANGE=N&MONEDA=&MOSTRAR_TRASPASO_RAPIDO=S&ultimoRegistroPintado=&VOLVER_PN=&VOLVER_PE=&CLICK_ORIG=EOC_GCT_11",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_recent_movs.html
+
+>>> MOV DETAILS (1st mov, -4.476,58)
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151",
+    "body": "PN=GCT&PE=103&NUMERO_MOVIMIENTO=0014112&FECHA_CONTABLE=2021313&INDICADOR_COMUNICADOS=N&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000447658&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000039951432&SIGNO_SALDO_ACTUAL=%2B&FECHA_VALOR=09112021&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=09112021&TIPO_COMUNICADO=00000&DESC_COMUNICADO=CANAL%2BOCIO%2BEUROPA&REMITENTE=B47506811001&NUMERO_RECIBO=049433700102881&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=%2B%2B000000000000000000000000000%2B0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_0&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA&REFVAL_SIMPLE_NUMERO_CUENTA=uxd8rmtPMAi7F3yua08wCAAAAX0GX0yoI75OK6iEjSs&REFVAL_SIMPLE_CUENTA=uxd8rmqS3tm7F3yuapLe2QAAAX0GX0yo~RVakHIPDJ8&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&ID_DETALLE=idDettimeLine0014112",
+    "method": "POST",
+    "mode": "cors"
+});
+<<<  20_resp_mov_details_1.html
+
+
+OrderedDict([('PN', 'GCT'),
+             ('PE', '103'),
+             ('NUMERO_MOVIMIENTO', '0014112'),
+             ('FECHA_CONTABLE', '2021313'),
+             ('INDICADOR_COMUNICADOS', 'N'),
+             ('CLOPWW', '046'),
+             ('SUBCLO', '00000'),
+             ('IMPORTE_COM', '000000000447658'),
+             ('SIGNO_IMPORTE_COM', '-'),
+             ('MONEDA_COM', 'EUR'),
+             ('SALDO_ACTUAL', '000000039951432'),
+             ('SIGNO_SALDO_ACTUAL', '+'),
+             ('FECHA_VALOR', '09112021'),
+             ('INDICA_SALDO', 'NNNN'),
+             ('TIPO_BUSQUEDA', '05'),
+             ('FECHA_COM', '09112021'),
+             ('TIPO_COMUNICADO', '00000'),
+             ('DESC_COMUNICADO', 'CANAL+OCIO+EUROPA'),
+             ('REMITENTE', 'B47506811001'),
+             ('NUMERO_RECIBO', '049433700102881'),
+             ('OPCION_OPERACION', 'LISTACLOP'),
+             ('CLICK_ORIG', 'FLX_GCT_100'),
+             ('CLAVE_ANTERIOR', '++000000000000000000000000000+0000000'),
+             ('CLAVE_CONTINUACION_SUM',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_CONTINUACION_DETALLE_3496',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_DETALLE_3496', 'D_3496_0'),
+             ('NUMERO_SUBMOVIMIENTO', ''),
+             ('TIPO_CUENTAS', 'VIG'),
+             ('APLICACION_ORIGEN', 'CIA'),
+             ('REFVAL_SIMPLE_NUMERO_CUENTA',
+              'uxd8rmtPMAi7F3yua08wCAAAAX0GX0yoI75OK6iEjSs'),
+             ('REFVAL_SIMPLE_CUENTA',
+              'uxd8rmqS3tm7F3yuapLe2QAAAX0GX0yo~RVakHIPDJ8'),
+             ('ID_DETALLE', 'idDettimeLine0014112')])
+
+
+SEE
+data-p-ct__movement_id="PN=GCT&PE=103&NUMERO_MOVIMIENTO=0014112&FECHA_CONTABLE=2021313&INDICADOR_COMUNICADOS=N&CLOPWW=046&SUBCLO=00000&IMPORTE_COM=000000000447658&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000039951432&SIGNO_SALDO_ACTUAL=+&FECHA_VALOR=09112021&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=09112021&TIPO_COMUNICADO=00000&DESC_COMUNICADO=CANAL+OCIO+EUROPA&REMITENTE=B47506811001&NUMERO_RECIBO=049433700102881&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=++000000000000000000000000000+0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_0&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA"
+
+>>> MOV DETAILS (2nd mov, -2.437,56)
+await fetch("https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://loc8.caixabank.es/GPeticiones;WebLogicSession=bI0GXLREX3ph2r2Z_O7OAHZ4jv2SIfb-DyV5b_M-3nkQYYC0azFC!-1837401027!1739690151",
+    "body": "PN=GCT&PE=103&NUMERO_MOVIMIENTO=0014111&FECHA_CONTABLE=2021313&INDICADOR_COMUNICADOS=N&CLOPWW=038&SUBCLO=00000&IMPORTE_COM=000000000243756&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000039951432&SIGNO_SALDO_ACTUAL=%2B&FECHA_VALOR=09112021&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=09112021&TIPO_COMUNICADO=00000&DESC_COMUNICADO=ZONA%2BLIMITE%2BCAST.&REMITENTE=B12787776000&NUMERO_RECIBO=049450506919369&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=%2B%2B000000000000000000000000000%2B0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_1&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=CIA&REFVAL_SIMPLE_NUMERO_CUENTA=uxd8rmtPMAi7F3yua08wCAAAAX0GX0yoI75OK6iEjSs&REFVAL_SIMPLE_CUENTA=uxd8rmqS3tm7F3yuapLe2QAAAX0GX0yo~RVakHIPDJ8&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&ID_DETALLE=idDettimeLine0014111",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_mov_details_2.html
+
+OrderedDict([('PN', 'GCT'),
+             ('PE', '103'),
+             ('NUMERO_MOVIMIENTO', '0014111'),
+             ('FECHA_CONTABLE', '2021313'),
+             ('INDICADOR_COMUNICADOS', 'N'),
+             ('CLOPWW', '038'),
+             ('SUBCLO', '00000'),
+             ('IMPORTE_COM', '000000000243756'),
+             ('SIGNO_IMPORTE_COM', '-'),
+             ('MONEDA_COM', 'EUR'),
+             ('SALDO_ACTUAL', '000000039951432'),
+             ('SIGNO_SALDO_ACTUAL', '+'),
+             ('FECHA_VALOR', '09112021'),
+             ('INDICA_SALDO', 'NNNN'),
+             ('TIPO_BUSQUEDA', '05'),
+             ('FECHA_COM', '09112021'),
+             ('TIPO_COMUNICADO', '00000'),
+             ('DESC_COMUNICADO', 'ZONA+LIMITE+CAST.'),
+             ('REMITENTE', 'B12787776000'),
+             ('NUMERO_RECIBO', '049450506919369'),
+             ('OPCION_OPERACION', 'LISTACLOP'),
+             ('CLICK_ORIG', 'FLX_GCT_100'),
+             ('CLAVE_ANTERIOR', '++000000000000000000000000000+0000000'),
+             ('CLAVE_CONTINUACION_SUM',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_CONTINUACION_DETALLE_3496',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_DETALLE_3496', 'D_3496_1'),
+             ('NUMERO_SUBMOVIMIENTO', ''),
+             ('TIPO_CUENTAS', 'VIG'),
+             ('APLICACION_ORIGEN', 'CIA'),
+             ('REFVAL_SIMPLE_NUMERO_CUENTA',
+              'uxd8rmtPMAi7F3yua08wCAAAAX0GX0yoI75OK6iEjSs'),
+             ('REFVAL_SIMPLE_CUENTA',
+              'uxd8rmqS3tm7F3yuapLe2QAAAX0GX0yo~RVakHIPDJ8'),
+             ('ID_DETALLE', 'idDettimeLine0014111')])
+
+
+===========================================
+
+>>> MOV DETAILS
+await fetch("https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201",
+    "body": "PN=GCT&PE=103&NUMERO_MOVIMIENTO=0014127&FECHA_CONTABLE=2021314&INDICADOR_COMUNICADOS=N&CLOPWW=067&SUBCLO=00008&IMPORTE_COM=000000000001500&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&SALDO_ACTUAL=000000036930633&SIGNO_SALDO_ACTUAL=%2B&FECHA_VALOR=10112021&INDICA_SALDO=NNNN&TIPO_BUSQUEDA=05&FECHA_COM=10112021&TIPO_COMUNICADO=00780&DESC_COMUNICADO=INCIDENCIA%2BRECARG&REMITENTE=YI%2BCHEN&NUMERO_RECIBO=000000000000000&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&CLAVE_ANTERIOR=%2B%2B000000000000000000000000000%2B0000000&CLAVE_CONTINUACION_SUM=  000000000000000000000000000 0000000&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&CLAVE_DETALLE_3496=D_3496_8&NUMERO_SUBMOVIMIENTO=&TIPO_CUENTAS=VIG&APLICACION_ORIGEN=TRF&REFVAL_SIMPLE_NUMERO_CUENTA=F_YwKGO6G1cX9jAoY7obVwAAAX0OuoiXEQAGBkvumUs&REFVAL_SIMPLE_CUENTA=F_YwKGNVupIX9jAoY1W6kgAAAX0OuoiXLgW3DINXxk4&OPCION_OPERACION=LISTACLOP&CLICK_ORIG=FLX_GCT_100&ID_DETALLE=idDettimeLine0014127",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OrderedDict([('PN', 'GCT'),
+             ('PE', '103'),
+             ('NUMERO_MOVIMIENTO', '0014127'),
+             ('FECHA_CONTABLE', '2021314'),
+             ('INDICADOR_COMUNICADOS', 'N'),
+             ('CLOPWW', '067'),
+             ('SUBCLO', '00008'),
+             ('IMPORTE_COM', '000000000001500'),
+             ('SIGNO_IMPORTE_COM', '-'),
+             ('MONEDA_COM', 'EUR'),
+             ('SALDO_ACTUAL', '000000036930633'),
+             ('SIGNO_SALDO_ACTUAL', '+'),
+             ('FECHA_VALOR', '10112021'),
+             ('INDICA_SALDO', 'NNNN'),
+             ('TIPO_BUSQUEDA', '05'),
+             ('FECHA_COM', '10112021'),
+             ('TIPO_COMUNICADO', '00780'),
+             ('DESC_COMUNICADO', 'INCIDENCIA+RECARG'),
+             ('REMITENTE', 'YI+CHEN'),
+             ('NUMERO_RECIBO', '000000000000000'),
+             ('OPCION_OPERACION', 'LISTACLOP'),
+             ('CLICK_ORIG', 'FLX_GCT_100'),
+             ('CLAVE_ANTERIOR', '++000000000000000000000000000+0000000'),
+             ('CLAVE_CONTINUACION_SUM',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_CONTINUACION_DETALLE_3496',
+              '  000000000000000000000000000 0000000'),
+             ('CLAVE_DETALLE_3496', 'D_3496_8'),
+             ('NUMERO_SUBMOVIMIENTO', ''),
+             ('TIPO_CUENTAS', 'VIG'),
+             ('APLICACION_ORIGEN', 'TRF'),
+             ('REFVAL_SIMPLE_NUMERO_CUENTA',
+              'F_YwKGO6G1cX9jAoY7obVwAAAX0OuoiXEQAGBkvumUs'),
+             ('REFVAL_SIMPLE_CUENTA',
+              'F_YwKGNVupIX9jAoY1W6kgAAAX0OuoiXLgW3DINXxk4'),
+             ('ID_DETALLE', 'idDettimeLine0014127')])
+
+
+<<< 20_resp_mov_details.html
+
+>>> RECEIPT as POPUP
+await fetch("https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201",
+    "body": "PN=GCT&PE=106&ID_DETALLE=idDettimeLine0014127&CLICK_ORIG=FLX_GCT_100&TIPO_COMUNICADO=00780&REFVAL_SIMPLE_NUMERO_CUENTA=F_YwKGO6G1cX9jAoY7obVwAAAX0OuoiXEQAGBkvumUs&REFVAL_SIMPLE_CUENTA=F_YwKGNVupIX9jAoY1W6kgAAAX0OuoiXLgW3DINXxk4&NUMERO_MOVIMIENTO=0014127&FECHA_CONTABLE=2021314&CLAVE_DETALLE_3496=D_3496_8&CLAVE_CONTINUACION_DETALLE_3496=  000000000000000000000000000 0000000&TIPO_CUENTAS=VIG&NUMERO_SUBMOVIMIENTO=&INDICA_SALDO=NNNN&INDICADOR_COMUNICADOS=N&FLAG_ACCION_103=&CLOPWW=067&SUBCLO=00008&FECHA_COM=10112021&IMPORTE_COM=000000000001500&SIGNO_IMPORTE_COM=-&MONEDA_COM=EUR&CLAVE_UNICA_COMUNICADO=",
+    "method": "POST",
+    "mode": "cors"
+});
+
+OrderedDict([('PN', 'GCT'),
+             ('PE', '106'),
+             ('ID_DETALLE', 'idDettimeLine0014127'),
+             ('CLICK_ORIG', 'FLX_GCT_100'),
+             ('TIPO_COMUNICADO', '00780'),
+             ('REFVAL_SIMPLE_NUMERO_CUENTA',
+              'F_YwKGO6G1cX9jAoY7obVwAAAX0OuoiXEQAGBkvumUs'),
+             ('REFVAL_SIMPLE_CUENTA',
+              'F_YwKGNVupIX9jAoY1W6kgAAAX0OuoiXLgW3DINXxk4'),
+             ('NUMERO_MOVIMIENTO', '0014127'),
+             ('FECHA_CONTABLE', '2021314'),
+             ('CLAVE_DETALLE_3496', 'D_3496_8'),
+             ('CLAVE_CONTINUACION_DETALLE_3496',
+              '  000000000000000000000000000 0000000'),
+             ('TIPO_CUENTAS', 'VIG'),
+             ('NUMERO_SUBMOVIMIENTO', ''),
+             ('INDICA_SALDO', 'NNNN'),
+             ('INDICADOR_COMUNICADOS', 'N'),
+             ('FLAG_ACCION_103', ''),
+             ('CLOPWW', '067'),
+             ('SUBCLO', '00008'),
+             ('FECHA_COM', '10112021'),
+             ('IMPORTE_COM', '000000000001500'),
+             ('SIGNO_IMPORTE_COM', '-'),
+             ('MONEDA_COM', 'EUR'),
+             ('CLAVE_UNICA_COMUNICADO', '')])
+
+
+
+<<< 30_resp_receipt_as_popup.html
+
+>>> RECEIPT PDF
+await fetch("https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201!1636630379236?PN=GCT&PE=106&FLAG_RESULTADO_NUEVO_EXTRACTO=DETALLE&CLICK_ORIG=EOC_GCT_100&TIPO_IMPRESION=PDF&REFVAL_SIMPLE_NUMERO_CUENTA=F_YwKF0EA~8X9jAoXQQD7wAAAX0OuY_cPAyH4mYJnG8&NUMERO_MOVIMIENTO=0014127&FECHA_CONTABLE=2021314&CLAVE_DETALLE_3496=D_3496_8&CLAVE_CONTINUACION_DETALLE_3496=%20%20000000000000000000000000000%200000000&TIPO_CUENTAS=VIG&NUMERO_SUBMOVIMIENTO=&PRINT_DETALLE=PDFDET", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://loc13.caixabank.es/GPeticiones;WebLogicSession=ZoYOxbrkt3rogypdyIpIZLf1AHmn_90oTtt-fZ1967Dd7GD7UZAu!-912716698!-609539201",
+    "method": "GET",
+    "mode": "cors"
+});
+
+OrderedDict([('PN', 'GCT'),
+             ('PE', '106'),
+             ('FLAG_RESULTADO_NUEVO_EXTRACTO', 'DETALLE'),
+             ('CLICK_ORIG', 'EOC_GCT_100'),
+             ('TIPO_IMPRESION', 'PDF'),
+             ('REFVAL_SIMPLE_NUMERO_CUENTA',
+              'F_YwKF0EA~8X9jAoXQQD7wAAAX0OuY_cPAyH4mYJnG8'),
+             ('NUMERO_MOVIMIENTO', '0014127'),
+             ('FECHA_CONTABLE', '2021314'),
+             ('CLAVE_DETALLE_3496', 'D_3496_8'),
+             ('CLAVE_CONTINUACION_DETALLE_3496',
+              ' 000000000000000000000000000 0000000'),
+             ('TIPO_CUENTAS', 'VIG'),
+             ('NUMERO_SUBMOVIMIENTO', ''),
+             ('PRINT_DETALLE', 'PDFDET')])
+
+<<< PDF FILE
+
+

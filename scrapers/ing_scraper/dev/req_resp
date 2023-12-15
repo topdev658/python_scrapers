@@ -1,0 +1,78 @@
+GET https://ing.ingdirect.es/SME/Transactional/faces/views/login/eLogin-n.xhtml
+
+
+JSESSIONID=39FF27669696F8A334F51FFA865BAF4E.da_sme_internet_bcpda9; ingSmePixelRepo=comercial; AMCV_1C48C1C6583859BE0A495C39%40AdobeOrg=283337926%7CMCIDTS%7C17401%7CMCMID%7C83295195095298990152951337613992517121%7CMCAAMLH-1504044849%7C6%7CMCAAMB-1504044849%7CNRX38WO0n5BH8Th-nqAG_A%7CMCAID%7CNONE; s_cc=true; s_gts=1; s_mca=Direct; s_nr=1503440761304; s_sq=%5B%5BB%5D%5D; ICO_auth=1
+
+
+=== DATES-BASED LOGIN (Accesso cliente) ===
+
+
+1ST STEP (first login and second login)
+00:07:28.510	1.633	1213	5786	POST	200	text/xml	https://ing.ingdirect.es/SME/Transactional/faces/views/login/login-n.xhtml?f=hLE8l7Q1We
+doConsultantLogin=
+&documentNumber=78872152T
+&documentType=0
+&birthDateDay=25
+&birthDateMonth=09
+&birthDateYear=1974
+&consultantDocumentNumber=
+&consultantDocumentType=0
+&consultantCif=
+&org.apache.myfaces.trinidad.faces.FORM=clientID_loginForm
+&_noJavaScript=false
+&javax.faces.ViewState=!1
+&source=doLogin
+&event=autosub
+&partial=true
+
+
+2ND STEP (passw with stars)
+00:07:49.824	4.170	1221	(0)	POST	(Cache)	text/html	https://ing.ingdirect.es/SME/Transactional/faces/views/login/login-n.xhtml?f=hLE8l7Q1We
+documentType=0
+&birthDateDay=25
+&birthDateMonth=09
+&birthDateYear=1974
+&fromOlvidoCliente=
+&isConsultantAccess=
+&security=SBOUxlKyOgfzcEEg%3AugSUxCnwZFNBB4UZ%3AJSo0QGpEk06dEL4A
+&consultantDocumentType=0
+&org.apache.myfaces.trinidad.faces.FORM=clientID_loginForm
+&_noJavaScript=false
+&javax.faces.ViewState=%212
+&source=security
+
+=== CIF-based login (Usuariaos sin firma) ===
+
+1ST STEP
+
+doConsultantLogin=
+&documentNumber=
+&documentType=0
+&birthDateDay=
+&birthDateMonth=
+&birthDateYear=
+&consultantDocumentNumber=44180186S
+&consultantDocumentType=0
+&consultantCif=B65445033
+&org.apache.myfaces.trinidad.faces.FORM=clientID_loginForm
+&_noJavaScript=false
+&javax.faces.ViewState=!1
+&source=doConsultantLogin
+&event=autosub
+&partial=true
+
+
+2ND STEP
+
+documentType=0
+&birthDateDay=
+&birthDateMonth=
+&birthDateYear=
+&fromOlvidoCliente=
+&isConsultantAccess=
+&security=IbS1ziiD835mq7Vt%3A88niKc9y3QIIf42z%3A1fxuI9zuvXm0l12b
+&consultantDocumentType=0
+&org.apache.myfaces.trinidad.faces.FORM=clientID_loginForm
+&_noJavaScript=false
+&javax.faces.ViewState=%212
+&source=security

@@ -1,0 +1,13 @@
+
+
+I've included the CustomerFinancialEntityAccessId field to the _tesoraliaAccounts table.
+It should be included in AccountAdd and AccountUpdate SPs and mandatory field.
+But if I update the types your functionallity will crash.
+When do we include this functionality?
+
+The reason is that each time an account is created or updated is because of an especific scraping of a CustomerFinancialEntityAccessId, and the last CustomerFinancialEntityAccessId must be integrated to _tesoraliaAccounts like the amount and time stamp. Does it make sense for you?
+
+Hi, Vladimir,
+I've already included the field CustomerFinancialEntityAccessId into the Account and AccountUpdate datatypes.
+Please, review the calls to include this information.
+

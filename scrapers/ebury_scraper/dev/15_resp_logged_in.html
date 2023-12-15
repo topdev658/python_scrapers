@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ebury</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+
+    <link rel="shortcut icon" href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/ico/branding/EBP/favicon.png">
+
+
+
+
+
+
+
+    <style>
+        :root {
+            --ec-theme-key-color-h: 192.5;
+            --ec-theme-key-color-s: 100.0%;
+            --ec-theme-key-color-level-1: 192.5, 100.0%, 12%;
+            --ec-theme-key-color-level-2: 192.5, 100.0%, 20%;
+            --ec-theme-key-color-level-3: 192.5, 100.0%, 37%;
+            --ec-theme-key-color-level-4: 192.5, 100.0%, 47%;
+            --ec-theme-key-color-level-5: 192.5, 100.0%, 57%;
+            --ec-theme-key-color-level-6: 192.5, 100.0%, 88%;
+            --ec-theme-key-color-level-7: 192.5, 100.0%, 96%;
+            --ec-theme-gray-color-level-0: 192.5, 10%, 0%;
+            --ec-theme-gray-color-level-1: 192.5, 10%, 12%;
+            --ec-theme-gray-color-level-2: 192.5, 10%, 20%;
+            --ec-theme-gray-color-level-3: 192.5, 10%, 37%;
+            --ec-theme-gray-color-level-4: 192.5, 10%, 47%;
+            --ec-theme-gray-color-level-5: 192.5, 10%, 57%;
+            --ec-theme-gray-color-level-6: 192.5, 10%, 88%;
+            --ec-theme-gray-color-level-7: 192.5, 10%, 96%;
+            --ec-theme-gray-color-level-8: 192.5, 10%, 100%;
+        }
+    </style>
+
+
+
+
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/css/app.css" rel="stylesheet">
+
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/vendors.js" rel="preload" as="script">
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/app.js" rel="preload" as="script">
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/trackers.js" rel="preload" as="script">
+
+
+
+
+
+
+    <script nonce="RdWO6CuGEooCJXZT" src="https://browser.sentry-cdn.com/5.30.0/bundle.min.js" integrity="sha384-V+jCLoAVKKml0VanRLGJGAdKk+Lzo1kRFe079J0majdfeGabOd32KG/2adGnr4N0" crossorigin="anonymous"></script>
+
+    <script nonce="RdWO6CuGEooCJXZT" src="https://browser.sentry-cdn.com/5.30.0/vue.min.js" integrity="sha384-FKagncFah3a9nkKNEIDQqXhYnny5Wzc37/AZV5eKKnRVS8uPpeFPdu9dnrvAnRpF" crossorigin="anonymous"></script>
+
+
+    <script nonce="RdWO6CuGEooCJXZT">
+        (function (Sentry) {
+            'use-strict';
+
+            if (!Sentry) {
+                document.write('<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/sentry/bundle.min.js" integrity="sha384-V+jCLoAVKKml0VanRLGJGAdKk+Lzo1kRFe079J0majdfeGabOd32KG/2adGnr4N0" crossorigin="anonymous"><\/script>');
+
+                document.write('<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/sentry/vue.min.js" integrity="sha384-FKagncFah3a9nkKNEIDQqXhYnny5Wzc37/AZV5eKKnRVS8uPpeFPdu9dnrvAnRpF" crossorigin="anonymous"><\/script>');
+
+            }
+        })(window.Sentry);
+    </script>
+
+    <script nonce="RdWO6CuGEooCJXZT">
+        (function (Sentry) {
+            'use-strict';
+
+            if (!Sentry) {
+                return;
+            }
+
+            Sentry.init({
+                dsn: "https://a1404b218f7544428131c61bd5017509@sentry.io/1510303",
+                environment: "prod",
+                release: "eburyonline@6.46.0",
+                beforeBreadcrumb: function(breadcrumb, hint) {
+                    var requestId = '';
+                    if (breadcrumb.category === 'xhr' && hint && hint.xhr) {
+                        requestId = tryGetRequestIdFromXhr(hint.xhr);
+                    } else if (breadcrumb.category === 'fetch' && hint && hint.response) {
+                        requestId = tryGetRequestIdFromFetchResponse(hint.response);
+                    }
+
+                    if (requestId) {
+                        breadcrumb.data = breadcrumb.data || {};
+                        breadcrumb.data.requestId = requestId;
+                    }
+
+                    return breadcrumb;
+                },
+            });
+
+            Sentry.configureScope(function(scope) {
+
+                scope.setTag('source', "bfr");
+
+
+                scope.setTag('client_identifier', "EBPCLI466830");
+
+
+                scope.setUser({
+                    id: 29461,
+                    username: "EBPCON509423",
+                    email: '',
+                });
+
+            });
+
+            Sentry.addBreadcrumb({
+                category: 'info',
+                message: 'Page request',
+                data: {
+                    requestId: "c889df1f21bf48b6905c5b60692ef747",
+                },
+            });
+
+            function tryGetRequestIdFromXhr(xhr) {
+                try {
+                    var headers = xhr.getAllResponseHeaders();
+                    var requestIdMatch = headers.match(/x-ebo-request-id: ([^\n]+)/im);
+                    if (requestIdMatch) {
+                        return requestIdMatch[1] || '';
+                    }
+                } catch {}
+
+                return '';
+            }
+
+            function tryGetRequestIdFromFetchResponse(response) {
+                try {
+                    return response.headers.get('X-EBO-Request-ID') || '';
+                } catch {}
+
+                return '';
+            }
+        })(window.Sentry);
+    </script>
+
+
+    <script nonce="RdWO6CuGEooCJXZT">
+        (function (global, Sentry) {
+            'use-strict';
+
+            if (!Sentry) {
+                function noop() {}
+
+                global.Sentry = {
+                    dummy: true,
+                    addBreadcrumb: noop,
+                    captureEvent: noop,
+                    captureException: noop,
+                    captureMessage: noop,
+                    init: noop,
+                    withScope: noop,
+                };
+            }
+        }(window, window.Sentry));
+    </script>
+
+
+
+</head>
+
+<body class="ebo">
+<div id="app"></div>
+
+
+
+<script nonce="RdWO6CuGEooCJXZT">
+    (function (global) {
+        'use strict';
+
+        global.__initialState__ = {
+            env: {
+                debug: false,
+                environment: "prod",
+                imgPath: 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/',
+                helpUrl: "https://help.ebury.com",
+                privacyPolicyUrl: "https://www.ebury.com/privacy-policy",
+                showHelp: true,
+                isEbury: true,
+                xsrfCookieName: "csrftoken",
+                xsrfHeaderName: 'X-CSRFToken',
+                staticUrl: 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/',
+                documentsUploadUrl: "https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=DC-Lending-EN",
+            },
+            branding: {
+                code: "EBP",
+                name: "Ebury",
+                logo: {
+                    lg: 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/branding/EBP/logo-lg.png',
+                    smInverse: 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/branding/EBP/logo-sm-inverse.png',
+                },
+            },
+            permissions: {
+                all: [{"name": "new_trade", "code": 0, "active": true}, {"name": "manage_online_access", "code": 1, "active": false}, {"name": "manage_beneficiaries", "code": 2, "active": true}, {"name": "manage_payments", "code": 3, "active": true}, {"name": "manage_permissions", "code": 4, "active": false}, {"name": "multipayment", "code": 5, "active": true}, {"name": "manage_beneficiaries_groups", "code": 6, "active": false}, {"name": "authorize_payment", "code": 7, "active": false}, {"name": "same_currency_payments", "code": 8, "active": true}, {"name": "drawdown", "code": 9, "active": true}, {"name": "get_paid", "code": 10, "active": false}, {"name": "fixed_forward", "code": 11, "active": false}, {"name": "manage_third_parties", "code": 13, "active": false}, {"name": "authorise_level_1", "code": 14, "active": false}, {"name": "authorise_level_2", "code": 15, "active": false}, {"name": "authorise_level_3", "code": 16, "active": false}, {"name": "authorise_level_4", "code": 17, "active": false}, {"name": "independent_payments", "code": 18, "active": true}, {"name": "trade_finance", "code": 19, "active": true}, {"name": "multipayment_select_delivery_date", "code": 20, "active": false}, {"name": "manage_trade_finance_permissions", "code": 21, "active": false}],
+                active: [0, 2, 3, 5, 8, 9, 18, 19],
+            },
+            client: {
+                id: 466830,
+                identifier: "EBPCLI466830",
+                name: "ROI Performance Media SL",
+                isMifid: false,
+                type: 1,
+                hasDeals: true,
+                tradingStatus: 0,
+                businessOpeningHour: "22:00",
+                businessClosingHour: "22:00",
+                dealerEmail: "ramiro.nunez@ebury.com",
+                officeCountry: "Spain",
+                clientCountry: "ES",
+                paymentWorkflow: 0,
+                legalEntity: "Ebury Partners Belgium NV",
+                amlStatus: 4,
+            },
+            user: {
+                identifier: "EBPCON509423",
+                name: "Mr. Federico Javier Zwanck Saenz",
+                email: "f.zwanck@gasmobi.com",
+                isNew: false,
+                language: "es",
+                isDefaultLanguage: false,
+                locale: "es",
+                gravatar: 'https://www.gravatar.com/avatar/932d012efa40234d863fd9acbfd959dd?d=mm&amp;s=200',
+                clients: [{"identifier": "EBPCLI466830", "name": "ROI Performance Media SL", "phone": "+34 918 293 722", "email": "online.desk@ebury.com", "active": true, "current": true}],
+                keepAlive: true,
+                is2faSmsEnabled: true,
+                is2faAppEnabled: false,
+            },
+            intercom: {
+                enabled: true,
+                id: "xzh7ogzw",
+                userHash: "46d2f06a8731e0f03cb8ab5fed5e4337bf89846dafd9483a75b2a15f2a481940",
+            },
+            ga: {
+                enabled: true,
+            },
+            segment: {
+                enabled: true,
+                key: "YAMu4DY4uatHDVj0TNYP4a07Flx3cnb8",
+            },
+            sentry: {
+                dsn: "https://a1404b218f7544428131c61bd5017509@sentry.io/1510303",
+                release: "eburyonline@6.46.0",
+            },
+            features: {
+                hasTradeFinanceEnabled: true,
+                hasAdspEnabled: true,
+                hasMT940Enabled: true,
+                hasConvertAndPayEnabled: false,
+            },
+        };
+    })(window);
+</script>
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/i18n/es.js"></script>
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/trackers.js"></script>
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/vendors.js"></script>
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/app.js"></script>
+
+<script nonce="RdWO6CuGEooCJXZT">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    (function gaInit(global) {
+        'use-strict';
+
+        ga('create', {
+            trackingId: 'UA\u002D15157589\u002D10',
+            cookieFlags: global.location.protocol === 'http:' ? 'SameSite=Strict' : 'Secure;SameSite=Strict',
+        });
+
+
+        ga('set', 'userId', 'f.zwanck@gasmobi.com');
+
+        ga('set', 'language', 'es');
+        ga('set', 'dimension2', 'Ebury');
+        ga('set', 'dimension3', 'prod');
+
+    }(window));
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+only one session from user allowed at same time FOR ONE ENPOINT. or all will be blocked
+only one company can be opened for user
+can open several movements at same time
+
+log in to several enpoints to do parallel scraping
+
+idx in all parameters = session (and driver) index
+
+
+
+IF several accounts per company
+inicio -> tesoreria -> <select account> -> (movements page): saldo detalle (right sidenav)
+                                        -> (movements page): process movements
+
+
+IF ONE account per company
+inicio -> tesoreria -> (movements page): saldo detalle (right sidenav)
+                    -> (movements page): process movements

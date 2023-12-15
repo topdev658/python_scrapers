@@ -1,0 +1,61 @@
+>>> FILTER CORR
+await fetch("https://www.bancsabadell.com/txempbs/SVGetMail.query.bs", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.bancsabadell.com/txempbs/SVGetMail.initSearcher.bs",
+    "body": "field=fecha&sorting=desc&queryPagination.pageNumber=0&searchExecuted=true&empresa.selectable-index=MAGAPU+2017%2C+S.L.&contrato.selectable-index=0105-0002278332&intervaloMov=-1&opcioMoviments=3&dateFrom=01%2F05%2F2021&queryParams.dateFrom.day=01&queryParams.dateFrom.month=05&queryParams.dateFrom.year=2021&dateTo=01%2F06%2F2021&queryParams.dateTo.day=01&queryParams.dateTo.month=06&queryParams.dateTo.year=2021&queryParams.type=3&queryParams.category=&queryParams.amountType=T&queryParams.amountFrom.value=&queryParams.amountTo.value=&queryParams.amountFrom.currency=EUR&queryParams.amountTo.currency=EUR&reference=&ccciban=",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_corr_filtered.html
+
+ALSO
+field=fecha
+sorting=desc
+queryPagination.pageNumber=0
+searchExecuted=true
+empresa.selectable-index=CORPEDIFICACIONS, S.L.
+contrato.selectable-index=5084-0001577561
+intervaloMov=-1
+opcioMoviments=3
+dateFrom=01/05/2021
+queryParams.dateFrom.day=01
+queryParams.dateFrom.month=05
+queryParams.dateFrom.year=2021
+dateTo=01/06/2021
+queryParams.dateTo.day=01
+queryParams.dateTo.month=06
+queryParams.dateTo.year=2021
+queryParams.type=3
+queryParams.category
+queryParams.amountType=T
+queryParams.amountFrom.value
+queryParams.amountTo.value
+queryParams.amountFrom.currency=EUR
+queryParams.amountTo.currency=EUR
+reference
+ccciban
+
+
+>>> DOWNLOAD CORR DOC
+await fetch("https://www.bancsabadell.com/txempbs/SVGetMail.invokeDownload.bs", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.bancsabadell.com/txempbs/SVGetMail.top.bs?num=0&idcontrato=101050000018280&entidad=01&idDocument=20210603000000244684&idPdf=PROC%3D3%26ACCI%3D1%26VISO%3DPDF%26TIPO%3DDCON%26CCON%3D01DV%20101050000018280%26FCHD%3D03/06/2021%26NUMO%3D2021-06-03-10.40.06.768441&producto=DV&read=N&contrato.selectable-index=0105-0001828089&isSearcher=true",
+    "body": "num=0&idcontrato=101050000018280&entidad=01&idDocument=20210603000000244684&idPdf=PROC%3D3%26ACCI%3D1%26VISO%3DPDF%26TIPO%3DDCON%26CCON%3D01DV+101050000018280%26FCHD%3D03%2F06%2F2021%26NUMO%3D2021-06-03-10.40.06.768441&producto=DV&read=N&contrato.selectable-index=0105-0001828089&isSearcher=true",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< corr pdf

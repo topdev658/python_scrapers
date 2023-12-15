@@ -1,0 +1,482 @@
+{
+  "cdnHostName": "www.paypalobjects.com",
+  "paypalDomain": "paypal.com",
+  "viewName": "contextualLoginView/signin",
+  "production": true,
+  "isInlineUl": false,
+  "isInjectedUl": false,
+  "inlineUlSuffix": "",
+  "flowExecutionUrl": "/signin",
+  "device": "desktop",
+  "coBrand": "es",
+  "signUpEndPoint": "/webapps/mpp/account-selection",
+  "pageName": {
+    "page1": "pwd",
+    "page2": "pwd:::",
+    "pageError": "MaxAttempts"
+  },
+  "showLogo": {
+    "type": "long"
+  },
+  "showFooter": {
+    "type": "contentOnly"
+  },
+  "adsChallengeUrl": "/auth/createchallenge/f30145ec00d43ae8/challenge.js",
+  "removeChallengeJs": false,
+  "clientName": "ul",
+  "correlationId": "f922747e6e5cf",
+  "layout": "layouts/contextualLogin",
+  "isErrorDetectorEnabled": true,
+  "xhrTimeoutLimit": 20000,
+  "xhrTimeoutEnable": false,
+  "xhrTimeoutIneligibleList": "MSIE 10|Windows NT 10",
+  "loadStartTime": 1634768218356,
+  "isBrowserEligibleForShowHideButton": true,
+  "rootTxn": {
+    "data": {
+      "m_country_code": "ES",
+      "user_guid": "9fbc94d817c0a7a07f4648ecff1a8a17",
+      "user_session_guid": "9fbc94d817c0a7a07f4648ecff1a8a16",
+      "flow_logging_id": "f13996730b9a7",
+      "channel": "DESKTOP"
+    }
+  },
+  "isRtl": false,
+  "enableClientCalLogging": true,
+  "passwordRecoveryFlow": {
+    "uri": "/authflow/password-recovery/?country.x=ES&locale.x=es_ES&redirectUri=%252Fsignin"
+  },
+  "emailRecoveryFlow": {
+    "uri": "/authflow/email-recovery/?redirectUri=%252Fsignin"
+  },
+  "enableAdsCaptcha": true,
+  "loginType": "EMAIL_PASSWORD",
+  "fnSyncDataEnabled": true,
+  "fnSyncTelemetryEnabled": true,
+  "enableFnBeaconOnWebViews": true,
+  "pwrFullPageRedirect": true,
+  "webAuthnFpIconEnabled": true,
+  "profile": {
+    "email": "finance@gasmobi.com"
+  },
+  "isCookiedUser": false,
+  "cookieBannerEnabled": true,
+  "isHybridLoginExperience": true,
+  "isTrackPasswordFieldAutoFillEnabled": false,
+  "enableEmailAutofillOnEmailPage": false,
+  "splitLoginExperience": true,
+  "phonePasswordEnabled": true,
+  "countryPhoneList": [
+    {
+      "$country": "ES",
+      "$value": "ES +34",
+      "$elt": "España (+34)",
+      "$code": "+34"
+    }
+  ],
+  "phoneCode": "ES +34",
+  "phone": "",
+  "lazyLoadCountryCodes": true,
+  "enableInvisiblePasswordField": null,
+  "splitLoginContext": "inputPassword",
+  "initialSplitLoginContext": "inputEmail",
+  "rememberProfile": false,
+  "hideSignupBtn": false,
+  "hidePwrOnRender": true,
+  "hideSignupOnEmailPage": false,
+  "hideSignupOnPasswordPage": false,
+  "elementalDesign": false,
+  "showCountryDropDown": true,
+  "showElementalDesign": true,
+  "oneTouchContentVersion": "0",
+  "contextualLogin": {
+    "intent": "signin",
+    "appName": "unifiedloginnodeweb",
+    "flowName": "Signin",
+    "experienceMetaData": {
+      "prefillData": {
+        "email": "",
+        "cart": {
+          "amount": "",
+          "currencySymbol": "",
+          "currencyCode": ""
+        }
+      },
+      "onboardingData": {
+        "hide": false,
+        "link": "",
+        "contentKey": "",
+        "trackingKey": "",
+        "trackingValue": ""
+      },
+      "merchantData": {
+        "name": "",
+        "logoUrl": "",
+        "cancelUrl": "",
+        "targetCancelUrl": "",
+        "paymentAction": "",
+        "paymentToken": ""
+      },
+      "asyncPreLoad": {
+        "url": ""
+      },
+      "tagLine": {
+        "show": true,
+        "contentKey": ""
+      },
+      "incontextData": {
+        "version": "",
+        "noBridge": "",
+        "env": "",
+        "icstage": ""
+      },
+      "oneTouch": false,
+      "oneTouchContentVersion": "",
+      "validateEmailFormat": false,
+      "elementalDesign": false,
+      "splitLogin": true
+    },
+    "serviceMetaData": {
+      "identity": {
+        "targetClientId": "",
+        "redirectUri": "",
+        "oneTouchScope": "",
+        "claims": {
+          "ec_token": "",
+          "referrer_account_number": ""
+        }
+      },
+      "risk": {
+        "fraudnetId": "",
+        "riskEntryPoint": ""
+      }
+    },
+    "tpdAutoSendSupported": true,
+    "formData": {
+      "intent": "signin",
+      "ads-client-context": "signin",
+      "showCountryDropDown": true,
+      "requestUrl": "/signin",
+      "forcePhonePasswordOptIn": false
+    },
+    "content": {
+      "title": "Inicie sesión en su cuenta PayPal",
+      "pageTitle": "Inicie sesión en su cuenta PayPal",
+      "titleThirdPartyLogin": "Iniciar sesión con PayPal",
+      "pageTitleThirdPartyLogin": "Iniciar sesión con PayPal",
+      "titleError": "¿Puede intentarlo de nuevo?",
+      "emailLabel": "Correo electrónico",
+      "passwordLabel": "Contraseña",
+      "newaccount": {
+        "label": "Crear cuenta"
+      },
+      "button": "Iniciar sesión",
+      "buttonNext": "Siguiente",
+      "emailRequired": "Obligatorio",
+      "emailInvalid": "El formato del correo electrónico no es correcto",
+      "passwordRequired": "Obligatorio",
+      "emailOrPhoneLabel": "Correo electrónico o número de móvil",
+      "emailOrPhoneRequired": "Obligatorio",
+      "emailOrPhoneInvalid": "El formato del correo electrónico o número de móvil no es correcto",
+      "phoneCodeLabel": "Elige el código de país de tu teléfono",
+      "phoneLabel": "Número de móvil",
+      "phoneButton": "Cambiar a número de teléfono móvil",
+      "emailButton": "Cambiar a correo electrónico",
+      "pinLabel": "PIN",
+      "phoneRequired": "Obligatorio",
+      "phoneInvalid": "¿Puede comprobar su número de teléfono móvil e intentarlo de nuevo?",
+      "pinRequired": "Obligatorio",
+      "clearEmail": "Borrar campo Correo electrónico",
+      "clearPassword": "Borrar campo Contraseña",
+      "forgotPassword": "¿Tiene problemas para iniciar sesión?",
+      "forgotPasswordLinkText": "¿Has olvidado la contraseña?",
+      "forgotEmailLinkText": "¿Ha olvidado el correo electrónico?",
+      "forgotPasswordBubble": "Vamos a asegurarnos de que puede acceder a su cuenta. Haga clic en el enlace para comenzar.",
+      "moreOptions": "Más opciones",
+      "moreOptionsMobile": "Autorizar acceso con dispositivos móviles",
+      "moreOptionsMobile1": "Autorizar inicio de sesión con el teléfono",
+      "tpdDemoMessage": "Inicie sesión con su dirección de correo electrónico como siempre y, a continuación, se le pedirá que inicie sesión con los datos biométricos de su teléfono.",
+      "triggerOtpLogin": "Iniciar sesión con un código de identificación temporal",
+      "showMaskedPhone": {
+        "triggerOtpLogin": "Iniciar sesión con {maskedPhoneNumber}"
+      },
+      "showPassword": "Mostrar",
+      "hidePassword": "Ocultar",
+      "showPasswordLabel": "Mostrar contraseña",
+      "hidePasswordLabel": "Ocultar contraseña",
+      "showPinLabel": "Mostrar PIN",
+      "hidePinLabel": "Ocultar PIN",
+      "close": "Cerrar",
+      "continue": "Continuar",
+      "sharedAdvisoryLabel": "Abre esto en una ventana privada del navegador para continuar.",
+      "sharedAdvisoryLabelTitle": "¿Estás en un dispositivo compartido?",
+      "keepMeLoggedIn": "Mantener abierta la sesión para comprar con más rapidez",
+      "keepMeLoggedInAbout": "Más información sobre mantener abierta la sesión.",
+      "keepMeLoggedInTitle": "Más información sobre mantener abierta la sesión.",
+      "stayLoggedIn": "Mantener abierta la sesión para comprar con más rapidez",
+      "skipLogin": "Mantén abierta la sesión en PayPal y agiliza los pagos.",
+      "doNotRecommend": "¿Le preocupa la seguridad? Siempre le pediremos que inicie sesión para actualizar sus datos personales o su información financiera en su cuenta PayPal.",
+      "disableStayLogin": "Si compartes el teléfono o el ordenador, puedes desactivar esta opción en tu Perfil.",
+      "closeAboutStayLogin": "Cerrar Más información sobre mantener abierta la sesión.",
+      "keepMeLoggedInLabel": [
+        "Mantener abierta la sesión para comprar con más rapidez",
+        "Mantener abierta la sesión para agilizar el proceso de pago",
+        "Mantener abierta la sesión con <span class=\"buzzword\">One Touch™</span>",
+        "Activar el inicio de sesión automático de PayPal para el pago",
+        "Mantener sesión abierta para agilizar el proceso de pago"
+      ],
+      "keepMeLoggedInAboutTitle": [
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre One Touch.",
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión."
+      ],
+      "keepMeLoggedInAboutAnchor": [
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre One Touch.",
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión."
+      ],
+      "aboutKeepMeLoggedInHeader": [
+        "Mantener abierta la sesión para comprar con más rapidez",
+        "Mantener abierta la sesión para agilizar el proceso de pago",
+        "Mantener abierta la sesión con <span class=\"buzzword\">One Touch™</span>",
+        "Activar el inicio de sesión automático de PayPal para el pago",
+        "Mantener sesión abierta para agilizar el proceso de pago"
+      ],
+      "aboutKeepMeLoggedInDescriptionLine1": [
+        "Sin necesidad de recordar ninguna contraseña. Sin tener que teclear sus datos. Solo tiene que pulsar, pagar y seguir con sus cosas.",
+        "Sin necesidad de recordar ninguna contraseña. Sin tener que teclear sus datos. Solo tiene que pulsar, pagar y seguir con sus cosas.",
+        "Pague en cuestión de segundos sin tener que escribir su contraseña o el PIN de PayPal. Solo tiene que pulsar, pagar y seguir con sus cosas.",
+        "<strong>Inicie sesión de forma automática y cómoda con <span class=\"buzzword\">One Touch™</span></strong> de PayPal al hacer pagos con este <strong>dispositivo y navegador</strong>: solo tendrá que revisar sus datos y pagar, sin necesidad de introducir su correo electrónico o contraseña.",
+        "No es necesario introducir el correo electrónico o la contraseña. Si activas One Touch, se iniciará la sesión automáticamente al realizar pagos en este dispositivo y con este navegador."
+      ],
+      "aboutKeepMeLoggedInDescriptionLine2": [
+        "¿Le preocupa la seguridad? Siempre le pediremos que inicie sesión para actualizar sus datos personales o su información financiera en su cuenta PayPal.",
+        "¿Le preocupa la seguridad? Siempre le pediremos que inicie sesión para actualizar sus datos personales o su información financiera en su cuenta PayPal.",
+        "Por su seguridad, siempre le pediremos que inicie sesión para actualizar los datos personales o la información financiera en su cuenta PayPal.",
+        "Revise rápidamente y pague <strong>a millones de vendedores de PayPal</strong>.",
+        "Revise rápidamente los detalles del pago y del envío para pagar a millones de vendedores de PayPal."
+      ],
+      "aboutKeepMeLoggedInDescriptionLine3": [
+        "Puede cerrar la sesión o desactivar esta función en su Perfil.",
+        "Puede cerrar la sesión o desactivar esta función en su Perfil.",
+        "¿Le preocupa la seguridad? Siempre le pediremos que inicie sesión para actualizar sus datos personales o su información financiera en su cuenta PayPal.",
+        "Por motivos de seguridad, <strong>le pediremos ocasionalmente que inicie sesión</strong>; esto incluye cada vez que realice cambios en su cuenta o actualice su información personal o financiera. No recomendamos el uso de <span class=\"buzzword\">One Touch™</span> en dispositivos compartidos.",
+        "Por motivos de seguridad, te pediremos que inicies sesión en tu cuenta cada cierto tiempo, y cada vez que actualices tu información personal o financiera. No recomendamos el uso de One Touch en dispositivos compartidos. Puedes desactivar esta opción en cualquier momento en la configuración de PayPal."
+      ],
+      "closeKeepMeLoggedIn": [
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión.",
+        "Cerrar Más información sobre One Touch",
+        "Más información sobre mantener abierta la sesión.",
+        "Más información sobre mantener abierta la sesión."
+      ],
+      "keepMeLoggedInTagLine": [
+        null,
+        "No se recomienda en dispositivos compartidos.",
+        "No se recomienda en dispositivos compartidos.",
+        "No se recomienda en dispositivos compartidos.",
+        "No se recomienda en dispositivos compartidos."
+      ],
+      "aboutKeepMeLoggedInDescriptionLine4": [
+        null,
+        null,
+        "Puede cerrar la sesión o desactivar esta función en su Perfil."
+      ],
+      "notYou": "¿No es usted?",
+      "tryPasswordlessButton": "Inicie sesión con su teléfono.",
+      "rememberProfileLabel": "Recordarme",
+      "moreInfo": "Información",
+      "rememberProfileInfo": "Al hacer clic aquí, permite que PayPal recuerde su nombre y apellidos, la foto de perfil y el Id. de usuario cuando inicie sesión en este navegador. No se recomienda para dispositivos compartidos.",
+      "educationMessageLine1": "Le damos la bienvenida a nuestro nuevo inicio de sesión en PayPal.",
+      "educationMessageLine2": "Un diseño actualizado con medidas seguridad en las que puede confiar.",
+      "educationMessage1": "Le damos la bienvenida a nuestra nueva página de inicio de sesión. Un diseño actualizado con la misma seguridad de siempre.",
+      "educationMessage2": "Ahora hay una forma nueva de iniciar sesión en PayPal.",
+      "educationMessage3": "¿Ha cambiado de opinión?",
+      "educationSwitchLink": "Cambiar al antiguo inicio de sesión",
+      "educationTryItLink": "Probar ahora",
+      "educationTakeMeBack": "Ir al nuevo diseño",
+      "retiringPhonePin": "A partir del {retiringDate}, tendrá que iniciar sesión en la página web con su contraseña en lugar de con su PIN. <a href=\"#\" id=\"backToEmailPasswordLink\">Pruébelo ahora</a>.",
+      "secureWindowMsg": "¿No ve el símbolo de navegación segura de PayPal? Le ayudaremos a abrir de nuevo la ventana para completar la compra. <a onclick='PAYPAL.apps.Checkout.restartFlow();' class='ppbutton'>Continuar</a>",
+      "loginSigupSeparator": "o",
+      "processingMsg": "Procesando...",
+      "fpLoginHeading": "Coloque el dedo en el escáner de huella dactilar",
+      "fpLoginUsePassword": "Usar contraseña en su lugar",
+      "fpLoginError": "No podemos iniciar sesión con su huella dactilar en este momento. Utilice su contraseña.",
+      "pleaseTryAgain": "Inténtelo de nuevo.",
+      "slHeading": "Use One Touch™ en todos los dispositivos de confianza con cuentas de Google",
+      "slDescription1": "Inicie sesión en PayPal automáticamente y agilice el pago. Seleccione la cuenta de Google que desea utilizar, revise los datos de la compra y pague.",
+      "loginWithEmail": "Utilizar el correo electrónico en su lugar",
+      "loginWithPhone": "Utilizar el número de móvil en su lugar",
+      "change": "Cambiar",
+      "passwordPinLabel": "Contraseña o PIN",
+      "phoneNotSetUpForLogin": "Parece que el número que ha escrito no está configurado para iniciar sesión. Inténtelo de nuevo o <a href=\"#\" id=\"switchToEmailNotification\">utilice el correo electrónico</a>.",
+      "subTagLinePhone": "¿Ya ha configurado su número de móvil para iniciar sesión? Escríbalo a continuación. De lo contrario, haga clic en el vínculo iniciar sesión con el correo electrónico.",
+      "subTagLineConnectOtp": "¿Has olvidado tu dirección de correo electrónico? Accede al sitio web de PayPal para averiguarla.",
+      "oneTouchSubHeading": "Ha activado PayPal One Touch™, por lo que hoy no es necesario introducir la contraseña.",
+      "reactivateOneTouch": "No hemos podido mantener su sesión abierta. Marque la siguiente casilla de verificación para volver a activar One Touch™ en este dispositivo.",
+      "sessionTimeOut": "Se ha agotado el tiempo de espera de la sesión. Inicie sesión de nuevo.",
+      "unConfirmedEmailErrorMessage": "Este correo electrónico aún no se ha confirmado. Inicia sesión en paypal.com y haz clic en el vínculo Confirmar dirección de correo electrónico en la página Descripción general.",
+      "cancelAndReturnLabel": "Cancelar y volver a {merchantName}",
+      "loginWithSso": "Iniciar sesión con SSO",
+      "keychainActivation8ball": "One Touch™ de PayPal solo puede usarse para pagar. Inicie sesión con su correo electrónico.",
+      "keychainActivationBlockedOnRiskyLogin": "Inicie sesión con su correo electrónico y su contraseña.",
+      "keychainActivationFailure": "Ha habido tenido un problema. Inicie sesión con su correo electrónico y su contraseña.",
+      "tenantTagLineContent": {
+        "logIn": "Iniciar sesión"
+      },
+      "tenantSubTagLineContent": {
+        "continueWith": "para ir a {tenant}"
+      },
+      "returnLabel": "« Volver a {merchantName}",
+      "qrCode": {
+        "headerText": "Introduce tus datos o escanea el código QR para iniciar sesión",
+        "list0": "Abre la <b>aplicación de PayPal</b>.",
+        "list1": "Pulsa el <b>icono del código QR</b> en la parte superior derecha de la pantalla.",
+        "list2": "Apunta la cámara al código QR para escanearlo.",
+        "spinner": "Actualizar código QR"
+      },
+      "signupBtn": {
+        "payAsGuest": "Pagar como usuario invitado"
+      },
+      "labelCaptcha": "Introducir código",
+      "imgAltText": "Imagen de seguridad",
+      "reloadimage": "Volver a cargar imagen",
+      "audiobutton": "Botón de audio",
+      "emptyCaptcha": "Obligatorio",
+      "clearCaptcha": "Borrar campo CAPTCHA",
+      "pending": {
+        "title": "Hemos enviado una notificación",
+        "title1": "Abrir aplicación de PayPal",
+        "pageTitle": "Confirmación de inicio de sesión - PayPal",
+        "message": "Consulte su teléfono y responda a la notificación que le hemos enviado.",
+        "message1": "Compruebe el teléfono o abra la aplicación PayPal para responder.",
+        "message2": "Compruebe el teléfono y prepárese para escribir el código que se ve en la aplicación PayPal.",
+        "message3": "Le hemos enviado una notificación automática. Abra la aplicación para aprobar el inicio de sesión web.",
+        "message4": "Abra la aplicación de PayPal, seleccione Sí en el mensaje que aparece y, a continuación, pulse <span class=\"twoDigitPin\">{twoDigitPin}</span> en el teléfono para iniciar sesión.",
+        "message5": "Abra la aplicación de PayPal y pulse sobre Sí en el mensaje que aparece para iniciar sesión.",
+        "resendMsgClick": "Reenviar",
+        "tryAnotherClick": "Usar contraseña en su lugar",
+        "notYou": "¿No es usted?",
+        "sent": "Enviada",
+        "usePasswordReason1": "No llevo el teléfono conmigo en este momento.",
+        "usePasswordReason2": "No he recibido la notificación.",
+        "usePasswordReason3": "Prefiero iniciar sesión con mi contraseña.",
+        "usePasswordReason4": "Probaré esta función más adelante.",
+        "usePasswordReason5": "Otros.",
+        "goToAppButton": "Ir a la aplicación de PayPal"
+      },
+      "denied": {
+        "title": "Lo sentimos, pero no hemos podido confirmar que es quien dice ser.",
+        "message": "¿Necesita ayuda? <a href=\"/{coBrand}/cgi-bin/helpscr?cmd=_help\" class=\"inlineLink scTrack:help\">Podemos ayudarle</a>."
+      },
+      "expired": {
+        "pageTitle": "Lo sentimos, pero no hemos podido confirmar que es quien dice ser.",
+        "heading": "Lo sentimos, pero no hemos podido confirmar que es quien dice ser.",
+        "descriptionLine1": "No hemos recibido ninguna respuesta por lo que no hemos podido confirmar su identidad.",
+        "actionText": "Reintentar"
+      },
+      "venmoOT": {
+        "safari": "Configurando Safari...",
+        "chrome": "Configurando Chrome..."
+      }
+    },
+    "intentFooter": {
+      "countryName": "España",
+      "supportedLocaleList": [
+        {
+          "$countryCode": "ES",
+          "$localeCode": "es_ES",
+          "$languageCode": "es",
+          "$localeLabel": "Español",
+          "$selected": true
+        },
+        {
+          "$countryCode": "ES",
+          "$localeCode": "en_US",
+          "$languageCode": "en",
+          "$localeLabel": "English",
+          "$selected": false
+        }
+      ]
+    },
+    "intentHeader": {},
+    "tracking": null,
+    "signUpButton": {
+      "content": "Crear cuenta"
+    },
+    "showForgotPassword": true,
+    "incontextData": {
+      "version": "",
+      "noBridge": "",
+      "env": "",
+      "icstage": ""
+    }
+  },
+  "requestUrl": "/signin",
+  "fnBeaconData": {
+    "fnSessionId": "93bf289185a44f98bb9cb2deffff3dbc",
+    "sourceId": "UNIFIED_LOGIN_INPUT_PASSWORD",
+    "fnUrl": "https://c.paypal.com/da/r/fb.js",
+    "beaconUrl": "https://b.stats.paypal.com/v1/counter.cgi?r=cD05M2JmMjg5MTg1YTQ0Zjk4YmI5Y2IyZGVmZmZmM2RiYyZpPTE4NS43NC44MS4xMTUmdD0xNjM0NzY4MjE4LjM3MyZhPTIxJnM9VU5JRklFRF9MT0dJThDe4SZhdkxftOIJMNwWVTscM8xJ",
+    "enableSpeedTyping": true
+  },
+  "captcha": null,
+  "legalCountry": "ES",
+  "partyIdHash": "35df45b3984f913285b8478baef39d062d4c63476000425cae90f9c761b27fbe",
+  "isTpdOnboarded": false,
+  "keepMeLoggedInEnabled": false,
+  "tpdSurveyEnabled": false,
+  "pageQualifier": "input_password",
+  "enableAnalytics": true,
+  "currentYear": 2021,
+  "ulSync": {
+    "sourceId": "UNIFIED_LOGIN_INPUT_PASSWORD",
+    "fnSessionId": "93bf289185a44f98bb9cb2deffff3dbc"
+  },
+  "sys": {
+    "links": {
+      "jsBaseUrl": "https://www.paypalobjects.com/web/res/516/07ea00e11fe1e2cb8b82e3b1b1c64/js",
+      "cssBaseUrl": "https://www.paypalobjects.com/web/res/516/07ea00e11fe1e2cb8b82e3b1b1c64/css",
+      "templateBaseUrl": "https://www.paypalobjects.com/web/res/516/07ea00e11fe1e2cb8b82e3b1b1c64/templates/ES/es",
+      "resourceBaseUrl": "https://www.paypalobjects.com/web/res/516/07ea00e11fe1e2cb8b82e3b1b1c64",
+      "originalTemplateBaseUrl": "https://www.paypalobjects.com/web/res/516/07ea00e11fe1e2cb8b82e3b1b1c64/templates"
+    },
+    "pageInfo": {
+      "date": "Oct 20, 2021 15:16:58 -07:00",
+      "hostName": "rZJvnqaaQhLn/nmWT8cSUm+72VQ7inHLmNSWW7oQxSqkM7CaNNY3v0Ro41cpNdUq",
+      "rlogId": "rZJvnqaaQhLn%2FnmWT8cSUotSylMGOTGkRUMDpmUTvbXdvevuMMFAfVANbpv53MZEySepZVSpTWRYJ8c9hOdmTS7RJsWD6dPe_17c9fc768f4",
+      "script": "node",
+      "debug": null
+    },
+    "locality": {
+      "timezone": {
+        "determiner": "viaCowPrimary",
+        "value": "Europe/Berlin"
+      },
+      "country": "ES",
+      "locale": "es_ES",
+      "language": "es",
+      "directionality": "ltr"
+    },
+    "identityFooter": {
+      "links": {
+        "contact": "<a target=\"_blank\" href=\"/es/smarthelp/contact-us\">Contacto</a>",
+        "privacy": "<a target=\"_blank\" href=\"/es/webapps/mpp/ua/privacy-full\">Privacidad</a>",
+        "legal": "<a target=\"_blank\" href=\"/es/webapps/mpp/ua/legalhub-full\">Acuerdos legales</a>",
+        "worldwide": "<a target=\"_blank\" href=\"/es/webapps/mpp/country-worldwide\">Mundo</a>"
+      }
+    },
+    "tracking": {
+      "fpti": {
+        "name": "pta",
+        "jsURL": "https://www.paypalobjects.com",
+        "serverURL": "https://t.paypal.com/ts",
+        "dataString": "pgrp=main%3Aunifiedlogin%3Asplitlogin%3A%3Apwd&page=main%3Aunifiedlogin%3Asplitlogin%3A%3Apwd%3A%3A%3A&qual=input_password&pgst=1634768218356&calc=f922747e6e5cf&nsid=ois2MzMd9iF9dmHOoeybdcTDffgtQZC0&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=1d201ee30a1c4b10ae6f7aaab9ac8fe3&comp=unifiedloginnodeweb&tsrce=authchallengenodeweb&cu=0&ef_policy=gdpr_v2.1&transition_name=process_hybrid&ads_captcha=no_intercept&xe=101735%2C101216%2C104200%2C100644%2C101820%2C101817&xt=105856%2C103864%2C117843%2C101702%2C106324%2C115775&ctx_login_ot_content=0&obex=signin&landing_page=login&state_name=begin_hybrid_login&ctx_login_ctxid_fetch=ctxid-not-exist&ctx_login_content_fetch=success&ctx_login_lang_footer=shown&ctx_login_signup_btn=shown%7Cdefault&pub_cred_type=email&ctx_login_intent=signin&ctx_login_flow=Signin&ctx_login_state_transition=login_submitted&post_login_redirect=default&ret_url=%2F"
+      }
+    }
+  }
+}

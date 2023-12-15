@@ -1,0 +1,64 @@
+== LOGIN ==
+>>>
+https://www.bancsabadell.com/txempbs/LoginDNISCA.doLogin.bs?language=CAS&key=JBSWL=E3597617791587371132866
+POST
+language=CAS
+evision.userLang
+evision.RSADeviceFso
+evision.RSADevicePrint=version%3D3%2E5%2E1%5F4%26pm%5Ffpua%3Dmozilla%2F5%2E0%20%28x11%3B%20ubuntu%3B%20linux%20x86%5F64%3B%20rv%3A72%2E0%29%20gecko%2F20100101%20firefox%2F72%2E0%7C5%2E0%20%28X11%29%7CLinux%20x86%5F64%26pm%5Ffpsc%3D24%7C1600%7C900%7C868%26pm%5Ffpsw%3D%26pm%5Ffptz%3D3%26pm%5Ffpln%3Dlang%3Den%2DUS%7Csyslang%3D%7Cuserlang%3D%26pm%5Ffpjv%3D0%26pm%5Ffpco%3D1%26pm%5Ffpasw%3D%26pm%5Ffpan%3DNetscape%26pm%5Ffpacn%3DMozilla%26pm%5Ffpol%3Dtrue%26pm%5Ffposp%3D%26pm%5Ffpup%3D%26pm%5Ffpsaw%3D1600%26pm%5Ffpspd%3D24%26pm%5Ffpsbd%3D%26pm%5Ffpsdx%3D%26pm%5Ffpsdy%3D%26pm%5Ffpslx%3D%26pm%5Ffpsly%3D%26pm%5Ffpsfse%3D%26pm%5Ffpsui%3D%26pm%5Fos%3DLinux%26pm%5Fbrmjv%3D72%26pm%5Fbr%3DFirefox%26pm%5Finpt%3D%26pm%5Fexpt%3D
+evision.csid=E71DB00B4024633DCF86BAA11586633149734
+evision.deviceTokenCookie=185.74.81.117.1582903969936
+userNIF=XXXXXXXXXXXXXXXX
+pinNIF=00000000000
+pinCIF
+userDNI=XXXXXXXXXXXXXXXX
+pin=00000000000
+userCard
+injvalrnd=false
+injextrnd
+inputAtributes0=false
+inputAtributes1=en-US
+inputAtributes2=24
+inputAtributes3
+inputAtributes4=4
+inputAtributes5=1600,900
+inputAtributes6=-180
+inputAtributes7=Europe/Moscow
+inputAtributes8=Linux x86_64
+inputAtributes9=Intel Open Source Technology Center~Mesa DRI Intel(R) Ivybridge Mobile
+inputAtributes10=false
+inputAtributes11=0,false,false
+
+== POS GLOBAL ==
+>>> GET https://www.bancsabadell.com/txempbs/CUGlobalPositionNew.init.bs?key=E71DB0015246586831587384220785
+
+
+== SALDOS & MOVS ==
+>>> GET https://www.bancsabadell.com/txempbs/CUExtractOperationsQueryNew.init.bs?key=E71DB008212702621587384230429
+
+== SWITCH COMPANY ==
+step1: select
+>>> POST https://www.bancsabadell.com/txempbs/LoginDNISCA.initLogout.bs
+DATA
+userContract=6270648742
+userDNI=834425P
+contrato=1
+
+step2: passw
+>>> POST https://www.bancsabadell.com/txempbs/LoginDNISCA.doLogin.bs
+DATA
+    pinNIF=...
+    language=CAS
+    userDNI=834425P
+    pin=...
+    userContract=6270648742
+
+
+step3:
+>>> POST https://www.bancsabadell.com/txempbs/LoginDNISCA.setLogged.bs
+DATA
+    pinNIF=...
+    language=CAS
+    userDNI=834425P
+    pin=...
+    userContract=6270648742

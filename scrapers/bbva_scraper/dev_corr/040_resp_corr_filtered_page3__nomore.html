@@ -1,0 +1,694 @@
+
+
+
+
+
+
+
+<HTML>
+<head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <!-- I.SEPA_TRANSFORMACION -->
+    <link rel='stylesheet' type='text/css' href='/SESTLSB/../SESKYOP/kyop_mult_web_pub/resources/css/sepa_iban.min.css'>
+    <!-- F.SEPA_TRANSFORMACION -->
+    <link rel="stylesheet" href="/SESTLSB/TLSCMult/kdpo_201_0000_compo_es.css" type="text/css" />
+    <link rel="stylesheet" href="/SESTLSB/TLSCMult/kdpo_201_0000_posic_es.css" type="text/css" />
+    <link rel="stylesheet" href="/SESTLSB/TLSCMult/kdpo_201_0000_visua_es.css" type="text/css" />
+
+
+
+    <link rel="stylesheet" href="/SESTLSB/mult/newLook.css?1600974831746" type="text/css" />
+    <link rel="stylesheet" href="/SESTLSB/mult/ajustes.css?1600974831746" type="text/css" />
+    <!-- <link rel="stylesheet" href="/mult/sb/shadowbox.css" type="text/css" /> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script language="javascript">
+        var _idioma_TUX = "es";
+        var FORMATOS = {
+            s_for_fec : 'dd/mm/aaaa',
+            s_for_imp : '0.000,00'
+        };
+
+    </script>
+
+    <script type="text/javascript" src="/SESTLSB/"></script>
+    <title>TLBHCVListaDocumentosCA</title>
+
+    <script language="javascript">
+
+        function mostrarOcultarBotonDescargar(){
+
+            var totalChecked = 0;
+            var frm = document.getElementById("mvtos");
+            for (i=0;i<frm.registroFichero0.length;++i){
+
+                if (frm.registroFichero0[i].checked){
+                    totalChecked++;
+                }
+            }
+
+            if(totalChecked == 0){
+                document.getElementById("descarcar").style.display='none';
+            }
+
+            if(totalChecked > 0 && totalChecked <= 50){
+                document.getElementById("descarcar").style.display='block';
+            }
+
+            if(totalChecked > 50){
+                document.getElementById("descarcar").style.display='none';
+                alert(frm.msgErrMax50Docu.value);
+            }
+
+        }
+
+        function guardarMultiplesPDF_1(){
+
+            var multiplePdfDatos = "";
+            var frm = document.getElementById("mvtos");
+            for (i=0;i<frm.registroFichero0.length;++i){
+
+                if (frm.registroFichero0[i].checked)
+                {
+
+                    var aux = frm.registroFichero0[i].value;
+                    multiplePdfDatos += aux + "|";
+                    //arrayAux = aux.split("|");
+                    //guardarPDF(arrayAux[0], arrayAux[1], arrayAux[2], arrayAux[3], arrayAux[4], arrayAux[5], arrayAux[6], arrayAux[7], arrayAux[8]);
+
+
+                }
+
+            }
+            multiplePdfDatos = multiplePdfDatos.substring(0, multiplePdfDatos.length-1);
+
+            //datos2 = "&guardarMultiplesPDF=" + multiplePdfDatos + "&xtiTipocta=" + "P";
+            //var visualizar = "OperacionCBTFServlet?proceso=TLBHPrCVConsultaAvanzada&operacion=TLBHOpCVVisualizacionPDF&accion=execute"+datos2+"&tipoOperacion=G";
+            //document.location.href=visualizar;
+
+
+            document.mvtos.proceso.value="TLBHPrCVConsultaAvanzada";
+            document.mvtos.operacion.value="TLBHOpCVVisualizacionPDF";
+            document.mvtos.accion.value="execute";
+            frm.guardarMultiplesPDF.value=multiplePdfDatos;
+            frm.xtiTipocta.value="P";
+            frm.tipoOperacion.value="G";
+            document.mvtos.submit();
+
+        }
+
+        function volver()
+        {
+            document.mvtos.proceso.value="TLBHPrCVConsultaAvanzada";
+            document.mvtos.operacion.value="TLBHOpCVCriteriosSeleccionCA";
+            document.mvtos.accion.value="execute";
+            document.mvtos.submit();
+            return true;
+        }
+        function lanzarPDF(codBancsb, codCOfici, codCContr, codCFolio, codNMes, qnuNEnvio, xsnConsulta, fecha, seleccionado)
+        {
+            cadena = new String();
+            posX = screen.availTop;
+            posY = screen.availLeft;
+            if (posX == null) posX = 0;
+            if (posY == null) posY = 0;
+            dimX = screen.availWidth - 10;
+            dimY = screen.availHeight - 30;
+            cadena += "top=" + posX;
+            cadena += ",screenX=" + posX;
+            cadena += ",left=" + posY;
+            cadena += ",screenY=" + posY;
+            cadena += ",width=" + dimX;
+            cadena += ",innerWidth=" + dimX;
+            cadena += ",height=" + dimY;
+            cadena += ",innerHeight=" + dimY;
+            cadena += ",toolbar=no,status=no,menubar=no,directories=no,location=no,scrollbars=no,resizable=no";
+            datos = "&codBancsb=" + codBancsb + "&codCOfici=" + codCOfici + "&codCContr=" + codCContr + "&codCFolio=" + codCFolio + "&codNMes=" + codNMes + "&qnuNEnvio=" + qnuNEnvio + "&xsnConsulta=" + xsnConsulta + "&fechaDocumento=" + fecha + "&xtiTipocta=" + "P";
+            visualizar = "OperacionCBTFServlet?proceso=TLBHPrCVConsultaAvanzada&operacion=TLBHOpCVVisualizacionPDF&accion=execute"+datos+"&tipoOperacion=V";
+            window.open(visualizar,"visualizarPDF",cadena+datos);
+
+            var documentoSeleccionado= "sobre" + seleccionado;
+            document.getElementById(documentoSeleccionado).src = "/SESTLSB/mult/sobreLeido.gif";
+        }
+
+        function guardarPDF(codBancsb, codCOfici, codCContr, codCFolio, codNMes, qnuNEnvio, xsnConsulta, fecha, descripcion)
+        {
+            datos2 = "&codBancsb=" + codBancsb + "&codCOfici=" + codCOfici + "&codCContr=" + codCContr + "&codCFolio=" + codCFolio + "&codNMes=" + codNMes + "&qnuNEnvio=" + qnuNEnvio + "&xsnConsulta=" + xsnConsulta + "&fechaDocumento=" + fecha + "&descripcion=" + descripcion + "&xtiTipocta=" + "P";
+            visualizar = "OperacionCBTFServlet?proceso=TLBHPrCVConsultaAvanzada&operacion=TLBHOpCVVisualizacionPDF&accion=execute"+datos2+"&tipoOperacion=G";
+            document.location.href=visualizar;
+        }
+        function paginarMvtosCuenta(numeroCuenta)
+        {
+            document.mvtos.cuentaInicio.value = numeroCuenta;
+            document.mvtos.proceso.value="TLBHPrCVConsultaAvanzada";
+            document.mvtos.operacion.value="TLBHOpCVListaDocumentosCA";
+            document.mvtos.accion.value="paginarCuenta";
+            document.mvtos.submit();
+        }
+
+        function paginarMvtos(numeroPagina)
+        {
+            document.mvtos.paginaActual.value = numeroPagina;
+            document.mvtos.proceso.value="TLBHPrCVConsultaAvanzada";
+            document.mvtos.operacion.value="TLBHOpCVListaDocumentosCA";
+            document.mvtos.accion.value="paginarMvtos";
+            document.mvtos.submit();
+        }
+
+        function getAdobe(url)
+        {
+            window.open(url,"visualiza","top=0,left=0,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=no,width=800,height=600");
+        }
+        function getZip(url)
+        {
+            window.open(url,"visualiza","top=0,left=0,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=no,width=800,height=600");
+        }
+    </script>
+</head>
+<body onLoad="controlPibee();">
+<h2>Consulta de documentos</h2>
+<div class="caja_tabla2">
+    <!-- <pre class="txtnorm">
+    A continuaci&oacute;n le mostramos los documentos de su correspondencia para el per&iacute;odo indicado.
+    Para leer el documento deseado, pulse sobre el icono correspondiente de la columna Visualizar Documento.
+    </pre>
+    <p> -->
+    <form name="mvtos" id="mvtos" action="OperacionCBTFServlet" method="post" >
+        <input type="hidden" name="proceso" value="TLBHPrCVConsultaAvanzada">
+        <input type="hidden" name="operacion" value="TLBHOpCVCriteriosSeleccionCA">
+        <input type="hidden" name="accion" value="execute">
+        <input type="hidden" name="codigoServicio" value="8125">
+        <input type="hidden" name="cuentaInicio" value="0">
+        <input type="hidden" name="paginaActual">
+        <input type="hidden" name="guardarMultiplesPDF">
+        <input type="hidden" name="xtiTipocta">
+        <input type="hidden" name="tipoOperacion">
+        <input type="hidden" name="msgErrMax50Docu" id="msgErrMax50Docu" value="No se pueden descargar más de 50 documentos a la vez.">
+
+        <table class='tabla_espana' border="0" cellspacing="0" width="85%">
+            <tr>
+                <td>
+                    <table class='tabla_espana resumen' border="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td width="25%" class="bgfila darker" ><p class="txtselec2">Período:</p></td>
+                            <td colspan="2" class="bgfila"><p class="txtdato">de 01-08-2020 a 23-09-2020</p></td>
+                        </tr>
+                        <tr>
+                            <td class="bgfila2 darker" ><p class="txtselec2">Importe:</p></td>
+                            <td colspan="2" class="bgfila2"><p class="txtdato">Todos</p></td>
+                        </tr>
+                        <tr>
+                            <td  class="bgfila darker"><p class="txtselec2">Producto:</p></td>
+                            <td colspan="2" class="bgfila"><p class="txtdato">TODOS</p></td>
+                        </tr>
+                        <tr>
+                            <td  class="bgfila2 darker"><p class="txtselec2">Ordenación:</p></td>
+                            <td  class="bgfila2"><p class="txtdato">DOCUMENTO</p></td>
+                            <td  class="bgfila2"><p class="txtdato">FECHA</p></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table class='tabla_espana limpia' cellpadding="3" cellspacing="0" border="0" width="100%" >
+                        <tr>
+                            <td class="bgfila2" colspan="2">
+                                <p class="tright"><strong>[Cuenta 3/3]</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bgfila2"><p class="txtdato"><strong>0182 2351 48 2012008039&nbsp;USD&nbsp;&nbsp;<br>GAMBASTAR S.L.  </strong></p></td>
+                            <td class="bgfila2"><p class="txtdato"><strong>BANCO BILBAO VIZCAYA ARGENTARIA S.A.    <br>BURGOS-SORIA EMPRESAS                   </strong></p></td>
+                        </tr>
+                    </table>
+
+                    <br />
+                    <table class='tabla_espana' border=0 cellpadding=3 cellspacing=0 width="100%">
+                        <tr>
+                            <td class="bgcabez"><p class="txtcabez"></p></td>
+                            <td class="bgcabez"><p class="txtcabez">Documento</p></td>
+                            <td class="bgcabez"><p class="txtcabez">Contrato</p></td>
+                            <td class="bgcabez"><p class="txtcabez">Fecha de Documento</p></td>
+                            <td class="bgcabez"><p class="txtcabez">Importe</p></td>
+                            <td class="bgcabez"><p class="txtcabez">Ver Documento</p></td>
+                            <td class="bgcabez"><p class="txtcabez">Guardar Documento</p></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003508*F0*4535187726*S*09-09-2020*ABONO+LIQUI.PRESTAMOS+Y+CREDITOS0"></p></td>
+                            <td class="bgfila"><p class="txtdato">ABONO LIQUI.PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-43-0830035084</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">09-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003508', 'F0', '4535187726', 'S', '09-09-2020', 0);"><img id="sobre0" src="/SESTLSB/mult/sobreLeido.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003508', 'F0', '4535187726', 'S', '09-09-2020','ABONO+LIQUI.PRESTAMOS+Y+CREDITOS0');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003480*E5*4480277254*N*11-08-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS1"></p></td>
+                            <td class="bgfila2"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-46-0830034807</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">11-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">153.680,15 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003480', 'E5', '4480277254', 'N', '11-08-2020', 1);"><img id="sobre1" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003480', 'E5', '4480277254', 'N', '11-08-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS1');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003481*E5*4480498582*N*11-08-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS2"></p></td>
+                            <td class="bgfila"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-41-0830034814</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">11-08-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">79.663,54 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003481', 'E5', '4480498582', 'N', '11-08-2020', 2);"><img id="sobre2" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003481', 'E5', '4480498582', 'N', '11-08-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS2');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003501*E9*4528917005*N*04-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS3"></p></td>
+                            <td class="bgfila2"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-47-0830035015</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">195.000,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003501', 'E9', '4528917005', 'N', '04-09-2020', 3);"><img id="sobre3" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003501', 'E9', '4528917005', 'N', '04-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS3');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003508*F0*4532835560*N*08-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS4"></p></td>
+                            <td class="bgfila"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-43-0830035084</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">08-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">164.800,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003508', 'F0', '4532835560', 'N', '08-09-2020', 4);"><img id="sobre4" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003508', 'F0', '4532835560', 'N', '08-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS4');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003508*F0*4535443617*N*09-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS5"></p></td>
+                            <td class="bgfila2"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-43-0830035084</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">09-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">164.800,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003508', 'F0', '4535443617', 'N', '09-09-2020', 5);"><img id="sobre5" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003508', 'F0', '4535443617', 'N', '09-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS5');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003517*Z4*4542119652*N*16-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS6"></p></td>
+                            <td class="bgfila"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-49-0830035176</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">16-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">64.500,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003517', 'Z4', '4542119652', 'N', '16-09-2020', 6);"><img id="sobre6" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003517', 'Z4', '4542119652', 'N', '16-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS6');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003526*Z4*4547483096*N*22-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS7"></p></td>
+                            <td class="bgfila2"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-44-0830035268</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">22-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">64.445,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003526', 'Z4', '4547483096', 'N', '22-09-2020', 7);"><img id="sobre7" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003526', 'Z4', '4547483096', 'N', '22-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS7');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003529*Z4*4549038130*N*23-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS8"></p></td>
+                            <td class="bgfila"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-40-0830035299</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">23-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">66.140,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003529', 'Z4', '4549038130', 'N', '23-09-2020', 8);"><img id="sobre8" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003529', 'Z4', '4549038130', 'N', '23-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS8');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003530*Z4*4549339938*N*23-09-2020*ABONO+POR+PRESTAMOS+Y+CREDITOS9"></p></td>
+                            <td class="bgfila2"><p class="txtdato">ABONO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-40-0830035305</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">23-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">77.334,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003530', 'Z4', '4549339938', 'N', '23-09-2020', 9);"><img id="sobre9" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003530', 'Z4', '4549339938', 'N', '23-09-2020','ABONO+POR+PRESTAMOS+Y+CREDITOS9');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003480*E5*4482092925*N*12-08-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS10"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-46-0830034807</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">12-08-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">1.094,34 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003480', 'E5', '4482092925', 'N', '12-08-2020', 10);"><img id="sobre10" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003480', 'E5', '4482092925', 'N', '12-08-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS10');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003481*E5*4481344237*N*12-08-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS11"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-41-0830034814</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">12-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">567,59 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003481', 'E5', '4481344237', 'N', '12-08-2020', 11);"><img id="sobre11" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003481', 'E5', '4481344237', 'N', '12-08-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS11');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003501*F0*4530646216*N*07-09-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS12"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-47-0830035015</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">07-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">1.286,03 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003501', 'F0', '4530646216', 'N', '07-09-2020', 12);"><img id="sobre12" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003501', 'F0', '4530646216', 'N', '07-09-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS12');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003508*F0*4535182314*N*09-09-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS13"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-43-0830035084</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">09-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">1.048,50 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003508', 'F0', '4535182314', 'N', '09-09-2020', 13);"><img id="sobre13" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003508', 'F0', '4535182314', 'N', '09-09-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS13');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003517*Z4*4543313503*N*17-09-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS14"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-49-0830035176</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">17-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">440,86 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003517', 'Z4', '4543313503', 'N', '17-09-2020', 14);"><img id="sobre14" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003517', 'Z4', '4543313503', 'N', '17-09-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS14');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003526*Z4*4549635943*N*23-09-2020*CARGO+INTERESES+PRTMOS.+Y+CREDITOS15"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO INTERESES PRTMOS. Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-44-0830035268</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">23-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">470,56 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003526', 'Z4', '4549635943', 'N', '23-09-2020', 15);"><img id="sobre15" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003526', 'Z4', '4549635943', 'N', '23-09-2020','CARGO+INTERESES+PRTMOS.+Y+CREDITOS15');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003508*F0*4534413811*N*09-09-2020*CARGO+POR+ANULACION+DE+DISPOSI16"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO POR ANULACION DE DISPOSI</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-43-0830035084</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">09-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">164.800,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003508', 'F0', '4534413811', 'N', '09-09-2020', 16);"><img id="sobre16" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003508', 'F0', '4534413811', 'N', '09-09-2020','CARGO+POR+ANULACION+DE+DISPOSI16');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E5*4481145255*N*11-08-2020*CARGO+POR+OPERACIONES+DOCUMENTARIAS17"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO POR OPERACIONES DOCUMENTARIAS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">11-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E5', '4481145255', 'N', '11-08-2020', 17);"><img id="sobre17" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E5', '4481145255', 'N', '11-08-2020','CARGO+POR+OPERACIONES+DOCUMENTARIAS17');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*F1*4540407386*N*15-09-2020*CARGO+POR+OPERACIONES+DOCUMENTARIAS18"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO POR OPERACIONES DOCUMENTARIAS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">15-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'F1', '4540407386', 'N', '15-09-2020', 18);"><img id="sobre18" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'F1', '4540407386', 'N', '15-09-2020','CARGO+POR+OPERACIONES+DOCUMENTARIAS18');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*Z4*4547229881*N*22-09-2020*CARGO+POR+OPERACIONES+DOCUMENTARIAS19"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO POR OPERACIONES DOCUMENTARIAS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">22-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229881', 'N', '22-09-2020', 19);"><img id="sobre19" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229881', 'N', '22-09-2020','CARGO+POR+OPERACIONES+DOCUMENTARIAS19');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*Z4*4547229882*N*22-09-2020*CARGO+POR+OPERACIONES+DOCUMENTARIAS20"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO POR OPERACIONES DOCUMENTARIAS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">22-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229882', 'N', '22-09-2020', 20);"><img id="sobre20" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229882', 'N', '22-09-2020','CARGO+POR+OPERACIONES+DOCUMENTARIAS20');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*Z4*4547229883*N*22-09-2020*CARGO+POR+OPERACIONES+DOCUMENTARIAS21"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO POR OPERACIONES DOCUMENTARIAS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">22-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229883', 'N', '22-09-2020', 21);"><img id="sobre21" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'Z4', '4547229883', 'N', '22-09-2020','CARGO+POR+OPERACIONES+DOCUMENTARIAS21');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E5*4481521927*N*12-08-2020*CARGO+POR+ORDEN+DE+PAGO+EMITIDA22"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO POR ORDEN DE PAGO EMITIDA</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">12-08-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">180.619,10 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E5', '4481521927', 'N', '12-08-2020', 22);"><img id="sobre22" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E5', '4481521927', 'N', '12-08-2020','CARGO+POR+ORDEN+DE+PAGO+EMITIDA22');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000001589*E8*4514622290*N*31-08-2020*CARGO+POR+PRESTAMOS+Y+CREDITOS23"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARGO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-44-0830015891</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">31-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">59.986,89 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000001589', 'E8', '4514622290', 'N', '31-08-2020', 23);"><img id="sobre23" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000001589', 'E8', '4514622290', 'N', '31-08-2020','CARGO+POR+PRESTAMOS+Y+CREDITOS23');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*083*000003363*F0*4537063415*N*10-09-2020*CARGO+POR+PRESTAMOS+Y+CREDITOS24"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARGO POR PRESTAMOS Y CREDITOS</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-49-0830033637</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">10-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">462.000,65 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '083', '000003363', 'F0', '4537063415', 'N', '10-09-2020', 24);"><img id="sobre24" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '083', '000003363', 'F0', '4537063415', 'N', '10-09-2020','CARGO+POR+PRESTAMOS+Y+CREDITOS24');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E9*4529008597*N*04-09-2020*CARTA+CARGO+TRANSFERENCIA%2FTRASPASO25"></p></td>
+                            <td class="bgfila2"><p class="txtdato">CARTA CARGO TRANSFERENCIA/TRASPASO</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E9', '4529008597', 'N', '04-09-2020', 25);"><img id="sobre25" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E9', '4529008597', 'N', '04-09-2020','CARTA+CARGO+TRANSFERENCIA%2FTRASPASO25');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*F0*4534735989*N*08-09-2020*CARTA+CARGO+TRANSFERENCIA%2FTRASPASO26"></p></td>
+                            <td class="bgfila"><p class="txtdato">CARTA CARGO TRANSFERENCIA/TRASPASO</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">08-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'F0', '4534735989', 'N', '08-09-2020', 26);"><img id="sobre26" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'F0', '4534735989', 'N', '08-09-2020','CARTA+CARGO+TRANSFERENCIA%2FTRASPASO26');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*Q6*4515397498*N*01-09-2020*EXTRACTO+AGOSTO+2020++++++CTA-201200803927"></p></td>
+                            <td class="bgfila2"><p class="txtdato">EXTRACTO AGOSTO 2020      CTA-2012008039</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">01-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'Q6', '4515397498', 'N', '01-09-2020', 27);"><img id="sobre27" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'Q6', '4515397498', 'N', '01-09-2020','EXTRACTO+AGOSTO+2020++++++CTA-201200803927');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E3*4474420150*N*05-08-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR28"></p></td>
+                            <td class="bgfila"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">05-08-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">90.612,32 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E3', '4474420150', 'N', '05-08-2020', 28);"><img id="sobre28" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E3', '4474420150', 'N', '05-08-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR28');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E3*4474420151*N*05-08-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR29"></p></td>
+                            <td class="bgfila2"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">05-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">3,62 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E3', '4474420151', 'N', '05-08-2020', 29);"><img id="sobre29" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E3', '4474420151', 'N', '05-08-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR29');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E9*4528237887*N*04-09-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR30"></p></td>
+                            <td class="bgfila"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">56.726,90 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E9', '4528237887', 'N', '04-09-2020', 30);"><img id="sobre30" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E9', '4528237887', 'N', '04-09-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR30');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E9*4528237888*N*04-09-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR31"></p></td>
+                            <td class="bgfila2"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">3,68 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E9', '4528237888', 'N', '04-09-2020', 31);"><img id="sobre31" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E9', '4528237888', 'N', '04-09-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR31');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E9*4528237889*S*04-09-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR32"></p></td>
+                            <td class="bgfila"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">161.095,72 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E9', '4528237889', 'S', '04-09-2020', 32);"><img id="sobre32" src="/SESTLSB/mult/sobreLeido.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E9', '4528237889', 'S', '04-09-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR32');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E9*4528237890*N*04-09-2020*LIQUIDACION+OPERACIONES+C.+EXTERIOR33"></p></td>
+                            <td class="bgfila2"><p class="txtdato">LIQUIDACION OPERACIONES C. EXTERIOR</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">04-09-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">3,68 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E9', '4528237890', 'N', '04-09-2020', 33);"><img id="sobre33" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E9', '4528237890', 'N', '04-09-2020','LIQUIDACION+OPERACIONES+C.+EXTERIOR33');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E5*4480261943*N*11-08-2020*OPERACIONES+DE+COMERCIO+EXTERIOR34"></p></td>
+                            <td class="bgfila"><p class="txtdato">OPERACIONES DE COMERCIO EXTERIOR</p></td>
+                            <td class="bgfila"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila"><p class="txtdato">11-08-2020</p></td>
+                            <td class="bgfila"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E5', '4480261943', 'N', '11-08-2020', 34);"><img id="sobre34" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E5', '4480261943', 'N', '11-08-2020','OPERACIONES+DE+COMERCIO+EXTERIOR34');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="bgfila2"><input type="checkbox" name="registroFichero0" class="sp1" onclick="mostrarOcultarBotonDescargar()" value="0182*2351*201*000200803*E5*4480261944*N*11-08-2020*OPERACIONES+DE+COMERCIO+EXTERIOR35"></p></td>
+                            <td class="bgfila2"><p class="txtdato">OPERACIONES DE COMERCIO EXTERIOR</p></td>
+                            <td class="bgfila2"><p class="txtdato"><NOBR>0182-2351-48-2012008039</NOBR></p></td>
+                            <td class="bgfila2"><p class="txtdato">11-08-2020</p></td>
+                            <td class="bgfila2"><p class="txtdatonum">0,00 &euro;</p></td>
+                            <td class="bgfila2" align="center"><a href="javascript:lanzarPDF('0182', '2351', '201', '000200803', 'E5', '4480261944', 'N', '11-08-2020', 35);"><img id="sobre35" src="/SESTLSB/mult/sobreSinLeer.gif" border=0></a></td>
+                            <td class="bgfila2" align="center"><a href="javascript:guardarPDF('0182', '2351', '201', '000200803', 'E5', '4480261944', 'N', '11-08-2020','OPERACIONES+DE+COMERCIO+EXTERIOR35');"><img src="/SESTLSB/mult/guardarZip.gif" border=0></a></td>
+                        </tr>
+
+
+                        <!--PAGINACIÃ¯Â¿Â½N DOCUMENTOS-->
+
+
+                        <!--PAGINACION CUENTAS-->
+
+
+                        <tr>
+                            <td class="noborder" colspan="7">
+                                <div class="paginador">
+                                    <div class="centrar">
+                                        <ul>
+                                            <li class="flechitaUX1"><a href="javascript:paginarMvtosCuenta('1');">Cuenta Anterior</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="volver noborder" colspan="6"><br />
+                                <a href="javascript:volver();"><<&nbsp;Volver</a></p>
+                            </td>
+                            <td class="noborder tright" colspan="1">
+                                <input type="button" class="azul" name="descargar" id="descarcar" value="Descargar" onclick="guardarMultiplesPDF_1();" style="display: none;">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script language="javascript" src="/SESTLSB/mult/jquerylib.js"></script>
+<script language="javascript" src="/SESTLSB/mult/tux.js"></script>
+<script language="javascript" src="/SESTLSB/../SESKYOP/kyop_mult_web_pub/external/utilPortalKyop.js?Aaaa"></script>
+
+<script>
+    var $focused;
+    if (!$("#impresiontop").length) {
+        window.alert = function (message) { jAlert(message, "", function(){
+            if(typeof $focused != 'undefined') if ($focused.length > 0) $focused.focus();
+        });};
+    }
+    console.log("Antes de comprobar el producto");
+
+    console.info("Nombre proceso. ");
+    var bAccesoNet = false;
+    var sNombreProcesoPasos = "";
+</script>
+
+<!-- I.SEPA_TRANSFORMACION -->
+<script type='text/javascript' src='/SESTLSB/../SESKYOP/kyop_mult_web_pub/min/SEPA_funciones_IBAN.min.js'></script>
+<!-- F.SEPA_TRANSFORMACION -->
+</body>
+</html>
+<SCRIPT type="text/javascript">
+    /*<![CDATA[*/
+    document.cookie = "IV_JCT=%2FSESTLSB; path=/; secure";
+    /*]]>*/
+</SCRIPT>

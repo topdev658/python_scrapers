@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+
+
+<script type="text/javascript" src="../js/elogenb000800.js"></script>
+<script type="text/javascript" src="./js/EloGenB000005.js"></script>
+<script type="text/javascript" language="JavaScript">
+</script>
+<html>
+<head>
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css">
+    <SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></SCRIPT>
+    <script type="text/javascript" language="JavaScript">
+        function indicarNavegador() {
+            var navegador = navigator.appName;
+            if (navegador != null) {
+
+                navegador = navegador.toLowerCase();
+                if (navegador.indexOf("navigator") != -1 || navegador.indexOf("firefox") != -1 ||
+                    navegador.indexOf("netscape") != -1  || navegador.indexOf("chrome") != -1 ||
+                    navegador.indexOf("opera") != -1)
+                    return "NO-IE";
+                else
+                    return "IE";
+            }
+            else
+                return "";
+        }
+        $( document ).ready(function() {
+            enviar();
+        });
+        function enviar(){
+            aspaCargando('block');
+            f1=document.form1;
+            f1.NOM_FICH_PC.value = "TT100421.755";
+            f1.RUTA_FICH_HP.value = "L_NvdQNlqkEv8291A2WqQQAAAXiaKXsIHi~Qyaf~McM";
+            f1.EXTENS.value = "TXT";
+
+
+            f1.CLAU_REC.value = "00001MHC99973";
+            f1.target="Oculto";
+            f1.submit();
+        }
+        resultado='';
+        var intervalVerificarDescarga = null
+        var timeOutDescarga = null
+        startTimer()
+        function startTimer(){
+            intervalVerificarDescarga = setInterval(function(){verificarDescarga()},1000);
+            timeOutDescarga = setTimeout(function(){procesaErrorTimeoutDescarga()}, 240000);
+        }
+        function stopTimer(){
+            clearInterval(intervalVerificarDescarga);
+        }
+        function verificarDescarga(){
+            enviaAsincrono('/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320','PN=FTR&PE=92&CLAVE_ITR=972501003751300003751317211089164838&SITUA=RU&FORMAT=RMHC9997302002&ESTILO=RMHC999730200201&NOM_FICH_HP=MHC99973.211089616001&NOM_FICH_PC=TT100421.755&DIR_FICH_PC=&CLAU_REC=00001MHC99973&RUTA_FICHERO_HP=L_NvdQNlqkEv8291A2WqQQAAAXiaKXsIHi~Qyaf~McM&PEREFVAL=23','respuestaAsincrona', 'GET',procesaRespuestaDescarga,procesaRespuestaErrorDescarga);
+        }
+        function procesaErrorTimeoutDescarga(){
+            stopTimer()
+            aspaCargando('none');
+            $("#resultado_ko_timeout").css('display','block');
+        }
+        function procesaRespuestaDescarga(){
+            document.getElementById('respuestaAsincrona').innerHTML = http_request.responseText
+            if (document.getElementById('descarga').innerHTML != ''){
+                resultado = document.getElementById('resultadoDescarga').innerHTML
+            }
+            if (resultado=='0' || resultado=='1'){
+                stopTimer()
+                aspaCargando('none');
+                if (resultado=='0'){
+                    clearTimeout(timeOutDescarga);
+                    $("#resultado_ok").css('display','block');
+
+
+                    getMensajeResultadoOK();
+
+
+                }
+                else if (resultado=='1'){
+                    clearTimeout(timeOutDescarga);
+                    $("#resultado_ko").css('display','block');
+                }
+            }
+        }
+        function procesaRespuestaErrorDescarga(){}
+        function aspaCargando(visualizacion){
+            if(document.getElementById("loading"))
+                document.getElementById("loading").style.display = visualizacion;
+        }
+        function actualizarTablaFicheros(pe) {
+            f2=document.form2;
+            f2.PN.value = "FTR";
+            f2.PE.value= pe;
+            f2.target="Cos";
+            f2.submit();
+        }
+        function getMensajeResultadoOK() {
+            $('#custom_lightbox').addClass("custom_lightbox--close-false");
+            var parametros = "PN=FTR&PE=24&NOM_FICH_PC=TT100421.755";
+            llamadaAjax(parametros);
+        }
+        function llamadaAjax(params){
+            $.ajax({
+                type: 'POST',
+                url: '/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320',
+                mode: 'queue',
+                data: params,
+                cache: false,
+                success: function(result){
+                    gestionAjaxSimulacion(result);
+                },
+                dataType: 'html',
+                async:   true
+            });
+        }
+        function gestionAjaxSimulacion(result) {
+            $("#VentanaResultadoOK").html(result);
+            $("br").addClass("display--none");
+            $('#custom_lightbox_close_button').addClass("dblock");
+            $('#custom_lightbox_mask').addClass("close_button");
+            $('#custom_lightbox_close_button').attr('onClick', "JavaScript:actualizarTablaFicheros('70');");
+            $('#custom_lightbox_mask').attr('onClick', "JavaScript:actualizarTablaFicheros('70');");
+        }
+    </script>
+</head>
+<body style ="text-align:center">
+<br>
+<br>
+<br>
+<br>
+<div id="loading" class="recarga" style="display:block;" align="center">
+    Procesando
+</div>
+<br>
+<br>
+<div id="resultado_ok" style ="margin:0 auto 0 auto; width:475px; display:none;">
+
+    <div id="VentanaResultadoOK"> </div>
+
+</div>
+<div id="resultado_ko" style ="margin:0 auto 0 auto; width:475px; display:none;">
+    <p class="info_vinculada bigger">El fichero a descargar no se encuentra disponible en este momento</p>
+    <br>
+
+    <input type="button" class="close_button" onclick="JavaScript:actualizarTablaFicheros('70')" value="Cerrar">
+
+</div>
+<div id="resultado_ko_timeout" style ="margin:0 auto 0 auto; width:475px; display:none;">
+    <p class="info_vinculada bigger">El fichero está tardando demasiado en descargarse. Compruebe en su navegador el proceso de descarga.</p>
+    <br>
+
+    <input type="button" class="close_button" onclick="JavaScript:actualizarTablaFicheros('70')" value="Cerrar">
+
+</div>
+<div id="respuestaAsincrona" style="display:none"> </div>
+<div class="limpiar"></div>
+
+<form name="form1" method="POST" action="/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320">
+    <input type="Hidden" name="PN" value="FTR">
+    <input type="Hidden" name="PE" value="91">
+    <input type="Hidden" name="PE_ORIGEN" value="23">
+    <input type="Hidden" name="NOM_FICH_PC" value="">
+    <input type="Hidden" name="RUTA_FICH_HP" value="">
+    <input type="Hidden" name="EXTENS" value="">
+
+    <input type="Hidden" name="CLAU_REC" value="">
+    <input type="Hidden" name="MULTIDESCARGA" value="N">
+    <input type="Hidden" name="CLICK_ORIG" value="FLX_FTR_23">
+</form>
+<form name="form2" method="POST" action="/GPeticiones;WebLogicSession=nnXmJg8tYIJLCzBm3t-Vs1GJhZI95Df1CtZnc4EUqELJydKfZvoG!-1186731176!2033175320">
+    <input type="Hidden" name="PN" value="FTR">
+    <input type="Hidden" name="PE" value="">
+    <input type="Hidden" name="CLICK_ORIG" value="FLX_FTR_23">
+    <input type="Hidden" name="CLAVE_PRODUCTO" value="">
+    <input type="Hidden" name="LITERAL_TEXTO" value="">
+</form>
+</body>
+</html>

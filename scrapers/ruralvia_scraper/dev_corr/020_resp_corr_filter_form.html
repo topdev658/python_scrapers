@@ -1,0 +1,921 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+
+    <!--
+    <title>BANCA INTERNET</title>
+    -->
+    <!-- -->
+
+    <title>BANCA INTERNET</title>
+
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="No-cache">
+    <META HTTP-EQUIV="Pragma" CONTENT="No-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="Now">
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+
+
+
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/ValidateTO.js"></script>
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script>
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/calendar.js"></script>
+    <script language="javascript" src="/javascripts_portal/es_ES/js_portal/ValidateTO.js"></script>
+
+    <script type="text/javascript" >
+        window.onload = function() {
+
+            var tipoConsulta = "0";
+            inicializarCheck(tipoConsulta);
+            var tamListaCuentas = 3;
+            if (tamListaCuentas == 0){
+                document.FORM_RVIA_0.TIPO[0].disabled = true;
+            }
+        }
+        var pulsada = 0;
+        var SEPARADOR = "|";
+
+        function aceptar(){
+            // Chequeo de fechas
+            if (! checkDate(document.FORM_RVIA_0.fechaDesde,'Fecha', false)) return false;
+            if (! checkDate(document.FORM_RVIA_0.fechaHasta,'Fecha', false)) return false;
+            if (! checkDateMayorEquals(document.FORM_RVIA_0.fechaDesde, document.FORM_RVIA_0.fechaHasta, false)) return false;
+            if (! isDateMayorEquals(document.FORM_RVIA_0.fechaHasta, document.getElementById("fechaComparacion"), false) ){
+                alert("El campo Fecha Hasta no debe ser posterior a la Fecha Actual.");
+                return false;
+            }
+            if (isDateMayorEquals(document.FORM_RVIA_0.fechaDesde, document.getElementById("fechaDesdeMinima"), false) ){
+                alert("El campo Fecha Desde debe ser superior a 31-08-2011");
+                return false;
+            }
+
+            // Selección de cuenta
+            if (document.FORM_RVIA_0.SELCTA){
+                var cuentaSeleccionada = document.FORM_RVIA_0.SELCTA[document.FORM_RVIA_0.SELCTA.selectedIndex].value;
+                if ( cuentaSeleccionada != "0" ) {
+                    document.FORM_RVIA_0.cuenta.value = cuentaSeleccionada.substring(0, 20);
+                }else{
+
+                    document.FORM_RVIA_0.listaCuentas.value = "30603001212070456427|30603001242317022925|30603001222279261925|";
+
+                }
+                document.FORM_RVIA_0.cuentaSeleccionada.value = cuentaSeleccionada;
+            }
+
+            //Seleccion de situaciones
+            var situacion = document.FORM_RVIA_0.listaSituaciones[document.FORM_RVIA_0.listaSituaciones.selectedIndex].value;
+            if (situacion != "*" ){
+                document.FORM_RVIA_0.sVisualizado.value = situacion;
+            }
+
+            //Seleccion de categorias
+            if (document.FORM_RVIA_0.listaCategorias){
+                var categoria = document.FORM_RVIA_0.listaCategorias[document.FORM_RVIA_0.listaCategorias.selectedIndex].value;
+                if (situacion != "0" ){
+                    document.FORM_RVIA_0.categoria.value = categoria;
+                }else{
+
+                    document.FORM_RVIA_0.categoria.value = "00001|00002|00003|00004|00005|00006|";
+
+                }
+            }
+
+            //Envío formulario
+            if (pulsada == 0){
+                pulsada = 1;
+                document.FORM_RVIA_0.submit();
+            }
+        }
+
+        function habilitarCuentas(tipoConsulta){
+            if(document.FORM_RVIA_0.SELCTA){
+                switch (tipoConsulta) {
+                    case "0":
+                        document.FORM_RVIA_0.SELCTA.disabled = false;
+                        break;
+                    default :
+                        document.FORM_RVIA_0.SELCTA.disabled = true;
+                        //document.FORM_RVIA_0.SELCTA.value = "0";
+                        break;
+                }
+            }
+        }
+
+        function habilitarCategorias(tipoConsulta){
+            if(document.FORM_RVIA_0.listaCategorias){
+                switch (tipoConsulta) {
+                    case "0":
+                        document.FORM_RVIA_0.listaCategorias.disabled = false;
+                        break;
+                    default :
+                        document.FORM_RVIA_0.listaCategorias.disabled = true;
+                        document.FORM_RVIA_0.listaCategorias.value = "0";
+                        break;
+                }
+            }
+        }
+
+
+        function pdfValidez() {
+            document.FORM_RVIA_1.submit();
+        }
+
+        function inicializarCheck (tipoConsulta){
+            switch (tipoConsulta) {
+                case "0":
+                    break;
+                default:
+                    document.FORM_RVIA_0.TIPO[tipoConsulta].checked = true;
+                    if(document.FORM_RVIA_0.listaCategorias){
+                        document.FORM_RVIA_0.listaCategorias.value = "0";
+                        document.FORM_RVIA_0.listaCategorias.disabled = true;
+                    }
+                    if(document.FORM_RVIA_0.SELCTA){
+                        document.FORM_RVIA_0.SELCTA.disabled = true;
+                        //document.FORM_RVIA_0.SELCTA.value = "0";
+                    }
+                    break;
+            }
+        }
+
+    </script>
+
+
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/skin.css?id=001">
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/skin.css?id=001">
+
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/skin.css?id=001">
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/bi/style.css">
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/bi/style_MZ.css">
+
+
+    <link rel="Stylesheet" type="text/css" href="/estilos_prtl/css/TM2/RVIA05_MZ/EMPRESA/3060/skin.css?id=001">
+
+
+    <NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/interface.js"></script></NO_TRANSFORM>
+
+
+
+
+    <NO_TRANSFORM><script language="javascript" src="/javascripts_portal/es_ES/js_portal/multicanalidad.js"></script></NO_TRANSFORM>
+
+
+
+    <script language="JavaScript">
+        <!--
+        openMenuA = null;
+        openMenuB = null;
+
+        function cambiaKK(capa1, capa2){
+            oculta(capa1);
+            visualiza(capa2);
+            if (openMenuA != null){
+                oculta(openMenuB);
+                visualiza(openMenuA);
+            }
+            if (openMenuA == capa2){
+                openMenuA = null;
+                openMenuB = null;
+            }else{
+                openMenuA = capa1;
+                openMenuB = capa2;
+            }
+        }
+
+        function oculta(capaId){
+            capa = document.getElementById(capaId);
+            capa.style.display = 'none';
+            i = 0;
+            while (document.getElementById(capaId + "_" + i)){
+                caux = document.getElementById(capaId + "_" + i);
+                caux.style.display = 'none';
+                i++;
+            }
+        }
+
+        function visualiza(capaId){
+            capa = document.getElementById(capaId);
+            capa.style.display = 'block';
+            i = 0;
+            while (document.getElementById(capaId + "_" + i)){
+                caux = document.getElementById(capaId + "_" + i);
+                caux.style.display = 'block';
+                i++;
+            }
+        }
+
+
+
+
+
+
+        function pintarTablaMenu(texto)
+        {
+            document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+            document.write("	<table cellpadding='0' cellspacing='0' border='0'>");
+            document.write("	<tr>");
+            document.write("		<td nowrap='true' id='opcion'>" + texto + "</td>");
+            document.write("	</tr>");
+            document.write("	</table>");
+            document.write("</td>");
+        }
+
+        function pintarTablaMenuSeleccionada(texto)
+        {
+            document.write("<td class='fondoMenu' style=' vertical-align: bottom;'>");
+            document.write("			<table cellpadding='0' cellspacing='0' border='0'>");
+            document.write("			<tr>");
+            document.write("	 			<td class='izqFin' nowrap='true'></td>");
+            document.write("	 			<td class='centroFin' nowrap='true'>&nbsp;" + texto + "&nbsp;</td>");
+            document.write("				<td class='dchaFin' nowrap='true'>&nbsp;</td>");
+            document.write("			</tr>");
+            document.write("		 	</table>");
+            document.write("		</td>");
+
+
+        }
+
+        function pintarFinTablaMenu()
+        {
+            document.write("<td class='fondoMenu' style='vertical-align: bottom; padding-top:5px;' width='100%'>");
+            document.write("<table cellpadding='0' cellspacing='0' border='0' width='100%'>");
+            document.write("	<tr>");
+            document.write("		<td id='opcion'>&nbsp;</td>");
+            document.write("	</tr>");
+            document.write("	</table>");
+            document.write("</td>");
+        }
+
+        //-->
+    </script>
+    <script language="Javascript">
+        <!--
+        ie4 = (document.all)? true:false;
+        function pulsarTecla (e){
+            if ((ie4 && (event.keyCode == 13)) || (! ie4 && (e.which == 13))){
+                return false;
+            }
+        }
+        document.onkeydown = pulsarTecla;
+        //-->
+
+    </script>
+    <script language="javascript" src="/javascripts_portal/utils/funciones.js"></script>
+</head>
+
+<BODY>
+<DIV ID="RESOLUCION">
+
+    <!--CABECERA-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script language="JavaScript">
+        <!--
+        function resolucion(valor){
+            if (valor == "TM1"){
+                var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a 800 x 600 píxeles.";
+                alert(tx);
+            }else{
+                var tx = "Se va a proceder a modificar el modo de visualización de su pantalla. Le recomendamos que ajuste la configuración de su pantalla a un resolución mínima de 1024 x 768 píxeles.";
+                alert(tx);
+            }
+            url = window.location.href;
+            if (url.indexOf("?") != -1){
+                indice = url.indexOf("?");
+                if (indice != -1){
+                    window.location.href = url.substring(0, indice) + "?RES=" + valor;
+                }else{
+                    window.location.href = url + "&RES=" + valor;
+                }
+            }else{
+                window.location.href = url + "?RES=" + valor;
+            }
+        }
+        //-->
+
+        function salirConfirmacion(url){
+            load(url);
+            //location.href="/isum/srv.BDP_EXCLUSIVE_SALIR_EMP.BDP_EXCLUSIVE_SALIR_EMP";
+        }
+
+        var pgLogout = null ;
+
+        function load(url) {
+
+
+
+
+            url= 'https://bancaelectronica.evobanco.com'+url;
+
+
+            if (typeof window.ActiveXObject != 'undefined' ) {
+                pgLogout = new ActiveXObject("Microsoft.XMLHTTP");
+                pgLogout.onreadystatechange = process ;
+            }
+            else {
+                pgLogout = new XMLHttpRequest();
+                pgLogout.onload = process ;
+            }
+            pgLogout.open( 'POST', url, true );
+            pgLogout.send( null );
+        }
+
+        function process() {
+            if (pgLogout.readyState != 4 ) return ;
+            document.getElementById('CONTENIDO').innerHTML = pgLogout.responseText ;
+        }
+
+
+    </script>
+
+    <div class=CABECERA>
+
+        <div id=LOGO></div>
+        <div id=BARRALITERAL>
+
+
+
+            <a href="/isum/interfaces/ruralvia2005b/Logout.jsp?entidad=3060&modo_autenticacion=1" id="botonSalir" ></a>
+
+
+
+            <div id=CBLITERAL01>
+
+
+                <a href='Main?ISUM_ID=cabecera&ISUM_SCR=serviceScr&ISUM_CIPH=M63WiTIty2SHKdYevV%2FtPcClu8vx0ZfC5Zch00BVtcw%3D' onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('desconectar','','/es_ES/img/desconectar_b.gif',1)"><img name="desconectar" border="0" src="/es_ES/img/desconectar_a.gif" alt="Desconectar" ></a>
+
+
+
+            </div> <!-- CBLITERAL01 -->
+
+
+
+
+
+
+            <div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=BTqHo39K5H8bnE0Pqm%2FyrQ%3D%3D" target="_blank">Atención al Cliente</a>&nbsp;|&nbsp;</div>
+
+
+
+
+
+            <div id=CBLITERAL><a class="link0" href="/isum/Main?ISUM_ID=Utilities&ISUM_SCR=serviceScr&ISUM_CIPH=mpYhsP4nMGS87zKN8r8WhA%3D%3D" target="_blank">Seguridad</a>&nbsp;|&nbsp;</div>
+
+
+
+            <!--Adaptación Resoluciones-->
+
+
+
+            <!--***** P00009735 -- INICIO ***********-->
+
+            <!-- /*************************** P00017411 12/08/2013 INICIO *************************************** -->
+
+
+            <div id="CBLOGOTXT">
+                Cajaviva Caja Rural
+
+
+                <div class="bix">BIC: BCOEESMM060</div>
+
+            </div>
+            <!-- /*************************** P00017411 12/08/2013 FIN ****************************************** -->
+
+            <!--***** P00009735 -- FIN ***********-->
+
+
+            <div id=contrato_tit>
+                <p class=contrato><span>Contrato:  </span>00000000002085498190</p>
+                <p class=titular><span>Titular:  </span>GAMBASTAR S.L.</p>
+            </div>
+
+
+
+
+
+        </div> <!-- BARRALITERAL -->
+
+
+        <div id=ENTORNO>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=tP3H%2B8EtFS%2BBXVFTTQl5sHdoZziljXOhgzqWl61zZz0%3D" id="BDP_RVIA05_BANCA_PRIVADA_EMP">Banca Privada</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=i9PZ0SKCZUzXv50%2FMW%2B8jev2ehxgC1H9LSkKIN2U8IM%3D" id="BDP_RVIA05_COMERCIO_EMP">Comercio</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id=DESTACADOS><a class="link1" HREF="/isum/srv.EMPRESA.BDP_RVIA05_SERV_CABECERA_GEST_FICHEROS"  id="EMPRESA_IA">Gestión de Ficheros</a></div>
+
+            <INPUT type="hidden" name="EMPRESA_IA_REDIRECT" id="EMPRESA_IA_REDIRECT" value="/isum/Main?ISUM_ID=cabecera&ISUM_SCR=groupScr&ISUM_CIPH=GiNrEqlI8SXEtxOJhJzhcbtEKn4Wj6X5M%2BINFupyzso%3D">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </DIV>
+
+
+
+
+
+
+
+    <!--MENU SUPERIOR-->
+
+
+
+
+
+
+    <!--	<DIV MENU> //-->
+    <div id="menuHorizontal">
+        <table cellpadding="0" align="center" cellspacing="0" border="0" style="border-top: 1px solid #000000; border-left: 1px solid #949494;">
+            <tr>
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=KTjqF1bBM7meFFwNMPYJOUqWEm9JYz9qSytemQR9VgQ%3D">Inicio</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=W8WZhhAuUqYlB%2FlZA%2BFg7Sqo64REfkzzR4y9hPSUdJs%3D">Cuentas</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=zr8u86JWmXMpALZkX9JRZRduMilTgIRMn6N44jbqf2A%3D">Transferencias</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=hjz8HacjwPIlZJkCnn4tn4pQWRKaseSdWwj5PJvZMWs%3D">Tarjetas</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=ew5%2FZt2myrt2hHMVuhddis85PT0gzsYqEgdhqNlgkus%3D">Ahorro/Inversión</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=lL12ajtPUoOBcB8KZobWpYlaBgvl%2FMeNpjODdXfg%2FJo%3D">Valores</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=t0aFPMMpFyk%2F0wpjE6QCd5eT6V8HoZFlibqLO9vBSA4%3D">Financiación</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=7%2BhEdeSNkxuBUKch5kxrLVabOXhYN7Xq0K2USP0NO9s%3D">Internacional</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=LzzO3AKXOo7CFpOKHldR2CmVirr2NAuXA%2FAb1Y%2BD5uY%3D">Seguros</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=2%2BaXcJymoGDkzpASjZyXgsOJmLpSnbpdK8mWomua4xk%3D">Impuestos</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=y5U95ScONS0oa7ynCrAVXZ0QahmIMz55I5SoylEk0Ic%3D">Ficheros</a>');</script>
+
+
+                <script>pintarTablaMenu('<a href="/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=lcqdbsblnHbzln52DXsstN8NvQVTC91I%2FRhGWz1Yyuk%3D">Servicios</a>');</script>
+
+
+                <script>pintarTablaMenuSeleccionada('Buzón');</script>
+
+                <script>pintarFinTablaMenu();</script>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <DIV class="MENU2">
+
+
+        <div class="opcionGm2">Correspondencia</div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=qMuq5IafiKumLPXXdX%2FllR3V5xlBgmcw1bwuHSCi9LQ%3D" >Consulta</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=azID1rhDn8ChKT2pIMQFlQ0Jb1JT%2B0qQHJTjAEOHess%3D" >Alta Buzón Virtual</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=hNpZi7IEvpRoOp1MvLz9fccIb0YqSMN6DRGhYY38N1w%3D" >Baja Buzón Virtual</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=MkxYvoEas4GXMnWgiJuAwQ2zzvHL%2B0g1PBDk1gtd42o%3D" >Alta Infomail</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=In29t9TF1%2FFG4NW0LBJUmiH2LaUpPugtj8YOWDDbjIw%3D" >Baja Infomail</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=uILX6fa20MoHvFpMCrjb8fK1ffN774sj8wZBwdVcwyA%3D" >Gestión de Correspondencia</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ml4vJz916%2BtHjMbHYSy6m9hsgW0GHDxuMSWNjffus2c%3D" >Gestión de Correspondencia</a></div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="opcionGm2">Mensajes Personales</div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=XtfzfwprkskCyDNDapwNH29VC7Ig2FXbjv6Oxg4hWHM%3D" >Nuevo Mensaje</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=dyP7Q49nziQcZBqoivvIh0Jdhz5UCr5G11K6pnNqnzE%3D" >Recibidos</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=gurRZU8NM5sN6pIrYrDjkENoBDHrFKN8BWeoYLf8Vlc%3D" >Enviados</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=jLkDI2Ry5QSqEIKeDO%2BFPhN%2F1ONho902ewjbbryiSqQ%3D" >Archivados</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=AQS1XtdGwew3xM0G76wvWAIT%2FMnE9%2BpnU7VRpF2P%2FBU%3D" >Borrados</a></div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="opcionGm2">Gestión de documentación</div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=TXHT5vmoawcPOn1I1R%2FrpT7JGvHljXQBgDosJ60gh%2FU%3D" >Enviar Documentos</a></div>
+        </div>
+
+
+
+        <div class="fondopciones"><!-- 000003 -->
+            <div     class="subopcionm2"  ><a href="/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=jrclO6g8SQdfNj7rxdhvgqU43DaVSFYOH3e8tNOupJc%3D" >Consultar documentos</a></div>
+        </div>
+
+
+
+
+
+
+
+
+    </DIV>
+
+
+
+
+
+
+
+
+
+    <div id="AdminToolbar">
+
+    </div>
+
+    <!--CONTENIDO-->
+    <DIV id="CONTENIDO" class="pos_global">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="PORTLET-SECTION-HEADER">
+            <div id="HEADER">BUZÓN VIRTUAL</div>
+        </div>
+
+        <div id="EXPLICA">Seleccione el tipo de operación que desea realizar y pulse <b>aceptar</b>.</div>
+        <FORM name="FORM_RVIA_0" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKbYFvdUm4421PSl0aM9Y%2F4ahdwl7p1I5dP12%2FKhlLeQjjnEiP%2BTHPBejtXYpFKgVP0rWBd9C7%2B7GA2aKPReAKZYPCszg4GpxHnEs48hylgRBO49ebAHg7HYvpv7GJiIGiICSjKy3VESUM5zCqgvaUS0%2FO6Hvn6bUwU3TgKLwHeVWVU1oo9i8tudfVw62iVhrtvofmoXotn7EtoJ7lX%2B5vRZ" METHOD="post" ><input type="hidden" name="ISUM_OLD_METHOD" value="POST"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+            <div id="PORTLET-INPUT">
+                <div id="HEADER_INPUT">
+                    <div id="HD_INPUT">Tipos de comunicados</div>
+                </div>
+
+                <div id="BODY_INPUT">
+                    <!-- TABLA CRITERIOS SELECCION-->
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" >
+
+                        <tr >
+                            <td class="datobl" ><input type="radio" name="TIPO" value="0" checked="true" onchange="habilitarCuentas(this.value); habilitarCategorias(this.value); return false;"/> De mis cuentas</td>
+                            <td class="datoI" colspan="2" >
+
+                                <SELECT CLASS="dato" NAME="SELCTA" MAXLENGTH="20">					<option value="0">TODAS</option>
+                                    <option value='30603001212070456427978C/C COLECTIVOS'>ES55 3060 3001 2120 7045 6427  | C/C COLECTIVOS | Euro </option>
+                                    <option value='30603001242317022925978CUENTAS ADMINISTRATIVAS'>ES81 3060 3001 2423 1702 2925  | CUENTAS ADMINISTRATIVAS | Euro </option>
+                                    <option value='30603001222279261925840CUENTAS EN DIVISA'>ES90 3060 3001 2222 7926 1925  | CUENTAS EN DIVISA | Dólar USA </option>
+                                </SELECT>
+
+                            </td>
+                        </tr>
+
+                        <tr >
+                            <td class="datobl" ><input type="radio" name="TIPO" value="1" onchange="habilitarCuentas(this.value); habilitarCategorias(this.value); return false;"/> No asociados a mis cuentas</td>
+                        </tr>
+
+                        <tr >
+                            <td class="datobl" colspan="3" ><input type="radio" name="TIPO" value="2" onchange="habilitarCuentas(this.value); habilitarCategorias(this.value); return false;"/> Información fiscal / Resumen anual de intereses, comisiones y gastos / Comunicado Anual FGD</td>
+                        </tr>
+
+                        <tr ><td >&nbsp;</td></tr>
+
+                        <tr >
+                            <td class="datobl" >Situación:</td>
+                            <td class="datoI" >
+
+                                <select id ="listaSituaciones" class="dato" name="listaSituaciones">					<option  value="*">Todos </option>
+                                    <option  value="0">No leído </option>
+                                    <option  value="1">Leído </option>
+                                </select>
+
+                            </td>
+                            <td class="datoI" rowspan="2" valign="top" >
+                                <table cellspacing="3" cellpadding="0" border="0" align="right" >
+                                    <tr >
+                                        <td class="datoI" >
+                                            <A HREF="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKajF4QWq%2BZHyNrqUpjsE77X" onClick="pdfValidez();return false;" >
+
+
+                                                <img src="/es_ES/img/pdf.gif" border="0">&nbsp;Información Validez Legal.pdf
+
+
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr >
+                            <td class="datobl" >Tipo de Documento:</td>
+                            <td class="datoI" >
+
+                                <select id ="listaCategorias" class="dato" name="listaCategorias">					<option value="0">TODOS</option>
+                                    <option  value="00001">AVISOS </option>
+                                    <option  value="00002">ADEUDOS Y ABONOS </option>
+                                    <option  value="00003">EXTRACTOS </option>
+                                    <option  value="00004">LIQUIDACIONES </option>
+                                    <option  value="00005">INFORMACION FISCAL </option>
+                                    <option  value="00006">VARIOS </option>
+                                </select>
+
+
+                            </td>
+                        </tr>
+
+                        <tr >
+                            <td class="datobl" >Desde</td>
+                            <td align="left" colspan="2" >
+                                <table cellpadding="0" cellspacing="0" border="0" >
+                                    <tr >
+                                        <td class="datoI" >
+                                            <input type="text" class="dato" size="10" maxlength="10" name="fechaDesde" value="11-09-2020" />
+                                            <DIV id='cal_fechaDesde' style='position:absolute;z-index:1;'></DIV><IMG src='/es_ES/img/E/calendar.gif' border=0 onMouseOver="this.style.cursor='hand'" onClick="javascript:showCalendar('fechaDesde','idcal_fechaDesde','-','espaniol','FORM_RVIA_0')"><DIV id='idcal_fechaDesde' style='position:absolute; visibility: hidden;z-index:2;'></DIV>
+                                        </td>
+                                        <td width="6" >&nbsp;</td>
+                                        <td class="datobl" align="center" >Hasta</td>
+                                        <td width="6" >&nbsp;</td>
+                                        <td class="datoI" >
+                                            <input type="text"  class="dato" size="10" maxlength="10" name="fechaHasta" value="11-10-2020" />
+                                            <DIV id='cal_fechaHasta' style='position:absolute;z-index:1;'></DIV><IMG src='/es_ES/img/E/calendar.gif' border=0 onMouseOver="this.style.cursor='hand'" onClick="javascript:showCalendar('fechaHasta','idcal_fechaHasta','-','espaniol','FORM_RVIA_0')"><DIV id='idcal_fechaHasta' style='position:absolute; visibility: hidden;z-index:2;'></DIV>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div id="FOOTER">
+                    <div id="BOT"><a href="#" onclick="aceptar(); return false;" >&#65;&#99;&#101;&#112;&#116;&#97;&#114;</a></div>
+                    <table align="center" >
+                        <tr align="center" >
+                            <td class="datoI" align="center" >Realice búsquedas acotadas de documentos. Sólo se presentan los primeros 200 comunicados.</td>
+                        </tr>
+                        <tr align="center" >
+                            <td class="datoI" align="center" >Le informamos que los comunicados sobre tarjetas con domiciliación ajena no son visualizables a través del Buzón Virtual.</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <INPUT type="hidden" id="fechaComparacion" value= "11-10-2020">
+            <INPUT type="hidden" id="fechaDesdeMinima" value= "31-08-2011">
+            <INPUT type="hidden" name="clavePagina" value= "BDP_BZVIRTUAL_LISTA">
+            <INPUT type="hidden" name="cuenta" value= "">
+            <INPUT type="hidden" name="cuentaSeleccionada" value= "">
+            <INPUT type="hidden" name="listaCuentas" value= "">
+            <INPUT type="hidden" name="sVisualizado" value= "" >
+            <INPUT type="hidden" name="categoria" value= "" >
+            <INPUT type='hidden' name='primeraVez' value='1'>
+            <INPUT type='hidden' name='paginaActual' value='0'>
+            <INPUT type='hidden' name='tamanioPagina' value='25'>
+            <INPUT type='hidden' name='campoPaginacion' value='ListaCorrespondencia'>
+
+        </FORM>
+
+        <FORM name="FORM_RVIA_1" action="/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=c%2Bxm1iyLhdDZ2IyHT0W6Po8oj4NVvTU6rtGO50oRyKbYFvdUm4421PSl0aM9Y%2F4ahdwl7p1I5dP12%2FKhlLeQjjnEiP%2BTHPBejtXYpFKgVP0rWBd9C7%2B7GA2aKPReAKZYPCszg4GpxHnEs48hylgRBO49ebAHg7HYvpv7GJiIGiICSjKy3VESUM5zCqgvaUS0%2FO6Hvn6bUwU3TgKLwHeVWVU1oo9i8tudfVw62iVhrtvofmoXotn7EtoJ7lX%2B5vRZ" method="post" ><input type="hidden" name="ISUM_OLD_METHOD" value="POST"/><input type="hidden" name="ISUM_ISFORM" value="true"/>
+            <INPUT type="hidden" name="entidad" value= "3060">
+            <INPUT type="hidden" name="clavePagina" value= "BDP_BZVIRTUAL_PDF_VALIDEZ_LEGAL" >
+        </FORM>
+
+
+
+
+
+    </DIV>
+
+
+
+
+
+
+
+
+</DIV>
+
+<script language="Javascript">
+
+
+    var vcontrolBotonAtras = window.sessionStorage.getItem("controlBotonAtras");
+    if(vcontrolBotonAtras == 1){
+
+        console.log("Entro por aqui");
+        history.forward();
+    }else{
+        console.log("Me voy por el else");
+    }
+
+
+
+
+</script>
+
+</BODY>
+</html>
+
+

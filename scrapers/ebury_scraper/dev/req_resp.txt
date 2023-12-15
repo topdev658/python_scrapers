@@ -1,0 +1,209 @@
+>>> INIT
+await fetch("https://online.ebury.com/login/", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_login_init.html
+
+>>> LOGIN
+await fetch("https://online.ebury.com/login/?next=/", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://online.ebury.com/login/",
+    "body": "csrfmiddlewaretoken=EPol9uIyWBXYIvzHE6nAaR9XsGtJSugo0GcaG77tKvyMUe3TuJuMcF9GYmOveuOR&username=f.zwanck%40gasmobi.com&password=...",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 15_resp_logged_in.html
+<<< RESP MULTY (after login): 15_resp_logged_in_multicontract.html
+
+>>> SWITCH CONTRACT
+await fetch("https://online.ebury.com/login/account/?next=/dashboard/", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://online.ebury.com/login/account/?next=/dashboard/",
+    "body": "csrfmiddlewaretoken=ehQfNeBIG5bOdIN5LkbevQp0FeB2l7zkuBy3C5dUIOf04Wbjmi2w1LYSqXhnBqFT&client_identifier=EBPCLI96239",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< ... (not needed, see INICIO BALANCES)
+
+>>> INICIO BALANCES
+fetch("https://online.ebury.com/api/client/balances/", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": "7dsVB80TZVCzHpXWXOU6vOuJWDitdN2WP9KKSzTaoRnb150prIV9KEKM9p9Wbk6b"
+  },
+  "referrer": "https://online.ebury.com/dashboard/",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 30_resp_inicio_balances.json
+
+>>> ACCOUNT DETAILS EUR
+fetch("https://online.ebury.com/api/account-details/EUR/", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": "7dsVB80TZVCzHpXWXOU6vOuJWDitdN2WP9KKSzTaoRnb150prIV9KEKM9p9Wbk6b"
+  },
+  "referrer": "https://online.ebury.com/dashboard/account-details/EUR",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 35_resp_account_details_eur.json
+
+
+>>> CURRENCY ACCOUNTS
+fetch("https://online.ebury.com/api/client/currency-accounts/", {
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": "TJLGstNUDK120aQ2NDGNp7t2FDUJNmQ22UzSrxt92bW1xOM7BCZ77PHnO7imHwsA"
+  },
+  "referrer": "https://online.ebury.com/dashboard/download-statements/mt940",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 36_resp_currency_accounts.json
+
+
+>>> OPERACIONES
+fetch("https://online.ebury.com/api/history/trades/list/all/all/none/none/none/none/all/all/all/1/10/order_date/desc/", {
+  "headers": {
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://online.ebury.com/trades/",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 40_resp_operaciones__currency_trades.json
+
+>>> PAGOS (PAYMENTS)
+fetch("https://online.ebury.com/payments/all/", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/json;charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": "7dsVB80TZVCzHpXWXOU6vOuJWDitdN2WP9KKSzTaoRnb150prIV9KEKM9p9Wbk6b"
+  },
+  "referrer": "https://online.ebury.com/payments/",
+  "referrerPolicy": "same-origin",
+  "body": "{\"items_per_page\":10,\"page\":1}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 50_resp_pagos__payments.json
+
+>>> INGRESOS (INCOMING)
+fetch("https://online.ebury.com/api/incomingfunds/history/", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/json;charset=UTF-8",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": "7dsVB80TZVCzHpXWXOU6vOuJWDitdN2WP9KKSzTaoRnb150prIV9KEKM9p9Wbk6b"
+  },
+  "referrer": "https://online.ebury.com/incomingfunds/",
+  "referrerPolicy": "same-origin",
+  "body": "{\"page\":1,\"items_per_page\":10,\"query\":null}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<< 60_resp_ingresos__incoming.json
+

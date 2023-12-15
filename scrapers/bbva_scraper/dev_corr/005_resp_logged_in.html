@@ -1,0 +1,2783 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="X-Frame-Options" content="deny">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9;IE=8" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    <link rel="shortcut icon" type=image/x-icon href="resources/images/favicon.ico">
+    <title>BBVA Net Cash</title>
+
+    <link rel="stylesheet" href="resources-new/css/kyop-all.css?vkyop=v1.0.9"/>
+    <script src="particionado.js" type="text/javascript">;</script>
+
+    <script type="text/javascript">
+
+        includeAdobeAnalytics = function (fn) {
+            console.log('Cargamos el fichero de adobeAnalytics');
+            if (window.location.hostname.indexOf("www.bbvanetcash.com") != -1) {
+                //URL PR
+                urlAdobeAnalytics = "//assets.adobedtm.com/95bb966a4c61b200a089c37679aaf96e22114787/satelliteLib-19828d23369b2d4af0655a61d8a6a9cc182b0005.js";
+            } else {
+                //URL entornos previos
+                urlAdobeAnalytics = "//assets.adobedtm.com/95bb966a4c61b200a089c37679aaf96e22114787/satelliteLib-19828d23369b2d4af0655a61d8a6a9cc182b0005-staging.js";
+            }
+
+            var scriptAdobe = document.createElement("script");
+            scriptAdobe.onload = fn;
+            scriptAdobe.src = urlAdobeAnalytics;
+            scriptAdobe.async=true;
+            document.getElementsByTagName("head")[0].appendChild(scriptAdobe);
+        };
+
+    </script>
+
+    <!-- The utag.sync.js script should run as soon as possible, in the head of the document. -->
+    <script src="//tags.tiqcdn.com/utag/bbva/es-netcash-web/prod/utag.sync.js"></script>
+
+    <script type="text/javascript">
+        // Make it safe to do console.log() always.
+        (function(global) {
+            'use strict';
+            if (!global.console) {
+                global.console = {};
+            }
+            var con = global.console;
+            var prop, method;
+            var dummy = function() {};
+            var properties = ['memory'];
+            var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+                'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+                'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+            while (prop = properties.pop()) if (!con[prop]) con[prop] = {};
+            while (method = methods.pop()) if (!con[method]) con[method] = dummy;
+            // Using `this` for web workers & supports Browserify / Webpack.
+        })(typeof window === 'undefined' ? this : window);
+    </script>
+    <script src="min-new/jquery-all.js?vkyop=v1.0.9" type="text/javascript">;</script>
+
+    <script src="min-new/kyop-all-w-comments.js?vkyop=v1.0.9" type="text/javascript">;</script>
+    <!--[if !IE]>-->
+    <script src="min-new/bodymovin_light.js" type="text/javascript">;</script>
+    <!--<![endif]-->
+    <script type="text/javascript">
+        var isPortalKyop = true;
+        var kyopCounter3= 0;
+        var kyopCounterAll=0;
+        function resetCounter3(){
+            kyopCounter3 = 1;
+        }
+        function inc(){
+            kyopCounterAll++;
+            kyopCounter3++;
+            return '';
+        }
+        function getCounter3(){
+            return kyopCounter3;
+        }
+        function getCounterAll(){
+            return kyopCounterAll;
+        }
+    </script>
+    <script type="text/javascript">
+        function queryString() {
+            var qsParm = new Array();
+            var query = window.location.search.substring(1);
+            var parms = query.split('&');
+            for (var i = 0; i < parms.length; i++) {
+                var pos = parms[i].indexOf('=');
+                if (pos > 0) {
+                    var key = parms[i].substring(0, pos);
+                    var val = parms[i].substring(pos + 1);
+                    qsParm[key] = val;
+                }
+            }
+            return qsParm;
+        }
+
+
+        function getQueryString(key) {
+            var arr = queryString();
+            return arr[key];
+        }
+
+        //**** Funciones para establecer la junction en caso de estar en PreProducciÃ³n ******//
+        var prefixPreEnvironment = 'SPP';
+        var otherPrefixEnvironment = 'SGL';
+        var kyopPreEnviroment = 'SPPKYOP';
+        var kyopVirtualHostWas = 'kyop_mult_web_kyoppresentation_01';
+
+
+        //Para probar que la funcionalidad de la Junction funciona descomentar estas tres lÃ­neas y comentar prefixPreEnvironment y kekmPreEnviroment
+        //var prefixPreEnvironment = 'mult';
+        //var kekmPreEnviroment = 'kekm_mult_web_marcocibpresentation_01';
+
+        function isPreproduction() {
+            var isPreproduction = false;
+
+            //Se toma la url y se hace un split para obtener todos los datos a analizar
+            var strUrl = window.location.pathname + '';
+            var pos = strUrl.indexOf(kyopPreEnviroment);
+
+            if (pos != -1) {
+                isPreproduction = true;
+            }
+
+            return isPreproduction;
+        }
+
+        function getJunction(uuaa) {
+            var kyop_junction = uuaa.toUpperCase();
+
+            if (isPreproduction()) {
+                kyop_junction = prefixPreEnvironment + uuaa.toUpperCase();
+            } else {
+                kyop_junction = otherPrefixEnvironment + uuaa.toUpperCase();
+            }
+            return kyop_junction;
+        }
+        //***** Fin establecimiento de junction ****//
+
+        var isLessThanEqualsIE8 = false;
+        var isSupported = true;
+        var initialHref = window.location.href;
+        var blnIsEndSessionClose = false;
+        var arrayJss = null;
+        var arrayExternalJss = new Array();
+        var isLocalhost = false;
+
+        if (window.location.hostname == "localhost") {
+            isLocalhost = true;
+        }
+
+        var arrayExternalCss = new Array();
+        var arrayCss = null;
+        var paramUserId = 'userId';
+        var userId = getParameterByName(paramUserId);
+        //True aÃ±ade DC
+        var disableCachingAction = true;
+
+        var KYOP_CONSTANTS = {};
+        KYOP_CONSTANTS.KYOP_VIRTUAL_HOST_WAS = 'kyop_mult_web_kyoppresentation_01';
+        KYOP_CONSTANTS.KYOP_VIRTUAL_HOST_APACHE = 'kyop_mult_web_pub';
+
+        KYOP_CONSTANTS.KYOP_DOMAIN_DES = 'grupobbva.es.igrupobbva';
+        KYOP_CONSTANTS.KYOP_DOMAIN_DES_MAQUINA = 'ad003.igrupobbva';
+        KYOP_CONSTANTS.KYOP_DOMAIN_INT = 'eup-grupobbva2.igrupobbva';
+        KYOP_CONSTANTS.KYOP_DOMAIN_PRE = 'nohay';
+        KYOP_CONSTANTS.KYOP_DOMAIN_PRO = 'www.bbvanetcash.com';
+
+        KYOP_CONSTANTS.KDPO_DOMAIN_DES = 'grupobbva.es.igrupobbva';
+        KYOP_CONSTANTS.KDPO_DOMAIN_DES_MAQUINA = 'ad003.igrupobbva';
+        KYOP_CONSTANTS.KDPO_DOMAIN_INT = 'eup-grupobbva2.igrupobbva';
+        KYOP_CONSTANTS.KDPO_DOMAIN_PRE = 'nohay';
+        KYOP_CONSTANTS.KDPO_DOMAIN_PRO = 'www.bbvanetcash.com';
+
+        function endSession() {
+            if(com.bbva.kyop.util.SessionUtil.getConfiguration().getSessionEndAutomatic().isEnabled()){
+                if(!com.bbva.kyop.util.SessionUtil.isSessionDestroyed()){
+                    var time = new Date().getTime();
+                    var loginTime = com.bbva.kyop.util.SessionUtil.getConfiguration().getSessionEndAutomatic().getLoginTime();
+                    var cookieTimeLogout = com.bbva.kyop.util.SessionUtil.getCookieTimeoutAutomatic();
+                    com.bbva.kyop.controller.CoreController.setCookie(cookieTimeLogout, (time - loginTime));
+                }
+            }
+            if (isSupported) {
+                if (blnIsEndSessionClose) {
+                    logger.debug('onbeforeunload la session ya esta cerrada, initialHref:' + initialHref + ' window.location.href:' + window.location.href);
+                } else {
+                    logger.debug('onbeforeunload la session se va a cerrar, initialHref:' + initialHref + ' window.location.href:' + window.location.href);
+                    com.bbva.kyop.util.SessionUtil.endSessions(false);
+                    alert(com.bbva.kyop.util.I18nUtil.getText('kyop.common.i.logout.onbeforeunload'));
+                }
+            }
+        }
+
+        function setNavigatorMsg(navigator, version) {
+            var msg = '';
+            showErrorMsg(msg);
+        }
+
+        function showErrorMsg(strMessage) {
+            document.getElementById('kyop-contentholder').style.left = "22%";
+
+            document.getElementById('kyop-contentholder').innerHTML = strMessage;
+
+        }
+
+        function meterLoadder(){
+            if(typeof bodymovin !== 'undefined'){
+                bodymovin.loadAnimation({
+                    container: document.getElementById('loadderGiftNew'),
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'resources-new/css/loader.json'
+                });
+            }
+        }
+
+        function checkNavigators() {
+            var navigator = '';
+            var version = '';
+            /*
+             if (Ext.isIE) {
+             navigator = "Internet Explorer";
+             version = Ext.ieVersion;
+             if (version < 7) {
+             isSupported = false;
+             }
+             } else if (Ext.isSafari) {
+             navigator = "Safari";
+             version = Ext.safariVersion;
+             if (version < 4) {
+             isSupported = false;
+             }
+             } else if (Ext.isChrome) {
+             navigator = "Google Chrome"
+             version = Ext.chromeVersion;
+             if (version < 10) {
+             isSupported = false;
+             }
+             } else if (Ext.isGecko) {
+             navigator = "Mozilla Firefox";
+             version = Ext.firefoxVersion;
+             if (version < 3) {
+             isSupported = false;
+             }
+             } else if (Ext.isOpera) {
+             navigator = "Opera";
+             version = Ext.operaVersion;
+             isSupported = false;
+             } else if (Ext.isWebKit) {
+             navigator = "WebKit";
+             version = Ext.webKitVersion;
+             isSupported = false;
+             } else {
+             navigator = "No reconocido"
+             version = "desconocida";
+             isSupported = false;
+             }   */
+
+            if (!isSupported) {
+                return setNavigatorMsg(navigator, version);
+            }
+
+            return true;
+        }
+
+        //Toma el valor del parÃ¡metro pasado cÃ³mo argumento
+        function getParameterByName(name) {
+            var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+    </script>
+
+    <!-- Template correspondiente a la carga del mensaje box-->
+    <script id="kyop-messagebox-tmpl" type="text/template">
+        <div id="kyop-messagebox-container-div" class="kyop-messagebox-container-div" style="display: block;">
+            <div id="kyop-messagebox-internal-container-div" class="ventanaModal desconexion">
+                <div class="botoneraSuperior right icon-return-15 colorAzulAccion" onclick="com.bbva.kyop.util.MessageBoxUtil.closeMessageBox()">
+                </div>
+                <!-- TÃ­tulo del mensaje -->
+                <h1 class=""><label>${strTitle}</label></h1>
+                <!-- Mensaje -->
+                <div class="marginBottom20 contenidoModal">
+                    <p>
+                        <label>${strMsg}</label>
+                    </p>
+                </div>
+
+                <div class="clearAll" ></div>
+
+                <!-- Botonera -->
+                {{if type == 'alert' || type == 'error'}}
+                <div class="centrado">
+                    <div class="interior">
+                        <button class="azul" type="button" value="" onclick="com.bbva.kyop.util.MessageBoxUtil.executeCallback()">
+                            ${buttons.button1}
+                        </button>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{if type == 'confirm'}}
+                <div class="marginTop20">
+                    <div class="dobleColumnaIzquierda">
+                        <div class="interior">
+                            <button class="azul right" type="button" value="" onclick="com.bbva.kyop.util.MessageBoxUtil.executeCallback()">
+                                ${buttons.button1}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dobleColumnaDerecha">
+                        <div class="interior">
+                            <button class="azul left" type="button" value="" onclick="com.bbva.kyop.util.MessageBoxUtil.executeCallbackCancel()">
+                                ${buttons.button2}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clearAll"></div>
+                </div>
+                {{/if}}
+
+                <!-- Fin botonera -->
+
+                <!-- Ãrea fija del pop up de mensajes -->
+                <div class="clearAll" ></div>
+                <div class="marginTop20" style="border-top:1px solid #CCC;">
+                </div>
+                <div class="marginTop20 pieModal">
+                    <div class="clearAll" ></div>
+                </div>
+                <!-- Fin Ãrea fija -->
+            </div>
+        </div>
+        <div class="fondoTransparente"></div>
+    </script>
+    <!-- Plantilla para mostrar los botones activados -->
+    <script id="kyop-active-header-buttons-tmpl" type="text/template">
+        {{if alertsButtonEnabled}}
+        <span class="doTranslate kyop-pointer" onclick="mostrarOcultarAlertasIntrusivas(false, 0);
+      com.bbva.kynf.component.Integration.kynf_mostrarOcultarTooltipBotonAlertas(1,5);" key="kyop.ntcsh.header.notificationsNew"></span>
+        <div id="kyop-integration-alerts" class="alertaMenu kyop kyop-pointer">
+        </div>
+        {{/if}}
+    </script>
+    <!-- Plantilla bÃ¡sica item menu -->
+    <script id="kyop-menuBasicItem" type="text/template">
+        <li>
+            <a onclick="${functionText}">
+                <label>${text}</label>
+            </a>
+        </li>
+        <div></div>
+    </script>
+    <!-- Plantilla del contenedor bÃ¡sica item menu -->
+    <script id="kyop-menuBasicContainerItem" type="text/template">
+        <li id="${idItemLi}"></li>
+        <div id="${idItemLi}-submenu"></div>
+    </script>
+    <!-- Plantilla menÃº vertical -->
+    <script id="kyop-menuOptions" type="text/template">
+        {{if com.bbva.kyop.util.I18nUtil.getText(codI18n) != 'Sin traducciÃ³n'}}
+        <li id="kyop-li-menuOption-${idMenu}${suffixId}" class="{{if hiddenInRwd}}hiddenInRwd{{/if}}">
+            <a class="icon-arrowDown" id="kyop-menuOption-${idMenu}${suffixId}"
+               onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-${idMenu}','kyop-div-children-container-${idMenu}',${terminal},'${idMenu}', true)">${com.bbva.kyop.util.I18nUtil.getText(codI18n)}
+                {{if (newMenu) && (tipoIconoPropio=='N')}}
+                <span class="labelTexoMenuLateral colorIconoNuevo doTranslate" key="kyop.ntcsh.menus.nuevo"></span>
+                {{/if}}
+
+                {{if (newMenu) && (tipoIconoPropio=='B')}}
+                <span class="colorIconoBeta labelTexoMenuLateral doTranslate"	key="kyop.ntcsh.menus.beta"></span>
+                {{/if}}
+
+            </a>
+        </li>
+
+        {{if childrenList.length != 0}}
+        <div class="opcionesMenu" id="kyop-div-children-container-${idMenu}${suffixId}" style="display: none;">
+            <ul>
+                {{each(i, child) childrenList}}
+            {{if com.bbva.kyop.util.I18nUtil.getText(codI18nShort) != 'Sin traducciÃ³n'}}
+                <li class="{{if hiddenInRwd}}hiddenInRwd{{/if}}">
+                    <a href="#" id="kyop-opcionMenuHija_m_${idMenu}${suffixId}" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('${idMenu}', true)">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}
+                        {{if (newMenu) && (tipoIcono=='N') }}
+                        <span class="labelTexoMenuLateral colorIconoNuevo doTranslate" key="kyop.ntcsh.menus.nuevo"></span>
+                        {{/if}}
+
+                        {{if (newMenu) && (tipoIcono=='B')}}
+                        <span class="colorIconoBeta labelTexoMenuLateral doTranslate" 	key="kyop.ntcsh.menus.beta"></span>
+                        {{/if}}
+
+                    </a>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+        {{/if}}
+    </script>
+    <!-- Plantilla secciones mas vistas -->
+    <script id="kyop-frequentlyOperations-tpl" type="text/template">
+        {{if com.bbva.kyop.util.SessionUtil.getUser().getUserInformation().getProductId() != '210'}}
+        <h1 >${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.i.title.frequentlyOperations')}</h1>
+        {{/if}}
+        {{each(index, section) frequentlySections}}
+
+    {{if com.bbva.kyop.util.I18nUtil.getText(codI18n) != 'Sin traducciÃ³n'}}
+        ${inc()}
+
+        {{if getCounter3() == 4}}
+        ${( resetCounter3() ), ''}
+        {{/if}}
+
+        {{if getCounterAll() <= 6}}
+
+        <div class="dobleColumnaIzquierda {{if hiddenInRwd}}hiddenInRwd{{/if}}">
+            <div class="">
+                <div class="left  marginRight5">
+
+
+                </div>
+                <div class="left marginTop5 contenedorOperacionFrecuente width75">
+                    <span class=" kyop-sec-title icon-forward" origin='${origin}' >  ${com.bbva.kyop.util.I18nUtil.getText(codI18n)}</span>
+
+
+
+
+                    {{each(index, operation) frequentlyProcessInSection}}
+	                    {{if com.bbva.kyop.util.I18nUtil.getText(codI18n) != 'Sin traducciÃ³n'}}
+                <!--<li><a href="#" onclick="com.bbva.kyop.controller.MenuController.openProcessFromSection('${menuOptionId}')">${com.bbva.kyop.util.I18nUtil.getText(codI18n)}</a></li>-->
+                    <span class="{{if hiddenInRwd}}hiddenInRwd{{/if}}"><a href="#" onclick="com.bbva.kyop.controller.ReverseCallerController.reverseCaller('SERVICIO_ESPECIFICO', '${codService}', '${codProccess}', '${locale}', 'S', 'S', '${idProduct}', true, null, '${activityRegisterParams}')" origin='${origin}' > - ${com.bbva.kyop.controller.FrequentlyOperationsController.getTranslateFrequentlyOperation(operation)}</a>
+
+
+					</span>
+                    {{/if}}
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{/if}}
+        {{/each}}
+    </script>
+    <!-- Plantilla Anuncios rigth-->
+    <script id="kyop-ad-insideView-vertical-tpl" type="text/template">
+
+        <div id="ad-inside-middle-right-container" class="kyop-ads-middle-right-container" >
+            <div class="publicity-right">
+                {{each(index, ad) adsData}}
+            {{if bannerWindowUrl != "" && bannerWindowUrl != null}}
+                <a href="javascript:com.bbva.kyop.controller.AdsController.starAd('${bannerWindowUrl}', '${bannerImageAlt}', '${bannerImageAlt}');" style="display:block">
+                    <img alt="${bannerImageAlt}" src="${bannerImageUrl}" title="${bannerImageAlt}" style="width:100%;" />
+                </a>
+                {{else}}
+                <a onclick="com.bbva.kyop.util.LightBoxUtil.loadLightBoxKyop('kyop-lightbox-container-div', 'kyop-lightbox-iframe-div', 'kyop-lightbox-form',
+                        {url: '${bannerIframeUrl}'});" >
+                    <img alt="${bannerImageAlt}" src="${bannerImageUrl}" title="${bannerImageAlt}" style="width:100%;" />
+                </a>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+
+    </script>
+    <!-- Plantilla Anuncios footer -->
+    <script id="kyop-ad-insideView-footer-tpl" type="text/template">
+        <div id="ad-inside-footer-container" style="margin-top:20px; border: 1px solid #ddd; box-shadow: 0px 0px 4px #CCC; border-radius: 3px;">
+            <div class="row">
+                {{each(index, ad) adsData}}
+            {{if bannerWindowUrl != ""}}
+                <a href="javascript:com.bbva.kyop.controller.AdsController.starAd('${bannerWindowUrl}', '${bannerImageAlt}', '${bannerImageAlt}');" >
+                    <img alt="${bannerImageAlt}" src="${bannerImageUrl}" title="${bannerImageAlt}" />
+                </a>
+                {{else}}
+                <a onclick="com.bbva.kyop.util.LightBoxUtil.loadLightBoxKyop('kyop-lightbox-container-div', 'kyop-lightbox-iframe-div', 'kyop-lightbox-form',
+							{url: '${bannerIframeUrl}'});" >
+                    <img alt="${bannerImageAlt}" src="${bannerImageUrl}" title="${bannerImageAlt}" />
+                </a>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </script>
+
+    <!-- Plantilla de telefonos -->
+    <script id="kyop-header-first-menu-telefone-tmpl" type="text/template">
+        {{if telephone.enabled == true}}
+        <li  class="icon-telefono">
+            <span id="kyop-telephone-${telephone.product}" class="kyop-telephone-tooltip kyop-pointer kyop-control-click"
+                  onclick="com.bbva.kyop.controller.MenuController.openContactLink()">${telephone.telephone}</span>
+        </li>
+        {{/if}}
+    </script>
+
+    <!-- Plantilla menÃº cabecera 1 -->
+    <script id="kyop-header-first-menu-tmpl" type="text/template">
+        {{each(index, menuOption) firstHeaderMenuOptions}}
+    {{if order < 4}}
+        {{if isMultiUser == false && isAdmin == true && order == 1}}
+        {{else}}
+    {{if childrenList.length > 0}}
+        <div class="kyop-header-button-dinamico" style="position:relative;">
+        <span class="" id="kyop-header-button-${idMenu}" type="button" value="${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}" onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-tooltip-${idMenu}')">
+            <span class="kyop-buttontext kyop-pointer">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span></span>
+            {{else}}
+            <div class="kyop-header-button-dinamico" style="position:relative;">
+            <span class="" id="kyop-header-button-${idMenu}" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}',true)" type="button" value="${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}" onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-tooltip-${idMenu}')">
+                <span class="kyop-buttontext kyop-pointer">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span></span>
+                {{/if}}
+
+                {{if childrenList.length > 0}}
+                <div class="fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7" id="kyop-header-tooltip-${idMenu}" style="display: none;position:absolute; onmouseleave="$('#kyop-header-tooltip-${idMenu}').fadeOut(750)"  ">
+                <div class="colorAzulAccion icono-small" onclick="com.bbva.kyop.controller.MenuController.closeTooltip('kyop-header-tooltip-${idMenu}')">
+                </div>
+                <div>
+                    <ul class="kyop-header-button-menu-list">
+                        {{each(index, menuOptionSecondLevel) childrenList}}
+                        {{if childrenList.length > 0}}
+                        <li class="kyop-header-first-menu-list-title darker">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                        </li>
+                        {{else}}
+                        <li class="kyop-header-first-menu-list kyop-terminal" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                            <span class="kyop-pointer">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                        </li>
+                        {{/if}}
+                        {{each(index, menuOptionThirdLevel) childrenList}}
+                        <li class="kyop-header-first-menu-list" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)} </span>
+                        </li>
+                        {{/each}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+        {{/if}}
+        {{/each}}
+    </script>
+
+    <!-- Desplegable Favoritos -->
+    <script id="kyop-tooltip-favorites-tmpl" type="text/template">
+        <div class=" fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7" style="display: none" id="kyop-header-second-tooltip-favorites-container" onmouseleave="$('#kyop-header-second-tooltip-favorites-container').fadeOut(750)">
+            <table class="datosSimples" id="kyop-favorites-table">
+                <tbody>
+                {{if favorites.length >0}}
+                {{each(index, favorite) favorites}}
+                <tr>
+                    <td headers="col1" onclick="com.bbva.kyop.controller.FavoriteController.executeFavorite('${idMenu}', '${idProcess}', '${idService}', '${idProduct}', '${title}')">
+                        <a href="#" id="kyop-favorite-${index}">${title}</a>
+                    </td>
+                    <td class="rightContent icon-edit colorAzulAccion" headers="col3" onclick="com.bbva.kyop.controller.FavoriteController.deleteFavoriteFromHeader('${idMenu}', '${idProcess}','${idService}','${idProduct}')">
+                    </td>
+                </tr>
+                {{/each}}
+                {{else}}
+                <tr class="kyop-favorite-empty">
+                    <td headers="col1">
+                        <span class="azul" id="kyop-favorite-empty">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.nofavorites')}</span>
+                    </td>
+                </tr>
+                {{/if}}
+                <tr onclick="com.bbva.kyop.controller.FavoriteController.administrateFavorites()">
+                    <td class="pieTabla darker" headers="">
+                        <a id="kyop-admin-favorites" class="pointer">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.adminfavorites')}</a>
+                    </td>
+                    <td class="pieTabla rightContent" headers="col3"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </script>
+
+
+
+    <!-- Desplegable Lenguaje -->
+    <script id="kyop-tooltip-languages-tmpl" type="text/template">
+
+        <div class="contenido kyop-language">
+            <div class="fondoContenido">
+                <table class="datosSimples kyop-language-table" id="kyop-language-table">
+                    <tbody>
+                    {{if languages.length >0}}
+                    {{each(index, language) languages}}
+                {{if !defaultLanguage}}
+                    <tr>
+                        <td headers="col1" onclick="com.bbva.kyop.controller.LanguageController.changeLanguage('${languageKey}')">
+                            <a href="#" id="kyop-language-${index}">${com.bbva.kyop.util.I18nUtil.getText(codI18n)}</a>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    {{/each}}
+                    {{else}}
+                    <tr>
+                        <td headers="col1">
+                            <a href="#" id="kyop-language-empty">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.language.no.more')}</a>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <!-- Desplegable Salto MultipaÃ­s -->
+    <script id="kyop-tooltip-countryjump-tmpl" type="text/template">
+
+        <div class="mensaje" style="position:relative;">
+            {{if countries.length >1}}
+            <div class="kyop-control-click">
+                <div id="kyop-countryjump-select" class="kyop-countryjump-select-down kyop-pointer" onclick="com.bbva.kyop.controller.MenuController.controlSecondHeaderButton('kyop-header-second-tooltip-countryjump','kyop-header-arrow-up-countryjump','kyop-header-arrow-down-countryjump')">
+                    <p>
+                        <span class="hand icono icon-arrowDown" id="kyop-header-arrow-down-countryjump">${currentProductText}</span>
+                        <span class="hand icono icon-arrowUp" id="kyop-header-arrow-up-countryjump" style="display: none;">${currentProductText}</span>
+
+                    </p>
+                    {{else}}
+                    <div class="kyop-control-click kyop-control-click-empty">
+                        <div id="kyop-countryjump-select" class="kyop-countryjump-select-down">
+                            <p>
+                                <span class="" id="kyop-header-arrow-down-countryjump">${currentProductText}</span>
+
+                            </p>
+                            {{/if}}
+
+                        </div>
+                    </div>
+                    <div class="tooltipSaltoMultipais fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7" id="kyop-header-second-tooltip-countryjump" >
+                        <table class="datosSimples" id="kyop-countryjump-table">
+                            <tbody>
+                            {{if countries.length >0}}
+                            {{each(index, country) countries}}
+                        {{if !currentProduct}}
+                            <tr>
+                                <td headers="col1">
+                                    {{if com.bbva.kyop.util.SessionUtil.getUser().getProductInformation().isHelpDesk()}}
+                                    <a onclick="com.bbva.kyop.controller.CountryJumpController.countryJumpHelpDesk('${productPibee}', ${sameInstallation}, '${remote}','${junction}', '${channel}', '${bankInt}', '${codCompany}', '${locale}', '${idSessionAst}')" id="kyop-countryjump-${index}">${com.bbva.kyop.util.I18nUtil.getText(key)}</a>
+                                    {{else}}
+                                    {{if junction == ""}}
+                                    <a onclick="com.bbva.kyop.controller.CountryJumpController.changeAuxReference('${productPibee}')" id="kyop-countryjump-${index}">${com.bbva.kyop.util.I18nUtil.getText(key)}</a>
+                                    {{else}}
+                                    <a onclick="com.bbva.kyop.controller.CountryJumpController.countryJump('${productPibee}', ${sameInstallation}, '${remote}','${junction}', '${channel}', '${bankInt}', '${codCompany}', '${locale}', '${idSessionAst}')" id="kyop-countryjump-${index}">${com.bbva.kyop.util.I18nUtil.getText(key)}</a>
+                                    {{/if}}
+                                    {{/if}}
+                                </td>
+                            </tr>
+                            {{/if}}
+                            {{/each}}
+                            {{else}}
+                            <tr>
+                                <td headers="col1">
+                                    <a href="#" id="kyop-countryjump-empty">No hay mÃ¡s lenguajes</a>
+                                </td>
+                            </tr>
+                            {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="display: none;">
+                        <!-- FORMULARIO LANZAR SALTO MULTIPAÃS -->
+                        <form name="input" id="kyop-countryjump-form" target="" action="" method="post">
+                            <input id="kyop-countryjump-locale" type="hidden" name="LOCALE" value="">
+                            <input id="kyop-countryjump-destiny" type="hidden" name="destinoSalto" value="">
+                            <input id="kyop-countryjump-userparam" type="hidden" name="paramUsuario" value="">
+                            <input id="kyop-countryjump-language" type="hidden" name="idioma" value="">
+                            <input id="kyop-countryjump-session-ast" type="hidden" name="iv-id_sesion_ast" value="">
+                            <input id="kyop-countryjump-channel" type="hidden" name="iv-cod_canal" value="">
+                            <input id="kyop-countryjump-bank" type="hidden" name="iv-cod_ban_int" value="">
+                            <input id="kyop-countryjump-company" type="hidden" name="iv-cod_emp" value="">
+
+                        </form>
+                        <!-- FIN FORMULARIO LANZAR SALTO MULTIPAÃS -->
+                    </div>
+
+                    <div style="display: none;">
+                        <!-- FORMULARIO LANZAR SALTO MULTIPAÃS LATAM MIGRADO-->
+                        <form name="input" id="kyop-countryjump-migrated-form" target="" action="" method="post">
+                            <input id="kyop-countryjump-migrated-idProduct" type="hidden" name="idProduct" value="">
+                            <input id="kyop-countryjump-migrated-locale" type="hidden" name="LOCALE" value="">
+                            <input id="kyop-countryjump-migrated-idDateFormat" type="hidden" name="pb_cod_ffecha" value="">
+                            <input id="kyop-countryjump-migrated-idPriceFormat" type="hidden" name="pb_cod_fimporte" value="">
+                            <input id="kyop-countryjump-migrated-idTimeZone" type="hidden" name="pb_husohora" value="">
+                            <input id="kyop-countryjump-migrated-language" type="hidden" name="idioma" value="">
+                            <input id="kyop-countryjump-migrated-session-ast" type="hidden" name="iv-id_sesion_ast" value="">
+                            <input id="kyop-countryjump-migrated-channel" type="hidden" name="iv-cod_canal" value="">
+                            <input id="kyop-countryjump-migrated-bank" type="hidden" name="iv-cod_ban_int" value="">
+                            <input id="kyop-countryjump-migrated-company" type="hidden" name="iv-cod_emp" value="">
+
+                        </form>
+                        <!-- FIN FORMULARIO LANZAR SALTO MULTIPAÃS -->
+                    </div>
+
+                    <div style="display: none;">
+                        <!-- FORMULARIO LANZAR SALTO A GLOBAL -->
+                        <form name="input" id="kyop-globaljump-form" target="" action="" method="post">
+                        </form>
+                        <!-- FIN FORMULARIO LANZAR A GLOBAL -->
+                    </div>
+
+                </div>
+
+
+    </script>
+
+    <!-- Plantilla menÃº cabecera 2 -->
+    <script id="kyop-header-second-menu-tmpl" type="text/template">
+        <ul>
+            <li id="kyop-favorite-button" class="kyop-pointer kyop-control-click" style="">
+                <div  onclick="com.bbva.kyop.controller.MenuController.controlSecondHeaderButtonAndRemoveActiveLanguageNode('kyop-header-second-tooltip-favorites-container','kyop-header-arrow-up-favorite','kyop-header-arrow-down-favorite')">
+                    <span id="kyop-header-arrow-down-favorite" key="kyop.ntcsh.favorites.title" class="doTranslate hand  " style="display: inline;"></span>
+                    <span id="kyop-header-arrow-up-favorite" key="kyop.ntcsh.favorites.title" class="doTranslate hand " style="display: none;" ></span>
+                </div>
+            </li>
+
+            {{each(index, menuOption) secondHeaderMenuOptions}}
+            <li>
+                {{if isMultiUser == false && isAdmin == true  && order == 1}}
+                {{else}}
+    {{if childrenList.length > 0}}
+                <div class="kyop-header-button-dinamico" style="position:relative;">
+	        <span class="" id="kyop-header-button-${idMenu}" type="button" value="${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}" onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-tooltip-${idMenu}')">
+    		<span class="dynamic-menu kyop-pointer kyop-control-click">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span></span>
+                    <div class="fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7" id="kyop-header-tooltip-${idMenu}" style="display: none" onmouseleave="$('#kyop-header-tooltip-${idMenu}').fadeOut(750)">
+                        <div class="colorAzulAccion icono-small" onclick="com.bbva.kyop.controller.MenuController.closeTooltip('kyop-header-tooltip-${idMenu}')">
+                        </div>
+                        <div>
+                            <ul class="kyop-header-button-menu-list">
+                                {{each(index, menuOptionSecondLevel) childrenList}}
+                        {{if childrenList.length > 0}}
+                                <li class="kyop-header-first-menu-list-title darker">
+                                    <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                                </li>
+                                {{else}}
+                                <li class="kyop-header-first-menu-list azulLink" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                                    <span class="kyop-pointer">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                                </li>
+                                {{/if}}
+                                {{each(index, menuOptionThirdLevel) childrenList}}
+                                <li class="kyop-header-first-menu-list azulLink" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                                    <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)} </span>
+                                </li>
+                                {{/each}}
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {{else}}
+			{{if isSingelSingOn}}
+                <span id="kyop-${idMenu}" class="singel-sing-on-menu kyop-pointer kyop-control-click icon-open-outsite" onclick="com.bbva.kyop.controller.MenuController.executeProcess('${idMenu}', true)">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                {{else}}
+                <span id="kyop-${idMenu}" class="dynamic-menu kyop-pointer kyop-control-click" onclick="com.bbva.kyop.controller.MenuController.executeProcess('${idMenu}', true)">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                {{/if}}
+                {{/if}}
+                {{/if}}
+
+            </li>
+            {{/each}}
+
+
+            <div class="clearAll" id="kyop-header-second-clearAll"></div>
+        </ul>
+    </script>
+
+
+    <!-- Plantilla menÃº Pie -->
+    <script id="kyop-footer-menu-tmpl" type="text/template">
+    {{each(index, menuOption) footerMenuOptions}}
+
+            <span>
+                <a href="#" id="kyop-footer-link-${index}" onclick="
+			{{if url.indexOf("tarifas") >= 0 && (producto != "202" && producto != "203")}}
+				window.open('https://${window.location.hostname}/${url}');">${com.bbva.kyop.util.I18nUtil.getText(codI18n)}</a>
+			{{else}}
+                com.bbva.kyop.util.LightBoxUtil.loadLightBoxKyop(
+                'kyop-lightbox-container-div', 'kyop-lightbox-iframe-div', 'kyop-lightbox-form',
+                    {
+                        url: '${url}',
+                        height: ${height},
+                        width: ${width},
+                        registerActivity: true,
+                        title: '${com.bbva.kyop.util.I18nUtil.getText(codI18n)}'
+                    });">${com.bbva.kyop.util.I18nUtil.getText(codI18n)}</a>
+			{{/if}}
+            </span>
+
+    {{/each}}
+</script>
+    <!-- Template correspondiente al pie de pÃ¡gina -->
+    <script id="kyop-footer-info-tmpl" type="text/template">
+        <div class="left" id="kyop-footer-info-container-last-connection">
+            <span class="normalWeight">Â© BBVA S.A.</span>
+            {{html com.bbva.kyop.controller.MenuController.getFooterInfoHtml()}}
+        </div>
+        <div class="left kyop-logout-automatic-footer marginLeft10" style="display:none">
+            <div class="kyop-logout-automatic-footer-img left icon-clock">
+            </div>
+            <div class="left">
+                <p>&nbsp;logout: <span id="kyop-logout-automatic-footer-time" class="red" style="margin:0px"></span></p>
+            </div>
+            <div class="clearAll"></div>
+        </div>
+        <div class="clearAll"></div>
+    </script>
+
+    <script id="kyop-footer-info-campaign-tmpl" type="text/template">
+        <div class="left">
+            <span class="normalWeight">Â© BBVA S.A.</span>
+        </div>
+        <div class="clearAll"></div>
+    </script>
+
+    <script id="kyop-user-info-tmpl" type="text/template">
+        {{each(index, userOption) infoUserOptions}}
+        <div style="position:relative;" class="">
+            <div onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-tooltip-user-info')">
+                <span class="kyop-pointer  icono icon-profile icono-left">${userName} / ${com.bbva.kyop.controller.MenuController.getUserInfo().companyId}</span>
+
+
+            </div>
+
+            {{if childrenList.length > 0}}
+            <div class="fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7" id="kyop-header-tooltip-user-info" style="display: none;"  onmouseleave="$('#kyop-header-tooltip-user-info').fadeOut(750)"   >
+                <div class="colorAzulAccion icono-small" onclick="com.bbva.kyop.controller.MenuController.closeTooltip('kyop-header-tooltip-user-info')">
+                </div>
+                <div>
+                    <ul class="kyop-header-button-menu-list">
+                        {{each(index, menuOptionSecondLevel) childrenList}}
+                    {{if childrenList.length > 0}}
+                        <li class="kyop-header-first-menu-list-title darker">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                        </li>
+                        {{else}}
+                        <li class="kyop-header-first-menu-list-title kyop-terminal darker" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                            <span class="kyop-pointer">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                        </li>
+                        {{/if}}
+                        {{each(index, menuOptionThirdLevel) childrenList}}
+                    {{if isGlobalNetCash}}
+                    {{if idMenu != "PR00000003"}}
+                        <li class="kyop-header-first-menu-list azulLink" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)} </span>
+                        </li>
+                        {{/if}}
+                        {{else}}
+                        <li class="kyop-header-first-menu-list azulLink" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}', true)">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)} </span>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+
+    </script>
+    <!-- Plantilla MenÃºs de 3, 4 y 5 nivel -->
+    <script id="kyop-central-other-level-menus-tmpl" type="text/template">
+
+        <div  id="kyop-other-level-menus" style="display: block;">
+            <div>
+                <h1>
+                    ${com.bbva.kyop.util.I18nUtil.getText(titleArea)}
+                </h1>
+            </div>
+            {{if com.bbva.kyop.util.MenuUtil.keyExists(idMenuFather)}}
+	{{if com.bbva.kyop.util.MenuUtil.getMenu(idMenuFather).newMenu && com.bbva.kyop.util.MenuUtil.getMenu(idMenuFather).tipoIcono=='N'}}
+            <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+            {{/if}}
+            {{/if}}
+
+            {{if com.bbva.kyop.util.MenuUtil.keyExists(idMenuFather)}}
+	{{if com.bbva.kyop.util.MenuUtil.getMenu(idMenuFather).newMenu && com.bbva.kyop.util.MenuUtil.getMenu(idMenuFather).tipoIcono=='B'}}
+            <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+            {{/if}}
+            {{/if}}
+
+            <div class="clearAll"></div>
+            <div>
+                <h3 class="marginTop10 kyop-sec-title">
+                    ${com.bbva.kyop.util.I18nUtil.getTextDefaultValue(textInfoMenu, '')}
+                </h3>
+            </div>
+            <div id="kyop-other-level-menus-portada" style="display: block;">
+
+                <!-- AquÃ­ irÃ­an tres -->
+                ${com.bbva.kyop.util.StringUtil.setCounter(1),""}
+                {{each(index, menuOptionThirdLevel) otherLevelMenuOptions}}
+
+                <div class="columna${com.bbva.kyop.util.StringUtil.incrementCounter()}de3 {{if hiddenInRwd}}hiddenInRwd{{/if}}" id="kyop-otherlevel-${index}" style="display: block;">
+                    <div class="interior">
+                        <div>
+                            {{if childrenList.length > 0}}
+                            <h3 class="icon-menuItem marginTop10 tituloSeccion kyop-sec-title" id="kyop-menu-title-${index}">
+                                <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                                {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                {{/if}}
+
+                                {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                {{/if}}
+
+                            </h3>
+                            {{else}}
+                            <h3 class="icon-menuItem marginTop10 tituloSeccion kyop-sec-title" id="kyop-menu-title-${index}">
+                                <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+                                {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                {{/if}}
+
+                                {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                {{/if}}
+                            </h3>
+                            <ul class="azul lineheight20">
+                                <li class="marginTop5">
+                                    <a href="#" class="icon-bullet" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('${idMenu}', true);">
+                                        ${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}
+                                    </a>
+                                    {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                    <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                    {{/if}}
+                                    {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                    <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                    {{/if}}
+                                </li>
+                            </ul>
+                            {{/if}}
+
+                            {{if childrenList.length > 0}}
+                            <div class="marginRight25">
+
+                                <ul class="azul lineheight20">
+                                    {{each(index, menuOptionFourthLevel) childrenList}}
+                                    <li class="marginTop5 {{if hiddenInRwd}}hiddenInRwd{{/if}}">
+                                        {{if childrenList.length >0 }}
+                                        <a class="kyop-dark" href="#">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}
+
+                                            {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                            <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                            {{/if}}
+
+
+                                            {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                            <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                            {{/if}}
+
+                                        </a>
+
+
+                                        {{else}}
+                                        <a href="#" class="icon-bullet" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('${idMenu}', true)">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}
+                                            {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                            <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                            {{/if}}
+
+
+                                            {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                            <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                            {{/if}}
+                                        </a>
+                                        {{/if}}
+
+                                    </li>
+                                    {{each(index, menuOptionFifthLevel) childrenList}}
+                                    <li class="kyop-fifth-level-option azul marginTop5 icon-bullet" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('${idMenu}', true)">
+                                        <span>${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)} </span>
+
+
+                                        {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                        <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                        {{/if}}
+
+
+                                        {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                        <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                        {{/if}}
+
+
+                                    </li>
+                                    {{/each}}
+                                    {{/each}}
+                                </ul>
+
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{if ((index+1) % 3 == 0)}}
+                ${com.bbva.kyop.util.StringUtil.setCounter(1),""}
+                <div class="clearAll"></div>
+                {{/if}}
+                {{/each}}
+
+                {{if relatedServices != null}}
+            <div class="clearAll"></div>
+
+                <div class="marginTop15 separadorSuperiorHorizontal {{if hiddenInRwdAllRelatedServices}}hiddenInRwd{{/if}}" id="kyop-menu-relatedservices">
+                    <div class="interior">
+                        <div>
+                            <h3 class="icon-menuItem marginTop10 tituloSeccion kyop-sec-title" id="kyop-menu-relatedservices-title">
+                                <span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.related.services.more.info')}</span>
+                            </h3>
+
+                            <div class="marginRight25">
+                                <ul class="azul lineheight20">
+                                    {{each(index, service) relatedServices}}
+                                    <li class="marginTop5 {{if hiddenInRwd}}hiddenInRwd{{/if}}">
+                                        <a href="#"  id ='${idMenu}' onclick="com.bbva.kyop.controller.ReverseCallerController.selectMenuOptionFromReverseCaller('${idMenu}', '03', 'S', '${activityRegisterParams}');">${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</a>
+
+
+                                        {{if (newMenu) && (tipoIconoPropio=='N')}}
+                                        <span class="labelTexo colorIconoNuevo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.nuevo')}</span>
+                                        {{/if}}
+
+
+                                        {{if (newMenu) && (tipoIconoPropio=='B')}}
+                                        <span class="colorIconoBeta labelTexo doTranslate" > ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.menus.beta')}</span>
+                                        {{/if}}
+
+
+
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="clearAll" ></div>
+            </div>
+            <div class="clearAll"></div>
+        </div>
+    </script>
+
+    <script id="kyop-menu-terminal-options-combo-tmpl" type="text/template">
+
+        <label>No terminales:</label>
+        <select class="left accionCampoObligatorio marginBottom14" id="kyop-info-menu-list-terminal" name="kyop-info-menu-list" onchange="com.bbva.kyop.controller.MenuController.setMenuOptionToField(this.value)">
+            {{each(index, menu) menuList}}
+        {{if !terminal}}
+            <option value="${view}#${idMenu}">${view} - ${idMenu} - Level: ${level} - ${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</option>
+            {{/if}}
+            {{/each}}
+        </select>
+    </script>
+
+    <script id="kyop-menu-noterminal-options-combo-tmpl" type="text/template">
+
+        <label>Terminales:</label>
+        <select class="left accionCampoObligatorio marginBottom14" id="kyop-info-menu-list-noterminal" name="kyop-info-menu-list" onchange="com.bbva.kyop.controller.MenuController.setMenuOptionToField(this.value)">
+            {{each(index, menu) menuList}}
+        {{if terminal}}
+            <option value="${view}#${idMenu}">${view} - ${idMenu} - Level: ${level} - ${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</option>
+
+            {{/if}}
+            {{/each}}
+        </select>
+    </script>
+
+    <script id="kyop-breadcrumb-options-tmpl" type="text/template">
+
+        {{each(index, menuOption) firstHeaderMenuOptions}}
+
+
+
+
+        <div class="hand right link" id="kyop-link-process-help-directy-ayuda"   idProcess="" idService=""  >
+            <div class="icon-ayuda">
+            <span class="" id="kyop-header-button-${idMenu}" onclick="com.bbva.kyop.controller.MenuController.launchProcessFromHeaderButton('${idMenu}',true)" type="button" value="${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}" onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-tooltip-${idMenu}')">
+               ${com.bbva.kyop.util.I18nUtil.getText(codI18nShort)}</span>
+            </div>
+
+
+
+
+            {{/each}}
+
+
+            {{if isNetCash}}
+    {{if isAssessEnabled}}
+            <div class="hand right link" id="kyop-assess-netcash"  style="display: block;" idProcess="" idService="" idMenu="" onclick="window.cc_feedback.denosSuOpinionShow()">
+                <div class="icon-opinion"><span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.access.service')}</span></div>
+                <div class="mano last-child" style="margin-top:3px;"/>
+            </div>
+            {{/if}}
+
+
+        <div class="hand right link" id="kyop-add-favorites" style="display: none;" idProcess="" idService="" idMenu="" onclick="com.bbva.kyop.controller.FavoriteController.addProcessToFavorite()" >
+            <div class="icon-estrella"><span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.breadcrumbs.buttons.fav.add')}</span></div>
+            <div class="icon_Favorito_ON last-child"/>
+
+        </div>
+        <div class="hand right link" id="kyop-delete-favorites" style="display: none;" idProcess="" idService="" idMenu="" onclick="com.bbva.kyop.controller.FavoriteController.deleteProcessFromFavorite()" >
+            <div class="icon-estrellaActiva"><span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.breadcrumbs.buttons.fav.del')}</span></div>
+            <div class="icon_Favorito_OFF last-child"/>
+        </div>
+
+
+            {{/if}}
+    </script>
+
+    <!-- Rastro de migas -->
+    <script id="kyop-breadcrumb-tmpl" type="text/template">
+
+        {{each(index, breadcrumbItem) breadcrumb}}
+
+    {{if (breadcrumb.length > 1)}}
+        {{if index == (breadcrumb.length-1)}}
+        <div class="miga actual">
+            {{if (menu != undefined && menu != null && menu.terminal)}}
+            <a href="#" onclick="com.bbva.kyop.controller.ReverseCallerController.reverseCallerByMenuInfo('OPCION_RELACIONADA', '${menuOption}', 'S', 'S')">${text}</a>
+            {{else}}
+            <p>${text}</p>
+            {{/if}}
+        </div>
+        {{else}}
+        <div class="miga icon-forward">
+            {{if (menu != null && menu.personalizedBreadcrumb != undefined && menu.personalizedBreadcrumb)}}
+            <a href="#" onclick="com.bbva.kyop.controller.MenuController.executeProcess('${idMenu}', true)">${text}</a>
+            {{else}}
+        {{if (menu!= null && menu.level == 1 && !menu.terminal) || (menu!= null && (menu.view == '01' || menu.view == '02'))}}
+            <p>${text}</p>
+            {{else}}
+            <a href="#" onclick="com.bbva.kyop.controller.ReverseCallerController.reverseCallerByMenuInfo('OPCION_RELACIONADA', '${menuOption}', 'S', 'S')">${text}</a>
+            {{/if}}
+            {{/if}}
+        </div>
+        {{/if}}
+
+        {{else}}
+        <div class="miga">
+            <a href="#" onclick="com.bbva.kyop.controller.HomeController.showHome()">${text}</a>
+        </div>
+
+        {{/if}}
+
+        {{/each}}
+        <div class="clearAll"></div>
+    </script>
+    <!-- Fin rastro de migas -->
+
+    <!-- Admin Favoritos  jck-->
+    <script id="kyop-admin-favorites-list-tmpl" type="text/template">
+
+        <!-- Titulo de la tabla -->
+        <div class="tituloTabla">
+            <h2 class="left">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.sectionlist')}</h2>
+            {{if com.bbva.kyop.util.SessionUtil.getUser().getUserInformation().getProductId() != '210'}}
+            <div class="resultado right">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.hasfound')}<span class="darker" id="contadorFavoritosTotales">
+                                     ${favorites.length}
+                                  {{if favorites.length == 1}}
+                                           </span><span class="darker">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.favorite')}</span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.all')}
+                {{else}}
+                </span><span class="darker">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.favorites')}</span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.all')}
+                {{/if}}
+            </div>
+            {{/if}}
+            {{if com.bbva.kyop.util.SessionUtil.getUser().getUserInformation().getProductId() == '210'}}
+            <div class="resultado right">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.all.finet')}<span class="darker" id="contadorFavoritosTotales">
+                                     ${favorites.length}
+                                  {{if favorites.length == 1}}
+                                           </span><span class="darker">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.favorite')}</span>
+                {{else}}
+                </span><span class="darker">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.favorites')} </span>
+                {{/if}}
+            </div>
+            {{/if}}
+            <div class="clearAll" ></div>
+        </div>
+        <!-- Fin de titulo de la tabla -->
+
+        <!-- Botonera de la tabla -->
+        <div class="dropDown dropTabla">
+            <div class="interiorLeft">
+                <ul class="contenedorDrop">
+                    <li class="sinIcono">
+                        <!-- New Tooltip-->
+                        <div id="deleteOneFav" class="tooltipBoton izquierda" style="display: none; z-index:100; width:340px"><!-- display: block/none-->
+                            <div class="left">
+                                <h3 style="color: #2F62A1">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirmonedelete')}</h3>
+                            </div>
+                            <div class="right icon-closeTooltip hand colorAzulAccion" onclick="$('#deleteOneFav'). hide()">
+                            </div>
+                            <div class="clearAll"></div>
+                            <p>
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.1')}
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.one.2')}
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.one.3')}
+                            </p>
+
+                            <div class="marginTop5 marginBottom5 separadorSuperiorHorizontal">
+                                <button type="button" class="botonIcono" value="${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.btn.one')}" onclick="deleteFavoritesAdminConfirm()">
+                                    ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.btn.one')}</button>
+                            </div>
+                        </div>
+
+                        <div id="deleteMoreOneFav" class="tooltipBoton izquierda" style="display: none; z-index:100;"><!-- display: block/none-->
+                            <div class="left">
+                                <h3 style="color: #2F62A1">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirmdelete')}</h3>
+                            </div>
+                            <div class="right icon-closeTooltip hand colorAzulAccion" onclick="$('#deleteMoreOneFav'). hide()">
+                            </div>
+                            <div class="clearAll"></div>
+                            <p>
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.1')}
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.more.2')}
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.more.3')}
+                                <br>
+                                ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.msg.more.4')}
+                            </p>
+
+                            <div class="marginTop5 marginBottom5 separadorSuperiorHorizontal">
+                                <button type="button" class="botonIcono" value="${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.btn.more')}" onclick="deleteFavoritesAdminConfirm()">
+                                    ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.confirm.btn.more')}</button>
+                            </div>
+                        </div>
+                        <!-- Fin tooltip-->
+
+                        <div class="menuDrop">
+                            <button class="botonIcono" id="btnDeleteFavorite" type="button" value="${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.delete')}" style="display: none;"  onclick="com.bbva.kyop.controller.FavoriteController.deleteFavoritesAdminMsg()"    >${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.delete')}
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="interiorRight">
+                <ul class="contenedorDrop">
+                    <li class="sinIcono" id="t_showallfavorites" style="display: none;">
+                        <div class="menuDrop paddingTop5">
+                            <span class="azul" id="" style="cursor:pointer; cursor:hand; font-size:11px;" onclick="showAllFavorites()">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.showall')}</span>
+                        </div>
+                    </li>
+                    <li class="sinIcono" id="buscadorFavoritos">
+                        <div class="menuDrop"><input id="imputFind" name="imputFind" type="text" value=""></div>
+                    </li>
+                    <li class="sinIcono">
+                        <div class="menuDrop">
+                            <button class="corto icon-exploration" id="" type="button" value="${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.find')}"  onclick="findFavorites($('#imputFind').val())">
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearAll" ></div>
+        <!-- Fin de botonera de la tabla -->
+
+        <!-- Tabla cabecera -->
+        <table>
+            <thead>
+            <tr>
+                <th class="selectora sinBordeLateral ancho30" id="seleccionElementos" scope="col">
+                    <input id="chk_allfav" type="checkbox"  value="checkall" onclick="showDeleteAllButom(this.id)">
+                </th>
+                <th class="headerSortUp   ancho350" id="col1" scope="col">
+
+                    <div class="interior">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.orderfavorite')}</div>
+                </th>
+                <th class="header" id="col2" scope="col">
+                    <div class="interior">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.section')}</div>
+                </th>
+            </tr>
+            </thead>
+        </table>
+        <!-- Fin Tabla cabecera -->
+
+        <div class="sinPadding sinBorde">
+            <div style="position:relative; height:100%; overflow:hidden; max-width:100%;">
+                <div class="mCSB_container" style="position: relative; top: 0px;">
+                    <!-- Tabla admin lista de favoritos  -->
+                    <div class="">
+
+                        <table id='kyop-table-favorites'>
+                            <tbody>
+                            {{if favorites.length >0}}
+                            {{each(index, favorite) favorites}}
+                            <tr id="tr_fav_${idProcess}_${idService}_${order}_${idProduct}">
+                                <td   headers="seleccionElementos" class="selectora ancho30">
+                                    <input id="chk_fav_${idProcess}_${idService}_${idProduct}" type="checkbox" value="s7pp" onclick="showDeleteButom(this.id)" />
+                                </td>
+                                <td headers="col1" class="ancho350">
+                                    <span class="posicionFavoritos">${index+1}</span>
+                                    {{if favorites.length >1}}
+                                    {{if index >0 }}
+                                    {{if index < favorites.length-1 }}
+                                    <div id="img_sfav_${idMenu}"   class="icon-arrowUp colorAzulAccion kyop-slice-middle-left-clean" style="cursor:pointer;"
+                                         onclick="actualizeOrderFavorites('tr_fav_${idProcess}_${idService}_${order}_${idProduct}','asc')"></div>
+                                    {{/if}}
+                                    {{if index == favorites.length-1 }}
+                                    <div id="img_sfav_${idMenu}"   class="icon-arrowUp lastArrow colorAzulAccion kyop-slice-middle-left-clean" style="cursor:pointer;"
+                                         onclick="actualizeOrderFavorites('tr_fav_${idProcess}_${idService}_${order}_${idProduct}','asc')"></div>
+                                    {{/if}}
+                                    {{/if}}
+
+                                    {{if index >0 && index <favorites.length-1 }}
+                                    </br>
+                                    {{/if}}
+                                    {{if index <favorites.length-1 }}
+                                            {{if index >0 }}
+                                        <div id="img_bfav_${idMenu}"  class="icon-arrowDown colorAzulAccion kyop-slice-middle-left-clean" style="cursor:pointer;"
+                                             onclick="actualizeOrderFavorites('tr_fav_${idProcess}_${idService}_${order}_${idProduct}','desc')"></td></div>
+                    {{/if}}
+                    {{if index == 0 }}
+                    <div id="img_bfav_${idMenu}"  class="icon-arrowDown firstArrow colorAzulAccion kyop-slice-middle-left-clean" style="cursor:pointer;"
+                         onclick="actualizeOrderFavorites('tr_fav_${idProcess}_${idService}_${order}_${idProduct}','desc')"></td></div>
+                    {{/if}}
+                    {{/if}}
+                    {{/if}}
+                </td>
+
+
+                    <td headers="col2"  id="td_col1_tr_fav_${idMenu}">
+                        <div class="celdaEditable icon-download colorAzulAccion" id="col1_tr_fav_${idProcess}_${idService}_${order}_${idProduct}" onclick="editFavorite('td_col1_tr_fav_${idMenu}','col1_tr_fav_${idProcess}_${idService}_${order}_${idProduct}','img_fav_${idMenu}'   )">${title}
+                        </div>
+                    </td>
+
+                <td headers="col2img" name="imgOrden" >
+                <td headers="col3"  id="td_col3_tr_fav_${idMenu}">
+                </td>
+                </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr class="kyop-table-item-no-hover">
+                        <td class="kyop-table-item-no-hover" headers="col1">
+                            <span id="kyop-admin-favorite-empty">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.favorites.nofavorites')}</span>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    </tbody>
+                    </table>
+
+                </div>
+                <!-- Fin tabla admin lista de favoritos  -->
+            </div>
+        </div>
+        <div class="clearAll"></div>
+        </div>
+    </script>
+
+    <!-- OpciÃ³n de menÃº lanzar proceso -->
+    <script id="kyop-active-launchProcess-reverseCaller-tmpl" type=type="text/template">
+
+        <div class="" id="kyop-div-children-container-launchProcess" style="display: none;">
+            <!-- FORMULARIO LANZAR PROCESOS -->
+            <form name="input" id="kyop-process-form" target="" action="" method="post">
+
+                <input id="kyop-cod-product" type="hidden" name="pb_cod_prod" value="">
+                <input id="kyop-cod-service" type="hidden" name="pb_cod_serv" value="">
+                <input id="kyop-cod-process" type="hidden" name="pb_cod_proc" value="">
+                <input id="kyop-locale" type="hidden" name="LOCALE" value="">
+                <input id="kyop-date-format" type="hidden" name="pb_cod_ffecha" value="">
+                <input id="kyop-price-format" type="hidden" name="pb_cod_fimporte" value="">
+                <input id="kyop-time-zone" type="hidden" name="pb_husohora" value="">
+                <input id="kyop-check-permissions" type="hidden" name="pb_xti_comprper" value="">
+                <input id="kyop-pub-url" type="hidden" name="pb_url" value="">
+                <input id="kyop-segment" type="hidden" name="pb_segmento" value="">
+                <input id="kyop-product-type" type="hidden" name="xtiTipoProd" value="">
+                <input id="kyop-isPortalKyop" type="hidden" name="pb_isPortalKyop" value="true">
+                <input id="kyop-cod-company" type="hidden" name="cod_emp" value="">
+                <input id="kyop-cod-main-product" type="hidden" name="pb_cod_prod_p" value="">
+
+                <div class="interior kyop-interior-launchProcess">
+                    <p><span class="darker"><label class="doTranslate" key="kyop.ntcsh.i.menu.processStep" ></label> 1 <label class="doTranslate" key="kyop.ntcsh.i.menu.processStepOf" ></label> 2</span>
+                    </p>
+
+                    <h3 class="azul doTranslate"  key="kyop.ntcsh.i.menu.processInfo"></h3>
+
+                    <label><label class="doTranslate" key="kyop.ntcsh.i.menu.processCode" ></label>:</label>
+                    <input id="kyop-process-id" name="kyop-process-id" type="text" class="text" maxlength="8" tabindex="1" autocomplete="off" value="">
+                    <button type="button" onclick="com.bbva.kyop.controller.ProcessController.launchProcessForDevelopers($('#kyop-process-id').val(),'kyop-process-form')" class="grandote estirado marginTop5" id="btnAcceder" tabindex="4" >
+                        <label class="doTranslate" key="kyop.ntcsh.i.menu.process.btn.run" ></label>
+                    </button>
+                </div>
+            </form>
+            <!-- FIN FORMULARIO LANZAR PROCESOS -->
+        </div>
+        {{if reverseCallerMenuOptionEnabled}}
+        <!-- OpciÃ³n para ejecutar procesos mediante el invocador inverso -->
+        <li id="kyop-li-menuOption-reverseCaller" class="">
+            <a id="kyop-menuOption-reverseCaller" class="doTranslate" key="kyop.ntcsh.i.menu.rvsInvk" href="#" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-reverseCaller','kyop-div-children-container-reverseCaller',false,'reverseCaller', true)">
+            </a>
+        </li>
+        {{/if}}
+    </script>
+
+    <!-- Plantilla de ayuda de procesos -->
+    <script id="kyop-process-help-tmpl" type="text/template">
+        <div id="kyop-process-help-container" class="kyop-process-help-container" style="width:${windowWidth}px; min-height:${windowHeight}px;">
+            <div id="kyop-process-help-menu" class="kyop-process-help-menu" style="width:${windowWidth}px;" >
+                <div class="right">
+                    <ul>
+                        {{if urlPdf != "" && urlPdf != null}}
+                        <li><a title="Descargar PDF" target="_blank" href="${urlPdf}" class="kyop-help-link-pdf">${com.bbva.kyop.util.I18nUtil.getText("kyop.ntcsh.help.download")}</a></li>
+                        {{/if}}
+                        <li><a class="kyop-help-link-close" onclick="com.bbva.kyop.controller.ProcessHelpController.hideContainerProcessHelp()">${com.bbva.kyop.util.I18nUtil.getText("kyop.ntcsh.help.close")}</a></li>
+                    </ul>
+                </div>
+                <div class="clearAll"></div>
+            </div>
+            <div id="kyop-process-help-body" class="kyop-process-help-body" style="width:${windowWidth}px; min-height:${windowHeight}px;">
+                <div class="centrado" style="padding-top:75px;">
+                    <a title="${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.help.close')}" onclick="com.bbva.kyop.controller.ProcessHelpController.hideContainerProcessHelp()">
+                        <img src="${urlImagen}"/>
+                    </a>
+                </div>
+                <div class="clearAll"/>
+                <div class="kyop-process-help-buttons">
+                    <div {{if buttonPrevActive}}class="activo prev" onclick="com.bbva.kyop.controller.ProcessHelpController.prevItem()"{{else}}class="prev"{{/if}}>Prev</div>
+                <div {{if buttonNextActive}}class="activo next" onclick="com.bbva.kyop.controller.ProcessHelpController.nextItem()"{{else}}class="next"{{/if}}>Next</div>
+            <div class="clearAll"></div>
+        </div>
+        </div>
+        </div>
+    </script>
+    <!-- Combo de empresas a las que el agente de Help Desk puede seleccionar -->
+    <script id="kyop-helpdesk-select-company-combo-tmpl" type="text/template">
+        <select id="kyop-helpdesk-selectcompany-combo" name="kyop-helpdesk-selectcompany-combo" class="left accionCampoObligatorio" >
+
+            {{if companies.length >0}}
+            {{each(index, company) companies}}
+
+            <option value="${productPibee}#${remote}">${remote} - ${key} (${productPibee})</option>
+
+            {{/each}}
+            {{else}}
+            <option value="nodatos">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.no.data')}</option>
+            {{/if}}
+        </select>
+
+    </script>
+
+    <script id="kyop-window-logout-automatic-tmpl" type="text/template">
+        <div id="kyop-window-logout-automatic">
+            <div class ="fondoTransparente"/>
+            <div class="ventanaModal desconexion" style="display: block;" >
+                <h1 class="azul">  ${title}  </h1>
+                <div class="marginBottom20">
+                    <p>
+                        ${message}
+                    </p>
+                </div>
+                <div class="centrado">
+                    <h2>${subtitle}</h2>
+                </div>
+                <div class="interior">
+                    <div class="centrado bordeDesconexion ancho150 marginAuto marginBottom10">
+                        <p class="numero" id="timerVentanaFinSesion">${minutes}</p>
+                        <p class="letra">${minutesStr}</p>
+                    </div>
+                    <div class="marginTop5 centrado">
+                    </div>
+                </div>
+                <div class="centrado marginTop15"><button class="azul" onclick="$('#kyop-timeoutcontainerautomatic').hide();">OK</button></div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Tabla dinÃ¡mica para selecciÃ³n de empresa en Latam -->
+    <script id="kyop-select-company-latam-table-tmpl" type="text/template">
+        <div class="clearAll"></div>
+        <!-- Titulo de la tabla -->
+        <div class="tituloTabla">
+            <h2 class="left">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.resultlist')}</h2>
+            <div class="resultado right">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.totalresult')}: ${totalResult}</div>
+            <div class="clearAll"></div>
+        </div>
+
+        <div class="dropDown dropTabla">
+            <div class="interiorLeft">
+                <ul class="contenedorDrop">
+                    <li class="sinIcono">
+                        <button class="botonIcono kyop-hide" id="btnSearchCompanyLatamViewDetails" type="button" value="Ver detalle" style="" onclick="com.bbva.kyop.controller.HelpDeskController.viewDetails()">
+                            ${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.view.details')}
+                        </button>
+                        <button type="button" class="botonIcono" value="Seleccionar" onclick="com.bbva.kyop.controller.HelpDeskController.selectHelpDeskCompanyLatam()">
+                            <span>${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.selectbutton')}</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="interiorRight">
+                <ul class="contenedorDrop">
+                    <li class="sinIcono">
+                        <div class="menuDrop">
+                            <input id="kyop-search-latam-input" name="imputFind" type="text" value="${filterText}" placeholder="Buscar">
+                        </div>
+                    </li>
+                    <li class="sinIcono">
+                        <button class="corto" id="kyop-search-latam-button" type="button" value="Buscar" onclick="com.bbva.kyop.controller.HelpDeskController.filterCompaniesList();">
+                            <img alt="BotÃ³n de buscar" class="botonBuscar" src="./resources-new/images/img_trans_1x1.gif">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fin de titulo de la tabla -->
+        <div style="float:left;width:100%">
+            <input type="hidden" value="" id="kyop-select-company-latam" />
+            <input type="hidden" value="" id="kyop-select-company-name-latam" />
+        </div>
+    </script>
+
+    <script id="kyop-select-company-latam-table-body-tmpl" type="text/template">
+        <!-- Tabla -->
+        <table id="kyop-table-search-companies-latam">
+            <thead>
+            <tr>
+                <th id="col1" scope="col" style="width: 4%;"><span class="kyop-table-span-padding">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.selection')}</span></th>
+                <th id="col2" scope="col"><span class="kyop-table-span-padding">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.reference')}</span></th>
+                <th id="col3" scope="col"><span class="kyop-table-span-padding">${com.bbva.kyop.util.I18nUtil.getText('kyop.ntcsh.company.companyname')}</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Fila simple -->
+            {{each(index, company) companies}}
+
+        {{if index%2 == 0}}
+            <tr class="kyop-pijama kyop-table-tr">
+                {{else}}
+            <tr class="kyop-table-tr">
+                {{/if}}
+                <td headers="seleccionElementos" class="selectora"><input type="radio" id="kyop-select-company-selector-${index}" class="kyop-select-company-selector kyop-pointer" name="kyop-company-table-latam" idcompany="${companyId}" companyname="${companyName}" onclick="com.bbva.kyop.controller.HelpDeskController.showButtonViewDetails();"/></td>
+                <td headers="col1" id="kyop-select-company-reference-raw-${index}" val="${companyId}"><span class="kyop-table-span-padding">${companyId}</span></td>
+                <td headers="col2" id="kyop-select-company-companyname-raw-${index}" val="${companyName}"><span class="kyop-table-span-padding">${companyName}</span></td>
+            </tr>
+
+            {{/each}}
+            </tbody>
+        </table>
+        <!-- Fin de tabla -->
+    </script>
+
+</head>
+<body  class="kyop-body" onbeforeunload="javascript:endSession();" onload="meterLoadder()" ooncontextmenu="return false">
+
+<div id="kyop-contentholder"
+     style="top: 50%;z-index: 20001;font-family: Arial;font-weight: normal;font-size: 11px;color: #999;text-align: center;position: absolute;left: 50%;width: 200px;margin-left: -100px;margin-top: -60px;">
+    <div style="display: flex;align-items: center;justify-content: space-evenly;">
+        <div id="loadderGiftNewB" style="width: 50px;display: -webkit-inline-box;" style="margin-right:8px;" align="absmiddle"> </div>
+        <img class="doTranslate kyop-waiting-img" key="kyop.ntcsh.i.msg.inProgress1_2"
+             src="./resources-new/images/common/loadingNBbva.gif" title="Procesando su peticiÃ³n," align="absmiddle"
+             style="width: 40px;height: 40px;display: -webkit-inline-box;margin-right:8px;">
+        <span id="divTitle" class="doTranslate" style="vertical-align: middle;" key="kyop.ntcsh.i.div.title"></span>
+    </div>
+    <div style="padding: 10px;margin: 0;height: auto;display: none">
+        <span id="divSubtitle" class="doTranslate" key="kyop.ntcsh.i.msg.loading"></span>BBVA Net cash
+    </div>
+</div>
+
+<!-- Contenedor del pop up de desconexion -->
+<div id="kyop-timeoutcontainer" class="kyop-messagebox-container-div" style="display:none"></div>
+
+<div id="kyop-timeoutcontainerautomatic" class="kyop-messagebox-container-div" style="display:none"></div>
+
+<!-- PORTAL -->
+<div id="kyop-container-body" style="display: none;">
+    <input type="hidden" id="isInformationalArchitecture" value="true"> </input>
+    <div class="cabecera-clean" id="kyop-header">
+        <div id="kyop-header-wrapper">
+            <div class="logoAndMenu icono-cabecera">
+                <div class="app-header_mobile-menu" onclick="com.bbva.kyop.controller.MenuController.controlPuller();">
+                    <span class="icon-menu"></span>
+                    <span class="icon-close"></span>
+                </div>
+                <span id="logoBBVAcontainer" class="kyop-pointer logoCabecera icon-logo" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-home','kyop-div-children-container-home',false,'home', true)"  >
+					</span>
+            </div>
+            <div class="logoAndMenu icono-cabecera-movil">
+                <div class="app-header_mobile-menu" onclick="com.bbva.kyop.controller.MenuRwdController.showOrHiddeMenuRwd();">
+                    <span class="icon-menu"></span>
+                    <span class="icon-close"></span>
+                </div>
+                <div class="logoCabecera">
+                    <span onclick="com.bbva.kyop.controller.ReverseCallerController.reverseCallerByMenuInfo('OPCION_RELACIONADA', 'es_ES#03#home', 'S', 'S');" class="kyop-pointer icon-logoRWD"></span>
+                </div>
+                <div id="imagenDesplegableResp" class="icon-profile" onclick="myFunction()">
+                </div>
+            </div>
+            <div class="logoAndMenu icono-cabecera-tablet">
+                <div class="app-header_mobile-menu" onclick="com.bbva.kyop.controller.MenuRwdController.showOrHiddeMenuRwd();">
+                    <span class="icon-menu"></span>
+                    <span class="icon-close"></span>
+                </div>
+                <span class="logoCabecera">
+						<span onclick="com.bbva.kyop.controller.ReverseCallerController.reverseCallerByMenuInfo('OPCION_RELACIONADA', 'es_ES#03#home', 'S', 'S');" class="icon-logo kyop-pointer"></span>
+					</span>
+                <div id="imagenDesplegableResp" class="icon-profile" onclick="myFunction()">
+                </div>
+            </div>
+            <div class="menuCabecera">
+                <div id="kyop-first-header-container" class="dropDown submenuUp">
+                    <ul class="contenedorDrop" id="ulPrimerNivel">
+                        <li class="sinIcono">
+
+                            <div class="menuDrop">
+                                <div class="elementoMenu" id="divCabSuperior">
+                                    <div id="kyop-tooltip-countryjump-container"
+                                         class="kyop-active-header-buttons-container"></div>
+                                    <span class="separator"></span>
+                                    <div id="kyop-active-header-buttons-container"
+                                         class="kyop-active-header-buttons-container kyop-control-click-empty">
+
+                                    </div>
+                                    <div id="kyop-print-button"
+                                         class="kyop-pointer kyop-control-click" style="float: left;">
+                                        <div
+                                                onclick="com.bbva.kyop.controller.PrintController.windowPrint();">
+												<span id="printTranslate" key="kyop.ntcsh.common.i.print"
+                                                      class="doTranslate kyop-pointer kyop-control-click"></span>&nbsp;
+                                        </div>
+                                    </div>
+
+                                    <div id="kyop-telephone-client-button"
+                                         class="kyop-pointer kyop-control-click" style="float: left;">
+                                        <script type="text/javascript">
+                                            $(document).ready(esconderTelefono);
+                                            function esconderTelefono() {
+                                                if (window.getCookie('CODIGO_PRODUCTO') == '415') {
+                                                    $('#kyop-telephone-client-button').hide();
+                                                }
+                                            }
+
+                                        </script>
+                                        <div
+                                                onclick="">
+												<span id="telefoneTranslate" key="kyop.ntcsh.header.telefono"
+                                                      onclick="com.bbva.kyop.controller.MenuController.controlHeaderButton('kyop-header-telefone')"
+                                                      class="doTranslate kyop-pointer kyop-control-click"></span>&nbsp;
+
+                                            <div class="fondoDiferenciado kyop-tootip-background tooltip kyop-header-tooltip kyop-header-tooltip-ie7"
+                                                 id="kyop-header-telefone" onmouseleave="$('#kyop-header-telefone').fadeOut(750)"
+                                                 style="display: none;">
+                                                <div class="colorAzulAccion icono-small"
+                                                     onclick="com.bbva.kyop.controller.MenuController.closeTooltip('kyop-header-telefone')">
+                                                </div>
+                                                <div>
+                                                    <ul id="kyop-telefonos-ul" class="kyop-header-button-menu-list">
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div id="kyop-header-first-menu-container"
+                                         class="kyop-header-first-menu-container kyop-control-click">
+                                    </div>
+
+                                    <div id="kyop-integration-manager" class="kyop-header-button-dinamico kyop-control-click">
+
+                                    </div>
+                                    <div id="kyop-user-info-container"
+                                         class="kyop-nombre kyop-control-click"></div>
+                                    <div
+                                            class="fondoDiferenciado kyop-tootip-background tooltip nombre"
+                                            id="ttipNombreUser" style="display: none;">
+                                        <p class="doTranslate" key="kyop.ntcsh.i.msg.welcome"></p>
+                                        <p class="doTranslate" key="kyop.ntcsh.i.div.title"></p>
+
+                                        <div class="clearAll"></div>
+                                    </div>
+
+                                    <div class="menu-exit">
+											<span class="doTranslate kyop-pointer icono icon-exit"
+                                                  id="kyop.ntcsh.header.exitNew"
+                                                  key="kyop.ntcsh.exit"
+                                                  onclick="com.bbva.kyop.util.SessionUtil.portalLogout();">
+
+											</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="kyop-header-second-menu-container" class="dropDown submenuDown">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- ÃREA CENTRAL -->
+    <div id="kyop-body" class="kyop-slice-middle-clean" >
+
+        <!--  desde aqui modificado	 -->
+
+        <script type="text/javascript">
+            //Funcion para desplegar las listas de paises y lenguajes del usuario
+
+
+            function myFunction() {
+                var oculto = document.getElementById("bloquePaisIdiomaResp").style.display;
+                if (oculto == "none") {
+                    document.getElementById("kyop-menu-rwd").style.display = "none";
+                    document.getElementById("bloquePaisIdiomaResp").style.display = "block";
+                    $('#imagenDesplegableResp').addClass('icon-closeTooltip');
+                    $('#imagenDesplegableResp').removeClass('icon-instagram2');
+                } else {
+                    document.getElementById("bloquePaisIdiomaResp").style.display = "none";
+                    $('#imagenDesplegableResp').addClass('icon-instagram2');
+                    $('#imagenDesplegableResp').removeClass('icon-closeTooltip');
+                }
+
+            }//myFunction
+
+            var url = window.location.href;
+            var texto = 'BBVA Net Cash';
+            var producto = getCookie('CODIGO_PRODUCTO');
+            if (producto == '414') {
+                texto = 'BBVA Finet';
+            } else if (producto == '211' || producto == '415') {
+                texto = 'BBVA Net Advance';
+            } else {
+                texto = 'BBVA Net Cash';
+            }
+            document.getElementById("divTitle").innerHTML = "<label>"
+                + texto + "</label>";
+
+            function getCookie (cookieName) {
+                var start = document.cookie.indexOf(cookieName + "=");
+                var len = start + cookieName.length + 1;
+
+                if ((!start)
+                    && (cookieName != document.cookie.substring(0,
+                        cookieName.length)))
+                    return null;
+                if (start == -1)
+                    return null;
+
+                var end = document.cookie.indexOf(";", len);
+                if (end == -1)
+                    end = document.cookie.length;
+
+                return unescape(document.cookie.substring(len, end));
+            };
+        </script>
+        <div id="bloquePaisIdiomaResp" style="display:none; background-color: #072146; padding-bottom: 20px;" >
+            <div id ="menuCabeceraRWD" class="" >
+
+                <div style="" class="left separadorRWD"  >
+                    <div class="icon-profile left " style="margin-top: 18px;     width: 41px;     height: 41px;     overflow: hidden;     background-color: #ceaf62;     /* border: 3px solid #e8e8e8; */     border-radius: 50%;    display: flex;     flex-wrap: wrap;     justify-content: space-around;">
+                        <img id="imgPerfil" style="width: 100%; height: 100%;" src="" />
+                    </div>
+
+                    <div class="left marginLeft10" style=" margin-top:24px; " >
+
+                        <div id="nombreUsuarioResp" class="left " style=" "></div>
+                        <div class="clearAll"></div>
+                        <div class="" id="ApellidosUsuarioResp"></div>
+
+                        <div id="nombreDeReferenResp" class="left" style=" ">  </div>
+                        <div  id="referenciaUsuarioResp" class="left" style="" > </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dobleColumnaIzquierdaCabeceraRWD">
+                <div class="left marginLeft10 icon-pause">
+                </div>
+
+                <div class="left marginLeft10">
+                    <ul>
+                        <li id="textoPais" class="" ></li>
+                        <li id="paisSeleccionado"> </li>
+
+                    </ul>
+                    <ul id="listadoPais" class="marginTop10">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="dobleColumnaDerechaCabeceraRWD ">
+                <div class="left marginLeft10 icon-on">
+                </div>
+                <div class="marginLeft10 left">
+                    <ul>
+                        <li id="textoIdioma" class="" ></li>
+                        <li id="idiomaSeleccionado"></li>
+                    </ul>
+                    <ul id="listadoIdiomas" class="marginTop10">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="clearAll marginBottom20"></div>
+        </div>
+
+        <!--  Hasta aqui modificado	 -->
+
+        <div id="kyop-menu-rwd">
+
+            <ul id="kyop-menu-rwd-ul">
+                <li id="kyop-li-menuOption-home-rwd"
+                    class="seleccionadaDesplegada kyop-option-home-rwd"><a
+                            id="kyop-menuOption-home-rwd"
+                            onclick="com.bbva.kyop.controller.MenuController.goToHomeRwd();">
+                        <div class="kyop-cont-icon-item-menu"></div>
+                        <label
+                                class="doTranslate" key="kyop.ntcsh.i.menu.front"></label> </a></li>
+                <div class="" id="kyop-div-children-container-home-rwd"
+                     style="display: none;"></div>
+            </ul>
+        </div>
+        <table id="kyop-boby-table" class="kyop-boby-table" width="100%">
+            <tr>
+                <td id="columnaMenu" class="columnaMenuOculto" style="left: -220px; display: none;">
+                    <!--  MENU HTML ORDENADOR --> <!-- MENÃ VERTICAL, CONTENEDOR -->
+                    <div class="menu-clean kyop-slice-middle-left-clean"
+                         id="kyop-menu">
+                        <ul class="kyop-searchcombo-container">
+
+                            <li id="kyop-li-menuOption-searchCombo"
+                                class="kyop-li-menuOption-searchCombo"><input type="text"
+                                                                              id="kyop-searchCombo" placeholder="" class="doTranslate"
+                                                                              key="kyop.ntcsh.input.search.menus" />
+                                <div
+                                        style="display:none; cursor: text; position: absolute; top: 7px; right: 7px;"
+                                        class="lupa" onclick="$('#kyop-searchCombo').focus()" /></li>
+
+                        </ul>
+                        <ul class="menuLateral" id="kyop-menuLateral">
+                            <li id="kyop-li-menuOption-home"
+                                class="seleccionadaDesplegada kyop-option-home"><a
+                                        id="kyop-menuOption-home" href="#"
+                                        onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-home','kyop-div-children-container-home',false,'home', true)">
+                                    <label class="doTranslate" key="kyop.ntcsh.i.menu.front">Home</label>
+                                </a></li>
+                            <li>
+                                <div class="" id="kyop-div-children-container-home"
+                                     style="display: none;"></div></li>
+
+                            <!-- Contenedor opciones de menÃº Lanzar Procesos e Invocador inverso -->
+                            <div id="kyop-active-launchProcess-reverseCaller-container"></div>
+
+                            <!-- SÃLO HELP DESK. SelecciÃ³n de empresa -->
+                            <li id="kyop-li-menuOption-selectCompany" class="" style="display: none;">
+                                <a id="kyop-menuOption-selectCompany" class="doTranslate" key="kyop.ntcsh.i.menu.prcs.hd.slctComp" href="#" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-selectCompany','kyop-div-children-container-selectCompany',false,'selectCompany', true);com.bbva.kyop.controller.HelpDeskController.resetProductInformationForm();$('#alertaEstado').hide();$('#mensajeEstadoOk').show();$('#kyop-helpdesk-select-company-input').val('');">
+                                </a>
+                            </li>
+
+                            <!-- SÃLO HELP DESK. SelecciÃ³n de empresa lATAM -->
+                            <li id="kyop-li-menuOption-latam-selectCompany" class="" style="display: none;">
+                                <a id="kyop-menuOption-selectCompany-latam" class="doTranslate" key="kyop.ntcsh.i.menu.prcs.hd.slctComp" href="#" onclick="com.bbva.kyop.controller.MenuController.selectMenuOption('kyop-li-menuOption-latam-selectCompany','kyop-div-children-container-selectCompany-latam',false,'selectCompanyLatam', true)">
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+                        <div class="bbvaCCBannerMenu"></div>
+                    </div>
+                    <div class="clearAll"></div></td>
+                <td id="kyop-body-table-td">
+
+
+                    <div class="migas">
+                        <div class="kyop-migas-wrapper">
+                            <div class="left">
+                                <div id="migas-wrapper" class="left">
+                                    <div class="miga">
+                                        <p>
+                                            <label class="doTranslate"
+                                                   key="kyop.ntcsh.i.navigation.youarein"></label>:
+                                        </p>
+                                    </div>
+                                    <div id="kyop-breadcrumb-container"></div>
+                                    <!-- Esto se puede comentar -->
+                                    <div class="enlaceFavoritos right" style="display: none;">
+                                        <label class="doTranslate" key="kyop.ntcsh.i.fav.add"></label>
+                                    </div>
+                                    <div class="desenlaceFavoritos right" style="display: none;">
+                                        <label class="doTranslate" key="kyop.ntcsh.i.fav.remove"></label>
+                                    </div>
+                                    <!-- Esto se puede comentar -->
+                                    <div class="clearAll"></div>
+                                </div>
+                                <div class="clearAll"></div>
+                            </div>
+                            <div id="kyop-breadcrumbs-options" class="right kyop-breadcrumbs-options">
+                            </div>
+                            <div class="clearAll"></div>
+                        </div>
+                    </div>
+                    <div class="clearAll"></div>
+
+                    <div class="kyop-slice-middle-right-clean">
+                        <!-- CONTENEDOR DE PRUEBAS KYOP -->
+                        <div id="kyop-central-test" style="height: 450px;display: none;">
+                            <div>
+                                <h1 class="doTranslate" key="kyop.ntcsh.i.title.rvsInvk.ntCsh">
+
+                                </h1>
+                            </div>
+                            <div id="kyop-inverse-form-container" style=" width: 100%; float: left; background: #f0f0f0;">
+                                <div class="interior kyop-interior-launchProcess" style="width: 90%; float:left">
+                                    <div class="interior kyop-interior-launchProcess" style="width: 100%; float:left">
+                                        <p><span class="darker doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.MenuData"></span>
+                                        </p>
+
+                                        <h3 class="azul doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.MenuCodeList"></h3>
+                                        <ul>
+                                            <li style="width: 70%;">
+                                                <div id="kyop-menu-terminal-options-combo-container"></div>
+                                            </li>
+                                            <li style="width: 70%;">
+                                                <div id="kyop-menu-noterminal-options-combo-container"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="interior kyop-interior-launchProcess" style="width: 90%; float:left;">
+                                    <div class="interior kyop-interior-launchProcess" style="width: 30%; float:left;">
+                                        <p><span class="darker doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.InvokerData"></span>
+                                        </p>
+
+                                        <h3 class="azul doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.rvsInvk"></h3>
+                                        <ul>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.action"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-action" name="kyop-reverse-action">
+                                                    <option value="SERVICIO_ESPECIFICO">SERVICIO ESPECÃFICO</option>
+                                                    <option value="INICIO">INICIO</option>
+                                                    <option value="BIENVENIDA">BIENVENIDA</option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.service"></label>:</label>
+                                                <input id="kyop-reverse-idService" name="kyop-reverse-idService" type="text" class="text" tabindex="1" autocomplete="off" value="" >
+
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.process"></label>:</label>
+                                                <input id="kyop-reverse-idProcess" name="kyop-reverse-idProcess" type="text" class="text" tabindex="1" autocomplete="off" value="" >
+
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.locale"></label>:</label>
+                                                <input id="kyop-reverse-locale" name="kyop-reverse-locale" type="text" class="text" maxlength="8" tabindex="1" autocomplete="off" value="es_ES" >
+
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.updateMenu"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-updateMenu" name="kyop-reverse-updateMenu">
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.no" value="N"></option>
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.yes" value="S"></option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.updateTrail"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-updateBreadcrumb" name="kyop-reverse-updateBreadcrumb">
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.no" value="N"></option>
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.yes" value="S"></option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.addedParams"></label>
+                                                    (<label class="doTranslate" key="kyop.ntcsh.i.common.optional"></label>):</label>
+                                                <input id="kyop-reverse-extraParams" name="kyop-reverse-extraParams" type="text" class="text" maxlength="8" tabindex="1" autocomplete="off" value="" >
+                                            </li>
+                                            <li>
+                                                <button type="button" onclick="com.bbva.kyop.controller.MenuController.actionTestReverseCaller()" class="grandote estirado marginTop5 doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run" id="kyop-rest-reverse-caller-button" tabindex="4" style="width: 60%">
+                                                    <label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run"></label>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="interior kyop-interior-launchProcess" style="width: 30%; float:left">
+                                        <p><span class="darker doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.InvokerData"></span>
+                                        </p>
+
+                                        <h3 class="azul doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.rvsInvkMenOpt"></h3>
+                                        <ul>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.action"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-menuInfo-action" name="kyop-reverse-menuInfo-action">
+                                                    <option value="OPCION_RELACIONADA">OPCION RELACIONADA</option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.locale"></label>:</label>
+                                                <input id="kyop-reverse-menuInfo-locale" name="kyop-reverse-menuInfo-locale" type="text" class="text" tabindex="1" autocomplete="off" value="es_ES" >
+
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.view"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-menuInfo-view" name="kyop-reverse-menuInfo-view">
+                                                    <option value="01">CABECERA 1</option>
+                                                    <option value="02">CABECERA 2</option>
+                                                    <option value="03">MENÃ LATERAL</option>
+                                                    <option value="04">PIE</option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.menuOption"></label>:</label>
+                                                <input id="kyop-reverse-menuInfo-menuOption" name="kyop-reverse-menuInfo-menuOption" type="text" class="text" tabindex="1" autocomplete="off" value="H003000093" >
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.updateMenu"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-menuInfo-updateMenu" name="kyop-reverse-menuInfo-updateMenu">
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.no" value="N"></option>
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.yes" value="S"></option>
+                                                </select>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.updateTrail"></label>:</label>
+                                                <select class="left accionCampoObligatorio marginBottom14" id="kyop-reverse-menuInfo-updateBreadcrumb" name="kyop-reverse-menuInfo-updateBreadcrumb">
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.no" value="N"></option>
+                                                    <option class="doTranslate" key="kyop.ntcsh.i.common.option.yes" value="S"></option>
+                                                </select>
+                                            </li>
+                                            <li>
+                                                <button type="button" onclick="com.bbva.kyop.controller.MenuController.actionTestReverseCallerByMenuInfo()" class="grandote estirado marginTop5 doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run" id="kyop-rest-reverse-caller-menuInfo-button" tabindex="4" style="width: 60%">
+                                                    <label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run"></label>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="interior kyop-interior-launchProcess" style="width: 30%; float:left">
+                                        <p><span class="darker doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.InvokerData"></span>
+                                        </p>
+
+                                        <h3 class="azul doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.rvsInvkByUrl"></h3>
+                                        <ul>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.locale"></label>:</label>
+                                                <input id="kyop-reverse-url" name="kyop-reverse-url" type="text" class="text" tabindex="1" autocomplete="off" value="http://lostworldsfairs.com/atlantis/" >
+
+                                            </li>
+                                            <li>
+                                                <button type="button" onclick="com.bbva.kyop.controller.MenuController.actionTestReverseCallerByUrl()" class="grandote estirado marginTop5 doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run" id="kyop-rest-reverse-caller-url-button" tabindex="4" style="width: 60%">
+                                                    <label class="doTranslate" key="kyop.ntcsh.i.rvsInvk.ntCsh.button.run"></label>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONTENEDOR DE PRUEBAS KYOP -->
+
+                        <!-- CONTENEDOR MENÃS 3 Y 4 NIVEL -->
+                        <div id="kyop-central-other-level-menus-total-container" style="display: none;">
+                            <div class="kyop-slice-middle">
+                                <!-- Contenedor de opciones de menÃº de 3, 4, y 5 nivel -->
+                                <div id="kyop-other-level-menus-container" class="kyop-slice-middle-left"></div>
+                                <!-- Widget Central Derecho -->
+                                <div id="kyop-ads-middle-right-container" class="kyop-slice-middle-right"></div>
+                            </div>
+                            <div class="clearAll"></div>
+                            <!-- Widget footer -->
+                            <div id="kyop-ads-footer-container" class="kyop-slice-footer"></div>
+                        </div>
+                        <!-- FIN CONTENEDOR MENÃS 3 Y 4 NIVEL -->
+
+                        <!-- CONTENEDOR DE PROCESOS TIPO INTEGRACIÃN FUERTE -->
+                        <div id="kyop-central-strong-process-area" class="kyop-central-home" style="display: none;"></div>
+                        <!-- FIN CONTENEDOR DE PROCESOS TIPO INTEGRACIÃN FUERTE -->
+
+                        <!-- CONTENEDOR DE LA HOME DINÃMICA -->
+                        <div id="kyop-central-home" class="kyop-central-home">
+                            <!-- Espacio para segmentaciÃ³n de oficina -->
+                            <div id="kyop-office-segment" class="alerta bordeInfo" style="display: none;">
+                                <div class="interior1 icon-interior1">
+                                </div>
+                                <div class="interior3 icon-return-15 colorAzulAccion colorAzulAccion" onclick="com.bbva.kyop.controller.CoreController.removeRelocateAccountsMessage()">
+                                </div>
+                                <div class="alert">
+                                    <div id="kyop-office-segment-day" class="interior2">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearAll"></div>
+                            <!-- Widget Header -->
+                            <div id="kyop-slice-header" class="kyop-slice-header"></div>
+                            <div class="bbvaCCBannerVertical"></div>
+                            <div class="clearAll"></div>
+                            <div class="bbvaCCBannerHorizontal"></div>
+                            <div class="clearAll"></div>
+                            <!-- Widget Central -->
+                            <div id="kyop-slice-middle" class="kyop-slice-middle">
+                                <!-- Widget Central Izquierdo -->
+                                <div id="kyop-slice-middle-left" class="kyop-slice-middle-left"></div>
+                                <!-- Widget Central Derecho -->
+                                <div id="kyop-slice-middle-right" class="kyop-slice-middle-right"></div>
+                            </div>
+                            <div class="clearAll"></div>
+                            <!-- Widget footer -->
+                            <div id="kyop-slice-footer" class="kyop-slice-footer"></div>
+
+                        </div>
+                        <!-- FIN CONTENEDOR DE LA HOME DINÃMICA -->
+
+                        <!-- FAVORITOS ADMIN -->
+                        <div  id="kyop-central-favorites" style="display: none;">
+                            <h1 class="doTranslate"  key="kyop.ntcsh.favorites.adminfavorites"></h1>
+                            <div class="left">
+                            </div>
+                            <div id="kyop-admin-favorites-list-container">
+                                <!-- AquÃ­ se establece el combo generado dinÃ¡micamente por el template -->
+                            </div>
+                        </div>
+                        <!-- FIN FAVORITOS ADMIN-->
+
+                        <!-- FORMULARIO PROCESOS -->
+                        <div  id="kyop-central-open-process" class="sinPadding sinBorde jqCustomScrollConImagenes jqExpandible mCustomScrollbar _mCS_1" style="height: 425px;display:none;">
+                            <form name="input" target="kyop-load-area" action="https://grupobbva.es.igrupobbva/SESTLSB/bbvacashm/servlet/PIBEE?proceso=tlbh_nominas_modo_creacion_pr&operacion=tlbhgen_modo_creacion_op&accion=consultarModoCreacion&tipoOrden=NOM&codigoServicio=8119" method="post">
+
+                                <input type="hidden" name="pb_cod_prod" value="201">
+                                <input type="hidden" name="pb_cod_serv" value="8119">
+                                <input type="hidden" name="pb_cod_proc" value="20020109">
+                                <input type="hidden" name="LOCALE" value="es_ES">
+                                <input type="hidden" name="pb_cod_ffecha" value="dd/MM/yyyy HH:mm:ss">
+                                <input type="hidden" name="pb_cod_fimporte" value="0,000.00">
+                                <input type="hidden" name="pb_husohora" value="(GMT+01:00)">
+                                <input type="hidden" name="pb_xti_comprper" value="N">
+                                <input type="hidden" name="pb_url" value="OperacionCBTFServlet?proceso=tlbh_nominas_modo_creacion_pr&operacion=tlbhgen_modo_creacion_op&accion=consultarModoCreacion&tipoOrden=NOM&codigoServicio=8119">
+                                <input type="hidden" name="pb_segmento" value="00000">
+                                <input type="hidden" name="xtiTipoProd" value="C">
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                        <!-- FIN FORMULARIO PROCESOS -->
+
+                        <!-- IFRAME -->
+                        <div id="kyop-central-load-area-container" style="display: none; height: 100%;">
+                            <div id="pestanias-banner-container">
+                                <ul class="pestanias-aem">
+                                    <li onclick="$('#contenido-pestana-operativa').show();$('#kyop-central-load-area-banner').hide(); $('#tag-contenido').addClass('select');$('#tag-banner').removeClass('select');">
+                                        <a id="tag-contenido" class="select"> Contenido </a>
+                                    </li>
+                                    <li onclick="$('#contenido-pestana-operativa').hide(); $('#kyop-central-load-area-banner').show(); $('#contenido-pestana-operativa').hide(); $('#tag-banner').addClass('select');$('#tag-contenido').removeClass('select'); ">
+                                        <a id="tag-banner" class=""> Banner </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- FIN IFRAME -->
+
+                        <!-- IFRAME PARA PROCESOS INICIALES -->
+                        <div id="kyop-central-defaultprocess-load-area-container" style="display: none;">
+
+                        </div>
+                        <!-- FIN IFRAME PARA PROCESOS INICIALES -->
+
+                        <!-- CONTENEDOR HOME GLOBAL HELP DESK -->
+                        <div id="kyop-central-global-helpdesk-home" style="display: none;">
+
+                            <div class="kyop-slice-middle">
+                                <h1>
+                                    <span>Global Help Desk</span>
+                                </h1>
+                                <div class="clearAll"></div>
+                                <div style="height: 425px;display: block;padding: 5% 24%;">
+                                    <img id="kyop-global-helpdesk-img" asrc="./resources-new/images/common/globalHelpDesk.png">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN CONTENEDOR HOME GLOBAL HELP DESK -->
+
+                        <!-- CONTENEDOR HOME LOCAL HELP DESK -->
+                        <div id="kyop-central-local-helpdesk-home" style="display: none;">
+
+                            <div class="kyop-slice-middle">
+                                <h1>
+                                    <span>Local Help Desk</span>
+                                </h1>
+                                <div class="clearAll"></div>
+                                <div style="height: 425px;display: block;padding: 5% 24%;">
+                                    <img id="kyop-local-helpdesk-img" asrc="./resources-new/images/common/localHelpDesk.png">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- FIN CONTENEDOR HOME LOCAL HELP DESK -->
+
+                        <!-- CONTENEDOR SELECCIÃN EMPRESA HELP DESK -->
+                        <div id="kyop-central-select-company-container" style="display: none;">
+                            <h2 class="doTranslate" key="kyop.ntcsh.helpdesk.client.identification"></h2>
+
+                            <div class="interior" style="width: 90%; float:left;">
+                                <div class="interior" style="width: 40%; float:left;">
+                                    <p><span key="kyop.ntcsh.helpdesk.select.company" class="darker doTranslate"></span>
+                                    </p>
+
+                                    <h3 class="azul"></h3>
+                                    <ul>
+                                        <li style="width: 98%;">
+                                            <label><label key="kyop.ntcsh.product" class="doTranslate"></label>:</label>
+                                            <div id="kyop-helpdesk-select-company-combo-container">
+                                                <!-- AquÃ­ se establece el combo generado dinÃ¡micamente por el template -->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="interior" style="width: 12%; float:left">
+                                    <p><span class="darker">&nbsp</span>
+                                    </p>
+
+                                    <h3 class="azul"></h3>
+                                    <ul>
+                                        <li style="width: 100%;min-width:110px">
+                                            <label><label key="kyop.ntcsh.codcompany" class="doTranslate"></label>:</label>
+                                            <input class="left" style="width: 60%;" type="text" id="kyop-helpdesk-select-company-input"  onchange="com.bbva.kyop.controller.HelpDeskController.checkReferenceCode();" name="kyop-helpdesk-select-company-input" class="left"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="interior" style="width: 35%; float:left">
+                                    <p><span class="darker">&nbsp</span>
+                                    </p>
+
+                                    <h3 class="azul"></h3>
+                                    <ul>
+                                        <li style="width: 90%;">
+                                            <label>&nbsp</label>
+                                            <button type="button" class="botonIcono left" value="Buscar" onclick="com.bbva.kyop.controller.HelpDeskController.resetProductInformationForm();$('#alertaEstado').hide();com.bbva.kyop.controller.HelpDeskController.selectHelpDeskCompany();" style="height: 27px;padding: 0px 17px 0px 17px;margin: 5% 0% 0% 0%;">
+                                                <span class="doTranslate" key="kyop.ntcsh.find"></span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="clearAll"></div>
+
+                            <div id="kyop-helpdesk-select-company-information">
+
+                                <div class="interior" style="width: 93%; float:left;">
+                                    <p><span class="darker interior doTranslate" key="kyop.ntcsh.helpdesk.selected.company"></span></p>
+                                    <div class="interior" style="width: 11%; float:left;">
+
+                                        <h3 class="azul"></h3>
+                                        <ul>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.product"></label>:</label>
+                                                <input id="kyop-helpdesk-company-information-idproduct" name="kyop-helpdesk-company-information-idproduct" type="text" class="text"  value="" disabled>
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company"></label>:</label>
+                                                <input id="kyop-helpdesk-company-information-idcompany" name="kyop-helpdesk-company-information-idcompany" type="text" class="text"  value="" disabled>
+
+                                            </li>
+                                            <li style="width: 80%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.channel"></label>:</label>
+                                                <input id="kyop-helpdesk-company-information-channel" name="kyop-helpdesk-company-information-channel" type="text" class="text"  value="" disabled>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="interior" style="width: 56%; float:left">
+
+                                        <h3 class="azul"></h3>
+                                        <ul>
+                                            <li style="width: 90%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.product.description"></label>:</label>
+                                                <input id="kyop-helpdesk-company-information-product" name="kyop-helpdesk-company-information-product" type="text" class="text"  value="" disabled>
+                                            </li>
+                                            <li style="width: 90%;">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company.help"></label>:</label>
+                                                <input id="kyop-helpdesk-company-information-company" name="kyop-helpdesk-company-information-company" type="text" class="text"  value="" disabled>
+
+                                            </li>
+
+                                            <li style="width: 100%;">
+                                                <div style="width:16%;float:left;margin-left:0px;padding-right: 10px;">
+                                                    <label style="width:100%;float:left"><label class="doTranslate" key="kyop.ntcsh.bank.internal"></label>:</label>
+                                                    <input style="width:76%;float:left" id="kyop-helpdesk-company-information-internalbank" name="kyop-helpdesk-company-information-internalbank" type="text" class="text"  value="" disabled>
+                                                </div>
+                                                <div style="width:19%;float:left;">
+                                                    <label style="width:100%;float:left"><label class="doTranslate" key="kyop.ntcsh.company.migrated"></label>:</label>
+                                                    <input style="width:33%;float:left" id="kyop-helpdesk-company-information-migrated" name="kyop-helpdesk-company-information-migrated" type="text" class="text"  value="" disabled>
+                                                    <input id="migradaSI" type="hidden" class="doTranslate" key="kyop.ntcsh.company.migrated.yes"/>
+                                                    <input id="migradaNO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.migrated.no"/>
+                                                </div>
+                                                <div style="width:38%;float:left;padding-right: 28px;">
+                                                    <label><label class="doTranslate" key="kyop.ntcsh.company.status"></label>:</label>
+                                                    <input id="kyop-helpdesk-company-information-company-status" name="kyop-helpdesk-company-information-company-status" type="text" class="text"  value="" disabled>
+                                                    <!-- Traducciones estados -->
+                                                    <input id="traduEstadoSIN_ESTADO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.withoutStatus"/>
+                                                    <input id="traduEstadoACTIVO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.active"/>
+                                                    <input id="traduEstadoBLOQUEADO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.blocked"/>
+                                                    <input id="traduEstadoPENDIENTE_SSTT" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingsstt"/>
+                                                    <input id="traduEstadoPENDIENTE_REACTIVACION" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingReactivation"/>
+                                                    <input id="traduEstadoBAJA" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.deleted"/>
+                                                    <input id="traduEstadoPENDIENTE_POLICY_DIRECTOR" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingPolicyDirector"/>
+                                                    <input id="traduEstadoBLOQUEADO_SERVIDOR" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.blockedServer"/>
+                                                    <input id="traduEstadoOPER_PENDIENTE_REACTIVACION" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingReactivationOper"/>
+                                                    <input id="traduEstadoOPER_PENDIENTE_SMS" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingSMSOper"/>
+                                                    <input id="traduEstadoOPER_PEDIENTE_COR" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingMailOper"/>
+                                                    <input id="traduEstadoINSTALADA" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.installed"/>
+                                                    <input id="traduEstadoPREALTA" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.creationProcess"/>
+                                                    <input id="traduEstadoCAMPANNAS" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.campaigns"/>
+                                                    <input id="traduEstadoCIERRE_TEMPORAL" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.temporaryClosure"/>
+                                                    <input id="traduEstadoPENDIENTE_DE_ASIGNAR_ADMINISTRADOR" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingAdminAssign"/>
+                                                    <input id="traduEstadoPENDIENTE_CONTRATADO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.pendingContracted"/>
+                                                    <input id="traduEstadoBLOQUEADO_POR_HELPDESK" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.blockedByHD"/>
+                                                    <input id="traduEstadoBLOQUEADO_POR_TITULARIDAD" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.blockedByAud"/>
+                                                    <input id="traduEstadoPREBAJA" type="hidden" class="doTranslate" key="kyop.ntcsh.company.status.liquidationProcess"/>
+                                                    <!-- Fin traducciones estados -->
+                                                </div>
+                                                <div style="width:11%;float:left;paddin-left: 10px;">
+                                                    <label style="width:100%;float:left"><label class="doTranslate" key="kyop.ntcsh.company.boss"></label>:</label>
+                                                    <input style="width:86%;float:left" id="kyop-helpdesk-company-information-boss" name="kyop-helpdesk-company-information-boss" type="text" class="text"  value="" disabled>
+                                                    <input id="bossSI" type="hidden" class="doTranslate" key="kyop.ntcsh.company.migrated.yes"/>
+                                                    <input id="bossNO" type="hidden" class="doTranslate" key="kyop.ntcsh.company.migrated.no"/>
+                                                </div>
+                                            </li>
+                                            <li style="width: 98%;">
+                                                <div style="width:50%;float:left">
+                                                    <label style="width:100%;"><label class="" key="">Redocumentacion</label>:</label>
+                                                    <input style="width:86%;" id="kyop-helpdesk-company-redocumentation" name="kyop-helpdesk-company-redocumentation" type="text" class="text"  value="" disabled>
+                                                </div>
+                                                <div style="width:50%;float:left">
+                                                    <label style="width:100%;"><label class="" key="">Bloqueo de firmas</label>:</label>
+                                                    <input style="width:86%;" id="kyop-helpdesk-company-sign-block" name="kyop-helpdesk-company-sign-block" type="text" class="text" value="" disabled>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearAll"></div>
+                                    <div id="deletedCompanyData" style="float:left;display:none;width:100%;margin-right:0px;padding-right:0px;">
+                                        <div class="interior" style="float:left;width: 11.5%;margin-right:0px;padding-right:0px;">
+                                            <li style="width:100%;float:left">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company.dateClousure"></label>:</label>
+                                                <div class="clearAll"></div>
+                                                <input style="width:75%" id="kyop-helpdesk-company-information-date-clousure" name="kyop-helpdesk-company-information-date-clousure" type="text" class="text"  value="" disabled>
+                                            </li>
+                                            <li style="width:100%;float:left">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company.dateLastAccess"></label>:</label>
+                                                <div class="clearAll"></div>
+                                                <input style="width:75%" id="kyop-helpdesk-company-information-date-lastAccess" name="kyop-helpdesk-company-information-date-lastAccess" type="text" class="text"  value="" disabled>
+
+                                            </li>
+                                        </div>
+                                        <div class="interior" style="width: 40%; float:left;">
+                                            <li style="width:100%;float:left">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company.documentType"></label>:</label>
+                                                <div class="clearAll"></div>
+                                                <input style="width:40%" id="kyop-helpdesk-company-information-document-type" name="kyop-helpdesk-company-information-document-type" type="text" class="text"  value="" disabled>
+                                            </li>
+                                            <input key="kyop.ntcsh.company.documentType0" id="traduDocumento0" type="hidden" class="doTranslate" />
+                                            <input key="kyop.ntcsh.company.documentType1" id="traduDocumento1" type="hidden" class="doTranslate" />
+                                            <input key="kyop.ntcsh.company.documentType99" id="traduDocumento99" type="hidden" class="doTranslate" />
+                                            <li style="width:100%;float:left">
+                                                <label><label class="doTranslate" key="kyop.ntcsh.company.document"></label>:</label>
+                                                <div class="clearAll"></div>
+                                                <input style="width:40%" id="kyop-helpdesk-company-information-document" name="kyop-helpdesk-company-information-document" type="text" class="text"  value="" disabled>
+
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearAll"></div>
+
+                            <div id="alertaEstado" class="alerta bordeWarning" style="width: 57%;margin:9px;display: none">
+                                <div>
+                                    <!-- Imagen Izquierda -->
+                                    <div class="interior1 icon-interior1">
+                                    </div>
+                                    <!-- fin imagen izquierda -->
+
+                                    <!-- Imagen derecha -->
+                                    <div class="interior3 icon-return-15 colorAzulAccion colorAzulAccion" onclick="$('#alertaEstado').hide();">
+                                    </div>
+                                    <!-- Fin imagen derecha -->
+
+                                    <!-- Texto -->
+                                    <div class="interior2">
+                                        <span id="textoEstado"></span>
+                                        <input id="estadoPREBAJA" type="hidden" class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.liquidationProcess"/>
+                                        <input id="estadoCIERRE_TEMPORAL" type="hidden" class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.temporaryclosure"/>
+                                        <input id="estadoBAJA" type="hidden" class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.liquidation"/>
+                                        <input id="estadoERROR" type="hidden" class="doTranslate" key="kyop.ntcsh.company.companyerror2"/>
+                                    </div>
+                                    <!-- Fin texto -->
+                                </div>
+                            </div>
+                            <div class="clearAll"></div>
+
+                            <div id="mensajeEstadoOk" class="alerta bordeInfo" style="width: 57%;margin:9px">
+                                <div>
+                                    <div class="interior2 textoMensaje" style="text-align:left">
+                                        <span class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.1"></span>
+                                        <span class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.2"></span>
+                                        <span class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.3"></span>
+                                        <span class="doTranslate" key="kyop.ntcsh.helpdesk.select.company.info.4"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- tipoReferenciaTextoDatos -->
+                            <div id="tipoReferenciaTextoDatos"></div>
+                            <!-- NUEVO GUSANO-->
+                            <div class="gusanoProgreso" id="containerGusano"></div>
+                            <!-- /NUEVO -->
+                            <div class="clearAll"></div>
+                        </div>
+                        <!-- FIN CONTENEDOR SELECCIÃN EMPRESA HELP DESK -->
+
+                        <!-- CONTENEDOR SELECCIÃN EMPRESA HELP DESK LATAM -->
+                        <div id="kyop-central-select-company-latam-container" style="display: none;">
+                            <div id="kyop-search-company-latam-container">
+                                <div id="kyop-helpdesk-select-company-latam-information">
+                                    <h2><label class="doTranslate" key="kyop.ntcsh.company.select"></label></h2>
+
+                                    <div class="clearAll"></div>
+
+                                    <!-- Alerta Rosa -->
+                                    <div id="kyop-select-company-fields-error" class="alerta bordeWarning kyop-select-company-alert" style="display: none;">
+                                        <!-- Imagen Izquierda -->
+                                        <div class="interior1 icon-interior1">
+                                        </div>
+                                        <!-- fin imagen izquierda -->
+
+                                        <!-- Imagen derecha -->
+                                        <div class="interior3 icon-return-15 colorAzulAccion colorAzulAccion" onclick="com.bbva.kyop.controller.HelpDeskController.clearSelectCompanyFieldsError();">
+                                        </div>
+                                        <!-- Fin imagen derecha -->
+
+                                        <!-- Texto -->
+                                        <div class="interior2">
+                                            <span id="kyop-select-company-error-text"></span><!-- Texto de la alerta -->
+                                        </div>
+                                        <!-- Fin texto -->
+                                        <div class="clearAll"></div>
+                                    </div>
+                                    <!-- Fin alerta Rosa -->
+
+                                    <div class="clearAll"></div>
+
+                                    <h3 id="kyop-helpdesk-idclient" class="doTranslate" key="kyop.ntcsh.company.customerid"></h3>
+                                    <div id="kyop-helpdesk-select-company-latam-information-wrapper">
+                                        <div class="kyop-helpdesk-select-company-latem-item">
+                                            <div class="left marginTop5 marginRight10 kyop-helpdesk-select-company-latem-label">
+                                                <label><span class="doTranslate" key="kyop.ntcsh.company.product"></span>:</label>
+                                            </div>
+                                            <div class="left kyop-helpdesk-select-company-latem-input">
+                                                <select id="kyop-company-helpdesk-latam-select-product"></select>
+                                            </div>
+                                            <div class="clearAll"></div>
+                                        </div>
+                                        <div class="kyop-helpdesk-select-company-latem-item">
+                                            <div class="left marginTop5 marginRight10 kyop-helpdesk-select-company-latem-label">
+                                                <label><span class="doTranslate" key="kyop.ntcsh.company.reference"></span>:</label>
+                                            </div>
+                                            <div class="left kyop-helpdesk-select-company-latem-input">
+                                                <input id="kyop-helpdesk-company-latam-input-idcompany" name="kyop-helpdesk-company-latam-input-idcompany" type="text" class="text"  value="" maxlength="8">
+                                            </div>
+                                            <div class="clearAll"></div>
+                                        </div>
+
+                                        <div class="kyop-advance-search kyop-form-select-latam-top kyop-hide">
+                                            <div class="kyop-helpdesk-select-company-latem-item">
+                                                <div class="left marginTop5 marginRight10 kyop-helpdesk-select-company-latem-label">
+                                                    <label><span class="doTranslate" key="kyop.ntcsh.company.companyname"></span>:</label>
+                                                </div>
+                                                <div class="left kyop-helpdesk-select-company-latem-input">
+                                                    <input id="kyop-helpdesk-company-latam-input-companyname" name="kyop-helpdesk-company-latam-input-companyname" type="text" class="text"  value="" maxlength="40">
+                                                </div>
+                                                <div class="clearAll"></div>
+                                            </div>
+
+                                            <div class="kyop-helpdesk-select-company-latem-item">
+                                                <div class="left marginTop5 marginRight10 kyop-helpdesk-select-company-latem-label">
+                                                    <label><span class="doTranslate" key="kyop.ntcsh.company.companyid"></span>:</label>
+                                                </div>
+                                                <div class="left kyop-helpdesk-select-company-latem-input">
+                                                    <input id="kyop-helpdesk-company-latam-input-cif" name="kyop-helpdesk-company-latam-input-cif" type="text" class="kyop-advance-search text kyop-hide"  value="">
+                                                </div>
+                                                <div class="clearAll"></div>
+                                            </div>
+
+                                            <div class="kyop-helpdesk-select-company-latem-item">
+                                                <div class="left marginTop5 marginRight10 kyop-helpdesk-select-company-latem-label">
+                                                    <label><span class="doTranslate" key="kyop.ntcsh.company.account"></span>:</label>
+                                                </div>
+                                                <div class="left kyop-helpdesk-select-company-latem-input">
+                                                    <input id="kyop-helpdesk-company-latam-input-accountservice" name="kyop-helpdesk-company-latam-input-accountservice" type="text" class="kyop-advance-search text kyop-hide"  value="">
+                                                </div>
+                                                <div class="clearAll"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="kyop-advance-search-buttons kyop-advance-search-button">
+                                            <a id="kyop-select-company-hide-advance-search" class="azul kyop-hide " onclick="com.bbva.kyop.controller.HelpDeskController.hideAdvancedSearch();">
+                                                <span class="doTranslate" key="kyop.ntcsh.company.hideadvanced"></span>
+                                            </a>
+                                            <a id="kyop-select-company-show-advance-search" class="azul"  onclick="com.bbva.kyop.controller.HelpDeskController.showAdvancedSearch();">
+                                                <span class="doTranslate" key="kyop.ntcsh.company.advancedsearch"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right; padding-right: 10px; margin-bottom: 15px;">
+                                        <button type="button" class="botonIcono kyop-select-company-search-button azul kyop-advance-search-button" value="Buscar" onclick="com.bbva.kyop.controller.HelpDeskController.searchHelpDeskCompanyLatam()">
+                                            <span class="doTranslate left" key="kyop.ntcsh.find"></span>
+                                            <div class="botonBuscar" style="float:left;margin-left: 8px;"></div>
+                                        </button>
+                                        <button id="kyop-back-search-company-latam" type="button" class="botonIcono kyop-back-search-company-latam azul kyop-search-company-latam" value="Volver" onclick="com.bbva.kyop.controller.HelpDeskController.backToSearchCompanyLatam()" style="height:27px">
+                                            <span class="doTranslate left" key="kyop.ntcsh.search.new"></span>
+                                            <div class="botonBuscar" style="float:left;margin-left: 8px;"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="kyop-select-company-latam-table-container-wrapper" class="kyop-hide kyop-search-company-latam">
+                                        <!-- Contenedor tabla resultados SelecciÃ³n de Empresa para Latam -->
+                                        <h2><label class="doTranslate" key="kyop.ntcsh.search.results"></label></h2>
+                                        <div id="kyop-select-company-latam-table-container" class="interior">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="kyop-detail-company-latam-container" style="display: none;">
+                                    <h2><label class="doTranslate" key="kyop.ntcsh.company.companydetail"></label></h2>
+
+                                    <div class="clearAll"></div>
+
+                                    <div id="kyop-helpdesk-detail-company-latam-information">
+
+                                        <div class="interior" style="width: 90%; float:left;">
+                                            <div class="interior" style="width: 30%; float:left;">
+                                                <p><span class="darker"><label class="doTranslate" key="kyop.ntcsh.company.customerid"></label></span></p>
+                                                <ul>
+                                                    <li style="width: 80%;">
+                                                        <label><label class="doTranslate" key="kyop.ntcsh.company.product"></label>:</label>
+                                                        <input id="kyop-company-helpdesk-latam-detail-productname" name="kyop-company-helpdesk-latam-detail-productname" class="kyop-disabled desactivado" type="hidden" class="text"  value="" disabled>
+                                                        <select id="kyop-company-helpdesk-latam-detail-select-product" disabled></select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="interior" style="width: 30%; float:left;">
+                                                <p><span class="darker">&nbsp;</span></p>
+                                                <ul>
+                                                    <li style="width: 80%;" class="kyop-hide">
+                                                        <label><label class="doTranslate" key="kyop.ntcsh.company.productid"></label>:</label>
+                                                        <input id="kyop-company-helpdesk-latam-detail-idproduct" name="kyop-company-helpdesk-latam-detail-idproduct" class="kyop-disabled desactivado" type="hidden" class="text"  value="" disabled>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <div class="clearAll"></div>
+
+                                        <div class="interior kyop-form-select-latam-top" style="width: 90%; float:left;">
+                                            <div class="interior" style="width: 30%; float:left;">
+                                                <ul>
+                                                    <li style="width: 80%;">
+                                                        <label><label class="doTranslate" key="kyop.ntcsh.company.reference"></label>:</label>
+                                                        <input id="kyop-helpdesk-company-latam-detail-input-idcompany" type="text" class="text kyop-disabled"  value="" disabled>
+                                                    </li>
+                                                    <li style="width: 80%;">
+                                                        <label><label class="doTranslate" key="kyop.ntcsh.company.companyname"></label>:</label>
+                                                        <input id="kyop-helpdesk-company-latam-detail-input-companyname" type="text" class="text kyop-disabled"  value="" maxlength="40" disabled>
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="interior" style="width: 40%; float:left">
+                                                <ul>
+                                                    <li style="width: 60%;">
+                                                        <label class="kyop-advance-search"><label class="doTranslate" key="kyop.ntcsh.company.companyid"></label>:</label>
+                                                        <input id="kyop-helpdesk-company-latam-detail-input-cif" type="text" class="kyop-advance-search text kyop-disabled"  value="" disabled>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                        <div class="clearAll"></div>
+                                        <div id="kyop-select-company-latam-detail-button" class="interior" style="width: 50%; float:left">
+                                            <button type="button" class="botonIcono" value="Volver" onclick="com.bbva.kyop.controller.HelpDeskController.backToResultsCompanyLatam()" style="height: 27px;float:left;">
+                                                <span><label class="doTranslate" key="kyop.ntcsh.company.back"></label></span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="clearAll"></div>
+                            </div>
+                            <!-- FIN CONTENEDOR SELECCIÃN EMPRESA HELP DESK LATAM -->
+
+                        </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="clearAll" ></div>
+    <div id="ventanaCapaEspera" style="display: none;">
+        <div class="modal">
+            <div class="ventanaMensaje" id="ventanaCapaEsperaMensajeOriginalTr">
+                <div class="ventanaMensajeInterior">
+                    <div class="ventanaMensajeInteriorWrapper">
+                        <img class="doTranslate kyop-waiting-img" key="kyop.ntcsh.i.msg.inProgress1_2"
+                             src="./resources-new/images/common/loadingNBbva.gif" title="Procesando su peticiÃ³n," align="absmiddle"
+                             style="width: 40px;height: 40px;display: -webkit-inline-box;position: absolute;left: -35px;top: 18px;">
+
+                        <div id="loadderGiftNewBHome"  style="width: 40px;display: -webkit-inline-box;position: absolute;left: -35px;top: 18px;"
+                             align="absmiddle"> </div>
+
+                        <div class="mensajesModal cargador" style="">
+                            <h2><label class="doTranslate" key="kyop.ntcsh.i.msg.inProgress1_2"></label>
+                                <label class="doTranslate" key="kyop.ntcsh.i.msg.inProgress2_2"></label>...</h2>
+                        </div>
+                        <div class="clearAll" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ventanaMensaje" id="ventanaCapaEsperaMensajeTr"
+                 style="display: none;">
+                <div class="ventanaMensajeInterior">
+                    <div id="loadderGiftNewHomeMensaje"  style="width: 40px;display: -webkit-inline-box;float: left;padding-right: 10px;padding-left: 40px;padding-top: 20px;"
+                         align="absmiddle"> </div>
+                    <div class="mensajesModal cargador">
+                        <h2 id="ventanaCapaEsperaMensaje">MSG..</h2>
+                    </div>
+                    <div class="clearAll" ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearAll" ></div>
+
+    <!-- Contenedor para mostrar el menÃº del pie -->
+    <div class="kyop-footer-info-container-wrapper">
+        <div class="pie" id="kyop-footer-info-container">
+            <div id="kyop-footer-menu-container" class="right"  style="margin-right: 0px;"></div>
+        </div>
+    </div>
+
+    <div class="clearAll"></div>
+
+</div>
+<!-- Contenedor para comprobar la conexiÃ³n a desarrollo para probar procesos -->
+<div style='display:none'>
+    <div id='kyop-check-connection' style='display:none'>
+    </div>
+</div>
+
+<!-- Contenedor para mostrar los LightBox sin colorbox -->
+<div id="kyop-lightbox-container-div" style="display: none;">
+    <div class="kyop-ligthbox-container-div">
+        <div class="ventanaModal" id="kyop-lightbox-internal-container-div" style="height:600px;">
+            <div class="right icon-closeTooltip colorAzulAccion" onclick="com.bbva.kyop.util.LightBoxUtil.closeLightBoxKyop('kyop-lightbox-container-div')">
+            </div>
+            <div class="iframe">
+                <form id="kyop-lightbox-form" method="post" target="kyop-lightbox-iframe-div" action="">
+                    <input id="kyop-lightBox-locale" type="hidden" name="LOCALE" value="">
+                    <input id="kyop-lightBox-locale-footer" type="hidden" name="locale" value="">
+                    <input id="kyop-lightBox-date" type="hidden" name="pb_cod_ffecha" value="">
+                    <input id="kyop-lightBox-price" type="hidden" name="pb_cod_fimporte" value="">
+                    <input id="kyop-lightBox-time" type="hidden" name="pb_husohora" value="">
+                    <input id="kyop-lightBox-product" type="hidden" name="cb_cod_prod" value="">
+                    <input id="kyop-lightBox-segment" type="hidden" name="cb_segmento" value="">
+                </form>
+                <iframe id="kyop-lightbox-iframe-div" name="kyop-lightbox-iframe-div" onload="com.bbva.kyop.util.LightBoxUtil.iframeLoadedLightBoxKyop()" src="" width="100%" height="100%" ></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="fondoTransparente" ></div>
+</div>
+
+<div id="kyop-opinator-container-div" style="display: none;">
+    <div class="kyop-ligthbox-container-div">
+        <div class="ventanaModal" id="kyop-opinator-internal-container-div" style="width:360px; height:430px;">
+            <div class="opinatorFormCerrar icon-closeTooltip"></div>
+            <div style="margin-left:32px;">
+                <img style="margin: 40px 0px 32px 108px;" src="./resources-new/images/common/microillus.svg"/>
+                <p class="opinatorTitle doTranslate" key="kyop.ntcsh.opinator.logout.tittle"></p>
+                <div class="clearAll"></div>
+                <p class="opinatorSubtitle doTranslate" style="margin-top:30px;" key="kyop.ntcsh.opinator.logout.message"></p>
+                <div class="marginTop20">
+                    <button class="opinatorButton" id="openOpinatorForm" onclick="com.bbva.kyop.controller.MenuController.opinatorForm()"><span class="doTranslate" key="kyop.ntcsh.opinator.logout.button"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fondoTransparente"></div>
+</div>
+
+<!-- Contenedor para mostrar los LightBox de campanias  -->
+<div id="kyop-campaigns-lightbox-container-div" style="display: none;">
+    <!-- FORMULARIO INVOCAR A IFRAMES -->
+    <form name="kyop-campaign-form" id="kyop-campaign-form" target="kyop-campaigns-lightbox-iframe-div" action="" method="post">
+        <input id="kyop-campaign-cod-product" type="hidden" name="cb_cod_prod" value="">
+        <input id="kyop-campaign-locale" type="hidden" name="LOCALE" value="">
+        <input id="kyop-campaign-date-format" type="hidden" name="cb_cod_ffecha" value="">
+        <input id="kyop-campaign-price-format" type="hidden" name="cb_cod_fimporte" value="">
+        <input id="kyop-campaign-time-zone" type="hidden" name="cb_husohora" value="">
+        <input id="kyop-campaign-segment" type="hidden" name="cb_segmento" value="">
+        <input id="kyop-campaign-product-type" type="hidden" name="c_xtiTipoProd" value="">
+        <input id="kyop-campaign-id-user" type="hidden" name="cb_id_user" value="true">
+        <input id="kyop-campaign-name-user" type="hidden" name="cb_name_user" value="">
+        <input id="kyop-campaign-cod-reference" type="hidden" name="cb_cod-reference" value="">
+        <input id="kyop-campaign-is-mono-reference" type="hidden" name="cb_is-mono-reference" value="">
+        <input id="kyop-campaign-is-lite-reference" type="hidden" name="cb_is-lite-reference" value="">
+        <input id="kyop-campaign-is-advanced-reference" type="hidden" name="cb_is-advanced-reference" value="">
+        <input id="kyop-campaign-is-pnm-reference-migrated" type="hidden" name="cb_is-pnm-reference-migrated" value="">
+        <input id="kyop-campaign-is-pnm-reference-created" type="hidden" name="cb_is-pnm-reference-created" value="">
+    </form>
+
+    <!-- PARTE VISUAL -->
+
+    <div id="kyop-campaigns-lightbox-internal-container-div" style="height:600px;">
+        <!-- <div class="iframe" style="height:570px;"> -->
+        <div id="kyop-campaigns-lightbox-internal-container-div-wrapper">
+            <div class="icon-logo" id="kyop-campaigns-lightbox-internal-container-header">
+            </div>
+
+            <div class="iframe" id="kyop-campaigns-lightbox-internal-container-body">
+                <iframe id="kyop-campaigns-lightbox-iframe-div" name="kyop-campaigns-lightbox-iframe-div" src=""
+                        width="100%" height="100%" frameBorder="0" style="border:0px;"></iframe>
+            </div>
+            <div id="kyop-campaigns-lightbox-internal-container-footer">
+                <div id="kyop-campaigns-lightbox-counter-div"></div>
+                <div id="kyop-campaigns-lightbox-internal-container-footer-copyright"></div>
+            </div>
+        </div>
+    </div>
+    <div class="fondoTransparente"></div>
+</div>
+<!-- Contenedor para mostrar los LightBox de MessageBox -->
+<div id="kyop-messagebox-container"></div>
+
+<div class="clearAll"></div>
+
+<script type="text/javascript">
+    includeAdobeAnalytics(function(){
+        console.info('Llamada a _satellite.pageBottom');
+        _satellite.pageBottom();
+    });
+</script>
+
+<!-- The utag.js script should run in the body section. -->
+<!-- Loading script asynchronously -->
+<script type="text/javascript">
+    (function(a,b,c,d){
+        a='//tags.tiqcdn.com/utag/bbva/es-netcash-web/prod/utag.js';
+        b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;
+        d.async=true;
+        a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+
+</body>
+</html>

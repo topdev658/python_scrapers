@@ -1,0 +1,52 @@
+// PAGINATION
+DATA
+idoperacion=527_1
+dispositivo=INTR
+Idioma=ES
+canal=IBE
+entidad=2085
+entorno=IN
+claf_entrada
+cuentas=#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#
+tipo_busq=sitodas
+fecha_ini=2020/05/01
+fecha_fin=2020/08/13
+importe_min=0
+importe_max=9999999999
+indconsultado
+agrupacion
+pagina_a_mostrar=2 // page
+orden=1
+columna_orden=1
+pestanas=00#04#05#07#08#09#11#13#14#15#16
+ctas_guardadas
+ctas_ec=20859660310330231072-AH#20859660388300470098-AH#96605800048835-DX#6001753272-MP#
+vistaSel
+
+
+DOWNLOAD PDF
+// param2 -- corr #2 from the current page
+>>> POST https://www1.ibercajadirecto.com/ibercaja/asp/modulodirector.asp?MSCSAUTH=8B36FDAC62304397A67C305D6644B976CAEBU20200813154746AKIY2304397A67QPC305D6644BSZBX6D503C76A793403XBZSB4466D503CPQ76A7C76A79340326CADF63B8XBZSB446
+DATA
+idoperacion=502_0
+Entidad=2085
+Canal=IBE
+Dispositivo=INTR
+Idioma
+numparams=7 // number of corrs at the page
+param1
+param2=S#200518000350001242#1 B09417932  00# #I0552 #2#1#AH#20859660310330231072#  #                         #72.6#EUR#2020/05/18#S#01
+param3
+param4
+param5
+param6
+param7
+param8
+param9
+param10
+param11
+param12
+param13
+param14
+param15
+Op_origen=527_1

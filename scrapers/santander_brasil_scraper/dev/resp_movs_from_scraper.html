@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Language" content="pt" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+
+<script type="text/javascript">
+	window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		"user": {
+			'clientId': '7616129',
+			'deviceId': '',
+			'accountType': 'PJ',
+			'accountant': true,
+			'primarySegment': '011',
+			'secundarySegment': ''
+		}
+	});
+</script>
+<script type="text/javascript" src="/includes/gtm.helper.pj.classico.js" async="async"></script>
+
+<script>
+
+
+		var top = window;while(top != top.parent){top=top.parent;}function MM_openBrWindow(theURL,winName,features){window.open(theURL,winName,features);}
+		var utag_data = {};
+		try{
+			if(window.name=="iframePrinc"){
+				utag_data["custom_pagetitle"] = window.top.Principal.Menu.document.getElementById("migalha").textContent;
+			}
+		}
+		catch(e){}
+
+		utag_data["segmento"] = "011";
+utag_data["tipoUsuario"] = "M";
+
+
+		(function(a,b,c,d){
+			a='//tags.tiqcdn.com/utag/santander/br-internet-banking-pj/prod/utag.js';
+			b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+			a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+		})();
+
+</script>
+
+<script>
+	var pagImprimir='../../includes/pop_impressao_geral.asp';
+	function setaPagImprimir(){
+		var frm0 = document.forms[0];
+
+		if(frm0.hdnPagImprimir)
+			pagImprimir=frm0.hdnPagImprimir.value;
+	}
+
+	function onVoltar(){
+		if(!PaginaVoltar || PaginaVoltar == ''){
+			if(!menu.idAtivo || menu.idAtivo == ''){
+				window.open('../../NIB_Home.asp','Corpo');
+			}
+			else{
+				window.open('../../NIB_MontaMenu.asp?id='+ menu.idAtivo,'Corpo');
+			}
+			return;
+		}
+		var frm0 = document.forms[0];
+		if(!frm0){
+			window.location.assign(PaginaVoltar);
+			return;
+		}
+
+		if(!frm0.txtAcao){
+			var tmpInput = document.createElement('INPUT');
+			tmpInput.type = 'hidden';
+			tmpInput.id = 'txtAcao';
+			tmpInput.name = 'txtAcao';
+			frm0.appendChild(tmpInput);
+			if (frm0.normalize) frm0.normalize();
+		}
+
+		frm0.txtAcao.value='99';
+		frm0.action = PaginaVoltar;
+		frm0.target = '_self';
+		frm0.submit();
+	}
+
+	function onImprimir(altura,largura){
+		setaPagImprimir();
+		var a = 550;
+		var l = 697;
+
+		if (altura!= undefined)
+			a = altura;
+
+		if (largura!= undefined)
+			l = largura;
+
+		window.open(pagImprimir,'comprovante','width='+l+', height='+a+', scrollbars=yes');
+	}
+
+	function onSalvarPDF(){
+		setaPagImprimir();
+		salvarPDF(pagImprimir);
+	}
+
+	function onSalvarPDFPagina(pagImprimir){
+		salvarPDF(pagImprimir);
+	}
+
+
+	function onEnviarEmail(){
+		setaPagImprimir();
+		enviarPDF(pagImprimir);
+	}
+</script>
+<html>
+	<head>
+		<title>Internet Banking</title>
+
+		<link rel="stylesheet" type="text/css" href="../../Estilos/IBPJ.css"/>
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+
+		<script language="JavaScript" src="../../Includes/data.js"></script>
+		<script language="JavaScript" src="../../Includes/number.js"></script>
+		<script language="JavaScript" src="../../Includes/pagamentos.js"></script>
+		<script language="JavaScript" src="../../Includes/ajuda.js"></script>
+		<script language="JavaScript" src="../../Includes/overlib.js"></script>
+		<script language="javascript" src="../../includes/ordertable.js"></script>
+
+		<script language="JavaScript" src="../../Includes/IBPJ_funcoes.js"></script>
+		<script language="JavaScript" src="../../Includes/incRecValores.js"></script>
+		<script language="JavaScript" src="../../Includes/cadastro.js"></script>
+		<script language="JavaScript" src="../../Includes/framework.js"></script>
+
+		<script language="JavaScript" src="../../Includes/ConfereAssinatura.js"></script>
+	</head>
+
+<script language="JavaScript">
+	parent.document.getElementById("lblDataLeg").innerHTML = '<b>Data/Hora: </b>20/11/2018 &agrave;s 18:46h';
+
+	function ChamaVisualizaConfirma(tarifa,errotarifa){
+		window.top.Principal.Menu.AbreMontaFrame('Paginas/Visualiza_cheque/Visualiza_Cheque_confirma.asp?' + parametros + '&txtErroTarifa=' + errotarifa + '&txttarifa=' + tarifa,'L','p001','Conta Corrente » Cheques » Cópia de Cheques');
+	}
+
+	function onProximaPagina(){
+		var frm = document.frmExtratoDetalhe;
+
+		frm.hdnFlagAnterior.value = "0";
+		frm.hdnRechAnterior.value = frm.hdnRechAnterior.value + "||000000000||000000000||||@@";
+
+		parent.document.getElementById("divLoader").style.display = "block";
+		parent.document.getElementById("divConteudoExtrato").style.display = "none";
+		parent.window.top.Principal.Corpo.ajustaAltura();
+
+		frm.submit();
+	}
+
+	function onPaginaAnterior(){
+		document.frmExtratoDetalhe.hdnFlagAnterior.value = "1";
+
+		parent.document.getElementById("divLoader").style.display = "block";
+		parent.document.getElementById("divConteudoExtrato").style.display = "none";
+		parent.window.top.Principal.Corpo.ajustaAltura();
+
+		document.frmExtratoDetalhe.submit();
+	}
+</script>
+	<body>
+		<form name="frmExtratoDetalhe" method="POST">
+			<input type="hidden" name="DataIni" id="DataIni" value="10/10/2018"/>
+			<input type="hidden" name="DataFin" id="DataFin" value="15/11/2018"/>
+			<input type="hidden" name="hdnFlagAnterior" id="hdnFlagAnterior"/>
+			<input type="hidden" name="hdnRechAnterior" id="hdnRechAnterior" value=""/>
+			<input type="hidden" name="hdnRechDATAMOV" id="hdnRechDATAMOV" value=""/>
+			<input type="hidden" name="hdnRechDATAFIM" id="hdnRechDATAFIM" value=""/>
+			<input type="hidden" name="hdnRechMOVDESD" id="hdnRechMOVDESD" value="000000000"/>
+			<input type="hidden" name="hdnRechMOVHAST" id="hdnRechMOVHAST" value="000000000"/>
+			<input type="hidden" name="hdnRechFIM" id="hdnRechFIM" value=""/>
+			<div name="divConteudoExtrato" id="divConteudoExtrato">
+<div id="tabExtratoDetalhe"class="divLista" >
+<div style="zoom:1"><table width="100%" class="lista" id="tbl_tabExtratoDetalhe">
+<tr class="ltr0">
+<td style="width:75px" >Data</td>
+<td style="width:7px" > </td>
+<td >Hist&oacute;rico</td>
+<td style="width:80px" >Docto.</td>
+<td style="width:100px" >Valor R$</td>
+<td style="width:100px" >Saldo R$</td>
+</tr><tr id="lin0" id="lin0" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >10/10/2018</td>
+<td style="width:7px;" >&nbsp;</td>
+<td style="" >SALDO ANTERIOR</td>
+<td style="width:80px;text-align:center;" >&nbsp;</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin1" id="lin1" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >10/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" ><a href='#' onClick='ChamaVisualiza("000147","03ea4f6080d5c666fe1633cd01ef2f5f857426410211ad11a76c6d72705d5ce8302720bdf20ac38ce2c6001dae9994e08a10033ea83487bd9042f230ba1e2cf3");'>COMPENSACAO INTERNA DE CHEQUE</a></td>
+<td style="width:80px;text-align:center;" ><a href='#' onClick='ChamaVisualiza("000147","03ea4f6080d5c666fe1633cd01ef2f5f857426410211ad11a76c6d72705d5ce8302720bdf20ac38ce2c6001dae9994e08a10033ea83487bd9042f230ba1e2cf3");'>000147</a>&nbsp;&nbsp;<img src='../../Imagens/PJuridica/maq_fotog.gif' width='14' height='11' border='0' alt='' onClick='ChamaVisualiza("000147","03ea4f6080d5c666fe1633cd01ef2f5f857426410211ad11a76c6d72705d5ce8302720bdf20ac38ce2c6001dae9994e08a10033ea83487bd9042f230ba1e2cf3");'></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-900,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin2" id="lin2" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >10/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >900,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin3" id="lin3" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >11/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" ><a href='#' onClick='ChamaVisualiza("000148","03ea4f6080d5c666fe1633cd01ef2f5f68dfb5fa91b4eab276683b723986adbae746c98c6dd3cd472229ed664705c6c4f3998a044b78d6dbe071408de275b4dd");'>CHEQUE EMITIDO/DEBITADO</a></td>
+<td style="width:80px;text-align:center;" ><a href='#' onClick='ChamaVisualiza("000148","03ea4f6080d5c666fe1633cd01ef2f5f68dfb5fa91b4eab276683b723986adbae746c98c6dd3cd472229ed664705c6c4f3998a044b78d6dbe071408de275b4dd");'>000148</a>&nbsp;&nbsp;<img src='../../Imagens/PJuridica/maq_fotog.gif' width='14' height='11' border='0' alt='' onClick='ChamaVisualiza("000148","03ea4f6080d5c666fe1633cd01ef2f5f68dfb5fa91b4eab276683b723986adbae746c98c6dd3cd472229ed664705c6c4f3998a044b78d6dbe071408de275b4dd");'></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-365,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin4" id="lin4" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >11/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >365,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin5" id="lin5" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >25/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >TARIFA EXTRATO INTELIGENTE         23/10/2018</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-11,90</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin6" id="lin6" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >25/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >11,90</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin7" id="lin7" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >26/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >TARIFA MENSALIDADE PACOTE SERVICOS  SETEMBRO / 2018</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-78,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin8" id="lin8" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >26/10/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >78,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin9" id="lin9" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >09/11/2018</td>
+<td style="width:7px;" ></td>
+<td style="" ><a href='#' onClick='ChamaVisualiza("000150","03ea4f6080d5c666fe1633cd01ef2f5f083127b96fdb33ad44fcebd78e7039582c0165bdcc4eaaf2859b4b4da40add709636463e9670eec3f71fb960b08d6563");'>COMPENSACAO INTERNA DE CHEQUE</a></td>
+<td style="width:80px;text-align:center;" ><a href='#' onClick='ChamaVisualiza("000150","03ea4f6080d5c666fe1633cd01ef2f5f083127b96fdb33ad44fcebd78e7039582c0165bdcc4eaaf2859b4b4da40add709636463e9670eec3f71fb960b08d6563");'>000150</a>&nbsp;&nbsp;<img src='../../Imagens/PJuridica/maq_fotog.gif' width='14' height='11' border='0' alt='' onClick='ChamaVisualiza("000150","03ea4f6080d5c666fe1633cd01ef2f5f083127b96fdb33ad44fcebd78e7039582c0165bdcc4eaaf2859b4b4da40add709636463e9670eec3f71fb960b08d6563");'></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-900,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin10" id="lin10" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >09/11/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >900,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+<tr id="lin11" id="lin11" class="ltr2 ltrhil " onClick="  MMS_onClick(this, '0'); " >
+<td style="width:75px;text-align:center;" >13/11/2018</td>
+<td style="width:7px;" ></td>
+<td style="" ><a href='#' onClick='ChamaVisualiza("000151","03ea4f6080d5c666fe1633cd01ef2f5fe91b33600e535d5b75efb7b1f9c5b3d5b609b6a650354d33293ef78fdc03542ba2d6f52e769e56afeb665a6479732632");'>CHEQUE EMITIDO/DEBITADO</a></td>
+<td style="width:80px;text-align:center;" ><a href='#' onClick='ChamaVisualiza("000151","03ea4f6080d5c666fe1633cd01ef2f5fe91b33600e535d5b75efb7b1f9c5b3d5b609b6a650354d33293ef78fdc03542ba2d6f52e769e56afeb665a6479732632");'>000151</a>&nbsp;&nbsp;<img src='../../Imagens/PJuridica/maq_fotog.gif' width='14' height='11' border='0' alt='' onClick='ChamaVisualiza("000151","03ea4f6080d5c666fe1633cd01ef2f5fe91b33600e535d5b75efb7b1f9c5b3d5b609b6a650354d33293ef78fdc03542ba2d6f52e769e56afeb665a6479732632");'></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span Class='vermelho'>-365,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" >&nbsp;</td>
+</tr>
+<tr id="lin12" id="lin12" class="ltr1 ltrhil " onClick="  MMS_onClick(this, '1'); " >
+<td style="width:75px;text-align:center;" >13/11/2018</td>
+<td style="width:7px;" ></td>
+<td style="" >RESGATE AUT CONTAMAX EMPRESARIAL</td>
+<td style="width:80px;text-align:center;" >000000</td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >365,00</span></td>
+<td style="width:100px;text-align:right;white-space:nowrap;" ><span >0,00</span></td>
+</tr>
+</table></div></div>
+
+				<script>
+					parent.setExtratoCarregado("S");
+
+				</script>
+
+				<div style="text-align:right;margin-top:5px" class="noImp"></div>
+			</div>
+			<script>
+				parent.document.getElementById("divLoader").style.display = "none";
+				parent.document.getElementById("divConteudoExtrato").innerHTML = document.getElementById("divConteudoExtrato").innerHTML;
+				parent.document.getElementById("divConteudoExtrato").style.display = "block";
+				document.getElementById("divConteudoExtrato").innerHTML = "";
+				parent.window.top.Principal.Corpo.ajustaAltura();
+			</script>
+		</form>
+	</body>
+</html>

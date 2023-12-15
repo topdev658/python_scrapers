@@ -1,0 +1,570 @@
+
+
+<HTML>
+  <HEAD>
+
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+		<meta http-equiv='Cache-Control' content='no-cache, must-revalidate' />
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+<TITLE>Banco BIC Português</TITLE>
+<link rel="stylesheet" href="/CorporateBanking/v10/PT/css/estilos.css" type="text/css" media="screen">
+<script>var urlPagina="/CorporateBanking/v10/PT/aspx/empresas/consultas/saldosMov/detTEIDebitoDO/detTEIDebitoDO_detalhe.aspx"</script>
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/geralV1.js"></script>
+<script src="/CorporateBanking/v10/PT/js/menus.aspx"></script>
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/utilsV1.js"></script>
+<script charset="ISO-8859-1" src="/CorporateBanking/v10/PT/js/validacoesV1.js"></script>
+
+
+		<script language="javascript" src="../../../../../js/imprimirV4.js"></script>
+</HEAD>
+	<body bgColor="white" leftMargin="2" topMargin="0" marginwidth="0" marginheight="0">
+		<a name="topo"></a>
+		<!-- <script language="javascript" src="../../../../js/imprimirV4.js"></script>  -->
+		<!--CABECALHO-->
+
+<script language="javascript">
+function CallUrl(mode)
+{
+	url_final = "";
+
+
+	if (mode == 'ajuda')
+	{
+	}
+	else if (mode == 'contactenos')
+	{
+		url_final = contactenos_link;
+	}
+	else if (mode == 'infoUtil')
+	{
+		url_final = 'https://www.bancobic.pt/eportal/v10/PT/aspx/genericas/index,10855.aspx';
+	}
+	else if (mode == 'avisolegal')
+	{
+		url_final = avisolegal_link;
+	}
+	else if (mode == 'precario')
+	{
+		url_final = precario_link;
+	}
+	else if (mode == 'cotacoes')
+	{
+        url_final = 'https://www.eurobic.pt/particulares/mercados/indices';
+	}
+	else if (mode == 'cambios')
+	{
+        url_final = 'https://www.eurobic.pt/particulares/mercados/cambios';
+	}
+
+	if (url_final.length > 0)
+	{
+		if (mode == 'contactenos')
+		{
+			id = window.open(url_final,'xpto_janela','height=650,width=660,status=no,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes,top=40,left=200');
+		}
+		else
+		{
+			if(mode == 'cotacoes' || mode == 'cambios')
+			{
+				id = window.open(url_final,'','height=650,width=800,top=40,left=200,location=yes,resizable=yes,menubar=yes,scrollbars=yes,titlebar=yes,toolbar=yes');
+			}
+			else
+				id = window.open(url_final,'xpto_janela','height=400,width=650,status=no,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes,top=200,left=200');
+		}
+
+		id.focus();
+	}
+}
+
+function SplitUrl(mode, url)
+{
+	posicao = url.indexOf("/aspx/");
+	url = url.substring(0,posicao);
+	posicao = url.lastIndexOf("/");
+
+	if (mode == 0)	//Lingua
+		url = url.substring(posicao+1);
+	else (mode == 1)	//Versão
+	{
+		url = url.substring(0,posicao);
+		posicao = url.lastIndexOf("/");
+		url = url.substring(posicao+1);
+	}
+
+	return url;
+}
+
+function SplitUrl2(mode, url)
+{
+	posicao = url.indexOf("/aspx/");
+	urlant = url.substring(0,posicao);
+	urlpos = url.substring(posicao+1);
+
+	if (mode == 0) //Url Anterior
+	{
+		posicao = urlant.lastIndexOf("/");
+		urlant = urlant.substring(0,posicao);
+		posicao = urlant.lastIndexOf("/");
+		urlant = urlant.substring(0,posicao);
+
+		return urlant;
+	}
+	else if (mode == 1)
+		return urlpos;
+}
+</script>
+
+<script>
+    var timeoutHandle = null;
+    function resetSessionTimeoutCounter() {
+        var timeoutLocation = "/corporatebanking/V10/PT/login.aspx?exp=true";
+        var timeoutSeconds = 480 * 1000;
+
+        if (timeoutHandle != null)
+            window.clearTimeout(timeoutHandle);
+        timeoutHandle = window.setTimeout(function () { location = timeoutLocation }, timeoutSeconds);
+    }
+    resetSessionTimeoutCounter();
+</script>
+
+<div id="aguarde" name="aguarde" style="position: absolute; top: 200; left: 200; visibility: visible;">
+	<table cellSpacing="4" cellPadding="0" border="0" bgcolor="#ffffff">
+		<tr>
+			<td><IMG src="/4/23/HB_topo_mensagem.gif"></td>
+		</tr>
+		<TR>
+			<td class="preto333333_11_bold"><IMG src="/imagens/img_clear.gif" width="10"><IMG src="/imagens/seta_noticiasHome.gif">&nbsp;Aguarde um momento, por favor.</td>
+		</TR>
+		<tr>
+			<td><input type="text" id="progress" class="preto333333_10_caixaII" size="50"></td>
+		</tr>
+	</table>
+</div>
+
+
+<div id="pagina" style="position: absolute; visibility: hidden;">
+	<table id="cabecalho_tableCabecalho" height="77" cellspacing="0" cellpadding="0" width="776" border="0" name="tableCabecalho" background="/4/24/cabecalho_netbanking_empresas.gif">
+	<tr>
+		<td colspan="8" height="0"></td>
+	</tr>
+	<tr>
+		<td width="200"><IMG src="/imagens/img_clear.gif"></td>
+		<td width="200"><IMG src="/imagens/img_clear.gif"></td>
+		<td><span title="Tradução: Inglês" onmouseover="window.status='Tradução: Inglês'; return true;" onmouseout="window.status=''; return true;" onclick="ChangeLanguageImage('english', this);" id="english" name="english" style="CURSOR: hand"><IMG SRC="/imagens/menuUtilitarios_english.gif"></span></td>
+		<td><span title="Tradução: Português" onmouseover="window.status='Tradução: Português'; return true;" onmouseout="window.status=''; return true;" onclick="ChangeLanguageImage('portugues', this);" id="portugues" name="portugues" style="CURSOR: hand"><IMG SRC="/imagens/menuUtilitarios_portugues.gif"></span></td>
+		<td><IMG src="/imagens/img_clear.gif" width="30px" height="1px"></td>
+		<td><!-- span title="Ajuda" onmouseover="window.status='Ajuda'; return true;" onmouseout="window.status=''; return true;" style="CURSOR: hand" id="ajuda" name="ajuda" onclick="CallUrl('ajuda');"><IMG src="/4/23/menuUtilitarios_ajuda.gif"></span --></td>
+		<td><span title="Contacte-nos" onmouseover="window.status='Contacte-nos'; return true;" onmouseout="window.status=''; return true;" style="CURSOR: hand" id="contactenos" name="contactenos" onclick="CallUrl('contactenos');"><IMG src="/4/23/menuUtilitarios_contacte-nos.png"></span></td>
+		<td width="15"></td>
+		<td><span onclick='document.location.href="/CorporateBanking/v10/PT/aspx/empresas/end.aspx"' style="CURSOR: hand" title="Sair" onmouseover="window.status='Sair'; return true;" onmouseout="window.status=''; return true;"><IMG src="/4/23/menuUtilitarios_sair.gif"></span></td>
+	</tr>
+	<tr>
+		<td width="200" height="50"><a href="/CorporateBanking/v10/PT/aspx/empresas/index.aspx" title="Página Inicial" onmouseover="window.status='Página Inicial'; return true;" onmouseout="window.status=''; return true;"><IMG src="/imagens/img_clear.gif" border="0" style="cursor:hand" width="200" height="50"></a></td>
+		<td><IMG src="/imagens/img_clear.gif"></td>
+		<td colspan="6" height="59"></td>
+	</tr>
+</table>
+
+
+		<!--/CABECALHO-->
+		<table cellSpacing="0" cellPadding="0" border="0">
+			<tr>
+				<td><IMG height="10" src="/imagens/img_clear.gif" width="1" border="0"></td>
+			</tr>
+			<tr>
+				<td vAlign="top" width="175">
+					<table cellSpacing="0" border="0">
+						<tr>
+							<td height="16"><IMG src="/imagens/img_clear.gif"></td>
+						</tr>
+						<!--MENU LATERAL-->
+						<tr>
+							<td rowSpan="2">
+<!--Menu LateralEsq Pág Detalhe -->
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr width="20" height="18">
+		<td><img src="/4/23/topo_menuEsq_pagsInt.gif"></td>
+	</tr>
+	<tr>
+		<td valign="top" width="100%">
+			<table border="0" cellpadding="0" cellspacing="0" width="160">
+				<tr>
+					<td valign="top" width="160">
+						<script>desenhaMenuLateral()</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!--/Menu LateralEsq Pág Detalhe --></td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<!--/MENU LATERAL--></table>
+				</td>
+				<td vAlign="top" width="600">
+					<form name="frmhistorico" method="post" action="./detTEIDebitoDO_detalhe.aspx" id="frmhistorico">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTA5MTU1NjE5DxYYHgZJTkRTTlQFASseB2RhdGFJbmkFCDIwMTkwNzA1HgdOVU1QQUdGBR4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAeCG1vbnRhbnRlZR4RbnVtUmVnaXN0b3NQYWdpbmEFAjIwHgdkYXRhRmltBQgyMDE5MDgwNB4HTUFJU1JFR2UeB05VTVBBR0kFHiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIB4OZGRsQ29udGFfVmFsdWUFDTc1NjcyNjYwMTAwMDEeCklORFNOVF9BTlRlHgdJZFBhZ2luBQExHgR0aXBvBQEwFgQCAw9kFgICBw8WAh4KYmFja2dyb3VuZAUnLzQvMjQvY2FiZWNhbGhvX25ldGJhbmtpbmdfZW1wcmVzYXMuZ2lmZAIHD2QWCgIBD2QWCGYPFgIeCWlubmVyaHRtbAUZRGV0YWxoZSBkYSBUcmFuc2ZlcsOqbmNpYWQCAw9kFgICAQ8PFgIeC05hdmlnYXRlVXJsBU4vQ29ycG9yYXRlQmFua2luZy92MTAvUFQvYXNweC9lbXByZXNhcy9wZXJzb25hbGl6YWNhby9jb2RpZ28vY29kaWdvX2luZGV4LmFzcHhkZAIEDxYCHw0FGUxDQyBUUkFOUyBTRU5ESU5HIExJTUlURURkAgUPFgIfDQUcQ2FtaWxhIERyw7xnZyBDYXJkb3NvIGRhIEx1emQCCQ9kFgJmDxAPFgIeCFRhYkluZGV4AQEAZBAVAQ03NTY3MjY2MDEwMDAxFQENNzU2NzI2NjAxMDAwMRQrAwFnFgFmZAILDxYCHw0FA0VVUmQCDw8WAh4HVmlzaWJsZWgWAgICD2QWAmYPFgIeBXZhbHVlBRUwMDAwMDAwMDAwMDAwMDAwMDAwMDBkAhMPFgIfEGgWAgICD2QWAmYPFgIfEQUoZnJvbSBMQ0MgRXVyb2JpYyB0byBMQ0MgQmFyY3MgNjA3NyAgICAgIGRkJUhd44Cu//idGXRw6jbYK2f/469fGxze3pOhP26tRXo=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmhistorico'];
+if (!theForm) {
+    theForm = document.frmhistorico;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="122E18FA" />
+</div>
+						<table cellSpacing="0" cellPadding="0" border="0">
+							<tr>
+								<td height="22"></td>
+							</tr>
+
+<tr>
+	<td colspan="5" valign="bottom"><IMG src="/4/23/HB_topo_geral.gif"></td>
+</tr>
+<tr>
+	<td width="15" height="15" valign="top"><IMG src="/4/23/seta_rodape.gif">&nbsp;</td>
+	<td class="vermelho990000_12_sublinhado" width="350"><label id="cabecalhoBaixo_lblTitulo" name="lblTitulo">Detalhe da Transferência</label>
+		<br>
+	<a href="javascript:void(0);" target="_blank" style="CURSOR: hand" onClick="location.href='/CorporateBanking/v10/PT/aspx/empresas/personalizacao/email/email_index.aspx';"><label id="cabecalhoBaixo_lblMail" class="vermelho990000_10_sublinhado" name="lblMail"></label></a>
+		<br>
+	<a href="javascript:void(0);" target="_blank" style="CURSOR: hand" onClick="location.href='/CorporateBanking/v10/PT/aspx/empresas/personalizacao/aprovacoes/aprovacoes_index.aspx';"><label id="cabecalhoBaixo_lblAprov" class="vermelho990000_10_sublinhado" name="lblAprov"></label></a>
+
+<table>
+	<tr>
+		<td class="cinza999999_10" colSpan="2"><a id="cabecalhoBaixo_ExpiredPassword1_hlExpired" class="vermelho990000_10_sublinhado" href="/CorporateBanking/v10/PT/aspx/empresas/personalizacao/codigo/codigo_index.aspx">
+				A sua password não é alterada há mais de 30 dias.<br>Por questões de segurança, o EuroBic recomenda a sua alteração.
+
+			</a></td>
+	</tr>
+	<tr>
+		<td vAlign="top" width="20"><a id="cabecalhoBaixo_ExpiredPassword1_lkb_expireOK" title="não mostrar mensagem." onmouseover="window.status=&#39;não mostrar mensagem.&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" name="lkb_expireOK" href="javascript:__doPostBack(&#39;cabecalhoBaixo$ExpiredPassword1$lkb_expireOK&#39;,&#39;&#39;)"><img src="/imagens/botao_standard_verm.gif" id="imgExpireOk" name="imgExpireOk" style="CURSOR:hand" onmouseover="document.getElementById('txtExpireOK').style.color='#990000'" onmouseout="document.getElementById('txtExpireOK').style.color='#666666';" border="0"></a></td>
+		<td width="200"><a id="cabecalhoBaixo_ExpiredPassword1_txtexpireOK" title="não mostrar mensagem." class="cinza666666_10" onmouseover="document.getElementById(&#39;txtExpireOK&#39;).style.color=&#39;#990000&#39;; window.status=&#39;&#39;; return true;" onmouseout="document.getElementById(&#39;txtExpireOK&#39;).style.color=&#39;#666666&#39;; window.status=&#39;&#39;; return true;" name="txtExpireOK" href="javascript:__doPostBack(&#39;cabecalhoBaixo$ExpiredPassword1$txtexpireOK&#39;,&#39;&#39;)">não mostrar mensagem.
+			</a></td>
+	</tr>
+</table>
+</td>
+	<td width="5"></td>
+	<td><IMG src="/4/23/seta_rodape.gif">&nbsp;</td>
+	<td class="preto333333_11_bold" width="300" align="left">
+		<label id="cabecalhoBaixo_lblEmpresa" name="lblEmpresa" class="laranjaCC6600_11">LCC TRANS SENDING LIMITED</label>
+		<br>
+		<label id="cabecalhoBaixo_lblNome" name="lblNome">Camila Drügg Cardoso da Luz</label>
+	</td>
+</tr>
+<tr>
+	<td colspan="5" height="5"><IMG src="/imagens/img_clear.gif"></td>
+</tr>
+
+
+
+
+
+
+							<tr>
+								<td colspan="5" height="5"><IMG src="/imagens/img_clear.gif"></td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<table cellSpacing="0" cellPadding="0" border="0">
+										<tr>
+											<td width="316"></td>
+											<td width="296" background="/imagens/tracejado_menuEsq_pagsInt.gif"></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colSpan="5">
+									<!--CORPO-->
+									<table cellSpacing="0" cellPadding="0" border="0" align="right">
+										<tr>
+											<td>
+												<div id="divPrint">
+													<table cellSpacing="0" cellPadding="0" align="right" border="0">
+														<tr>
+															<td colSpan="3" height="30"><IMG src="/imagens/img_clear.gif"></td>
+														</tr>
+														<tr>
+															<td class="cinza666666_11" colSpan="3">
+															</td>
+														</tr>
+														<tr>
+															<td colSpan="3" height="10"><IMG src="/imagens/img_clear.gif"></td>
+														</tr>
+														<tr>
+															<td colSpan="3"><IMG src="/4/23/HB_topo_tabelas.gif"></td>
+														</tr>
+														<tr>
+															<td width="10"></td>
+															<td width="6"><IMG src="/4/23/seta_noticiasHome.gif"></td>
+															<td class="vermelho990000_11_bold" width="360" height="10" name="top">Dados</td>
+														</tr>
+														<tr>
+															<td colSpan="3" height="1"><IMG src="/imagens/img_clear.gif"></td>
+														</tr>
+														<tr>
+															<td colSpan="3"><IMG height="3" src="/imagens/barra_topo.gif" width="100%"></td>
+														</tr>
+														<tr>
+															<td colSpan="3" height="1"><IMG src="/imagens/img_clear.gif"></td>
+														</tr>
+														<tr>
+															<td class="celula_cinzaf2f2f2" colSpan="3">
+																<table cellSpacing="5" cellPadding="0" align="left" border="0">
+
+																	<tr>
+																		<td class="preto333333_11" align="right"  width="150">Nº Operação</td>
+																		<td><IMG src="/4/23/seta_rodape.gif"></td>
+																		<td class="cinza666666_10" align="left"><input name="txtNumOperacao" type="text" id="txtNumOperacao" readOnly="" Class="preto333333_10_caixa" Width="300" style="WIDTH: 300px" value="620785053" /></td>
+																	</tr>
+																	<tr>
+																		<td class="preto333333_11" align="right"  width="150">Data/Hora</td>
+																		<td><IMG src="/4/23/seta_rodape.gif"></td>
+																		<td class="cinza666666_10" align="left"><input name="txtDataHora" type="text" id="txtDataHora" readOnly="" Class="preto333333_10_caixa" Width="300" style="WIDTH: 300px" value="2019-07-30 - 09:27:10" /></td>
+																	</tr>
+																	<tr>
+																		<td class="preto333333_11" align="right"  width="150">Montante</td>
+																		<td><IMG src="/4/23/seta_rodape.gif"></td>
+																		<td class="cinza666666_10" align="left"><input name="txtMontante" type="text" id="txtMontante" readOnly="" Class="preto333333_10_caixa" Width="300" style="WIDTH: 300px" value="23.000,00-" />&nbsp;(<label id="lblMoeda">EUR</label>)</td>
+																	</tr>
+
+
+																	<tr id="DestBank">
+	<td class="preto333333_11" align="right" width="150">Banco Destinatário
+</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="cinza666666_10" align="left"><input name="txtBancoTomador" type="text" id="txtBancoTomador" readOnly="" Class="preto333333_10_caixa" Width="300" style="WIDTH: 300px" value="Barclays Bank,PLC                   BARC" /></td>
+</tr>
+
+
+
+																	<tr id="DestNOME">
+	<td class="preto333333_11" align="right" width="150">Nome do Beneficiário</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtNomeBeneficiario" type="text" id="txtNomeBeneficiario" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="LCC TRANS-SENDING LTD                                                 " /></td>
+</tr>
+
+
+
+
+																	<!-- SEPA Fields -->
+
+																	<tr id="SepaDescTRF">
+	<td class="preto333333_11" align="right" width="150">Descritivo
+</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtSepaDescTRF" type="text" id="txtSepaDescTRF" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="from LCC Eurobic to LCC Barcs 6077                                                                                                          " /></td>
+</tr>
+
+
+																	<tr id="SepaOrd">
+	<td class="preto333333_11" align="right" width="150">Ref. Ordenante</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtSepaOrd" type="text" id="txtSepaOrd" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="                    " /></td>
+</tr>
+
+
+																	<tr id="SepaDestBIC">
+	<td class="preto333333_11" align="right" width="150">BIC Swift</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtSepaDestBIC" type="text" id="txtSepaDestBIC" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="BARCGB22   " /></td>
+</tr>
+
+
+																	<tr id="SepaDestIBAN">
+	<td class="preto333333_11" align="right" width="150">IBAN</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtSepaDestIBAN" type="text" id="txtSepaDestIBAN" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="GB38BARC20060587506077            " /></td>
+</tr>
+
+
+																	<tr id="SepaAddress">
+	<td class="preto333333_11" align="right" width="150">Morada</td>
+	<td><IMG src="/4/23/seta_rodape.gif"></td>
+	<td class="preto333333_11" align="left"><input name="txtSepaAddress" type="text" id="txtSepaAddress" readOnly="" Class="preto333333_10_caixa" size="5" Width="300" style="WIDTH: 300px" value="                                                                                                                                             " /></td>
+</tr>
+
+
+																</table>
+															</td>
+														</tr>
+														<tr>
+															<td class="celula_cinzacecece" colSpan="3" height="1"></td>
+														</tr>
+
+
+														<tr>
+															<td>
+
+															</td>
+														</tr>
+
+
+														<tr>
+															<td colSpan="3" height="20"><img src="/imagens/img_clear.gif"></td>
+														</tr>
+														<!--********************************************************************-->
+
+														<!--MENSAGENS SUCESSO-->
+
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<table cellSpacing="0" cellPadding="0" border="0">
+													<tr>
+														<td align="right" colSpan="6"><IMG src="/4/23/HB_topo_botoes.gif"></td>
+													</tr>
+													<tr>
+														<td width="460"><img src="/imagens/img_clear.gif"></td>
+														<td valign="top" width="23"><A onmouseover="window.status='Imprimir'; return true;" title="<WISL ID=984>Imprimir<a href="javascript:openPrintWindow('divPrint', document.getElementById('cabecalhoBaixo_lblTitulo').innerHTML, document.frmhistorico.txtConta.value, document.getElementById('cabecalhoBaixo_lblNome').innerHTML);" Title="Imprimir" onmouseover="window.status='Imprimir'; return true;" onmouseout="window.status=''; return true;"><IMG id="imgImprimir" onmouseover="document.getElementById('txtImprimir').style.color='#990000'" style="CURSOR: hand" onmouseout="document.getElementById('txtImprimir').style.color='#666666'" src="/imagens/botao_impressora_verm.gif" border="0" name="imgImprimir"></a></td>
+														<td class="cinza666666_10" width="30"><A class=cinza666666_10 id=txtImprimir onmouseover="document.getElementById('txtImprimir').style.color='#990000'; window.status='Imprimir'; return true;" title="<WISL ID=984>Imprimir<a id="txtImprimir" class="cinza666666_10" Title="Imprimir" href="javascript:openPrintWindow('divPrint', document.getElementById('cabecalhoBaixo_lblTitulo').innerHTML, document.frmhistorico.txtConta.value, document.getElementById('cabecalhoBaixo_lblNome').innerHTML);" onmouseover="document.getElementById('txtImprimir').style.color='#990000'; window.status='Imprimir'; return true;" onmouseout="document.getElementById('txtImprimir').style.color='#666666'; window.status=''; return true;">&nbsp;Imprimir</a></td>
+														<td width="30"><img src="/imagens/img_clear.gif"></td>
+														<td valign="top" width="23"><a id="lkb_voltar" tabindex="5" Title="Voltar" onmouseover="window.status=&#39;Voltar&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" name="lkb_voltar" href="javascript:__doPostBack(&#39;lkb_voltar&#39;,&#39;&#39;)"><IMG id="imgVoltar" onmouseover="document.getElementById('txtVoltar').style.color='#990000';" style="CURSOR: hand" onmouseout="document.getElementById('txtVoltar').style.color='#666666';" src="/imagens/botao_standard_verm.gif" name="imgVoltar" border="0"></a></td>
+														<td class="cinza666666_10" width="30"><a id="txtVoltar" tabindex="6" class="cinza666666_10" name="txtVoltar" Title="Voltar" onmouseover="document.getElementById(&#39;txtVoltar&#39;).style.color=&#39;#990000&#39;; window.status=&#39;Voltar&#39;; return true;" onmouseout="document.getElementById(&#39;txtVoltar&#39;).style.color=&#39;#666666&#39;; window.status=&#39;&#39;; return true;" href="javascript:__doPostBack(&#39;txtVoltar&#39;,&#39;&#39;)" style="CURSOR: hand">Voltar</a>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+
+<tr>
+	<td colspan="5" height="30"><img src="/imagens/img_clear.gif"></td>
+</tr>
+<tr>
+	<td colspan="5" background="/imagens/tracejado_menuEsq_pagsInt.gif" width="100%"></td>
+</tr>
+<tr>
+	<td colspan="5" height="4"><img src="/imagens/img_clear.gif"></td>
+</tr>
+<tr>
+	<td width="15" height="15" valign="top"><img src="/4/23/seta_noticiasHome.gif"></td>
+	<td colspan="4"></td>
+</tr>
+<tr>
+	<td height="4"></td>
+	<td colspan="4" class="cinza999999_10" valign="top" rowspan="3">Se necessitar de ajuda, contacte-nos através da Linha EuroBic 808 22 44 44. A partir do estrangeiro ligue para:<br> +351 213 180 870. Poderá fazê-lo entre as 8h e as 23h, de 2ª f. a 6ª f., exceto feriados.<p></td>
+</tr>
+<tr>
+	<td colspan="5"><img src="/imagens/img_clear.gif"></td>
+</tr>
+
+									<!--/CORPO-->
+								</td>
+							</tr>
+						</table>
+						<input name="txtConta" type="hidden" id="txtConta" />
+
+<script>
+var contactenos_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/contactenos/index.aspx';
+var avisolegal_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/avisolegal/index.aspx';
+var ajuda_link='#';
+var precario_link='https://homebanking.eurobic.pt/HomeBanking/v10/PT/aspx/precarios/avisos/aviso1/index.aspx';
+</script></form>
+				</td>
+			</tr>
+		</table>
+		<!--RODAPE-->
+<span id="serverName" style="display:none;">PSRCCWPE04</span>
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td height="20"></td>
+	</tr>
+	<tr>
+		<td background="/imagens/rodape.gif" width="776" height="51" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" width="776">
+				<tr align>
+					<td width="240" height="15"></td>
+					<td width="10"></td>
+					<td class="cinza999999_10"><img src="/imagens/img_clear.gif"></td>
+					<td class="vermelho990000_10" align="right" >
+						<a id="paginicial" name="paginicial" href="/CorporateBanking/v10/PT/aspx/empresas/index.aspx" class="vermelho990000_10" Title="Página Inicial" onmouseover="window.status='Página Inicial'; return true;" onmouseout="window.status=''; return true;" >Home</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="contactenos" name="contactenos" href="javascript:void(0);" onclick="CallUrl('contactenos')" class="vermelho990000_10" Title="Contacte-nos" onmouseover="window.status='Contacte-nos'; return true;" onmouseout="window.status=''; return true;" >Contacte-nos</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="infoUtil" name="infoUtil" href="javascript:void(0);" onclick="CallUrl('infoUtil')" class="vermelho990000_10" Title="Informação Útil" onmouseover="window.status='Informação Útil'; return true;" onmouseout="window.status=''; return true;" >Informação Útil</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="avisolegal" name="avisolegal" href="javascript:void(0);" onclick="CallUrl('avisolegal')" class="vermelho990000_10" title="Aviso Legal" onmouseover="window.status='Aviso Legal'; return true;" onmouseout="window.status=''; return true;" >Aviso Legal</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="cotacoes" name="cotacoes" href="javascript:void(0);" onclick="CallUrl('cotacoes')" class="vermelho990000_10" title="Cotações" onmouseover="window.status='Cotações'; return true;" onmouseout="window.status=''; return true;" >Cotações</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="cambios" name="cambios" href="javascript:void(0);" onclick="CallUrl('cambios')" class="vermelho990000_10" title="Câmbios" onmouseover="window.status='Câmbios'; return true;" onmouseout="window.status=''; return true;" >Câmbios</a> <img src="/imagens/img_clear.gif" width="10">
+						<a id="precario" name="precario" href="javascript:void(0);" onclick="CallUrl('precario')" class="vermelho990000_10" title="Preçário" onmouseover="window.status='Preçário'; return true;" onmouseout="window.status=''; return true;" >Preçário</a>
+					</td>
+				</tr>
+				<tr>
+					<td height="5"><img src="/imagens/img_clear.gif"></td>
+				</tr>
+				<tr>
+					<td colspan="3" class="cinza999999_10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017 Banco BIC Português S.A. &nbsp;&nbsp;Todos os direitos reservados.<br>
+</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+<script>
+var outMsg = "";
+var i = 0;
+var timerDM=null;
+var msg = " ";
+
+var ScreenLine = "";
+//var ScreenLine = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||";
+var msgNum = ScreenLine.length;
+var typeSpeed = 200;
+var delay=typeSpeed;
+
+msg = ScreenLine;
+
+function DisplayMsg() {
+	if(outMsg.length==msgNum)
+	{
+		outMsg = "";
+		msg = ScreenLine;
+		i=0;
+	}
+	outMsg = outMsg + msg.charAt(i);
+	i++;
+	delay = typeSpeed;
+	try{
+	document.getElementById('progress').value=outMsg;
+	}
+	catch(err1){
+	}
+	try{
+	timerDM = setTimeout("DisplayMsg()",delay);
+	}
+	catch(err2){
+	}
+}
+switchDiv("aguarde",false);
+switchDiv("pagina",true);
+
+</script>
+
+		<!--/RODAPE-->
+
+	</body>
+</HTML>

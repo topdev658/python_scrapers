@@ -1,0 +1,15 @@
+get all $users with api_func(`Customer`)
+for each $user in $users:
+  get $access_entities with api_func(`CustomerFinancialEntityAccess`)
+  filter $access_entities where field `FinancialEntityId` in $banks_ids and put to $filtered_access_entities
+  with futures.ProcessExecutor (parallel python instances) as $executor:
+    $executor.map(process_entity, $filtered_access_entities)
+
+
+func process_entity($filtered_access_entity):
+  $scraper = select_scraper_by_filtered_entity($filtered_access_entity)
+  $scraper.process($filtered_access_entity)
+
+
+
+

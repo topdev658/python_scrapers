@@ -1,0 +1,619 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Mis Cuentas</title>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+
+    <link  rel="stylesheet" href="../css/lo_master.css"/>
+    <link  rel="stylesheet" href="../css/c-headActions.css"/>
+    <link  rel="stylesheet" type="text/css" href="../css/categoryicon.css">
+    <link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <link  rel="stylesheet" href="../css/c-dropdownSelector.css"/>
+
+
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+    <script type="text/javascript" src="../js/components/c-dropdown_block.js"></script>
+    <script  type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../libraries/internal_libraries/c-select/js/c-select.js?autoinit=1"></script>
+    <script type="text/javascript" src="../js/c-tabview.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+    <script  type="text/javascript" src="../libraries/external_libraries/handlebars/handlebars.js"></script>
+    <script  type="text/javascript" src="../js/c-dropdownSelector.js"></script>
+
+    <script type="text/javascript">
+        var PNAjuda="GCT";
+        var PEAjuda="11";
+        var tablaDatosInformacionCuenta = new Array("miLa6tkdVhSaItrq2R1WFAAAAXZ2Il7dNftiuvjleZY");
+        $(function(){
+            $("body")
+            $("[id^='selectOpciones']").on('cSelect:change',function(e,selectedElement){
+                var array = selectedElement[0];
+                var idSelect=$(this).closest("select").attr("id");
+                var itemSel = idSelect.substring(14, 15);
+
+                eval(array[1]);
+            });
+        });
+        function imprimir() {
+            if (window.print) {
+                $("#cDropdownSelector_example_2__cDropdownSelectorBlock").addClass("ocultar");
+                window.print()
+            }
+            else {
+                InicializaErrores()
+                AddError("Su navegador no soporta esta opción. Para imprimir seleccione la opción de menú Archivo-Imprimir...");
+                ProcesaErrores("Mis cuentas")
+            }
+        }
+        function exportar() {
+            var f=document.forms["formExcel"];
+            f.target = "Oculto";
+            f.PN.value = "GCT";
+            f.PE.value = "107";
+            f.CLICK_ORIG.value = "FLX_GCT_11";
+            f.submit();
+        }
+        function verExtracto(indice) {
+            enviar(indice);
+        }
+        function enviar(indice){
+            var f = document.forms['formEnlace'];
+            f.INFORMACION_CUENTA.value = tablaDatosInformacionCuenta[indice];
+            f.ORIGEN_INVOCACION.value = "GCT11" ;
+            f.CLICK_ORIG.value = "EOC_GCT_11";
+            f.PN.value="GCT";
+            f.PE.value="100";
+            f.submit();
+        }
+        function enlaces(PNDestino,PEDestino, url, EntornoMenu,PNMenu,PEMenu,clickOrig){
+
+            var url_aux = url;
+            var idx1=-1;
+            var idx2=0;
+            var seguir = true;
+            var error = false;
+            var aux1= "";
+            var aux1Var;
+            var myeval = "";
+            while (seguir) {
+                idx1 = url.indexOf("{", idx1+1);
+
+                if (idx1==-1) {
+                    seguir = false;
+                } else {
+                    idx2=url.indexOf("}", idx1);
+                    if (idx2==-1) {
+                        seguir = false;
+                        error = true;
+                    } else {
+                        aux1 = url.substring(idx1 + 1, idx2);
+                        eval ('aux1Var='+aux1);
+                        url_aux = url_aux.replace("{"+aux1+"}", aux1Var);
+                    }
+                }
+            }
+            if (!error) {
+                url = url_aux;
+            }
+
+            clickorig = clickOrig + "_GCT_11";
+            top.Inferior.Menu.lanzarLO(EntornoMenu,PNDestino,PEDestino,url,clickorig,PNMenu,PEMenu);
+        }
+        function masInfo(){
+            var id_destino="bloquePromoDesplegable01ContenedorBloqueDesplegableVideo";
+            var contenidoVideo = document.getElementById(id_destino).innerHTML;
+
+            if (contenidoVideo.trim()!="") {
+                controlfilahucha();
+            }else{
+                var urlParams = "PN=GCT&PE=150";
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849', urlParams, $('#'+id_destino+''), $('#'+id_destino+''), null, [callBackGenericaMB, refrescaResultadoVideo], errorRefrescaResultadoVideo);
+                procesaAjaxQueueMB(AjaxQueueMB,true);
+            }
+        }
+        function controlfilahucha(){
+
+            if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+                $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show();
+            } else{
+                pauseVideoBrightcove('#videobc');
+                $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide();
+            }
+        }
+        function refrescaResultadoVideo (data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+            $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show();
+        }
+        function errorRefrescaResultadoVideo () {
+
+            var parrafoError= "<p class='mens_error_rojo_pq'><span>";
+            parrafoError+="En estos momentos el vídeo no está disponible, sentimos las molestias.";
+            parrafoError+="</span></p>";
+            document.getElementById("bloquePromoDesplegable01ContenedorBloqueDesplegableVideo").innerHTML=parrafoError;
+            $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+            $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show();
+        }
+        function abrirUnaHucha() {
+            var EntornoMenu = "P";
+            var PNDestino = "GDL";
+            var PEDestino = "10";
+            var url = "&TORNA_PN=GCT&TORNA_PE=11";
+            var clickorig = "EOC_GCT_11";
+            var PNMenu = "GDL";
+            var PEMenu = "1";
+            top.Inferior.Menu.lanzarLO(EntornoMenu,PNDestino,PEDestino,url,clickorig,PNMenu,PEMenu);
+        }
+        function masInfo2(){
+            var id_destino="bloquePromoDesplegable01ContenedorBloqueDesplegableVideo";
+            if (id_destino!=null) {
+                if (document.getElementById(id_destino).innerHTML.trim() == "") {
+                    document.getElementById(id_destino).innerHTML = "<img class='' src='./imatge/CAST_misfinanzas.png'>";
+                }
+            }
+            if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+                $("#enlaceBloquePromoDesplegable01").addClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show();
+            } else{
+                $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open");
+                $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide();
+            }
+        }
+        function anyadirAgregacion() {
+            var f = document.forms['formAgregacion'];
+            f.FLUJO.value = "GCT,11,'':GFI,7,''";
+            f.CLICK_ORIG.value = "FLX_GCT_11";
+            f.VOLVER_PN.value =  "GCT";
+            f.VOLVER_PE.value = "11";
+            f.PN.value = "AGF";
+            f.PE.value = "1";
+            f.submit();
+        }
+        function mostrarDisponiblePAI(imagen_landing, importe_formateado, tagOmniture) {
+            var f = document.forms['formPAI'];
+            f.LND_IMAGEN.value=imagen_landing;
+            f.LND_VALOR1.value=importe_formateado;
+            f.submit();
+        }
+        function volver(tornaPN, tornaPE)
+        {
+            top.Inferior.Menu.lanzarLO(top.flagPE,tornaPN,tornaPE,'','VOL_GCT_11',tornaPN,tornaPE);
+        }
+        function irR2B(){
+            var f= document.forms["formR2B"];
+            f.PN.value = "RSC";
+            f.PE.value = "1";
+            f.submit()
+        }
+        function vista(value){
+            if(value === "view_modules"){
+                var f= document.forms["vistaModulo"];
+            }else{
+                var f= document.forms["vistaLista"];
+            }
+            f.PN.value = "GCT";
+            f.PE.value = "11";
+            f.submit()
+        }
+    </script>
+</head>
+<body id="cos" class="margen_top5 ">
+<script>var PNLomilu='GCT';var PELomilu='14';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+    <div class="ocultar">
+
+        <br>
+    </div>
+    <div class="layout-default">
+        <div class="margin--bottom-normal ">
+
+            <div class="u-flex u-flex-justify-content-between u-flex-align-item-center">
+                <h1 class="margin--bottom-none">
+                    Mis cuentas
+                </h1>
+                <div class="margin--left-normal ocultar">
+                    <nav class="c-headActions">
+
+
+
+
+
+
+
+<span data-c-dropdownselector="" id="cDropdownSelector_example_2" class="color--secureblue loicon--size-24px loicon-dotsvert">
+</span>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {
+                                "options":[
+                                    {
+                                        "title":"",
+                                        "options":[
+                                            {
+                                                "type":"action",
+                                                "name":"viewOption",
+                                                "value":"view_list",
+                                                "loicon":"view-list",
+                                                "title":"Vista lista"
+                                            },
+                                            {
+                                                "type":"action",
+                                                "name":"print",
+                                                "value":"print",
+                                                "loicon":"print",
+                                                "title":"Imprimir"
+                                            },
+                                            {
+                                                "type":"action",
+                                                "name":"excel",
+                                                "value":"excel",
+                                                "loicon":"excel",
+                                                "title":"Información de la cuenta"
+                                            }]
+                                    }]
+                            }
+                        </script>
+                        <script type="text/javascript">
+                            $(function(){
+                                $("#cDropdownSelector_example_2").on("cDropdownSelector:itemSelected",function(e,name,value,checked,type,itemLabel){
+                                    switch(name){
+                                        case "print": imprimir();
+                                            break;
+                                        case "excel": exportar();
+                                            break;
+                                        case "viewOption": vista(value);
+                                    }
+                                });
+                            });
+                        </script>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.",null,"errores");</script></div>
+
+        <br>
+
+
+
+
+        <div>
+            <div class="u-flex u-flex-justify-content-center u-flex-align-item-center text--align-center margin--bottom-extrasmall element-min-height--24px color--gray500">
+                Saldo actual de tus cuentas CaixaBank
+            </div>
+            <div class="text--align-center font--size-140 white_space--nowrap">
+                179.419,49 €
+            </div>
+        </div>
+
+
+
+
+        <div class="c-box--block margin--bottom-small">
+            <a href="javascript:verExtracto(0)" class="border--radius-big cursor--pointer display--block position--absolute position--absolute-bottom position--absolute-left position--absolute-right position--absolute-top z-index-1"></a>
+            <div class="padding-normal position--relative pointerEvents--none">
+                <div class="u-flex margin--bottom-normal u-flex-justify-content-center">
+                    <div class="u-col--width-9/12c">
+                        <div class="u-flex u-flex-align-item-center">
+                            <img id = "icono" src="./imatge/generic/2100--small.svg" class="element-height--24px margin--right-small u-flex-00auto">
+                            <a href="#" class="font--size-120 font--weight-semibold u-flex-00auto">
+                                ES93 2100 8663 1002 0002 3523 CUENTA
+                                <span class="loicon--glued">
+<span class="loicon-keyboard-arrow-right loicon--size-12px margin--left-extrasmall">
+</span>
+</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="u-col--width-3/12c text--align-right position--relative pointerEvents--auto ocultar">
+                        <select id="selectOpciones0" data-c-select="" data-c-select-initial-text=Opciones data-c-select-theme="default_40px" data-c-select-type="links" data-c-select-head-class="pointerEvents--auto z-index-2">
+
+                            <option data-href="javascript:enviar(0);" value="">
+                                Ver movimientos
+                            </option>
+
+                            <option data-href="javascript:enlaces(&#039;TTU&#039;,&#039;1&#039;,&#039;&amp;CUENTA_ORIGEN=0012100866320020600000023523&amp;CCOri_ent=2100&amp;CCOri_of=8663&amp;CCOri_dc=**&amp;CCOri_no=0200023523&#039;,&#039;P&#039;,&#039;TRF&#039;,&#039;0&#039;,&#039;EOC7&#039;);" value="">
+                                Hacer una transferencia
+                            </option>
+
+                            <option data-href="javascript:enlaces(&#039;AAT&#039;,&#039;0&#039;,&#039; &#039;,&#039;P&#039;,&#039;AAT&#039;,&#039;0&#039;,&#039;EOC8&#039;);" value="">
+                                Pagar un recibo, multa, impuesto ...
+                            </option>
+
+                            <option data-href="javascript:enlaces(&#039;MAC&#039;,&#039;1&#039;,&#039; &#039;,&#039;P&#039;,&#039;GCT&#039;,&#039;11&#039;,&#039;EOCC&#039;);" value="">
+                                Cambiar nombre de cuenta
+                            </option>
+
+                            <option data-href="javascript:enlaces(&#039;GVC&#039;,&#039;1&#039;,&#039; &#039;,&#039;P&#039;,&#039;GVC&#039;,&#039;1&#039;,&#039;EOCF&#039;);" value="">
+                                Configurar la visibilidad de Mis cuentas
+                            </option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="u-flex u-flex-wrap">
+                    <div class="u-col--width-6/12c u-col-medium--width-4/12c u-col-extrasmall--width-12/12c margin-st-medium--bottom-none margin-st-extrasmall--bottom-normal">
+                        <div class="u-flex u-flex-wrap">
+
+                            <div class="u-col--width-6/12c u-col-medium--width-12/12c u-col-extrasmall--width-6/12c u-flex-st-medium--order-1 margin--left-auto margin-st-medium--left-none">
+                                <div class="c-form-group c-form-group--vertical margin--bottom-normal">
+                                    <div class="c-form-group__label c-form-group__label--text">
+
+
+
+                                        Saldo actual
+
+
+                                    </div>
+                                    <div class="c-form-group__text c-form-group__text--highlighted">
+                                        179.419,49 €
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-col--width-6/12c u-col-medium--width-8/12c">
+                        <div class="color--gray500 margin--bottom-extrasmall element-min-height--24px">
+                            Últimos movimientos de la cuenta
+                        </div>
+
+                        <div class="u-flex u-flex-align-item-center u-flex-justify-content-between margin--bottom-extrasmall">
+
+
+
+                            <div class="margin--right-normal element-width--60px">
+                                17 Dic
+                            </div>
+                            <div class="margin--right-small">
+
+
+
+
+                                <img alt="ico_expense.svg" src="../c-images/html-images/icons/32x32/ico_income.svg" class="element-width--24px">
+
+
+                            </div>
+                            <div class="element-width--50p margin--right-normal">
+                                FATIR130538043
+                            </div>
+
+
+
+
+                            <div class="margin--left-auto text--align-right s-import--positive">
+                                686,47 €
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="u-flex u-flex-align-item-center u-flex-justify-content-between margin--bottom-extrasmall">
+
+
+
+                            <div class="margin--right-normal element-width--60px">
+                                17 Dic
+                            </div>
+                            <div class="margin--right-small">
+
+
+
+
+                                <img alt="ico_expense.svg" src="../c-images/html-images/icons/32x32/ico_income.svg" class="element-width--24px">
+
+
+                            </div>
+                            <div class="element-width--50p margin--right-normal">
+                                FATIR130538042
+                            </div>
+
+
+
+
+                            <div class="margin--left-auto text--align-right s-import--positive">
+                                44.605,73 €
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="u-flex u-flex-align-item-center u-flex-justify-content-between margin--bottom-extrasmall">
+
+
+
+                            <div class="margin--right-normal element-width--60px">
+                                17 Dic
+                            </div>
+                            <div class="margin--right-small">
+
+
+
+
+                                <img alt="ico_expense.svg" src="../c-images/html-images/icons/32x32/ico_income.svg" class="element-width--24px">
+
+
+                            </div>
+                            <div class="element-width--50p margin--right-normal">
+                                FATIR130538042
+                            </div>
+
+
+
+
+                            <div class="margin--left-auto text--align-right s-import--positive">
+                                762,50 €
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ocultar">
+
+        </div>
+
+
+        <br>
+
+        <div class="ocultar">
+            <div class="font--size-110 font--weight-semibold margin--bottom-normal">
+                Además puede
+            </div>
+            <ul class="c-listicon">
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;SCT&#039;,&#039;30&#039;,&#039;&#039;,&#039;P&#039;,&#039;GCT&#039;,&#039;11&#039;,&#039;EOC10&#039;)">
+                        Contrate una Servicuenta
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;SCT&#039;,&#039;12&#039;,&#039;&#039;,&#039;P&#039;,&#039;GCT&#039;,&#039;11&#039;,&#039;EOC6&#039;)">
+                        Consultar o modificar sus servicuentas
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;FOI&#039;,&#039;20&#039;,&#039;&#039;,&#039;P&#039;,&#039;FOI&#039;,&#039;20&#039;,&#039;EOC2&#039;)">
+                        Aportación a un fondo de inversión
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;SCP&#039;,&#039;31&#039;,&#039;&amp;PEST_INICIAL=lbl_Todos&amp;MOSTRAR_LINK_CANCELADAS=0&amp;CANCELADAS=0&amp;GCT_INI_PEDIR_CONTENIDO=S&amp;TIPO_LISTA_CUENTAS=C&#039;,&#039;P&#039;,&#039;GCT&#039;,&#039;11&#039;,&#039;EOC0&#039;)">
+                        Consultar los comunicados de sus cuentas canceladas
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;TRF&#039;,&#039;10&#039;,&#039;&amp;PESTANYA_SELECCIONADA=0&amp;TIPO_TRANSFERENCIA=0&amp;FLAG_SIGUIENTE=&amp;ESTADO=T&amp;FLAG_TIPO=T&#039;,&#039;P&#039;,&#039;TRF&#039;,&#039;0&#039;,&#039;EOC13&#039;)">
+                        Consultar transferencias realizadas
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;GVC&#039;,&#039;1&#039;,&#039;&#039;,&#039;P&#039;,&#039;GVC&#039;,&#039;1&#039;,&#039;EOC14&#039;)">
+                        Configurar la visibilidad de Mis cuentas
+                    </a>
+                </li>
+
+                <li class="c-listicon__item c-listicon__item--dot-blue">
+                    <a href="javascript:enlaces(&#039;GCT&#039;,&#039;100&#039;,&#039;&amp;PN=GCT&amp;PE=101&amp;OPERACION_NUEVO_EXTRACTO=SALDO_Y_EXTRACTOS&amp;REFCLAVE_CONTINUACION_3792=&amp;TIPO_CUENTAS=CAN&amp;ORIGEN_INVOCACION=GCT11&amp;TORNA_PN=GCT&amp;TORNA_PE=11&#039;,&#039;P&#039;,&#039;GCT&#039;,&#039;100&#039;,&#039;EOC15&#039;)">
+                        Ver cuentas dadas de baja
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" language="JavaScript">
+        var funcionCancel;
+        function llamadaAbandono(fun){
+            funcionCancel= fun;
+            cancelaProceso();
+        }
+        function cancelaProceso(){
+            eval(top.frames['Inferior'].frames['Cos'].funcionCancel);
+        }
+    </script>
+
+</div>
+<div class="limpiar"></div>
+
+
+</body>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formOpinator">
+
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formExcel">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="EXCEL_NUEVO" value="S">
+    <input type="hidden" name="CLICK_ORIG" value="">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formEnlace">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="ORIGEN_INVOCACION" value="">
+    <input type="hidden" name="CLICK_ORIG" value="">
+    <input type="hidden" name="INFORMACION_CUENTA" value="">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formAgregacion">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="CLICK_ORIG" value="">
+    <input type="hidden" name="FLUJO" value="">
+    <input type="hidden" name="VOLVER_PN" value="">
+    <input type="hidden" name="VOLVER_PE" value="">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formPAI">
+    <input type="hidden" name="PN" value="PPP">
+    <input type="hidden" name="PE" value="830">
+    <input type="hidden" name="LND_IMAGEN" value="">
+    <input type="hidden" name="LND_VALOR1" value="">
+    <input type="hidden" name="CLICK_ORIG" value="RED_GCT_11">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="formR2B">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="ORIGEN_INVOCACION" value="RED_GCT_11">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="vistaModulo">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="SEL_VISTA" value="M">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+<form action="/GPeticiones;WebLogicSession=C652HfzPFc7L52Nm17HUKXxQZlDBtpQ9jOf-JEzoGaQNkkS9C4qF!903803896!1319620849" method="POST" name="vistaLista">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="hidden" name="SEL_VISTA" value="L">
+    <input type="hidden" name="CLICK_ORIG" value=""></form>
+</html>

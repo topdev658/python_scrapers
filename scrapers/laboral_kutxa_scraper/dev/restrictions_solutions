@@ -1,0 +1,83 @@
+several logged in sessions are allowed
+
+accounts overview page does not contain all necessary IBAN data
+
+approach:
+  1. extract accounts' ibans in parallel mode and get accounts_scraped from account detail page
+  2. update DB with accounts_scraped
+  3. extract movements in parallel mode and upload to DB
+
+
+main flow:
+
+  login
+  check
+  open page with companies
+  run scraping of each company with concurrency call
+    self.process_company(company_id))
+
+  FOR EACH COMPANY CONCURRENTLY call
+    self.process_company(company_id)
+
+
+  the self.process_company(company_id):
+    log in again to get session or will fall on concurrent scraping of several companies
+    open page with companies (again)
+    open company init page by resp with company_id
+    then call
+      self.process_page_with_accounts_details_select_form
+    to get acccounts and movements
+
+  self.process_page_with_accounts_details_select_form call consistently
+    self.get_and_upload_accounts_balances
+    self.get_and_upload_movements
+
+
+  at this step it is possible to get err message because company can be unprocessible due to unknown by me reasons
+  this info will be returned and further processing of the company will be aborted
+
+
+  self.get_and_upload_accounts_balances
+    open page with accounts list form of the company and then
+    FOR EACH ACCOUNT CONCURRENTLY call
+      self.open_one_acc_details_page_and_upload(s, resp, cuenta_param)
+      where cuenta_param looks like '0200001612@01@020.0.00161.2' and all 'prestamo' are skipped
+
+
+  self.open_one_acc_details_page_and_upload
+    will open account details page
+    extract account_iban (finally!)
+    upload accounts to the DB
+    SAVE account_scraped in self.accounts to use it from movements scraping process to get acc details by cuenta_param
+
+
+  self.get_and_upload_movements
+    open page with movements filter form contained account selector
+    FOR EACH ACCOUNT CONCURRENTLY call
+      self.open_one_acc_movements_excel_and_upload(s, resp, cuenta_param)
+      where cuenta_param looks like '0200001612@01@020.0.00161.2' and all 'prestamo' are skipped
+
+  self.open_one_acc_movements_excel_and_upload
+    get account_scraped data from self.accounts by cuenta_param
+    get date_from
+    submit form to get excel and
+    get excel as html table (there is no valid excel)
+    extract moevements from excel (using safely formulas evaluator)
+    upload movements to the DB
+
+NOTE
+1. it is possible to change flow to process moevemnts consistenly from open_one_acc_details_page_and_upload (in this case movements_filter_form page will be opened each time) -- more common way
+2. it is possible to extract accounts and movements concurrently at same time, but in this case movements processor should be waiting for necessary account_scraped by pinging self.accounts from its thread. this allows to increase speed, but this is
+not necessary right now
+
+
+
+
+
+
+
+
+
+
+
+

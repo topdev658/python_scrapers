@@ -1,0 +1,9 @@
+http://askubuntu.com/questions/76013/how-do-i-add-locale-to-ubuntu-server
+
+check which locales are supported:
+$ locale -a
+add the locales you want (for example ru):
+$ sudo locale-gen ru_RU
+$ sudo locale-gen ru_RU.UTF-8
+run this update comand
+$ sudo update-locale

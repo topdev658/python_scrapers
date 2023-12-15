@@ -1,0 +1,115 @@
+import re
+from typing import List
+
+from custom_libs import convert
+from custom_libs import extract
+from project.custom_types import ACCOUNT_TYPE_CREDIT, ACCOUNT_TYPE_DEBIT, AccountParsed, MovementParsed
+
+__version__ = '1.1.0'
+__changelog__ = """
+1.1.0
+get_accounts_parsed: quick fix: consider '-' as EUR currency 
+"""
+
+
+def get_salt(resp_text: str) -> str:
+    # expect '111' or similar
+    salt = extract.re_first_or_blank(
+        r'(?si)cod_pass="[^"]+";\s*c=(\d+);',
+        resp_text
+    )
+    return salt
+
+
+def get_company_title(resp_text: str) -> str:
+    return extract.re_first_or_blank(
+        '<font class="usuario">(.*?)</font>',
+        resp_text
+    ).strip()
+
+
+def get_accounts_parsed(resp_text: str) -> List[AccountParsed]:
+    accounts_parsed = []
+
+    cuentas_html = extract.re_first_or_blank('(?si)<tr id="CUENTAS">.*?</table>', resp_text)
+    accounts_htmls = re.findall('(?si)<a class="normal"[^>]*title="movimientos">.*?</tr>', cuentas_html)
+
+    for account_html in accounts_htmls:
+        account_no = extract.re_first_or_blank(
+            'title="movimientos">(.*?)<',
+            account_html
+        ).replace(' ', '')
+
+        balance_with_currency_raw = extract.re_first_or_blank(
+            r'<td class="\w*par" align="right">(.*?)</td>',
+            account_html
+        ).strip()  # '91.535,76 eur'
+
+        balance_raw = extract.re_first_or_blank('[-0-9.,]*', balance_with_currency_raw)
+        balance = convert.to_float(balance_raw)
+
+        balance_cred_with_currency_raw = extract.re_last_or_blank(
+            r'<td class="\w*par" align="right">(.*?)</td>',
+            account_html
+        ).strip()
+
+        account_type = (ACCOUNT_TYPE_DEBIT if balance_cred_with_currency_raw == balance_with_currency_raw
+                        else ACCOUNT_TYPE_CREDIT)
+
+        # No valid currency available here
+        # get later from acc details
+        account_parsed = {
+            'account_no': account_no,
+            'account_type': account_type,
+            'balance': balance,
+        }
+
+        accounts_parsed.append(account_parsed)
+
+    return accounts_parsed
+
+
+def get_movements_parsed(resp_text: str) -> List[MovementParsed]:
+    """
+     <td width="80" align="center" class="impar" >01/02/2017</td>\n          <td width="60" align="center"
+     class="impar" >01-02</td>\n\n <td align="left" class="impar" >DEV.RECIBO (AD.SEPA) - 201701191920736898 CAJAMAR
+     VIDA S.A. DE</td> \n\n          <td width="80" align="right" style="color:black " class="impar" >924,11</td>\n
+            <td width="80" align="right" class="impar" >-9.184,31</td>\n        </tr>'
+    """
+    mov_table_html = extract.re_first_or_blank(
+        '(?si)<table[^>]*name="LISTA_MOV".*?</table>',
+        resp_text
+    )
+
+    mov_htmls = re.findall('(?si)<tr.*?</tr>', mov_table_html)
+    movements_parsed_asc = []
+
+    # use strict regexp to avoid false positives
+    for mov_html in mov_htmls:
+        try:
+            (oper_date,
+             value_date,
+             descr,
+             amount,
+             temp_balance) = re.findall(
+                r'(?si)<td.*?>([0-9/]+)</td>\s*<td.*?>([-0-9]+)</td>\s*'
+                r'<td.*?>(.*?)</td>\s*<td.*?>([0-9.,-]+)</td>\s*<td.*?>([0-9.,-]+)</td>',
+                mov_html
+            )[0]
+        # the row is not the row with movement
+        except (IndexError, ValueError):
+            continue
+
+        year = oper_date.split('/')[-1]
+
+        mov_parsed = {
+            'operation_date': oper_date,  # 10/02/2017
+            'value_date': '{}/{}'.format(value_date.replace('-', '/'), year),  # 10-02 -> 10/02/2017
+            'description': extract.text_wo_scripts_and_tags(descr).replace('\n', '  '),
+            'amount': convert.to_float(amount),
+            'temp_balance': convert.to_float(temp_balance)
+        }
+
+        movements_parsed_asc.append(mov_parsed)
+
+    return movements_parsed_asc

@@ -1,0 +1,112 @@
+<?Tr-XHR-Response-Type ?>
+<content action="/SME/Transactional/faces/views/login/login-n.xhtml?f=iUhxYWaYC3">
+    <fragment>
+        <span id="tr_j_id26_Postscript"><input name="javax.faces.ViewState" type="hidden" value="!4"></span>
+    </fragment>
+    <fragment>
+        <span id="tr_j_id32_Postscript"><input name="javax.faces.ViewState" type="hidden" value="!4"></span>
+    </fragment>
+    <fragment>
+<span class="af_panelGroupLayout" id="j_id57">
+
+                          <div class="wrapSinLogin" id="pinWrap"><input id="fromOlvidoCliente" name="fromOlvidoCliente"
+                                                                        type="hidden"><input id="isConsultantAccess"
+                                                                                                        name="isConsultantAccess"
+                                                                                                        type="hidden"><div
+                                  class="skinLogin"><div class="mens-error" id="mens-error-pin"
+                                                         style="display:none"></div><fieldset><div class="row"><div
+                                  class="coordenadas"><ol><li>
+
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','67AEc0MAhzYvSRpC'); return false;">4</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','Fx8SBhC06uV7O5wy'); return false;">2</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','UwTbUolljPp8owzC'); return false;">5</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','nDmqKLngFl2LI9gc'); return false;">0</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','eQWcUCw2fIbarXGm'); return false;">6</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','vD8tXkB0A64eQGhF'); return false;">8</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','R7WRCQh5DGREwZWi'); return false;">9</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','JI84VRS5KWeJfood'); return false;">1</a></li><li>
+<a href="javascript:void(null);" onclick="insertDigitDynamic('security','kM1n1UXBbLtoknor'); return false;">7</a></li><li> <!-- 1 -->
+<a href="javascript:void(null);"
+   onclick="insertDigitDynamic('security','6NnkbDMZf5m9SN9R'); return false;">3</a></li></ol> <!-- 2, 6 -->
+
+                          <a class="btn btn_coordenadas" href="#" id="clearDigits"
+                             onclick="clearDigitsDynamic('security');"><span>Borrar</span></a></div><input id="security"
+                                                                                                           name="security"
+                                                                                                           type="hidden"><div
+                                  class="pin"><ol><li class="fill next"><span></span></li><li
+                                  class="fill next"><span></span></li><li class="filled"><span>*</span></li><li
+                                  class="filled"><span>*</span></li><li class="filled"><span>*</span></li><li
+                                  class="fill next"><span></span></li></ol></div>
+
+                          <p id="pinPositions" style="display:none;">1, 2 y 6</p>
+                              <!----- press theese positions from password 730453 -->
+
+                          </div></fieldset></div><div class="acciones_formulario"><a class="btn proceso"
+                                                                                     href="#" id="validatePin"
+                                                                                     onclick="submitForm('clientID_loginForm',1, {source:'security'});return false;"
+                                                                                     style="display:none"></a></div>
+                              <div class="validando" id="validandoPin"
+                                   style="bottom:4.5em; z-index: 10000;left:-21em;display:none;">
+                                <img alt="Validando datos"
+                                     src="/SME/Transactional/adf/common/images/iconos/loader_login.gif">
+                              </div>
+                              <p id="clientName" style="display:none">ISABEL</p>
+                              <p id="customGreeting" style="display:none">&iexcl;Hola!</p>
+
+                          </div></span>
+    </fragment>
+    <fragment>
+        <span id="tr_clientID_loginForm_Postscript"><input name="javax.faces.ViewState" type="hidden" value="!4"><input
+                name="source" type="hidden"></span>
+    </fragment>
+    <script>var j_id26_SF = {};</script>
+    <script>var j_id32_SF = {};</script>
+    <script>
+
+        $("#noLinks").hide();
+
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $(".pasarBloque").click();
+            $("#doForgottenPassword").show();
+            hideAccess();
+            $("div.coordenadas ol li a,#clearDigits").click(function (event) {
+                event.preventDefault();
+                $(this).blur();
+            });
+            $("div.coordenadas ol li a").bind("touchstart", function () {
+                $(this).css("color", "#e65200");
+            });
+            $("div.coordenadas ol li a").bind("touchend", function () {
+                $(this).css("color", "#4668ac");
+            });
+            if (true) {
+                try {
+                    tracingLoginPixel(LOGIN_NEGOCIOS_SIN_FIRMA_PIN);
+                } catch (e) {
+                }
+            } else {
+                try {
+                    tracingLoginPixel(LOGIN_NEGOCIOS_PIN);
+                } catch (e) {
+                }
+            }
+        });
+
+        function doActions() {
+            document.getElementById('fromOlvidoCliente').value = 'true';
+            if (true) {
+                document.getElementById('isConsultantAccess').value = 'true';
+            } else {
+                document.getElementById('isConsultantAccess').value = 'false';
+            }
+        }
+
+    </script>
+    <script>
+        TrPage.getInstance()._addResetFields('clientID_loginForm', ["source"]);
+    </script>
+    <script>var clientID_loginForm_SF = {};</script>
+</content>

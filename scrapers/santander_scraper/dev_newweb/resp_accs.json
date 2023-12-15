@@ -1,0 +1,43 @@
+{
+  "accountList": [
+    {
+      "iban": "ES2500491800112010632768",
+      "amount": "2739.0",
+      "availableAmount": "2739.0",
+      "productName": "CREDITO NEGOCIO A TIPO VARIABLE",
+      "contractDate": "2019-11-20",
+      "currencyCode": "EUR",
+      "variation": 0.0,
+      "contractHolder": "FIVEMASA SA",
+      "typePerson": "J",
+      "codePerson": "000584102",
+      "contract": "004918001000002408",
+      "branch": "1800",
+      "oldContract": "004918002010632768"
+    },
+    {
+      "iban": "ES8000491800142610613976",
+      "amount": "388377.44",
+      "availableAmount": "388377.44",
+      "productName": "SUPERCUENTA EMPRESAS",
+      "contractDate": "2015-06-01",
+      "remuneration": {
+        "amount": 0.0
+      },
+      "currencyCode": "EUR",
+      "variation": 0.00,
+      "contractHolder": "FIVEMASA SA",
+      "typePerson": "J",
+      "codePerson": "000584102",
+      "contract": "004918003000008416",
+      "branch": "1800",
+      "oldContract": "004918002610613976"
+    }
+  ],
+  "total": 0,
+  "_links": {
+    "self": {
+      "href": "https://empresas3.gruposantander.es/paas/api/nwe-global-balance-api/v1/account?pagination.limit=5&segment=TODOS"
+    }
+  }
+}

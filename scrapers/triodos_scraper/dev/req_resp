@@ -1,0 +1,52 @@
+CHANGE LANG
+>>> GET https://banking.triodos.es/triodos-be/initcontextcustom.do?token=4848fb1c:16668641660:8f6vjTd1wxjTW10H4uJ
+>>> GET https://banking.triodos.es/triodos-be/updatelanguagecustom.do?token=4848fb1c:16668641660:92bUiRJY8txbSFbzP62
+
+>>> 00:01:03.150	1.252	1115	24091	POST	200	text/html	https://banking.triodos.es/triodos-be/updatelanguagecustom.do
+
+newLanguageCode=es&token=4848fb1c%3A16668641660%3A93ay28XsUESJBZ8g7eh
+
+SELECT OPTIONS:
+es/ca/eu/gl
+
+
+>>> MOVS FILTERED (page 1)
+await fetch("https://banking.triodos.es/triodos-be/getmovementsaccount.do", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://banking.triodos.es/triodos-be/getmovementsaccount.do",
+    "body": "selectAccount=14910001242074581626&minAmount=&maxAmount=&reason=&movementType=&methodController=getAccountMovementsByPeriod&fromDate=16%2F07%2F2021&toDate=22%2F08%2F2021&token=-274039a5%3A17b6baab712%3A3d081ks9clDO4aCn8d",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_resp_movs_filtered.html
+
+>>> MOVS (page 2)
+await fetch("https://banking.triodos.es/triodos-be/getmovementsaccount.do", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://banking.triodos.es/triodos-be/getmovementsaccount.do",
+    "body": "page=1&methodController=getAccountMovementsByPeriod&async=true",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 20_resp_movs_filtered.html

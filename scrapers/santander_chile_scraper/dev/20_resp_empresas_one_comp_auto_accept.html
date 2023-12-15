@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <TITLE>SANTANDER OFFICE BANKING</TITLE>
+    <link type="text/css" rel="stylesheet" href="/css/basic_layout.css">
+    <link rel="stylesheet" href="/bloqueante/css/estilos_nuevo.css" type="text/css">
+    <script src="/js/jquery-1.11.3.min.js"></script>
+
+
+    <script type="text/javascript">
+        function FilterURL(dataOB)
+        {
+            if( dataOB == null)
+                return true;
+            var format = /[\/]/;
+            var str = String(dataOB);
+            return str.match(format) ? true: false;
+        }
+        function Refrescarsesion() {
+            http_request = new XMLHttpRequest();
+            http_request.open("GET", "/menu/menuAlive.asp");
+            http_request.send(null);
+        };
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent, function (e) {
+            if (!isNaN(e.data)) {
+                if(e.data=='2')
+                    location.reload();
+                else
+                    Refrescarsesion();
+            }else {
+                $(document).ready(function () {
+                    if(FilterURL(e.data)){
+                        $("#derecho").attr("src",e.data);
+                    }
+                });
+            }
+        }, false);
+    </script>
+
+
+    <script language="javascript">
+        var dataClient = '1ef38f11f25a6346610d802c56287d682a820b05f4bb0704761171ec4a3a43ec';
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-22100319-1', 'auto');
+        ga('set', 'dimension1', dataClient);
+        ga('send', 'pageview');
+    </script>
+
+    <script src="https://global.sanbot.sandigital.santander.com/content/CL/va-chatbot-config.js"></script>
+    <script>
+        const showEventsInConsole = true;
+        if (showEventsInConsole) {
+            document.addEventListener('VIRTUAL_ASSISTANT_CHATBOT', function(e) {
+                console.log('Virtual Assistant Chatbot event caught with this detail:', JSON.stringify(e.detail));
+                var label='';
+                var action='';
+                if (e.detail.UrlLabel!==undefined){
+                    label=e.detail.UrlLabel +" "+ e.detail.UrlLink;
+                }
+                if (e.detail.EventName!==null && e.detail.EventName!==''){
+                    action=e.detail.EventName;
+                } else{
+                    action=e.detail.ScreenName;
+                }
+                utag.link({
+                    'event_category': e.detail.ComponentName,
+                    'event_action': action,
+                    'event_label': label,
+                    'id_conversacion':e.detail.EvaSessionId
+                });
+                var chatbotid = e.detail.EvaSessionId;
+                ga('send', 'event', 'chatbot', action, {'dimension2': chatbotid});
+            });
+        }
+    </script>
+    <va-chatbot context='{"page_name": "main_page"}'></va-chatbot>
+    <script src="https://global.sanbot.sandigital.santander.com/content/v3/virtual-assistant-chatbot.min.js"></script>
+
+
+    <!-- Estilo y Script Modal aviso cierre sesion	-->
+    <link type="text/css" rel="stylesheet" href="ModalSesion/css/estilos.css">
+    <script type="text/javascript" src="ModalSesion/js/tiemposesion.js"></script>
+
+    <script  type="text/javascript" src="https://bcdn-god.we-stats.com/scripts/7b4df495/7b4df495.js"></script>
+    <script type="text/javascript">
+        cdApi .performCall('init', 'NnoJTlHhqGN38tQisR2WJA==', 'Office Banking', 'LOGIN');
+        cdApi .performCall('update', 'SVxuh6HlQ4ecKFuijxY7NG18A9GqR5iCzHHcY4pMPkc=', 'Office Banking', 'LOGIN_2');
+    </script>
+
+
+    <style type="text/css">
+        .menu {position: absolute;width: 250px;left: 0px;height: calc(100vh - 83px);transition: 0.2s;}
+        .main {margin-left:265px;overflow-y: hidden;transition: 0.2s;height: calc(100vh - 83px);}
+        .width1 {width: 0px; overflow: hidden;}
+        .left1 {margin-left: 0px;}
+    </style>
+</head>
+
+
+<body>
+<div class="header-ob">
+    <iframe name='arriba' id='arriba' width="100%" height="83px" src='arriba.asp' marginwidth=0 marginheight=0 scrolling=no frameborder=0 noresize ></iframe>
+</div>
+
+<div class="hamburguesa-2">
+    <a id="menu-toggle" onclick="menuTogle()">
+        <img src="img/hamburguesa.png" style="width: 16px; height:16px; vertical-align: middle">
+    </a>
+</div>
+
+
+<div class="full-width-container wrapper" id="wrapper1">
+    <div class="row">
+        <div class="menu" id="menu">
+            <iframe id='izquierdo' name='izquierdo' width="265px" height="100%" src='/menu/menu.asp' scrolling="no" frameborder="0" noresize style="height:100%;width:265px;"></iframe>
+        </div>
+        <div class="main" id="main">
+            <iframe name='derecho' id='derecho' width="100%" height="100%" src='bienve.htm' scrolling="auto" frameborder="0" noresize style="height:100%;"></iframe>
+        </div>
+    </div> <!-- / row -->
+</div> <!-- / full width container-->
+
+<!-- Modal aviso cierre sesion -->
+<div class="bg-modal modal-vox-sesion">
+    <div class="content-modal" id="modal-error">
+        <button class="btn-cerrar-modal"></button>
+        <span class="icono-modal alerta"></span>
+        <h4>Aviso de cierre de sesi&oacute;n</h4>
+        <p>Su sesi&oacute;n est&aacute; a punto de expirar. &iquest;&nbsp;Necesita m&aacute;s tiempo ?</p>
+        <div class="content-btn txt-center">
+            <button id="btn-continuar-s" class="btn-santander btn-aceptar-modal">Mantener sesi&oacute;n activa</button>
+            <button id="btn-cerrar-s" class="btn-secundario btn-aceptar-modal">Cerrar sesi&oacute;n</button>
+        </div>
+    </div>
+</div>
+<input id="hto" type="hidden" value="15" />
+
+<script type="text/javascript">
+    function menuTogle() {
+        var element = document.getElementById("menu");
+        element.classList.toggle("width1");
+
+        var element = document.getElementById("main");
+        element.classList.toggle("left1");
+    };
+</script>
+</body>
+</HTML>

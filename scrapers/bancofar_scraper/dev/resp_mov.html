@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Consulta de movimientos - Bancofar - </title>
+	<!--Nuevo js comun BEWEB-->
+	<script type="text/javascript">
+			try
+			{
+				document.domain="bancofar.es";//para poder hablar entre frames y el dominio de cep.ceca.es(tiene que estar en todos los frames)
+			}
+			catch( _ex )
+			{
+				if( "bancofar.es" == "bmn.es" )
+
+					document.domain="sanostra.es";
+			}
+		var rutaBEcontenido="https://be.bancofar.es";
+		var ruta_beweb_estatico="/6125";
+		var rutaCGI="https://be.bancofar.es/cgi-bin/INclient_6125";
+		var salto1004="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004&IDIOMA=01&OPERAC=8400&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+		var salto1004M="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004M&IDIOMA=01&OPERAC=8400&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+	</script>
+	<script src="/6125/js/comunBEWEB.js?jversion=20190829133350" type="text/javascript"></script>
+<meta name="description" content="P&aacute;gina que muestre el listado de movimientos de una cuenta seleccionada" />
+<meta name="autor" content=" Bancofar " />
+<meta name="keywords" content="Bancofar" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var diaActual ="02";
+var mesActual ="10";
+var anyoActual="2019";
+</script>
+<script src="/6125/js/acc_calendar.js" type="text/javascript"></script>
+<link href="/6125/css/acc_calendar.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/6125/css/contenido.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/6125/css/estilos_impresion.css" rel="stylesheet" type="text/css" media="print" />
+<script type="text/javascript">
+/* == PONERROR == */
+var pagina='D';
+if (pagina=="C")
+{
+	var codErrPagM='';
+	var txtErrPagM='';
+}
+/* == FIN PONERROR == */
+/*** PONAYUDA***/
+//titAyu-->titulo
+//txtAyu1-->1º texto
+//txtAyu2-->2º texto
+var txtAyu1="8400Ayu00";
+var txtAyu2="8400Ayu01";
+var titAyu="Mensaje de ayuda:";
+var litAyu1="Ayuda detalle de movimientos";
+var litAyu2="Texto de ayuda para el detalle de movimientos...";
+/***FIN PONAYUDA***/
+var codreanuda="";
+var duplicacod="";
+</script>
+<script type="text/javascript" src="/6125/js/8400.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+	<!-- INICIO CONTENIDO -->
+	<div id="contenido">
+
+		<!-- INICIO CAB_CONTENIDO -->
+<!--CABECERA CONTENIDO-->
+<!--titulo = Título de la operación en la que estamos .ConsMovim. -->
+<!--ayuda  = Si va relleno muestra el icono de ayuda .. -->
+<!--impri  = Si va relleno muestra el icono de imprimir .Enlace que imprime la p&aacute;gina. -->
+<!--excel  = Si va relleno muestra el icono del excel .. -->
+<!--camino = .6125. -->
+
+
+<div class="indentado">
+	<a accesskey="1" href="#frame_contenido_1" title="Acceso directo al frame del contenido de la operaci&oacute;n">Ir al frame del contenido de la operaci&oacute;n</a>
+</div>
+
+<div id="logo_impresion">
+	<img src="/6125/img/logoBlanco.jpg?20150827" alt=""/>
+</div>
+
+	<!-- TITULO DE LA PÁGINA -->
+	<div class="tituloPagina">
+		<a name="frame_contenido_1" id="frame_contenido_1"></a>
+		<h2>Consulta de movimientos</h2>
+
+			<div class="flotaDer no_imprimir">
+				<ul class="lista_iconos" id="lista_iconos">
+					<li><a href="#" id="aImpr"><img src="/6125/img/icoImprimir.gif" alt="Enlace que imprime la p&aacute;gina" /></a></li>
+				</ul>
+			</div>
+	</div>
+	<!-- FIN TITULO PÁGINA -->		<!-- FIN CAB_CONTENIDO -->
+
+		<!-- INICIO CONT_CONTENIDO -->
+		<div id="cont_contenido">
+
+			<div id="mens_error"></div>
+			<div id="txtAyuda"></div>
+
+			<p class="txtIzq mb11 mt2">Detalle del movimiento</p>
+
+			<form name="datos" method="post" action="/BEWeb/0125/6125/not9595_d_5838m.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon" enctype="application/x-www-form-urlencoded">
+		<input name="LLAMADA" id="LLAMADA" type="hidden" value="W15221W0E0C0X0C1A0A2" />
+		<input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+			<input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+		<input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+		<input name="OPERAC"  id="OPERAC"  type="hidden" value="8400" />
+		<input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+		<input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+			<input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+			<input type="hidden" name="TEXTO" value="CENFARTE                             SDD" />
+			<input type="hidden" name="NUMDOCU" value="0006108470" />
+			<input type="hidden" name="SECUENCIA" value="009729" />
+			<input type="hidden" name="FECHMOVI" value="16092019" />
+				<!-- DETALLE DEL MOVIMIENTO -->
+				<div class="recuadro_bord_verde">
+
+					<!-- Datos del movimiento -->
+					<dl class="lista_datos clearfix">
+
+						<dt>N&uacute;mero de cuenta:</dt>
+						<dd class="fArial">0125 0001 36 2000745844</dd>
+
+						<dt>Fecha de operaci&oacute;n:</dt>
+						<dd class="fArial">16/09/2019</dd>
+
+						<dt>Fecha de valor:</dt>
+						<dd class="fArial">16/09/2019</dd>
+
+						<dt>Concepto 1:</dt>
+						<dd class="fArial">RECIBO SEPA                                       </dd>
+
+						<dt>Importe:</dt>
+						<dd class="fArial">109,00</dd>
+
+						<dt>Oficina</dt>
+						<dd class="fArial">0005</dd>
+
+					</dl>
+					<!-- Fin datos -->
+
+				</div>
+				<!-- FIN DETALLE -->
+
+				<!-- BOTONERA -->
+				<div class="botonera clearfix">
+					<div class="botonera_izq">
+<!-- BOTÓN TIPO IMAGEN
+**nombre  id del botón
+**titulo  title del botón
+**clase   clase del botón
+**lit    literal/texto del botón
+litind    literal indentado anterior
+litind2    literal indentado posterior -->
+
+
+
+<button id="volver" title="Volver a la p&aacute;gina de introducci&oacute;n de datos de la operaci&oacute;n" class="boton_volver" type="button"><span class="boton_verde"><span class="indentado"></span> Volver <span class="indentado">al paso anterior</span></span></button>					</div>
+					<div class="botonera_dcha">
+
+<!--BOTÓN TIPO VERDE-->
+<!--nombre = id del botón-->
+<!--titulo = title del botón-->
+<!--lit    = literal/texto del botón-->
+<!--spa1   = literal/texto complementario anterior al texto del botón-->
+<!--spa2   = literal/texto complementario posterior al texto del botón-->
+
+
+<button id="detalle" title="Ver detalle del documento" type="button" class="boton_verde "><span class="fl w100"><span class="indentado"></span> Detalle del documento <span class="indentado"></span></span></button>
+					</div>
+				</div>
+				<!-- FIN BOTONERA -->
+
+			</form>
+
+			<div class="oculto">
+					<form name="formVolver" action="/BEWeb/0125/6125/not5838_d_5838m.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon" method="post" enctype="application/x-www-form-urlencoded">
+		<input name="LLAMADA" id="LLAMADA" type="hidden" value="W15221W0E0C0X0C1A0A2" />
+		<input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+			<input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+		<input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+		<input name="OPERAC"  id="OPERAC"  type="hidden" value="8400" />
+		<input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+		<input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+<input type="hidden" name="FECHINI" value="16092019" />
+<input type="hidden" name="DEDONDE" value="5838" />
+<input type="hidden" name="CONCEPTO2" value="" />
+<input type="hidden" name="SALDOCTASIG" value="32.175,32" />
+<input type="hidden" name="OPCION" value="1" />
+<input type="hidden" name="FECFIN" value="02102019" />
+<input type="hidden" name="FECHADESDECOMBO" value="" />
+<input type="hidden" name="AUXCODREANUDA" value="" />
+<input type="hidden" name="SECUENCIA" value="009729" />
+<input type="hidden" name="CODREANUD" value="" />
+<input type="hidden" name="MES" value="10" />
+<input type="hidden" name="TIPOSCTAS" value="" />
+<input type="hidden" name="FECHMOVI" value="16092019" />
+<input type="hidden" name="FECHFIN" value="02102019" />
+<input type="hidden" name="ANIO" value="2019" />
+<input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+<input type="hidden" name="ULTDIA" value="" />
+<input type="hidden" name="TOPEAUXCODREANUDA" value="" />
+<input type="hidden" name="FECINI" value="16092019" />
+						<input name="LIMPIARES"  type="hidden" value="SI" />
+
+						<input name="CODREANUD"  type="hidden" value="" />
+
+					</form>
+			</form>
+
+		</div>
+		<!-- FIN CONT_CONTENIDO -->
+
+<!-- MENU PIE DE PAGINA -->
+<div id="contMenuPie">
+	<div class="menuPie no_imprimir">
+		<ul>
+			<li class="borde"><a target="_blank" href="http://www.bancofar.es/atencion-al-cliente/" title="Muestra al usuario las distintas formas de ponerse en contacto con nosotros para cualquier cuesti&oacute;n">Atenci&oacute;n al cliente</a></li>
+			<li class="borde"><a href="/BEWeb/0125/6125/psmapa.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon?OPERACION=psmapa&IDIOMA=01&OPERAC=8400&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125" title="Muestra el &iacute;ndice de contenidos de la web">Mapa web</a></li>
+			<li class="borde"><a target="_blank" href="http://www.bancofar.es/tarifas/" title="Muestra la informaci&oacute;n de todas nuestras tarifas">Tarifas</a></li>
+			<li><a target="_blank" href="http://www.bancofar.es/aviso-legal/" title="Muestra la informaci&oacute;n legal de la web">Aviso legal</a></li>
+		</ul>
+	</div>
+</div>
+<!-- FIN MENU PIE -->
+	</div>
+	<!-- FIN CONTENIDO -->
+</body>
+</html>

@@ -1,0 +1,62 @@
+<resultado sucesso="sim">
+    <accao>SetValorSaldos('5.314,35 EUR','5.314,35
+        EUR');ActualizaDadosExcel('{B19A09FC-6399-4283-B5-29-3A-C8-B5-F6-FA-F0}','S')
+    </accao>
+    <dadosgrelha>
+        <accoesgerais>
+            <accao nome="anterior" tipo="pedidoxml" visivel="nao" valor="Anteriores" paginaxmldados=""/>
+            <accao nome="seguinte" tipo="pedidoxml" visivel="nao" valor="Seguintes" paginaxmldados=""/>
+        </accoesgerais>
+        <deflinhas>
+            <campo tipo="data" nome="DATAMOVIMENTO" tamanhoColuna="10%">
+                <label>Data Mov.</label>
+            </campo>
+            <campo tipo="data" nome="DATAVALOR" tamanhoColuna="10%">
+                <label>Data Valor</label>
+            </campo>
+            <campo tipo="texto" nome="DESCMOV" multilinha="sim" tamanhoColuna="41%">
+                <label>DescriÃ§Ã£o do Movimento</label>
+            </campo>
+            <campo tipo="decimal" nome="VALORMOEDA" tamanhoColuna="13%" traduzir="nao">
+                <label>Valor em EUR</label>
+            </campo>
+            <campo tipo="decimal" nome="SALDOCONT" tamanhoColuna="13%" traduzir="nao">
+                <label>Saldo em EUR</label>
+            </campo>
+        </deflinhas>
+        <linhas>
+            <linha>
+                <campo nome="DATAMOVIMENTO">22-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 533 P/ PT50001000003303742000175 PG FT N 193296</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-32,50</campo>
+                <campo nome="SALDOCONT">5.314,35</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">12-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 532 P/ PT50001800033964391102065 FT N LP6219/010445</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-457,86</campo>
+                <campo nome="SALDOCONT">5.346,85</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">12-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 531 P/ PT50001800032268114202031 PG FT NUMINTEC</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-191,50</campo>
+                <campo nome="SALDOCONT">5.804,71</campo>
+            </linha>
+            <linha>
+                <campo nome="DATAMOVIMENTO">10-07-2019</campo>
+                <campo nome="DATAVALOR"></campo>
+                <campo nome="DESCMOV">TRF 530 P/ PT50001000003795069000163 PG FT N 192129/131</campo>
+                <campo nome="VALORORIGEM"></campo>
+                <campo nome="VALORMOEDA">-29,52</campo>
+                <campo nome="SALDOCONT">5.996,21</campo>
+            </linha>
+        </linhas>
+    </dadosgrelha>
+</resultado>

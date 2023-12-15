@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identidad</title>
+    <link rel="icon" type="image/x-icon" href="/soporte/plataforma/identidad/api/v1/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/soporte/plataforma/identidad/api/v1/favicon.ico" />
+    <link rel="stylesheet" href="/soporte/plataforma/identidad/api/v1/css/ibercaja-icon-font.css">
+    <link rel="stylesheet" href="/soporte/plataforma/identidad/api/v1/css/main.css">
+</head>
+<body>
+
+<div class="login-container">
+
+
+    <header>
+        <a href="#" class="ibercaja-icon-Ibercaja-logo-completo"></a>
+    </header>
+
+    <div class="content-container">
+        <div class="content">
+            <section class="left">
+                <h1>Acceso Clientes</h1>
+                <span id="okMessage" class="subtitle">Introduce los datos solicitados</span>
+                <form id="login" action="" method="post">
+                    <input type="hidden" id="ReturnUrl" name="ReturnUrl" value="" />
+                    <input type="hidden" value="gDLMSdrCyylWFuiH5qtI/jKOpafJgL7O7igZRf8ecPJZ7IBtYm9uIGRnJrdlxIGA;5puljc32/BjytsJnBkcBuC&#x2B;GuoulP9e8TW9LFTtXVcJqjjdkjMukw4pPuJu5UxCs;wAUoW&#x2B;WlZB5kt2zJGfHsDUbPfY0opJ1yrz/Udhls3gzp5ZwPSJXUNlmxO4IQOXke;GU7uGwYhf4dRS&#x2B;WvhKXwt7H9xv&#x2B;MkDcRZOO8vE0MgyTsm4b2s&#x2B;mflHx18bEwgtg9brb7nlYYlG1CwCTb9Lzngw==;QhWOvk/WuI7CCry&#x2B;g2hAGGWlEB9X8Qyb0Y6GlOezx8AmKcGhqSaMftgXyOdnZZUU;" id="Data" name="Data" />
+                    <div class="form-group input">
+                        <label class="label" for="Username">C&#xF3;digo de identificaci&#xF3;n</label>
+                        <input class="form-control input-uppercase" autofocus autocomplete="off" type="text" data-val="true" data-val-required="El C&#xF3;digo de identificaci&#xF3;n es obligatorio" id="Username" name="Username" value="">
+                    </div>
+                    <div class="form-group custom-password">
+                        <label class="label" for="Password">Clave de acceso</label>
+                        <input type="password" class="form-control input-uppercase" autocomplete="off" data-val="true" data-val-required="La Clave de acceso es obligatoria" id="Password" name="Password">
+                        <div id="passwordButton" class="ibercaja-icon-Mostrar" onclick="showHidePassword('Password','passwordButton')"></div>
+                    </div>
+                    <a class="link" href="/soporte/plataforma/identidad/api/v1/Account/ForgottenPassword">
+                        Olvidé mi clave de acceso
+                    </a>
+                    <div class="form-group buttons">
+                        <button class="btn-primary-icon ibercaja-icon-Chevron-abajo" id="EntrarBtn" name="button" value="login" type="submit" disabled>
+                            <span>entrar</span>
+                        </button>
+                    </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8F4mMuPPAb5FlW-RCr9DUl_v98v95Q-FwHc_XDh3GKIfDJQE6WZq2LcwLSZi_Eq9lg3vXn-zjFC4KcjIaQrQJmz55x3KjAhW7c5LnVhbmbQN79PxcI7ruOte44egwBLpzNmKlkWtqLZEh2h2yZ9gE20" /></form>
+
+                <h3>Otros Accesos</h3>
+                <a class="btn-secondary" href="/soporte/plataforma/identidad/api/v1/Account/ExternalLogin?provider=oidc-adfs">
+                    Ibercaja ADFS
+                </a>
+
+            </section>
+
+            <aside class="right">
+                <section>
+                    <div class="sidebar-element-container">
+                        <p>Si ya eres cliente de Ibercaja y quieres operar con tus cuentas, solicita aquí este servicio.</p>
+                        <button class="btn-secondary" onclick="window.open('https://www.ibercaja.es/negocios/banca-online-negocios/servicios/conoce-banca-online-negocios/')">solicitar acceso</button>
+                    </div>
+                    <div class="sidebar-element-container">
+                        <a href="https://www.ibercaja.es/particulares/banca-online/servicios/gestiona-tus-cuentas/" target="_blank">¿Necesitas ayuda?</a>
+                    </div>
+                    <div class="sidebar-element-container">
+                        <a href="https://www.ibercaja.es/particulares/banca-online/servicios/hazte-fan-de-la-seguridad/" target="_blank">Recomendaciones de seguridad:</a>
+                        <p>Sigue nuestros consejos y ponte al día en seguridad.</p>
+                    </div>
+                    <div class="sidebar-element-container">
+                        <h3>Descarga nuestra App en tu móvil:</h3>
+                        <div class="links">
+                            <a href="https://apps.apple.com/us/app/ibercaja/id515972019?l=es&ls=1" target="_blank" class="store-link"><img src="/soporte/plataforma/identidad/api/v1/css/images/AppStore.svg" alt="App Store"></a>
+                            <a href="https://play.google.com/store/apps/details?id=es.ibercaja.ibercajaapp" target="_blank" class="store-link"><img src="/soporte/plataforma/identidad/api/v1/css/images/GooglePlay.png" alt="Google Play"></a>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <a class="ibercaja-icon-Ibercaja-logo"></a>
+        <ul>
+            <li onclick="openInNewTab('https://www.ibercaja.es/particulares/documentacion-a-clientes/');"><a title="documentación a clientes">documentación a clientes</a></li>
+            <li onclick="openInNewTab('https://www.ibercaja.es/particulares/condiciones-de-uso/');"><a title="aviso legal">aviso legal</a></li>
+            <li onclick="openInNewTab('https://www.ibercaja.es/forms/ejercicio-de-derechos/');"><a title="ejercicio de derechos">ejercicio de derechos</a></li>
+            <li onclick="openInNewTab('https://www.ibercaja.es/forms/revocacion/');"><a title="revocación">revocación</a></li>
+            <li onclick="openInNewTab('https://www.ibercaja.es/tarifas-y-cotizaciones/');"><a title="tarifas y cotizaciones">tarifas y cotizaciones</a></li>
+            <li onclick="openInNewTab('https://www3.ibercajadirecto.com/htmanuncio/nm025738a.pdf');"><a title="tablón de anuncios">tablón de anuncios</a></li>
+        </ul>
+        <script>
+            function openInNewTab(url) {
+                var win = window.open(url, '_blank');
+                win.focus();
+            }
+        </script>
+    </footer>
+
+    <script src="/soporte/plataforma/identidad/api/v1/js/login.js"></script>
+
+
+
+</div>
+
+
+</body>
+</html>

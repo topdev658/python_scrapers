@@ -1,0 +1,35 @@
+
+
+- Hi Vladimir, I've updated the ***_TesoraliaCustomerFinancialEntityAccess*** with those fields,
+Can I update the **CustomerFinancialEntityAccessScrapingStateUpdate** SP without impacting your code?
+I also will haveto update the **CustomerFinancialEntityAccessUpdate** table data type
+
+[LastHttpStatusResponseCode]
+[LastHttpStatusResponseDescription]
+This two fields are to store the last http response status
+[LastResponseTesoraliaCode]
+[LastResponseTesoraliaDescription]
+And this two one are to tipify the tesoralia personal conclussion
+
+I've also updated the ***[CustomerFinancialEntityAccessUpdate]*** With the same fields
+
+[HttpStatusResponseCode] [int] NULL,
+[HttpStatusResponseDescription] [varchar](max) NULL,
+[ResponseTesoraliaCode] [varchar](20) NULL,
+[ResponseTesoraliaDescription] [varchar](max) NULL
+
+To update the information via ***CustomerFinancialEntityAccessScrapingStateUpdate*** SP
+
+
+- Ok. One more time, what should I put here: "
+[LastResponseTesoraliaCode]
+[LastResponseTesoraliaDescription]
+And this two one are to tipify the tesoralia personal conclussion"?
+Pls describe it deeper
+
+- This fields are to identify our conclussion
+0. Ok
+1. wrong credentials (This means that the Access has been locked)
+2. Service unavailable. This means that the finantial entity web is down
+3. Scraping error. This means that the scraping process is wrong
+Could we differenciate this three situations?

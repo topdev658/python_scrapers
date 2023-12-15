@@ -1,0 +1,127 @@
+>>> OVERVIEW
+await fetch("https://www.bbva.es/ASO/financial-overview/v1/financial-overview?customer.id=ES0182003629321C&showSicav=false&showPending=true", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "*/*",
+        "Accept-Language": "es-ES",
+        "X-RHO-TRACEID": "7df0304d-cda0-4000-97f1-9263486ff695",
+        "X-RHO-PARENTSPANID": "ns/es.bbva.channels.web/mrs/web/spans/eee0652b-9b78-44f3-8d46-ef4a2f3734b3",
+        "tsec": "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",
+        "Content-Type": "application/json",
+        "contactid": "5b61df93-6d64-4793-80aa-4d9d7bca7542",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://web.bbva.es/",
+    "method": "GET",
+    "mode": "cors"
+});
+// accounts:
+ES5901820121160201685745
+ES3701821150050201568494
+<<< 005_financial_overview.json
+
+
+
+        # resp_token.text == """
+        # {"authenticationData":[],"authenticationState":"OK",
+        # "user":{"id":"ES0182009338688C","authenticationType":"02","alias":"052811111Y","role":"O",
+        # "otherUserInfo":{"MEDICOS_BARCELONA":"N","FILE_OPERATION":"N","ORIGIN_CX":"N","ORIGIN_UNNIM":"N"},
+        # "personalization":{"channelCode":"04","personalizationCode":"T"},
+        # "person":{"id":"ES0182009338688C"},
+        # "lastAccessDate":"2019-02-01T21:00:22.0+0100"}}
+        # """
+
+        # GET https://tsec2jwt.live.global.platform.bbva.com/v1/Token
+        # HDRS
+        # Referer	https://web.bbva.es/index.html?v=5.0.36
+        # x-consumer-id	web@com.bbva.es.channels
+        # x-tsec-token	eJxt1beu5IgVBNBfWUxKzNA0LfBmAHrb9D4R6E3Te/Lr9QRIiw2UXtQNKqnz5a5F9pec///vNvPnCEOQ==
+        # x-validation-policy	bbva_es
+        # contactId	2fdca811-47bf-491b-b993-4e242f2ae470
+        # X-RHO-TRACEID	55fdcb0e-8bd3-4468-9328-da9abb88a8e4
+        # X-RHO-PARENTSPANID	ns/com.bbva.es.channels/mrs/web/spans/d88e2f90-267b-4e69-8721-e5b79d9526ff
+        # Origin	https://web.bbva.es
+        # Connection	keep-alive
+
+        # GET https://www.bbva.es/BBVANet/api/inicio
+        # (Request-Line)	GET /BBVANet/api/inicio HTTP/1.1
+        # Host	www.bbva.es
+        # User-Agent	Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0
+        # Accept	*/*
+        # Accept-Language	en-US,en;q=0.5
+        # Accept-Encoding	gzip, deflate, br
+        # Referer	https://web.bbva.es/index.html?v=5.0.36
+        # Content-Type	application/json
+        # aso_sso_sim	false
+        # aso_sso_params {"tsec":"eJxt1beu5IgVBNBfWUxKzNA0LfBmAHrb9D4R6E3Te/Lr9QRIiw2UXtQ...nCEOQ==",
+        # "origen":"bbvanet2"}
+        # X-BBVANet-paramUser	{"id":"ES0182009338688C","authenticationType":"02","alias":"052811111Y","role":"O",
+        # "otherUserInfo":{"MEDICOS_BARCELONA":"N","FILE_OPERATION":"N","ORIGIN_CX":"N","ORIGIN_UNNIM":"N"},
+        # "personalization":{"channelCode":"04","personalizationCode":"T"},"person":{"id":"ES0182009338688C"},
+        # "lastAccessDate":"2019-02-01T20:38:15.0+0100"}
+        # X-BBVANet-RequestTimeStamp	1549051230602
+        # X-BBVANet-SID	2fdca811-47bf-491b-b993-4e242f2ae470
+        # Origin	https://web.bbva.es
+        # Cookie	AMCV_D906879D557EE0547F000101%40AdobeOrg=-1891778711%7CMCIDTS%7C17929%7CMCMID
+        # %7C50599827143476175302340443842742690115%7CMCAAMLH-1549653786%7C6%7CMCAAMB-1549653786
+        # %7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1549056186s%7CNONE%7CMCAID%7CNONE
+        # %7CvVersion%7C2.4.0; utag_main=v_id:0165919ab88000131453c7e4370c00044002a0090086e$_sn:4$_ss:0$_st
+        # :1549052604554$vapi_domain:bbva.es$ses_id:1549048984506%3Bexp-session$_pn:9%3Bexp-session;
+        # s_nr=1549050807686-Repeat; idiomaAuto=cas;
+        # mbox=PC#9b3ef921fa0a4dfd855a1a8098d54067.26_12#1612294602|session#72c8e084d4f44b3a9a106cf4e7da61be
+        # #1549052665; HomeIndex=/particulares/index.jsp; TLBS_B01=0000BLR1klx3Lly3c9KXE_AjmBx:1chiv41o7;
+        # sg=tcm:924-65327-4; sgSegmento=tcm:924-65327-4; TDS1234567=1008029355;
+        # PD_STATEFUL_76bc3e40-d3b5-11e1-a7af-005056b6703c=%2Fparticulares;
+        # BIGipServerpool_BBVANET_GLOBAL_SSL=3088623808.47873.0000; check=true; refInterno=; person_testb=testb;
+        # HTTP_CONTACTID=2fdca811-47bf-491b-b993-4e242f2ae470; contactId=2fdca811-47bf-491b-b993-4e242f2ae470;
+        # AMCVS_D906879D557EE0547F000101%40AdobeOrg=1; serialString=FubYi789zYhK4botI; s_cc=true;
+        # PD_STATEFUL_c64b4bfa-0a74-11e6-bbae-00505697345a=%2FTLFWEB; aceptarCookies={ "version": 4, "tecnica": true,
+        # "publicidad": true, "personalizacion": true, "analitica": true };
+        # KQOF_S01=0000DzV7ukzTQc4OLCBZcOa_yBV:1cpuujmss; csrfCookie=cedd3bad-979d-4f25-8788-078751dad07b;
+        # PD_STATEFUL_6e3bbd70-86aa-11e1-9554-005056b6703c=%2FBBVANet; lastLogin=1549049907232; globalSegment=83;
+        # collectives=; tipoOcupacion=1; tipoSegmentoCLI=Particulares; idUsuarioCod=sDoKM+Wi04gyeUATUFmweOYjvJnPY+ge;
+        # PD_STATEFUL_784a32b2-d3b5-11e1-a7af-005056b6703c=%2Fsistema;
+        # PD_STATEFUL_7816d25a-d3b5-11e1-a7af-005056b6703c=%2Fsistema; tipoProductos=|001|004|003||006|;
+        # collectiveCodes=000600710; digitalDataInfo=adobeid:49435745I00481168B2016265|gestor:si|; ordenMapa=1;
+        # s_fid=1BF90F8C0A7611F2-0C4E62DBA07BC717; numAcceso=1
+
+
+
+movs filetered
+
+POST https://www.bbva.es/BBVANet/subhome-cuentas-tarjetas/buscadormovimientos/0 (0 - acc pos)
+
+DATA
+{"idMovimientoActual":0,"filtros":{"fechas":{"tipoFiltroBuscador":null,"fin":"1549580499000","inicio":"1517443200000"},"filtrosBorrados":null,"importes":{"rangoImportes":{"maximoPermitido":{"importe":""},"minimoPermitido":{"importe":""}}},"textoLibre":"","tipoInOutEnum":{"abono":null,"cargo":null},"tipoMovimiento":{"textoObservaciones":null},"pintarBotonAltaOperacionAgil":null,"operationType":"BOTH","contratos":{"indiceTextoSeleccionado":null}},"paginacion":{"paginaSolicitada":"PRIMERA","numeroMovimientosPorPagina":40},"movimientoActual":{"notas":null},"filtrosExcelPdf":{"numeroPaginasDesde":0,"numeroPaginasHasta":0,"ocultarAlias":false,"ocultarObservaciones":false,"tipoFiltrado":null},"sortOrderDesc":false,"sortedColumn":null,"extractoMovimientoSeleccionado":0,"referenciaHistorico":null,"ficheroSeleccionado":0,"csrfCookie":"16672b7f-9422-48b6-ac5e-906f0adbfa05","flowExecutionKey":"e3s2","_eventId":"buscarFiltros","viewStateId":"mostrarListadoBusquedaMovimientos"}
+
+LOGIN (NECESSARY REQ?)
+{'_splash_processing_state': 'finished', 'startedDateTime': '2022-06-26T19:53:22.555914Z',
+'request': {'method': 'GET',
+    'url': 'https://www.bbva.es/personas/_jcr_content/bottomcontent/ctamobilestickymodul.default.html', 'httpVersion': 'HTTP/1.1', 'cookies': [{'name': 'check', 'value': 'true', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'mbox', 'value': 'session#dd36847e62174f7eaf32ea097ed6d603#1656275062', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'utag_main', 'value': 'v_id:0181a1936bec000b40719b1e4fa90104c002104400718$_sn:1$_se:1$_ss:1$_st:1656275002157$ses_id:1656273202157%3Bexp-session$_pn:1%3Bexp-session', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': '_abck', 'value': 'F99005732973AD47F0FD4A362B3B6AEA~-1~YAAQVWwQAkkA2Y2BAQAAF2uToQjmZk5v6Y53cFUt5QFlzPodl6j2LhzkmLmflZsMOBIo9JSAJm9w6rEsQQQn+Nhf26yd1QUNprS2RKA2n+8V3z3WgyCYw/kx0m5aYu9e5f690VB3wcJAjLZC6DtGspcimxeKXda3SDkUVVOydhwJWYUiqyoRJQ8tn2ZmIH3fbT9LJ2P3hDOWwyp6gF3QGYJrerX5y8NyDQTgBqEXgdNPu5zF963GBUpKIrNDuOm3URm21yeCctaoMxxWYV9uRAZ6d+RbO9h3N6+R/x2HSuqFtn/amHDJBrcrDTtK/wi9aUkGuMybLcVWUgznaOEz9GYFFBAApzVbbdZB1yeUDpZT6HPcqqJLuGY=~-1~-1~-1', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'ak_bmsc', 'value': '7457DD292B7E7553B8D7F6F4287BB818~000000000000000000000000000000~YAAQVWwQAkoA2Y2BAQAAF2uToRBGrhW+6uECfIwPF/38Fnha4d9rYgpKqHoiOWpnc0Xhr+6R867ByaMTGDajfDDPZMyU2X9OL9RPjoZRwO/g0he3WUuocvhLaPRct/XjY+HwZ0gLUSpHDS0w1GjILtAX4/Ae0uFAt0JP+qIqlTnXtoFbCflCWr32VZ8UbHuwmVLkxXt6CsnCv/dzo2bI+tdCgLuMnqcJbEjyMsveQAwjFtcfXSv9mJfHC6XAzJ21oMOQ/Ub+/x5GrRJvaWPVcdhOCybl67y9wHHilmbbyfy7chMXMCJY9V+SLGQYCy670+jvRseSQCt8y1kANz8y+yh3uiM8w0AngrFGLfiznQTuzXeZpX4AJug=', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'bm_sz', 'value': 'E1576A41A1E0E5451FCCBE4488E513D2~YAAQVWwQAksA2Y2BAQAAF2uToRBMM3qYhmyYVXqq8hDiv6MZyuJOpA+TDfOEGRVQ7JxeZ15xWCQIuvKST/nBNwUEfAiJkH6pQ8ZpahJp++8K8S3QrGGRKA+ahOpmqTaMQHGs75pj4qX2r7ATxgKfVKtZLpD1yiADLC8hu7DOY3s/BcEOj8g791Orxe4h0uTz1s0ZykoR2E/Z6F8VRhqhkjGKOK4oyXmhCDkfADwjbiyr7px/q2sAGbuIcJPn/r9tUIK7bPpjFdiippBdrIGvlqOs9/Lt7lykOAumC0IO7ZY=~3360054~3424825', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'AMCVS_D906879D557EE0547F000101%40AdobeOrg', 'value': '1', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'AMCV_D906879D557EE0547F000101%40AdobeOrg', 'value': '-637568504%7CMCIDTS%7C19170%7CMCMID%7C91193545420348759284343948861765945014%7CMCAAMLH-1656878002%7C6%7CMCAAMB-1656878002%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1656280402s%7CNONE%7CvVersion%7C5.1.1', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'language', 'value': 'es', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'aemOrigin', 'value': 'live', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'akavpau_CAU_WWW_BBVA_ES_ACC', 'value': '1656273502~id=f369522dbee6c29be6bf90bdd89d5e5e', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'bm_mi', 'value': 'FBFDAC9993BDA8517567C9DE8936C188~YAAQVWwQAlsA2Y2BAQAA0GyToRD/2FqFG+XofhNIzJE2uKKGgyrnrQmHJDUOX9HWVnmozHWn93Yw8xn7TpUBlQtwPIn//NWAKhSBkRmN2u4Iko1WbwZvYQiHJreq3bQ8tYfNbrehscITD6c9oPK2o7RIFtA/E782+oZxw1osz4RUg5nwm1uhCdzao2B8un5lLxmTQhnLuFEftNCF7m2dWJd6bI1UWvnzUw3Nd7419bEtUv/a3kVeIbPQzEY4Mdw6ae6Fuo/6sqBWRzM5IFbzQ+qjRYJWzPCzym5bVXIHuVgtMfmeSq/VI8sLEmZp2Rpykn5feao0/94sKt7R8HTp5if7Rw==~1', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}, {'name': 'bm_sv', 'value': '6A501948D312B11C1A4D9E240126E0FE~YAAQVWwQAlwA2Y2BAQAA0GyToRDHQcdm/jRmIYTO/LCg+D5KtHBfics+I8iLCRaSM+HQ3rAmp0hcJ/R0W7lBQPWMDOJheQe0PyUvxvoKAFpdWIoUXNHjckTKvCY9TE3J7RwaVKJspsQfdv7d3FIkg3eITSbpMBbt4OKvS+1HaSqNwfGtX+bLfbZ/v+P+xl56orulnUvLDwhuu3TSNAjYjUPKfliarqkbkNMnJVU/d+7Qf+jvpbNlpqHVEaJ1~1', 'path': '', 'domain': '', 'httpOnly': False, 'secure': False}], 'queryString': [], 'headers': [{'name': 'Referer', 'value': 'https://www.bbva.es/personas.html'}, {'name': 'If-None-Match', 'value': '"1927f347072e7121047027b8334b81c8"'}, {'name': 'User-Agent', 'value': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0'}, {'name': 'Accept', 'value': '*/*'}, {'name': 'X-Requested-With', 'value': 'XMLHttpRequest'}, {'name': 'Cookie', 'value': 'check=true; mbox=session#dd36847e62174f7eaf32ea097ed6d603#1656275062; utag_main=v_id:0181a1936bec000b40719b1e4fa90104c002104400718$_sn:1$_se:1$_ss:1$_st:1656275002157$ses_id:1656273202157%3Bexp-session$_pn:1%3Bexp-session; _abck=F99005732973AD47F0FD4A362B3B6AEA~-1~YAAQVWwQAkkA2Y2BAQAAF2uToQjmZk5v6Y53cFUt5QFlzPodl6j2LhzkmLmflZsMOBIo9JSAJm9w6rEsQQQn+Nhf26yd1QUNprS2RKA2n+8V3z3WgyCYw/kx0m5aYu9e5f690VB3wcJAjLZC6DtGspcimxeKXda3SDkUVVOydhwJWYUiqyoRJQ8tn2ZmIH3fbT9LJ2P3hDOWwyp6gF3QGYJrerX5y8NyDQTgBqEXgdNPu5zF963GBUpKIrNDuOm3URm21yeCctaoMxxWYV9uRAZ6d+RbO9h3N6+R/x2HSuqFtn/amHDJBrcrDTtK/wi9aUkGuMybLcVWUgznaOEz9GYFFBAApzVbbdZB1yeUDpZT6HPcqqJLuGY=~-1~-1~-1; ak_bmsc=7457DD292B7E7553B8D7F6F4287BB818~000000000000000000000000000000~YAAQVWwQAkoA2Y2BAQAAF2uToRBGrhW+6uECfIwPF/38Fnha4d9rYgpKqHoiOWpnc0Xhr+6R867ByaMTGDajfDDPZMyU2X9OL9RPjoZRwO/g0he3WUuocvhLaPRct/XjY+HwZ0gLUSpHDS0w1GjILtAX4/Ae0uFAt0JP+qIqlTnXtoFbCflCWr32VZ8UbHuwmVLkxXt6CsnCv/dzo2bI+tdCgLuMnqcJbEjyMsveQAwjFtcfXSv9mJfHC6XAzJ21oMOQ/Ub+/x5GrRJvaWPVcdhOCybl67y9wHHilmbbyfy7chMXMCJY9V+SLGQYCy670+jvRseSQCt8y1kANz8y+yh3uiM8w0AngrFGLfiznQTuzXeZpX4AJug=; bm_sz=E1576A41A1E0E5451FCCBE4488E513D2~YAAQVWwQAksA2Y2BAQAAF2uToRBMM3qYhmyYVXqq8hDiv6MZyuJOpA+TDfOEGRVQ7JxeZ15xWCQIuvKST/nBNwUEfAiJkH6pQ8ZpahJp++8K8S3QrGGRKA+ahOpmqTaMQHGs75pj4qX2r7ATxgKfVKtZLpD1yiADLC8hu7DOY3s/BcEOj8g791Orxe4h0uTz1s0ZykoR2E/Z6F8VRhqhkjGKOK4oyXmhCDkfADwjbiyr7px/q2sAGbuIcJPn/r9tUIK7bPpjFdiippBdrIGvlqOs9/Lt7lykOAumC0IO7ZY=~3360054~3424825; AMCVS_D906879D557EE0547F000101%40AdobeOrg=1; AMCV_D906879D557EE0547F000101%40AdobeOrg=-637568504%7CMCIDTS%7C19170%7CMCMID%7C91193545420348759284343948861765945014%7CMCAAMLH-1656878002%7C6%7CMCAAMB-1656878002%7C6G1ynYcLPuiQxYZrsz_pkqfLG9yMXBpb2zX5dvJdYQJzPXImdj0y%7CMCOPTOUT-1656280402s%7CNONE%7CvVersion%7C5.1.1; language=es; aemOrigin=live; akavpau_CAU_WWW_BBVA_ES_ACC=1656273502~id=f369522dbee6c29be6bf90bdd89d5e5e; bm_mi=FBFDAC9993BDA8517567C9DE8936C188~YAAQVWwQAlsA2Y2BAQAA0GyToRD/2FqFG+XofhNIzJE2uKKGgyrnrQmHJDUOX9HWVnmozHWn93Yw8xn7TpUBlQtwPIn//NWAKhSBkRmN2u4Iko1WbwZvYQiHJreq3bQ8tYfNbrehscITD6c9oPK2o7RIFtA/E782+oZxw1osz4RUg5nwm1uhCdzao2B8un5lLxmTQhnLuFEftNCF7m2dWJd6bI1UWvnzUw3Nd7419bEtUv/a3kVeIbPQzEY4Mdw6ae6Fuo/6sqBWRzM5IFbzQ+qjRYJWzPCzym5bVXIHuVgtMfmeSq/VI8sLEmZp2Rpykn5feao0/94sKt7R8HTp5if7Rw==~1; bm_sv=6A501948D312B11C1A4D9E240126E0FE~YAAQVWwQAlwA2Y2BAQAA0GyToRDHQcdm/jRmIYTO/LCg+D5KtHBfics+I8iLCRaSM+HQ3rAmp0hcJ/R0W7lBQPWMDOJheQe0PyUvxvoKAFpdWIoUXNHjckTKvCY9TE3J7RwaVKJspsQfdv7d3FIkg3eITSbpMBbt4OKvS+1HaSqNwfGtX+bLfbZ/v+P+xl56orulnUvLDwhuu3TSNAjYjUPKfliarqkbkNMnJVU/d+7Qf+jvpbNlpqHVEaJ1~1'}], 'headersSize': 2803, 'bodySize': -1},
+'response': {'bodySize': 0, 'httpVersion': 'HTTP/1.1',
+    'cookies': [
+        {'name': 'header_segment', 'value': 'personas', 'path': '/', 'domain': '.bbva.es', 'expires': '2038-12-31T23:59:59Z', 'httpOnly': False, 'secure': False}, {'name': 'akavpau_CAU_WWW_BBVA_ES_ACC', 'value': '1656273502~id=f369522dbee6c29be6bf90bdd89d5e5e', 'path': '/', 'domain': '', 'httpOnly': True, 'secure': True}, {'name': 'bm_sv', 'value': '6A501948D312B11C1A4D9E240126E0FE~YAAQVWwQAl0A2Y2BAQAA0m2ToRASkjY4ZJIsM+LdmYV/Wy9SJOPcpn3BiAMs3KF4znIBsK036VordqxVik6GS8R9WD03Qi04XbNad6fQNaczccW2q9K3HInhYRJxqI3g6IcfumSIAu5b9alu6lg4IRLkO46Zkalr+7xsEUNLEZeJLcKojvy/DilmMe4NlAInHT5y0tSligv3eh+10jvLzMb1SPpp7CzcWF4vf2hulQYQZWgZElcZeqSde/oh~1', 'path': '/', 'domain': '.bbva.es', 'expires': '2022-06-26T21:53:22Z', 'httpOnly': False, 'secure': True}], 'headers': [{'name': 'Content-Type', 'value': 'text/html; charset=UTF-8'}, {'name': 'ETag', 'value': '"1927f347072e7121047027b8334b81c8"'}, {'name': 'Cache-Control', 'value': 'max-age=218'}, {'name': 'Date', 'value': 'Sun, 26 Jun 2022 19:53:22 GMT'}, {'name': 'Connection', 'value': 'keep-alive'}, {'name': 'Access-Control-Allow-Origin', 'value': 'https://www.bbva.es'}, {'name': 'Content-Security-Policy', 'value': "frame-ancestors 'self' https://jwuq7jeq.openweb.bbva https://*.igrupobbva  https://*.grupobbva.com  https://bbvanetcash.com  https://*.bbvanetcash.com  https://*.bbva.es;"}, {'name': 'Set-Cookie', 'value': 'header_segment=personas; expires=Mon, 31-Dec-2038 23:59:59 GMT; path=/; domain=.bbva.es\nakavpau_CAU_WWW_BBVA_ES_ACC=1656273502~id=f369522dbee6c29be6bf90bdd89d5e5e; Path=/; HttpOnly; Secure; SameSite=None\nbm_sv=6A501948D312B11C1A4D9E240126E0FE~YAAQVWwQAl0A2Y2BAQAA0m2ToRASkjY4ZJIsM+LdmYV/Wy9SJOPcpn3BiAMs3KF4znIBsK036VordqxVik6GS8R9WD03Qi04XbNad6fQNaczccW2q9K3HInhYRJxqI3g6IcfumSIAu5b9alu6lg4IRLkO46Zkalr+7xsEUNLEZeJLcKojvy/DilmMe4NlAInHT5y0tSligv3eh+10jvLzMb1SPpp7CzcWF4vf2hulQYQZWgZElcZeqSde/oh~1; Domain=.bbva.es; Path=/; Expires=Sun, 26 Jun 2022 21:53:22 GMT; Max-Age=7200; Secure'}], 'content': {'size': 0, 'mimeType': 'text/html; charset=UTF-8', 'text': '', 'encoding': 'base64'}, 'headersSize': 1015, 'ok': True, 'url': 'https://www.bbva.es/personas/_jcr_content/bottomcontent/ctamobilestickymodul.default.html', 'status': 304, 'statusText': 'Not Modified', 'redirectURL': ''}, 'cache': {}, 'timings': {'blocked': -1, 'dns': -1, 'connect': -1, 'ssl': -1, 'send': 0, 'wait': 159, 'receive': 0}, 'time': 159, 'pageref': '1'}
+
+
+await fetch("https://www.bbva.es/ASO/TechArchitecture/grantingTickets/V02", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+        "Accept": "*/*",
+        "Accept-Language": "es-ES",
+        "Content-Type": "application/json",
+        "contactid": "4bb25ed5-e09c-45a8-9a16-81de0d0f5c99",
+        "X-RHO-TRACEID": "ea10993a-ff40-4c00-babf-23717faf9b71",
+        "X-RHO-PARENTSPANID": "ns/es.bbva.channels.web/mrs/web/spans/f13b8f11-efa5-4871-bcfa-027919a849d2",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.bbva.es/nimbus/login.html?ts=1652032799168&conf=net/login&http_contactid=114b3d78-bdd4-44bd-a9dd-01bb7a39241d",
+    "body": "{\"authentication\":{\"consumerID\":\"00000001\",\"authenticationType\":\"02\",\"userID\":\"0019-021482456L\",\"authenticationData\":[{\"authenticationData\":[\"K1197k\"],\"idAuthenticationData\":\"password\"}]}}",
+    "method": "POST",
+    "mode": "cors"
+});

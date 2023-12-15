@@ -1,0 +1,1950 @@
+<!--
+menu Tesoreria
+
+POST PN=GCT&PE=14&CLICK_ORIG=MNU_EMP_EMP_0&REMOVE_REFVAL=1&NUMERO_PESTANYA=0
+
+acc ES63 2100 5858 7402 0000 9275
+bal +32.080,43
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+
+    <link href="./css/lo_master.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/slider.css" rel="STYLESHEET" type="text/css">
+    <link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+    <style>
+        div.lastgris tr.last td {
+            font-weight: bold;
+            color: #000;
+            background-color: #eee;
+            border-bottom: 3px solid #526bc6;
+        }
+
+        div.directe h3 {
+            background-color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .I {
+            font-style: italic;
+        }
+
+        td#columna_link a {
+            float: left !important;
+        }
+
+        #bloqueTraspasoRapido div.msg_aviso.error {
+            padding: 0px !important;
+        }
+
+        @media print {
+            #TablaBean01 th#colNumCuenta {
+                width: 43% !important;
+            }
+
+            #TablaBean01 th#colExtractoAQM {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#colTraspasoRapido {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#colExtractoReducido {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#colTipo {
+                width: 33% !important;
+            }
+
+            #TablaBean01 th#EUR0 {
+                width: 24% !important;
+            }
+
+            #TablaBean01 th#PTS0 {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#PTS0 {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#col7 {
+                width: 0% !important;
+            }
+
+            #TablaBean01 th#colOpciones {
+                width: 0% !important;
+            }
+
+            #TablaBean01 thead th {
+                background-color: #eff3fc !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            #TablaBean01 tr.subfila {
+                background-color: #dfe3ec none repeat scroll 0 0 !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            #errors {
+                display: none !important;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="./js/EloGenB000003.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+    <script type="text/javascript" src="./js/gestionTablas.js"></script>
+    <script type="text/javascript" src="./js/AjaxQueue.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+    <script type="text/javascript" src="./js/over.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+    <script type="text/javascript" src="./js/tamanytext_v2.js"></script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+    <script type='text/javascript' language='JavaScript'>
+        codMisArray = new Array("WGN00519")
+        numMis = new Array("0")
+        imgMis = new Array("WGN00519")
+        idGrMis = new Array("WGN")
+        numCar = new Array("145")
+        var max = 1
+
+        function calculaIndice(codigo) {
+            var indice = 0
+            for (var i = 0; i < max; i++) {
+                if (codMisArray[i] == codigo)
+                    indice = i
+            }
+            return indice
+        }
+
+        function feedback_BanPer_PNPE(codMis, tipo, codi, pn, pe, pestanya, buffer, pnMenu, peMenu, origen) {
+            top.frames['Titol'].ocultaCampanyaLibre()
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            var pesta = top.flagPE
+            if (top.flagBorsa) pesta = 'B'
+            if (pestanya == '') pestanya = pesta
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            var clicOrig = origen
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMisPUP[indice] + '&IMGMIS=' + imgMisPUP[indice] + '&IDGRMIS=' + idGrMisPUP[indice] + '&NUMCAR=' + numCarPUP[indice] + '&CLOR_CAR=' + clicOrig
+            } else {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMis[indice] + '&IMGMIS=' + imgMis[indice] + '&IDGRMIS=' + idGrMis[indice] + '&NUMCAR=' + numCar[indice] + '&CLOR_CAR=' + clicOrig
+            }
+            var bufferCar = '&TIPO_RESP=' + tipo + '&CODRES=' + codi + '&PN_CAR=' + pn + '&PE_CAR=' + pe + '&PESTANYA_CAR=' + pestanya + '&PNMENU=' + pnMenu + '&PEMENU=' + peMenu + buffer
+            if (top.flagBorsa) top.frames['Inferior'].frames['Menu'].lanzarB_MKT('CAR', 2, bufferCar + dadesCar, clicOrig, pnMenu, peMenu)
+            else top.frames['Inferior'].frames['Menu'].lanzarLO_MKT(top.flagPE, 'CAR', 2, bufferCar + dadesCar, clicOrig, pnMenu, peMenu)
+            if (tipo == '2') {
+                mywin = top.Titol.openW('nfPNPEopenW', '', 800, 600, 1, 0, 1, 0, 0, 1, 1, 1)
+                mywin.location.href = '/GPeticiones;WeblogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547!1545510267298?PN=' + pn + '&PE=' + pe + '&CLICK_ORIG=' + clicOrig + buffer
+            }
+        }
+
+        function feedback_BanPer_URL(codMis, tipo, codi, url, buffer, origen) {
+            top.frames['Titol'].ocultaCampanyaLibre()
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            if (buffer == null) buffer = ''
+            var clicOrig = origen
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMisPUP[indice] + '&IMGMIS=' + imgMisPUP[indice] + '&IDGRMIS=' + idGrMisPUP[indice] + '&NUMCAR=' + numCarPUP[indice] + '&CLOR_CAR=' + clicOrig
+            } else {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMis[indice] + '&IMGMIS=' + imgMis[indice] + '&IDGRMIS=' + idGrMis[indice] + '&NUMCAR=' + numCar[indice] + '&CLOR_CAR=' + clicOrig
+            }
+            var bufferCar = '&TIPO_RESP=' + tipo + '&CODRES=' + codi + '&URL=' + url
+            if (tipo == '4') {
+                mywin = top.Titol.openW('', '', 790, 525, 1, 1, 1, 0, 0, 1, 1, 1)
+                mywin.location.href = url + buffer
+            }
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                top.Titol.lanzarBanPer_URL(numCarPUP[indice], tipo, codi, '014BD417', codMis, numMisPUP[indice], idGrMisPUP[indice], buffer, clicOrig, url)
+            } else {
+                top.Titol.lanzarBanPer_URL(numCar[indice], tipo, codi, '014BD417', codMis, numMis[indice], idGrMis[indice], buffer, clicOrig, url)
+            }
+        }
+
+        function feedbackMKT_SI(codMis, tipo, codi, desti, params, tipointegrada, origen) {
+            top.frames['Titol'].ocultaCampanyaLibre()
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            var clicOrig = origen
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMisPUP[indice] + '&IMGMIS=' + imgMisPUP[indice] + '&IDGRMIS=' + idGrMisPUP[indice] + '&NUMCAR=' + numCarPUP[indice] + '&CLOR_CAR=' + clicOrig
+            } else {
+                var dadesCar = '&NPE1TIT=014BD417&CODMIS=' + codMis + '&NUMMIS=' + numMis[indice] + '&IMGMIS=' + imgMis[indice] + '&IDGRMIS=' + idGrMis[indice] + '&NUMCAR=' + numCar[indice] + '&CLOR_CAR=' + clicOrig
+            }
+            var bufferCar = '&TIPO_RESP=' + tipo + '&CODRES=' + codi + '&DESTI=' + desti + '&PARAMS=' + params + '&TIPOINTEGRADA=' + tipointegrada
+            if (top.Inferior.Menu.okey)
+                top.Inferior.Menu.integrado(desti, params, tipointegrada)
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                top.Titol.lanzarBanPer_SI(numCarPUP[indice], tipo, codi, '014BD417', codMis, numMisPUP[indice], idGrMisPUP[indice], clicOrig, desti, params, tipointegrada)
+            } else {
+                top.Titol.lanzarBanPer_SI(numCar[indice], tipo, codi, '014BD417', codMis, numMis[indice], idGrMis[indice], clicOrig, desti, params, tipointegrada)
+            }
+        }
+
+        function feedbackMKT_WAX(codMis, tipo, codi, pn, pe, buffer, origen) {
+            top.frames['Titol'].ocultaCampanyaLibre()
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            var clicOrig = origen
+            top.frames['Inferior'].frames['Menu'].lanzarWAX(pn, pe, buffer)
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                top.Titol.lanzarBanPer_WAX(numCarPUP[indice], tipo, codi, '014BD417', codMis, numMisPUP[indice], idGrMisPUP[indice], clicOrig)
+            } else {
+                top.Titol.lanzarBanPer_WAX(numCar[indice], tipo, codi, '014BD417', codMis, numMis[indice], idGrMis[indice], clicOrig)
+            }
+        }
+
+        function feedbackMKT_landing(codMis, tipo, codi, pn, pe, buffer, origen, anchuraLighbox, alturaLightbox) {
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            var clicOrig = origen
+            top.Titol.landingLightbox(pn, pe, buffer, null, anchuraLighbox, alturaLightbox)
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                top.Titol.lanzarBanPer_WAX(numCarPUP[indice], tipo, codi, '014BD417', codMis, numMisPUP[indice], idGrMisPUP[indice], clicOrig)
+            } else {
+                top.Titol.lanzarBanPer_WAX(numCar[indice], tipo, codi, '014BD417', codMis, numMis[indice], idGrMis[indice], clicOrig)
+            }
+        }
+
+        function feedbackMKT_CMN(codMis, tipo, codi, pn, pe, buffer, origen, productoCMN, origenCMN) {
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                var indice = calculaIndicePUP(codMis)
+            } else {
+                var indice = calculaIndice(codMis)
+            }
+            if (origen == null || origen == '') origen = 'BAN_GCT_14'
+            var clicOrig = origen
+            top.leLlamamosOD(productoCMN, origenCMN)
+            if (codMis.substring(0, 3) == 'WSE' || codMis.substring(0, 3) == 'WGE') {
+                top.Titol.lanzarBanPer_WAX(numCarPUP[indice], tipo, codi, '014BD417', codMis, numMisPUP[indice], idGrMisPUP[indice], clicOrig)
+            } else {
+                top.Titol.lanzarBanPer_WAX(numCar[indice], tipo, codi, '014BD417', codMis, numMis[indice], idGrMis[indice], clicOrig)
+            }
+        }
+    </script>
+    <script id="TablaBean01EvalScript" language="javascript"
+            type="text/javascript">var TablaBean01_RefVal1 = new Array("p6DpzbyOCGynoOnNvI4IbAAAAWep6Y00YJn1r8ShJUA", "", "")
+    var TablaBean01_RefVal2 = new Array("", "", "")
+    var TablaBean01_RefVal3 = new Array("N", "", "")
+    </script>
+
+    <script type="text/javascript" src="./js/EloGenB000005.js"></script>
+    <script type="text/javascript" src="./js/EloGenB000004.js"></script>
+    <script type="text/javascript" src="./js/EloGenB001100.js"></script>
+    <script type="text/javascript" src="./js/elogctb000100.js"></script>
+    <script type="text/javascript" src="./js/elotrfb000100.js"></script>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.metadata.js"></script>
+    <script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+    <script type="text/javascript" src="./js/jquery.blockUI-2.57.0.js"></script>
+    <script type="text/javascript" src="./js/arq/mailbox/AjaxQueueMB.js"></script>
+    <script type="text/javascript" src="./js/arq/init/jsHandlerTablaV2.js"></script>
+    <script type="text/javascript" language="JavaScript">
+
+        var PNAjuda = "GCT"
+        var PEAjuda = "11"
+    </script>
+    <script>
+        var SCRIPTLET_SESION = "/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+        var LIT_NO_DISPONIBLE = "En estos momentos no está disponible."
+        var idFila = ""
+
+        function init() {
+
+            if (isDefined(top.Inferior.Menu.gestionaMenu)) {
+
+
+                var listaMenu = top.Inferior.Menu.document.getElementById('lista0')
+                if (listaMenu != null) {
+
+                    if (listaMenu.style.display != 'block') {
+                        top.Inferior.Menu.gestionaMenu('menu0')
+                    }
+                }
+
+                top.Inferior.Menu.gestionaMenu('menu0_0')
+
+            }
+            var capa_pta = document.getElementById("PTS0")
+            var capa_eur = document.getElementById("EUR0")
+            capa_eur.style.textAlign = 'right'
+            capa_pta.style.textAlign = 'right'
+            definirMoneda()
+
+            var miniBanner = document.getElementById("miniBanner")
+            var miniBannerOculto = document.getElementById("miniBannerOculto")
+            if (miniBanner != null && miniBannerOculto != null) {
+                if (miniBannerOculto.innerHTML != "") {
+                    var content = $('#miniBannerOculto').html()
+                    $('#miniBanner').html(content)
+                }
+            }
+        }
+
+        function definirMoneda() {
+            var f = document.forms[0]
+            var numFilas = f.NumFilasTabla.value
+            switch (parseInt(f.FLAG_MONEDA.value)) {
+
+                case 0:
+                    capa('EUR', 'PTS', numFilas)
+                    break
+
+                case 1:
+                    capa('PTS', 'EUR', numFilas)
+                    break
+
+                default:
+                    capa('PTS', 'EUR', numFilas)
+                    break
+            }
+        }
+
+        function enviar(indice, codMoneda) {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+            f.REFVAL_SIMPLE_NUMERO_CUENTA.value = TablaBean01_RefVal1[indice]
+            f.ORIGEN_INVOCACION.value = f.PN.value + f.PE.value
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.ALIAS_CUENTA.value = TablaBean01_RefVal2[indice]
+            f.FLAG_KEEP_THE_CHANGE.value = TablaBean01_RefVal3[indice]
+            f.MONEDA.value = codMoneda
+            f.PN.value = "GCT"
+            f.PE.value = "16"
+            f.target = "Cos"
+            f.submit()
+        }
+
+        function enviarMovimientos(indice, codMoneda) {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+            f.REFVAL_SIMPLE_NUMERO_CUENTA.value = TablaBean01_RefVal1[indice]
+            f.ORIGEN_INVOCACION.value = f.PN.value + f.PE.value
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.ALIAS_CUENTA.value = TablaBean01_RefVal2[indice]
+            f.FLAG_KEEP_THE_CHANGE.value = TablaBean01_RefVal3[indice]
+            f.MONEDA.value = codMoneda
+            f.PN.value = "GCT"
+            f.PE.value = "200"
+            f.target = "Cos"
+            f.submit()
+        }
+
+        function linkpeu() {
+            document.forms[0].target = "Cos"
+            if (top.flagPE == 'P') {
+                top.frames['Inferior'].frames['Menu'].prelanzar('POS', '10', 7, 6, null, null, null)
+            } else {
+                top.frames['Inferior'].frames['Menu'].prelanzar('POS', '10', 3, 3, null, null, null)
+            }
+        }
+
+
+        function lenkpeu(num) {
+            f = document.forms[0]
+            f.target = "Cos"
+            if (num == 1) {
+                top.clickorig = "PPA_" + f.PN.value + "_" + f.PE.value
+                top.frames['Inferior'].frames['Menu'].prelanzar('POS', '0', 0, 0, 0, null, null)
+            }
+            if (num == 4) {
+                top.frames['Inferior'].frames['Menu'].lanzarB('POG', '1', "", "PPA_" + f.PN.value + "_" + f.PE.value)
+            }
+        }
+
+        function imprimir() {
+            if (window.print) {
+                window.print()
+            }
+            else {
+                InicializaErrores()
+                AddError("Su navegador no soporta esta opción. Para imprimir seleccione la opción de menú Archivo-Imprimir...")
+                ProcesaErrores("Mis cuentas")
+            }
+        }
+
+        function linkCCT() {
+            f = document.forms[0]
+            f.PN.value = "CCT"
+            f.PE.value = "1"
+            f.TORNA_PN_CCT.value = "GCT"
+            f.TORNA_PE_CCT.value = "11"
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.PN.value = "CCT"
+            f.PE.value = "1"
+            f.target = "Cos"
+            f.submit()
+        }
+
+        function exportar() {
+            var f = document.forms[0]
+            f.target = "Oculto"
+            f.PN.value = "GCT"
+            f.PE.value = "107"
+            f.CLICK_ORIG.value = "FLX_" + f.PN.value + "_" + f.PE.value
+            f.submit()
+            f.PN.value = "GCT"
+            f.PE.value = "11"
+        }
+
+
+        function linkFOI() {
+            f = document.forms[0]
+            f.PN.value = "FOI"
+            f.PE.value = "20"
+            f.TORNA_PN_CCT.value = "GCT"
+            f.TORNA_PE_CCT.value = "11"
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.target = "Cos"
+            f.submit()
+        }
+
+
+        var descProducte = "Pagos - Cuaderno 34 / 34.1"
+        var clauPro = "00001PAG00001"
+
+        function enlaces(PNDestino, PEDestino, url, EntornoMenu, PNMenu, PEMenu, clickOrig) {
+
+            var url_aux = url
+            var idx1 = -1
+            var idx2 = 0
+            var seguir = true
+            var error = false
+            var aux1 = ""
+            var aux1Var
+            var myeval = ""
+            while (seguir) {
+                idx1 = url.indexOf("{", idx1 + 1)
+
+                if (idx1 == -1) {
+                    seguir = false
+                } else {
+                    idx2 = url.indexOf("}", idx1)
+                    if (idx2 == -1) {
+                        seguir = false
+                        error = true
+                    } else {
+                        aux1 = url.substring(idx1 + 1, idx2)
+                        eval('aux1Var=' + aux1)
+                        url_aux = url_aux.replace("{" + aux1 + "}", aux1Var)
+                    }
+                }
+            }
+            if (!error) {
+                url = url_aux
+            }
+
+            clickorig = clickOrig + "_" + document.forms[0].PN.value + "_" + document.forms[0].PE.value
+            top.Inferior.Menu.lanzarLO(EntornoMenu, PNDestino, PEDestino, url, clickorig, PNMenu, PEMenu)
+        }
+
+        function correspondenciaBKB() {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            f.PN.value = "GCT"
+            f.PE.value = "130"
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.target = "Cos"
+            f.submit()
+        }
+
+        function irMisFinanzas() {
+            var f = document.forms[0]
+            f.PN.value = "GFM"
+            f.PE.value = "405"
+            f.CLICK_ORIG.value = "EOC_" + f.PN.value + "_" + f.PE.value
+            f.target = "Cos"
+            f.submit()
+        }
+
+        function irMisFinanzas2(pn, pe, parametros) {
+            var formName = "goPNPE"
+            removeAllFormField(formName)
+            addFormField(formName, "PN", pn)
+            addFormField(formName, "PE", pe)
+            addFormField(formName, "CLICK_ORIG", "EOC_" + document.forms[0].PN.value + "_" + document.forms[0].PE.value)
+            if (parametros != null && parametros != "") {
+                var param = parametros.split("=")
+                addFormField(formName, param[0], param[1])
+            }
+            with (document.forms[formName]) {
+                target = "Cos"
+                submit()
+            }
+        }
+
+
+        function visualizarMovimientos(urlParams, id_origen, id_destino) {
+            idFila = id_origen
+
+            var div = $('#' + idFila + 'Oculta').find('div#' + idFila + 'DivAjax')
+            var contenido_div = div.html()
+            var atr_display_tr = $('#' + idFila + 'Oculta').css('display')
+            var error_extracto_reducido = $('#' + idFila + 'Oculta').find("div#errorExtractoReducido")
+            var divTraspasoRapido = $('#' + idFila + 'Oculta').find("div#divTraspasoRapido")
+
+            if (error_extracto_reducido.length && error_extracto_reducido.html().trim() != "") {
+
+
+                if (atr_display_tr == "table-row") {
+
+                    abrirFilaTraspasoRapido(id_origen)
+                }
+
+
+                bloquearCursor()
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK)
+                procesaAjaxQueueMB(AjaxQueueMB, true)
+                abrirFilaTraspasoRapido(id_origen)
+
+            } else {
+
+
+                if (divTraspasoRapido.length != 0) {
+
+
+                    if (atr_display_tr == "table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen)
+                    }
+
+
+                    bloquearCursor()
+                    AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK)
+                    procesaAjaxQueueMB(AjaxQueueMB, true)
+                    abrirFilaTraspasoRapido(id_origen)
+
+                } else {
+
+
+                    if (atr_display_tr == "table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen)
+
+                    } else {
+
+
+                        if (contenido_div.trim() != "") {
+
+                            abrirFilaTraspasoRapido(id_origen)
+
+                        } else {
+
+                            bloquearCursor()
+                            AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, visualizarMovimientosOK], visualizarMovimientosNOK)
+                            procesaAjaxQueueMB(AjaxQueueMB, true)
+                            abrirFilaTraspasoRapido(id_origen)
+                        }
+                    }
+                }
+            }
+        }
+
+        function visualizarMovimientosOK(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var divOculto = document.getElementById("divOculto")
+            divOculto.innerHTML = data
+            if (document.getElementById('jsCampanya') == null) {
+                ejecutaScript(data, "javaScriptStrCTX")
+            } else {
+                while (document.getElementById('jsCampanya') != null) {
+                    $("#jsCampanya").remove()
+                }
+                ejecutaScript(data, "javaScriptStrCTX")
+            }
+
+            var divOculto = document.getElementById("divOculto")
+            divOculto.innerHTML = data
+            var elementos = document.getElementsByClassName("contenedor-globus")
+            for (i = 0; i < elementos.length; i++) {
+
+                elementos[i].parentNode.style.top = "-60px"
+                elementos[i].parentNode.style.padding = "0px"
+            }
+
+            divOculto.innerHTML = ""
+            desbloquearCursor()
+        }
+
+        function visualizarMovimientosNOK() {
+            ControlError(null, null, null, null)
+        }
+
+
+        function traspasoRapido(urlParams, id_origen, id_destino) {
+            idFila = id_origen
+
+            var div = $('#' + idFila + 'Oculta').find('div#' + idFila + 'DivAjax')
+            var atr_display_tr = $('#' + idFila + 'Oculta').css('display')
+            var error_extracto_reducido = $('#' + idFila + 'Oculta').find("div#errorExtractoReducido")
+            var divTablaBeanExtractoReducido = $('#' + idFila + 'Oculta').find("#tablaBeanExtractoReducido")
+
+            borrarContenidoFilasOcultas()
+
+            if (error_extracto_reducido.length && error_extracto_reducido.html().trim() != "") {
+
+
+                if (atr_display_tr == "table-row") {
+
+                    abrirFilaTraspasoRapido(id_origen)
+                }
+
+
+                bloquearCursor()
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK)
+                procesaAjaxQueueMB(AjaxQueueMB, true)
+                abrirFilaTraspasoRapido(id_origen)
+
+            } else {
+
+
+                if (divTablaBeanExtractoReducido.length != 0) {
+
+
+                    if (atr_display_tr == "table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen)
+                    }
+
+
+                    bloquearCursor()
+                    AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK)
+                    procesaAjaxQueueMB(AjaxQueueMB, true)
+                    abrirFilaTraspasoRapido(id_origen)
+
+                } else {
+
+
+                    if (atr_display_tr == "table-row") {
+
+                        abrirFilaTraspasoRapido(id_origen)
+
+                    } else {
+
+
+                        bloquearCursor()
+                        AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, traspasoRapidoOK], traspasoRapidoNOK)
+                        procesaAjaxQueueMB(AjaxQueueMB, true)
+                        abrirFilaTraspasoRapido(id_origen)
+                    }
+                }
+            }
+        }
+
+        function borrarContenidoFilasOcultas() {
+            $('#TablaBean01 tr[id^="data_"]').each(function (index) {
+                $(this).find('*[id*=DivAjax]').each(function (index) {
+                    $(this).html("")
+
+                })
+            })
+        }
+
+        function traspasoRapidoOK() {
+            desbloquearCursor()
+        }
+
+        function traspasoRapidoNOK() {
+            ControlError(null, null, null, null)
+        }
+
+
+        function continuarTraspasoRapido(cuentaOrig) {
+            InicializaErroresTR()
+            ProcesaErroresTR()
+            var cuentaDest = ""
+            var elemento = document.getElementById("selectCuentaDestino")
+            if (elemento != null) {
+                cuentaDest = elemento.options[elemento.selectedIndex].value
+                if (cuentaDest == 'INI' || cuentaDest == 'SIG' || cuentaDest == 'SEL' || cuentaDest == '') {
+                    AddErrorTR("Debe seleccionar una cuenta destino")
+                    AddErrorTipoTR("selectCuentaDestino")
+                }
+            }
+            var importe = ""
+            elemento = document.getElementById("campoImporte")
+            if (elemento != null) {
+                importe = validaImporte2("campoImporte")
+            }
+            if (ProcesaErroresTR()) {
+                var urlParams = "PN=TTU&PE=37"
+                urlParams += "&IMPORTE="
+                urlParams += importe
+                urlParams += "&REFVAL_SIMPLE_CUENTA_ORIGEN="
+                urlParams += cuentaOrig
+                urlParams += "&REFVAL_SIMPLE_CUENTA_DESTINO="
+                urlParams += cuentaDest
+                urlParams += "&idFilaCuenta="
+                urlParams += idFila
+                urlParams += "&CLICK_ORIG="
+                urlParams += "FLX_GCT_11"
+                bloquearCursor()
+
+                var id_origen = idFila
+                var id_destino = idFila + 'DivAjax'
+                abrirFilaTraspasoRapido(id_origen)
+                AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, refrescaResultadoTraspasoRapido], errorRefrescaResultadoTraspasoRapido)
+                procesaAjaxQueueMB(AjaxQueueMB, true)
+                abrirFilaTraspasoRapido(id_origen)
+            }
+        }
+
+        function refrescaResultadoTraspasoRapido(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+            var divOcultoTR = document.getElementById("divOcultoTR")
+            divOcultoTR.innerHTML = data
+
+            if (document.getElementById("evaluaScript_ttu37")) {
+                refrescaTablaCuentas()
+            } else {
+
+
+                divOcultoTR.innerHTML = ""
+
+                desbloquearCursor()
+            }
+        }
+
+        function refrescaTablaCuentas() {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            f.PN.value = "GCT"
+            f.PE.value = "111"
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+            f.CLICK_ORIG.value = "AJAX_" + f.PN.value + "_" + f.PE.value
+            var paramsAjax = $("form[name=formPrincipal]").serialize()
+            enviaAsincrono(SCRIPTLET_SESION, paramsAjax, 'contenedorTablaInventarioCuentas', 'POST', paginacionInventarioCuentasOK, paginacionInventarioCuentasNOK)
+        }
+
+        function errorRefrescaResultadoTraspasoRapido() {
+            var html = ''
+            html += '<div id="errorResultadoTraspasoRapido">'
+            html += '<div class="ltxt">'
+            html += '<span class="bold ">'
+            html += LIT_NO_DISPONIBLE
+            html += '</span>'
+            html += '</div>'
+            html += '</div>'
+
+            document.getElementById(idFila + 'DivAjax').innerHTML = html
+            desbloquearCursor()
+        }
+
+
+        function seleccionCuentaDestinoTraspasoRapido(param1, param2, param3) {
+
+            var selectBox = document.getElementById("selectCuentaDestino")
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value
+
+            var params = selectedValue.split("::")
+            if (params.length == 3) {
+                param1 = params[0]
+                param2 = params[1]
+                param3 = params[2]
+            } else {
+                param1 = selectedValue
+            }
+
+
+            if (param1 == "INI" || param1 == "SIG") {
+                var urlParams = "PN=GCT&PE=134"
+                urlParams += "&REFVAL_SIMPLE_CLAU_CONTINUACIO="
+                if (param1 == "INI") {
+                    var CLAU_CONTINUACIO_INI = "p6Dpzbtq5jGnoOnNu2rmMQAAAWep6Y00LEUwXjfkL3w"
+
+                    urlParams += CLAU_CONTINUACIO_INI
+                } else {
+                    urlParams += param2
+                }
+                urlParams += "&REFVAL_SIMPLE_NUMERO_CUENTA="
+                urlParams += param3
+                urlParams += "&ORIGEN_INVOCACION=PAG_CUENTA_DESTINO"
+                urlParams += "&TIPO_LISTA_CUENTAS_TRASPASO_RAPIDO=DESTINO"
+                urlParams += "&CLICK_ORIG="
+                urlParams += "PAG_GCT_134"
+                bloquearCursor()
+                enviaAsincrono(SCRIPTLET_SESION, urlParams, 'DIVSelectCuentasDestino', 'POST', refrescaSelectCuentasDestino, errorRefrescaSelectCuentasDestino)
+            }
+        }
+
+        function refrescaSelectCuentasDestino() {
+            var html = http_request.responseText
+            if (html != null && $.trim(html) != "" && html.indexOf("divListaCuentasTraspasoRapidoError") > -1) {
+                document.getElementById(idFila + 'DivAjax').innerHTML = html
+            } else {
+                $('#selectCuentaDestino').parent().html(html)
+            }
+            desbloquearCursor()
+        }
+
+        function errorRefrescaSelectCuentasDestino() {
+            var html = ''
+            html += '<div id="errorRefrescaSelectCuentasDestino">'
+            html += '<div class="ltxt">'
+            html += '<span class="bold ">'
+            html += LIT_NO_DISPONIBLE
+            html += '</span>'
+            html += '</div>'
+            html += '</div>'
+
+            document.getElementById(idFila + 'DivAjax').innerHTML = html
+            desbloquearCursor()
+        }
+
+
+        function pagInicio() {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            f.PN.value = "GCT"
+            f.PE.value = "111"
+            f.CLAVE_CONTINUACION_CLCOTG.value = "000"
+            f.CLAVE_CONTINUACION_TOOFCU.value = "000000000000000 000000000000000 "
+            f.CLAVE_CONTINUACION_TOGECU.value = "00000000000 000000000000000 "
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+
+            f.CLICK_ORIG.value = "PAG_" + f.PN.value + "_11"
+            var paramsAjax = $("form[name=formPrincipal]").serialize()
+            bloquearCursor()
+            enviaAsincrono(SCRIPTLET_SESION, paramsAjax, 'contenedorTablaInventarioCuentas', 'POST', paginacionInventarioCuentasOK, paginacionInventarioCuentasNOK)
+        }
+
+        function pagSiguiente() {
+            var f = document.forms[0]
+            var capa_pta = document.getElementById("PTS0")
+            f.PN.value = "GCT"
+            f.PE.value = "111"
+            if (capa_pta.style.display == 'none') {
+                f.FLAG_MONEDA.value = 0
+            } else {
+                f.FLAG_MONEDA.value = 1
+            }
+
+            f.CLICK_ORIG.value = "PAG_" + f.PN.value + "_11"
+            f.CLAVE_CONTINUACION_CLCOTG.value = f.CLAVE_CONTINUACION_CLCOTG_SIG.value
+            f.CLAVE_CONTINUACION_TOOFCU.value = f.CLAVE_CONTINUACION_TOOFCU_SIG.value
+            f.CLAVE_CONTINUACION_TOGECU.value = f.CLAVE_CONTINUACION_TOGECU_SIG.value
+            var paramsAjax = $("form[name=formPrincipal]").serialize()
+            bloquearCursor()
+            enviaAsincrono(SCRIPTLET_SESION, paramsAjax, 'contenedorTablaInventarioCuentas', 'POST', paginacionInventarioCuentasOK, paginacionInventarioCuentasNOK)
+        }
+
+        function paginacionInventarioCuentasOK() {
+            var html = http_request.responseText
+
+            var divOculto = document.getElementById("divOculto")
+            divOculto.innerHTML = html
+
+            $(divOculto).find('#contenedorTablaInventarioCuentasAJAX').each(function () {
+                document.getElementById('contenedorTablaInventarioCuentas').innerHTML = $(this).html()
+            })
+
+            if (document.getElementById("evaluaScript_GCT111_ERROR")) {
+
+                eval(document.getElementById("evaluaScript_GCT111_ERROR").innerHTML)
+            } else {
+
+
+                if (document.getElementById("evaluaScript_GCT111")) {
+
+                    eval(document.getElementById("evaluaScript_GCT111").innerHTML)
+
+                    $(divOculto).find("#TablaBean01EvalScript").each(function (index) {
+                        jQuery.globalEval($(this).html())
+                    })
+
+                    var divOcultoTR = document.getElementById("divOcultoTR")
+
+                    if (divOcultoTR != null && divOcultoTR.innerHTML != "") {
+
+                        if (document.getElementById("evaluaScript_ttu37")) {
+                            eval(document.getElementById("evaluaScript_ttu37").innerHTML)
+                        }
+
+                        var divTraspasoRapido = $('#' + idFila + 'Oculta').find('div#' + idFila + 'DivAjax')
+
+                        $(divTraspasoRapido).html(divOcultoTR.innerHTML)
+
+                        abrirFilaTraspasoRapido(idFila)
+
+
+                        divOcultoTR.innerHTML = ""
+                    }
+                }
+            }
+
+            divOculto.innerHTML = ""
+
+            initTooltips()
+
+            desbloquearCursor()
+        }
+
+        function paginacionInventarioCuentasNOK() {
+            var html = ''
+            html += '<div id="errorSolicitarInfoTraspasoRapido" style="padding:0 14px 0 14px;">'
+            html += '<div class="ltxt">'
+            html += '<span class="bold ">'
+            html += LIT_NO_DISPONIBLE
+            html += '</span>'
+            html += '</div>'
+            html += '</div>'
+            document.getElementById('contenedorTablaInventarioCuentas').innerHTML = html
+            desbloquearCursor()
+        }
+
+        function ControlError(codigoError, http_request_table, idTabla, tr_select) {
+            var div = $('#' + idFila + 'Oculta').find('div#' + idFila + 'DivAjax')
+            var html = ''
+            html += '<div id="errorExtractoReducido" style="padding:0 14px 0 14px;">'
+            html += '<div class="ltxt">'
+            html += '<span class="bold ">'
+            html += LIT_NO_DISPONIBLE
+            html += '</span>'
+            html += '</div>'
+            html += '</div>'
+            div.html(html)
+            desbloquearCursor()
+        }
+
+        function cerrarDetalles(idFilaCuenta) {
+            var href = $("#" + idFilaCuenta).find('[id^="celdaExtractoReducido"] a').attr('href')
+            window.location.href = href
+        }
+
+        function cerrarDetallesTraspasoRapido(idFilaCuenta) {
+            InicializaErrores()
+            var href = $("#" + idFilaCuenta).find('[id^="celdaTraspasoRapido"] a').attr('href')
+            window.location.href = href
+        }
+
+        function cerrarTodosLosDetallesAbiertos(borrarContenido) {
+            $('#TablaBean01 tr[id^="data_"]').each(function (index) {
+                if ($(this).attr('id').indexOf('Oculta') > -1) {
+                    if ($(this).css('display') == '' || $(this).css('display') == 'block' || $(this).css('display') == 'table-row') {
+                        $(this).attr('style', 'display:none')
+                        $(this).addClass('ocultar')
+                        if (borrarContenido) {
+                            $(this).find("div#TablaBean01DivAjax").each(function (index) {
+                                $(this).html("")
+                            })
+                        }
+                    }
+                }
+            })
+        }
+
+        function verTodosMovimientosCuenta(idFilaCuenta) {
+            var href = $("#" + idFilaCuenta).find('td a').attr('href')
+            window.location.href = href
+        }
+
+        function bloquearCursor() {
+            $.blockUI({overlayCSS: {backgroundColor: '#7F97A7', opacity: .5}, message: null})
+        }
+
+        function desbloquearCursor() {
+            $.unblockUI({fadeOut: 200})
+        }
+
+        String.prototype.trim = function () {
+            return this.replace(/^[\s\xA0]+/g, '').replace(/[\s(&nbsp;)]+$/g, '')
+        }
+
+        function validaImporte(campoImporte) {
+            var importe_formateado = ""
+            var importe = $('#' + campoImporte).val()
+
+            if ($.trim(importe) == "") {
+                AddErrorTR("Para poder realizar el traspaso debe introducir un importe.")
+                AddErrorTipoTR("campoImporte")
+            } else {
+
+                var res1 = Verifica_Importe(importe, "E")
+                if (res1 != 0) {
+                    if (res1 == 2) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    }
+                    if (res1 == 5) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    }
+                    if (res1 == 3) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    }
+                    if (res1 == 4) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    }
+                    if (res1 == 1 || res1 == 6) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    }
+                } else {
+                    importe = Eliminar_Formato(importe)
+
+                    if (importe > 999999999999999) {
+                        AddErrorTR("El importe introducido para el traspaso es incorrecto.")
+                        AddErrorTipoTR("campoImporte")
+                    } else {
+                        importe_formateado = Rellenar_Importe(importe, 15)
+                        $('#' + campoImporte).val(formatoImporteHOST2Importe(importe_formateado))
+                    }
+                }
+            }
+            return importe_formateado
+        }
+
+        function validaImporte2(campoImporte) {
+            var importe_formateado = ""
+            var temp_import = $('#' + campoImporte).val()
+            var errorAct = 0
+
+            if (temp_import == '') {
+                AddErrorTR("Debe introducir el importe")
+                AddErrorTipoTR("campoImporte")
+                errorAct = 1
+            }
+
+            var impaux = Eliminar_FormatoImporte(Eliminar_espacios(temp_import), "E")
+            if (impaux > 9999999900) {
+                AddErrorTR("El importe no puede ser mayor que 99.999.999")
+                AddErrorTipoTR("campoImporte")
+                errorAct = 1
+            }
+
+            if (temp_import.charAt(0) == " ") {
+                AddErrorTR("El importe contiene caracteres blancos")
+                AddErrorTipoTR("campoImporte")
+            }
+            var res = Verifica_Importe2(temp_import, "E")
+            if (res != 0) {
+                if (res == 2) {
+                    AddErrorTR("El importe contiene caracteres no admisibles")
+                    AddErrorTipoTR("campoImporte")
+                }
+                if (res == 5) {
+                    AddErrorTR("El importe contiene caracteres blancos")
+                    AddErrorTipoTR("campoImporte")
+                }
+                if (res == 3) {
+                    AddErrorTR("En el importe sólo se permiten dos decimales")
+                    AddErrorTipoTR("campoImporte")
+                }
+                if (res == 4) {
+                    AddErrorTR("Formato del importe incorrecto")
+                    AddErrorTipoTR("campoImporte")
+                }
+                if (res == 1 || res == 6) {
+                    AddErrorTR("Importe introducido incorrecto")
+                    AddErrorTipoTR("campoImporte")
+                }
+                if (res == 20) {
+                    AddErrorTR("Importe incorrecto: Use coma (,) para los céntimos, ej. 234,34")
+                    AddErrorTipoTR("campoImporte")
+                }
+                errorAct = 1
+            }
+
+
+            if (errorAct != 1 && impaux == 0) {
+                AddErrorTR("Debe introducir el importe")
+                AddErrorTipoTR("campoImporte")
+                errorAct = 1
+            }
+            if (errorAct != 1) {
+                temp_import = Eliminar_Formato(temp_import)
+                importe_formateado = Rellenar_Importe(temp_import, 15)
+                $('#' + campoImporte).val(formatoImporteHOST2Importe(importe_formateado))
+            }
+            return importe_formateado
+        }
+
+        function formatoImporteHOST2Importe(str) {
+            if (str != null && $.trim(str) != "") {
+                var d = parseFloat($.trim(str)) / 100
+                return formatoImporte(d)
+            } else {
+                return ""
+            }
+        }
+
+        function formatoImporte(num) {
+            return num
+                .toFixed(2)
+                .replace(".", ",")
+                .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+
+        function importeFormatoImporteHOST(cadena, longitud) {
+            var cadena_res = Eliminar_Formato(cadena)
+            var signo = ""
+            if (cadena.substring(0, 1) == "-") {
+                signo = "-"
+                cadena_res = cadena.substring(1)
+            }
+            var longAux = longitud - cadena_res.length
+            for (var i = 0; i < longAux; i++)
+                cadena_res = "0" + cadena_res
+            cadena_res = signo + cadena_res
+            return cadena_res
+        }
+
+        function descargaPdf() {
+            var formName = "goPNPE"
+            with (document.forms[formName]) {
+                target = "Oculto"
+                submit()
+            }
+        }
+
+        function isDefined(variable) {
+            return (typeof variable == "undefined") ? false : true
+        }
+
+        function enviarUrl(url) {
+            window.open(url, 'window', 'toolbar=yes,width=650,height=400,directories=no,status=no,scrollbars=yes,resizable=yes,menubar=yes')
+        }
+
+        function getFieldValueFormById(formName, fieldId) {
+            return $('form[name=' + formName + '] input[id=' + fieldId + ']').val()
+        }
+
+        function getFieldValueForm(formName, fieldName) {
+            return $('form[name=' + formName + '] input[name=' + fieldName + ']').val()
+        }
+
+        function addFormField(formName, fieldName, fieldValue) {
+            $('form[name="' + formName + '"]').append('<input type="hidden" name="' + fieldName + '" value="' + fieldValue + '" />')
+        }
+
+        function removeAllFormField(formName) {
+            $('form[name="' + formName + '"] input').remove()
+        }
+
+        function removeFormField(formName, fieldName) {
+            return $('form[name=' + formName + '] input[name=' + fieldName + ']').remove()
+        }
+
+        function setFieldValueForm(formName, fieldName, value) {
+            $('form[name=' + formName + '] input[name=' + fieldName + ']').val(value)
+        }
+
+        function initTooltips() {
+            existTooltipError = false
+            $(function () {
+                $(".tooltip_active[title]").tooltip({
+                    show: false,
+                    hide: false,
+                    position: {
+                        at: "left top+10",
+                        using: function (position, feedback) {
+                            if ($(feedback.target.element).data("tooltip-position") == "left") {
+                                position.left -= 12
+                            }
+                            $(this).css(position)
+                            $("<div>")
+                                .addClass("arrow")
+                                .addClass(feedback.vertical)
+                                .addClass(feedback.horizontal)
+                                .appendTo(this)
+                        }
+                    }
+                })
+                if ($(".tooltip_active[title]").length > 0) {
+                    existTooltipError = true
+                }
+            })
+        }
+
+        function enviaOperativaLinkPrioritario(pn, pe, opt1, opt2, opt3, opt4, opt5, opt6, opt7, opt8, opt9, opt10,
+                                               opt11, opt12, opt13, opt14, opt15, opt16, opt17, opt18, opt19, opt20, opt21, opt22, opt23, opt24, opt25, opt26,
+                                               entorno, pnmenu, pemenu, parametroFijo, tipoLink, tornaPN, tornaPE) {
+            var formName = "goPNPE"
+            removeAllFormField(formName)
+            with (document.forms[formName]) {
+                target = "Cos"
+                addFormField(formName, "VTACREU_PN", pn)
+                addFormField(formName, "VTACREU_PE", pe)
+                addFormField(formName, "NUMERO_MOVIMIENTO", opt1)
+                addFormField(formName, "FECHA_CONTABLE", opt2)
+                addFormField(formName, "INDICADOR_COMUNICADOS", opt3)
+                addFormField(formName, "IMPORTE_COM", opt4)
+                addFormField(formName, "FECHA_COM", opt5)
+                addFormField(formName, "MONEDA_COM", opt6)
+                addFormField(formName, "CLOPWW", opt7)
+                addFormField(formName, "SUBCLO", opt8)
+
+                addFormField(formName, "TIPO_COMUNICADO", opt10)
+
+                addFormField(formName, "TIPO_BUSQUEDA", opt12)
+                addFormField(formName, "NUMERO_RECIBO", opt13)
+                addFormField(formName, "REFVAL_SIMPLE_NUMERO_CUENTA", opt14)
+                addFormField(formName, "FLAG_TITULO", opt15)
+                addFormField(formName, "REF_CUENTA", opt16)
+                addFormField(formName, "FLUJO_T", opt17)
+                addFormField(formName, "SIGNO_IMPORTE_COM", opt18)
+                addFormField(formName, "SIGNO_SALDO_ACTUAL", opt19)
+                addFormField(formName, "SALDO_ACTUAL", opt20)
+                addFormField(formName, "SIGNO_SALDO_RETENIDO", opt21)
+                addFormField(formName, "SALDO_RETENIDO", opt22)
+                addFormField(formName, "FECHA_VALOR", opt23)
+                addFormField(formName, "INDICA_SALDO", opt24)
+                addFormField(formName, "FLAG_KEEP_THE_CHANGE", opt25)
+                addFormField(formName, "INDICADOR_CANCELADA", opt26)
+                addFormField(formName, "PARAMETRO_FIJO", parametroFijo)
+                addFormField(formName, "TORNA_PN", tornaPN)
+                addFormField(formName, "TORNA_PE", tornaPE)
+                addFormField(formName, "PN", "GCT")
+                addFormField(formName, "PE", "104")
+                addFormField(formName, "FLAG_PE", top.flagPE)
+                var tornaPN_tornaPE = tornaPN + "_" + tornaPE
+                if (tipoLink == "G") {
+                    addFormField(formName, "CLICK_ORIG", "GLO_" + tornaPN_tornaPE)
+                } else if (tipoLink == "B") {
+                    addFormField(formName, "CLICK_ORIG", "BOT_" + tornaPN_tornaPE)
+                } else {
+                    addFormField(formName, "CLICK_ORIG", "EOC_" + tornaPN_tornaPE)
+                }
+                if (entorno == "*") entorno = top.flagPE
+                if (pnmenu == "*") pnmenu = ""
+                if (pemenu == "*") pemenu = ""
+                var url = ""
+                url = url + "&"
+                url = url + $("form[name=" + formName + "]").serialize()
+                url = url + "&DESC_COMUNICADO=" + URLEncode(opt9)
+                url = url + "&REMITENTE=" + URLEncode(opt11)
+                top.Inferior.Menu.lanzarLO(entorno, "GCT", "104", url, CLICK_ORIG.value, pnmenu, pemenu)
+            }
+        }
+
+        function ejecutaScript(textoAsincrono, id_container) {
+            var scripts = new Array()
+            var scriptsJS = new Array()
+            var p = textoAsincrono.indexOf("<script")
+            var j = 0
+            while (p != -1) {
+                var f = textoAsincrono.indexOf("</script",p);
+            if(f>p){
+            var p1=textoAsincrono.indexOf('>',p);
+            if(p1+1
+    <f
+    ) {
+    var texAux=textoAsincrono.substring(p,p1);
+    if (texAux.indexOf("evaluaScript_102") < 0) {
+    scripts.push(textoAsincrono.substring(p1+1, f));
+    }
+    }else if (p1+1==f){
+    var j=textoAsincrono.indexOf("js/",p);
+    var j1=textoAsincrono.indexOf(".js",p);
+    scriptsJS.push(textoAsincrono.substring(j,j1+3));
+    }
+    p=textoAsincrono.indexOf("
+    <script
+    ",f+1);
+    }else{
+    p=-1;
+    }
+    }
+
+
+    for(var i=0; i
+    <scriptsJS.length
+    ; i++) {
+    $.ajax({
+    url: "./"+scriptsJS[i],
+    async: false,
+    dataType: "script"
+    })
+    }
+
+    for(var i=0; i
+    <scripts.length
+    ; i++) {
+    var nuevoscript = document.createElement('script');
+    nuevoscript.text = scripts[i];
+    nuevoscript.id = 'jsCampanya';
+    nuevoscript.type = 'text/javascript';
+    if(scripts[i].src!=null && scripts[i].src.length>0) {
+    nuevoscript.src = scripts[i].src
+    }
+    document.getElementById(id_container).appendChild(nuevoscript)
+    }
+    }
+    function mostrarDisponiblePAI(imagen_landing, importe_formateado, tagOmniture) {
+    document.forms["pai"].LND_IMAGEN.value=imagen_landing
+    document.forms["pai"].LND_VALOR1.value=importe_formateado
+    document.forms["pai"].submit()
+    }
+    function mostrarAntiPAI(parametros) {
+    if (parametros!=null && parametros!="") {
+    var formName = "antipai"
+    var click_orig = getFieldValueForm(formName, "CLICK_ORIG")
+    removeAllFormField(formName)
+    var params = parametros.split("&")
+    var param = null
+    for (var i=0; i < params.length; i++) {
+    param = params[i].split("=")
+    addFormField(formName, param[0], param[1])
+    }
+    addFormField(formName, "CLICK_ORIG", click_orig)
+    document.forms[formName].submit()
+    }
+    }
+
+    var erroresTR = new Array()
+    var erroresTipoTR = new Array()
+    function InicializaErroresTR() {
+    erroresTR = new Array()
+    erroresTipoTR = new Array()
+    var elemento = document.getElementById("id_errorTR")
+    if (elemento!=null) {
+    elemento.innerHTML = ""
+    }
+    }
+    function AddErrorTR(errorTR) {
+    erroresTR.push(errorTR)
+    }
+    function AddErrorTipoTR(errorTipoTR) {
+    erroresTipoTR.push(errorTipoTR)
+    }
+    function ProcesaErroresTR() {
+    var elemento = document.getElementById("id_errorTR")
+    if (elemento!=null) {
+    elemento.innerHTML = ""
+    if (erroresTR.length > 0) {
+    for (var i=0; i < erroresTR.length; i++) {
+    elemento.innerHTML += "<p>"
+elemento.innerHTML += erroresTR[i]
+elemento.innerHTML += "</p>"
+}
+$('#id_errorTR').removeClass('dnone')
+marcarErrorCamposFormulario()
+} else
+{
+    $('#id_errorTR').addClass('dnone')
+    desmarcarErrorCamposFormulario()
+    return true
+}
+}
+return false
+}
+
+function marcarErrorCamposFormulario() {
+    if (erroresTR.length > 0) {
+        for (var i = 0; i < erroresTipoTR.length; i++) {
+            if (!$('#' + erroresTipoTR[i]).hasClass('euros_form_error')) {
+                $('#' + erroresTipoTR[i]).addClass('euros_form_error')
+            }
+        }
+    }
+}
+
+function desmarcarErrorCamposFormulario() {
+    $('#selectCuentaDestino').removeClass('euros_form_error')
+    $('#campoImporte').removeClass('euros_form_error')
+}
+
+function masInfo() {
+    var id_destino = "bloquePromoDesplegable01ContenedorBloqueDesplegableVideo"
+    var contenidoVideo = document.getElementById(id_destino).innerHTML
+
+    if (contenidoVideo.trim() != "") {
+        controlfilahucha()
+    } else {
+        var urlParams = "PN=GCT&PE=150"
+        AjaxQueueMB.set("POST", true, 60000, '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547', urlParams, $('#' + id_destino + ''), $('#' + id_destino + ''), null, [callBackGenericaMB, refrescaResultadoVideo], errorRefrescaResultadoVideo)
+        procesaAjaxQueueMB(AjaxQueueMB, true)
+    }
+}
+
+function controlfilahucha() {
+
+    if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+        $("#enlaceBloquePromoDesplegable01").addClass("see_more_open")
+        $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show()
+    } else {
+        pauseVideoBrightcove('#videobc')
+        $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open")
+        $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide()
+    }
+}
+
+function refrescaResultadoVideo(data, textStatus, jqXHR, params, objOrigen, objDestino, objDestinoEvalScript) {
+
+    $("#enlaceBloquePromoDesplegable01").addClass("see_more_open")
+    $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show()
+}
+
+function errorRefrescaResultadoVideo() {
+
+    var parrafoError = "<p class='mens_error_rojo_pq'><span>"
+    parrafoError += "En estos momentos el vídeo no está disponible, sentimos las molestias."
+    parrafoError += "</span></p>"
+    document.getElementById("bloquePromoDesplegable01ContenedorBloqueDesplegableVideo").innerHTML = parrafoError
+    $("#enlaceBloquePromoDesplegable01").addClass("see_more_open")
+    $("#bloquePromoDesplegable01ContenedorBloqueDesplegable").show()
+}
+
+function abrirUnaHucha() {
+    var EntornoMenu = "P"
+    var PNDestino = "GDL"
+    var PEDestino = "10"
+    var url = "&TORNA_PN=GCT&TORNA_PE=11"
+    var clickorig = "EOC_" + document.forms[0].PN.value + "_" + document.forms[0].PE.value
+    var PNMenu = "GDL"
+    var PEMenu = "1"
+    top.Inferior.Menu.lanzarLO(EntornoMenu, PNDestino, PEDestino, url, clickorig, PNMenu, PEMenu)
+}
+
+function mostrarRetencionesSaldo(refvalcuenta) {
+    var formName = "goPNPE"
+    removeAllFormField(formName)
+    with (document.forms[formName]) {
+        target = "Cos"
+        addFormField(formName, "FLUJO", "GCT,11,'':GFI,7,''")
+        addFormField(formName, "CLICK_ORIG", "FLX_GCT_11")
+        addFormField(formName, "REFVAL_SIMPLE_NUMERO_CUENTA", refvalcuenta)
+        addFormField(formName, "PN", "GCT")
+        addFormField(formName, "PE", "18")
+        submit()
+    }
+}
+
+function masInfo2() {
+    var id_destino = "bloquePromoDesplegable01ContenedorBloqueDesplegableVideo"
+    if (id_destino != null) {
+        if (document.getElementById(id_destino).innerHTML.trim() == "") {
+            document.getElementById(id_destino).innerHTML = "<img class='' src='" + "./imatge/CAST_misfinanzas.png" + "'>"
+        }
+    }
+    if ($('#bloquePromoDesplegable01ContenedorBloqueDesplegable').is(':hidden')) {
+        $("#enlaceBloquePromoDesplegable01").addClass("see_more_open")
+        $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').show()
+    } else {
+        $("#enlaceBloquePromoDesplegable01").removeClass("see_more_open")
+        $('#bloquePromoDesplegable01ContenedorBloqueDesplegable').hide()
+    }
+}
+
+function anyadirAgregacion() {
+    var formName = "goPNPE"
+    removeAllFormField(formName)
+    with (document.forms[formName]) {
+        target = "Cos"
+        addFormField(formName, "FLUJO", "GCT,11,'':GFI,7,''")
+        addFormField(formName, "CLICK_ORIG", "FLX_GCT_11")
+        addFormField(formName, "VOLVER_PN", "GCT")
+        addFormField(formName, "VOLVER_PE", "11")
+        addFormField(formName, "PN", "AGF")
+        addFormField(formName, "PE", "1")
+        submit()
+    }
+}
+    </script>
+    </head>
+<body id="cos" class="margen_top5 " onload="init()">
+<script>var PNLomilu = 'GCT'
+var PELomilu = '14'</script>
+<script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+    <div class="mostrar">
+        <div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa"/></div>
+        <div class="rfloat">Fecha impresión: <strong>22/12/2018</strong>&nbsp;</div>
+        <div class="limpiar"></div>
+    </div>
+    <div class="tabs ">
+        <div class="rfloat nowrap">
+            <ul class="funciones_tit ">
+                <li><a title="¿Necesita imprimirlo? Protejamos el medio ambiente" class="printgreen"
+                       href="javascript:imprimir();">Imprimir</a></li>
+                <li><a title="Exportar a fichero Excel" class="exportarexcel" href="javascript:exportar() ">Exportar a
+                    fichero Excel</a></li>
+                <li><a href="javascript:reduir();" title="a -" id="linkred" class="amenos noactivo">a -</a></li>
+                <li><a href="javascript:augmentar();" title="a +" id="linkaug" class="amas">a +</a></li>
+                <li class="ajuda"><span class="funciones_ini"></span><a class="ocultar"
+                                                                        href="javascript:top.Titol.obtenerAyuda();"
+                                                                        title="Ayuda"></a><span
+                        class="funciones_fin"></span></li>
+            </ul>
+        </div>
+        <ul class="tabs_menu clearfix">
+            <li>
+                <a href="#" class="selected" title="Mis cuentas"><span>Mis cuentas</span></a></li>
+        </ul>
+        <div class="limpiar"></div>
+        <div class="tabs_content" id="listaPestanyasTitulo">
+
+            <div id="errores">
+                <script language="javascript"
+                        type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.", null, "errores")</script>
+            </div>
+            <div class="ocultar">
+                <br>
+                <br>
+            </div>
+            <div class="lfloat inferior10 ocultar">
+
+            </div>
+            <div class="rfloat inferior10 ocultar">
+                &nbsp;
+            </div>
+            <div class="limpiar ocultar"></div>
+            <div class="content-mkt-central inferior10 ocultar">
+                <div>
+                    <div align="center"><a
+                            href="javascript:feedback_BanPer_PNPE('WGN00519', '1','18','CAR','6','E','&LND_IMAGEN=WLN00656&LND_BOTON_VOLVER=N','','')"><img
+                            src="/imatge/mkt/WGN00519/02/02_sq.jpg" alt="SEPA" width="647" height="90" border="0"/></a>
+                    </div>
+                </div>
+                <div class="neteja"></div>
+            </div>
+
+            <div class="limpiar ocultar"></div>
+            <div id="infoSaldos">
+                <div class="modul_blaufosc  ocultar ">
+                    <span class="left"></span><span class="right"></span>
+                    <div class="middle ">
+                        <div class="limpiar"></div>
+                        <div class="modul_blanco limpiar lfloat medida49 inferior3">
+                            <div class="top"><span></span></div>
+                            <div class="center-content limpiar">
+                                <div id="divTablaSaldos">
+                                    <table class="table_resumen " id="TablaSaldos">
+                                        <tbody>
+                                        <tr id="" name="" class=" no_border" style="">
+                                            <th scope="row" class=""><span
+                                                    class="bold ">Saldo total en cuentas&nbsp;</span> <span
+                                                    class="ocultar "></span></th>
+                                            <td class=""><span class="bold ">+&nbsp;32.080,43&nbsp;euros</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="limpiar"></div>
+                            </div>
+                            <div class="bottom">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="rfloat medida50">
+                            <div class="limpiar"></div>
+                            <div class="limpiar"></div>
+                            <div id="miniBanner" class="content-mkt-lateral"></div>
+                            <div class="limpiar"></div>
+                        </div>
+                        <div class="limpiar"></div>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="limpiar"></div>
+            <br>
+            <div id="contenedorTablaInventarioCuentas">
+                <div id="TablaBean01ContainerFinal">
+                    <table class="table_generica ltxt" id="TablaBean01">
+                        <thead>
+                        <tr id="" class="" style="">
+                            <th scope="col" class="  ltxt   ltxt medida30" id="colNumCuenta">Número de cuenta</th>
+                            <th scope="col" class="  ctxt    medida2" id="colExtractoAQM"></th>
+                            <th scope="col" class="  ocultar ctxt    medida2" id="colTraspasoRapido"></th>
+                            <th scope="col" class="  ocultar ctxt    medida2" id="colExtractoReducido"></th>
+                            <th scope="col" class="  ltxt    medida25" id="colTipo">Tipo</th>
+                            <th scope="col" class="  rtxt    medida20" id="EUR0">Saldo en euros</th>
+                            <th scope="col" class="  ocultar dnone rtxt    medida20" id="PTS0"></th>
+                            <th scope="col" class="  no_paddings ltxt   " id="col7"></th>
+                            <th scope="col" class="  ocultar rtxt    medida25" id="colOpciones">Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="Oculta" class="ocultar" style="display:none">
+                            <td width="100%" colspan="99">
+                                <div id="TablaBean01DivAjax"></div>
+                            </td>
+                        </tr>
+                        <!-- NOTE: Account here -->
+                        <tr id="data_1" name="data_1" class="" style="">
+                            <td scope="row" class="ltxt "><a id="" href="JavaScript:enviar(0, '')" title=""><span>ES63 2100 5858 7402 0000 9275</span></a>
+                            </th>
+                            <td class=""></td>
+                            <td class="ocultar " id="celdaTraspasoRapido1"></td>
+                            <td class="ocultar " id="celdaExtractoReducido1">
+                                <div class="boto_taula">
+                                    <a class=" tooltip_activen" data-tooltip-position="bottom" id="enlaceicono21"
+                                       href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_1&REFVAL_COMPLEJO_9294=p6DpzbzWogSnoOnNvNaiBAAAAWep6Y0rLbthbe6hJiY','data_1','data_1DivAjax')"
+                                       title="Ver últimos movimientos">
+                                        <span class="ico ico_desplegar"></span>
+                                    </a>
+                                </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        initMailboxTooltip("enlaceicono21")
+                                    })
+                                </script>
+                            </td>
+                            <td class="ltxt ">CUENTA CORRIENTE</td>
+                            <td class="rtxt  medida20" id="EUR1"><span>+32.080,43</span></td>
+                            <td class="ocultar dnone rtxt  medida20" id="PTS1"><span></span></td>
+                            <td class="no_paddings ltxt "></td>
+                            <td class="ocultar ltxt  medida10">
+                                <div class="contenedor-boton-desplegable ancho-190 rfloat ocultar"
+                                     id="opcionesCuenta_1">
+                                    <div class="contenedor-boton clearfix">
+                                        <span class="image-superior-izquierda"></span>
+                                        <span class="texto ">
+<a href="#" onclick="return Toggle('opcionesCuenta_1');"><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+                                    </div>
+                                    <div class="desplegable">
+                                        <div class="listado">
+                                            <ul>
+                                                <li><a href="javascript:enviar(0);"><span>Ver movimientos</span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100585820020600000009275&CCOri_ent=2100&CCOri_of=5858&CCOri_dc=**&CCOri_no=0200009275','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="contenedor-images clearfix"><span id="2"
+                                                                                      class="image-inferior-izquierda"></span><span
+                                                class="image-inferior-medio "></span><span id="4"
+                                                                                           class="image-inferior-derecha"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- / Account here -->
+                        <tr id="data_1Oculta" class="bg_azulclaro fila_activa" style="display:none">
+                            <td colspan="99" class="pos_relative">
+                                <div id="data_1BlockContainer">
+                                    <div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+                                    <div id="data_1DivAjax"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="interior_2" name="interior_2" class="subfila" style="">
+                            <th scope="row" class="ltxt " id="colNumCuenta"><span
+                                    class="bold ">Total oficina  5858</span></th>
+                            <td class="" id="colExtractoAQM"></td>
+                            <td class="ocultar " id="colTraspasoRapido"></td>
+                            <td class="ocultar " id="colExtractoReducido"></td>
+                            <td class="ltxt " id="colTipo"><span class="bold "></span></td>
+                            <td class="rtxt  medida20" id="EUR2"><span class="bold ">+32.080,43</span></td>
+                            <td class="ocultar dnone rtxt  medida20" id="PTS2"><span class="bold "></span></td>
+                            <td class="no_paddings ltxt " id="col7"></td>
+                            <td class="ocultar  medida10" id="colOpciones"></td>
+                        </tr>
+                        <tr id="interior_2Oculta" class="ocultar" style="display:none">
+                            <td width="100%" colspan="99">
+                                <div id="TablaBean01DivAjax"></div>
+                            </td>
+                        </tr>
+                        <tr id="interior_3" name="interior_3" class="subfila" style="">
+                            <th scope="row" class="ltxt " id="colNumCuenta"><span class="bold ">TOTAL</span></th>
+                            <td class="" id="colExtractoAQM"></td>
+                            <td class="ocultar " id="colTraspasoRapido"></td>
+                            <td class="ocultar " id="colExtractoReducido"></td>
+                            <td class="ltxt " id="colTipo"><span class="bold "></span></td>
+                            <td class="rtxt  medida20" id="EUR3"><span class="bold ">+32.080,43</span></td>
+                            <td class="ocultar dnone rtxt  medida20" id="PTS3"><span class="bold "></span></td>
+                            <td class="no_paddings ltxt " id="col7"></td>
+                            <td class="ocultar  medida10" id="colOpciones"></td>
+                        </tr>
+                        <tr id="interior_3Oculta" class="ocultar" style="display:none">
+                            <td width="100%" colspan="99">
+                                <div id="TablaBean01DivAjax"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="TablaBean01ContainerTmp" style="display:none;"></div>
+
+
+            </div>
+            <br>
+
+            <br>
+
+            <div class="limpiar"></div>
+
+            <br>
+            <div class=" ocultar "><h2><span>Además puede</span></h2>
+                <div class="limpiar"></div>
+                <ul class="ul_ico margentbr">
+                    <li><a id="" href="JavaScript:enlaces('FOI','20','','E','FOI','20','EOC2')" lfloat title=""><span>Aportación a un fondo de inversión</span></a>
+                        <span><div class="limpiar"></div></span></li>
+                    <li><a id="" href="JavaScript:enlaces('POS','0','','E','POS','0','PPA_GCT_11')" lfloat
+                           title=""><span>Posición global</span></a> <span><div class="limpiar"></div></span></li>
+                    <li><a id="" href="JavaScript:enlaces('FTX','1','','E','FTX','1','PPA_GCT_11')" lfloat
+                           title=""><span>Envío de un fichero</span></a> <span><div class="limpiar"></div></span></li>
+                    <li><a id="" href="JavaScript:enlaces('FTR','70','','E','FTR','70','PPA_GCT_11')" lfloat
+                           title=""><span>Recepción de un fichero</span></a> <span><div class="limpiar"></div></span>
+                    </li>
+                    <li><a id=""
+                           href="JavaScript:enlaces('TRF','10','&PESTANYA_SELECCIONADA=0&TIPO_TRANSFERENCIA=0&FLAG_SIGUIENTE=&ESTADO=T&FLAG_TIPO=T','E','TRF','0','EOC13')"
+                           lfloat title=""><span>Consultar transferencias realizadas</span></a> <span><div
+                            class="limpiar"></div></span></li>
+                </ul>
+            </div>
+
+
+            <script type="text/javascript">
+                function lenkpeu(num) {
+                    if (num == 1) {
+                        top.clickorig = "PPA_GCT_14"
+                        top.frames['Inferior'].frames['Menu'].prelanzar('POS', '0', 0, 0, 0, null, null)
+                    }
+                    if (num == 2) {
+
+                        top.clickorig = "PPA_GCT_14"
+                        top.frames['Inferior'].frames['Menu'].prelanzar('POS', '0', 0, 0, 0, null, null)
+                    }
+                    if (num == 4) {
+
+                        top.clickorig = "PPA_GCT_14"
+                        top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE, "FTX", "1", "", "PPA_GCT_14")
+                    }
+                    if (num == 5) {
+
+                        top.clickorig = "PPA_GCT_14"
+                        top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE, "FTR", "70", "", "PPA_GCT_14")
+                    }
+                    if (num == 6) {
+
+                        var url_lenkpeu = ""
+                        url_lenkpeu += "&CLAU_CONT_ANT="
+                        url_lenkpeu += "             "
+                        url_lenkpeu += "&DESC_PRODUCTE="
+                        url_lenkpeu += "Pagos - Cuaderno 34 / 34.1"
+                        url_lenkpeu += "&CLAUPRO="
+                        url_lenkpeu += "00001PAG00001"
+                        top.clickorig = "PPA_GCT_14"
+                        top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE, "FTX", "6", url_lenkpeu, "PPA_GCT_14")
+                    }
+                }
+            </script>
+
+            <script language="JavaScript" type="text/javascript">
+
+
+            </script>
+            <br>
+        </div>
+    </div>
+    <div style="display: none !important;" id="divOculto"></div>
+    <div style="display: none !important;" id="divOcultoTR"></div>
+
+    <div id="javaScriptStrCTX"></div>
+    <div id="miniBannerOculto" style="display: none">
+
+    </div>
+
+
+    <script type="text/javascript" src="./js/popupOpi.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        var tipoOpinator = "0"
+
+        function getPopUpUrlOPI() {
+            var desti = '/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547' + '?PN=OPI&PE=1&PNAjuda=GCT&PEAjuda=11&TIPO_OPI=' + tipoOpinator
+            return desti
+        }
+
+        function popUpOPI(tipo) {
+            scrollTo(0, 0)
+            if (tipo != null) {
+                tipoOpinator = tipo
+            } else {
+                tipoOpinator = "EXI"
+            }
+            $("#overlayOPI").overlay().load()
+            $("#overlayOPI").css("display", "none")
+
+
+            $("#overlayOPI").css("margin-right", "auto")
+            $("#overlayOPI").css("margin-left", "auto")
+            $("#exposeMask").css("display", "block")
+        }
+
+
+        function invocarOPINATOR() {
+            var urlinvocacion = "https://www.opinator.com/api/visible.json?id=C17E85081118791156&designator="
+            if ("S" == "") {
+                popUpOPI('ABA')
+            } else {
+                $.ajax({
+                    dataType: 'json',
+                    url: urlinvocacion,
+                    cache: false,
+                    success: function (datos) {
+                        if (datos != null) {
+                            if (datos.responseObject == true) {
+                                popUpOPI('ABA')
+                            } else {
+                                cancelaProceso()
+                            }
+                        }
+                    },
+                    error: function () {
+                        cancelaProceso()
+                    }
+                })
+            }
+        }
+
+
+        var funcionCancel
+
+        function llamadaAbandono(fun) {
+            var flag_js = "0"
+            if (flag_js != "S") {
+                funcionCancel = fun
+                cancelaProceso()
+            } else {
+                funcionCancel = fun
+
+                invocarOPINATOR()
+
+            }
+        }
+
+        function cancelaProceso() {
+            eval(top.frames['Inferior'].frames['Cos'].funcionCancel)
+        }
+    </script>
+    <div class="apple_overlay pad0 top15" id="overlayOPI">
+        <div class="close"></div>
+
+        <div class="capa_liquida bradius8 wauto" style="height:710px;" id="capa_liquida_opi">
+            <div class="top"><span></span></div>
+            <div class="center-content2">
+                <div class="center-content clearfix">
+                    <div id="infoCont" class="contentWrap clearfix" style="height:550px;"></div>
+                </div>
+                <div class="limpiar"></div>
+            </div>
+            <div class="bottom_liq"><span></span></div>
+        </div>
+    </div>
+
+    <form action="/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+          method="POST" name="formPrincipal">
+
+        <input type="hidden" name="PN" value="GCT">
+        <input type="hidden" name="PE" value="11">
+        <input type="hidden" name="NCTREL" value="001">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU" value="00000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_CLCOTG_SIG" value="000">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOOFCU_SIG" value="000000000000000 000000000000000 ">
+        <input type="hidden" name="CLAVE_CONTINUACION_TOGECU_SIG" value="00000000000 000000000000000 ">
+        <input type="hidden" name="SUMA_OFICINA_P" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_P" value="5337734.0">
+        <input type="hidden" name="SUMA_OFICINA_E" value="0.0">
+        <input type="hidden" name="SUMA_TOTAL_E" value="32080.43">
+        <input type="hidden" name="REFVAL_SIMPLE_NUMERO_CUENTA" value="">
+        <input type="hidden" name="ORIGEN_INVOCACION" value="">
+        <input type="hidden" name="FLAG_PE" value="E">
+        <input type="hidden" name="TORNA_PN_CCT" value="GCT">
+        <input type="hidden" name="TORNA_PE_CCT" value="11">
+        <input type="hidden" name="ALIAS_CUENTA" value="">
+        <input type="hidden" name="FLAG_MONEDA" value="0">
+        <input type="hidden" name="NumFilasTabla" value="1">
+        <input type="hidden" name="FLAG_KEEP_THE_CHANGE" value="">
+        <input type="hidden" name="MONEDA" value="">
+        <input type="hidden" name="MOSTRAR_TRASPASO_RAPIDO" value="N">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+          method="POST" name="goPNPE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+          method="POST" name="pdf">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+          method="POST" name="pai">
+        <input type="hidden" name="PN" value="PPP">
+        <input type="hidden" name="PE" value="830">
+        <input type="hidden" name="LND_IMAGEN" value="">
+        <input type="hidden" name="LND_VALOR1" value="">
+        <input type="hidden" name="CLICK_ORIG" value="RED_GCT_11">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=lFPXlymi5C1npSgU9w77-3FlCEFDAuNi6rBYWDAUVbO49p-ii8DM!1505637974!-1295605547"
+          method="POST" name="antipai">
+        <input type="hidden" name="CLICK_ORIG" value="RED_GCT_11">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+</body>
+</html>

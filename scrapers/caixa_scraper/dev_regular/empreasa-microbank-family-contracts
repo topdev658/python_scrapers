@@ -1,0 +1,57 @@
+CAIXA
+
+
+Tesoreria view -> Empreas
+Particuares -> Microbank
+
+now Mis cuentas in Family area (particulares)
+
+16556
+
+NIMBUS TELECOM S.L.
+	ES5721008105740200102382  - OK
+
+GIROWIMAX WIRELESS SOLUTIONS, S.L.
+	ES60 2100 0020 0702 0059 8034 - OK
+	ES24 2100 8105 7402 0009 9290 - OK
+
+
+FRANCISCO DE ASIS RIPOLL SOGAS
+	ES50 2100 8198 6102 0015 1457 -- FAIL (Family)
+	ES19 2100 8198 6902 0019 2848 -- FAIL
+
+
+Empresas:
+CaixaBank Empresas -> Cuentas - OK -- (former TESORERIA view in docs) -a 10919
+
+Particulares:
+Family -> Mi dia a dia -> Cuentas - FAILED
+MicroBank -> Cuentas - OK
+
+
+
+former Tesoreria view in code (CaixaBank Empresas)
+7128	ES2121008654797200305569 -a 14809
+11239	ES2121008654797200305569 -a 21127
+
+
+Many accs from former Tesoreria -a 12072
+
+-a 16556
+Empresas: NIMBUS TELECOM S.L.: OK
+Family: FRANCISCO DE ASIS RIPOLL SOGAS: OK
+
+-a 6923
+Empresas: 1: JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA
+MicroBank: 4: RECREATIVOS INMAVI 2002 S.L.:
+	ES81 2100 6152 6702 0004 9205: OK
+	CUENTA MICROBANK ... 0000 1366: OK
+	ES13 2100 8663 1602 0011 1387: OK
+Family: 5: STIN SA: ES9321008663100200023523: FAILED
+
+
+
+2020-12-18 13:06:36:INFO:CaixaRegularScraper: -u 198549 -a 6923: loc3: company #6 named 'TAMOS, S.A.'
+2020-12-18 13:06:36:INFO:CaixaRegularScraper: -u 198549 -a 6923: TAMOS, S.A.: get accounts_parsed
+2020-12-18 13:06:37:INFO:CaixaRegularScraper: -u 198549 -a 6923: TAMOS, S.A.: is family contract: False
+2020-12-18 13:06:37:ERROR:CaixaRegularScraper: -u 198549 -a 6923: TAMOS, S.A.: suspicious results: no accounts found. RESPONSE:

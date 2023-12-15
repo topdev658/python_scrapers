@@ -1,0 +1,103 @@
+>>> ACCOUNTS (only for -a 3437 or similar accesses with new web)
+fetch("https://bbvanetcash.com/ASO/netCashAccounts/V01?paginationKey=1&pageSize=50", {
+  "headers": {
+    "accept": "application/json, text/plain, */*; q=0.01",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\"Chromium\";v=\"91\", \" Not;A Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site",
+    "tsec": "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"
+  },
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+});
+<<< 10_resp_accounts.json
+
+
+MOVEMENTS ADDITIONAL DETAILS
+
+>>> POST https://www.bbvanetcash.com/SESKYOS/kyos_mult_web_posicioncuentas_01/getDetalleMovimientoAmpliado
+DATA
+parameroFiltro=(transactionDate%3D%3D2018-10-02)
+&parametroId=0011018218102291642910-RE-01821268840201520111
+&tipoDetalleMovimiento=Wire+transfer
+
+<<<
+{"success":true,"errorInfo":{"errorCode":"0","errorTitle":null,"errorDescription":"OK","errorKeyTitle":null,"errorKeyDescription":null,"debugMessage":null,"debugTrace":null},"data":{"codError":0,"codRetorno":0,"descripcion":"OK","detalle":[
+{"clave":"Cuenta beneficiario","tipoClave":"TipoClave","valor":"ES0501821268840201520111","tipoValor":"String"},
+{"clave":"Nombre beneficiario","tipoClave":"TipoClave","valor":"MEURI","tipoValor":"String"},
+{"clave":"Cuenta ordenante","tipoClave":"TipoClave","valor":"ES**************4409","tipoValor":"String"},
+{"clave":"Canal","tipoClave":"TipoClave","valor":"BBVA NETCASH BANCA ELECTRONICA","tipoValor":"String"},
+{"clave":"Descripción","tipoClave":"TipoClave","valor":"TRANSFERENCIA KOLDO AUTO A MEURI","tipoValor":"String"},
+{"clave":"Comisión","tipoClave":"TipoClave","valor":"0,00","tipoValor":"Double"},{"clave":"Referencia",
+"tipoClave":"TipoClave","valor":"18501012007795","tipoValor":"String"},{"clave":"Importe neto",
+"tipoClave":"TipoClave","valor":"4.000,00","tipoValor":"Double"}
+],"reutilizarOperacion":false,
+"ordenReutilizarOperacion":"","detallesPdf":[{"clave":"peticionContractId","valor":"0011018218102291642910-RE-ES0182002000000000000000000002321593XXXXXXXXX"}]}}
+
+OR
+
+parameroFiltro=(transactionDate%3D%3D2017-10-10)&parametroId=0011018217101286557724-RE-01821268840201520111&tipoDetalleMovimiento=Wire+transfer
+
+
+
+================================
+
+
+MOV FILTER
+>>> POST https://www.bbvanetcash.com/SESEYOZ/eyoz_mult_web_posicioncuentas_01/listarResultadoMovNivel2
+
+cuenta=ES4101821299450101518353
+&bancoAsunto=1
+&tipoFecha=Rango
+&fechaDesde=01%2F06%2F2018
+&fechaHasta=14%2F10%2F2018
+&periodo=
+&concepto=
+&importeDesde
+=&importeHasta=
+&divisa=EUR
+&paginacionTLSMT017=N000000000000%2B0000000000000000000
+&paginacionTLSMT016=N00000000000%2B0000000000000000
+&paginacionMOVDIA=1
+&referenciaBBVA=
+&referenciaCorresponsal=
+&iuc=ES4101821299450101518353
+&saldoContable=-145.498%2C04
+&ordenacion=DESC
+
+<<<
+ {{... l":"-135.813,84","indSaldoFinal":"D"},"20/09/2018":{"fecha":"20/09/2018","saldoInicial":"-138.587,66","indSaldoInicial":"D","saldoFinal":"-117.454,57","indSaldoFinal":"D"},"21/09/2018":{"fecha":"21/09/2018","saldoInicial":"-117.454,57","indSaldoInicial":"D","saldoFinal":"-137.492,06","indSaldoFinal":"D"}},"paginacionMOVDIA":"0656EFNSSOP2018-09-2018092002034950694D"}}
+
+ NEXT PAGE
+ >>> POST https://www.bbvanetcash.com/SESEYOZ/eyoz_mult_web_posicioncuentas_01/listarResultadoMovNivel2
+
+ cuenta=ES4101821299450101518353
+ &bancoAsunto=1
+ &tipoFecha=Rango
+ &fechaDesde=01%2F06%2F2018
+ &fechaHasta=14%2F10%2F2018
+ &periodo=
+ &concepto=
+ &importeDesde=
+ &importeHasta=
+ &divisa=EUR
+ &paginacionTLSMT017=-
+ &paginacionTLSMT016=138587.66
+ &paginacionMOVDIA=0656EFNSSOP2018-09-2018092002034950694D
+ &ultimoSaldoPaginacionAnterior=-138.587%2C66
+ &ultimaFechaPaginacionAnterior=20%2F09%2F2018
+ &referenciaBBVA=
+ &referenciaCorresponsal=
+ &iuc=ES4101821299450101518353
+ &saldoContable=-145.498%2C04
+ &ordenacion=DESC
+<<<

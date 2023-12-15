@@ -1,0 +1,69 @@
+{
+    "txId": 346978099,
+    "accounts": [
+        {
+            "@class": "com.bancapueyo.epueyo2.back.domain.product.accounts.accounts.AccountView",
+            "contractNumber": "y8sE4vC5pXTfMP9p1EeAnKFZhBwnGH9buNpgSbaFIlQ",
+            "displayContractNumber": "ES12 0078 0119 8440 0000 0481",
+            "displayContractNumberSummary": "ES12 0078 0119 8440 0000 0481",
+            "epigraph": {
+                "value": "ACCOUNTS",
+                "@enumWrapperValueType": "Epigraph",
+                "text": null
+            },
+            "type": "VIEW",
+            "@baseProductType": "productType",
+            "subtype": "CORRIENTE EMPRESAS",
+            "owner": "MARC-CLEAR, S.L",
+            "status": "ACTIVE",
+            "mode": "EXECUTIVE",
+            "name": "",
+            "personRelationshipType": "ATTORNEY",
+            "view": true,
+            "capitalBalance": 36632.52,
+            "availableBalance": 36632.52,
+            "dailyLimit": null,
+            "dailyLimitSpent": null,
+            "executive": true
+        }
+    ],
+    "cards": [],
+    "financings": {
+        "txId": null,
+        "loans": [
+            {
+                "@class": "com.bancapueyo.epueyo2.back.domain.product.accounts.financing.Loan",
+                "contractNumber": "MOCSlAJiABNV2NS1KuEzT3QFNWB_RhDEjLNaso5Nm7s",
+                "displayContractNumber": "ES18 0078 0119 8845 4000 0147",
+                "displayContractNumberSummary": "ES18 0078 0119 8845 4000 0147",
+                "epigraph": {
+                    "value": "FINANCINGS",
+                    "@enumWrapperValueType": "Epigraph",
+                    "text": null
+                },
+                "type": "LOAN",
+                "@baseProductType": "productType",
+                "subtype": "PRESTAMO PERSONAL",
+                "owner": "MARC-CLEAR, S.L",
+                "status": "ACTIVE",
+                "mode": "CONSULTATION",
+                "name": "",
+                "personRelationshipType": "ATTORNEY",
+                "view": true,
+                "totalBalance": -83883.47,
+                "unpaidBalance": 0.00,
+                "executive": false
+            }
+        ],
+        "credits": [],
+        "financialImpacts": [],
+        "leasings": [],
+        "guarantees": []
+    },
+    "savings": {
+        "txId": null,
+        "termDeposits": [],
+        "accountValues": [],
+        "pensionPlans": []
+    }
+}

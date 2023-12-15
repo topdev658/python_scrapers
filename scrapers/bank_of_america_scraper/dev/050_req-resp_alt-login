@@ -1,0 +1,730 @@
+>>> GET https://secure.bankofamerica.com/login/sign-in/internal/entry/signOnV2.go
+WITH REMEMBER-USER-COOKIES LIKE
+juan*****:D9AD3EFA2722DC394260CB9A05C618B94CD98242DC4F1C0E:02/21/2019||elen*****:03AA74BB14B5579DEFDE0739FA1A6C553E95E584CFB70B03:02/21/2019
+<<<
+
+
+
+
+
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+				<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+				<head>
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+        <link rel="canonical" href="https://secure.bankofamerica.com/login/sign-in/signOnV2Screen.go" />
+    	<link rel="alternate" href="https://secure.bankofamerica.com/login/sign-in/signOnV2Screen.go?request_locale=es_US" hreflang="es-US" />
+		<meta name="Keywords" CONTENT="Your Online ID" />
+		<meta name="Description" CONTENT="Sign in to your Online Banking account by entering your Online ID." />
+
+
+
+<!-- TLDB false -->
+			<!-- TL-NOPV true -->
+	<title>Bank of America | Online Banking | Sign In | Online ID</title>
+<script language="JavaScript" type="text/javascript">
+			var boaVIPAAuseGzippedBundles = "false";
+			var boaVIPAAjawrEnabled = "false";
+			var dotcomURLPrefix = "https://www.bankofamerica.com/";
+</script>
+	<script language="javascript" type="text/javascript">
+		var pinRegexSwitch = "true";
+	</script>
+	<script language="javascript" type="text/javascript">
+		var sbPinRegexSwitch = "true";
+	</script>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+    <link rel="shortcut icon" href="https://www.bankofamerica.com/pa/global-assets/1.0/graphic/favicon.ico?ts=20151018" type="image/x-icon" />
+   <script language="Javascript" type="text/javascript">
+   			var newPwdStandardSwitch = "true";
+	</script>
+
+
+	<script language="JavaScript" type="text/javascript">
+			boaVIPAAuseGzippedBundles = "true";
+	</script>
+<!-- TLDB TEALEAF_UiCapture_APP_ENABLED_NOT_TRUE -->
+
+
+
+	<script language="JavaScript" type="text/javascript">
+		boaVIPAAjawrEnabled = "true";
+	</script>
+		<script language="JavaScript" type="text/javascript">
+			boaVIPAAjawrEnabled = "true";
+		</script>
+					<link rel="stylesheet" type="text/css" href="/pa/components/bundles/gzip-compressed/xengine/VIPAA/6.0/style/vipaa-v4-jawr.css" media="all" />
+					<link rel="stylesheet" type="text/css" href="/pa/components/bundles/gzip-compressed/xengine/VIPAA/6.0/style/vipaa-v4-jawr-print.css" media="print" />
+					<script src="/pa/components/bundles/gzip-compressed/xengine/VIPAA/6.0/script/vipaa-v4-jawr.js" type="text/javascript"></script>
+<!--<script type="text/javascript">
+(function() {
+	if (typeof mboxUpdate == "function") {
+		var windowURL = window.location.href;
+	    windowURL = windowURL.slice( windowURL.indexOf('.')+1);
+		windowURL = windowURL.split( '?' )[0];
+		windowURL = windowURL.toLowerCase();
+		//alert(windowURL);
+		//If no mboxes on page, mbox count will be < 1
+		//Also check for high-volume pages that do not need global logging
+		if ((mboxFactoryDefault.getMboxes().length() < 1) &&
+			(windowURL != "bankofamerica.com/myaccounts/brain/redirect.go") &&
+			(windowURL != "bankofamerica.com/myaccounts/signin/signin.go") &&
+			(windowURL != "bankofamerica.com/login/sign-in/signon.go") &&
+			(windowURL != "bankofamerica.com/login/sign-in/entry/signon.go") &&
+			(windowURL != "bankofamerica.com/login/sign-in/signonscreen.go") &&
+			(windowURL != "bankofamerica.com/login/sign-in/validatechallengeanswer.go") &&
+			(windowURL != "bankofamerica.com/login/sign-in/validatePassword.go")&&
+			(windowURL != "ecnp.bankofamerica.com/myaccounts/details/deposit/account-details.go")&&
+			(windowURL != "bankofamerica.com/myaccounts/details/deposit/account-details.go")&&
+			(windowURL != "ecnp.bankofamerica.com/myaccounts/brain/redirect.go")&&
+			(windowURL != "bankofamerica.com/myaccounts/brain/redirect.go")&&
+			(windowURL != "bankofamerica.com/mobile/banking.go")&&
+			(windowURL != "bankofamerica.com/content/preload/olb-myaccount-preload-jawr-module.htm"))
+		{
+
+			var mboxDiv = document.createElement("div");
+			mboxDiv.id = "adobe_touch_clarity_replacement";
+			mboxDiv.style.display = "none";
+			if (document.body && document.body.firstChild) {document.body.insertBefore(mboxDiv,document.body.firstChild);}
+			mboxDefine(mboxDiv.id,'bac_global_bottom');
+			mboxUpdate('bac_global_bottom');
+		}
+	}
+})();
+</script> -->
+
+						<script type="text/javascript">
+						(function(d,f){var b={src:(d.location.protocol=="https:"?"https:":"http:")+"//aero.bankofamerica.com/30306/I3n.js",async:true,type:"text/javascript"},g="XMLHttpRequest",c=f.createElement("script"),h=f.getElementsByTagName("head")[0],a;if(d[g]&&(a=new d[g]()).withCredentials!==undefined){a.open("GET",b.src,b.async);a.withCredentials=true;a.onreadystatechange=function(e){if(a.readyState==4&&a.status==200){c.type="script/meta";c.src=b.src;h.appendChild(c);new Function(a.responseText)()}};a.send()}else{setTimeout(function(){for(var e in b){c.setAttribute(e,b[e])}h.appendChild(c)},0)}})(window,document);
+					    </script>
+
+						<script type="text/javascript">
+							(function(){var f=document,e=window,i=e.location.protocol,b=[["src",[i=="https:"?"https:/":"http:/","boss.bankofamerica.com/30306/a8e.js"].join("/")],["type","text/javascript"],["async",true]],g="XMLHttpRequest",a=null,j=e[g]&&(a=new e[g]()).withCredentials!==undefined,c=f.createElement("script"),h=f.getElementsByTagName("head")[0];if(j){a.open("GET",b[0][1],b[2][1]);a.withCredentials=true;a.onreadystatechange=function(d){if(a.readyState==4&&a.status==200){c.type="script/meta";c.src=b[0][1];h.appendChild(c);new Function(a.responseText)()}};a.send()}else{setTimeout(function(){for(var d=0,k=b.length;d<k;d++){c.setAttribute(b[d][0],b[d][1])}h.appendChild(c)},0)}})();
+						</script>
+
+						<script type="text/javascript">
+							(function(){var d=document,c=window,g=c.location.protocol,e="XMLHttpRequest",a,h=c[e]&&(a=new c[e]()).withCredentials!==undefined,b=d.createElement("script"),f=d.getElementsByTagName("head")[0];b.src=(g=="https:"?"https://":"http://")+"dull.bankofamerica.com/boaa/y9h.js";b.async=true;if(!h){setTimeout(function(){b.type="text/javascript";f.appendChild(b)},0)}else{a.open("GET",b.src,b.async);a.withCredentials=true;a.onreadystatechange=function(i){if(a.readyState==4&&a.status==200){b.type="script/meta";f.appendChild(b);new Function(a.responseText)()}};a.send()}})();
+						</script>
+
+						<script type="text/javascript">
+							function getSCookie(name){
+							var re = new RegExp('[; ]'+name+'=([^\\s;]*)'), matches = null;
+								if(document.cookie.length > 0) {
+									matches = document.cookie.match(re);
+								if(matches && matches.length == 2) {
+									return decodeURIComponent(matches[1]);
+									}
+								}
+							}
+						</script>
+						<script>
+							function get_SessionIdString(){
+							  return getSCookie("SID") || "";
+							}
+						</script>
+
+			<script>
+				var boaPageDataJS = {};
+					boaPageDataJS.isLLE = "false";
+			</script>
+				<style>body{display:none;}</style>
+	</head>
+	<body class="fsd-layout-body">
+
+				<script type="text/javascript">if(self == top){var theBody=document.getElementsByTagName("body")[0];theBody.style.display="block";}else{top.location=self.location;}</script>
+				<noscript><style>body{display:block;}</style></noscript>
+					<a class='ada-hidden ada-visible-focus' href='#skip-to-h1' id='ada-skip-link'>Skip to main content</a>
+		<div class="fsd-layout fsd-2c-700lt-layout">
+			<div class="fsd-border">
+				<div class="center-content">
+					<div class="header">
+
+
+<div class="header-module">
+   <div class="fsd-secure-esp-skin">
+   	  <img height="28" width="207" alt="Bank of America" src="/content/images/ContextualSiteGraphics/Logos/en_US/bac_reg_logo_tmp_250X69.gif" />
+      <div class="page-type" data-font="cnx-regular">Sign In</div>
+      <div class="right-links">
+		<div class="secure-area">Secure Area</div>
+       <a class="divide" href="/login/languageToggle.go?request_locale=es_US" target="_self" name="spanish_toggle" title="Muestra esta sesión de la Banca en Línea">En Espa&#241;ol</a>
+       <div class="clearboth"></div>
+      </div>
+      <div class="clearboth"></div>
+   </div>
+</div>
+
+
+				<noscript>
+					<div class="fauxdal-overlay"></div>
+					<div class="fauxdal-module">
+						<div class="noscript-reload-skin">
+							<div class="fauxdal-top"></div>
+							<div class="fauxdal-bottom">
+								<div class="fsd-fauxdal-content">
+										<div class="fsd-fauxdal-title">
+											Please use JavaScript
+										</div>
+										<p>You need a web browser that supports JavaScript to use our site. Without it, some pages won't work as designed. To make sure JavaScript is turned on, please adjust your browser settings.</p>
+<p>&nbsp;</p>
+<p><a title="Browser Help and Tips" name="Browser Help and Tips" href="https://www.bankofamerica.com/onlinebanking/online-banking-security-faqs.go" target="_self">Browser Help and Tips</a></p>
+								</div>
+								<div class="fsd-fauxdal-close">
+									<a class="button-common button-gray" name="close_button_js_disabled_modal" href=><span>Close</span></a>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+						</div>
+					</div>
+				</noscript>
+
+<div class="page-title-module h-100" id="skip-to-h1">
+  <div class="red-grad-bar-skin sup-ie">
+    <h1 data-font="cnx-regular">Sign In to Online Banking</h1>
+  </div>
+</div>
+
+
+	<div id="clientSideErrors" class="messaging-vipaa-module hide" aria-live="polite">
+		<div class="error-skin">
+			<div class="error-message">
+					<p class="title TLu_ERROR">We can't process your request.</p>
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+
+<!-- Added for VIPAA Sub-user pages new currentLocation=/login/sign-in/enter-online-id-passcode-v2-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="vipaa-modal-content-module">
+	<div class="sitekey-affinity-skin">
+
+	</div>
+</div>
+
+
+</div>
+					<div class="columns">
+						<div class="flex-col lt-col" >
+<script>
+		var captureMouseEvents = "false";
+		var maxMouseEvents = 0;
+</script>
+
+
+
+
+
+<script>
+	var ccPath = "/login/sign-in/cc.go";
+	var _ia11 = "_ia11";
+	var isFPEnabled = false;
+		 isFPEnabled = false;
+</script>
+
+
+
+
+
+
+<div class="online-id-vipaa-module">
+	<div class="enter-skin phoenix">
+		<form class="simple-form collector-form-marker" name="enter-online-id-form" id="EnterOnlineIDKnownForm" method="post" action="/login/sign-in/internal/entry/signOnV2.go" autocomplete="off">
+<input type="hidden" name="csrfTokenHidden" value="c7bf8c4093b0ff24" id="csrfTokenHidden"/>			<input type="hidden" id="f_variable" name="f_variable" class="tl-private" />
+			<input type="hidden" name="lpOlbResetErrorCounter" id="lpOlbResetErrorCounterId" value="0"/>
+			<input type="hidden" name="lpPasscodeErrorCounter" id="lpPasscodeErrorCounterId" value="0"/>
+			<input type="hidden" name="contGsid" id="contGsid" value=""/>
+
+			<input type="hidden" id="eligibilityToken" name="eligibilityToken" value="">
+			<input type="hidden" id="passcodeVal" name="passcode" value="" class="tl-private"/>
+			<input type="hidden" id="onlineIdVal" name="onlineId" value=""/>
+			<input type="hidden" id="selectedOnlineId" name="selectedOnlineId" value=""/>
+
+			<input type="hidden" name="mouseCapturedEvents" id="mouseCapturedEvents"/>
+			<input type="hidden" name="pm_fp" id="pm_fp" value=""/>
+
+			<div id="enter-id-div">
+				<label for="enterID-known-input">Online ID</label>
+				<input type="text" name="dummy-onlineId" id="enterID-known-input" maxlength="32" value="" autocomplete="off"/>
+				<div class="remember-info">
+					<input type="checkbox" id="remID" name="saveMyID" />
+					<label for="remID">Save this Online ID</label>
+					<a class="boa-dialog force-xlarge info-layer-help-fsd" href="javascript:void(0);" name="online-id-help" rel="help-content" title="Help">
+						<span class="ada-hidden">Online ID Help</span>
+					</a>
+					<div id="help-content" class="hide">
+						<p><strong>How does "Save this Online ID" work?</strong></p>
+<p>&nbsp;</p>
+<p>Saving your Online ID means you don't have to enter it every time you sign in.</p>
+<p>&nbsp;</p>
+<p><strong>Don't save on a public computer</strong></p>
+<p>&nbsp;</p>
+<p>Only save your Online ID on your personal computer or mobile device.</p>
+<p>&nbsp;</p>
+<p><strong>How to clear a saved Online ID</strong></p>
+<p>&nbsp;</p>
+<p>To clear a saved Online ID, sign in and select <strong>Saved Online IDs</strong> from <strong>Profile and Settings.</strong></p>
+					</div>
+					<div class="clearboth"></div>
+				</div>
+			</div>
+			<div id="select-id-div">
+				<label for="online-id-select">Online ID<span class="ada-hidden"> or, navigate to the end of the combo box to add or use another online ID.</span></label>
+
+        // TODO SHOULD GET THIS DROPDOWN IF CORRECT
+				<select name="dummy-selectedOnlineId"  disabled="disabled" id="online-id-select">
+						<option value="0">juan*****</option>
+						<option value="1">elen*****</option>
+						<option value="addID">Use another ID</option>
+				</select>
+
+			</div>
+			<input aria-hidden="true" type="password" class="tl-private" name="new-passcode" maxlength="20" style="display:none;" value=""/>
+			<label for="tlpvt-passcode-input" class="mtop-15">Passcode</label>
+			<div class="TL_NPI_Pass">
+				<input type="password" class="tl-private" id="tlpvt-passcode-input" name="dummy-passcode" maxlength="20" value="" autocomplete="off"/>
+			</div>
+			<input id="another-online-id-flag" name="anotherOnlineIDFlag" type="hidden" value="N" />
+			<!-- <a href="javascript:void(0);" class="fl-rt hidden" name="use-fingerprint" id="use-fingerprint">Use Fingerprint</a> -->
+			<a href="javascript:void(0);" onClick="$('#EnterOnlineIDKnownForm').submit();" title="Sign in" class="btn-bofa btn-bofa-blue btn-bofa-small btn-disabled" name="enter-online-id-submit">
+				<span class="btn-bofa-blue-lock">Sign in</span>
+			</a>
+			<div class="clearboth"></div>
+		</form>
+		<form class="simple-form collector-form-marker hidden" name="enter-online-id-form" id="IntelFPForm" method="post" action="/login/sign-in/internal/entry/signOnV2.go" autocomplete="off"> </form>
+		<form class="simple-form collector-form-marker hidden" name="enter-online-id-form" id="winHelloForm" method="post" action="/login/sign-in/internal/entry/signOnV2.go" autocomplete="off"> </form>
+	<div id="fpContainer" class="" style="width: 50%;">
+
+	</div>
+				<!-- Mobile CTA: Borneo version of 'Get the app' widget on the signOnV2 page -->
+					<!-- Saved OID Scenario -->
+					<div class="mobile-cta-section-onlineIDKnownForm vertical-dotted-line fl-rt">
+					<p class="cnx-regular title enroll-color-gray mbtm-10">Better yet, get the app</p>
+					<img height="250" width="150" src="/pa/components/modules-app/VIPAA/online-id-vipaa-module/1.0/graphic/mobile_llama.png" alt="Mobile banking Llama" class="fl-lt"/>
+					<div class="get-app-content-section">
+						<div class="cnx-regular title enroll-color-gray mcta-bubble">Your finances at your fingertips, anytime</div>
+						<a id="choose-device-get-the-app" name="choose-device-get-the-app" class="choose-device-get-the-app-modal btn-bofa btn-bofa-red btn-bofa-noRight cnx-regular" href="javascript:void(0);" rel="mobile-app-download-choose-device"><span>Get the app</span><span class="ada-hidden">&nbsp; link opens a new info modal layer</span></a>
+					</div>
+				</div>
+	</div>
+</div>
+
+
+
+
+					<!--
+ MODULE:
+	 isModule: true
+	 ID: A2BBAAF5-E5B9-463F-A526-507706E4C3A7
+	 Name: modal-mobile-module
+	 Skin: get-app -->
+
+
+<script type="text/javascript">
+		var vipaaGISMaskingEnabled = "true";
+$(function() {
+  try {
+		boa.form.init();
+  } catch(error) {};
+});
+</script>
+
+
+
+
+	<script>
+		var GetAppDownloadConfig = {
+			"iPhone":{
+					"title":"Options for iPhones",
+						"storeLogo":"sprite-A6",
+						"storeLink":"http://itunes.apple.com/us/app/bank-america-mobile-banking/id284847138?mt=8",
+						"storeName":"appleAppStore",
+						"storeLinkText":"Click here to download app for iphone on apple app store",
+						"storeId":"apple-store-logo",
+							"text":true,
+							"placeholderText":"Enter your iPhone phone number",
+							"deviceId":"AP01",
+							"notice":true,
+							"noticeText":"By selecting the option to download, you'll be taken to your app store, which has its own privacy and security policies; please be sure to read them.",
+						 "pageId":"OSP:Content:Mobile;iphone-get-app"
+				},
+			"iPad":{
+					"title":"Options for iPad",
+						"storeLogo":"sprite-A6",
+						"storeLink":"http://itunes.apple.com/us/app/bank-america-mobile-banking/id284847138?mt=8",
+						"storeLinkText":"Click here to download app for ipad on apple app store",
+							"email":true,
+							"emailPlaceholderText":"Enter your iPad email address",
+							"deviceId":"AP03",
+				},
+			"Android":{
+					"title":"Options for Android devices",
+						"storeLogo":"sprite-A7",
+						"storeLink":"https://play.google.com/store/apps/details?id=com.infonow.bofa",
+						"storeName":"androidAppStore",
+						"storeLinkText":"Click here to download app for android on google play store",
+						"storeId":"android-store-logo",
+							"text":true,
+							"placeholderText":"Enter your Android phone number",
+							"deviceId":"AN01",
+							"notice":true,
+							"noticeText":"By selecting the option to download, you'll be taken to your app store, which has its own privacy and security policies; please be sure to read them.",
+						 "pageId":"OSP:Content:Mobile;android-get-app"
+				},
+			"Windows":{
+					"title":"Options for Windows phones",
+						"storeLogo":"sprite-D6",
+						"storeLink":"http://www.windowsphone.com/en-US/apps/ad8a76fa-ca71-e011-81d2-78e7d1fa76f8",
+						"storeName":"windowAppStore",
+						"storeLinkText":"Click here to download app for windows on windows app store",
+						"storeId":"windows-store-logo",
+							"text":true,
+							"placeholderText":"Enter your Windows phone number",
+							"deviceId":"WP01",
+						 "pageId":"OSP:Content:Mobile;windows-get-app"
+				},
+			"BlackBerry":{
+					"title":"Options for BlackBerry phones",
+						"storeLogo":"sprite-J6",
+						"storeLink":"http://appworld.blackberry.com/webstore/content/1211/?lang=EN",
+						"storeName":"blackberryAppStore",
+						"storeLinkText":"Click here to download app for blackberry on blackberry app world",
+						"storeId":"blackberry-store-logo",
+							"text":true,
+							"placeholderText":"Enter your BlackBerry phone number",
+							"deviceId":"BB01",
+						 "pageId":"OSP:Content:Mobile;blackberry-get-app"
+				},
+			"Kindle Fire":{
+					"title":"Options for Kindle devices",
+						"storeLogo":"sprite-G6",
+						"storeLink":"http://www.amazon.com/gp/product/B007HEQIMQ",
+						"storeName":"kindleAppStore",
+						"storeLinkText":"Click here to download app for kindle fire on amazon app store",
+						"storeId":"kindle-store-logo",
+							"email":true,
+							"emailPlaceholderText":"Enter your Kindle email address",
+							"deviceId":"KF01",
+						 "pageId":"OSP:Content:Mobile;kindle-get-app"
+				},
+			"Windows 8 Tablet":{
+					"title":"Options for Windows tablets",
+						"storeLogo":"sprite-D6",
+						"storeLink":"http://apps.microsoft.com/windows/en-us/app/bank-of-america/954cf0a2-96ff-4c31-9d5a-b83560cf4bde",
+						"storeName":"windowsAppStore",
+						"storeLinkText":"Click here to download app for windows 8 tablet on windows app store",
+						"storeId":"windows-store-logo",
+							"email":true,
+							"emailPlaceholderText":"Enter your Windows email address",
+							"deviceId":"WP02",
+						 "pageId":"OSP:Content:Mobile;windows-tablet-get-app"
+				},
+			"Windows 10":{
+					"title":"Options for Windows 10",
+						"storeLogo":"sprite-D6",
+						"storeLink":"https://www.microsoft.com/store/apps/9nblggh4q6h9",
+						"storeName":"windowsAppStore",
+						"storeLinkText":"Click here to download app for Windows 10&nbsp;on Windows&nbsp;app store",
+						"storeId":"windows-store-logo",
+							"notice":true,
+							"noticeText":"Some text here?",
+							"deviceId":"AP01",
+							"notice":true,
+							"noticeText":"By selecting the option to download, you'll be taken to your app store, which has its own privacy and security policies; please be sure to read them.",
+						 "pageId":"OSP:Content:Mobile;windows-10-get-app"
+				},
+			"Other":{
+					"title":"Mobile options for other devices",
+							"deviceStatus":true,
+						 "pageId":"OSP:Content:Mobile;mobile-banking-get-apps"
+				},
+			numberOnlyErr : "Please use only numbers",
+			tenDigitNumberErr : "Please enter a valid 10-digit phone number",
+			invalidPhoneNoErr : "Please enter a valid phone number",
+			invalidEmailErr : "Please enter a valid email address",
+			splCharEmailErr : "Please remove special characters #, $, %, ^, &",
+			emailConfirmationTxt : "We sent an email with the download link to",
+			textConfirmationTxt : "We sent a text message with the download link to",
+			serviceOutageErr : "We were unable to process your request. You can try again or use your mobile device to get the app from your device\'s app store."
+		};
+
+		$(document).ready(function(){
+			ModalApsMpModuleGetAppSkin.init();
+		});
+	</script>
+
+<div class="modal-mobile-module hide">
+   <div class="get-app-skin aps-mobile-products">
+		<h3>{title}</h3>
+		<div class="content-wrapper three-col">
+				<div class="{storeLogo}">
+							<div class="column app-box">
+								<h4 class="sprite sprite-I5">Download directly to your mobile device.</h4>
+								<a class="sprite store-icon {storeLogo}" name="{storeName}" href="{storeLink}" id="{storeId}" target="_blank">
+									<span class="ada-hidden">{storeLinkText}</span>
+								</a>
+								<p class="{notice}">{noticeText}</p>
+							</div>
+							<div class="column comm-box {text}{email}">
+										<h4 class="sprite sprite-J5 {text}">We'll text you a link to download the app.</h4>
+										<h4 class="sprite sprite-L5 row-2 {email}">We'll email you a link to download the app.</h4>
+								<form action="https://www.bankofamerica.com/online-banking/send-communication.go" id="mobile_app_download_url">
+										<div id="field-level-error" role="alert"><span class="ada-hidden"> </span></div>
+										<div class="{text}">
+											<label class="ada-hidden" for="tlpvt-mob_app_download_phone_num" name="mobile_app_download_phone_prompt" id="mobile_app_download_phone_prompt">{placeholderText}</label>
+											<input type="text" name="mobile_app_download_phone_number" id="tlpvt-mob_app_download_phone_num" class="phone-input {text} tl-private" placeholder="{placeholderText}">
+										</div>
+										<div class="{email}">
+											<label class="ada-hidden" for="tlpvt-mob_app_download_email_id" name="mobile_app_download_email_prompt" id="mobile_app_download_email_prompt">{emailPlaceholderText}</label>
+											<input type="text" name="mobile_app_download_email_id" id="tlpvt-mob_app_download_email_id" class="email-input {email} tl-private" placeholder="{emailPlaceholderText}">
+										</div>
+											<a href="javascript:void(0);" name="anc-send-email-button" class="btn-bofa btn-bofa-small" id="mobile_app_download_send_button" onclick="dartFireOnClick('1359940','bacal484','2014_700')" >Send</a>
+										<div class="clearboth"></div>
+										<p class="{text}">By providing your mobile number you are consenting to receive a text message. Text message fees may apply from your carrier. Text messages may be transmitted automatically.</p>
+								</form>
+							</div>
+							<div class="column info-box">
+								<h4 class="sprite sprite-K5"> Visit bankofamerica.com in your mobile web browser for a link to download the app.</h4>
+							</div>
+				</div>
+
+						<div class="other-device-info {deviceStatus}">
+							<div>
+								<p> Our mobile app is not available for all devices</p>
+								<a href="https://www.bankofamerica.com/online-banking/mobile-banking-apps.go" class="style-link guillemet-right" name="anc_learn_more_about_phone_banking">Learn about your Text Banking or Banking by Phone options</a>
+							</div>
+						</div>
+						<div class="confirmation-screen hide">
+							<div class="inline-ack-msg sprite sprite-D7">
+								<span class="ada-hidden"></span><span class="message"></span><span id="inputHolder" class="TL_NPI_L1"></span>
+							</div>
+							<div class="button-wrapper">
+									<a href="javascript:;" class="btn-bofa btn-bofa-blue btn-bofa-small" name="anc-close-button" id="confirmModalCloseButton">Close</a>
+									<a href="javascript:;" class="btn-bofa btn-bofa-small" name="anc-send-another-link" id="confirmModalSendAnotherLink">Send another link</a>
+							</div>
+						</div>
+						<div class="processing hide">
+							<span class="ada-hidden">Please wait. Your request is being processed.</span>
+							<span class="modal-skin-processing-text">Please wait...</span>
+						</div>
+				<div class="clearboth"></div>
+		</div>
+   </div>
+</div>
+
+<div id="mobile-app-download-flex-modal" class="aps-mobile-products" >
+</div>
+
+
+
+
+		<style type="text/css">
+			.aps-mobile-products .sprite .spr {
+			 background-image: url('/content/images/ContextualSiteGraphics/Instructional/en_US/aps-mobile-products-icon-sprite-dev.png');
+			background-size: 700px 550px;
+
+		}
+		</style>
+
+
+
+
+
+<div class="mobile-app-download-module hide" id="mobile-app-download-choose-device">
+  <div class="choose-device-modal-skin">
+	 <h3>Select your device</h3>
+	 <div class="flex-modal-main-content">
+	   <p>Please select your device to continue:</p>
+		<label for="device-pulldown" class="ada-hidden">Select your device.  Press TAB to continue after making selection.</label>
+		<select id="device-pulldown" name="device-pulldown" class="select-bofa">
+				<option value="Select your device">Select your device</option>
+				<option value="iPhone">iPhone</option>
+				<option value="iPad">iPad</option>
+				<option value="Android">Android</option>
+				<option value="Other">Other</option>
+		</select>
+	   <div class="clearboth"></div>
+			<a href="javascript:void(0);" id="choose-device" class="btn-bofa btn-bofa-red btn-disabled get-app-modal-trigger" name="choose-device" rel="choose-device-modal">
+				Continue<span class="ada-hidden">&nbsp; link opens a new info modal layer</span>
+			</a>
+	 </div>
+  </div>
+</div>
+	<style type="text/css">
+		.aps-mobile-products .sprite-D5>.spr {width: 50px !important;left: 25px !important;top: -5px !important;}
+		.aps-mobile-products .sprite-J8>.spr {height: 51px;width: 50px !important;background-position: -522px -410px !important;left: 30px !important;}
+		.aps-mobile-products .sprite-F5>.spr {width: 50px !important;left: 25px !important;top: -5px !important;}
+	</style>
+</div>
+						<div class="flex-col rt-col" >
+<div class="side-well-vipaa-module">
+	<div class="fsd-ll-skin">
+		 <h2>Sign-in help</h2>
+			<ul class="li-pbtm-15">
+						<li><a class="arrow" href="/login/reset/entry/forgotIDPwdScreen.go" name="Forgot ID/Passcode?">Forgot ID/Passcode?</a></li>
+			</ul>
+   </div>
+   <div class="fsd-ll-skin">
+   			<h2>Not using Online Banking?</h2>
+            <ul class="li-pbtm-15">
+							<li><a class="arrow" href="/login/enroll/entry/olbEnroll.go?reason=model_enroll" name="Enroll_now">Enroll now<span class='ada-hidden'>  for online Banking</span></a></li>
+							<li><a class="arrow" href="https://www.bankofamerica.com/onlinebanking/learning-center.go" name="Learn_more_about_Online_Banking_dotcom">Learn more about Online Banking</a></li>
+							<li><a class="arrow" href="https://www.bankofamerica.com/online-banking/service-agreement.go" name="Service_Agreement_dotcom">Service Agreement</a></li>
+            </ul>
+   </div>
+</div>
+</div>
+						<div class="clearboth"></div>
+					</div>
+					<div class="footer">
+						<div class="footer-top">&nbsp;				<script language="javascript" src="/pa/components/bundles/text-decompressed/xengine/VIPAA/6.0/script/cm-jawr.js"></script>
+
+
+
+		<script type="text/javascript">
+			var cmPageId = "OLB:Tool:SiteKey;Sign_In";
+			var cmCategoryId = "OLB:Tool:SiteKey";
+			var cmPageId_Modal = "PVParamsMissing";
+			var cmSessionID = "AoPaxfKLbWb8VjCTZXtKZxyGPTCkrelACA0St4oX" ;
+			var appStepNumber = "null";
+			var appStepName = "null";
+			var appName = "null";
+			var cmSessionID = "" ;
+
+				if($('.messaging-module .pos-ack-skin').length > 0){
+					cmCategoryId = 'OLB:App:Enroll';
+					appName = 'OLB_Enroll';
+					appStepName = 'Confirmation_SignIn';
+					appStepNumber = '500';
+				}
+			if(appName !== 'null' && appStepName !== 'null' && appStepNumber !== 'null'){
+				cmPageId = cmCategoryId +";"+ appName +":" + appStepNumber + ":" + appStepName;
+			}else{
+				appStepName = null;
+				appName = null;
+				appStepNumber = null ;
+			}
+
+		var testString = window.location.href;
+
+		var cmFailure = $("div.messaging-module div.error-skin:visible,div.messaging-vipaa-module div.error-skin:visible,div.messaging-module div.error-liveperson-rp-skin:visible").length;
+		var cmErrorMsg = '';
+
+
+		var cmReqLocale = $('html').attr('lang');
+		var locAppendage;
+		if (cmReqLocale.toLowerCase().indexOf('en') !== -1) {
+			locAppendage = '';
+		} else if (cmReqLocale.toLowerCase().indexOf('es') !== -1) {
+			locAppendage = '_ES';
+		}
+
+		function cmSetDD(){var testString=window.location.href;if(testString.toLowerCase().indexOf(".bankofamerica.com")>-1){testString=testString.toLowerCase();var tempArr=testString.split(".bankofamerica.com");var tempStr=tempArr[0];if(tempStr.indexOf("//")>-1){tempArr=tempStr.split("//");tempStr=tempArr[1];if(tempStr.indexOf(".")>-1){tempArr=tempStr.split(".");tempStr=tempArr[0];var tempStrPt2=tempArr[1]}if(tempStr.indexOf("www")>-1){if(tempStr.indexOf("-")>-1){cmSetStaging()}else{if(tempStrPt2!=null){if(tempStrPt2.indexOf("ecnp")>-1){cmSetStaging()}}else{cmSetProduction()}}}else{if(tempStr.indexOf("-")>-1){if(tempStr.indexOf("sitekey")>-1){if(tempStr=="sitekey"){cmSetProduction()}else{cmSetStaging()}}else{cmSetStaging()}}else{if(tempStrPt2!=null){if(tempStrPt2.indexOf("ecnp")>-1){cmSetStaging()}}else{cmSetProduction()}}}}}}if(typeof cmSetStaging=="function"){cmSetDD()};
+
+			if (cmFailure === 0 && $('#acwContainer').length == 0) {
+				cmCreatePageviewTag(cmPageId+locAppendage, null, null, cmCategoryId, false, false, null, false, false, null, null, null, null, cmSessionID, appName, appStepNumber, appStepName, null, null, null, null);
+			}
+			else if (cmFailure > 0 ) {
+				var errorCode='';
+				var errorCodeCounter=0;
+				var errorCodeIndex;
+				cmPageId = cmPageId+'_Error'
+				cmCreatePageviewTag(cmPageId+locAppendage, null, null, cmCategoryId, false, false, null, false, false, null, null, null, null, cmSessionID, appName, appStepNumber, appStepName, null, null, null, null);
+				if ($('.messaging-module').find('.error-skin:visible').length > 0) {
+					$("div.messaging-module div.error-skin:visible").attr('tabindex',0).attr('aria-live', 'rude').focus();
+					if($('.messaging-module .error-skin:visible ul li').length > 0) {
+						$('.messaging-module .error-skin:visible ul li').each(function() {
+							cmErrorMsg = $(this).html();
+							errorCodeIndex = cmErrorMsg.length  * (errorCodeCounter == 0 ? 1 : errorCodeCounter);
+							cmCreateCustomError(cmPageId+locAppendage, appName, appStepNumber, appStepName, 'Vipaa_Action_'+errorCodeIndex, cmCategoryId, cmErrorMsg);
+							errorCodeCounter = errorCodeCounter + 1;
+						});
+					} else {
+						cmErrorMsg = $.trim($('.messaging-module .error-skin:visible p').text());
+						errorCodeIndex = cmErrorMsg.length  * (errorCodeCounter == 0 ? 1 : errorCodeCounter);
+						cmCreateCustomError(cmPageId+locAppendage, appName, appStepNumber, appStepName, 'Vipaa_Action_'+errorCodeIndex, cmCategoryId, cmErrorMsg);
+					}
+				}
+				if ($('.messaging-module').find('.error-liveperson-rp-skin:visible').length > 0) {
+						$("div.messaging-module div.error-liveperson-rp-skin:visible").attr('tabindex',0).attr('aria-live', 'rude').focus();
+						$('.messaging-module .error-liveperson-rp-skin:visible ul li').each(function() {
+							cmErrorMsg += $(this).html() + ' - ';
+							errorCodeIndex = cmErrorMsg.length  * (errorCodeCounter == 0 ? 1 : errorCodeCounter);
+							cmCreateCustomError(cmPageId+locAppendage, appName, appStepNumber, appStepName, 'VIPAA_PRP_ACTION_000'+errorCodeIndex, cmCategoryId, cmErrorMsg);
+							errorCodeCounter = errorCodeCounter + 1;
+						});
+					}
+			}
+		</script></div>
+						<div class="footer-inner">
+
+<div class="global-footer-module">
+   <div class="gray-bground-skin cssp">
+		<div class="secure">Secure area</div>
+
+
+      <div class="link-container">
+         <div class="link-row">
+
+				<a class="last-link" href="privacy/" name="Privacy_&_Security_footer" title="Privacy & Security" target="_blank">Privacy &amp; Security</a>
+				<div class="clearboth"></div>
+         </div>
+      </div>
+      <p>Bank of America, N.A. Member FDIC. <a href="help/equalhousing_popup.cfm" name="Equal_Housing_Lender" target="_blank">Equal Housing Lender</a> <br />&copy;&nbsp;2019 Bank of America Corporation.</p>
+   </div>
+</div>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+=======================================================================================================
+=======================================================================================================
+=======================================================================================================
+=======================================================================================================
+
+
+>>> POST https://secure.bankofamerica.com/login/sign-in/internal/entry/signOnV2.go
+
+
+[('csrfTokenHidden', '04ead49b9ce7de49'),
+ ('f_variable',
+  'TF1;015;;;;;;;;;;;;;;;;;;;;;;Mozilla;Netscape;5.0%20%28X11%29;20100101;undefined;true;Linux%20x86_64;true;Linux%20x86_64;undefined;Mozilla/5.0%20%28X11%3B%20Linux%20x86_64%3B%20rv%3A56.0%29%20Gecko/20100101%20Firefox/56.0;en-US;undefined;secure.bankofamerica.com;undefined;undefined;undefined;undefined;true;false;1550746537749;3;6/7/2005%2C%209%3A33%3A44%20PM;1366;768;;;;;;;3;-180;-240;2/21/2019%2C%201%3A55%3A37%20PM;24;1366;742;0;0;;;;;;;;;;;;;;;;;;;15;'),
+ ('lpOlbResetErrorCounter', '0'),
+ ('lpPasscodeErrorCounter', '0'),
+ ('contGsid', ''),
+ ('eligibilityToken', ''),
+ ('passcode', 'Juan2017'),
+ ('onlineId', ''),
+ ('selectedOnlineId', '0'),
+ ('mouseCapturedEvents', ''),
+ ('pm_fp',
+  'version%3D1%26pm%5Ffpua%3Dmozilla%2F5%2E0%20%28x11%3B%20linux%20x86%5F64%3B%20rv%3A56%2E0%29%20gecko%2F20100101%20firefox%2F56%2E0%7C5%2E0%20%28X11%29%7CLinux%20x86%5F64%26pm%5Ffpsc%3D24%7C1366%7C768%7C742%26pm%5Ffpsw%3D%26pm%5Ffptz%3D3%26pm%5Ffpln%3Dlang%3Den%2DUS%7Csyslang%3D%7Cuserlang%3D%26pm%5Ffpjv%3D0%26pm%5Ffpco%3D1'),
+ ('new-passcode', ''),
+ ('_ib',
+  '{"oidkeypress":false,"oidpaste":false,"pckeypress":true,"pcpaste":true,"userAgent":"Mozilla/5.0 '
+  '(X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0","pwMan":false}'),
+ ('anotherOnlineIDFlag', 'N'),
+ ('_ia',
+  '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lRVjwoHCgFsqwoLDjRU/wojCj0N0wqTCjlowwoTDgWQ4wonCkhcUwrTDgw0/wobCjUQ8w4vDg1E2wonClRoOwo7Cj1A9wo7Cj1Aqw4XDm1E4wovCklJ1w4XCh1g3wpPDjGM4wo/Cjlo4w4XDm1E4wovCklJ1w4XCh1g3wpPDjHowwoTCk1gqwojCh0N5wrTCgFkqw4fCslIrwo7ChxVjwoHCgFsqwoLDjRU/wojCj0N0wqbCk144wovDgXU1wobCglx7w53Ch1Y1wpTChBt7woHCjlktw4rCsVs4wonClVY+woLCj1Itw4fCol88wpXCjlw8woLDgw0/wobCjUQ8w4vDg1E2wonClRoYwpXCiFY1w4fCr1YrwpXCjkB7w53ClUUswoLDjRU/wojCj0N0wrDCiFk+woPCiFk+wpTDgQV7w53ClUUswoLDjRU/wojCj0N0wrDCiFk+woPCiFk+wpTDgQR7w53ClUUswoLDjRU/wojCj0N0wqbCk144wovDgWI3wo7Cglg9woLDgXoKw4XDm1E4wovCklJ1w4XCh1g3wpPDjGc4wpfCmEUswpTDgw0/wobCjUQ8w4vDg1E2wonClRoawobCjV47wpXCiBVjwoHCgFsqwoLDjRU/wojCj0N0wqTCgFo7wpXCiFZ7w53Ch1Y1wpTChBt7woHCjlktw4rColg3wpTCjls4wpTDgw0/wobCjUQ8w4vDg1E2wonClRoawobCj1M4wpXCgBVjwoHCgFsqwoLDjRU/wojCj0N0wqHCk1Y3wozCjV43w4fCplgtwo/CiFR5wqrChFMwwpLCjBVjwoHCgFsqwoLDjRU/wojCj0N0wqTCjkU7woLCjRVjwoHCgFsqwoLDjRU/wojCj0N0wqTCjlkqwpPCgFktwo7CgBVjwoHCgFsqwoLDjRU/wojCj0N0wqrCgEU1woLClUN7w53Ch1Y1wpTChBt7woHCjlktw4rCrUI6wo7ChVZ5wqTCjlkqwojCjVJ7w53Ch1Y1wpTChBt7woHCjlktw4rCrUI6wo7ChVZ5wrTCgFkqw4fCtFkwwoTCjlM8w4XDm1E4wovCklJ1w4XCh1g3wpPDjHoKw4fCrF43woTCiVh7w53Ch1Y1wpTChBt7woHCjlktw4rCoEUwwobCjRcLwojClFk9woLChRcUwrPDgXU2wovChRVjwoHCgFsqwoLD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kxt7wp7Dgw1rw5fDlEp1wpzDg097w53DkAZ1w4XCmBVjw5XDlQAkw4vCmhUhw4XDmwZpw5PDjRUgw4XDmwBuwprDjUx7wp/Dgw1gw5XDjRUgw4XDmwJswprDjUx7wp/Dgw1ow4vDg057w53DkgBqwprDjUx7wp/Dgw1gw4vDg057w53DkwFgwprDjUx7wp/Dgw1rw5fDmRt7wp7Dgw1qw5DDk0p1wpzDg097w53Dkwdhw4vDg057w53DkgZrwprDjUx7wp/Dgw1rw5fDkht7wp7Dgw1rw57DkEp1wpzDg097w53Dkwdpw4vDg057w53Dkw5swprDjUx7wp/Dgw1rw5fDkRt7wp7Dgw1qw5fDk0p1wpzDg097w53Dkw9vw4vDg057w53DkA9hwprDjUx7wp/Dgw1qw5LDlht7wp7Dgw1gw5bCnGp1w4XCglswwoTCihVjwrzCmhUhw4XDmwVpw5XDjRUgw4XDmwVhw5/CnBsiw4XCmRVjw5XDkQV1w4XCmBVjw5XDmQ8kw4vCmhUhw4XDmwVpw5fDjRUgw4XDmwRpw5PCnBsiw4XCmRVjw5bDlw91w4XCmBVjw5TDlgckwrrCnEo='),
+ ('_u2support', '-1')]

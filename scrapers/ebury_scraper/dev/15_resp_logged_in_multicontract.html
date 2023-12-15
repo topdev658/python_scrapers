@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>
+        Iniciar sesión - Ebury
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+
+
+
+
+
+
+    <style>
+        :root {
+            --ec-theme-key-color-h: 192.5;
+            --ec-theme-key-color-s: 100.0%;
+            --ec-theme-key-color-level-1: 192.5, 100.0%, 12%;
+            --ec-theme-key-color-level-2: 192.5, 100.0%, 20%;
+            --ec-theme-key-color-level-3: 192.5, 100.0%, 37%;
+            --ec-theme-key-color-level-4: 192.5, 100.0%, 47%;
+            --ec-theme-key-color-level-5: 192.5, 100.0%, 57%;
+            --ec-theme-key-color-level-6: 192.5, 100.0%, 88%;
+            --ec-theme-key-color-level-7: 192.5, 100.0%, 96%;
+            --ec-theme-gray-color-level-0: 192.5, 10%, 0%;
+            --ec-theme-gray-color-level-1: 192.5, 10%, 12%;
+            --ec-theme-gray-color-level-2: 192.5, 10%, 20%;
+            --ec-theme-gray-color-level-3: 192.5, 10%, 37%;
+            --ec-theme-gray-color-level-4: 192.5, 10%, 47%;
+            --ec-theme-gray-color-level-5: 192.5, 10%, 57%;
+            --ec-theme-gray-color-level-6: 192.5, 10%, 88%;
+            --ec-theme-gray-color-level-7: 192.5, 10%, 96%;
+            --ec-theme-gray-color-level-8: 192.5, 10%, 100%;
+        }
+    </style>
+
+
+
+    <style>
+        :root {
+            --ec-legacy-color1-h:     var(--ec-theme-key-color-h);
+            --ec-legacy-color1-s:     var(--ec-theme-key-color-s);
+            --ec-legacy-color1-l:     20%;
+            --ec-legacy-color1-light: var(--ec-legacy-color1-h), var(--ec-legacy-color1-s), calc(var(--ec-legacy-color1-l) + 10%);
+            --ec-legacy-color1:       var(--ec-legacy-color1-h), var(--ec-legacy-color1-s), var(--ec-legacy-color1-l);
+            --ec-legacy-color1-dark:  var(--ec-legacy-color1-h), var(--ec-legacy-color1-s), calc(var(--ec-legacy-color1-l) - 5%);
+
+            --ec-legacy-color2-h:     var(--ec-theme-key-color-h);
+            --ec-legacy-color2-s:     var(--ec-theme-key-color-s);
+            --ec-legacy-color2-l:     47%;
+            --ec-legacy-color2-light: var(--ec-legacy-color2-h), var(--ec-legacy-color2-s), calc(var(--ec-legacy-color2-l) + 10%);
+            --ec-legacy-color2:       var(--ec-legacy-color2-h), var(--ec-legacy-color2-s), var(--ec-legacy-color2-l);
+            --ec-legacy-color2-dark:  var(--ec-legacy-color2-h), var(--ec-legacy-color2-s), calc(var(--ec-legacy-color2-l) - 10%);
+
+            --ch-theme-main-h:        var(--ec-theme-key-color-h);
+            --ch-theme-main-s:        var(--ec-theme-key-color-s);
+        }
+    </style>
+
+    <style>
+        :root {
+            /* #06445d */
+            --ec-legacy-color1-h: 197;
+            --ec-legacy-color1-s: 88%;
+            --ec-legacy-color1-l: 19%;
+
+            /* #22a0c8 */
+            --ec-legacy-color2-h: 194;
+            --ec-legacy-color2-s: 71%;
+            --ec-legacy-color2-l: 46%;
+
+            /* legacy chameleon */
+            --ch-theme-complementary1: hsl(184, 67%, 47%);
+            --ch-theme-complementary2: hsl(184, 67%, 57%);
+        }
+
+    </style>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/css/base-core-0-legacy.css" rel="stylesheet">
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/css/base-core-1-legacy.css" rel="stylesheet">
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/css/base-core-2-legacy.css" rel="stylesheet">
+    <link href="https://ebury-chameleon.s3.amazonaws.com/2.1.0/styles/ebury-chameleon.ns.css" rel="stylesheet"/>
+
+
+    <link href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/css/account-selector.css" rel="stylesheet">
+
+
+
+
+
+    <link rel="shortcut icon" href="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/ico/branding/EBP/favicon.png">
+
+
+
+</head>
+<body class="ec" >
+
+
+<div id="js-privacy-policy"></div>
+
+
+<div class="ec js-notifications">
+    <notifications></notifications>
+</div>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    var logoEburySrc = 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/branding/EBP/logo-login.svg';
+    var logoBrandSrc = 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/branding/EBP/logo-lg.png';
+    var backgroundImgSrc = 'https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/img/login-background.webp';
+    var avatarSrc = 'https://www.gravatar.com/avatar/3781173c666845e1bd1d41d192ef08a2?d=mm&amp;s=200';
+    var error = false;
+    var clients = [];
+
+    clients.push({
+        id: 'EBPCLI96239',
+        text: 'Surexport Compania Agraria SL',
+        email: 'online.desk@ebury.com',
+        phone: '+34 918 293 722',
+        disabled: false
+    });
+
+    clients.push({
+        id: 'EBPCLI427344',
+        text: 'Surexport UK Limited',
+        email: 'online.desk@ebury.com',
+        phone: '+44 (0) 207 197 2421',
+        disabled: false
+    });
+
+</script>
+<div id="account-selector-app"></div>
+
+
+
+
+
+<script id="js-privacy-policy-template" type="text/x-template">
+    <div class="ec" v-if="!cookie">
+        <div class="ec-bg-color-main7 privacy-policy">
+            <div class="privacy-policy__container">
+                <div class="privacy-policy__item">
+                    <div class="ec-h4 ec-mb-0">
+                        Cookies y Privacidad
+                    </div>
+                </div>
+                <div class="privacy-policy__item">
+                    <div class="ec-text-body">
+                        Este sitio utiliza cookies para garantizar la mejor experiencia. Para obtener más información, consulte nuestra <a href="https://www.ebury.com/privacy-policy" target="_blank">Política de privacidad</a>.
+                    </div>
+                </div>
+                <div class="privacy-policy__item">
+                    <button type="button" class="ec-btn ec-btn-secondary ec-btn-sm" @click="acceptPrivacyPolicy">Aceptar y continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<script id="js-register-phone-number-step-1-template" type="text/x-template">
+    <div>
+        <div class="ec-modal-body ec-py-0">
+            <div class="ec-mb-1">
+                Debido a las nuevas regulaciones para mejorar tu seguridad online, tu cuenta requiere de 2FA.
+            </div>
+            <div class="ec-mb-1">
+                Activa 2FA ingresando tu número de teléfono móvil a continuación para recibir un código por SMS.
+            </div>
+            <div class="why-need-section ec-mt-3">
+                <button type="button"
+                        class="why-need-section__collapse-btn ec-btn ec-btn-link"
+                        data-toggle="ec-collapse"
+                        data-target="#whyNeedCollapsible"
+                        aria-expanded="false"
+                >
+                    <span>¿Por qué debo proporcionar mi número de teléfono?</span>
+                    <i class="ec-ico" :class="collapsed ? 'ec-ico-chevron-down' : 'ec-ico-chevron-up'"></i>
+                </button>
+                <div class="ec-collapse" id="whyNeedCollapsible" ref="whyNeedCollapsible">
+                    <div class="ec-border-0 ec-p-0 ec-pt-3 ec-card ec-card-body">
+                        <p>
+                            Ebury genera una contraseña de un solo uso para tu(s) pago(s) en función de los datos del pago.
+                        </p>
+                        <p>
+                            Como este código es específico para tu (s) pago (s), las aplicaciones de autenticación (por ejemplo, Google Authenticator, Authy) no se pueden usar para 2FA en pagos.
+                        </p>
+                        <p class="ec-mb-0">
+                            También podemos usar este número para contactarte si hay algún problema con tu (s) pago (s).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone number input -->
+            <div class="ec-form-group ec-mt-3 ec-mb-4 phone-number__input-section" :class="{ 'ec-is-invalid': !isValid }">
+                <label for="phoneNumberInput" class="ec-text-input-label">Número de teléfono</label>
+                <input type="tel" id="phoneNumberInput" class="ec-form-control" ref="phoneNumberInput"
+                       @change="updatePhoneInfo" @focus="onFocus">
+                <span class="ec-text-caption ec-color-red" v-if="!isValid">
+          Numero de telefono inválido. Por favor introduce un número de teléfono válido.
+        </span>
+            </div>
+        </div>
+        <div class="ec-modal-footer ec-justify-content-between register-phone-number__footer">
+            <div class="need-help-section">
+                <button type="button" class="ec-btn ec-btn-sm ec-btn-link ec-d-flex ec-align-items-center need-help-btn"
+                        ref="needHelpBtn" data-placement="bottom" data-html="true" :data-content="needHelpMessage"
+                        data-container=".need-help-section">
+                    <i class="ec-ico ec-ico-live-help"></i>
+                    <span>¿Necesitas ayuda?</span>
+                </button>
+            </div>
+            <div class="ec-d-flex ec-align-items-center">
+                <button type="button" class="ec-btn ec-btn-secondary" @click="close" :disabled="isLoading">
+                    Saltar por ahora
+                </button>
+                <button type="button" class="ec-btn ec-btn-primary ec-ml-3" v-if="!isLoading" @click="askForCode">
+                    Enviar código
+                </button>
+                <div v-else class="padding-x--50">
+                    <div class="ec-loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<script id="js-register-phone-number-step-2-template" type="text/x-template">
+    <div>
+        <div class="ec-modal-body ec-py-0">
+            <div class="ec-mb-4">Hemos enviado un SMS con el código a tu telefono.</div>
+
+            <!-- Phone number input -->
+            <div class="ec-form-group phone-number__input-section">
+                <label for="phoneNumberInput" class="ec-text-input-label">Número de teléfono</label>
+                <input type="tel" id="phoneNumberInput" class="ec-form-control" ref="phoneNumberInput" disabled>
+                <button type="button" class="ec-btn ec-btn-link" @click="goBack">Cambiar número de teléfono</button>
+            </div>
+
+            <!-- Code input -->
+            <div class="form-group phone-number__input-section" :class="{ 'ec-is-invalid': !isValid }">
+                <input type="text" class="ec-form-control" v-model="token" @focus="onFocus"
+                       placeholder="Introduce tu código aqui">
+                <span class="ec-text-caption ec-color-red" v-if="!isValid">${ errorMessage }</span>
+            </div>
+
+            <!-- Code requesting -->
+            <div class="ec-mb-4">
+                <span class="ec-mr-1">¿No has recibido el código? </span>
+                <span class="ec-color-gray6" v-if="countdown">Solicita un nuevo código en ${ countdown }</span>
+                <button type="button" class="ec-btn ec-btn-link btn-request-new-code" @click="requestNewCode" v-else>
+                    <span class="ec-text-body btn-request-new-code__text">Solicitar un nuevo código</span>
+                </button>
+            </div>
+        </div>
+        <div class="ec-modal-footer ec-justify-content-between register-phone-number__footer">
+            <div class="need-help-section">
+                <button type="button" class="ec-btn ec-btn-sm ec-btn-link ec-d-flex ec-align-items-center need-help-btn"
+                        ref="needHelpBtn" data-placement="bottom" data-html="true" :data-content="needHelpMessage"
+                        data-container=".need-help-section">
+                    <i class="ec-ico ec-ico-live-help"></i>
+                    <span>¿Necesitas ayuda?</span>
+                </button>
+            </div>
+            <div class="ec-d-flex ec-align-items-center">
+                <button type="button" class="ec-btn ec-btn-secondary" @click="close" :disabled="isLoading">
+                    Cancelar
+                </button>
+                <button type="button" class="ec-btn ec-btn-primary ec-ml-3" v-if="!isLoading" @click="verify">
+                    Verificar código
+                </button>
+                <div v-else class="padding-x--50">
+                    <div class="ec-loading"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <span ref="msgErrorCodeEmpty" hidden>
+      El código no puede estar vacío. Verifica el código e inténtalo de nuevo o solicita un nuevo código.
+    </span>
+        <span ref="msgErrorCodeInvalid" hidden>
+      El código introducido es incorrecto. Verifica el código e inténtalo de nuevo o solicita un nuevo código.
+    </span>
+    </div>
+</script>
+
+
+
+<script id="js-register-phone-number-template" type="text/x-template">
+    <div class="ec register-phone-number">
+
+        <div id="registerPhoneNumberModal" tabindex="-1" role="dialog" aria-labelledby="registerPhoneNumberModalLabel"
+             aria-hidden="true" class="ec-modal ec-fade register-phone-number__modal" data-backdrop="static"
+             data-keyboard="false" ref="registerPhoneNumberModal">
+            <div role="document" class="ec-modal-dialog ec-modal-lg">
+                <div class="ec-modal-content">
+                    <div class="ec-modal-header">
+                        <div id="registerPhoneNumberModalLabel" class="ec-modal-title">
+                            Activa la autenticación de doble factor (2FA) para pagos
+                        </div>
+                        <button type="button" aria-label="Close" class="ec-close" @click="close" :disabled="isLoading"></button>
+                    </div>
+                    <register-phone-number-step-1 v-if="step === STEP_1"></register-phone-number-step-1>
+                    <register-phone-number-step-2 v-else></register-phone-number-step-2>
+                </div>
+            </div>
+        </div>
+
+
+        <span ref="msgSuccessTitle" hidden>Autenticación de doble factor (2FA) activada</span>
+        <span ref="msgSuccessContent" hidden>2FA se ha configurado correctamente para todos los pagos futuros.</span>
+        <span ref="msgWarningTitle" hidden>Autenticación de doble factor (2FA) no activada</span>
+        <span ref="msgWarningContent" hidden>Debe configurar 2FA para poder enviar pagos.</span>
+        <span ref="msgPhoneNumberError" hidden>
+      Algo ha ocurrido al registrar el número de teléfono. Inténtalo de nuevo más tarde o contáctanos.
+    </span>
+        <span ref="msgCodeError" hidden>
+      Algo ha ocurrido al solicitar el código. Inténtalo de nuevo más tarde o contáctanos.
+    </span>
+        </span>
+        <span ref="msgNeedHelp" hidden>Si tienes problemas, envía un correo electrónico <br> a: </span>
+        <span ref="msgNeedHelpMailAnchor" hidden>
+      <a :href="emailHrefValue">operationsteam@ebury.com</a>
+    </span>
+        <span ref="msgSetup2FAPaymentFatalError" hidden>
+      No hemos podido configurarle 2FA debido a un problema técnico. Inténtelo de nuevo más tarde.
+    </span>
+        <span ref="msgRequestNewCodeFatalError" hidden>
+      No hemos podido solicitar un nuevo código debido a un problema técnico. Inténtelo de nuevo más tarde.
+    </span>
+    </div>
+</script>
+
+
+
+
+
+<script nonce="3N7gSZuRbBsG2sOS" crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CPromise.prototype.finally%2CArray.prototype.find%2CArray.from%2CMath.trunc%2Cperformance.now%2CObject.assign"></script>
+
+
+
+
+
+
+<script nonce="3N7gSZuRbBsG2sOS" src="https://browser.sentry-cdn.com/5.30.0/bundle.min.js" integrity="sha384-V+jCLoAVKKml0VanRLGJGAdKk+Lzo1kRFe079J0majdfeGabOd32KG/2adGnr4N0" crossorigin="anonymous"></script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    (function (Sentry) {
+        'use-strict';
+
+        if (!Sentry) {
+            document.write('<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/sentry/bundle.min.js" integrity="sha384-V+jCLoAVKKml0VanRLGJGAdKk+Lzo1kRFe079J0majdfeGabOd32KG/2adGnr4N0" crossorigin="anonymous"><\/script>');
+
+        }
+    })(window.Sentry);
+</script>
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    (function (Sentry) {
+        'use-strict';
+
+        if (!Sentry) {
+            return;
+        }
+
+        Sentry.init({
+            dsn: "https://a1404b218f7544428131c61bd5017509@sentry.io/1510303",
+            environment: "prod",
+            release: "eburyonline@6.46.0",
+            beforeBreadcrumb: function(breadcrumb, hint) {
+                var requestId = '';
+                if (breadcrumb.category === 'xhr' && hint && hint.xhr) {
+                    requestId = tryGetRequestIdFromXhr(hint.xhr);
+                } else if (breadcrumb.category === 'fetch' && hint && hint.response) {
+                    requestId = tryGetRequestIdFromFetchResponse(hint.response);
+                }
+
+                if (requestId) {
+                    breadcrumb.data = breadcrumb.data || {};
+                    breadcrumb.data.requestId = requestId;
+                }
+
+                return breadcrumb;
+            },
+        });
+
+        Sentry.configureScope(function(scope) {
+
+
+
+            scope.setUser({
+                id: 23018,
+                username: "EBPCON460914",
+                email: '',
+            });
+
+        });
+
+        Sentry.addBreadcrumb({
+            category: 'info',
+            message: 'Page request',
+            data: {
+                requestId: "8a2dd22a5c52479986556fe24efc5ee5",
+            },
+        });
+
+        function tryGetRequestIdFromXhr(xhr) {
+            try {
+                var headers = xhr.getAllResponseHeaders();
+                var requestIdMatch = headers.match(/x-ebo-request-id: ([^\n]+)/im);
+                if (requestIdMatch) {
+                    return requestIdMatch[1] || '';
+                }
+            } catch {}
+
+            return '';
+        }
+
+        function tryGetRequestIdFromFetchResponse(response) {
+            try {
+                return response.headers.get('X-EBO-Request-ID') || '';
+            } catch {}
+
+            return '';
+        }
+    })(window.Sentry);
+</script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    (function (global, Sentry) {
+        'use-strict';
+
+        if (!Sentry) {
+            function noop() {}
+
+            global.Sentry = {
+                dummy: true,
+                addBreadcrumb: noop,
+                captureEvent: noop,
+                captureException: noop,
+                captureMessage: noop,
+                init: noop,
+                withScope: noop,
+            };
+        }
+    }(window, window.Sentry));
+</script>
+
+
+
+
+
+
+
+<script nonce="3N7gSZuRbBsG2sOS" src="https://ebury-chameleon.s3.amazonaws.com/2.1.0/scripts/ebury-chameleon.ns.js"></script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS" src="https://ebury-huha.s3.amazonaws.com/1.5.1/huha.js"></script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+
+    var appId = "EBO";
+    var csrfTokenCookieName = 'csrftoken';
+    var debug = false;
+    var brandCode = 'EBP';
+    var brandName = 'Ebury';
+    var isEbury = 'EBP' === 'EBP';
+    var showHelp = true;
+    var environment = 'prod';
+    var userEmail = null;
+    var user_name = null;
+    var userIdentifier = null;
+    var user_new = null;
+    var intercom_user_hash = null;
+    var two_fa_sms = null;
+    var two_fa_app = null;
+    var client_has_deals = null;
+    var client_name = null;
+    var clientIsMifid = null;
+    var dealer_email = null;
+    var clientIdentifier = null;
+    var permissions = null;
+    var onlineAdministrator = null;
+    var paymentAuthorisationWorkflow = null;
+    var language = 'es';
+    var customerType = null;
+    var officeCountry = null;
+    var messages = [];
+    var intercomHelpUrl = "https://help.ebury.com";
+    var segmentEnabled = true;
+    var segmentKey = "YAMu4DY4uatHDVj0TNYP4a07Flx3cnb8";
+    var hasTradeFinanceEnabled = false;
+    var hasAdspEnabled = false;
+    var hasConvertAndPayEnabled = false;
+
+
+    userEmail = 'alejandromeyer@surexport.es';
+    user_name = 'Mr. Alejandro Oscar Meyer Terrasa';
+    userIdentifier = 'EBPCON460914';
+    intercom_user_hash = '63274dfb032f85ec4fb44c1ec935300d2ce4cf9872e4422bde85787d0269c76f';
+    two_fa_sms = 'True';
+    two_fa_app = 'False';
+    user_new = false;
+    hasTradeFinanceEnabled = false;
+    hasAdspEnabled = true;
+    hasConvertAndPayEnabled = false;
+
+
+
+    var tradingStatus = 'enabled';
+    var businessHour = {
+        openHour: '',
+        closeHour: '',
+        timezone: '',
+        openHourGmt: '',
+        closeHourGmt: '',
+    };
+
+
+
+
+    tradingStatus = 'businessClosed';
+
+    businessHour.openHour = '';
+    businessHour.closeHour = '';
+    businessHour.timezone = '';
+    businessHour.openHourGmt = '';
+    businessHour.closeHourGmt = '';
+
+
+
+
+
+</script>
+
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/base-core-0-legacy.js"></script>
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    if (Vue) {
+        Vue.options.delimiters = ['${', '}'];
+    }
+</script>
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/base-core-1-legacy.js"></script>
+
+
+
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/i18n/datepicker-es.js"></script>
+
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/base-core-2-legacy.js"></script>
+
+
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    (function gaInit(global) {
+        'use-strict';
+
+        ga('create', {
+            trackingId: 'UA\u002D15157589\u002D10',
+            cookieFlags: global.location.protocol === 'http:' ? 'SameSite=Strict' : 'Secure;SameSite=Strict',
+        });
+
+
+        ga('set', 'userId', 'alejandromeyer@surexport.es');
+
+        ga('set', 'language', 'es');
+        ga('set', 'dimension2', 'Ebury');
+        ga('set', 'dimension3', 'prod');
+
+        ga('send', 'pageview', '/login/account/');
+
+    }(window));
+</script>
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/base-core-4-legacy.js"></script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    var timezone = 'Europe/Madrid';
+    var currentLocale = 'es'.toLowerCase().replace('_', '-');
+    if (currentLocale == 'en-gb') {
+        currentLocale = 'en';
+    }
+    LOCALE = JSON.parse('{"THOUSAND_SEP": ".", "DECIMAL_SEP": ",", "FIRST_DAY_OF_WEEK": 1, "SHORT_DATE_FORMAT": "d/m/Y"}');
+    var momentLocale = currentLocale;
+
+    if (momentLocale === 'en') {
+        momentLocale = 'en-gb';
+    }
+    moment.locale(momentLocale);
+
+    var enabledIntercom = false;
+    var intercomAppId = null;
+
+
+    huha.createTask('Session', null, null, true);
+</script>
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    enabledIntercom = true;
+    intercomAppId = "xzh7ogzw";
+</script>
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/base-core-5-legacy.js"></script>
+
+
+
+<script nonce="3N7gSZuRbBsG2sOS">
+    new ClipboardJS('.js-copy');
+</script>
+
+
+
+
+<script src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/i18n/es.js"></script>
+
+
+
+
+<script defer src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/chunk-vendors.js"></script>
+
+<script defer src="https://d3pd80oeif52cn.cloudfront.net/6.46.0/static/js/account-selector.js"></script>
+
+
+</body>
+</html>

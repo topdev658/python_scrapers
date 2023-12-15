@@ -1,0 +1,1928 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link href="css/lo_master.css" rel="stylesheet" type="text/css">
+    <link href="css/c-colorStatus.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-dropdownSelector/css/c-dropdownSelector.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-button/css/c-button.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/u-fonts/css/u-fonts.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/loicon/css/loicon.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-listing/css/c-listing.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-modal/css/c-modal.css" rel="stylesheet" type="text/css">
+    <link href="libraries/internal_libraries/c-toast/css/c-toast.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/tables.js"></script>
+    <script type="text/javascript" src="libraries/external_libraries/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="libraries/internal_libraries/c-dropdownSelector/js/c-dropdownSelector.js"></script>
+    <script type="text/javascript" src="libraries/internal_libraries/c-toast/js/c-toast.js" defer></script>
+    <script type="text/javascript" language="JavaScript">
+        $( document ).ready(function() {
+            var resAliasOk ="";
+            var resUsuPredOk = "";
+            if('S' == resAliasOk){
+                document.getElementById('toastAlias').click();
+            }
+            if('S' == resUsuPredOk){
+                document.getElementById('toastUsuPredet').click();
+            }
+            $(function(){
+                $(".selectorusuario").on("cDropdownSelector:itemSelected",function(e,name,value,checked,type,itemLabel){
+                    console.log(name,value,checked,type,itemLabel,e);
+                });
+            });
+        });
+        function peUsuarioDefecto(usuClo, nomTit)
+        {
+            f=document.forms["formUsuDefecto"]
+            f.PN.value="LGU"
+            f.PE.value="8"
+            f.CLAVE_CONTINUACION_AREACLO.value="000"
+            f.CLAVE_CONTINUACION_USUCLO.value="00000000000"
+            f.CLAVE_CONTINUACION_COMCLO.value="0000000000000"
+            f.PRIMERA_CONSULTA.value="1"
+            f.CANVI_USUCLO.value=usuClo
+            f.USUARI_DEFECTE_MID.value=nomTit
+            f.submit();
+        }
+        function goEditAlias(usuClo, alias)
+        {
+            f=document.forms["formEditarAlias"];
+            f.PN.value="LGU";
+            f.PE.value="5";
+            f.ALIAS_CUO.value= alias;
+            f.USUCLO_CUO.value= usuClo;
+            f.submit();
+        }
+        function doPagIni(alta)
+        {
+            with (document.forms["formDoPagIni"]){
+                if (alta == 'true')
+                    PE.value="9";
+                else
+                    PE.value="10";
+                if (top.flagBorsa==true) {
+                    ADVORIGPN.value="LGU";
+                    ADVORIGPE.value="1";
+                } else {
+                    ADVORIGPN.value="PPE";
+                    ADVORIGPE.value="1";
+                }
+                submit();
+            }}
+        function doCambioUsuario (usuclo, nomTitParse, comCloMid, usucloRef){
+            f=document.forms["formCambioUsuario"]
+            f.CANVI_USUCLO.value = usuclo
+            f.refCanviUsuclo.value= usucloRef
+            f.USUARI_DEFECTE_MID.value = nomTitParse
+            f.CONTRATO_CLO.value= comCloMid
+            f.PN.value="LGU"
+            f.PE.value="3"
+            f.ORIGEN_LGU.value="E"
+            f.submit();
+        }
+        function paginar(val){
+            f=document.forms["formPaginacion"]
+            f.PN.value="LGU"
+            f.PE.value="1"
+            f.PAS.value=""
+            f.LGU2PAS_CABECERA.value=""
+            if (val == 0){
+                f.CLAVE_CONTINUACION_AREACLO.value="000"
+                f.CLAVE_CONTINUACION_USUCLO.value="00000000000"
+                f.CLAVE_CONTINUACION_COMCLO.value="0000000000000"
+                f.PRIMERA_CONSULTA.value="1"
+            }else if (val == 1){
+                f.CLAVE_CONTINUACION_AREACLO.value="96"
+                f.CLAVE_CONTINUACION_USUCLO.value="1940274201"
+                f.CLAVE_CONTINUACION_COMCLO.value="9725029402742"
+                f.PRIMERA_CONSULTA.value="0"
+            }
+            f.submit();
+        }
+    </script>
+    <script type="text/javascript" src="./js/slider.js"></script>
+    <script type="text/javascript" src="./js/boton-desplegable.js"></script>
+    <script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+
+</head>
+<body id="cos" class="">
+<script>var PNLomilu='LGU';var PELomilu='1';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+
+<div id="lo_contenido">
+
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST">
+        <div
+                class="u-flex u-flex-justify-content-between u-flex-align-item-center margin--bottom-normal">
+            <div id="" class="u-flex u-flex-align-item-baseline">
+                <h1 class="margin--bottom-none">Tus usuarios de CaixaBankNow
+                </h1>
+            </div>
+        </div>
+        <p id="" class="margin--bottom-normal">Estos son los usuarios asociados a tu identificador de CaixaBankNow. Puedes cambiar de usuario sin cerrar sesión, marcar un usuario predeterminado o modificar el alias de cada usuario.</p>
+        <div id="" class="tableWrapper margin--bottom-small">
+            <table id="" class="table table--width-full">
+                <thead>
+                <tr>
+                    <th class="table--column-width-20p">Titular</th>
+                    <th class="table--column-width-20p"></th>
+                    <th class="table--column-width-20p"></th>
+                    <th class="table--column-width-20p"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+
+                <tr class="bg-color--softblue">
+
+
+
+                    <td>
+
+
+
+                        <div id="" class="font--size-100">
+
+                            <span id="">	(Usuario predeterminado)</span>
+                        </div>
+                        <div id="" class="font--size-100">JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA.</div>
+
+
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+                        <div id="" class="c-colorstatus c-colorstatus--theme-ok padding--right-normal font--size-100">Usuario actual</div>
+
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector1"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00782367302\",\"JOSE ANTONIO PENADES SANCHIS SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00782367302\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">SOLAR CASA ARRIBA DE LOS LLANOS SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00089498301', 'SOLAR CASA ARRIBA DE LOS LLANOS SL', '9725010894983', '2McJmD3onY7YxwmYPeidjgAAAXx4tLBGPyEzkWzLN8E')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector2"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00089498301\",\"SOLAR CASA ARRIBA DE LOS LLANOS SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00089498301\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RENTA CERO SLU</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00089547201', 'RENTA CERO SLU', '9725010895472', '2McJmD09G47YxwmYPT0bjgAAAXx4tLBGmKzjBIkABcU')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector3"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00089547201\",\"RENTA CERO SLU\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00089547201\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RECREATIVOS INMAVI 2002 S.L.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00161796403', 'RECREATIVOS INMAVI 2002 S.L.', '9725011617964', '2McJmD0_RHTYxwmYPT9EdAAAAXx4tLBG8wSQDLLHw8o')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector4"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00161796403\",\"RECREATIVOS INMAVI 2002 S.L.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00161796403\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">STIN SA</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00295532100', 'STIN SA', '9725012955321', '2McJmD1PbSDYxwmYPU9tIAAAAXx4tLBHLa9PNBZ6Ok8')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector5"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00295532100\",\"STIN SA\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00295532100\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">ROTONDA GRUPO EMPRESARIAL, S.A</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00782366201', 'ROTONDA GRUPO EMPRESARIAL, S.A', '9725017823662', '2McJmD1WMNHYxwmYPVYw0QAAAXx4tLBHK1NKwHGgROQ')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector6"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00782366201\",\"ROTONDA GRUPO EMPRESARIAL, S.A\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00782366201\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">TAMOS, S.A.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00782382401', 'TAMOS, S.A.', '9725017823824', '2McJmD3QM0rYxwmYPdAzSgAAAXx4tLBHdttkxTmag4Y')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector7"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00782382401\",\"TAMOS, S.A.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00782382401\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">LOS TRES DE VIRGINIA SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00782397301', 'LOS TRES DE VIRGINIA SL', '9725017823973', '2McJmD3JJGLYxwmYPckkYgAAAXx4tLBHn36wxBHdo1A')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector8"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00782397301\",\"LOS TRES DE VIRGINIA SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00782397301\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">LOS TRES DE VIRGINIA SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00782397304', 'LOS TRES DE VIRGINIA SL', '9725017823973', '2McJmD3ESVvYxwmYPcRJWwAAAXx4tLBHX_oJyQzzw9Y')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector9"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00782397304\",\"LOS TRES DE VIRGINIA SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00782397304\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">BORA ENERGIAS RENOVABLES SLU</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00886756300', 'BORA ENERGIAS RENOVABLES SLU', '9725018867563', '2McJmD2_HGTYxwmYPb8cZAAAAXx4tLBH0_EPWSwYDpE')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector10"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00886756300\",\"BORA ENERGIAS RENOVABLES SLU\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00886756300\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">AUGEMATIC ALBACETE SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('00930829401', 'AUGEMATIC ALBACETE SOCIEDAD LIMITADA.', '9725019308294', '2McJmD1XCzjYxwmYPVcLOAAAAXx4tLBHIHr~XQRbqVs')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector11"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"00930829401\",\"AUGEMATIC ALBACETE SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"00930829401\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RECREATIVOS TADHER SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01288098700', 'RECREATIVOS TADHER SOCIEDAD LIMITADA.', '9725022880987', '2McJmD3fxq_YxwmYPd_GrwAAAXx4tLBHibQzGzeaf_Q')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector12"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01288098700\",\"RECREATIVOS TADHER SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01288098700\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RECREATIVOS TADHER SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01288098704', 'RECREATIVOS TADHER SOCIEDAD LIMITADA.', '9725022880987', '2McJmD2QyIzYxwmYPZDIjAAAAXx4tLBHQOcwyZrI4ig')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector13"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01288098704\",\"RECREATIVOS TADHER SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01288098704\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">ANDALUZA DE LA ENERGIA SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01400050901', 'ANDALUZA DE LA ENERGIA SOCIEDAD LIMITADA.', '9725024000509', '2McJmD2l35XYxwmYPaXflQAAAXx4tLBHOKqV2AowzFU')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector14"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01400050901\",\"ANDALUZA DE LA ENERGIA SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01400050901\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">SPLENDOR, S.L.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01400945901', 'SPLENDOR, S.L.', '9725024009459', '2McJmD41NYLYxwmYPjU1ggAAAXx4tLBHMbwy4A_~7Ls')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector15"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01400945901\",\"SPLENDOR, S.L.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01400945901\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">TRANSFORMACIONES TERRA, S.A.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01403843501', 'TRANSFORMACIONES TERRA, S.A.', '9725024038435', '2McJmD3CaBHYxwmYPcJoEQAAAXx4tLBHCjzcaF~R~3U')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector16"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01403843501\",\"TRANSFORMACIONES TERRA, S.A.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01403843501\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">TRANSFORMACIONES TERRA, S.A.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01403843504', 'TRANSFORMACIONES TERRA, S.A.', '9725024038435', '2McJmD3b7j3YxwmYPdvuPQAAAXx4tLBHLh4YDVaSIN4')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector17"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01403843504\",\"TRANSFORMACIONES TERRA, S.A.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01403843504\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">CR PLAY SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01624605201', 'CR PLAY SL', '9725026246052', '2McJmD3EIxTYxwmYPcQjFAAAAXx4tLBHkX6zSYQnrlM')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector18"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01624605201\",\"CR PLAY SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01624605201\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">ENERGIAS ALTERNATIVAS ALBACETE SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01642467801', 'ENERGIAS ALTERNATIVAS ALBACETE SOCIEDAD LIMITADA.', '9725026424678', '2McJmD15y3zYxwmYPXnLfAAAAXx4tLBHnYc2xONT5PI')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector19"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01642467801\",\"ENERGIAS ALTERNATIVAS ALBACETE SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01642467801\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">ROTONDA ENERGY S.L.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01643436001', 'ROTONDA ENERGY S.L.', '9725026434360', '2McJmD3~lWLYxwmYPf6VYgAAAXx4tLBHaoGgPE7A8g4')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector20"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01643436001\",\"ROTONDA ENERGY S.L.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01643436001\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RENOVABLES ROTONDA SOCIEDAD LIMITADA.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01656334301', 'RENOVABLES ROTONDA SOCIEDAD LIMITADA.', '9725026563343', '2McJmD1Wd1TYxwmYPVZ3VAAAAXx4tLBHhVqeOZgyjkM')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector21"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01656334301\",\"RENOVABLES ROTONDA SOCIEDAD LIMITADA.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01656334301\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">AB2015 SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01727484902', 'AB2015 SL', '9725027274849', '2McJmD2uDl7YxwmYPa4OXgAAAXx4tLBHKww_cvpfERA')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector22"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01727484902\",\"AB2015 SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01727484902\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">BLUE SA</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01751309300', 'BLUE SA', '9725027513093', '2McJmD2fvQPYxwmYPZ~9AwAAAXx4tLBHlPx_8bvFj38')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector23"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01751309300\",\"BLUE SA\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01751309300\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">ZADON, SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01753328601', 'ZADON, SL', '9725027533286', '2McJmD2BtafYxwmYPYG1pwAAAXx4tLBHvztaj9rKu44')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector24"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01753328601\",\"ZADON, SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01753328601\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">FRAGUAR, S.L.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01772895001', 'FRAGUAR, S.L.', '9725027728950', '2McJmD2Q793YxwmYPZDv3QAAAXx4tLBHWr8yoKBcgOI')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector25"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01772895001\",\"FRAGUAR, S.L.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01772895001\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">SOARE INVERSIONES SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01779167301', 'SOARE INVERSIONES SL', '9725027791673', '2McJmD5AUW_YxwmYPkBRbwAAAXx4tLBHY4KOa71ysUE')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector26"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01779167301\",\"SOARE INVERSIONES SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01779167301\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">AUGEVILLA SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01802225002', 'AUGEVILLA SL', '9725028022250', '2McJmD2eT7PYxwmYPZ5PswAAAXx4tLBHuqsv7elBwZw')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector27"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01802225002\",\"AUGEVILLA SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01802225002\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">AUGEVILLA SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01802225003', 'AUGEVILLA SL', '9725028022250', '2McJmD4so7XYxwmYPiyjtQAAAXx4tLBHlgdYehVi3Iw')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector28"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01802225003\",\"AUGEVILLA SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01802225003\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">PLAY ONTENIENTE18 SL</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01915425900', 'PLAY ONTENIENTE18 SL', '9725029154259', '2McJmD3QUgDYxwmYPdBSAAAAAXx4tLBHxdPrBxeG3VU')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector29"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01915425900\",\"PLAY ONTENIENTE18 SL\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01915425900\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+
+
+                    <td>
+
+
+
+
+
+                        <div id="" class="font--size-100">
+
+                        </div>
+                        <div id="" class="font--size-100">RIVAL CAPITAL 1SPV, S.L.</div>
+
+
+                    </td>
+                    <td class=""></td>
+                    <td align="center">
+
+
+                        <a id=""class="c-button font--weight-normal" href="javascript:doCambioUsuario('01934783701', 'RIVAL CAPITAL 1SPV, S.L.', '9725029347837', '2McJmD1Zl3nYxwmYPVmXeQAAAXx4tLBHxawy4FmvHZM')" role="button"> <span
+                                class="c-button__icon"> <img class="element-height--12px u-flex-00auto"
+                                                             src="c-images/html-images/icons/24x24/ico_user_change.svg" />
+</span> <span id="" class="c-button__content font--size-100 font--weight-normal">Cambiar usuario  </span>
+                        </a>
+                    </td>
+                    <td class="">
+
+                        <a id="" class="btn btn--lg btn--icon selectorusuario"
+                           data-c-dropdownselector=""
+                           id="cDropdownSelector30"> <span
+                                class="loicon-dotsvert loicon--size-24px"></span></a>
+                        <script data-c-dropdownselectorconfig="" type="application/json">
+                            {"options": [{
+                                "options": [{
+                                    "type": "action",
+                                    "name": "actionUserDefecto",
+                                    "loicon": "user",
+                                    "title": "Marcar como predeterminado",
+                                    "onClick": "javascript:peUsuarioDefecto(\"01934783701\",\"RIVAL CAPITAL 1SPV, S.L.\")"
+                                },
+                                    {
+                                        "type": "action",
+                                        "name": "actionEditAlias",
+                                        "loicon": "edit",
+                                        "title": "Modificar alias",
+                                        "onClick": "javascript:goEditAlias(\"01934783701\",\"\")"
+                                    }]}]}
+                        </script>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <a class="display--none" id="toastAlias" href="#" onclick="toast.create('Alias modificado correctamente','ok',false)"></a>
+        <a class="display--none" id="toastUsuPredet" href="#" onclick="toast.create('Usuario marcado predeterminado correctamente','ok',false)"></a>
+
+
+
+
+
+        <div id="" class="c-pagination c-pagination--centerPageList">
+            <div id="" class="c-pagination__pageList">
+                <a id="" class="c-pagination__pageList__prev c-pagination__pageList__prev--disabled" data-c-pagination-pagelist-item-value="" href=""></a>
+                <a id="" title="Siguientes" class="c-pagination__pageList__next" data-c-pagination-pagelist-item-value="" href="javascript:paginar(1);"></a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div id="" class="font--size-110 font--weight-semibold margin--bottom-normal margin--top-big">
+            Además, puedes:
+        </div>
+        <ul id="" class="c-listing margin--bottom-big">
+            <li class="c-listing__item c-listing__item--type-dot"><a
+                    href="javascript:top.frames['Inferior'].frames['Menu'].lanzarLO(top.flagPE,'PCM','1','','EOC_LGU_1');">Consultar la posición de cuentas de todos tus usuarios</a></li>
+
+
+
+            <li class="c-listing__item c-listing__item--type-dot"><a
+                    href="javascript:doPagIni('true')">Añadir esta página como página inicial</a>
+            </li>
+
+
+        </ul>
+
+
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formUsuDefecto">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="USUARI_DEFECTE_MID">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO">
+        <input type="hidden" name="PRIMERA_CONSULTA">
+        <input type="hidden" name="CANVI_USUCLO">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formEditarAlias">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="ALIAS_CUO">
+        <input type="hidden" name="USUCLO_CUO">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formPosicionCuentas">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formDoPagIni">
+
+        <input type="hidden" name="PE" value="">
+        <input type="hidden" name="ADVORIGPN" value="PPE">
+        <input type="hidden" name="ADVORIGPE" value="1">
+
+
+
+
+
+        <input name="REFVAL_COMPLEJO_5102" value="2McJmD3DmR_YxwmYPcOZHwAAAXx4tLBU~hafMHCO~tI" type="hidden"><input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formCambioUsuario">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="refCanviUsuclo">
+        <input type="hidden" name="CONTRATO_CLO">
+        <input type="hidden" name="USUARI_DEFECTE_MID">
+        <input type="hidden" name="CANVI_USUCLO">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+    <form action="/GPeticiones;WebLogicSession=4094yw7fpGkzMszmgysJ1xPp6hsjlCZ-6P8YRMl7tZRNVR_F-uuK!1663689271!1209219944" method="POST" name="formPaginacion">
+        <input type="hidden" name="PN">
+        <input type="hidden" name="PE">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="ORIGEN_LGU" value="">
+        <input type="hidden" name="CLAVE_CONTINUACION_AREACLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_USUCLO">
+        <input type="hidden" name="CLAVE_CONTINUACION_COMCLO">
+        <input type="hidden" name="PRIMERA_CONSULTA">
+        <input type="hidden" name="PAS">
+        <input type="hidden" name="LGU2PAS_CABECERA">
+        <input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+<script language="JavaScript" type="text/javascript"></script>
+
+</body>
+</html>

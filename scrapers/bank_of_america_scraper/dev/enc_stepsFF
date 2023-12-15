@@ -1,0 +1,59 @@
+OPEN https://www.bankofamerica.com/smallbusiness/
+set breakpoint
+to cc.go:4, cc.go:48
+
+continue to 4 when variable 's' in defined
+(breakpoints will be called in ordering cc.go:4 continue -> cc.go:48 continue -> cc.go:4 stop here)
+eval "JSON.stringify(s)" to get s object that should be stored for
+furhter login via scraper
+
+
+
+should extract EACH TIME
+
+1. https://www1.bac-assets.com/homepage/spa-assets/bundles/4d86e198.js
+
+_cc.push(['ci',
+  {
+    sid: '933928f25519a10e',
+    tid: '5678'
+  }])
+-> "sid":"933928f25519a10e","tid":"5678"
+
+
+2. https://www1.bac-assets.com/homepage/spa-assets/bundles/592d8802.js
+
+flagsToCollect:155687923 -> "cf_flags":155687923,
+
+
+3. https://secure.bankofamerica.com/login/sign-in/entry/cc.go
+Fb={run:function(a){B=a;K="NDY4MDg1MjMtMTk4Zi00MTkxLTkyZDctYmEzM2FiZDE2MTFkOjE1NTEwMzgxOTg3OTM"
+->
+"_t":"NDY4MDg1MjMtMTk4Zi00MTkxLTkyZDctYmEzM2FiZDE2MTFkOjE1NTEwMzgxOTg3OTM"
+
+
+4. val of cookie _cc of www.bankofamerica.com domain (don't mess with _cc of secure.bankofamerica.com)
+"cookie-_cc":"MDUyMjliYWQtNDdjNS00YWY0",
+
+
+CONSTANTS
+
+1. _cc_ck in SESSION STORAGE (was the same as cookie-_cc in Chrome), should be constant
+BUT ALSO MAY CHANGE, in this case use 24 chars of _t (that is K from Fb), most recent was
+"dom-session-tag":"YThmNjk5MDUtYzFlNS00OWFk"
+
+
+2. _cc_ck in LOCAL STORAGE, constant for the current confirmed environment
+->
+"dom-local-tag":"ODI5NDc1YzItYjIyMy00NTMw"
+
+3. "canvas-print-100-999":"336d849b429a995b1b9db7916cb12a7e59da38ff" - constant for the env
+
+
+in variadic part of
+
+{"sid":"933928f25519a10e","tid":"5678","_t":"ZGNkY2U1MmYtMWI4ZC00MDQ4LWJjMjgtYjRlNjg0MTEzYjllOjE1NTEwNDM1NDMyNjM","cf_flags":155687923,"cookie-_cc":"NTUzZTNhYzMtNjVlOS00ZjYz","timing-sc":15,"time-unix-epoch-ms":1551043622006,"time-local":"2/25/2019, 12:27:02 AM","time-string":"Mon Feb 25 2019 00:27:02 GMT+0300 (MSK)","time-tz-offset-minutes":-180,"time-tz-has-dst":"false","time-tz-dst-active":"false","time-tz-std-offset":-180,"time-tz-fixed-locale-string":"3/6/2014, 7:58:39 AM","timing-ti":1,"dom-local-tag":"ODI5NDc1YzItYjIyMy00NTMw","timing-ls":0,"dom-session-tag":"YThmNjk5MDUtYzFlNS00OWFk","timing-ss":0,"navigator.appVersion":"5.0 (X11)","navigator.appName":"Netscape","navigator.buildID":"20171024165158","navigator.product":"Gecko","navigator.platform":"Linux x86_64","navigator.language":"en-US","navigator.oscpu":"Linux x86_64","navigator.userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0","navigator.cookieEnabled":"true","navigator.appCodeName":"Mozilla","navigator.productSub":"20100101","timing-no":4,"window.devicePixelRatio":"1","window.history.length":"4","window.screen.height":"768","window.screen.width":"1366","timing-wo":1,"timing-do":1,"plugin-suffixes":"","plugin-mimes":"","timing-np":0,"timing-iepl":0,"canvas-print-100-999":"336d849b429a995b1b9db7916cb12a7e59da38ff","timing-cp":50,...}
+
+
+
+

@@ -1,0 +1,82 @@
+>>> LoginPM
+// contract token (ex-mscauth param)
+await fetch("https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/api/User/loginPM", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "PlaybackMode": "Real",
+        "IdContrato": "Z97399",
+        "Orden": "3",
+        "EsNegocio": "true",
+        "NIPTitular": "1U88414933 00",
+        "Authorization": "Bearer DC9261C002AE1C86476CF4445A4C0BD11249C9FC92D8B70CA52A929D443C5567",
+        "Content-Type": "application/json,application/json",
+        "x-ibercaja-st": "999a44cf-2923-441f-8975-2710b90573af"
+    },
+    "referrer": "https://banca.ibercaja.es/omnicanalidad/canales/bancadigitalweb/v1/",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< resp_loginpm.json
+
+>>> OPEN FILTER FORM FOR EXACT ACCOUNT
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/Norma43/SeleccionaRecibirN43_ID.asp?MSCSAUTH=F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/PMCONGateway.asp?MSCSAuth=F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1",
+    "body": "entorno=IN&idoperacion=C0075_2&ticket=F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1&Dispositivo=INTR&Canal=WEB&Idioma=ES&Entidad=2085&Usuario=Z58385BARBARA",
+    "method": "POST",
+    "mode": "cors"
+});
+
+>>> DOWNLOAD N43
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/ModuloDirector.asp?MSCSAuth=F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/Norma43/SeleccionaRecibirN43_ID.asp?MSCSAUTH=F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1",
+    "body": "IdOperacion=0076_1&Entidad=2085&Canal=IBE&Dispositivo=INTR&Idioma=ES&funcseleccionada=DesdeFecha&fechainiciodia=01&fechainiciomes=03&fechainicioano=2022&fechafindia=08&fechafinmes=03&fechafinano=2022&image1.x=17&image1.y=22",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+>>> DOWNLOAD N43 INTERMEDIATE
+await fetch("https://www1.ibercajadirecto.com/ibercaja/asp/ModuloDirector.asp?MSCSAuth=EED9EFC8A3484708BC6DC29230CC6CC7YB20220310080923KM3484708BC6JDLDC29230CC6BB3292CD6CB807484BB6CC03292CDLDJ6CB80D6CB8074843A8CFE9DEEBB6CC032", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www1.ibercajadirecto.com/ibercaja/asp/Norma43/SeleccionaRecibirN43_ID.asp?MSCSAUTH=EED9EFC8A3484708BC6DC29230CC6CC7YB20220310080923KM3484708BC6JDLDC29230CC6BB3292CD6CB807484BB6CC03292CDLDJ6CB80D6CB8074843A8CFE9DEEBB6CC032",
+    "body": "IdOperacion=0076_1&Entidad=2085&Canal=IBE&Dispositivo=INTR&Idioma=ES&funcseleccionada=EntreFechas&fechainiciodia=07&fechainiciomes=03&fechainicioano=2022&fechafindia=09&fechafinmes=03&fechafinano=2022&image1.x=55&image1.y=17",
+    "method": "POST",
+    "mode": "cors"
+});

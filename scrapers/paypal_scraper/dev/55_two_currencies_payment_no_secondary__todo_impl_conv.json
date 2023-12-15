@@ -1,0 +1,268 @@
+{
+  "secondaryTransactions": [],
+  "actionList": [
+    {
+      "name": "Archivar",
+      "type": "HIDE"
+    }
+  ],
+  "isPayUponInvoice": false,
+  "c3Transaction": false,
+  "encryptedAccountNumber": "22TLHVJV84Z82",
+  "accountInfo": "",
+  "internalTransactionId": "3lB2XPrPnG83yePw3TEwortpUw-Pybq_XJb_ZRBTLcPn8iXhMVQmqYouSUK",
+  "transactionId": "2WH00912AU4758410",
+  "scidValue": "",
+  "transactionTime": "29 oct. 2021",
+  "transactionTimeFormatted": "29/10/21",
+  "transactionTimeUnformatted": "2021-10-29T08:23:02.000Z",
+  "transactionType": "PAYMENT",
+  "transactionStatus": "Completado",
+  "transactionParent": "None",
+  "isTokenized": false,
+  "activity": {
+    "id": "2WH00912AU4758410",
+    "account": {},
+    "time_created": "2021-10-29T08:23:02.000Z",
+    "activity_type": "PAYMENT",
+    "subtype": "PAYMENT",
+    "status": "COMPLETED",
+    "detailed_status": "COMPLETED",
+    "payee_details": {
+      "type": "EMAIL",
+      "value": "payments@udemy.com"
+    },
+    "counterparty": {
+      "business_name": "Udemy",
+      "email": "payments@udemy.com",
+      "name": "Udemy",
+      "payment_id": "--XXXXX--"
+    },
+    "global_properties": {
+      "counterparty": {}
+    },
+    "fee": {
+      "currency_code": "USD",
+      "value": "0.00",
+      "amount": "0.00"
+    },
+    "gross": {
+      "currency_code": "USD",
+      "value": "29.98",
+      "amount": -29.98,
+      "amountUnformatted": null
+    },
+    "net": {
+      "currency_code": "USD",
+      "value": "29.98",
+      "amount": -29.98,
+      "amountUnformatted": null
+    },
+    "gross_usd_amount": "29.98",
+    "is_primary": true,
+    "raw_status": "S",
+    "internal_id": "3lB2XPrPnG83yePw3TEwortpUw-Pybq_XJb_ZRBTLcPn8iXhMVQmqYouSUK",
+    "actions": [
+      "ACTIVITY_DETAILS",
+      "ARCHIVE"
+    ],
+    "extension": {
+      "money_movements": [
+        {
+          "funding_source": {
+            "id": "BALANCE"
+          },
+          "amount": {
+            "currency_code": "EUR",
+            "value": "26.97"
+          }
+        }
+      ],
+      "delayed_payment_types": [
+        "HERMES"
+      ],
+      "partner_info": {
+        "partner_account_number": "2236179388448529968"
+      },
+      "internal_id": "3lB2XPrPnG83yePw3TEwortpUw-Pybq_XJb_ZRBTLcPn8iXhMVQmqYouSUK",
+      "is_balance_affecting": true,
+      "merchant_category_code": "8249",
+      "memo": "Advanced DAX for Microsoft Power BI DesktopThe Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert",
+      "running_balance": {
+        "currency_code": "USD",
+        "value": "36629.20"
+      },
+      "debit_credit_code": "DEBIT",
+      "client_configuration": {
+        "product_code": "EXPRESS_CHECKOUT",
+        "product_feature": "NONE",
+        "integration_artifact": "NONE",
+        "experience": {
+          "payment_method": "PAY_WITH_PAYPAL",
+          "product_flow": "HERMES"
+        }
+      },
+      "is_rtr_applicable": false,
+      "channels": [
+        "CHECKOUT"
+      ],
+      "is_incentive_refund": false,
+      "purposes": [
+        "PURCHASE_GOODS"
+      ],
+      "activity_id": "60354863HA931310G",
+      "is_handout_activity": false
+    },
+    "extensions": {
+      "payment_properties": {
+        "running_balance": {
+          "currency_code": "USD",
+          "value": "36629.20"
+        },
+        "purposes": [
+          "PURCHASE_GOODS"
+        ],
+        "channels": [
+          "CHECKOUT"
+        ],
+        "debit_credit_code": "DEBIT",
+        "is_balance_affecting": true,
+        "delayed_payment_types": [
+          "HERMES"
+        ],
+        "memo": "Advanced DAX for Microsoft Power BI DesktopThe Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert",
+        "is_rtr_applicable": false,
+        "partner_info": {
+          "partner_account_number": "2236179388448529968"
+        },
+        "money_movements": [
+          {
+            "amount": {
+              "currency_code": "EUR",
+              "value": "26.97"
+            },
+            "funding_source": {
+              "id": "BALANCE"
+            }
+          }
+        ],
+        "internal_id": "3lB2XPrPnG83yePw3TEwortpUw-Pybq_XJb_ZRBTLcPn8iXhMVQmqYouSUK",
+        "merchant_category_code": "8249",
+        "is_handout_activity": false,
+        "activity_id": "60354863HA931310G",
+        "is_incentive_refund": false,
+        "client_configuration": {
+          "product_code": "EXPRESS_CHECKOUT",
+          "product_feature": "NONE",
+          "integration_artifact": "NONE",
+          "experience": {
+            "payment_method": "PAY_WITH_PAYPAL",
+            "product_flow": "HERMES"
+          },
+          "issuance_product": "NONE"
+        },
+        "DEF_EXT_FLD": "DEF_EXT_VAL"
+      }
+    },
+    "party": {
+      "email": "f.zwanck@gasmobi.com",
+      "name": "ROI PERFORMANCE MEDIA, SOCIEDAD LIMITADA"
+    },
+    "NewNodeURL": true,
+    "scidValue": "",
+    "redirectUrl": "/activity/payment/",
+    "orderVoidPXP": true,
+    "proTransaction": false,
+    "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:CHECKOUT:",
+    "matchedTCodes": [
+      "T-0000",
+      "T-0006",
+      "T-0007"
+    ]
+  },
+  "grossAmount": {
+    "amount": "-29,98 USD",
+    "amountUnformatted": -29.98,
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "-29,98 USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": true,
+    "zeroAmount": false,
+    "isAmountInCents": false
+  },
+  "feeAmount": {
+    "amount": "0,00 USD",
+    "amountUnformatted": "0.00",
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "0,00 USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": false,
+    "zeroAmount": true,
+    "isAmountInCents": false
+  },
+  "netAmount": {
+    "amount": "-29,98 USD",
+    "amountUnformatted": -29.98,
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "-29,98 USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": true,
+    "zeroAmount": false,
+    "isAmountInCents": false
+  },
+  "balanceAmount": {
+    "amount": "36.629,20 USD",
+    "amountUnformatted": "36629.20",
+    "currency": "USD",
+    "defaultCurrency": "USD",
+    "amountInDefaultCurrency": null,
+    "amountInSymbolCurrencyCode": "36.629,20 USD",
+    "amountInDefaultSymbolCurrencyCode": null,
+    "formatter": {
+      "language": "es-ES",
+      "country": "ES",
+      "metadata": {}
+    },
+    "amountInDefaultCurrencyUnformatted": null,
+    "negativeAmount": false,
+    "zeroAmount": false,
+    "isAmountInCents": false
+  },
+  "transactionNote": null,
+  "orderVoidPXP": true,
+  "NewNodeURL": true,
+  "proTransaction": false,
+  "redirectUrl": "/activity/payment/",
+  "fptiPageName": "main:businessweb:txns::main:txn-details:PAYMENT:PAYMENT:COMPLETED:DEBIT:nonEBAY:CHECKOUT:",
+  "alertTooltipMessages": [],
+  "infoTooltipMessages": [],
+  "errorTooltipMessages": [],
+  "transactionDescription": {
+    "description": "Compra a",
+    "name": "Udemy"
+  }
+}

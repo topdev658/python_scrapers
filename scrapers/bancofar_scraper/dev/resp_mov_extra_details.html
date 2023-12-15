@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Consulta de movimientos - Bancofar - </title>
+  <!--Nuevo js comun BEWEB-->
+  <script type="text/javascript">
+      try
+      {
+        document.domain="bancofar.es";//para poder hablar entre frames y el dominio de cep.ceca.es(tiene que estar en todos los frames)
+      }
+      catch( _ex )
+      {
+        if( "bancofar.es" == "bmn.es" )
+
+          document.domain="sanostra.es";
+      }
+    var rutaBEcontenido="https://be.bancofar.es";
+    var ruta_beweb_estatico="/6125";
+    var rutaCGI="https://be.bancofar.es/cgi-bin/INclient_6125";
+    var salto1004="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004&IDIOMA=01&OPERAC=9595&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+    var salto1004M="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004M&IDIOMA=01&OPERAC=9595&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+  </script>
+  <script src="/6125/js/comunBEWEB.js?jversion=20190829133350" type="text/javascript"></script>
+
+
+<meta name="description" content="P&aacute;gina que muestre el listado de movimientos de una cuenta seleccionada" />
+<meta name="autor" content=" Bancofar " />
+<meta name="keywords" content="Bancofar" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="/6125/css/contenido.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/6125/css/estilos_impresion.css" rel="stylesheet" type="text/css" media="print" />
+<script type="text/javascript">
+/* == PONERROR == */
+var pagina='D';
+if (pagina=="C")
+{
+  var codErrPagM='';
+  var txtErrPagM='';
+}
+/* == FIN PONERROR == */
+/*** PONAYUDA***/
+//titAyu-->titulo
+//txtAyu1-->1º texto
+//txtAyu2-->2º texto
+var txtAyu1="8401Ayu00";
+var txtAyu2="8401Ayu01";
+var titAyu="Mensaje de ayuda:";
+var litAyu1="Ayuda detalle de documento";
+var litAyu2="Texto de ayuda para el detalle de documento...";
+/***FIN PONAYUDA***/
+   var urlDevolucion = '/BEWeb/0125/6125/aoper9599_d_gb_gb9599.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon';
+var dedonde="";
+</script>
+<script src="/6125/js/9595.js?jversion=20190813130010" type="text/javascript"></script>
+</head>
+
+<body>
+  <!-- INICIO CONTENIDO -->
+  <div id="contenido">
+
+    <!-- INICIO CAB_CONTENIDO -->
+<!--CABECERA CONTENIDO-->
+<!--titulo = Título de la operación en la que estamos .8401DetRec. -->
+<!--ayuda  = Si va relleno muestra el icono de ayuda .. -->
+<!--impri  = Si va relleno muestra el icono de imprimir .Enlace que imprime la p&aacute;gina. -->
+<!--excel  = Si va relleno muestra el icono del excel .. -->
+<!--camino = .6125. -->
+
+
+<div class="indentado">
+  <a accesskey="1" href="#frame_contenido_1" title="Acceso directo al frame del contenido de la operaci&oacute;n">Ir al frame del contenido de la operaci&oacute;n</a>
+</div>
+
+<div id="logo_impresion">
+  <img src="/6125/img/logoBlanco.jpg?20150827" alt=""/>
+</div>
+
+  <!-- TITULO DE LA PÁGINA -->
+  <div class="tituloPagina">
+    <a name="frame_contenido_1" id="frame_contenido_1"></a>
+    <h2>Detalle de un documento</h2>
+
+      <div class="flotaDer no_imprimir">
+        <ul class="lista_iconos" id="lista_iconos">
+          <li><a href="#" id="aImpr"><img src="/6125/img/icoImprimir.gif" alt="Enlace que imprime la p&aacute;gina" /></a></li>
+        </ul>
+      </div>
+  </div>
+  <!-- FIN TITULO PÁGINA -->    <!-- FIN CAB_CONTENIDO -->
+
+    <!-- INICIO CONT_CONTENIDO -->
+    <div id="cont_contenido">
+
+      <div id="mens_error"></div>
+      <div id="txtAyuda"></div>
+
+      <p class="txtIzq mb11 mt2">Detalle del documento</p>
+
+      <form name="datos" method="post" action="/BEWeb/0125/6125/not9598_d_5838m.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon" enctype="application/x-www-form-urlencoded">
+    <input name="LLAMADA" id="LLAMADA" type="hidden" value="W15221W0E0C0X0C1A0A2" />
+    <input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+      <input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+    <input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+    <input name="OPERAC"  id="OPERAC"  type="hidden" value="9595" />
+    <input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+    <input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+      <input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+      <input type="hidden" name="NUMDOC" value="0006108470" />
+      <input type="hidden" name="IMPORTEFM" value="109,00" />
+      <input type="hidden" name="IMPORTE2" value="000000000010900" />
+      <input type="hidden" name="DEDONDE" value="9595" />
+      <input type="hidden" name="NUMDOCU" value="0006108470" />
+      <input type="hidden" name="TEXTO" value="CENFARTE                             SDD" />
+      <input type="hidden" name="SECUENCIA" value="009729" />
+      <input type="hidden" name="FECHMOVI" value="16092019" />
+
+        <!-- DETALLE DEL MOVIMIENTO -->
+        <div class="recuadro_bord_verde">
+
+          <!-- Datos del movimiento -->
+          <dl class="lista_datos clearfix">
+
+            <dt>N&uacute;mero documento:</dt>
+            <dd class="fArial">0006108470</dd>
+
+            <dt>Identificación del acreedor:</dt>
+            <dd class="fArial">ES93000A39000849                   </dd>
+
+            <dt>Nombre ordenante:</dt>
+            <dd>CENFARTE                                                              </dd>
+
+            <dt>Referencia del ordenante</dt>
+            <dd>F110000008                                                            </dd>
+
+            <dt>BIC Acreedor</dt>
+            <dd>CGDIESMM   </dd>
+
+            <dt>Nombre del deudor:</dt>
+            <dd>SANCHEZ MARCOS, NAVIDAD                                               </dd>
+
+            <dt>Importe:</dt>
+            <dd class="fArial">109,00</dd>
+
+            <dt>Estado:</dt>
+            <dd class="fArial">COBRADO/CARGADO EN CUENTA                                             </dd>
+
+            <dt>Fecha de Liquidación:</dt>
+            <dd class="fArial">16/09/2019</dd>
+
+            <dt>Fecha de Cargo:</dt>
+            <dd class="fArial">16/09/2019</dd>
+
+            <dt>Cuenta de cargo:</dt>
+            <dd class="fArial">000000012000745844</dd>
+
+            <dt>Fecha de Devolución</dt>
+            <dd class="fArial">-</dd>
+
+            <dt>Motivo devoluci&oacute;n:</dt>
+            <dd class="fArial">                                                                      </dd>
+
+
+
+          </dl>
+          <!-- Fin datos -->
+
+        </div>
+        <!-- FIN DETALLE -->
+
+        <!-- BOTONERA -->
+          <div class="botonera clearfix">
+          <div class="botonera_izq">
+<!-- BOTÓN TIPO IMAGEN
+**nombre  id del botón
+**titulo  title del botón
+**clase   clase del botón
+**lit    literal/texto del botón
+litind    literal indentado anterior
+litind2    literal indentado posterior -->
+
+
+
+<button id="volverCons" title="Volver a la p&aacute;gina de introducci&oacute;n de datos de la operaci&oacute;n" class="boton_volver" type="button"><span class="boton_verde"><span class="indentado"></span> Volver <span class="indentado">al paso anterior</span></span></button>          </div>
+
+          <div class="botonera_dcha">
+<!--BOTÓN TIPO VERDE-->
+<!--nombre = id del botón-->
+<!--titulo = title del botón-->
+<!--lit    = literal/texto del botón-->
+<!--spa1   = literal/texto complementario anterior al texto del botón-->
+<!--spa2   = literal/texto complementario posterior al texto del botón-->
+
+
+<button id="dupliRecibo" title="Generar duplicado del documento" type="button" class="boton_verde "><span class="fl w100"><span class="indentado"></span> Duplicado de documento <span class="indentado"></span></span></button><!--BOTÓN TIPO VERDE-->
+<!--nombre = id del botón-->
+<!--titulo = title del botón-->
+<!--lit    = literal/texto del botón-->
+<!--spa1   = literal/texto complementario anterior al texto del botón-->
+<!--spa2   = literal/texto complementario posterior al texto del botón-->
+
+
+<button id="devolRecibo" title="Devoluci&oacute;n del documento" type="button" class="boton_verde "><span class="fl w100"><span class="indentado"></span> Devoluci&oacute;n del documento <span class="indentado"></span></span></button>         </div>
+        </div>
+        <!-- FIN BOTONERA -->
+
+      </form>
+      <div class="oculto">
+        <form name="formVolverCons" method="post" action="/BEWeb/0125/6125/not8400_d_8401d.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon" enctype="application/x-www-form-urlencoded">
+    <input name="LLAMADA" id="LLAMADA" type="hidden" value="W15221W0E0C0X0C1A0A2" />
+    <input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+      <input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+    <input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+    <input name="OPERAC"  id="OPERAC"  type="hidden" value="9595" />
+    <input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+    <input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+<input type="hidden" name="FECHMOVI" value="16092019" />
+<input type="hidden" name="TEXTO" value="CENFARTE                             SDD" />
+<input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+<input type="hidden" name="NUMDOCU" value="0006108470" />
+<input type="hidden" name="SECUENCIA" value="009729" />
+        </form>
+        <form name="devolucion" method="post" action="/BEWeb/0125/6125/aoper9599_d_gb_gb9599.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon" enctype="application/x-www-form-urlencoded">
+    <input name="LLAMADA" id="LLAMADA" type="hidden" value="W15221W0E0C0X0C1A0A2" />
+    <input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+      <input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+    <input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+    <input name="OPERAC"  id="OPERAC"  type="hidden" value="9595" />
+    <input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+    <input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+          <input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+          <input type="hidden" name="NUMDOC" value="0006108470" />
+          <input type="hidden" name="IMPORTEFM" value="109,00" />
+          <input type="hidden" name="IMPORTE" value="000000000010900" />
+          <input type="hidden" name="DEDONDE" value="9595" />
+          <input type="hidden" name="NUMDOCU" value="0006108470" />
+          <input type="hidden" name="TEXTO" value="CENFARTE                             SDD" />
+          <input type="hidden" name="SECUENCIA" value="009729" />
+          <input type="hidden" name="FECHMOVI" value="16092019" />
+        </form>
+      </div>
+    </div>
+    <!-- FIN CONT_CONTENIDO -->
+
+<!-- MENU PIE DE PAGINA -->
+<div id="contMenuPie">
+  <div class="menuPie no_imprimir">
+    <ul>
+      <li class="borde"><a target="_blank" href="http://www.bancofar.es/atencion-al-cliente/" title="Muestra al usuario las distintas formas de ponerse en contacto con nosotros para cualquier cuesti&oacute;n">Atenci&oacute;n al cliente</a></li>
+      <li class="borde"><a href="/BEWeb/0125/6125/psmapa.action;jsessionid=Zk_KcQ86rACwDcFzxx2PHU0X.tlimon?OPERACION=psmapa&IDIOMA=01&OPERAC=9595&LLAMADA=W15221W0E0C0X0C1A0A2&CLIENTE=0125037428&CAJA=0125&CAMINO=6125" title="Muestra el &iacute;ndice de contenidos de la web">Mapa web</a></li>
+      <li class="borde"><a target="_blank" href="http://www.bancofar.es/tarifas/" title="Muestra la informaci&oacute;n de todas nuestras tarifas">Tarifas</a></li>
+      <li><a target="_blank" href="http://www.bancofar.es/aviso-legal/" title="Muestra la informaci&oacute;n legal de la web">Aviso legal</a></li>
+    </ul>
+  </div>
+</div>
+<!-- FIN MENU PIE -->
+  </div>
+  <!-- FIN CONTENIDO -->
+</body>
+</html>

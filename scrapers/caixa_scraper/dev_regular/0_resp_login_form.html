@@ -1,0 +1,787 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <title>CaixaBank | banca digital CaixaBankNow</title>
+    <LINK REL="shorcut icon" HREF="/favicon.ico">
+    <LINK REL="icon" HREF="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./css/estilos-login.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/lolopo/jquery-ui-1.10.4.custom.css"/>
+    <script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="./js/validacionURLs.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/jquery.colorbox.js"></script>
+
+    <script type="text/javascript" src="./js/loader_prelogin.js"></script>
+
+    <script type="text/javascript">
+
+        var a2 = 'elolgnp011600.jsp';
+
+        $(function() {
+
+            var body_element = $('body');
+            function assignTabPosition(focus_element,no_blur_element,previous_link) {
+                if (focus_element === true) {
+                    body_element.focus().blur();
+                } else if (focus_element) {
+                    if (previous_link === true) {
+                        $(".link_ocult").remove();
+
+
+
+                    } else {
+                        $(focus_element).focus();
+                        if (no_blur_element !== true) {
+                            $(focus_element).blur();
+                        }
+                    }
+                }
+            }
+            function toggleLanguageBar(button,list){
+                button.toggleClass("on");
+                button.attr('aria-expanded', function(_, attr) { return !(attr === 'true')});
+                list.toggle();
+            }
+
+            assignTabPosition(".btn_desplegable_idioma",false,true);
+            $(document).on('keyup', function (e) {
+                if(e.which === 27) {
+                    var parentWindow = parent.window;
+                    parentWindow.postMessage("lolopo_escape", "*");
+                }
+            });
+            body_element
+                .on('click', '#link_accesible', function (e) {
+
+
+                    $(
+                        [
+                            "#linkTecladoNormal",
+                            "#linkTecladoNormal2",
+                            "#introducirTecladoVirtual2",
+                            "#introducirPasswordVirtual",
+                            "#teclado_user",
+                            "#accesibleEnlace"
+                        ].join(",")
+                    ).css("display", "none");
+                    $(
+                        [
+                            ".clave",
+                            ".btn-submit"
+                        ].join(",")
+                    ).css("margin-top", "20px");
+
+                    $(".clave").find('input').removeAttr('readonly').removeAttr('tabindex');
+
+                    assignTabPosition('.btn_desplegable_idioma');
+                })
+                .on('click', '#linkTecladoNormal a', function (e) {
+                    e.preventDefault();
+
+                    var tmp = $( this ).attr("title");
+                    $( this ).attr("title",$( this ).attr("data-back"));
+                    $( this ).attr("data-back",tmp);
+                    $( this ).text( $( this ).attr("title") );
+                    if( $( this ).hasClass('active') ){
+                        $( this ).removeClass('active');
+
+                        $("#teclado_user").slideUp(500,function(){
+
+                            assignTabPosition("#linkTecladoNormal a",true);
+                        })
+                    }else {
+                        $(this).addClass('active');
+
+                        $("#teclado_user").slideDown(500, function () {
+
+                            assignTabPosition('#ID');
+                        });
+                    }
+                })
+                .on('click', '#linkTecladoNormal2 a', function (e) {
+                    e.preventDefault();
+
+                    var tmp = $( this ).attr("title");
+                    $( this ).attr("title",$( this ).attr("data-back"));
+                    $( this ).attr("data-back",tmp);
+                    $( this ).text( $( this ).attr("title") );
+                    var tmp1 = $( this ).attr("onclick");
+                    $( this ).attr("onclick",$( this ).attr("data-back-onclick"));
+                    $( this ).attr("data-back-onclick",tmp1);
+                    if( $( this ).hasClass('active') ){
+                        $( this ).removeClass('active');
+
+                        $("#introducirTecladoVirtual2").slideUp(500);
+                        $("#introducirPasswordVirtual").slideDown(500, function () {
+
+                            assignTabPosition('#pin1');
+                        });
+                    }else {
+                        $(this).addClass('active');
+
+                        $("#introducirPasswordVirtual").slideUp(500);
+                        $("#introducirTecladoVirtual2").slideDown(500, function () {
+
+                            assignTabPosition('#pin1');
+                        });
+                    }
+                })
+                .on('click', '.btn_desplegable_idioma', function (e) {
+                    e.preventDefault();
+                    var button = $(this);
+                    var list = $(this).next('.desplegable_idiomas');
+                    toggleLanguageBar(button,list);
+                })
+                .on('keyup', '.btn_desplegable_idioma', function (e) {
+                    $(
+                        [
+                            ".logo__caixa",
+                            ".logo__loterias"
+                        ].join(",")
+                    ).removeAttr("tabindex");
+                    if(e.which === 27){
+                        e.stopPropagation();
+                        var button = $(this);
+                        var list = $(this).next('.desplegable_idiomas');
+                        toggleLanguageBar(button,list);
+                    }
+                })
+                .on('click', '.desplegable_idiomas a', function (e) {
+                    var list = $(this).closest('.desplegable_idiomas');
+                    var button = list.prev('.btn_desplegable_idioma');
+                    list.find("a").removeClass("activo");
+                    button.text( $( this ).attr("data-txt") );
+                    $("#idioma").val( $( this ).attr("data-value") );
+                    $( this ).addClass("activo");
+                    toggleLanguageBar(button,list);
+                })
+                .on('keyup', '.desplegable_idiomas a', function (e) {
+                    if(e.which === 27){
+                        e.stopPropagation();
+                        var list = $(this).closest('.desplegable_idiomas');
+                        var button = list.prev('.btn_desplegable_idioma');
+                        toggleLanguageBar(button,list);
+                    }
+                })
+                .on('blur', '.desplegable_idiomas div:last-child a', function (e) {
+                    var list = $(this).closest('.desplegable_idiomas');
+                    var button = list.prev('.btn_desplegable_idioma');
+                    toggleLanguageBar(button,list);
+                });
+
+
+            $('[rel="tooltip"]').mouseover(function(e) {
+                var tip = $(this).attr('title');
+                $(this).attr('title','');
+                $(this).append('<div id="tooltip"><div class="tipBody">' + tip + '</div><div class="tipFooter"></div></div>');
+                $('#tooltip').fadeIn('500');
+                $('#tooltip').fadeTo('10',1);
+            }).mouseout(function() {
+                $(this).attr('title',$('.tipBody').html());
+                $(this).children('div#tooltip').remove();
+            });
+        });
+    </script>
+    <script>
+
+
+        var CBOX_close_REQ = '$.colorbox.close()', CBOX_close_RES = true;
+        function colorboxCloseResponse(){
+            var rootWindowTarget = parent.window;
+            rootWindowTarget.postMessage(CBOX_close_RES, "https://pinternet.caixabank.es");
+        }
+        function colorboxCloseEventListenner(){
+            $('.login').on("keydown", function(evt) {
+                if(evt.which == 27) {
+                    colorboxCloseResponse();
+                }
+            });
+        }
+        function dispatchMessages(evt){
+            if ( evt.origin == "https://pinternet.caixabank.es" && evt.data == CBOX_close_REQ ) {
+                colorboxCloseEventListenner();
+            }
+        }
+        function postMessageListenner(){
+            if (window.addEventListener) {
+
+                window.addEventListener("message", dispatchMessages, false);
+            }
+            else {
+                window.attachEvent("onmessage", dispatchMessages);
+            }
+        }
+        $(document).ready(function(){
+            postMessageListenner();
+        });
+    </script>
+</head>
+<body onload="arranque();">
+<FORM method="POST" name="LGN" target="_top" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603">
+    <INPUT TYPE="Hidden" name="FLAG_DEMO" value=0>
+    <INPUT TYPE="Hidden" name="FLAG_PART_EMPR" value="P">
+    <INPUT TYPE="Hidden" name="TIPUS_IDENT" value="2">
+    <INPUT TYPE="Hidden" name="D">
+    <INPUT TYPE="Hidden" name="E">
+    <INPUT TYPE="Hidden" name="PN" value="LGN">
+    <INPUT TYPE="Hidden" name="PE" value="8">
+    <INPUT TYPE="Hidden" name="FLAG_TECLAT" value="">
+    <INPUT TYPE="Hidden" name="FLAG_TIENE_CSS" value="">
+    <input type="Hidden" name="CLICK_ORIG" value="EIN_LGN_116">
+</FORM>
+<FORM method="POST" name="LGN_DEMO" target="_top" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603">
+    <INPUT TYPE="Hidden" name="FLAG_DEMO" value=1>
+    <INPUT TYPE="Hidden" name="FLAG_PART_EMPR" value="P">
+    <INPUT TYPE="Hidden" name="PN" value="LGN">
+    <INPUT TYPE="Hidden" name="PE" value="8">
+    <INPUT TYPE="Hidden" name="FLAG_TIENE_CSS" value="">
+    <input type="Hidden" name="CLICK_ORIG" value="EIN_LGN_116">
+</FORM>
+<FORM name="FEEDBACK" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603" method="post">
+    <INPUT TYPE="Hidden" name="A" value="">
+    <INPUT TYPE="Hidden" name="C" value="">
+    <INPUT TYPE="Hidden" name="D" value="">
+    <INPUT TYPE="Hidden" name="tmp" value="">
+</FORM>
+<FORM method="POST" name="LGN_IDIOMA" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603">
+    <INPUT TYPE="Hidden" name="IDIOMA" value="">
+    <INPUT TYPE="hidden" name="IDIOMA2" value="">
+    <INPUT TYPE="Hidden" name="PN" value="LGN">
+    <INPUT TYPE="Hidden" name="PE" value="21">
+    <input type="Hidden" name="CLICK_ORIG" value="EIN_LGN_116">
+    <input type="hidden" name="RED_TECLADO" value="S">
+    <INPUT TYPE="Hidden" name="LGN_PORTAL" value="S">
+</FORM>
+<form name="PETICION" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603" method="post">
+    <input type="hidden" name="PN" value="">
+    <input type="hidden" name="PE" value="">
+    <input type="Hidden" name="CLICK_ORIG" value="EIN_LGN_116">
+</form>
+<div class="login-new">
+    <div class="lfloat prel"><a aria-expanded=false class="ico-world escoger-idioma btn_desplegable_idioma" href="javascript:void(0)">Castellano</a><div class="desplegable_idiomas hide" style=""><div class=""><a href="#" title="Castellano" class="activo" data-value="Castellano" data-txt="Castellano" onclick="javascript:submit_idioma('02')">Castellano</a></div><div class=""><a href="#" title="Catal&agrave;" class="" data-value="Catal&agrave;" data-txt="Catal&agrave;" onclick="javascript:submit_idioma('01')">Catal&agrave;</a></div><div class=""><a href="#" title="Euskera" class="" data-value="Euskera" data-txt="Euskera" onclick="javascript:submit_idioma('10')">Euskera</a></div><div class=""><a href="#" title="Galego" class="" data-value="Galego" data-txt="Galego" onclick="javascript:submit_idioma('11')">Galego</a></div><div class=""><a href="#" title="Valencià" class="" data-value="Valencià" data-txt="Valencià" onclick="javascript:submit_idioma('06')">Valencià</a></div><div class=""><a href="#" title="ceština" class="" data-value="ceština" data-txt="ceština" onclick="javascript:submit_idioma('17')">ceština</a></div><div class=""><a href="#" title="Dansk" class="" data-value="Dansk" data-txt="Dansk" onclick="javascript:submit_idioma('18')">Dansk</a></div><div class=""><a href="#" title="Deutsch" class="" data-value="Deutsch" data-txt="Deutsch" onclick="javascript:submit_idioma('05')">Deutsch</a></div><div class=""><a href="#" title="English" class="" data-value="English" data-txt="English" onclick="javascript:submit_idioma('03')">English</a></div><div class=""><a href="#" title="Fran&ccedil;ais" class="" data-value="Fran&ccedil;ais" data-txt="Fran&ccedil;ais" onclick="javascript:submit_idioma('04')">Fran&ccedil;ais</a></div><div class=""><a href="#" title="Italiano" class="" data-value="Italiano" data-txt="Italiano" onclick="javascript:submit_idioma('13')">Italiano</a></div><div class=""><a href="#" title="Magyar" class="" data-value="Magyar" data-txt="Magyar" onclick="javascript:submit_idioma('22')">Magyar</a></div><div class=""><a href="#" title="Nederlands" class="" data-value="Nederlands" data-txt="Nederlands" onclick="javascript:submit_idioma('16')">Nederlands</a></div><div class=""><a href="#" title="Norsk" class="" data-value="Norsk" data-txt="Norsk" onclick="javascript:submit_idioma('26')">Norsk</a></div><div class=""><a href="#" title="Polski" class="" data-value="Polski" data-txt="Polski" onclick="javascript:submit_idioma('23')">Polski</a></div><div class=""><a href="#" title="Portugu&ecirc;s" class="" data-value="Portugu&ecirc;s" data-txt="Portugu&ecirc;s" onclick="javascript:submit_idioma('14')">Portugu&ecirc;s</a></div><div class=""><a href="#" title="Slovencina" class="" data-value="Slovencina" data-txt="Slovencina" onclick="javascript:submit_idioma('19')">Slovencina</a></div><div class=""><a href="#" title="Suomi" class="" data-value="Suomi" data-txt="Suomi" onclick="javascript:submit_idioma('20')">Suomi</a></div><div class=""><a href="#" title="Svenska" class="" data-value="Svenska" data-txt="Svenska" onclick="javascript:submit_idioma('15')">Svenska</a></div><div class=""><a href="#" title="Türkçe" class="" data-value="Türkçe" data-txt="Türkçe" onclick="javascript:submit_idioma('27')">Türkçe</a></div><div class=""><a href="#" title="ελληνικά" class="" data-value="ελληνικά" data-txt="ελληνικά" onclick="javascript:submit_idioma('21')">ελληνικά</a></div><div class=""><a href="#" title="русский" class="" data-value="русский" data-txt="русский" onclick="javascript:submit_idioma('25')">русский</a></div><div class=""><a href="#" title="中文" class="" data-value="中文" data-txt="中文" onclick="javascript:submit_idioma('99')">中文</a></div></div></div>
+    <div class="limpiar"></div>
+    <div class="mb20 overhidden">
+
+        <a class="dtable centrado">
+            <img src="../imatge/lolopo/candado.png" alt="" class="dtable centrado"/>
+        </a>
+        <h1 class="dtable centrado">Acceso seguro a CaixaBankNow</h1>
+
+    </div>
+    <div class="login">
+        <form name="INPUTS" onsubmit="return false" action="/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603" method="post">
+            <div class="usuario prel">
+                <div id="accesibleEnlace">
+                    <a href="javascript:cambiarTecladoAccesible();" id="link_accesible" title="Entrar de forma accesible">Entrar de forma accesible</a>
+                </div>
+                <label for="indentificacion">Identificación</label>
+                <input id="ID" name="ID" class="" type="text" value="" onkeypress="javascript:pulsaTeclaID();" maxlength="20" size="12"/>
+            </div>
+
+            <div id="capaErrorID" class="msg_error_form mt10 pd10" style="display:none;">
+
+            </div>
+            <div class="pinpad-wrapper" id="teclado_user" style="display:none;">
+                <div class="pinpad-component">
+                    <div id="destinoTecladoVirtual" class="pinpad alfanum"></div>
+                </div>
+            </div>
+            <div class="check-field prel">
+                <input id="recordar" type="checkbox" onkeydown="javascript:marcarCheck(event);" onclick="javascript:ayudaCheck();" value="recordar" name="recordar" title="recordar">
+                <label for="recordar">Guardar identificación</label>
+            </div>
+            <div id="linkTecladoNormal" class="rfloat teclado mt7 mb10">
+                <a 	class="trigger_teclado_user link prel"
+                      onclick="javascript:TraerContenidoQwertyPortal('/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?PN=LGN&PE=117','destinoTecladoVirtual');"
+                      href="javascript:void(0);"
+                      title="Utilizar teclado virtual"
+                      data-back="Ocultar teclado"
+                      data-back-onclick=""
+                      data-back-title="Ocultar teclado">
+                    Utilizar teclado virtual
+                </a>
+            </div>
+            <div class="limpiar"></div>
+            <div id="" class="clave">
+                <div style="float: left;"><label for="pin1">Nº Secreto (PIN 1)</label></div>
+                <div style="margin-left: 1em; float: left;"><a class="prel link" href="javaScript:submit_olvido();" title="Haz clic aquí para recuperar tu PIN1">¿Has olvidado tus claves de acceso?</a></div>
+                <input class="" name="pin1" id="pin1" size="12" maxlength="16"
+                       onkeydown="javascript:accederLOEnter(event); javascript:prohibidoPulsarTecla(event,'PW'); javascript:comprobarInputsStyle();"
+                       readonly="true" type="password"/>
+            </div>
+            <div id="capaErrorPW" class="msg_error_form mt10 pd10" style="display:none;">
+
+            </div>
+        </form>
+
+        <div class="pinpad-wrapper" id="introducirPasswordVirtual" style="display: none;">
+            <div class="pinpad-component">
+<span class="pinpad">
+<script>
+if(navigator['userAgent'].indexOf('iPad') > -1 || navigator['userAgent'].indexOf('iPhone') > -1) {
+    document.write("<div style='width: 500px;margin-left:110px;'><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(0,0);javascript:comprobarInputsStyle();'><img style='margin-left:0px;'    id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(1,0);javascript:comprobarInputsStyle();'><img style='margin-left:-54px;'  id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(2,0);javascript:comprobarInputsStyle();'><img style='margin-left:-108px;'  id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(3,0);javascript:comprobarInputsStyle();'><img style='margin-left:-162px;'  id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(4,0);javascript:comprobarInputsStyle();'><img style='margin-left:-216px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(5,0);javascript:comprobarInputsStyle();'><img style='margin-left:-270px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div></div><div style='width: 500px;margin-left:110px;'><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(6,0);javascript:comprobarInputsStyle();'><img style='margin-left:0px;margin-top:-53px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(7,0);javascript:comprobarInputsStyle();'><img style='margin-left:-54px;margin-top:-53px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(8,0);javascript:comprobarInputsStyle();'><img style='margin-left:-108px;margin-top:-53px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 54px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:pulsarImagen(9,0);javascript:comprobarInputsStyle();'><img style='margin-left:-162px;margin-top:-53px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div><div style='width: 108px;height: 54px;overflow: hidden;display: inline-block;' onclick='javascript:buttonDelPW();'><img style='margin-left:-216px;margin-top:-53px;' id='' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0'/></div></div><br>");
+} else {
+    document.write("<map name='mapa1'><area alt='Tecla' shape='RECT' coords='0,0,50,50' href='javascript:pulsarImagen(0,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='54,0,104,50' href='javascript:pulsarImagen(1,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='108,0,158,50' href='javascript:pulsarImagen(2,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='162,0,212,50' href='javascript:pulsarImagen(3,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='216,0,266,50' href='javascript:pulsarImagen(4,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='270,0,320,50' href='javascript:pulsarImagen(5,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='0,53,50,103' href='javascript:pulsarImagen(6,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='54,53,104,103' href='javascript:pulsarImagen(7,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='108,53,158,103' href='javascript:pulsarImagen(8,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='162,53,212,103' href='javascript:pulsarImagen(9,0);javascript:comprobarInputsStyle();'><area alt='Tecla' shape='RECT' coords='216,53,320,103' href='javascript:buttonDelPW();'></map><img id='tecladoPW' src='/jsp/eloautp000002.jsp;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?URI=T-90383568240145932201582653453824' border='0' alt='Teclado' name='Teclado' border='0' usemap='#mapa1'/>");
+}
+</script>
+</span>
+            </div>
+        </div>
+        <div class="pinpad-wrapper" id="introducirTecladoVirtual2" style="display:none">
+            <div class="pinpad-component">
+                <div id="destinoTecladoVirtual2" class="pinpad alfanum"></div>
+            </div>
+        </div>
+
+        <div id="linkTecladoNormal2" class="rfloat teclado mt7 mb10" >
+            <a 	href=""
+                  onclick=""
+                  class="trigger_teclado_pwd link"
+                  title="Mostrar teclado con letras"
+                  data-back="Mostrar teclado sencillo"
+                  data-back-onclick=""
+                  data-back-title="Mostrar teclado sencillo">
+                Mostrar teclado con letras
+            </a>
+        </div>
+        <div class="clear"></div>
+        <div class="limpiar"></div>
+        <a href="javascript:buttonAcep('normal');comprobarInputsStyle();" id="enlaceBotonAceptar" class="btn-submit">Entrar a CaixaBankNow</a>
+        <div class="limpiar"></div>
+        <ul class="links-footer">
+            <li><a target="_blank" href="http://portal.lacaixa.es/bancadistancia/comodarsedealta_es.html" title="Alta a CaixaBankNow">Alta a CaixaBankNow</a></li>
+            <li><a href="JavaScript:document.forms['LGN_DEMO'].submit();" title="Demostración">Demostración</a></li>
+            <li><a href="javascript:n_ventana(3);" title="Seguridad">Seguridad</a></li>
+            <li><a href="javascript:linkCandado('https://portal.lacaixa.es/tarjetas/caixaprotect_es.html');" title="CaixaBankProtect">CaixaBankProtect</a></li>
+        </ul>
+    </div>
+</div>
+<script src="./js/EloLgnB011000.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var PNAjuda="LGN";
+    var PEAjuda="141";
+    var tecladoCryp = new Array(10);
+    urlSha2="https://lox6.lacaixa.es/logo.gif";
+    flagSha2="N";
+    tecladoCryp[0] = "6";
+    tecladoCryp[1] = "B";
+    tecladoCryp[2] = "9";
+    tecladoCryp[3] = "0";
+    tecladoCryp[4] = "4";
+    tecladoCryp[5] = "1";
+    tecladoCryp[6] = "5";
+    tecladoCryp[7] = "C";
+    tecladoCryp[8] = "7";
+    tecladoCryp[9] = "E";
+    var tecladoCrypID = new Array(37);
+    tecladoCrypID[0] = "6";
+    tecladoCrypID[1] = "5";
+    tecladoCrypID[2] = "8";
+    tecladoCrypID[3] = "7";
+    tecladoCrypID[4] = "9";
+    tecladoCrypID[5] = "1";
+    tecladoCrypID[6] = "2";
+    tecladoCrypID[7] = "0";
+    tecladoCrypID[8] = "4";
+    tecladoCrypID[9] = "3";
+    tecladoCrypID[10] = "Q";
+    tecladoCrypID[11] = "W";
+    tecladoCrypID[12] = "E";
+    tecladoCrypID[13] = "R";
+    tecladoCrypID[14] = "T";
+    tecladoCrypID[15] = "Y";
+    tecladoCrypID[16] = "U";
+    tecladoCrypID[17] = "I";
+    tecladoCrypID[18] = "O";
+    tecladoCrypID[19] = "P";
+    tecladoCrypID[20] = "A";
+    tecladoCrypID[21] = "S";
+    tecladoCrypID[22] = "D";
+    tecladoCrypID[23] = "F";
+    tecladoCrypID[24] = "G";
+    tecladoCrypID[25] = "H";
+    tecladoCrypID[26] = "J";
+    tecladoCrypID[27] = "K";
+    tecladoCrypID[28] = "L";
+    tecladoCrypID[29] = "Ñ";
+    tecladoCrypID[30] = "Z";
+    tecladoCrypID[31] = "X";
+    tecladoCrypID[32] = "C";
+    tecladoCrypID[33] = "V";
+    tecladoCrypID[34] = "B";
+    tecladoCrypID[35] = "N";
+    tecladoCrypID[36] = "M";
+    tecladoCrypID[37] = "";
+    var tecladoCrypPass = new Array(37);
+    tecladoCrypPass[0] = "9";
+    tecladoCrypPass[1] = "6";
+    tecladoCrypPass[2] = "7";
+    tecladoCrypPass[3] = "2";
+    tecladoCrypPass[4] = "3";
+    tecladoCrypPass[5] = "0";
+    tecladoCrypPass[6] = "4";
+    tecladoCrypPass[7] = "5";
+    tecladoCrypPass[8] = "1";
+    tecladoCrypPass[9] = "8";
+    tecladoCrypPass[10] = "Q";
+    tecladoCrypPass[11] = "W";
+    tecladoCrypPass[12] = "E";
+    tecladoCrypPass[13] = "R";
+    tecladoCrypPass[14] = "T";
+    tecladoCrypPass[15] = "Y";
+    tecladoCrypPass[16] = "U";
+    tecladoCrypPass[17] = "I";
+    tecladoCrypPass[18] = "O";
+    tecladoCrypPass[19] = "P";
+    tecladoCrypPass[20] = "A";
+    tecladoCrypPass[21] = "S";
+    tecladoCrypPass[22] = "D";
+    tecladoCrypPass[23] = "F";
+    tecladoCrypPass[24] = "G";
+    tecladoCrypPass[25] = "H";
+    tecladoCrypPass[26] = "J";
+    tecladoCrypPass[27] = "K";
+    tecladoCrypPass[28] = "L";
+    tecladoCrypPass[29] = "Ñ";
+    tecladoCrypPass[30] = "Z";
+    tecladoCrypPass[31] = "X";
+    tecladoCrypPass[32] = "C";
+    tecladoCrypPass[33] = "V";
+    tecladoCrypPass[34] = "B";
+    tecladoCrypPass[35] = "N";
+    tecladoCrypPass[36] = "M";
+    tecladoCrypPass[37] = "";
+    isW3C = (document.getElementById && !document.all) ? 1 : 0;
+    isNS4 = (document.layers) ? 1 : 0;
+    var identificador = getCookie("LOiden");
+    var identifiAux = "";
+    if(identificador == null || identificador == ''){
+        identificador = "";
+    }else{
+        identificador = unescape(identificador);
+        identifiAux = unescape(identificador);
+    }
+    var acept=true;
+    var agt=navigator.userAgent.toLowerCase();
+    var appVer = navigator.appVersion.toLowerCase();
+    var is_mac = (agt.indexOf("mac")!=-1);
+    var iePos  = appVer.indexOf('msie');
+    if (iePos !=-1) {
+        if(is_mac) {
+            var iePos = agt.indexOf('msie');
+            is_minor = parseFloat(agt.substring(iePos+5,agt.indexOf(';',iePos)));
+        }
+        else is_minor = parseFloat(appVer.substring(iePos+5,appVer.indexOf(';',iePos)));
+        is_major = parseInt(is_minor);
+    }
+    var is_opera = (agt.indexOf("opera") != -1);
+    var is_safari = ((agt.indexOf('safari')!=-1)&&(agt.indexOf('mac')!=-1))?true:false;
+    var is_khtml  = (is_safari || is_konq);
+    var is_konq = false;
+    var kqPos   = agt.indexOf('konqueror');
+    if (kqPos !=-1) {
+        is_konq  = true;
+        is_minor = parseFloat(agt.substring(kqPos+10,agt.indexOf(';',kqPos)));
+        is_major = parseInt(is_minor);
+    }
+    var is_ie   = ((iePos!=-1) && (!is_opera) && (!is_khtml));
+    var ipoficines='0'
+    if ( ((navigator.appName=="Netscape")&&(parseFloat(navigator.appVersion)<=4.05)&&(ipoficines=='0'))||
+        ((navigator.appName=="Microsoft Internet Explorer")&&(parseFloat(navigator.appVersion)<4.00)) ) {
+        location.href="./html/elolgnh000202.html";
+    }
+    var d=document
+    var errors= new Array("","Se ha de rellenar el número secreto personal.","El número secreto personal solo puede contener números.","El número secreto personal ha de contener 4 cifras.","Su tarjeta no es operativa para este servicio.","Realizando la encriptación de los datos.","Introduzca <b>su Identificador</b>","﻿El campo identificador <b>no acepta letras, tan sólo acepta números</b>","El Número secreto personal tiene que tener <b>4 ó 6 números</b>","El Número secreto personal tiene que tener <b>4 ó 6 números</b>","El carácter '","' no es válido","<br>Puede utilizar los carácteres: 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, ç, d, e, f, g, h, i, j, k, l, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z.","﻿Introduzca <b>su Número secreto personal</b>","Pulse en el <b>teclado de la pantalla</b> su Número Secreto Personal","Introduzca la identificación <b>en mayúscula</b>")
+    NS4 = (document.layers) ? true : false
+    N6=(document.getElementById&&!document.all)?true : false
+    flagIdioma = "02"
+    flagBorsa = false;
+    flagPE = "P"
+    tit=(!flagBorsa)?'banca digital CaixaBankNow':'BrokerNow'
+
+    function submit_form(){
+        InicializaErrores();
+        with (document.forms["INPUTS"]){
+            var error = validar2(pin1,16)
+            if (error == false){
+                f=document.forms["FEEDBACK"]
+                lgn=document.forms["LGN"]
+                f.tmp.value = revertir('+', f);
+                with (document.forms["INPUTS"]){
+                    error = validateHere(ID,f.tmp,pin1,f.C,lgn.D,48,16)
+                    if (error == false){
+                        acept=false;
+                        lgn.E.value=ID.value
+                        window.status=errors[5]
+                        lgn.submit()
+                    }
+                }
+            }
+        }
+    }
+    function inicia(){
+        var tecladoC = getCookie("LOteclado");
+
+        window.name="login"
+        aux = "visible";
+        document.forms["LGN"].FLAG_TIENE_CSS.value = aux
+        document.forms["LGN_DEMO"].FLAG_TIENE_CSS.value = aux
+        with (document.forms["INPUTS"]){
+            ID.value=identificador;
+            pin1.value=""
+            if(identificador!=null && identificador!=''){
+                if(identifiAux!=null && identifiAux!=''){
+                    recordar.checked=true;
+                }
+            }
+        }
+        with (document.forms["FEEDBACK"]){
+            A.value='017DC1D19F6165CC'
+            C.value='001'
+            D.value='1333B0450441E120'
+        }
+        if(tecladoC!=null && tecladoC =='ext'){
+            TraerContenidoQwertyPortal('/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?PN=LGN&PE=118','destinoTecladoVirtual2');
+            document.getElementById("introducirTecladoVirtual2").style.display='block';
+            $(".trigger_teclado_pwd").attr("title","Mostrar teclado sencillo");
+            $(".trigger_teclado_pwd").attr("onclick","javascript:cambioTecladoNormalPinPortal();");
+            $(".trigger_teclado_pwd").attr("data-back","Mostrar teclado con letras");
+            $(".trigger_teclado_pwd").attr("data-back-title","Mostrar teclado con letras");
+            $(".trigger_teclado_pwd").attr("data-back-onclick","javascript:cambioTecladoVirtualPinPortal();");
+            $(".trigger_teclado_pwd").text("Mostrar teclado sencillo");
+            $(".trigger_teclado_pwd").attr("class","trigger_teclado_pwd link active");
+            cambioTecladoVirtualPinPortalInicio();
+        }else{
+            $(".trigger_teclado_pwd").attr("title","Mostrar teclado con letras");
+            $(".trigger_teclado_pwd").attr("onclick","javascript:cambioTecladoVirtualPinPortal();");
+            $(".trigger_teclado_pwd").attr("data-back","Mostrar teclado sencillo");
+            $(".trigger_teclado_pwd").attr("data-back-title","Mostrar teclado sencillo");
+            $(".trigger_teclado_pwd").attr("data-back-onclick","javascript:cambioTecladoNormalPinPortal();");
+            $(".trigger_teclado_pwd").text("Mostrar teclado con letras");
+            document.getElementById("introducirPasswordVirtual").style.display='block';
+        }
+
+
+
+
+
+
+
+
+
+
+
+    }
+    function info(){
+        remoto=window.open("https://portal.lacaixa.es/general/avisolegal_es.html","info","width=760,height=250,resizable=yes");
+        if (remoto.opener == null) remoto.opener = window;
+    }
+    function n_ventana(opc){
+
+        openW((flagPE=="E")?'https://portal.lacaixa.es/seguridad/seguridad_es.html':'https://portal.lacaixa.es/seguridad/seguridad_es.html','',750,400,1,1,1,1,0,1,1,1);
+        return void(null)
+    }
+    function ayudaCheck(){
+        if(document.forms["INPUTS"].recordar.checked == true){
+            ayuda();
+        }
+    }
+    function ayuda(){
+        remoto=window.open("https://portal.lacaixa.es/home/masinfololopo_es.html","","width=990,height=600,resizable=yes,scrollbars=yes");
+        if (remoto.opener == null) remoto.opener = window;
+    }
+    function gestionCookie(){
+        if(document.getElementById("recordar") != null){
+            if(document.getElementById("recordar").checked){
+
+                guardarCookie("LOiden",document.getElementById("ID").value,1000 * 60 * 60 * 24 * 365 * 10,"/",'.caixabank.es');
+            }else{
+                eliminarCookie("LOiden","/",'.caixabank.es');
+            }
+        }
+        if(acept) submit_form();
+    }
+
+    function accederLOEnter(evento)
+    {
+        var key = evento.keyCode || evento.which;
+        if (key == 13)
+        {
+            var valorHref = document.getElementById("enlaceBotonAceptar").href;
+            if (valorHref.indexOf("accesible") != -1)
+            {
+                buttonAcep('accesible');
+            }else
+            {
+                buttonAcep('normal');
+            }
+        }
+    }
+    function comprobarInputsStyle(){
+        if (document.getElementById("capaErrorID").style.display == 'none')
+        {
+            document.getElementById("ID").className='';
+        }else if (document.getElementById("capaErrorID").style.display == 'block'){
+            document.getElementById("ID").className='error';
+        }
+        if (document.getElementById("capaErrorPW").style.display == 'none')
+        {
+            document.getElementById("pin1").className='';
+        }else if (document.getElementById("capaErrorPW").style.display == 'block'){
+            document.getElementById("pin1").className='error';
+        }
+    }
+
+    function is_not_Whitelisted(tag, attribute)
+    {
+
+        if (($(tag).attr(attribute).match(/^http/) || $(tag).attr(attribute).match(/^\/\//)) &&
+
+            $(tag).attr(attribute).match(/^(?!http:\/\/portal.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc1.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc2.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc3.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc4.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc5.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc6.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc7.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc8.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/portal.lacaixa.es)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/empresa.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/www.lacaixa.com\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/www.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/caixabank.com)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/www.caixabank.com)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc9.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc10.lacaixa.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc1.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc2.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc3.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc4.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc5.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc6.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc7.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc8.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc9.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/loc10.caixabank.es\/)/) &&
+
+            $(tag).attr(attribute).match(/^(?!http:\/\/www.caixabank.es)/) &&
+
+            $(tag).attr(attribute).match(/^(?!https:\/\/www.caixabank.es)/))
+
+        {
+            return 1;
+        }
+        return 0;
+    }
+    function TraerContenidoQwertyPortal(datos,contenedor){
+        divResultado = document.getElementById(contenedor);
+        ajax=getXMLHttpRequest();
+        ajax.open("POST", datos);
+        ajax.setRequestHeader("Content-Type", "text/html;charset=UTF-8");
+        ajax.onreadystatechange=function(){
+            if(ajax.readyState==1){
+                divResultado.innerHTML="<img style='center' src='../imatge/ajax-loader_big.gif'/>"
+            }else if(ajax.readyState==4){
+                divResultado.innerHTML=ajax.responseText;
+            }
+        }
+        ajax.send(null)
+    }
+
+    function cambioTecladoNormalPinPortal(){
+        document.getElementById("pin1").setAttribute("readOnly", 'true');
+        document.getElementById("enlaceBotonAceptar").href="javascript:buttonAcep('normal');comprobarInputsStyle();";
+
+        document.forms["INPUTS"].pin1.value='';
+        eliminarCookie('LOteclado','/','.caixabank.es');
+    }
+
+    function cambioTecladoVirtualPinPortal(){
+
+        document.getElementById("pin1").removeAttribute("readOnly", true);
+        document.getElementById("enlaceBotonAceptar").href="javascript:buttonAcep('accesible');comprobarInputsStyle();";
+
+        document.forms["INPUTS"].pin1.value='';
+        TraerContenidoQwertyPortal('/GPeticiones;WebLogicSession=BMx9fzYAalc6-r0kEpc3i8HH__igJnf7sCT7OHMEiwNHVXvx1kXQ!2031402665!314953603?PN=LGN&PE=118','destinoTecladoVirtual2');
+        guardarCookie('LOteclado','ext',1000 * 60 * 60 * 24 * 365 * 10,'/','.caixabank.es');
+    }
+
+    function cambioTecladoVirtualPinPortalInicio(){
+
+        document.getElementById("pin1").removeAttribute("readOnly", true);
+        document.getElementById("enlaceBotonAceptar").href="javascript:buttonAcep('accesible');comprobarInputsStyle();";
+
+        document.forms["INPUTS"].pin1.value='';
+    }
+    function marcarCheck(evento){
+        var key = evento.keyCode || evento.which;
+        if (key == 13){
+            if(document.getElementById("recordar").checked == true){
+                document.getElementById("recordar").checked = false;
+            } else {
+                document.getElementById("recordar").checked = true;
+            }
+        }
+    }
+    function cambiarTecladoAccesible(){
+        $("#pin1").attr('readOnly', false);
+        $("#enlaceBotonAceptar").attr('href', "javascript:buttonAcep('accesible');comprobarInputsStyle();");
+        if (document.forms["INPUTS"].ID.value.length < 21)
+        {
+            aux = document.forms["INPUTS"].ID.value;
+        }
+        document.forms["INPUTS"].ID.value= aux;
+        if(document.forms["INPUTS"].ID.value=='')
+        {
+            if(document.getElementById("recordar") != null)
+            {
+                document.getElementById("recordar").checked = false;
+            }
+        }
+
+        document.forms["INPUTS"].pin1.value='';
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+VB:
+BancoCaminos API doesn't provide N43 download possibility.
+Meantime, Bancofar uses both: BancoCaminos and Ruralvia APIs.
+It uses BancoCaminos API to log in, and then logs into Ruralvia backend and provides that UI.
+
+To download N43, the scraper must log into Ruralvia backend and then use its functionality.
+

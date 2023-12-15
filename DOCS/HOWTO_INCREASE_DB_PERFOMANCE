@@ -1,0 +1,2052 @@
+`
+# 'named' part of the code will be used in text below
+# this part can optimized
+MOV_FILTER = """
+...
+db_funcs.add_movements_if_not_exist
+
+IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '{OperationalDate}'
+                        AND [ValueDate] = '{ValueDate}'
+                        AND [Amount]= {Amount}
+                        AND [TempBalance] = {TempBalance}
+                        AND [OperationalDatePosition] = {OperationalDatePosition}
+                        AND [AccountId] = @AccountId)
+
+                BEGIN
+...
+"""
+`
+
+The problem occur when there are ACCOUNT DUPLICATE IN AN ACCESS (in different contracts)
+or ACCOUNT DUPLICATE IN DIFFERENT USER ACCESSES
+that's why we check each movement in sql request in locking operation and it affects db perfomance
+
+also, we always cover existing movements in the db (at least, to scrape all movements of the current date), so
+it is impossible to skip this `MOV_FILTER` (the named code above) and we should try to make it more quickly
+
+use KeyValue index
+1. fill KeyValue field for all movements
+2. build index for KeyValue field
+3. filter by KeyValue only in db_funcs.add_movements_if_not_exist (need to update the code)
+
+
+thought about other strategies
+1. detect duplicated account and skip updating during the current sraping
+    -   it is possible by the db query like 'get last movements updating finished datetime'
+        and if it was finished, let say, a minute ago, skip the the uploading,
+        because, obviously, we just uploaded the movements during processing the
+        duplicate of the current account
+
+2. increase number of movements batch and check the difference
+3. decrease number of movements batch and check the difference
+4. create stored procedures for all queries to decrease sizes of the queries (in letters) because they are pretty large
+5. to allow UI interact with the DB during the updating, add handler for UI-caller to handle "DB deadlock" error
+
+
+BUILD UNIQUE INDEXES
+get_accounts
+set_accounts_scraping_in_progress
+    dbo._TesoraliaAccounts ON CustomerFinancialEntityAccessId
+
+set_accounts_possible_inactive
+    dbo._TesoraliaAccounts ON FinancialEntityAccountId
+
+add_accounts_and_organiz_or_update
+    dbo._TesoraliaOrganizations ON (NameOriginal, CustomerId)
+    dbo._TesoraliaAccounts ON (FinancialEntityAccountId, CustomerId)
+
+update_acc_set_mov_scrap_fin
+    dbo._TesoraliaAccounts ON Id (todo: get it once and then use it)
+
+
+add_movements_if_not_exist
+    dbo._TesoraliaAccounts ON (FinancialEntityAccountId, CustomerId)
+    dbo._TesoraliaStatements ON (OperationalDate, ValueDate, Amount, TempBalance, OperationalDatePosition, AccountId)
+    dbo._TesoraliaStatements ON (KeyValue, AccountId) <- use this in query
+DONE: use KeyValue + AccountId in WHERE statements to increase speed
+
+
+delete_movs_since_date
+delete_movs_after_id
+get_last_movement_of_account
+get_first_movement_of_account
+get_last_movement_of_previous_date
+    dbo._TesoraliaAccounts ON (FinancialEntityAccountId, CustomerId)
+    dbo._TesoraliaStatements ON AccountId
+    dbo._TesoraliaStatements ON OperationDate
+    dbo._TesoraliaStatements ON Id
+
+
+replace everywhere:
+            WHERE
+                FinancialEntityAccountId = '{FinancialEntityAccountId}' AND
+                CustomerId = {CustomerId};
+to @AccountId if there are several such selectin a query
+
+
+
+total 600k Movs
+FinancialEntityAccountId = '9115732413' AND
+                CustomerId = 97716;
+
+movs since 2018-06-05
+
+No KeyValue
+0 rows
+completed in 374 ms
+completed in 418 ms
+completed in 378 ms
+
+
+31 rows affected in 374 ms
+31 rows affected in 428 ms
+31 rows affected in 437 ms
+
+
+KeyValue
+
+INSERT MOV
+
+0 rows
+285 ms
+292 ms
+300 ms
+
+31 rows
+31 rows affected in 362 ms
+31 rows affected in 344 ms
+31 rows affected in 354 ms
+
+
+=== OLD QUERY ===
+
+DECLARE @AccountId BIGINT;
+            SELECT @AccountId = Id
+            FROM dbo._TesoraliaAccounts
+            WITH (NOLOCK)
+            WHERE
+                FinancialEntityAccountId = '9115732413' AND
+                CustomerId = 97716;
+
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180605'
+                        AND [ValueDate] = '20180605'
+                        AND [Amount]= 33500.0
+                        AND [TempBalance] = 34506.72
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180605',
+                        '1',
+                        '20180605',
+                        'OP.NET TRF AYU KUTXA-INKONUR SSG',
+                        33500.0,
+                        34506.72,
+                        @AccountId,
+                        '0a43db3d8d97bb7315eafacafc4ecb93df2cb1013639d5c15456cff4e96a6562',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180605'
+                        AND [ValueDate] = '20180605'
+                        AND [Amount]= -33523.06
+                        AND [TempBalance] = 983.66
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180605',
+                        '2',
+                        '20180605',
+                        'CARGO SU ORDEN ABONO',
+                        -33523.06,
+                        983.66,
+                        @AccountId,
+                        '8bd9f17d1d55881747c928c582cd5f518307d4c66147f11fb86b1ce727d15d1f',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180618'
+                        AND [ValueDate] = '20180618'
+                        AND [Amount]= -559.02
+                        AND [TempBalance] = 424.64
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180618',
+                        '1',
+                        '20180618',
+                        'RECIBO TESORALIA, S.L.',
+                        -559.02,
+                        424.64,
+                        @AccountId,
+                        '36b038b3819fb3c7e769912868edf88d57b3ac8281430d23c7648bd9c3241d14',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180620'
+                        AND [ValueDate] = '20180619'
+                        AND [Amount]= 0.0
+                        AND [TempBalance] = 424.64
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180620',
+                        '1',
+                        '20180619',
+                        'LIQ. DE INT.HASTA 19.06.18',
+                        0.0,
+                        424.64,
+                        @AccountId,
+                        'ad62484dff0a582db64059df327bbb1caffe55ab6d9dc7aafa33f5f95b44fa62',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180622'
+                        AND [ValueDate] = '20180622'
+                        AND [Amount]= 11000.0
+                        AND [TempBalance] = 11424.64
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180622',
+                        '1',
+                        '20180622',
+                        'TRF.TARGET DE ALTUNA Y URIA, S.A.',
+                        11000.0,
+                        11424.64,
+                        @AccountId,
+                        '0943eee4d6a5692cf4d737a117e3500adb0628e8cad7feaa061bac4b99f1bea5',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -1792.52
+                        AND [TempBalance] = 9632.12
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '1',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1792.52,
+                        9632.12,
+                        @AccountId,
+                        '3eca8e9a04317f3a9548187fb856422cebbffe601d85c7285ba6917ada3d242d',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -2303.6
+                        AND [TempBalance] = 7328.52
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '2',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -2303.6,
+                        7328.52,
+                        @AccountId,
+                        '8c0e4cca7fe97cb5ffecb1a468f660978d7d96ac683334df2feee85ddbef0f29',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -1110.97
+                        AND [TempBalance] = 6217.55
+                        AND [OperationalDatePosition] = 3
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '3',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1110.97,
+                        6217.55,
+                        @AccountId,
+                        '5746d0f6451fd85d55bf522aae763f4bc81bdb40c18e9fc688f2ee305fbc1c50',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -1872.11
+                        AND [TempBalance] = 4345.44
+                        AND [OperationalDatePosition] = 4
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '4',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1872.11,
+                        4345.44,
+                        @AccountId,
+                        '2ee59bd25cffe7e507703606dad7d6528b1c629578cedf58dfed155b7c1f512b',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -1462.71
+                        AND [TempBalance] = 2882.73
+                        AND [OperationalDatePosition] = 5
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '5',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1462.71,
+                        2882.73,
+                        @AccountId,
+                        '7eca61ee965b276b7a58d9c1ff7ef9bd82f3bda4c71084a43c9ecf8f41693af7',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180625'
+                        AND [ValueDate] = '20180625'
+                        AND [Amount]= -1943.53
+                        AND [TempBalance] = 939.2
+                        AND [OperationalDatePosition] = 6
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '6',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1943.53,
+                        939.2,
+                        @AccountId,
+                        'ab8ca1de8394b57a9c079ee256342102dbbd1d1ab14948e8b139cc391ecdbbfe',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180705'
+                        AND [ValueDate] = '20180705'
+                        AND [Amount]= 33000.0
+                        AND [TempBalance] = 33939.2
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180705',
+                        '1',
+                        '20180705',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        33000.0,
+                        33939.2,
+                        @AccountId,
+                        'acc1efaded70014d8260a617b3c87e027585dcef5f432e081abb80100fbc643f',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180705'
+                        AND [ValueDate] = '20180705'
+                        AND [Amount]= -33526.71
+                        AND [TempBalance] = 412.49
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180705',
+                        '2',
+                        '20180705',
+                        'CARGO SU ORDEN ABONO',
+                        -33526.71,
+                        412.49,
+                        @AccountId,
+                        '617dc04091b071bbf8aee4abbde94396064184fd8c40d54816a9f263117216c7',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180717'
+                        AND [ValueDate] = '20180717'
+                        AND [Amount]= -217.8
+                        AND [TempBalance] = 194.69
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180717',
+                        '1',
+                        '20180717',
+                        'TRANSF. 0128 FRA V1802/042 IGN',
+                        -217.8,
+                        194.69,
+                        @AccountId,
+                        'b3642ec14e99b57082bb2a6584738470504e2eb920878c0b5a7dc2101b91b6cb',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180717'
+                        AND [ValueDate] = '20180717'
+                        AND [Amount]= -2.25
+                        AND [TempBalance] = 192.44
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180717',
+                        '2',
+                        '20180717',
+                        'GASTOS TRANSFERENCIA',
+                        -2.25,
+                        192.44,
+                        @AccountId,
+                        '61a3badeef37763f8f06d944eecc3ca40170b04ff883be2c4455b6bba8b3c318',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180718'
+                        AND [ValueDate] = '20180718'
+                        AND [Amount]= -559.02
+                        AND [TempBalance] = -366.58
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '1',
+                        '20180718',
+                        'RECIBO TESORALIA, S.L.',
+                        -559.02,
+                        -366.58,
+                        @AccountId,
+                        'ec76c8076c04677553d244e4165b9e7689c855c9623256430011df50db30e7fb',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180718'
+                        AND [ValueDate] = '20180718'
+                        AND [Amount]= 500.0
+                        AND [TempBalance] = 133.42
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '2',
+                        '20180718',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        500.0,
+                        133.42,
+                        @AccountId,
+                        'dc449882a5578bee13efa48d80e91ebc5f31aaa799bd37b457acbdfff8a8ad96',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180718'
+                        AND [ValueDate] = '20180718'
+                        AND [Amount]= -12.0
+                        AND [TempBalance] = 121.42
+                        AND [OperationalDatePosition] = 3
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '3',
+                        '20180718',
+                        'COMISION MANTENIM.CUENTA',
+                        -12.0,
+                        121.42,
+                        @AccountId,
+                        '9de67a2395d3b9d7f2ba95fff2401803f8452f3899b41652af1216158ff8c0bb',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180719'
+                        AND [ValueDate] = '20180719'
+                        AND [Amount]= 30800.0
+                        AND [TempBalance] = 30921.42
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '1',
+                        '20180719',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        30800.0,
+                        30921.42,
+                        @AccountId,
+                        '35d09294e639947a1ffb93237f38ac5bb9e01162f6cb32bede016ab2b84b3fdc',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180719'
+                        AND [ValueDate] = '20180719'
+                        AND [Amount]= -30758.81
+                        AND [TempBalance] = 162.61
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '2',
+                        '20180719',
+                        'CARGO SU ORDEN ABONO',
+                        -30758.81,
+                        162.61,
+                        @AccountId,
+                        'cc620a15608431f14dc9ab5ee3e7fffdc7e864b2d8f08d3b58583968f0951503',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180719'
+                        AND [ValueDate] = '20180719'
+                        AND [Amount]= -89.42
+                        AND [TempBalance] = 73.19
+                        AND [OperationalDatePosition] = 3
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '3',
+                        '20180719',
+                        'TRANSF. 0049 FRAS IBERDROLA ERIKA',
+                        -89.42,
+                        73.19,
+                        @AccountId,
+                        'caa713a0a5a3b09a97d9bdea26e31d830d67e0ff942b88313bb3d79387f7b258',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180719'
+                        AND [ValueDate] = '20180719'
+                        AND [Amount]= -2.25
+                        AND [TempBalance] = 70.94
+                        AND [OperationalDatePosition] = 4
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '4',
+                        '20180719',
+                        'GASTOS TRANSFERENCIA',
+                        -2.25,
+                        70.94,
+                        @AccountId,
+                        'e8392c6ed5a082deeda42f5ed32a215f7c4e59ed780336acd895c891c977b42b',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180720'
+                        AND [ValueDate] = '20180719'
+                        AND [Amount]= 0.0
+                        AND [TempBalance] = 70.94
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180720',
+                        '1',
+                        '20180719',
+                        'LIQ. DE INT.HASTA 19.07.18',
+                        0.0,
+                        70.94,
+                        @AccountId,
+                        'f486b5d7ad0986ee45ab28072fd63ca91c79e806bec3e50e7d25a4744f77b777',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180724'
+                        AND [ValueDate] = '20180724'
+                        AND [Amount]= 12000.0
+                        AND [TempBalance] = 12070.94
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180724',
+                        '1',
+                        '20180724',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        12000.0,
+                        12070.94,
+                        @AccountId,
+                        'a380d1c07323cae1c001d9dfc53f4c71721b83789860495b024a2700480f5e48',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -1798.01
+                        AND [TempBalance] = 10272.93
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '1',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1798.01,
+                        10272.93,
+                        @AccountId,
+                        '389a3006214a04f1b88ce542d092c3c59c08bdf1201bb0398abc0f90777c5a38',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -2310.06
+                        AND [TempBalance] = 7962.87
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '2',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -2310.06,
+                        7962.87,
+                        @AccountId,
+                        '41e31c630757a7dac164d00565ce0d54fb6aa812aa0588aefc9c224e2b2d81fb',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -1877.6
+                        AND [TempBalance] = 6085.27
+                        AND [OperationalDatePosition] = 3
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '3',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1877.6,
+                        6085.27,
+                        @AccountId,
+                        'f7a4059994ca2a2ba500965409273629aebda6c80c17966a3bbea49d3901651a',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -1114.31
+                        AND [TempBalance] = 4970.96
+                        AND [OperationalDatePosition] = 4
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '4',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1114.31,
+                        4970.96,
+                        @AccountId,
+                        '02df9c76430de6bb4230a62d7f84cb4c3b529a5b2eb423ce18bcd711232f7279',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -1466.95
+                        AND [TempBalance] = 3504.01
+                        AND [OperationalDatePosition] = 5
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '5',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1466.95,
+                        3504.01,
+                        @AccountId,
+                        '88b5cc9ab6c4b9189672d46f03f100e56942a20303b7769475749e49f1d721aa',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180725'
+                        AND [ValueDate] = '20180725'
+                        AND [Amount]= -1949.32
+                        AND [TempBalance] = 1554.69
+                        AND [OperationalDatePosition] = 6
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '6',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1949.32,
+                        1554.69,
+                        @AccountId,
+                        'bc256e7bd3b711714fd23a2c52ac2157d3cb68e61851e504a9978a20b61e974f',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180727'
+                        AND [ValueDate] = '20180727'
+                        AND [Amount]= 15000.0
+                        AND [TempBalance] = 16554.69
+                        AND [OperationalDatePosition] = 1
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '1',
+                        '20180727',
+                        'TRANSF. INKONUR SERVICIOS GENERAL',
+                        15000.0,
+                        16554.69,
+                        @AccountId,
+                        '03a973cff30cbb92fa3eecd5b82b0f956ac343baeb04558c630fae9907840881',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180727'
+                        AND [ValueDate] = '20180727'
+                        AND [Amount]= 14000.0
+                        AND [TempBalance] = 30554.69
+                        AND [OperationalDatePosition] = 2
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '2',
+                        '20180727',
+                        'TRANSF. INKONUR SERVICIOS GENERAL',
+                        14000.0,
+                        30554.69,
+                        @AccountId,
+                        '37b21b65edb33c3f282f98588eb61dfeffc4ce187091b7a46ae49da0bec14fc2',
+                        '20180804 15:41:53.908')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [OperationalDate] = '20180727'
+                        AND [ValueDate] = '20180726'
+                        AND [Amount]= -30000.0
+                        AND [TempBalance] = 554.69
+                        AND [OperationalDatePosition] = 3
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '3',
+                        '20180726',
+                        'APLAZAM PAGO INIC',
+                        -30000.0,
+                        554.69,
+                        @AccountId,
+                        '51f4da1983bfb59094aa2294795af7b6eb54cb839d8debb662024939c8bdd6c4',
+                        '20180804 15:41:53.908')
+                END;
+
+=== NEW QUERY ===
+
+DECLARE @AccountId BIGINT;
+            SELECT @AccountId = Id
+            FROM dbo._TesoraliaAccounts
+            WITH (NOLOCK)
+            WHERE
+                FinancialEntityAccountId = '9115732413' AND
+                CustomerId = 97716;
+
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '0a43db3d8d97bb7315eafacafc4ecb93df2cb1013639d5c15456cff4e96a6562'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180605',
+                        '1',
+                        '20180605',
+                        'OP.NET TRF AYU KUTXA-INKONUR SSG',
+                        33500.0,
+                        34506.72,
+                        @AccountId,
+                        '0a43db3d8d97bb7315eafacafc4ecb93df2cb1013639d5c15456cff4e96a6562',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '8bd9f17d1d55881747c928c582cd5f518307d4c66147f11fb86b1ce727d15d1f'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180605',
+                        '2',
+                        '20180605',
+                        'CARGO SU ORDEN ABONO',
+                        -33523.06,
+                        983.66,
+                        @AccountId,
+                        '8bd9f17d1d55881747c928c582cd5f518307d4c66147f11fb86b1ce727d15d1f',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '36b038b3819fb3c7e769912868edf88d57b3ac8281430d23c7648bd9c3241d14'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180618',
+                        '1',
+                        '20180618',
+                        'RECIBO TESORALIA, S.L.',
+                        -559.02,
+                        424.64,
+                        @AccountId,
+                        '36b038b3819fb3c7e769912868edf88d57b3ac8281430d23c7648bd9c3241d14',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'ad62484dff0a582db64059df327bbb1caffe55ab6d9dc7aafa33f5f95b44fa62'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180620',
+                        '1',
+                        '20180619',
+                        'LIQ. DE INT.HASTA 19.06.18',
+                        0.0,
+                        424.64,
+                        @AccountId,
+                        'ad62484dff0a582db64059df327bbb1caffe55ab6d9dc7aafa33f5f95b44fa62',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '0943eee4d6a5692cf4d737a117e3500adb0628e8cad7feaa061bac4b99f1bea5'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180622',
+                        '1',
+                        '20180622',
+                        'TRF.TARGET DE ALTUNA Y URIA, S.A.',
+                        11000.0,
+                        11424.64,
+                        @AccountId,
+                        '0943eee4d6a5692cf4d737a117e3500adb0628e8cad7feaa061bac4b99f1bea5',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '3eca8e9a04317f3a9548187fb856422cebbffe601d85c7285ba6917ada3d242d'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '1',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1792.52,
+                        9632.12,
+                        @AccountId,
+                        '3eca8e9a04317f3a9548187fb856422cebbffe601d85c7285ba6917ada3d242d',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '8c0e4cca7fe97cb5ffecb1a468f660978d7d96ac683334df2feee85ddbef0f29'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '2',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -2303.6,
+                        7328.52,
+                        @AccountId,
+                        '8c0e4cca7fe97cb5ffecb1a468f660978d7d96ac683334df2feee85ddbef0f29',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '5746d0f6451fd85d55bf522aae763f4bc81bdb40c18e9fc688f2ee305fbc1c50'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '3',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1110.97,
+                        6217.55,
+                        @AccountId,
+                        '5746d0f6451fd85d55bf522aae763f4bc81bdb40c18e9fc688f2ee305fbc1c50',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '2ee59bd25cffe7e507703606dad7d6528b1c629578cedf58dfed155b7c1f512b'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '4',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1872.11,
+                        4345.44,
+                        @AccountId,
+                        '2ee59bd25cffe7e507703606dad7d6528b1c629578cedf58dfed155b7c1f512b',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '7eca61ee965b276b7a58d9c1ff7ef9bd82f3bda4c71084a43c9ecf8f41693af7'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '5',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1462.71,
+                        2882.73,
+                        @AccountId,
+                        '7eca61ee965b276b7a58d9c1ff7ef9bd82f3bda4c71084a43c9ecf8f41693af7',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'ab8ca1de8394b57a9c079ee256342102dbbd1d1ab14948e8b139cc391ecdbbfe'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180625',
+                        '6',
+                        '20180625',
+                        'DFG APLAZAMIENTOS',
+                        -1943.53,
+                        939.2,
+                        @AccountId,
+                        'ab8ca1de8394b57a9c079ee256342102dbbd1d1ab14948e8b139cc391ecdbbfe',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'acc1efaded70014d8260a617b3c87e027585dcef5f432e081abb80100fbc643f'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180705',
+                        '1',
+                        '20180705',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        33000.0,
+                        33939.2,
+                        @AccountId,
+                        'acc1efaded70014d8260a617b3c87e027585dcef5f432e081abb80100fbc643f',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '617dc04091b071bbf8aee4abbde94396064184fd8c40d54816a9f263117216c7'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180705',
+                        '2',
+                        '20180705',
+                        'CARGO SU ORDEN ABONO',
+                        -33526.71,
+                        412.49,
+                        @AccountId,
+                        '617dc04091b071bbf8aee4abbde94396064184fd8c40d54816a9f263117216c7',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'b3642ec14e99b57082bb2a6584738470504e2eb920878c0b5a7dc2101b91b6cb'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180717',
+                        '1',
+                        '20180717',
+                        'TRANSF. 0128 FRA V1802/042 IGN',
+                        -217.8,
+                        194.69,
+                        @AccountId,
+                        'b3642ec14e99b57082bb2a6584738470504e2eb920878c0b5a7dc2101b91b6cb',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '61a3badeef37763f8f06d944eecc3ca40170b04ff883be2c4455b6bba8b3c318'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180717',
+                        '2',
+                        '20180717',
+                        'GASTOS TRANSFERENCIA',
+                        -2.25,
+                        192.44,
+                        @AccountId,
+                        '61a3badeef37763f8f06d944eecc3ca40170b04ff883be2c4455b6bba8b3c318',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'ec76c8076c04677553d244e4165b9e7689c855c9623256430011df50db30e7fb'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '1',
+                        '20180718',
+                        'RECIBO TESORALIA, S.L.',
+                        -559.02,
+                        -366.58,
+                        @AccountId,
+                        'ec76c8076c04677553d244e4165b9e7689c855c9623256430011df50db30e7fb',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'dc449882a5578bee13efa48d80e91ebc5f31aaa799bd37b457acbdfff8a8ad96'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '2',
+                        '20180718',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        500.0,
+                        133.42,
+                        @AccountId,
+                        'dc449882a5578bee13efa48d80e91ebc5f31aaa799bd37b457acbdfff8a8ad96',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '9de67a2395d3b9d7f2ba95fff2401803f8452f3899b41652af1216158ff8c0bb'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180718',
+                        '3',
+                        '20180718',
+                        'COMISION MANTENIM.CUENTA',
+                        -12.0,
+                        121.42,
+                        @AccountId,
+                        '9de67a2395d3b9d7f2ba95fff2401803f8452f3899b41652af1216158ff8c0bb',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '35d09294e639947a1ffb93237f38ac5bb9e01162f6cb32bede016ab2b84b3fdc'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '1',
+                        '20180719',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        30800.0,
+                        30921.42,
+                        @AccountId,
+                        '35d09294e639947a1ffb93237f38ac5bb9e01162f6cb32bede016ab2b84b3fdc',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'cc620a15608431f14dc9ab5ee3e7fffdc7e864b2d8f08d3b58583968f0951503'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '2',
+                        '20180719',
+                        'CARGO SU ORDEN ABONO',
+                        -30758.81,
+                        162.61,
+                        @AccountId,
+                        'cc620a15608431f14dc9ab5ee3e7fffdc7e864b2d8f08d3b58583968f0951503',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'caa713a0a5a3b09a97d9bdea26e31d830d67e0ff942b88313bb3d79387f7b258'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '3',
+                        '20180719',
+                        'TRANSF. 0049 FRAS IBERDROLA ERIKA',
+                        -89.42,
+                        73.19,
+                        @AccountId,
+                        'caa713a0a5a3b09a97d9bdea26e31d830d67e0ff942b88313bb3d79387f7b258',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'e8392c6ed5a082deeda42f5ed32a215f7c4e59ed780336acd895c891c977b42b'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180719',
+                        '4',
+                        '20180719',
+                        'GASTOS TRANSFERENCIA',
+                        -2.25,
+                        70.94,
+                        @AccountId,
+                        'e8392c6ed5a082deeda42f5ed32a215f7c4e59ed780336acd895c891c977b42b',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'f486b5d7ad0986ee45ab28072fd63ca91c79e806bec3e50e7d25a4744f77b777'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180720',
+                        '1',
+                        '20180719',
+                        'LIQ. DE INT.HASTA 19.07.18',
+                        0.0,
+                        70.94,
+                        @AccountId,
+                        'f486b5d7ad0986ee45ab28072fd63ca91c79e806bec3e50e7d25a4744f77b777',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'a380d1c07323cae1c001d9dfc53f4c71721b83789860495b024a2700480f5e48'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180724',
+                        '1',
+                        '20180724',
+                        'OP.NET TRF AYU-INKONUR SSGG',
+                        12000.0,
+                        12070.94,
+                        @AccountId,
+                        'a380d1c07323cae1c001d9dfc53f4c71721b83789860495b024a2700480f5e48',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '389a3006214a04f1b88ce542d092c3c59c08bdf1201bb0398abc0f90777c5a38'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '1',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1798.01,
+                        10272.93,
+                        @AccountId,
+                        '389a3006214a04f1b88ce542d092c3c59c08bdf1201bb0398abc0f90777c5a38',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '41e31c630757a7dac164d00565ce0d54fb6aa812aa0588aefc9c224e2b2d81fb'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '2',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -2310.06,
+                        7962.87,
+                        @AccountId,
+                        '41e31c630757a7dac164d00565ce0d54fb6aa812aa0588aefc9c224e2b2d81fb',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'f7a4059994ca2a2ba500965409273629aebda6c80c17966a3bbea49d3901651a'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '3',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1877.6,
+                        6085.27,
+                        @AccountId,
+                        'f7a4059994ca2a2ba500965409273629aebda6c80c17966a3bbea49d3901651a',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '02df9c76430de6bb4230a62d7f84cb4c3b529a5b2eb423ce18bcd711232f7279'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '4',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1114.31,
+                        4970.96,
+                        @AccountId,
+                        '02df9c76430de6bb4230a62d7f84cb4c3b529a5b2eb423ce18bcd711232f7279',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '88b5cc9ab6c4b9189672d46f03f100e56942a20303b7769475749e49f1d721aa'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '5',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1466.95,
+                        3504.01,
+                        @AccountId,
+                        '88b5cc9ab6c4b9189672d46f03f100e56942a20303b7769475749e49f1d721aa',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = 'bc256e7bd3b711714fd23a2c52ac2157d3cb68e61851e504a9978a20b61e974f'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180725',
+                        '6',
+                        '20180725',
+                        'DFG APLAZAMIENTOS',
+                        -1949.32,
+                        1554.69,
+                        @AccountId,
+                        'bc256e7bd3b711714fd23a2c52ac2157d3cb68e61851e504a9978a20b61e974f',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '03a973cff30cbb92fa3eecd5b82b0f956ac343baeb04558c630fae9907840881'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '1',
+                        '20180727',
+                        'TRANSF. INKONUR SERVICIOS GENERAL',
+                        15000.0,
+                        16554.69,
+                        @AccountId,
+                        '03a973cff30cbb92fa3eecd5b82b0f956ac343baeb04558c630fae9907840881',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '37b21b65edb33c3f282f98588eb61dfeffc4ce187091b7a46ae49da0bec14fc2'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '2',
+                        '20180727',
+                        'TRANSF. INKONUR SERVICIOS GENERAL',
+                        14000.0,
+                        30554.69,
+                        @AccountId,
+                        '37b21b65edb33c3f282f98588eb61dfeffc4ce187091b7a46ae49da0bec14fc2',
+                        '20180804 15:03:53.362')
+                END;
+                IF NOT EXISTS (SELECT * FROM dbo._TesoraliaStatements WITH (NOLOCK)
+                    WHERE
+                        [KeyValue] = '51f4da1983bfb59094aa2294795af7b6eb54cb839d8debb662024939c8bdd6c4'
+                        AND [AccountId] = @AccountId)
+                BEGIN
+                    INSERT INTO dbo._TesoraliaStatements (
+                        [OperationalDate],
+                        [OperationalDatePosition],
+                        [ValueDate],
+                        [StatementDescription],
+                        [Amount],
+                        [TempBalance],
+                        [AccountId],
+                        [KeyValue],
+                        [CreateTimeStamp])
+                    VALUES (
+                        '20180727',
+                        '3',
+                        '20180726',
+                        'APLAZAM PAGO INIC',
+                        -30000.0,
+                        554.69,
+                        @AccountId,
+                        '51f4da1983bfb59094aa2294795af7b6eb54cb839d8debb662024939c8bdd6c4',
+                        '20180804 15:03:53.362')
+                END;
+
+===
+
+
+
+SELECT Id
+FROM dbo._TesoraliaAccounts
+WITH (NOLOCK)
+WHERE
+FinancialEntityAccountId = '9115732413' AND
+CustomerId = 97716;
+
+
+w/o index
+[2018-08-04 20:04:59] 1 row retrieved starting from 1 in 243 ms (execution: 180 ms, fetching: 63 ms)
+[2018-08-04 20:05:02] 1 row retrieved starting from 1 in 240 ms (execution: 183 ms, fetching:
+[2018-08-04 20:05:06] 1 row retrieved starting from 1 in 240 ms (execution: 177 ms, fetching: 63 ms)
+
+[2018-08-05 08:22:18] 1 row retrieved starting from 1 in 185 ms (execution: 168 ms, fetching: 17 ms)
+[2018-08-05 08:22:25] 1 row retrieved starting from 1 in 180 ms (execution: 169 ms, fetching: 11 ms)
+[2018-08-05 08:22:41] 1 row retrieved starting from 1 in 178 ms (execution: 169 ms, fetching: 9 ms)
+
+
+== BUILD INDEX ==
+ALTER TABLE dbo._TesoraliaAccounts ALTER COLUMN FinancialEntityAccountId VARCHAR(255) NOT NULL;
+CREATE UNIQUE INDEX finentaccid_custid ON dbo._TesoraliaAccounts (FinancialEntityAccountId, CustomerId);
+
+with index
+[2018-08-05 08:24:35] 1 row retrieved starting from 1 in 178 ms (execution: 169 ms, fetching: 9 ms)
+[2018-08-05 08:24:42] 1 row retrieved starting from 1 in 177 ms (execution: 167 ms, fetching: 10 ms)
+[2018-08-05 08:24:47] 1 row retrieved starting from 1 in 181 ms (execution: 170 ms, fetching: 11 ms)
+
+
+== CONLUSION dbo._TesoraliaAccounts index ==
+dbo._TesoraliaAccounts: don't use index
+
+
+=== movs index ===
+CREATE UNIQUE INDEX keyvalue_accountid__index ON dbo._TesoraliaStatements (KeyValue, AccountId);
+
+0 rows
+completed in 272 ms
+completed in 270 ms
+completed in 275 ms
+
+31 rows affected in 405 ms
+31 rows affected in 329 ms
+31 rows affected in 428 ms
+31 rows affected in 330 ms
+
+brings nothing or decreases the perfomance on insert operations
+
+conclusion: don't use index
+
+
+
+
+
+
+
+

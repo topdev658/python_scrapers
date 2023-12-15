@@ -1,0 +1,63 @@
+>>> OPEN LOGIN FORM
+await fetch("https://www.paypal.com/es/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+curl 'https://www.paypal.com/es/signin' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Cookie: enforce_policy=gdpr_v2.1; cookie_check=yes; d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758; tsrce=smarthelpnodeweb; ts=vreXpYrS%3D1729674718%26vteXpYrS%3D1634982118%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dac6bcd3d17c0ad109c51cbc6ffffffff%26vtyp%3Dreturn; ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dac6bcd3d17c0ad109c51cbc6ffffffff; KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd; ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3; x-pp-s=eyJ0IjoiMTYzNDg5MTQ0OTAwOSIsImwiOiIwIiwibSI6IjAifQ; nsid=s%3Ax76aB0nWxllmDfyPyuRwHnnO0mmyIeNk.MD%2BF1dpnm%2FzEYIOsTfdFB5YpY20PImQRZwsmQS8B36o; x-cdn=0133; fn_dt=5c52e84b5c0149fdbc2da2dfde1ff46d; AV894Kt2TSumQQrJwe-8mzmyREO=; DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=; id_token=idtoken82b1673dd94a4882a16e83229b3a3162; rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq; SEGM=bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ; HaC80bwXscjqZ7KM6VOxULOB534=AkGiIllodGclUD14mFG8SSMNska2eJltpa60EYTXYRoAG_uj0VEGlfuHhHkuhVgQw2vbvbe5jMyrxH9wwBlyofvNX8Aq8ZmUd43W0M4FhMqVk0ELTNonofSMSFxXRyIRdUYEL0; X-PP-ADS=AToBdXZyYe0Gso5feAjR7jX15sO7MNc' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: none' -H 'Sec-Fetch-User: ?1'
+
+<<< 10_resp_login_form.html
+
+>>> LOGIN
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.paypal.com/es/signin",
+    "body": "_csrf=ygem4Tk6JGSICzplxCJ0SJ%2BUzh0G3VKifayIM%3D&locale.x=es_ES&processSignin=main&fn_sync_data=%257B%2522SC_VERSION%2522%253A%25222.0.1%2522%252C%2522syncStatus%2522%253A%2522data%2522%252C%2522f%2522%253A%2522533dd2c5b29546fd8e8fec415e607935%2522%252C%2522s%2522%253A%2522UNIFIED_LOGIN_INPUT_PASSWORD%2522%252C%2522chk%2522%253A%257B%2522ts%2522%253A1634980336531%252C%2522eteid%2522%253A%255B-8862777879%252C9327015334%252C-8962880131%252C10895713211%252C6004255484%252C-11079679438%252C5121586402%252C4747355282%255D%252C%2522tts%2522%253A875%257D%252C%2522dc%2522%253A%2522%257B%255C%2522screen%255C%2522%253A%257B%255C%2522colorDepth%255C%2522%253A24%252C%255C%2522pixelDepth%255C%2522%253A24%252C%255C%2522height%255C%2522%253A900%252C%255C%2522width%255C%2522%253A1600%252C%255C%2522availHeight%255C%2522%253A868%252C%255C%2522availWidth%255C%2522%253A1600%257D%252C%255C%2522ua%255C%2522%253A%255C%2522Mozilla%252F5.0%2520%28X11%253B%2520Ubuntu%253B%2520Linux%2520x86_64%253B%2520rv%253A93.0%29%2520Gecko%252F20100101%2520Firefox%252F93.0%255C%2522%257D%2522%252C%2522d%2522%253A%257B%2522ts2%2522%253A%2522Dk17%253A40712Di0%253A325Ui0%253A57Uk17%253A124Uh%253A1933%2522%252C%2522rDT%2522%253A%252236877%252C35976%252C36080%253A6165%252C5246%252C5147%253A36920%252C35989%252C35869%253A6277%252C5277%252C5159%253A52429%252C51403%252C51254%253A47348%252C46299%252C46133%253A32020%252C30955%252C30763%253A52522%252C51456%252C51245%253A26939%252C25884%252C25719%253A32062%252C31012%252C30784%253A16696%252C15644%252C15386%253A6457%252C5398%252C5143%253A6465%252C5396%252C5145%253A11592%252C10517%252C10253%253A11599%252C10514%252C10264%253A52586%252C51496%252C51246%253A6485%252C5383%252C5140%253A42349%252C41240%252C41000%253A21600%252C20492%252C37485%253A10737%252C10894%252C20165%253A17775%252C22%2522%257D%257D&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&login_password=G...&splitLoginContext=inputPassword&isCookiedHybridEmail=true",
+    "method": "POST",
+    "mode": "cors"
+});
+
+curl 'https://www.paypal.com/signin' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://www.paypal.com' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Referer: https://www.paypal.com/es/signin' -H 'Cookie: enforce_policy=gdpr_v2.1; cookie_check=yes; d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758; tsrce=authchallengenodeweb; ts=vreXpYrS%3D1729674812%26vteXpYrS%3D1634982212%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dac6bcd3d17c0ad109c51cbc6ffffffff%26vtyp%3Dreturn; ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dac6bcd3d17c0ad109c51cbc6ffffffff; KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd; ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3; x-pp-s=eyJ0IjoiMTYzNDk4MDM0MTgxNSIsImwiOiIwIiwibSI6IjAifQ; nsid=s%3Ax76aB0nWxllmDfyPyuRwHnnO0mmyIeNk.MD%2BF1dpnm%2FzEYIOsTfdFB5YpY20PImQRZwsmQS8B36o; x-cdn=0333; fn_dt=5c52e84b5c0149fdbc2da2dfde1ff46d; AV894Kt2TSumQQrJwe-8mzmyREO=; DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=; id_token=; rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq; SEGM=bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ; X-PP-ADS=AToBdXZyYe0Gso5feAjR7jX15sO7MNc; LANG=es_ES%3BES; l7_az=dcg15.slc; tcs=main%3Aunifiedlogin%3A%3A%3Alogin%7CbtnLogin' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-User: ?1' -H 'TE: trailers' --data-raw '_csrf=ygem4Tk6JGSICzplxCJ0SJ%2BUzh0G3VKifayIM%3D&locale.x=es_ES&processSignin=main&fn_sync_data=%257B%2522SC_VERSION%2522%253A%25222.0.1%2522%252C%2522syncStatus%2522%253A%2522data%2522%252C%2522f%2522%253A%2522533dd2c5b29546fd8e8fec415e607935%2522%252C%2522s%2522%253A%2522UNIFIED_LOGIN_INPUT_PASSWORD%2522%252C%2522chk%2522%253A%257B%2522ts%2522%253A1634980336531%252C%2522eteid%2522%253A%255B-8862777879%252C9327015334%252C-8962880131%252C10895713211%252C6004255484%252C-11079679438%252C5121586402%252C4747355282%255D%252C%2522tts%2522%253A875%257D%252C%2522dc%2522%253A%2522%257B%255C%2522screen%255C%2522%253A%257B%255C%2522colorDepth%255C%2522%253A24%252C%255C%2522pixelDepth%255C%2522%253A24%252C%255C%2522height%255C%2522%253A900%252C%255C%2522width%255C%2522%253A1600%252C%255C%2522availHeight%255C%2522%253A868%252C%255C%2522availWidth%255C%2522%253A1600%257D%252C%255C%2522ua%255C%2522%253A%255C%2522Mozilla%252F5.0%2520%28X11%253B%2520Ubuntu%253B%2520Linux%2520x86_64%253B%2520rv%253A93.0%29%2520Gecko%252F20100101%2520Firefox%252F93.0%255C%2522%257D%2522%252C%2522d%2522%253A%257B%2522ts2%2522%253A%2522Dk17%253A40712Di0%253A325Ui0%253A57Uk17%253A124Uh%253A1933%2522%252C%2522rDT%2522%253A%252236877%252C35976%252C36080%253A6165%252C5246%252C5147%253A36920%252C35989%252C35869%253A6277%252C5277%252C5159%253A52429%252C51403%252C51254%253A47348%252C46299%252C46133%253A32020%252C30955%252C30763%253A52522%252C51456%252C51245%253A26939%252C25884%252C25719%253A32062%252C31012%252C30784%253A16696%252C15644%252C15386%253A6457%252C5398%252C5143%253A6465%252C5396%252C5145%253A11592%252C10517%252C10253%253A11599%252C10514%252C10264%253A52586%252C51496%252C51246%253A6485%252C5383%252C5140%253A42349%252C41240%252C41000%253A21600%252C20492%252C37485%253A10737%252C10894%252C20165%253A17775%252C22%2522%257D%257D&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&login_password=G...&splitLoginContext=inputPassword&isCookiedHybridEmail=true'
+
+dn_sync_data FROM https://www.paypalobjects.com/web/res/860/6cc576cbe35aa3a10ef6309ac6c87/js/lib/fn-sync-telemetry-min.js
+
+BODY DICT
+OrderedDict([('_csrf', 'ygem4Tk6JGSICzplxCJ0SJ+Uzh0G3VKifayIM='),
+             ('locale.x', 'es_ES'),
+             ('processSignin', 'main'),
+             ('fn_sync_data',
+              '%7B%22SC_VERSION%22%3A%222.0.1%22%2C%22syncStatus%22%3A%22data%22%2C%22f%22%3A%22533dd2c5b29546fd8e8fec415e607935%22%2C%22s%22%3A%22UNIFIED_LOGIN_INPUT_PASSWORD%22%2C%22chk%22%3A%7B%22ts%22%3A1634980336531%2C%22eteid%22%3A%5B-8862777879%2C9327015334%2C-8962880131%2C10895713211%2C6004255484%2C-11079679438%2C5121586402%2C4747355282%5D%2C%22tts%22%3A875%7D%2C%22dc%22%3A%22%7B%5C%22screen%5C%22%3A%7B%5C%22colorDepth%5C%22%3A24%2C%5C%22pixelDepth%5C%22%3A24%2C%5C%22height%5C%22%3A900%2C%5C%22width%5C%22%3A1600%2C%5C%22availHeight%5C%22%3A868%2C%5C%22availWidth%5C%22%3A1600%7D%2C%5C%22ua%5C%22%3A%5C%22Mozilla%2F5.0%20(X11%3B%20Ubuntu%3B%20Linux%20x86_64%3B%20rv%3A93.0)%20Gecko%2F20100101%20Firefox%2F93.0%5C%22%7D%22%2C%22d%22%3A%7B%22ts2%22%3A%22Dk17%3A40712Di0%3A325Ui0%3A57Uk17%3A124Uh%3A1933%22%2C%22rDT%22%3A%2236877%2C35976%2C36080%3A6165%2C5246%2C5147%3A36920%2C35989%2C35869%3A6277%2C5277%2C5159%3A52429%2C51403%2C51254%3A47348%2C46299%2C46133%3A32020%2C30955%2C30763%3A52522%2C51456%2C51245%3A26939%2C25884%2C25719%3A32062%2C31012%2C30784%3A16696%2C15644%2C15386%3A6457%2C5398%2C5143%3A6465%2C5396%2C5145%3A11592%2C10517%2C10253%3A11599%2C10514%2C10264%3A52586%2C51496%2C51246%3A6485%2C5383%2C5140%3A42349%2C41240%2C41000%3A21600%2C20492%2C37485%3A10737%2C10894%2C20165%3A17775%2C22%22%7D%7D'),
+             ('intent', 'signin'),
+             ('ads-client-context', 'signin'),
+             ('showCountryDropDown', 'true'),
+             ('requestUrl', '/signin'),
+             ('forcePhonePasswordOptIn', ''),
+             ('phoneCode', 'ES +34'),
+             ('login_email', 'finance@gasmobi.com'),
+             ('login_password', 'G...'),
+             ('splitLoginContext', 'inputPassword'),
+             ('isCookiedHybridEmail', 'true')])
+
+
+<<< <REDIRECTED TO dashboard> 20_resp_logged_in.html

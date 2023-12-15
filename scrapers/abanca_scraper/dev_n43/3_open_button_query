@@ -1,0 +1,71 @@
+await fetch("https://be.abanca.com/BEPRJ001/jsp/BEPR_ficherosEspanaConsultar_LST.faces", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "body": "formBusqueda%3ApanelAyudaOpenedState=&formBusqueda%3ApanelListadoFicherosOpenedState=&formBusqueda%3AtablaListaFicheros__hiddenSelected=&formBusqueda%3AtablaListaFicheros__hiddenDeselected=&formBusqueda%3AtablaListaFicheros_tablaSeleccion=&formBusqueda%3AidTipoFicheroCon=NORM43&formBusqueda%3AidEmpresaCon=10744630&formBusqueda%3AidEstadoFicheroCon=+&formBusqueda%3AidMedioEnvioCon=+&formBusqueda%3AidOpcionFechasCon=F&formBusqueda%3AidFechaDesdeConInputDate=01-07-2021&formBusqueda%3AidFechaDesdeConInputCurrentDate=07%2F2021&formBusqueda%3AidFechaHastaConInputDate=30-07-2021&formBusqueda%3AidFechaHastaConInputCurrentDate=07%2F2021&formBusqueda%3AidImporteMinimoCon=&formBusqueda%3AidImporteMaximoCon=&formBusqueda%3AbtnConsultar=Consultar&formBusqueda_SUBMIT=1&formBusqueda%3A_link_hidden_=&formBusqueda%3A_idcl=&javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQyNDE3OHB0ACkvanNwL0JFUFJfZmljaGVyb3NFc3BhbmFDb25zdWx0YXJfTFNULmpzcA%3D%3D",
+    "method": "POST",
+    "mode": "cors"
+});
+
+========================
+
+
+{
+	"POST": {
+		"scheme": "https",
+		"host": "be.abanca.com",
+		"filename": "/BEPRJ001/jsp/BEPR_ficherosEspanaConsultar_LST.faces",
+		"remote": {
+			"Address": "213.170.46.156:443"
+		}
+	}
+}
+
+{
+	"formBusqueda:panelAyudaOpenedState": "",
+	"formBusqueda:panelListadoFicherosOpenedState": "",
+	"formBusqueda:tablaListaFicheros__hiddenSelected": "",
+	"formBusqueda:tablaListaFicheros__hiddenDeselected": "",
+	"formBusqueda:tablaListaFicheros_tablaSeleccion": "",
+	"formBusqueda:idTipoFicheroCon": "NORM43",
+	"formBusqueda:idEmpresaCon": "10744630",
+	"formBusqueda:idEstadoFicheroCon": "+",
+	"formBusqueda:idMedioEnvioCon": "+",
+	"formBusqueda:idOpcionFechasCon": "F",
+	"formBusqueda:idFechaDesdeConInputDate": "09-07-2020",
+	"formBusqueda:idFechaDesdeConInputCurrentDate": "07/2020",
+	"formBusqueda:idFechaHastaConInputDate": "15-07-2021",
+	"formBusqueda:idFechaHastaConInputCurrentDate": "07/2021",
+	"formBusqueda:idImporteMinimoCon": "",
+	"formBusqueda:idImporteMaximoCon": "",
+	"formBusqueda:btnConsultar": "Consultar",
+	"formBusqueda_SUBMIT": "1",
+	"formBusqueda:_link_hidden_": "",
+	"formBusqueda:_idcl": "",
+	"javax.faces.ViewState": "rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQzMDQzOXB0ACkvanNwL0JFUFJfZmljaGVyb3NFc3BhbmFDb25zdWx0YXJfTFNULmpzcA=="
+}
+
+{
+	"GET": {
+		"scheme": "https",
+		"host": "be.abanca.com",
+		"filename": "/BEPRJ001/jsp/BEPR_ficherosEspanaConsultar_LST.faces",
+		"query": {
+			"_flowExecutionKey": "_c368CB0D0-9254-0F42-E1B3-DAAC8ABCECD4_kDEDCDBAA-760B-EB5F-7071-447B4DD1C883"
+		},
+		"remote": {
+			"Address": "213.170.46.156:443"
+		}
+	}
+}
+
+Location: https://be.abanca.com/BEPRJ001/jsp/BEPR_ficherosEspanaConsultar_LST.faces?_flowExecutionKey=_cBD97EC8C-AE2C-1CFA-F324-827AAFAD33A0_k6C2C1969-135B-5FDA-140E-372315BB147A

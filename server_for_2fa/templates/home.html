@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2FA</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- container for the app els -->
+        <div id="app-2fa"></div>
+    </div>
+</body>
+
+<script>
+    // must set global customerId variable
+    // set it using template var or another way (from a cookie etc.)
+    window.customerId = {{ customer_id }};
+</script>
+
+<!-- 2fa app dependency -->
+<script src="https://unpkg.com/mithril@2.0.4/mithril.min.js"></script>
+<!-- the 2fa app from CDN -->
+<script src="https://cdn.jsdelivr.net/gh/nordborn/cdn/doubleauth.js?v=20191223.1"></script>
+<script>
+    // run 2fa app here with arg:
+    // 'http://..' - API server
+    // {} - just init app obj
+    // 'app-2fa' - appElId
+    // 'customerId' - customerIdVarName
+    // 3000 - fetchInterval
+    // app2FAInit('http://127.0.0.1:8181', {}, 'app-2fa', 'customerId', 3000)
+    app2FAInit('http://52.207.27.88:8181', {}, 'app-2fa', 'customerId', 3000)
+</script>
+
+
+<!-- for this page only, no need if the script is included -->
+<link href="https://bootswatch.com/3/bower_components/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+/>
+
+</html>

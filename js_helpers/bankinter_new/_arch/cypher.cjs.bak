@@ -1,0 +1,442 @@
+const {webcrypto: crypto} = require("crypto");
+(function (exports) {
+    'use strict';
+    const {Unibabel} = require('./unibabel.cjs');
+    const crypto = require('crypto').webcrypto;
+    let {f, importRsaPrivateKey} = require("./helpers.cjs").helpers;
+
+    const algorithmRSA = {
+        name: 'RSA-OAEP',
+        modulusLength: 1024,
+        publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
+        hash: {name: 'SHA-256'},
+    };
+
+    // main: return l.prototype.generate = function(l, n, u)
+    /**
+     * @returns {Promise<Object>}
+     */
+    const generateKeyPair = async () => {
+        const keyPair = await crypto.subtle.generateKey(algorithmRSA, true, ['decrypt']);
+        const publicKey = await crypto.subtle.exportKey('jwk', keyPair.publicKey);
+        const privateKey = await crypto.subtle.exportKey('jwk', keyPair.privateKey);
+
+        // [{
+        //     key_ops: [ 'decrypt' ],
+        //     ext: true,
+        //     kty: 'RSA',
+        //     n: 'nLUvrSi5s4T8dI4zQ5Hu2r7CiDm63-_rQKXhHCfgc8k4E342qZ5lpxhrK1X8J8s9T_GyflCD4xA-i3ed2EivRI_KZkz_Te_OjMbExY2IjATfjs7MtqM3VjKyfK-qU_IXdpG0FEyOBn99NLNvMPprnVDtc1k1ncFkrtN9z6CJ9q0',
+        //     e: 'AQAB',
+        //     d: 'avP6Yyttesmj6AT5lf9uztrtOD52fcpofIn6VtYcicnmvN8ifae-50lyM3SPEbXT1dE3KqDXMszucw-jqm8JNyeYag-CMrTRWHZoDCGXW0RyktCNsZ9LAOhNxKAEcIz2AVXBdhbLQ58bowlyyd2pnkIDNqNpDXlyqF-jPzTOJOE',
+        //     p: 'zLIcGgBGrJg3Hcw8LroYshcJrnHjBNfjSnsaquTUSiiHF4SD6igLNDMCbYsSbYBWiyEKw2OkX7inx-RZo1kTdQ',
+        //     q: 'w_wGLutxGr9xFQH6INTGjbTF372seJEF_t8Jne2ZVZr7y5oJVx8PpmMTMdfaNgTAZtzKcIo_7LzCBpIf26IHWQ',
+        //     dp: 'f9BvT6UAfGEHeWm_4oV9SiaseurOEIYlfKplunPsQuoPgJXUMPAUHuIDEBeYyBss7u8Q43RifQq2aVCi0CacyQ',
+        //     dq: 'wHh_8hBTUbt1aPY6GYgdPwmr0qHKAdYbF0UfgrPXBJVid3_dcGwWyIdAUJD1wltEQUDQp1l-khaGTkGve9lScQ',
+        //     qi: 'SMcKKlVY_9XlKgJydVwVEYdXRdj4jus1DWW2PvkbEuI2cGVP2Rgx_f1XJ8dS1tql80im8nrtknQZCbkK9fuYAg',
+        //     alg: 'RSA-OAEP-256'
+        // }, ...
+        // ]
+        return {privateKey, publicKey};
+    };
+
+    // VB
+    /**
+     * @param {Object} privateKeyObj
+     * @returns {Promise<CryptoKey>}
+     */
+    const getRSAPrivateKey = async (privateKeyObj) => {
+        return crypto.subtle.importKey(
+            'jwk',
+            privateKeyObj,
+            algorithmRSA,
+            false,
+            ['decrypt']
+        );
+    };
+
+    // DECRYPT HANDSHAKE
+    // return n.decrypt(l.private).verify((function(l) {
+    //     var n = l.split(".")[1]
+    //       , u = JSON.parse(j_.decodeToUTF8String(j_.toBase64(n)));
+    //     return e._crypto.sanitizeKey(u.key)
+    // }
+
+    // return this.cryptographer.decrypt(n, f.arrayFromString(u[0]), f.Base64Url.decodeArray(u[2]), f.Base64Url.decodeArray(u[3]), f.Base64Url.decodeArray(u[4])).then(f.utf8StringFromArray)
+
+    const toUTF8Char = (l) => "%" + ("00" + l.charCodeAt(0).toString(16)).slice(-2);
+    const decodeToUTF8String = (n) => decodeURIComponent(atob(n).split("").map(toUTF8Char).join(""));
+
+    /**
+     * @param {CryptoKey} privateKey
+     * @param {String} msg
+     * @returns {String}
+     */
+    const decryptRSA = async (privateKey, msg) => {
+        const res = await crypto.subtle.decrypt(
+            algorithmRSA,
+            privateKey,
+            Unibabel.utf8ToBuffer(msg)
+        );
+        return Unibabel.bufferToUtf8(new Uint8Array(res));
+    };
+
+    /**
+     * @param {CryptoKey} privateKey
+     * @param {String} msg
+     * @returns {String}
+     */
+    const decryptRSA2 = async (privateKey, msg) => {
+        const res = await crypto.subtle.decrypt(
+            algorithmRSA,
+            privateKey,
+            Unibabel.base64ToArr(msg)
+        );
+        return Unibabel.bufferToUtf8(new Uint8Array(res));
+    };
+
+    // l.toBase64 = function(l) {
+    //     for (var n = l.length % 4, u = n ? 4 - n : n, e = l.replace(/-/g, "+").replace(/_/g, "/"), t = 0; t < u; t++)
+    //         e += "=";
+    //     return e
+    // }
+
+    //  l.prototype.generateNonce = function() {
+    //      return Math.round(1e7 * Math.random())
+    //  }
+
+    // 84988
+    let r = {
+        "jwe_name": "A256GCM",
+        "id": {
+            "name": "AES-GCM",
+            "length": 256
+        },
+        "iv_bytes": 12,
+        "auth": {
+            "aead": true,
+            "tag_bytes": 16
+        }
+    };
+
+    let self = {
+        "cryptographer": {
+            "key_encryption": {
+                "jwe_name": "RSA-OAEP-256",
+                "id": {
+                    "name": "RSA-OAEP",
+                    "hash": {
+                        "name": "SHA-256"
+                    }
+                }
+            },
+            // dynamic?, see s in helpers
+            "content_encryption": {
+                "jwe_name": "A256GCM",
+                "id": {
+                    "name": "AES-GCM",
+                    "length": 256
+                },
+                "iv_bytes": 12,
+                "auth": {
+                    "aead": true,
+                    "tag_bytes": 16
+                }
+            },
+            "content_sign": {
+                "jwa_name": "RS256",
+                "id": {
+                    "name": "RSASSA-PKCS1-v1_5",
+                    "hash": {
+                        "name": "SHA-256"
+                    }
+                }
+            }
+        },
+        // dynamic
+        "key_promise": {},
+        // dynamic
+        "headers": {
+            "kid": "client_92e1VKlJvcjYAV04PhdzjzQvtXM3SXlScnA7R",
+            "enc": "A256GCM",
+            "alg": "RSA-OAEP-256"
+        }
+    }
+
+    // 84988
+    /**
+     * @param {Promise<CryptoKey>} keyPromise
+     */
+    const decryptHandshake = function (keyPromise, data, iv, msg1, msg2) {
+        let cryptographer = self.cryptographer;
+        if (u.length != cryptographer.content_encryption.iv_bytes) return Promise.reject(Error('decryptCiphertext: invalid IV'));
+        var r = cryptographer.content_encryption;
+
+        // o = Object { name: "AES-GCM", iv: Uint8Array(12), additionalData: Uint8Array(122), tagLength: 128 }
+        var o = {
+            name: r.id.name,
+            iv: iv,
+            additionalData: data,
+            tagLength: 8 * r.auth.tag_bytes
+        };
+        return keyPromise.then((function (key) {
+            var n = f.arrayBufferConcat(msg1, msg2);
+
+            return crypto.subtle.decrypt(o, key, n)
+        }))
+    }
+
+    const a = function (l, n, u) {
+        var t = n.then((function (l) {
+            return crypto.subtle.exportKey('raw', l)
+        }));
+        return [t.then((function (n) {
+            if (8 * n.byteLength != l.id.length + 8 * l.auth.key_bytes) return Promise.reject(Error('encryptPlainText: incorrect cek length'));
+            var u = n.slice(0, l.auth.key_bytes);
+            return crypto.subtle.importKey('raw', u, l.auth.id, !1, [
+                'sign'
+            ])
+        })),
+            t.then((function (n) {
+                if (8 * n.byteLength != l.id.length + 8 * l.auth.key_bytes) return Promise.reject(Error('encryptPlainText: incorrect cek length'));
+                var t = n.slice(l.auth.key_bytes);
+                return crypto.subtle.importKey('raw', t, l.id, !1, u)
+            }))]
+    };
+
+    const c = function (l, n, u, t, i) {
+        return n.then((function (n) {
+            var r = new Uint8Array(f.arrayFromInt32(8 * u.length)),
+                o = new Uint8Array(8);
+            o.set(r, 4);
+            var a = f.arrayBufferConcat(u, t, i, o);
+            return crypto.subtle.sign(l.auth.id, n, a).then((function (n) {
+                return n.slice(0, l.auth.truncated_bytes)
+            }))
+        }))
+    };
+
+    // 84989
+    /**
+     * @param {Promise<CryptoKey>} l
+     */
+    const decryptJWE = function (l, n, u, t, i) {
+        let cryptographer = self.cryptographer;
+        if (u.length != cryptographer.content_encryption.iv_bytes) return Promise.reject(Error('decryptCiphertext: invalid IV'));
+        var r = cryptographer.content_encryption;
+        // VB
+        // r = "{\"jwe_name\":\"A256GCM\",\"id\":{\"name\":\"AES-GCM\",\"length\":256},\"iv_bytes\":12,\"auth\":{\"aead\":true,\"tag_bytes\":16}}"
+        // u = Uint8Array(12)
+        // n = Uint8Array(2262)
+        if (r.auth.aead) {
+            var o = {
+                name: r.id.name,
+                iv: u,
+                additionalData: n,
+                tagLength: 8 * r.auth.tag_bytes
+            };
+            return l.then((function (l) {
+                var n = f.arrayBufferConcat(t, i);
+                return crypto.subtle.decrypt(o, l, n)
+            }))
+        }
+        var s = a(r, l, [
+                'decrypt'
+            ]),
+            d = s[0],
+            p = s[1],
+            h = c(r, d, n, u, t);
+        return Promise.all([p,
+            h]).then((function (l) {
+            var n = l[0];
+            return function (l, n, u, t) {
+                return e.assert(u instanceof Uint8Array, 'compare: invalid input'),
+                    e.assert(t instanceof Uint8Array, 'compare: invalid input'),
+                    n.then((function (n) {
+                        var i = crypto.subtle.sign(l.auth.id, n, u),
+                            r = crypto.subtle.sign(l.auth.id, n, t);
+                        return Promise.all([i,
+                            r]).then((function (l) {
+                            var n = new Uint8Array(l[0]),
+                                u = new Uint8Array(l[1]);
+                            if (n.length != u.length) throw new Error('compare failed');
+                            for (var e = 0; e < n.length; e++) if (n[e] != u[e]) throw new Error('compare failed');
+                            return Promise.resolve(null)
+                        }))
+                    }))
+            }(r, d, new Uint8Array(l[1]), i).then((function () {
+                return crypto.subtle.decrypt({
+                    name: r.id.name,
+                    iv: u
+                }, n, t)
+            })).catch((function (l) {
+                return Promise.reject(Error('decryptCiphertext: MAC failed.'))
+            }))
+        }))
+    }
+
+    // 84947
+    const encryptJWE = function (l, n, u, t) {
+        var i = self.content_encryption;
+        if (l.length != i.iv_bytes) return Promise.reject(Error('invalid IV length'));
+        if (i.auth.aead) {
+            var r = i.auth.tag_bytes,
+                o = {
+                    name: i.id.name,
+                    iv: l,
+                    additionalData: n,
+                    tagLength: 8 * r
+                };
+            return u.then((function (l) {
+                return e.crypto.subtle.encrypt(o, l, t).then((function (l) {
+                    var n = l.byteLength - r;
+                    return {
+                        cipher: l.slice(0, n),
+                        tag: l.slice(n)
+                    }
+                }))
+            }))
+        }
+        var s = a(i, u, [
+                'encrypt'
+            ]),
+            d = s[0],
+            p = s[1].then((function (n) {
+                return e.crypto.subtle.encrypt({
+                    name: i.id.name,
+                    iv: l
+                }, n, t)
+            })),
+            h = p.then((function (u) {
+                return c(i, d, n, l, u)
+            }));
+        return Promise.all([p,
+            h]).then((function (l) {
+            return {
+                cipher: l[0],
+                tag: l[1]
+            }
+        }))
+    }
+
+    // 84879
+    const o = function (l) {
+        var n = l.specific_cek_bytes;
+        if (n) {
+            if (16 == n) return {
+                id: {
+                    name: 'AES-CBC',
+                    length: 128
+                },
+                enc_op: [
+                    'encrypt'
+                ],
+                dec_op: [
+                    'decrypt'
+                ]
+            };
+            if (32 == n) return {
+                id: {
+                    name: 'AES-CBC',
+                    length: 256
+                },
+                enc_op: [
+                    'encrypt'
+                ],
+                dec_op: [
+                    'decrypt'
+                ]
+            };
+            if (64 == n) return {
+                id: {
+                    name: 'HMAC',
+                    hash: {
+                        name: 'SHA-256'
+                    }
+                },
+                enc_op: [
+                    'sign'
+                ],
+                dec_op: [
+                    'verify'
+                ]
+            };
+            if (128 == n) return {
+                id: {
+                    name: 'HMAC',
+                    hash: {
+                        name: 'SHA-384'
+                    }
+                },
+                enc_op: [
+                    'sign'
+                ],
+                dec_op: [
+                    'verify'
+                ]
+            };
+            e.assert(!1, 'getCekWorkaround: invalid len')
+        }
+        return {
+            id: l.id,
+            enc_op: [
+                'encrypt'
+            ],
+            dec_op: [
+                'decrypt'
+            ]
+        }
+    };
+
+    // 84875
+    const unwrapCek = function (self, l, n) {
+        // TODO no specific_cek_bytes (OK, same on web)
+        let cryptographer = self.cryptographer;
+        var u = o(cryptographer.content_encryption);
+        return crypto.subtle.unwrapKey('raw', l, n, cryptographer.key_encryption.id, u.id, cryptographer.content_encryption.specific_cek_bytes > 0, u.dec_op)
+    }
+
+    // 24896
+    /**
+     *
+     * @param {String} respText
+     * @param {Object} rsaPrivObj
+     * @returns {Promise<string>}
+     */
+
+    const decryptHandshakeStep1 = function (respText, rsaPrivObj) {
+        var u = JSON.parse(decodeToUTF8String(respText.split('.')[0])),
+            e = importRsaPrivateKey(Object.assign({
+            }, rsaPrivObj), u.alg);
+        self.key_promise = e;
+        self.headers = u // TODO VB check, no such
+        // Q(new U_.JoseJWE.Decrypter(this._cryptographer, e).decrypt(respText)
+        return decryptHandshakeStep2(respText)
+    };
+
+    // 85643
+    const decryptHandshakeStep2 = (resp) => {
+        let u = resp.split('.');
+        let n;
+        if ('dir' == self.headers.alg) n = Promise.resolve(self.key_promise);
+        else {
+            var e = f.Base64Url.decodeArray(u[1]);
+            n = self.key_promise.then((function (l) {  //
+                return unwrapCek(self, e, l)
+            }))
+        }
+        // n - new key
+        return decryptJWE(n, f.arrayFromString(u[0]), f.Base64Url.decodeArray(u[2]), f.Base64Url.decodeArray(u[3]), f.Base64Url.decodeArray(u[4])).then(f.utf8StringFromArray)
+    }
+
+
+    exports.cypher = {
+        algorithmRSA
+        , generateKeyPair
+        , getRSAPrivateKey
+        , decryptRSA
+        , decryptHandshake
+        , decryptJWE
+        , decryptHandshakeStep1
+    };
+}('undefined' !== typeof exports && exports || 'undefined' !== typeof window && window || global));
+

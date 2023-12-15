@@ -1,0 +1,14 @@
+FILTER MOVS
+>>> GET https://www.lineacaminos.com/uniScripts/mgrqispi.dll?APPNAME=eFIDES&PRGNAME=ConsMovimientos&ARGUMENTS=-N00199032466359,-A4BEqEm1v3eJFoJp,-N1,-N01-04-2020,-N26-05-2020,-AE,-AP
+<<< resp_movs.html
+
+FILTER MOVS EXCEL (EUR accs)
+// acc ES74 0234 0001 0390 3246 6359
+>>> https://www.lineacaminos.com/uniScripts/mgrqispi.dll?APPNAME=eFIDES&PRGNAME=ConsMovimientos&ARGUMENTS=-N00199032466359,-A4BEqEm1v3eJFoJp,-N1,-N01-03-2020,-N26-05-2020,-AE,-AE
+<<< resp_movs_excel.html
+
+
+FILTER MOVS EXCEL (USD accs)
+// account ES73 0234 0001 0090 3221 0347
+>>> https://www.lineacaminos.com/uniScripts/mgrqispi.dll?APPNAME=eFIDES&PRGNAME=DivConsMovimientos&ARGUMENTS=-N00199032210347,-A4BEqEm1v3eJFoJp,-N9,-N01-04-2020,-N26-05-2020,-AE,-AE
+

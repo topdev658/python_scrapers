@@ -1,0 +1,15 @@
+[Unit]
+Description=Server2FA
+After=network.target syslog.target
+
+[Service]
+Type=simple
+User=context
+Group=nogroup
+WorkingDirectory=/home/context/server_for_2fa
+ExecStart=/usr/bin/python3 server_for_2fa.py --host 0.0.0.0 --port 8181
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target

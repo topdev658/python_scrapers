@@ -1,0 +1,51 @@
+ACCS
+>>> POST https://www.grupocooperativocajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=S_C_GENERAL_v1
+SERV=8
+NOMBRE_OPERACION=S_C_GENERAL_v1
+CAP=0JmW
+
+<<< 20_resp_accs.html:
+look for
+['zul.wgt.Label','eL9Pu',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].NCTA',$onClick:true,value:'ES53 3105 2644 1827 2000 9763'},{},[]],
+temp bal: 146.622,68 eur
+
+['zul.wgt.Cell','eL9P40',{$onClick:true,domExtraAttrs:{'data-title':'Saldo disponible'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','eL9P50',{value:'146.622,68 eur'},{},[]]]],
+
+MOV FILTER
+>>> POST https://www.grupocooperativocajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=O_C_MOV_NCTA_v1
+SERV=12
+NOMBRE_OPERACION=O_C_MOV_NCTA_v1
+CAP=e3Sb
+NCTA_PREV=264427200009763
+
+
+MOVS
+>>> POST https://www.grupocooperativocajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=O_C_MOV_NCTA1608845497218-O_C_MOV_NCTA_v1%AC1608845497221
+CURRENT_NODE=W_S_MOV_NCTA
+REACTION_CODE=ACEPTAR
+NCTA_ALIAS=264427200009763
+MOV_TRAMOS=2
+OP_MOV=3
+NUMO=16
+FINI=01112020
+FFIN=24122020
+
+cURL
+curl  --proxy http://:@192.168.195.114:8120  'https://www.grupocooperativocajamar.es/BE/ServletOperation' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'  -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://www.grupocooperativocajamar.es' -H 'Cookie: JSESSIONID=of6b4GlHZTNuK7hhHFfvjPCU2EBqAKn5H3CWIRxePy3hNxRWBk29!-1984414639;' --data-raw 'CHANNEL=WEB&MODEL=FullModel&OP_CODE=O_C_MOV_NCTA1608933002404-O_C_MOV_NCTA_v1%AC1608933002408&CURRENT_NODE=W_S_MOV_NCTA&REACTION_CODE=ACEPTAR&NCTA_ALIAS=264427200009763&MOV_TRAMOS=2&OP_MOV=3&NUMO=16&FINI=01112020&FFIN=25122020'
+
+<<< 40_resp_movs.html
+

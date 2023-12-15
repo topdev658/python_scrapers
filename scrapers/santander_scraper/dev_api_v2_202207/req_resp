@@ -1,0 +1,41 @@
+>>> REFRESH
+await fetch("https://empresas3.gruposantander.es/paas/api/scc/refresh", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "x-user-language": "es_ES",
+        "X-ClientId": "nwe",
+        "x-frame-channel": "EMP",
+        "Authorization": "Bearer MEE3MTA3ODFCQ0YxQkQ4MTRBNTBCREFDIzE4NS43NC44MS4xMTUjMTY1OTExMzc4MjU0MSNQRDk0Yld3Z2RtVnljMmx2YmowaU1TNHdJaUJsYm1OdlpHbHVaejBpU1ZOUExUZzROVGt0TVNJL1BqeDBiMnRsYmtSbFptbHVhWFJwYjI0K1BIVnpaWEpKUkQ1Qk1EY3hOamMyTXp3dmRYTmxja2xFUGp3dmRHOXJaVzVFWldacGJtbDBhVzl1UGc9PSNERVNlZGUvQ0JDL1BLQ1M1UGFkZGluZyN2MSNzdXBlcm5ldG5ld3BvcnRhbCNOT1RfVVNFRCNTSEExd2l0aFJTQSNtODhhWlV5QlEybHB3czh6SDhrMzlzZ3pJVC9kNmNRUnNhU2ZDd1hIaW9tZnRPRHdCMDRrNEFmdEd4R21CcmhqN3VLdUV3NUN0L1NmdEhpQWd5RVZCc3dZQ2liaW4yazZodG9lZDY4R3V2clNaYzBzbjJiRDlIaDYvaXhnWTNTRTBiMjE4dUl1dTA1MG9nbjJjcTlxbzdJR21GUjdmRTYwdThIWm1nRlNXczU3YTlmVUt4cC9jWVZkNjhoNnViY0VPSldERE1tOGNLY1lIMGp5bC9iWlZRY3B5YWJzVmhtc1oxdUV6aDhJUmcrcmlaN2RIUWU0N08xdTRVM2xocVp4b2lYYnJ2cE1ON1Uyd2E4eEdCTW5iVm9RMWVzYWp6cU9QMXdQdmNBNkJxWkxwTklLcTArM1EvM1d5QThFdThGd3dndzYxVGNndU1JQ0Q4Y3JZeUd3Znc9PQ==",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://empresas3.gruposantander.es/paas/cuentas/account/movimientos",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 05_refresh.json
+
+>>> MOVS
+await fetch("https://empresas3.gruposantander.es/paas/api/v2/nwe-cuentas-api/v1/cuentas/ES1200491800142610615006/movimientos?fechaDesde=2022-05-01&fechaHasta=2022-07-29&tipoFecha=fechaOperacion&size=15", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "x-user-language": "es_ES",
+        "X-ClientId": "nwe",
+        "x-frame-channel": "EMP",
+        "Authorization": "Bearer MEE3MTA3ODFCQ0YxQkQ4MTRBNTBCREFDIzE4NS43NC44MS4xMTUjMTY1OTExMzc4MjU0MSNQRDk0Yld3Z2RtVnljMmx2YmowaU1TNHdJaUJsYm1OdlpHbHVaejBpU1ZOUExUZzROVGt0TVNJL1BqeDBiMnRsYmtSbFptbHVhWFJwYjI0K1BIVnpaWEpKUkQ1Qk1EY3hOamMyTXp3dmRYTmxja2xFUGp3dmRHOXJaVzVFWldacGJtbDBhVzl1UGc9PSNERVNlZGUvQ0JDL1BLQ1M1UGFkZGluZyN2MSNzdXBlcm5ldG5ld3BvcnRhbCNOT1RfVVNFRCNTSEExd2l0aFJTQSNtODhhWlV5QlEybHB3czh6SDhrMzlzZ3pJVC9kNmNRUnNhU2ZDd1hIaW9tZnRPRHdCMDRrNEFmdEd4R21CcmhqN3VLdUV3NUN0L1NmdEhpQWd5RVZCc3dZQ2liaW4yazZodG9lZDY4R3V2clNaYzBzbjJiRDlIaDYvaXhnWTNTRTBiMjE4dUl1dTA1MG9nbjJjcTlxbzdJR21GUjdmRTYwdThIWm1nRlNXczU3YTlmVUt4cC9jWVZkNjhoNnViY0VPSldERE1tOGNLY1lIMGp5bC9iWlZRY3B5YWJzVmhtc1oxdUV6aDhJUmcrcmlaN2RIUWU0N08xdTRVM2xocVp4b2lYYnJ2cE1ON1Uyd2E4eEdCTW5iVm9RMWVzYWp6cU9QMXdQdmNBNkJxWkxwTklLcTArM1EvM1d5QThFdThGd3dndzYxVGNndU1JQ0Q4Y3JZeUd3Znc9PQ==",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://empresas3.gruposantander.es/paas/cuentas/account/movimientos",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 30_resp_movs.json

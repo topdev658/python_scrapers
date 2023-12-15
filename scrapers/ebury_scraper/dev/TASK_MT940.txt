@@ -1,0 +1,41 @@
+Hi Vladimir,
+
+Please find enclosed the updated version of the Ebury scraper.
+
+As you can see, we want to implement a MT940 file download strategy exactly in the same way we do for N43
+
+Things to have in mind:
+    I need you to implement a MT940 main launcher orchestrator. I’ll provide you the two required stored procedures for this week
+        - ActiveCustomersForNightlyBatch_MT940
+        - CustomerFinancialEntityAccessWithCodeByCustomerId_MT940
+    I need you to implement for Ebury a per account level download strategy. You can see the details on the enclosed file. I’ll prepare the account level required sp this week
+        - GetLastStatementDateFromAccount_MT940
+    Please initially focus on implementing the scraping steps while I provide you the sp’s
+    I’ll share with you the specific network folder to place the files in PRE and PRO environments
+    Some of the accesses are multicontract (33108)
+
+
+
+EXTRA (2022-04-13):
+
+
+raul.jimenez@tesoralia.com
+
+11:44 AM (12 hours ago)
+
+
+Please find below a new task we need you to complete on the Ebury MT940 Python scraping process after you download each file and before you download to the destination folder.
+
+    Take an specific substring of the file name.
+        File name : 20220411-MT940_Statement-EBPCLI585178-USD.fin
+        Extract the text between the “Statement” and the “.fin”
+            -EBPCLI585178-USD
+    We need you to edit the file
+    Concatenate on line started by :25: the previously file name captured string.
+    Deploy in PRE environment and let me know for testing before we go to production.
+
+    Thus:
+    :25:ES9201520348990060000087 -> :25:ES9201520348990060000087-EBPCLI585178-USD
+
+    (see image001.png)
+

@@ -1,0 +1,1187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html lang="pt-br">
+
+
+<head>
+
+    <script type='text/javascript'
+            src='/ibpjsaldosextratos/faces/a4j_3_1_6.GAorg.ajax4jsf.javascript.AjaxScript'></script>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+    <meta http-equiv="Content-Type" content="text/html;CHARSET=iso-8859-1"/>
+
+    <link rel="shortcut icon" href="http://www.bradesco.com.br/bradesco.ico"/>
+
+    <title>Banco Bradesco S/A</title>
+
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/estrutura.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/interna.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/jquery.combo.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/jquery.jqmodal.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/jquery.tooltip.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/jquery.autocomplete.css"/>
+
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/saldosextratos/saldosextratos.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/autorizacoes.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/tabelaExpansiva.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/tabelaOrdenada.css"/>
+
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.js"></script>
+
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.ui.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.combo.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.cookie.min.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.jqmodal.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/jquery.tooltip.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/currency.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/default.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/validacoesSaldosExtratos.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/AJAX.js"></script>
+
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/saldosextratos/tabelaExpansiva.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/table-sorterSaldosExtratos.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/geral/acessibilidade.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/saldosextratos/autoCompleteSaldosExtratos.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/sei/seiMultiplo.js"></script>
+
+    <script type="text/javascript"
+            src="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/js/saldosextratos/validacaoPeriodo.js"></script>
+
+
+    <!--[if lt IE 8]>
+
+
+    <link rel="stylesheet" type="text/css" media="screen, print"
+          href="https://www.ne13.bradesconetempresa.b.br/ibpj/conteudo/css/geral/geral_ie.css"/>
+
+
+    <![endif]-->
+
+
+    <script type="text/javascript">
+
+        <!--
+
+        document.domain = "bradesconetempresa.b.br";
+
+        //-->
+
+    </script>
+
+    <noscript></noscript>
+
+
+</head>
+
+<body>
+
+<div id="conteudo" class="conteudo_pagina after">
+
+    <div class="topo after">
+
+
+        <link type="text/css" rel="stylesheet"
+              href="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UIBreadCrumb/resources/css/NET_defaultStylesUIBreadCrumb.css"/>
+        <ul id="UIBreadCrumb" class="UIBreadCrumb UIBreadCrumb-ul">
+            <li>
+                <a href="https://www.ne12.bradesconetempresa.b.br/ibpjtelainicial/redirecionaPaginaInicial.jsf?CTL=329324383301126181"
+                   title="Ir para a P&#225;gina Inicial" class="tabindex">P&#225;gina Inicial</a></li>
+            <li class="UIBreadCrumb-arrow"><span>&nbsp;</span><a
+                    href="https://www.ne12.bradesconetempresa.b.br/ibpjtelainicial/menuSaldoExtrato.jsf?CTL=329324383301126181"
+                    title="Ir para a p&#225;gina de Saldos e Extratos" class="tabindex">Saldos e Extratos</a></li>
+            <li class="UIBreadCrumb-arrow UIBreadCrumb-invisible-anchor"><span>&nbsp;</span><a href="javascript:;"
+                                                                                               title="Voc&#234; est&#225; em Conta-Corrente: Extrato Mensal / Por Per&#237;odo. Utilize as setas para navegar."
+                                                                                               class="tabindex tabfirst"><span
+                    class="grupo">Conta-Corrente:</span> Extrato Mensal / Por Per&#237;odo</a></li>
+        </ul>
+
+
+        <link type="text/css" rel="stylesheet"
+              href="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UIFontSize/resources/css/NET_defaultStylesUIFontSize.css"/>
+        <script type="text/javascript"
+                src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentBaseBradesco/resources/js/brquery.js"><!--
+
+        //--></script>
+        <script type="text/javascript"
+                src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentBaseBradesco/resources/js/jquery.cookie.js"><!--
+
+        //--></script>
+        <script type="text/javascript"
+                src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UIFontSize/resources/js/NET_defaultScriptUIFontSize.js"><!--
+
+        //--></script>
+        <script type="text/javascript"><!--
+        $jBR(document).ready(function () {
+            var fontUIFontSize = new UIFontSize('#conteudo > .miolo', 'UIFontSize', false, 'UIFontSize', 'callbackUIFontSize');
+            fontUIFontSize.init();
+        });
+        //--></script>
+        <ul id="UIFontSize">
+            <li id="UIFontSize-firstButton" class="UIFontSize UIFontSize-li UIFontSize-firstButton-li"><a
+                    class="UIFontSize tabindex" title="Alterar para tamanho m&#237;nimo de fonte" href="javascript:;">Alterar
+                para tamanho m&#237;nimo de fonte</a></li>
+            <li id="UIFontSize-secondButton" class="UIFontSize UIFontSize-li UIFontSize-secondButton-li"><a
+                    class="UIFontSize tabindex" title="Alterar para tamanho m&#233;dio de fonte" href="javascript:;">Alterar
+                para tamanho m&#233;dio de fonte</a></li>
+            <li id="UIFontSize-thirdButton" class="UIFontSize UIFontSize-li UIFontSize-thirdButton-li"><a
+                    class="UIFontSize tabindex" title="Alterar para tamanho m&#225;ximo de fonte" href="javascript:;">Alterar
+                para tamanho m&#225;ximo de fonte</a></li>
+        </ul>
+        <script type="text/javascript"
+                src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentBaseBradesco/resources/js/json2.js"><!--
+
+        //--></script>
+        <script type="text/javascript"
+                src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentState/resources/js/defaultScriptUIComponentStateJS.js"><!--
+
+        //--></script>
+        <script type="text/javascript"><!--
+        var componentState_UIFontSize = new UIComponentStateJS({
+            saveState: 'salvaUIFontSize',
+            componentID: 'UIFontSize',
+            readState: 'inicializaUIFontSize',
+            url: '/selecaoPeriodoContasWebCanaisCC.jsp'
+        });
+        //--></script>
+
+    </div>
+
+
+    <div class="miolo UIFontSize-level-1 after">
+
+        <div class="titulo after">
+
+
+            <ul id="_id30" class="lstUtil">
+
+                <li id="_id31" class="tp4">
+
+                    <span class=""></span>
+
+                </li>
+
+            </ul>
+
+
+            <span class="HtmlPanelGroupBradesco"><h2>Extrato Mensal / Por Per&#237;odo <sup class='tooltip'
+                                                                                            title='Para acessar as opera&#231;&#245;es mais r&#225;pido, selecione a tecla "A"'>SMC</sup></h2></span>
+
+
+        </div>
+
+        <span class="codigoServico none">SMC</span>
+
+
+        <input type="hidden" id="_input_hidden_command_button_suport_" name="_input_hidden_command_button_suport_"
+               value="/ibpjsaldosextratos/selecaoPeriodoContasWebCanaisCC.jsf"/>
+        <script type="text/javascript"><!--
+        var submited = 0;
+
+        var SubmitCheckKeyEvent = document.body.onkeydown;
+
+
+        function formSubmit(id, url) {
+
+            if (submited == 0) {
+
+                submited = 1;
+
+                showDiv(true);
+
+                FormSubmit_bloquerTeclado(true);
+
+                var form = getObjectById(id);
+
+                if (form != null) {
+
+                    form.action = url;
+
+                    form.submit();
+
+                } else {
+
+                    showDiv(false);
+
+                    FormSubmit_bloquerTeclado(false);
+
+                }
+
+            }
+
+        }
+
+
+        function showDiv(value) {
+
+            var divStatus = getObjectById("div_brArq_form_wait");
+
+            if (divStatus != null) {
+
+                if (value == true) {
+
+                    divStatus.style.display = "block";
+
+                } else {
+
+                    divStatus.style.display = "none";
+
+                }
+
+                blockScroll(value);
+
+            }
+
+        }
+
+
+        function getObjectById(id) {
+
+            if (document.all)
+
+                return document.all[id];
+
+            return document.getElementById(id);
+
+        }
+
+
+        function blockScroll(value) {
+
+            try {
+
+                if (value == true) {
+
+                    window.scrollTo(0, 0);
+
+                    window.document.body.style.overflowX = 'hidden';
+
+                    window.document.body.style.overflowY = 'hidden';
+
+                    window.status = 'Aguarde...';
+
+                } else {
+
+                    window.document.body.style.overflowX = 'auto';
+
+                    window.document.body.style.overflowY = 'auto';
+
+                    window.status = '';
+
+                }
+
+            } catch (err) {
+
+                //alert(err);
+
+            }
+
+        }
+
+
+        function changeActionForm(formId, value) {
+
+            showDiv(value);
+
+            FormSubmit_bloquerTeclado(value);
+
+            var hidden = getObjectById("_input_hidden_command_button_suport_");
+
+            var url = null;
+
+            if (hidden != null) {
+
+                url = hidden.value;
+
+            }
+
+            var form = getObjectById(formId);
+
+            if (form != null && url != null) {
+
+                if (value == true) {
+
+                    form.action = url;
+
+                } else {
+
+                    form.action = "javascript:formSubmit('" + formId + "', '" + url + "');";
+
+                }
+
+            } else {
+
+                showDiv(false);
+
+                FormSubmit_bloquerTeclado(false);
+
+            }
+
+        }
+
+
+        function FormSubmit_bloquerTeclado(value) {
+
+            if (value == true) {
+
+                document.body.onkeydown = function (e) {
+
+                    return false;
+                }
+
+            } else {
+
+                document.body.onkeydown = SubmitCheckKeyEvent;
+
+            }
+
+        }
+
+
+        //--></script>
+        <form id="formularioExtratoMensal" name="formularioExtratoMensal" method="post"
+              action="/ibpjsaldosextratos/selecaoPeriodoContasWebCanaisCC.jsf"
+              enctype="application/x-www-form-urlencoded"><input type="hidden" name="jsf_tree_64" id="jsf_tree_64"
+                                                                 value="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"/><input
+                type="hidden" name="jsf_state_64" id="jsf_state_64"
+                value="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"/><input
+                type="hidden" name="jsf_viewid" id="jsf_viewid" value="/selecaoPeriodoContasWebCanaisCC.jsp"/>
+            <script id="formularioExtratoMensal:_id45" type="text/javascript"><!--
+            //<![CDATA[
+            loadContas = function () {
+                A4J.AJAX.Submit('_viewRoot', 'formularioExtratoMensal', null, {
+                    'oncomplete': function (request, event, data) {
+                        reload();
+                    },
+                    'actionUrl': '/ibpjsaldosextratos/selecaoPeriodoContasWebCanaisCC.jsf?javax.portlet.faces.DirectLink=true',
+                    'parameters': {'formularioExtratoMensal:_id45': 'formularioExtratoMensal:_id45'}
+                })
+            };
+            //]]>
+            //--></script>
+            <div class="margens_laterais">
+                <div id="formularioExtratoMensal:_id46" value="Sele&#231;&#227;o do Per&#237;odo e Contas"
+                     class="box_grayLine_bottom pb0 ">
+                    <div class="titulo_grupo_dados_formulario">Sele&#231;&#227;o do Per&#237;odo e Contas</div>
+                    <div id="formularioExtratoMensal:dataConsulta" class="campos_form"><span
+                            id="formularioExtratoMensal:boxErroFiltroMesProgramado"
+                            class="erro_msg"><strong></strong></span>
+                        <ul id="formularioExtratoMensal:_id49" class="formulario">
+                            <li id="formularioExtratoMensal:_id50" class="after">
+                                <div class="boxP14_nt w100percent">
+                                    <div class="w100percent pb10"><span class="label">Data:</span>
+                                        <div><input type="radio" id="formularioExtratoMensal:tipoConsultaPorMes1"
+                                                    name="tipoConsultaPorMes" class="radio frmRadio tabindex" value="0"
+                                                    title="Marque para selecionar por m&#234;s"/>
+
+                                        </div>
+                                        <div><span class="label focusNext pr10 wAuto">Por m&#234;s:</span><select
+                                                id="formularioExtratoMensal:selectMesProgramado"
+                                                name="formularioExtratoMensal:selectMesProgramado" size="1"
+                                                title="Selecione o m&#234;s" style="width: 115px;"
+                                                class="selectMesProgramado tabindex">
+                                            <option value="" selected="selected">Selecione</option>
+                                            <option value="1567372241691">2019 | Setembro</option>
+                                            <option value="1564693841691">2019 | Agosto</option>
+                                            <option value="1562015441691">2019 | Julho</option>
+                                            <option value="1559423441691">2019 | Junho</option>
+                                            <option value="1556745041691">2019 | Maio</option>
+                                            <option value="1554153041691">2019 | Abril</option>
+                                            <option value="1551474641691">2019 | Mar&#231;o</option>
+                                            <option value="1549051841691">2019 | Fevereiro</option>
+                                            <option value="1546373441691">2019 | Janeiro</option>
+                                            <option value="1543695041691">2018 | Dezembro</option>
+                                            <option value="1541106641691">2018 | Novembro</option>
+                                            <option value="1538428241691">2018 | Outubro</option>
+                                            <option value="1535836241691">2018 | Setembro</option>
+                                            <option value="1533157841691">2018 | Agosto</option>
+                                            <option value="1530479441691">2018 | Julho</option>
+                                            <option value="1527887441691">2018 | Junho</option>
+                                            <option value="1525209041691">2018 | Maio</option>
+                                            <option value="1522617041691">2018 | Abril</option>
+                                            <option value="1519938641691">2018 | Mar&#231;o</option>
+                                            <option value="1517515841691">2018 | Fevereiro</option>
+                                            <option value="1514837441691">2018 | Janeiro</option>
+                                            <option value="1512159041691">2017 | Dezembro</option>
+                                            <option value="1509567041691">2017 | Novembro</option>
+                                            <option value="1506892241691">2017 | Outubro</option>
+                                        </select></div>
+                                    </div>
+                                    <div class="w100percent"><span class="clr label"></span>
+                                        <div><input type="radio" id="formularioExtratoMensal:tipoConsultaPorMes2"
+                                                    name="tipoConsultaPorMes" class="radio frmRadio tabindex" value="1"
+                                                    title="Marque para selecionar por per&#237;odo"/>
+
+                                        </div>
+                                        <div>
+                                            <link type="text/css" rel="stylesheet"
+                                                  href="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UICalendarPeriod/resources/css/NET_defaultStylesUICalendarPeriod.css"/>
+                                            <script type="text/javascript"
+                                                    src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UICalendarPeriod/resources/js/defaultScriptUICalendarPeriod.js"><!--
+
+                                            //--></script>
+                                            <script type="text/javascript"
+                                                    src="/ibpjsaldosextratos/faces/js/defaultScriptUICalendarValidatior.js"><!--
+
+                                            //--></script>
+                                            <script type="text/javascript"><!--
+                                            var calendarValidatorformularioExtratoMensal_limits = new UICalendarValidator({
+                                                endLimit: "01/09/2019",
+                                                monthFieldEnd: "calendarioProgramado_endMes",
+                                                isMonthOnly: "",
+                                                dayFieldBegin: "calendarioProgramado_beginDia",
+                                                yearFieldBegin: "calendarioProgramado_beginAno",
+                                                monthFieldBegin: "calendarioProgramado_beginMes",
+                                                hiddenField: "calendarioProgramado",
+                                                validationType: "limits",
+                                                calendarType: "period",
+                                                calendarId: "calendarioProgramado",
+                                                startLimit: "01/01/1900",
+                                                monthField: "calendarioProgramadoMes",
+                                                yearField: "calendarioProgramadoAno",
+                                                dayFieldEnd: "calendarioProgramado_endDia",
+                                                validationCallback: "validarLimiteCalendario",
+                                                yearFieldEnd: "calendarioProgramado_endAno",
+                                                dayField: "calendarioProgramadoDia",
+                                                errorMessage: "A data inicial deve ser maior ou igual a 01/01/1900.|A data final deve ser menor ou igual a 01/09/2019.",
+                                            });
+                                            $jBR(document).ready(function () {
+                                                calendarValidatorformularioExtratoMensal_limits.init();
+                                            });
+                                            //--></script>
+                                            <script type="text/javascript"><!--
+                                            var calendarValidatorformularioExtratoMensal_period = new UICalendarValidator({
+                                                endLimit: "01/09/2019",
+                                                monthFieldEnd: "calendarioProgramado_endMes",
+                                                isMonthOnly: "",
+                                                dayFieldBegin: "calendarioProgramado_beginDia",
+                                                yearFieldBegin: "calendarioProgramado_beginAno",
+                                                monthFieldBegin: "calendarioProgramado_beginMes",
+                                                hiddenField: "calendarioProgramado",
+                                                validationType: "period",
+                                                calendarType: "period",
+                                                calendarId: "calendarioProgramado",
+                                                startLimit: "01/01/1900",
+                                                monthField: "calendarioProgramadoMes",
+                                                yearField: "calendarioProgramadoAno",
+                                                dayFieldEnd: "calendarioProgramado_endDia",
+                                                validationCallback: "validarCalendario",
+                                                yearFieldEnd: "calendarioProgramado_endAno",
+                                                dayField: "calendarioProgramadoDia",
+                                                errorMessage: "A data inicial deve ser menor ou igual &#224; data final.",
+                                            });
+                                            $jBR(document).ready(function () {
+                                                calendarValidatorformularioExtratoMensal_period.init();
+                                            });
+                                            //--></script>
+                                            <link type="text/css" rel="stylesheet"
+                                                  href="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UICalendar/resources/css/defaultStylesUICalendarIB.css"/>
+                                            <script type="text/javascript"
+                                                    src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentBaseBradesco/resources/js/browserDetector.js"><!--
+
+                                            //--></script>
+                                            <script type="text/javascript"
+                                                    src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/base/UIComponentBaseBradesco/resources/js/dateFormat.js"><!--
+
+                                            //--></script>
+                                            <script type="text/javascript"
+                                                    src="https://www.ne13.bradesconetempresa.b.br/ibpj/awb/app/ib/UICalendar/resources/js/defaultScriptUICalendarIB.js"><!--
+
+                                            //--></script>
+                                            <script type="text/javascript"><!--
+                                            function getUICalendarBundle() {
+                                                var bundleMsg = new Array();
+                                                bundleMsg['UICalendar_nextMonth'] = 'Pr&#243;ximo M&#234;s';
+                                                bundleMsg['UICalendar_prevMonth'] = 'M&#234;s Anterior';
+                                                bundleMsg['UICalendar_nextYear'] = 'Pr&#243;ximo Ano';
+                                                bundleMsg['UICalendar_prevYear'] = 'Ano Anterior';
+                                                bundleMsg['UICalendar_months'] = 'Janeiro,Fevereiro,Mar&#231;o,Abril,Maio,Junho,Julho,Agosto,Setembro,Outubro,Novembro,Dezembro';
+                                                bundleMsg['UICalendar_footerText'] = 'Hoje: dd de MMMM, yyyy';
+                                                bundleMsg['UICalendar_weekLabels'] = 'D,S,T,Q,Q,S,S';
+                                                bundleMsg['UICalendar_shortMonths'] = 'Jan,Fev,Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov,Dez';
+                                                return bundleMsg;
+                                            }
+
+                                            //--></script>
+                                            <script type="text/javascript"><!--
+                                            function getUICalendarPeriodBundle() {
+                                                var bundleMsg = new Array();
+                                                bundleMsg['UICalendarPeriod_msgValidation'] = 'Data inicial deve ser anterior &#224; data final';
+                                                return bundleMsg;
+                                            }
+
+                                            //--></script>
+                                            <script type="text/javascript"><!--
+                                            var calendarPeriodBeforecalendarioProgramado = new UICalendarPeriodBefore({
+                                                validationMsgFunction: 'adicionarOuRemoverErrosPeriodo',
+                                                realTimeVldLevel: 'filled',
+                                                id: 'calendarioProgramado',
+                                                enablePeriodValidation: 'true'
+                                            });
+                                            var calendarPeriodAftercalendarioProgramado = new UICalendarPeriodAfter({
+                                                validationMsgFunction: 'adicionarOuRemoverErrosPeriodo',
+                                                realTimeVldLevel: 'filled',
+                                                id: 'calendarioProgramado',
+                                                enablePeriodValidation: 'true'
+                                            });
+                                            var calendarPeriodInitcalendarioProgramado = new UICalendarPeriodInit({
+                                                validationMsgFunction: 'adicionarOuRemoverErrosPeriodo',
+                                                realTimeVldLevel: 'filled',
+                                                id: 'calendarioProgramado',
+                                                enablePeriodValidation: 'true'
+                                            });
+                                            //--></script>
+                                            <div class="UICalendarPeriod-div-calendar-period saldos-UICalendarPeriod-div-calendar-period">
+                                                <span class="UICalendarPeriod-label-inicial saldos-UICalendarPeriod-label-inicial">A partir de:</span>
+                                                <script type="text/javascript"><!--
+                                                var calendarcalendarioProgramado_begin = new UICalendar({
+                                                    clientValidationLevel: 'limits',
+                                                    calendarJSObjectID: 'calendarcalendarioProgramado_begin',
+                                                    mainHidden: 'calendarioProgramado_begin',
+                                                    currentDate: '01/09/2019',
+                                                    onDateSelectedCB: 'null',
+                                                    calendarDate: 'null',
+                                                    stopOnValidationError: 'true',
+                                                    requiredPrefix: 'calendarioProgramadoRequired',
+                                                    endLimitPrefix: 'calendarioProgramadoDtFim',
+                                                    yearTitle: 'Informe o ano {$} com quatro posi&#231;&#245;es',
+                                                    id: 'calendarioProgramado_begin',
+                                                    dayTitle: 'Informe o dia {$} com duas posi&#231;&#245;es',
+                                                    required: 'false',
+                                                    minDate: '01/01/1900',
+                                                    disableAutoOpening: 'false',
+                                                    readOnly: 'false',
+                                                    baseClass: 'UICalendarPeriod',
+                                                    onFieldFilledParameters: 'bundleFunction:"getBundle"',
+                                                    footerText: 'null',
+                                                    classPrefix: 'saldos',
+                                                    startLimitPrefix: 'calendarioProgramadoDtInicio',
+                                                    synchronizeCalendar: 'false',
+                                                    disableInputs: 'false',
+                                                    maxDate: '01/09/2019',
+                                                    useClientCurrentDate: 'false',
+                                                    monthTitle: 'Informe o m&#234;s {$} com duas posi&#231;&#245;es',
+                                                    onFilledFieldCB: 'null',
+                                                    type: 'calendarPeriod',
+                                                    hideDay: 'false',
+                                                    justPrefixClass: 'false',
+                                                    disabled: 'false'
+                                                });
+                                                $jBR(document).ready(function () {
+                                                    calendarcalendarioProgramado_begin.setCallback('init', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_begin.setCallback('navigationMap', calendarPeriodBeforecalendarioProgramado);
+                                                    calendarcalendarioProgramado_begin.setCallback('setDateField', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_begin.setCallback('onkeyUp', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_begin.init();
+                                                });
+                                                //--></script>
+                                                <div class="dataCalendario">
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="2"
+                                                                                                    autocomplete="off"
+                                                                                                    maxlength="2"
+                                                                                                    name="calendarioProgramado_beginDia"
+                                                                                                    id="calendarioProgramado_beginDia"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_day saldos-UICalendarPeriod-input_date_day tabindex saldos-tabindex dia saldos-dia"
+                                                                                                    alt="Informe o dia {$} com duas posi&#231;&#245;es"
+                                                                                                    title="Informe o dia {$} com duas posi&#231;&#245;es"/>
+                                                    </div>
+                                                    <span id="calendarioProgramado_begin_separator1"
+                                                          class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-separators saldos-UICalendarPeriod-separators"><span
+                                                            style='margin-right: 1px;'>/</span></span>
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="2"
+                                                                                                    maxlength="2"
+                                                                                                    autocomplete="off"
+                                                                                                    name="calendarioProgramado_beginMes"
+                                                                                                    id="calendarioProgramado_beginMes"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_month saldos-UICalendarPeriod-input_date_month tabindex saldos-tabindex mes saldos-mes"
+                                                                                                    alt="Informe o m&#234;s {$} com duas posi&#231;&#245;es"
+                                                                                                    title="Informe o m&#234;s {$} com duas posi&#231;&#245;es"/><span
+                                                            id="calendarioProgramado_begin_separator2"
+                                                            class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-separators saldos-UICalendarPeriod-separators"><span
+                                                            style='margin-right: 1px;'>/</span></span></div>
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="4"
+                                                                                                    maxlength="4"
+                                                                                                    autocomplete="off"
+                                                                                                    name="calendarioProgramado_beginAno"
+                                                                                                    id="calendarioProgramado_beginAno"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_year saldos-UICalendarPeriod-input_date_year tabindex saldos-tabindex ano saldos-ano"
+                                                                                                    alt="Informe o ano {$} com quatro posi&#231;&#245;es"
+                                                                                                    title="Informe o ano {$} com quatro posi&#231;&#245;es"/>
+                                                    </div>
+                                                    <a name="calendarioProgramado_begin-show-calendar"
+                                                       id="calendarioProgramado_begin-show-calendar"
+                                                       title="Selecione a data no calend&#225;rio"
+                                                       class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-show-calendar saldos-UICalendarPeriod-show-calendar UICalendarPeriod-show-calendar-pointer saldos-UICalendarPeriod-show-calendar-pointer">&amp;nbsp;</a><span
+                                                        class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-mask-label saldos-UICalendarPeriod-mask-label"
+                                                        id="calendarioProgramado_begin_maskLabel"></span><input
+                                                        id="calendarioProgramado_begin"
+                                                        name="calendarioProgramado_begin" type="hidden" value=""/><input
+                                                        id="calendarioProgramadoDtInicio"
+                                                        name="calendarioProgramadoDtInicio" type="hidden"
+                                                        value=""/><input id="calendarioProgramadoDtFim"
+                                                                         name="calendarioProgramadoDtFim" type="hidden"
+                                                                         value=""/><input
+                                                        id="calendarioProgramadoRequired"
+                                                        name="calendarioProgramadoRequired" type="hidden" value=""/>
+                                                </div>
+                                                <span class="UICalendarPeriod-label-final saldos-UICalendarPeriod-label-final">at&#233;</span>
+                                                <script type="text/javascript"><!--
+                                                var calendarcalendarioProgramado_end = new UICalendar({
+                                                    clientValidationLevel: 'limits',
+                                                    calendarJSObjectID: 'calendarcalendarioProgramado_end',
+                                                    mainHidden: 'calendarioProgramado_end',
+                                                    currentDate: '01/09/2019',
+                                                    onDateSelectedCB: 'null',
+                                                    calendarDate: 'null',
+                                                    stopOnValidationError: 'true',
+                                                    requiredPrefix: 'calendarioProgramadoRequired',
+                                                    endLimitPrefix: 'calendarioProgramadoDtFim',
+                                                    yearTitle: 'Informe o ano {$} com quatro posi&#231;&#245;es',
+                                                    id: 'calendarioProgramado_end',
+                                                    dayTitle: 'Informe o dia {$} com duas posi&#231;&#245;es',
+                                                    required: 'false',
+                                                    minDate: '01/01/1900',
+                                                    disableAutoOpening: 'false',
+                                                    readOnly: 'false',
+                                                    baseClass: 'UICalendarPeriod',
+                                                    onFieldFilledParameters: 'bundleFunction:"getBundle"',
+                                                    footerText: 'null',
+                                                    classPrefix: 'saldos',
+                                                    startLimitPrefix: 'calendarioProgramadoDtInicio',
+                                                    synchronizeCalendar: 'false',
+                                                    disableInputs: 'false',
+                                                    maxDate: '01/09/2019',
+                                                    useClientCurrentDate: 'false',
+                                                    monthTitle: 'Informe o m&#234;s {$} com duas posi&#231;&#245;es',
+                                                    onFilledFieldCB: 'null',
+                                                    type: 'calendarPeriod',
+                                                    hideDay: 'false',
+                                                    justPrefixClass: 'false',
+                                                    disabled: 'false'
+                                                });
+                                                $jBR(document).ready(function () {
+                                                    calendarcalendarioProgramado_end.setCallback('init', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_end.setCallback('navigationMap', calendarPeriodAftercalendarioProgramado);
+                                                    calendarcalendarioProgramado_end.setCallback('setDateField', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_end.setCallback('onkeyUp', calendarPeriodInitcalendarioProgramado);
+                                                    calendarcalendarioProgramado_end.init();
+                                                });
+                                                //--></script>
+                                                <div class="dataCalendario">
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="2"
+                                                                                                    autocomplete="off"
+                                                                                                    maxlength="2"
+                                                                                                    name="calendarioProgramado_endDia"
+                                                                                                    id="calendarioProgramado_endDia"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_day saldos-UICalendarPeriod-input_date_day tabindex saldos-tabindex dia saldos-dia"
+                                                                                                    alt="Informe o dia {$} com duas posi&#231;&#245;es"
+                                                                                                    title="Informe o dia {$} com duas posi&#231;&#245;es"/>
+                                                    </div>
+                                                    <span id="calendarioProgramado_end_separator1"
+                                                          class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-separators saldos-UICalendarPeriod-separators"><span
+                                                            style='margin-right: 1px;'>/</span></span>
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="2"
+                                                                                                    maxlength="2"
+                                                                                                    autocomplete="off"
+                                                                                                    name="calendarioProgramado_endMes"
+                                                                                                    id="calendarioProgramado_endMes"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_month saldos-UICalendarPeriod-input_date_month tabindex saldos-tabindex mes saldos-mes"
+                                                                                                    alt="Informe o m&#234;s {$} com duas posi&#231;&#245;es"
+                                                                                                    title="Informe o m&#234;s {$} com duas posi&#231;&#245;es"/><span
+                                                            id="calendarioProgramado_end_separator2"
+                                                            class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-separators saldos-UICalendarPeriod-separators"><span
+                                                            style='margin-right: 1px;'>/</span></span></div>
+                                                    <div class="UICalendar-calendar-subdivs"><input type="text" size="4"
+                                                                                                    maxlength="4"
+                                                                                                    autocomplete="off"
+                                                                                                    name="calendarioProgramado_endAno"
+                                                                                                    id="calendarioProgramado_endAno"
+                                                                                                    class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-input_date saldos-UICalendarPeriod-input_date UICalendarPeriod-input_date_year saldos-UICalendarPeriod-input_date_year tabindex saldos-tabindex ano saldos-ano"
+                                                                                                    alt="Informe o ano {$} com quatro posi&#231;&#245;es"
+                                                                                                    title="Informe o ano {$} com quatro posi&#231;&#245;es"/>
+                                                    </div>
+                                                    <a name="calendarioProgramado_end-show-calendar"
+                                                       id="calendarioProgramado_end-show-calendar"
+                                                       title="Selecione a data no calend&#225;rio"
+                                                       class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-show-calendar saldos-UICalendarPeriod-show-calendar UICalendarPeriod-show-calendar-pointer saldos-UICalendarPeriod-show-calendar-pointer">&amp;nbsp;</a><span
+                                                        class="UICalendarPeriod saldos-UICalendarPeriod UICalendarPeriod-mask-label saldos-UICalendarPeriod-mask-label"
+                                                        id="calendarioProgramado_end_maskLabel"></span><input
+                                                        id="calendarioProgramado_end" name="calendarioProgramado_end"
+                                                        type="hidden" value=""/><input id="calendarioProgramadoDtInicio"
+                                                                                       name="calendarioProgramadoDtInicio"
+                                                                                       type="hidden" value=""/><input
+                                                        id="calendarioProgramadoDtFim" name="calendarioProgramadoDtFim"
+                                                        type="hidden" value=""/><input id="calendarioProgramadoRequired"
+                                                                                       name="calendarioProgramadoRequired"
+                                                                                       type="hidden" value=""/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="formularioExtratoMensal:boxContas" class="campos_form">
+                        <ul class="formulario">
+                            <li class="after">
+                                <div class="boxP14_nt"><span id="formularioExtratoMensal:_id63"
+                                                             class="erro_msg"><strong></strong></span><label
+                                        for="formularioExtratoMensal: ">Contas:</label>
+                                    <div id="formularioExtratoMensal:_id67">
+                                        <div id="divContas">
+                                            <table class="checkContas tabindex">
+                                                <tr>
+                                                    <td><label><input type="checkbox"
+                                                                      name="formularioExtratoMensal:_id68" value="1"
+                                                                      title="Marque para todas as contas"
+                                                                      class="checkContas tabindex"/>&#160;Todas as
+                                                        contas</label></td>
+                                                </tr>
+                                            </table>
+                                            <table class="checkContas checkContasVV tabindex" id="contas">
+                                                <tr>
+                                                    <td><label> <input type="checkbox" name="contas" value="0"
+                                                                       class="checkContas checkContasVV tabindex"/>00054
+                                                        | 0001486-9</label></td>
+                                                    <td><label> <input type="checkbox" name="contas" value="1"
+                                                                       class="checkContas checkContasVV tabindex"/>00054
+                                                        | 0001520-2</label></td>
+                                                    <td><label> <input type="checkbox" name="contas" value="2"
+                                                                       class="checkContas checkContasVV tabindex"/>00054
+                                                        | 0001525-3</label></td>
+                                                    <td><label> <input type="checkbox" name="contas" value="3"
+                                                                       class="checkContas checkContasVV tabindex"/>00054
+                                                        | 0001529-6</label></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="divLoadingContas" class="clr alignCenter none pt20 pb20"><img
+                    src="https://www.ne13.bradesconetempresa.b.br/ibpj/imagens/geral/ajax-loader.gif"
+                    class="loaderTransacao"/></div>
+            <div class="margens_laterais">
+                <div class="fl mb20 mt10 w100percent">
+                    <div class="fl"><span class="leg">Para obter extratos superiores a 60 meses, contate a ag&#234;ncia Bradesco da empresa.</span>
+                    </div>
+                    <div id="formularioExtratoMensal:rowBotoes"><input id="formularioExtratoMensal:_id78"
+                                                                       name="formularioExtratoMensal:_id78"
+                                                                       type="submit" value=""
+                                                                       onclick="javascript:if(!validarFormulario()) return false;;clear_formularioExtratoMensal();document.forms['formularioExtratoMensal'].elements['autoScroll'].value=getScrolling();"
+                                                                       title="Buscar" class="btnFormBuscar tabindex"/>
+                    </div>
+                </div>
+                <div class="rodape after pt10">
+                    <ul id="formularioExtratoMensal:_id178" class="listaVoltar mb15">
+                        <li id="formularioExtratoMensal:_id179"><a id="formularioExtratoMensal:_id180"
+                                                                   href="https://www.ne12.bradesconetempresa.b.br/ibpjtelainicial/menuSaldoExtrato.jsf?CTRL=329324383301126181"
+                                                                   title="Voltar" class="lnkVoltar tabindex">Voltar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <input type="hidden" name="formularioExtratoMensal_SUBMIT" value="1"/><input type="hidden"
+                                                                                         name="autoScroll"/><input
+                    type="hidden" name="formularioExtratoMensal:_link_hidden_"/>
+            <script type="text/javascript"><!--
+            function clear_formularioExtratoMensal() {
+                var f = document.forms['formularioExtratoMensal'];
+                f.elements['formularioExtratoMensal:_link_hidden_'].value = '';
+                f.target = '';
+            }
+
+            clear_formularioExtratoMensal();
+            //--></script>
+        </form>
+        <script type="text/javascript" language="Javascript1.1"><
+        !--
+
+        < !--
+        var bCancel = false;
+
+        function validateForm(form) {
+            return bCancel || true
+                    && validateRequired(form)
+                    && validarValorObrigatorioSeOutroPreenchido(form)
+                    ;
+        }
+
+        function replaceAscii(text) {
+            var ini = text.indexOf('\&\#');
+            var fin = text.indexOf(';', ini);
+            while (ini >= 0 && fin > ini) {
+                var ascii = text.substring(ini + 2, fin);
+                if (ascii > 0) {
+                    var str = String.fromCharCode(ascii);
+                    text = text.replace('\&\#' + ascii + ';', str);
+                }
+                ini = text.indexOf('\&\#', ini + 1);
+                fin = text.indexOf(';', ini);
+            }
+            return text;
+        }
+
+        function required() {
+            this[0] = new Array("tipoConsultaPorMes", replaceAscii("Selecione o tipo de filtro por data."), new Function("x", "return {}[x];"));
+            this[1] = new Array("contas", replaceAscii("Selecione a(s) conta(s)."), new Function("x", "return {}[x];"));
+        }
+
+        function valorObrigatorioSeOutroPreenchido() {
+            this[0] = new Array("formularioExtratoMensal:selectMesProgramado", replaceAscii("Selecione a op&#231;&#227;o de busca por m&#234;s e/ou selecione m&#234;s."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes1'}[x];"));
+            this[1] = new Array("calendarioProgramado_beginDia", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginMes,calendarioProgramado_beginAno,calendarioProgramado_endDia,calendarioProgramado_endMes,calendarioProgramado_endAno'}[x];"));
+            this[2] = new Array("calendarioProgramado_beginMes", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginDia,calendarioProgramado_beginAno,calendarioProgramado_endDia,calendarioProgramado_endMes,calendarioProgramado_endAno'}[x];"));
+            this[3] = new Array("calendarioProgramado_beginAno", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginDia,calendarioProgramado_beginMes,calendarioProgramado_endDia,calendarioProgramado_endMes,calendarioProgramado_endAno'}[x];"));
+            this[4] = new Array("calendarioProgramado_endDia", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginDia,calendarioProgramado_beginMes,calendarioProgramado_beginAno,calendarioProgramado_endMes,calendarioProgramado_endAno'}[x];"));
+            this[5] = new Array("calendarioProgramado_endMes", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginDia,calendarioProgramado_beginMes,calendarioProgramado_beginAno,calendarioProgramado_endDia,calendarioProgramado_endAno'}[x];"));
+            this[6] = new Array("calendarioProgramado_endAno", replaceAscii("Preencha os campos das datas por per&#237;odo."), new Function("x", "return {compareFieldId:'tipoConsultaPorMes2,calendarioProgramado_beginDia,calendarioProgramado_beginMes,calendarioProgramado_beginAno,calendarioProgramado_endDia,calendarioProgramado_endMes'}[x];"));
+        }
+
+        function validateRequired(form) {
+            return IbValidateRequired(form);
+        }
+
+        function validarValorObrigatorioSeOutroPreenchido(form) {
+            limparErros();
+            var isValid = true;
+            var i = 0;
+            var j = 0;
+            var fields = new Array();
+            var messages = new Array();
+            oValorObrigatorioSeOutroPreenchido = new valorObrigatorioSeOutroPreenchido();
+            for (x in oValorObrigatorioSeOutroPreenchido) {
+                var nameElement = oValorObrigatorioSeOutroPreenchido[x][0];
+                var namesElementToCheck = oValorObrigatorioSeOutroPreenchido[x][2]("compareFieldId").split(",");
+                var field = null;
+                var field2 = null;
+
+                field = jQuery(form).find("*[name$=" + nameElement + "]");
+
+                // verificamos se o cliente selecionou o elemento
+                var fieldSelected = false;
+                if (jQuery(field).is("input[type=checkbox]") || jQuery(field).is("input[type=radio]")) {
+                    fieldSelected = jQuery(field).is(':checked');
+                } else if (jQuery(field).is("input[type=text]") ||
+                        jQuery(field).is("textarea") ||
+                        jQuery(field).is("input[type=file]") ||
+                        jQuery(field).is("input[type=password]") ||
+                        jQuery(field).is("input[type=hidden]")) {
+                    fieldSelected = jQuery(field).val().length != 0;
+                } else if (jQuery(field).is("select")) {
+                    var valorOptions = "";
+                    jQuery(field).find("option").each(function () {
+                        valorOptions = valorOptions + '' + jQuery(this).val();
+                    });
+                    var regexTexto = /^[0-9-]+$/;
+                    if (regexTexto.test(valorOptions)) {
+                        fieldSelected = jQuery(field).find("option:selected").val() != '-1' && jQuery(field).find("option:selected").val() != '';
+                    } else {
+                        fieldSelected = jQuery(field).find("option:selected").val().length != 0;
+                    }
+                }
+
+                for (var idx = 0; idx < namesElementToCheck.length; idx++) {
+
+                    var nameElementToCheck = namesElementToCheck[idx];
+
+                    // verificamos se o id do elemento que iremos comparar possui indice ex: nomeElemento[indice]
+                    var inicioIndice = nameElementToCheck.indexOf("[");
+                    if (inicioIndice != -1) {
+                        var fimIndice = nameElementToCheck.indexOf("]");
+                        var idxElemento = nameElementToCheck.substring(inicioIndice + 1, fimIndice);
+                        nameElementToCheck = nameElementToCheck.substring(0, inicioIndice);
+                        field2 = jQuery(form).find("input[id$=" + nameElementToCheck + "]").get(idxElemento);
+                    } else {
+                        field2 = jQuery(form).find("input[id$=" + nameElementToCheck + "]");
+                    }
+
+                    var field2Selected = false;
+                    if (jQuery(field2).is("input[type=checkbox]") || jQuery(field2).is("input[type=radio]")) {
+                        field2Selected = jQuery(field2).is(':checked');
+                    } else if (jQuery(field2).is("input[type=text]") ||
+                            jQuery(field2).is("textarea") ||
+                            jQuery(field2).is("input[type=file]") ||
+                            jQuery(field2).is("input[type=password]") ||
+                            jQuery(field2).is("input[type=hidden]")) {
+                        field2Selected = jQuery(field2).val().length != 0;
+                    } else if (jQuery(field2).is("select")) {
+                        field2Selected = jQuery(field2).find("option:selected").val().length != 0;
+                    }
+
+                    if (field2Selected && !fieldSelected) {
+                        var nomeElemento = jQuery(field).attr("name");
+                        if (jQuery.inArray(nomeElemento, fields) < 0) {
+                            fields[i++] = nomeElemento;
+                            messages[j++] = oValorObrigatorioSeOutroPreenchido[x][1];
+                            isValid = false;
+                        }
+                    } else {
+                        removerErro(jQuery(field).attr("name"));
+                        removerErro(jQuery(field2).attr("name"));
+                    }
+                }
+            }
+            if (fields.length > 0) {
+                exibirErros(fields, messages);
+            }
+            return isValid;
+        }
+
+        function validateInteger(form) {
+            return IBValidateInteger(form);
+        }
+
+        -- >
+
+        //--></script>
+
+
+        <script type="text/javascript">
+
+            var $ = jQuery.noConflict();
+
+            $(window).load(function () {
+
+                $(".radio").click(function () {
+
+                    loading();
+                    loadContas();
+
+                });
+
+                //ATIVA OS CHECKS DE CONTAS
+
+                $("input.checkContas").live("click", function (evt) {
+
+
+                    var todosElementos = $("input.checkContas");
+
+                    if ($(todosElementos).index($(this)) == 0) {
+
+                        if (this.checked) {
+
+                            $(todosElementos).attr("checked", "checked");
+
+                        } else {
+
+                            $(todosElementos).removeAttr("checked");
+
+                        }
+
+                    } else {
+
+                        if (this.checked) {
+
+                            if ($(todosElementos).length - 1 == $("input.checkContas:checked").length) {
+
+                                $("input.checkContas:first").attr("checked", "checked");
+
+                            }
+
+                        } else {
+
+                            $("input.checkContas:first").removeAttr("checked");
+
+                        }
+
+                    }
+
+                });
+
+
+                var $todasContas = $("input.checkContas");
+
+                var $checkTodos = $todasContas.filter(":first");
+
+                var $checkChecados = $todasContas.filter(":checked");
+
+
+                if ($todasContas.length <= $checkChecados.length + 1) {
+
+                    $checkTodos.attr("checked", "checked");
+
+                }
+
+
+                // Limpa periodo quando seleciona m&#234;s no combo
+
+                jQuery("#formularioExtratoMensal\\:selectMesProgramado").live("change", function () {
+
+                    jQuery("input[type=text]").val("");
+
+                    if (!jQuery("#formularioExtratoMensal\\:tipoConsultaPorMes1").is(':checked')) {
+
+                        jQuery("#formularioExtratoMensal\\:tipoConsultaPorMes1").click();
+
+                    }
+
+                });
+
+
+                // Volta o combo m&#234;s para default quando digita periodo
+
+                jQuery("input[type=text]").live("keypress", function () {
+
+                    jQuery("#formularioExtratoMensal\\:selectMesProgramado").val(jQuery("#formularioExtratoMensal\\:selectMesProgramado").find('option:first').val());
+
+                    if (!jQuery("#formularioExtratoMensal\\:tipoConsultaPorMes2").is(':checked')) {
+
+                        jQuery("#formularioExtratoMensal\\:tipoConsultaPorMes2").click();
+
+                    }
+
+                });
+
+            });
+
+
+            function removerErros() {
+
+                var elementosComErros = ($(".campos_form").find(".erro_msg")).find("strong:not(:empty)");
+
+                $(elementosComErros).html("");
+
+                $(elementosComErros).parents(".campos_form").removeClass("form_erro");
+
+            }
+
+
+            //VALIDACAO DO FORMULARIO
+
+            function validarFormulario() {
+
+                removerErros();
+
+                var form = $("form[name$=formularioExtratoMensal]")[0];
+
+                result = validateForm(form);
+
+                result = result && adicionarOuRemoverErrosPeriodo();
+
+                return result;
+
+            }
+
+
+            function adicionarOuRemoverErrosPeriodo() {
+
+                return calendarValidatorformularioExtratoMensal_limits.validatePeriodCalendarLimits()
+
+                    && calendarValidatorformularioExtratoMensal_period.validatePeriodCalendarPeriod();
+
+            }
+
+
+            function loading() {
+
+                $("#divContas").fadeOut();
+
+                $("#divLoadingContas").fadeIn();
+
+            }
+
+
+            function reload() {
+
+                $("#divLoadingContas").fadeOut();
+
+                $("#divContas").fadeIn();
+
+            }
+
+
+        </script>
+
+
+        <div class="txt-codigoTela">SMC10</div>
+
+    </div>
+
+    <div class="base">
+
+        <span class="c1"><!-- --></span>
+
+        <span class="c2"><!-- --></span>
+
+    </div>
+
+</div>
+
+</body>
+
+<script type="text/javascript"><!--
+function getScrolling() {
+    var x = 0;
+    var y = 0;
+    if (self.pageXOffset) {
+        x = self.pageXOffset;
+        y = self.pageYOffset;
+    } else if (document.documentElement && document.documentElement.scrollLeft) {
+        x = document.documentElement.scrollLeft;
+        y = document.documentElement.scrollTop;
+    } else if (document.body) {
+        x = document.body.scrollLeft;
+        y = document.body.scrollTop;
+    }
+    return x + "," + y;
+}
+
+//--></script>
+
+</html>
+

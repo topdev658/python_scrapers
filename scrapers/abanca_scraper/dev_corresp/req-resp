@@ -1,0 +1,59 @@
+CORRESPONDENCE BY ACCOUNT
+>>> POST https://be.abanca.com/BEPRJ001/jsp/BEPR_eCorrespondencia_LST.faces
+>>> POST https://be.abanca.com/BEPRJ001/jsp/BEPR_eCorrespondencia_LST.faces?_flowExecutionKey=_c082A8D5F-040E-C308-D4CD-54A963F7EFDF_k6C64BC6C-5DDA-80D0-A186-0635ACA82B0B
+
+formulario:panelAyudaOpenedState
+formulario:idCuenta=20801206315500001480
+formulario:idCategoria
+formulario:idOpciones=QUINCE
+formulario:fechaDesdeInputCurrentDate=07/2020
+formulario:fechaHastaInputCurrentDate=07/2020
+formulario:importeDesde
+formulario:importeHasta
+formulario:descripcion
+formulario:btnBuscar=Buscar
+formulario:idOpcionesSeleccion=NINGUNO
+formulario:tablaResultados:0:hiddenNumSecuencia=1327126860
+formulario_SUBMIT=1
+formulario:_link_hidden_
+formulario:_idcl
+javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxOTcyMnB0ACIvanNwL0JFUFJfZUNvcnJlc3BvbmRlbmNpYV9MU1QuanNw
+
+
+formulario:panelAyudaOpenedState
+formulario:idCuenta=20801206315500001480
+formulario:idCategoria
+formulario:idOpciones=RANGO
+formulario:fechaDesdeInputDate=03-06-2020
+formulario:fechaDesdeInputCurrentDate=06/2020
+formulario:fechaHastaInputDate=02-08-2020
+formulario:fechaHastaInputCurrentDate=08/2020
+formulario:importeDesde
+formulario:importeHasta
+formulario:descripcion
+formulario:btnBuscar=Buscar
+formulario_SUBMIT=1
+formulario:_link_hidden_
+formulario:_idcl
+javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAdfaWQ0MTM4cHQAIi9qc3AvQkVQUl9lQ29ycmVzcG9uZGVuY2lhX0xTVC5qc3A=
+
+
+
+DOWNLOAD PDF
+>>> POST https://be.abanca.com/BEPRJ001/jsp/BEPR_eCorrespondencia_LST.faces
+formulario:panelAyudaOpenedState
+formulario:idCuenta=20801206315500001480
+formulario:idCategoria
+formulario:idOpciones=QUINCE
+formulario:fechaDesdeInputCurrentDate=07/2020
+formulario:fechaHastaInputCurrentDate=07/2020
+formulario:importeDesde
+formulario:importeHasta
+formulario:descripcion
+formulario:idOpcionesSeleccion=NINGUNO
+formulario:tablaResultados:0:hiddenNumSecuencia=1327126860
+formulario:btnDescargarDoc=Submit Query
+formulario_SUBMIT=1
+formulario:_link_hidden_
+formulario:_idcl
+javax.faces.ViewState=rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cAAAAAN0AAhfaWQxOTkzM3B0ACIvanNwL0JFUFJfZUNvcnJlc3BvbmRlbmNpYV9MU1QuanNw

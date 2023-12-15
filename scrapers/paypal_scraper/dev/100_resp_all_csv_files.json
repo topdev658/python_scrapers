@@ -1,0 +1,1318 @@
+{
+  "meta": {},
+  "isChinaC3MIgrationEnabled": false,
+  "viewName": "dlog/dlog",
+  "requestURI": "/merchantdata",
+  "iframeWebscrURI": "https://www.paypal.com",
+  "iifUSFlag": true,
+  "userGroup": "Business",
+  "data": {
+    "filters": {
+      "txnTypeList": {
+        "optionList": [
+          {
+            "optionValue": "ALL",
+            "optionName": "All activity"
+          }
+        ],
+        "defaultOption": "ALL"
+      },
+      "formatList": {
+        "optionList": [
+          {
+            "optionValue": "CSV",
+            "optionName": "Plain CSV"
+          },
+          {
+            "optionValue": "TAB",
+            "optionName": "TAB (archivo delimitado por tabuladores)"
+          }
+        ],
+        "defaultOption": "CSV"
+      },
+      "dateFilter": {
+        "datePattern": "d/m/yy",
+        "datePatternLocale": "d/m/yy",
+        "userTimezone": "Europe/Berlin"
+      }
+    },
+    "fields": [
+      {
+        "field_parameters": [
+          {
+            "id": "20123",
+            "key": "default_custom.dlog_date",
+            "description": "Date",
+            "display_order": "1",
+            "display_status": "M",
+            "displayDescription": "Fecha"
+          },
+          {
+            "id": "20124",
+            "key": "default_custom.dlog_time",
+            "description": "Time",
+            "display_order": "2",
+            "display_status": "M",
+            "displayDescription": "Hora"
+          },
+          {
+            "id": "20125",
+            "key": "default_custom.dlog_timezone",
+            "description": "TimeZone",
+            "display_order": "3",
+            "display_status": "M",
+            "displayDescription": "Zona horaria"
+          },
+          {
+            "id": "20127",
+            "key": "default_custom.dlog_type",
+            "description": "Type",
+            "display_order": "5",
+            "display_status": "M",
+            "displayDescription": "Tipo"
+          },
+          {
+            "id": "20128",
+            "key": "default_custom.dlog_status",
+            "description": "Status",
+            "display_order": "6",
+            "display_status": "M",
+            "displayDescription": "Estado"
+          },
+          {
+            "id": "20129",
+            "key": "default_custom.dlog_currency",
+            "description": "Currency",
+            "display_order": "7",
+            "display_status": "M",
+            "displayDescription": "Divisa"
+          },
+          {
+            "id": "20130",
+            "key": "default_custom.dlog_gross",
+            "description": "Gross",
+            "display_order": "8",
+            "display_status": "M",
+            "displayDescription": "Bruto"
+          },
+          {
+            "id": "20131",
+            "key": "default_custom.dlog_fee",
+            "description": "Fee",
+            "display_order": "9",
+            "display_status": "M",
+            "displayDescription": "Tarifa"
+          },
+          {
+            "id": "20132",
+            "key": "default_custom.dlog_net",
+            "description": "Net",
+            "display_order": "10",
+            "display_status": "M",
+            "displayDescription": "Neto"
+          },
+          {
+            "id": "20134",
+            "key": "default_custom.dlog_to_email_address",
+            "description": "To Email Address",
+            "display_order": "12",
+            "display_status": "M",
+            "displayDescription": "Correo electrónico del destinatario"
+          },
+          {
+            "id": "20135",
+            "key": "default_custom.dlog_transaction_id",
+            "description": "Transaction ID",
+            "display_order": "13",
+            "display_status": "M",
+            "displayDescription": "Id. de transacción"
+          },
+          {
+            "id": "20142",
+            "key": "default_custom.dlog_sales_tax",
+            "description": "Sales Tax",
+            "display_order": "21",
+            "display_status": "D",
+            "displayDescription": "Impuesto de ventas"
+          },
+          {
+            "id": "20152",
+            "key": "default_custom.dlog_reference_txn_id",
+            "description": "Reference Txn ID",
+            "display_order": "31",
+            "display_status": "M",
+            "displayDescription": "Id. de la transacción de referencia"
+          },
+          {
+            "id": "20153",
+            "key": "default_custom.dlog_invoice_number",
+            "description": "Invoice Number",
+            "display_order": "32",
+            "display_status": "D",
+            "displayDescription": "Número de factura"
+          },
+          {
+            "id": "20156",
+            "key": "default_custom.dlog_balance",
+            "description": "Balance",
+            "display_order": "36",
+            "display_status": "D",
+            "displayDescription": "Saldo"
+          },
+          {
+            "id": "20164",
+            "key": "default_custom.dlog_contact_subject",
+            "description": "Subject",
+            "display_order": "44",
+            "display_status": "D",
+            "displayDescription": "Asunto"
+          },
+          {
+            "id": "20165",
+            "key": "default_custom.dlog_contact_note",
+            "description": "Note",
+            "display_order": "45",
+            "display_status": "D",
+            "displayDescription": "Nota"
+          },
+          {
+            "id": "20166",
+            "key": "default_custom.dlog_payment_source",
+            "description": "Payment Source",
+            "display_order": "46",
+            "display_status": "H",
+            "displayDescription": "Fuente de fondos"
+          },
+          {
+            "id": "20167",
+            "key": "default_custom.dlog_card_type",
+            "description": "Card Type",
+            "display_order": "47",
+            "display_status": "H",
+            "displayDescription": "Tipo de tarjeta"
+          },
+          {
+            "id": "20168",
+            "key": "default_custom.dlog_tcode",
+            "description": "Transaction Event Code",
+            "display_order": "48",
+            "display_status": "H",
+            "displayDescription": "Código de evento de la transacción"
+          },
+          {
+            "id": "20169",
+            "key": "default_custom.dlog_payment_tracking_id",
+            "description": "Payment Tracking ID",
+            "display_order": "49",
+            "display_status": "H",
+            "displayDescription": "Id. de seguimiento del pago"
+          },
+          {
+            "id": "20170",
+            "key": "default_custom.dlog_bank_reference_id",
+            "description": "Bank Reference ID",
+            "display_order": "50",
+            "display_status": "H",
+            "displayDescription": "Id. de referencia bancaria"
+          },
+          {
+            "id": "20171",
+            "key": "default_custom.dlog_transaction_buyer_country",
+            "description": "Transaction Buyer Country Code",
+            "display_order": "51",
+            "display_status": "H",
+            "displayDescription": "Código del país del comprador que realiza la transacción"
+          },
+          {
+            "id": "20188",
+            "key": "default_custom.dlog_balance_impact",
+            "description": "Balance Impact",
+            "display_order": "59",
+            "display_status": "D",
+            "displayDescription": "Repercusiones en el saldo"
+          },
+          {
+            "id": "20198",
+            "key": "default_custom.dlog_tip",
+            "description": "Tip",
+            "display_order": "67",
+            "display_status": "H",
+            "displayDescription": "Propina"
+          },
+          {
+            "id": "20199",
+            "key": "default_custom.dlog_discount",
+            "description": "Discount",
+            "display_order": "68",
+            "display_status": "H",
+            "displayDescription": "Descuento"
+          },
+          {
+            "id": "20206",
+            "key": "default_custom.dlog_seller_id",
+            "description": "Seller ID",
+            "display_order": "69",
+            "display_status": "H",
+            "displayDescription": "Id. del vendedor"
+          },
+          {
+            "id": "20207",
+            "key": "default_custom.dlog_risk_filter",
+            "description": "Risk Filters",
+            "display_order": "70",
+            "display_status": "H",
+            "displayDescription": "Filtro de riesgo"
+          },
+          {
+            "id": "20231",
+            "key": "default_custom.dlog_credit_transactional_fee",
+            "description": "Credit Transactional Fee",
+            "display_order": "71",
+            "display_status": "H",
+            "displayDescription": "Tarifa de transacción del crédito"
+          },
+          {
+            "id": "20232",
+            "key": "default_custom.dlog_credit_promotional_fee",
+            "description": "Credit Promotional Fee",
+            "display_order": "72",
+            "display_status": "H",
+            "displayDescription": "Tarifa promocional del crédito"
+          },
+          {
+            "id": "20233",
+            "key": "default_custom.dlog_credit_term",
+            "description": "Credit Term",
+            "display_order": "73",
+            "display_status": "H",
+            "displayDescription": "Plazo del crédito"
+          },
+          {
+            "id": "20234",
+            "key": "default_custom.dlog_credit_offer_type",
+            "description": "Credit Offer Type",
+            "display_order": "74",
+            "display_status": "H",
+            "displayDescription": "Tipo de oferta de crédito"
+          },
+          {
+            "id": "20237",
+            "key": "default_custom.dlog_original_invoice_id",
+            "description": "Original Invoice ID",
+            "display_order": "75",
+            "display_status": "H",
+            "displayDescription": "Id. de factura original"
+          },
+          {
+            "id": "20239",
+            "key": "default_custom.dlog_payment_source_subtype",
+            "description": "Payment Source Subtype",
+            "display_order": "76",
+            "display_status": "H",
+            "displayDescription": "Subtipo de fuente de fondos"
+          }
+        ],
+        "field_group": {
+          "id": "10015",
+          "key": "transaction_details_body",
+          "description": "Transaction Details",
+          "display_order": "1",
+          "display_status": "D",
+          "displayDescription": "Detalles de la transacción"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20126",
+            "key": "default_custom.dlog_name",
+            "description": "Name",
+            "display_order": "4",
+            "display_status": "M",
+            "displayDescription": "Nombre"
+          },
+          {
+            "id": "20133",
+            "key": "default_custom.dlog_from_email_address",
+            "description": "From Email Address",
+            "display_order": "11",
+            "display_status": "M",
+            "displayDescription": "Correo electrónico del remitente"
+          },
+          {
+            "id": "20136",
+            "key": "default_custom.dlog_counterparty_status",
+            "description": "CounterParty Status",
+            "display_order": "14",
+            "display_status": "H",
+            "displayDescription": "Estado de la otra parte"
+          },
+          {
+            "id": "20137",
+            "key": "default_custom.dlog_address_status",
+            "description": "Address Status",
+            "display_order": "16",
+            "display_status": "D",
+            "displayDescription": "Estado de la dirección"
+          },
+          {
+            "id": "20163",
+            "key": "default_custom.dlog_contact_phone_number",
+            "description": "Contact Phone Number",
+            "display_order": "43",
+            "display_status": "D",
+            "displayDescription": "Número de teléfono de contacto"
+          },
+          {
+            "id": "20191",
+            "key": "default_custom.dlog_buyer_wallet",
+            "description": "Buyer Wallet",
+            "display_order": "60",
+            "display_status": "H",
+            "displayDescription": "Cartera del comprador"
+          }
+        ],
+        "field_group": {
+          "id": "10016",
+          "key": "buyer_details_body",
+          "description": "Buyer Details",
+          "display_order": "2",
+          "display_status": "D",
+          "displayDescription": "Datos del comprador"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20182",
+            "key": "default_custom.dlog_shipping_address",
+            "description": "Shipping Address",
+            "display_order": "15",
+            "display_status": "D",
+            "displayDescription": "Dirección de envío"
+          },
+          {
+            "id": "20140",
+            "key": "default_custom.dlog_shipping_handling_amount",
+            "description": "Shipping and Handling Amount",
+            "display_order": "19",
+            "display_status": "D",
+            "displayDescription": "Importe de envío y manipulación"
+          },
+          {
+            "id": "20141",
+            "key": "default_custom.dlog_insurance_amount",
+            "description": "Insurance Amount",
+            "display_order": "20",
+            "display_status": "D",
+            "displayDescription": "Importe del seguro"
+          },
+          {
+            "id": "20157",
+            "key": "default_custom.dlog_address_line1",
+            "description": "Address Line 1",
+            "display_order": "37",
+            "display_status": "D",
+            "displayDescription": "Línea de dirección 1"
+          },
+          {
+            "id": "20158",
+            "key": "default_custom.dlog_address_line2",
+            "description": "Address Line 2/District/Neighborhood",
+            "display_order": "38",
+            "display_status": "D",
+            "displayDescription": "Línea de dirección 2"
+          },
+          {
+            "id": "20159",
+            "key": "default_custom.dlog_town_city",
+            "description": "Town/City",
+            "display_order": "39",
+            "display_status": "D",
+            "displayDescription": "Población/Ciudad"
+          },
+          {
+            "id": "20160",
+            "key": "default_custom.dlog_state",
+            "description": "State/Province/Region/County/Territory/Prefecture/Republic",
+            "display_order": "40",
+            "display_status": "D",
+            "displayDescription": "Estado/Provincia"
+          },
+          {
+            "id": "20161",
+            "key": "default_custom.dlog_postal_code",
+            "description": "Zip/Postal Code",
+            "display_order": "41",
+            "display_status": "D",
+            "displayDescription": "Código postal"
+          },
+          {
+            "id": "20162",
+            "key": "default_custom.dlog_country",
+            "description": "Country",
+            "display_order": "42",
+            "display_status": "D",
+            "displayDescription": "País/región"
+          },
+          {
+            "id": "20187",
+            "key": "default_custom.dlog_country_code",
+            "description": "Country Code",
+            "display_order": "58",
+            "display_status": "D",
+            "displayDescription": "Código de país"
+          }
+        ],
+        "field_group": {
+          "id": "10017",
+          "key": "Shipping_details_body",
+          "description": "Shipping Details",
+          "display_order": "3",
+          "display_status": "D",
+          "displayDescription": "Detalles del envío"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20147",
+            "key": "default_custom.dlog_auction_site",
+            "description": "Auction Site",
+            "display_order": "26",
+            "display_status": "H",
+            "displayDescription": "Sitio de subastas"
+          },
+          {
+            "id": "20148",
+            "key": "default_custom.dlog_buyer_id",
+            "description": "Buyer ID",
+            "display_order": "27",
+            "display_status": "H",
+            "displayDescription": "Id. del comprador"
+          },
+          {
+            "id": "20149",
+            "key": "default_custom.dlog_item_url",
+            "description": "Item URL",
+            "display_order": "28",
+            "display_status": "H",
+            "displayDescription": "URL de artículo"
+          },
+          {
+            "id": "20150",
+            "key": "default_custom.dlog_closing_date",
+            "description": "Closing Date",
+            "display_order": "29",
+            "display_status": "H",
+            "displayDescription": "Fecha de cierre"
+          }
+        ],
+        "field_group": {
+          "id": "10018",
+          "key": "Auction_details_body",
+          "description": "Auction Details",
+          "display_order": "4",
+          "display_status": "D",
+          "displayDescription": "Detalles de la subasta"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20138",
+            "key": "default_custom.dlog_item_title",
+            "description": "Item Title",
+            "display_order": "17",
+            "display_status": "D",
+            "displayDescription": "Nombre del artículo"
+          },
+          {
+            "id": "20139",
+            "key": "default_custom.dlog_item_id",
+            "description": "Item ID",
+            "display_order": "18",
+            "display_status": "D",
+            "displayDescription": "Id. de artículo"
+          },
+          {
+            "id": "20143",
+            "key": "default_custom.dlog_option1_name",
+            "description": "Option 1 Name",
+            "display_order": "22",
+            "display_status": "D",
+            "displayDescription": "Nombre de la opción 1"
+          },
+          {
+            "id": "20144",
+            "key": "default_custom.dlog_option1_value",
+            "description": "Option 1 Value",
+            "display_order": "23",
+            "display_status": "D",
+            "displayDescription": "Valor de la opción 1"
+          },
+          {
+            "id": "20145",
+            "key": "default_custom.dlog_option2_name",
+            "description": "Option 2 Name",
+            "display_order": "24",
+            "display_status": "D",
+            "displayDescription": "Nombre de la opción 2"
+          },
+          {
+            "id": "20146",
+            "key": "default_custom.dlog_option2_value",
+            "description": "Option 2 Value",
+            "display_order": "25",
+            "display_status": "D",
+            "displayDescription": "Valor de la opción 2"
+          },
+          {
+            "id": "20151",
+            "key": "default_custom.dlog_escrow_id",
+            "description": "Escrow Id",
+            "display_order": "30",
+            "display_status": "H",
+            "displayDescription": "Id. de depositario"
+          },
+          {
+            "id": "20154",
+            "key": "default_custom.dlog_custom_number",
+            "description": "Custom Number",
+            "display_order": "33",
+            "display_status": "D",
+            "displayDescription": "Número personalizado"
+          },
+          {
+            "id": "20185",
+            "key": "default_custom.dlog_quantity",
+            "description": "Quantity",
+            "display_order": "34",
+            "display_status": "D",
+            "displayDescription": "Cantidad"
+          },
+          {
+            "id": "20155",
+            "key": "default_custom.dlog_receipt_id",
+            "description": "Receipt ID",
+            "display_order": "35",
+            "display_status": "M",
+            "displayDescription": "Id. de recibo"
+          },
+          {
+            "id": "20172",
+            "key": "default_custom.dlog_item_details",
+            "description": "Item Details",
+            "display_order": "52",
+            "display_status": "H",
+            "displayDescription": "Detalles del artículo"
+          }
+        ],
+        "field_group": {
+          "id": "10019",
+          "key": "Cart_details_body",
+          "description": "Cart Details",
+          "display_order": "5",
+          "display_status": "D",
+          "displayDescription": "Detalles del carro"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20173",
+            "key": "default_custom.dlog_coupons",
+            "description": "Coupons",
+            "display_order": "53",
+            "display_status": "H",
+            "displayDescription": "Cupones"
+          },
+          {
+            "id": "20174",
+            "key": "default_custom.dlog_special_offers",
+            "description": "Special Offers",
+            "display_order": "54",
+            "display_status": "H",
+            "displayDescription": "Ofertas especiales"
+          },
+          {
+            "id": "20175",
+            "key": "default_custom.dlog_loyalty_card_number",
+            "description": "Loyalty Card Number",
+            "display_order": "55",
+            "display_status": "H",
+            "displayDescription": "Número de tarjeta de fidelización"
+          }
+        ],
+        "field_group": {
+          "id": "10020",
+          "key": "Funding_details_body",
+          "description": "Funding Details",
+          "display_order": "6",
+          "display_status": "D",
+          "displayDescription": "Detalles de la fuente de fondos"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20176",
+            "key": "default_custom.dlog_auth_review_status",
+            "description": "Authorization Review Status",
+            "display_order": "56",
+            "display_status": "H",
+            "displayDescription": "Estado de la revisión de la autorización"
+          },
+          {
+            "id": "20177",
+            "key": "default_custom.dlog_protection_eligibility",
+            "description": "Protection Eligibility",
+            "display_order": "57",
+            "display_status": "H",
+            "displayDescription": "Requisitos de la protección"
+          }
+        ],
+        "field_group": {
+          "id": "10021",
+          "key": "Risk_details_body",
+          "description": "Risk Details",
+          "display_order": "7",
+          "display_status": "D",
+          "displayDescription": "Detalles de riesgo"
+        }
+      },
+      {
+        "field_parameters": [
+          {
+            "id": "20192",
+            "key": "default_custom.dlog_pyf_comment_1",
+            "description": "Comment 1",
+            "display_order": "61",
+            "display_status": "H",
+            "displayDescription": "Comentario 1"
+          },
+          {
+            "id": "20193",
+            "key": "default_custom.dlog_pyf_comment_2",
+            "description": "Comment 2",
+            "display_order": "62",
+            "display_status": "H",
+            "displayDescription": "Comentario 2"
+          },
+          {
+            "id": "20194",
+            "key": "default_custom.dlog_pyf_invoice_number",
+            "description": "Invoice Number",
+            "display_order": "63",
+            "display_status": "H",
+            "displayDescription": "Número de factura"
+          },
+          {
+            "id": "20195",
+            "key": "default_custom.dlog_pyf_po_number",
+            "description": "PO Number",
+            "display_order": "64",
+            "display_status": "H",
+            "displayDescription": "Número de pedido"
+          },
+          {
+            "id": "20196",
+            "key": "default_custom.dlog_pyf_customer_reference_number",
+            "description": "Customer Reference Number",
+            "display_order": "65",
+            "display_status": "H",
+            "displayDescription": "Número de referencia de cliente"
+          },
+          {
+            "id": "20197",
+            "key": "default_custom.dlog_pyf_transaction_id",
+            "description": "PayFlow Transaction ID (PNREF)",
+            "display_order": "66",
+            "display_status": "H",
+            "displayDescription": "Id. de transacción de Payflow (PNREF)"
+          }
+        ],
+        "field_group": {
+          "id": "10023",
+          "key": "payflow_details_body",
+          "description": "PayFlow Details",
+          "display_order": "8",
+          "display_status": "D",
+          "displayDescription": "Detalles de Payflow"
+        }
+      }
+    ],
+    "dlogFilters": [
+      {
+        "id": "20186",
+        "key": "default_custom.include_shopping_cart_line_flag",
+        "description": "Include Shopping Cart line",
+        "display_order": "77",
+        "display_status": "H",
+        "displayDescription": "Incluir detalles del carro de la compra como líneas en cada transacción"
+      }
+    ],
+    "dlogRefreshInfo": {
+      "last_updated": "20211207082959",
+      "enable_today_selection": true,
+      "user_tz_refresh_time": "20211207172959",
+      "last_updated_formatted": "7 de diciembre de 2021, 17:29:59 CET",
+      "from_date_formatted": "7/12/18"
+    },
+    "pastHistory": {
+      "documentDetails": [
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211201000000_20211207235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "7 dic. 2021",
+          "documentStartDate": "2021-12-01 00:00:00",
+          "documentEndDate": "2021-12-07 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 686884506,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211201000000_20211207235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 dic. 2021",
+          "endDate": "7 dic. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211201000000_20211206235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "7 dic. 2021",
+          "documentStartDate": "2021-12-01 00:00:00",
+          "documentEndDate": "2021-12-06 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 686884450,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211201000000_20211206235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 dic. 2021",
+          "endDate": "6 dic. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211101000000_20211130235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "2 dic. 2021",
+          "schedule": "O",
+          "documentStartDate": "2021-11-01 00:00:00",
+          "documentEndDate": "2021-11-30 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 684193994,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211101000000_20211130235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 nov. 2021",
+          "endDate": "30 nov. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20210901000000_20211115235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "14 nov. 2021",
+          "documentStartDate": "2021-09-01 00:00:00",
+          "documentEndDate": "2021-11-15 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 675097045,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20210901000000_20211115235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 sept. 2021",
+          "endDate": "15 nov. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211001000000_20211103235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "3 nov. 2021",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-11-03 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 669341007,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211001000000_20211103235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "3 nov. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20210801000000_20211031235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "3 nov. 2021",
+          "documentStartDate": "2021-08-01 00:00:00",
+          "documentEndDate": "2021-10-31 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 669340731,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20210801000000_20211031235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 ago. 2021",
+          "endDate": "31 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211001000000_20211028235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "28 oct. 2021",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-10-28 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 665915145,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211001000000_20211028235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "28 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211001000000_20211027235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "28 oct. 2021",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-10-27 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 665915127,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211001000000_20211027235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "27 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGPDFTEMPLATE",
+          "documentFileName": "DLOGPDFTEMPLATEB_20211001000000_20211026105959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "PDF",
+          "documentRunDate": "26 oct. 2021",
+          "schedule": "O",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-10-26 10:59:59",
+          "templateId": "54",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 664873931,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGPDFTEMPLATEB_20211001000000_20211026105959_O_01.PDF",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "26 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211001000000_20211026105959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "TXT",
+          "documentRunDate": "26 oct. 2021",
+          "schedule": "O",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-10-26 10:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 664873887,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211001000000_20211026105959_O_01.TXT",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "26 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20211001000000_20211026105959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "26 oct. 2021",
+          "schedule": "O",
+          "documentStartDate": "2021-10-01 00:00:00",
+          "documentEndDate": "2021-10-26 10:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 664873618,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20211001000000_20211026105959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 oct. 2021",
+          "endDate": "26 oct. 2021",
+          "filters": ""
+        },
+        {
+          "status": "AVAILABLE",
+          "documentName": "DLOGTEMPLATE",
+          "documentFileName": "DLOGTEMPLATEB_20210801000000_20211021235959_O",
+          "documentFileCount": 1,
+          "documentFileFormat": "CSV",
+          "documentRunDate": "21 oct. 2021",
+          "documentStartDate": "2021-08-01 00:00:00",
+          "documentEndDate": "2021-10-21 23:59:59",
+          "templateId": "53",
+          "encryptedAccountNumber": "22TLHVJV84Z82",
+          "documentGenId": 662350549,
+          "documentMetadata": {
+            "timeZone": "Europe/Berlin",
+            "filters": "BALANCE_IMPACTING"
+          },
+          "links": [
+            {
+              "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting/reports/DLOGTEMPLATEB_20210801000000_20211021235959_O_01.CSV",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            }
+          ],
+          "startDate": "1 ago. 2021",
+          "endDate": "21 oct. 2021",
+          "filters": ""
+        }
+      ],
+      "links": [
+        {
+          "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting-internal/reports?family=ALL&type=DLOG%2CCUSTOM_DLOG&page=1&page_size=12",
+          "rel": "self",
+          "method": "GET",
+          "encType": "application/json"
+        },
+        {
+          "href": "https://node-reportplatformserv-vip.live8.dcg01.chd.paypalinc.com:23121/v1/reporting-internal/reports?family=ALL&type=DLOG%2CCUSTOM_DLOG&page=2&page_size=12",
+          "rel": "next",
+          "method": "GET",
+          "encType": "application/json"
+        }
+      ],
+      "dlogStatus": null,
+      "reloadTriggerTimer": [
+        5,
+        15,
+        30,
+        60
+      ]
+    },
+    "last_download_date": "20211207235959",
+    "switchbackDate": "18 de marzo de 2019"
+  },
+  "dlogMessage": {
+    "enabled": false
+  },
+  "dropdownBundle": {
+    "dropdown": {
+      "CSV": "CSV (valores separados por comas)",
+      "TAB": "TAB (archivo delimitado por tabuladores)",
+      "EXCEL": "EXCEL",
+      "web": "Cuenta PayPal",
+      "webSFTP": "Cuenta PayPal, servidor FTP seguro",
+      "taxYear": "Año fiscal",
+      "year": "Año",
+      "timePeriod": "Período",
+      "batchFilterRange1": "Semana pasada",
+      "batchFilterRange2": "Mes pasado",
+      "batchFilterRange3": "Últimos 45 días",
+      "stmtFilterRange1": "{currentYear}",
+      "stmtFilterRange2": "{lastYear}",
+      "stmtFilterRange3": "Últimos 6 meses",
+      "stmtFilterRange4": "Último año",
+      "stmtFilterRange5": "Últimos 2 años"
+    }
+  },
+  "reportsError": {
+    "message": {
+      "reportError": "No podemos procesar tu solicitud en este momento. Inténtalo de nuevo más tarde.",
+      "default": "No podemos procesar tu solicitud en este momento. Inténtalo de nuevo más tarde.",
+      "permission": "No tienes permiso para ver esta información. Ponte en contacto con el administrador de la cuenta para obtener permiso."
+    }
+  },
+  "dlogCustomizeFields": {
+    "dlog": {
+      "customize": {
+        "title": "Personalizar informe",
+        "desc": "Selecciona los campos que deseas incluir en tu informe.",
+        "savebtn": "Guardar",
+        "category": {
+          "default": "Campos predeterminados",
+          "defaultHelptext": "(no se pueden eliminar)"
+        }
+      },
+      "cartField": {
+        "error": "Selecciona al menos un campo en <style=\"font-weight=500;\">Detalles del carro</style>"
+      }
+    },
+    "category": {
+      "transaction_details_body": "Detalles de la transacción",
+      "buyer_details_body": "Datos del comprador",
+      "Shipping_details_body": "Detalles del envío",
+      "Auction_details_body": "Detalles de la subasta",
+      "Cart_details_body": "Detalles del carro",
+      "Funding_details_body": "Detalles de la fuente de fondos",
+      "Risk_details_body": "Detalles de riesgo",
+      "credit_details_body": "Detalles de crédito",
+      "payflow_details_body": "Detalles de Payflow"
+    },
+    "field": {
+      "default_custom": {
+        "dlog_date": "Fecha",
+        "dlog_time": "Hora",
+        "dlog_timezone": "Zona horaria",
+        "dlog_name": "Nombre",
+        "dlog_type": "Tipo",
+        "dlog_status": "Estado",
+        "dlog_currency": "Divisa",
+        "dlog_gross": "Bruto",
+        "dlog_fee": "Tarifa",
+        "dlog_net": "Neto",
+        "dlog_from_email_address": "Correo electrónico del remitente",
+        "dlog_to_email_address": "Correo electrónico del destinatario",
+        "dlog_transaction_id": "Id. de transacción",
+        "dlog_counterparty_status": "Estado de la otra parte",
+        "dlog_address_status": "Estado de la dirección",
+        "dlog_item_title": "Nombre del artículo",
+        "dlog_item_id": "Id. de artículo",
+        "dlog_shipping_handling_amount": "Importe de envío y manipulación",
+        "dlog_insurance_amount": "Importe del seguro",
+        "dlog_sales_tax": "Impuesto de ventas",
+        "dlog_option1_name": "Nombre de la opción 1",
+        "dlog_option1_value": "Valor de la opción 1",
+        "dlog_option2_name": "Nombre de la opción 2",
+        "dlog_option2_value": "Valor de la opción 2",
+        "dlog_auction_site": "Sitio de subastas",
+        "dlog_buyer_id": "Id. del comprador",
+        "dlog_item_url": "URL de artículo",
+        "dlog_closing_date": "Fecha de cierre",
+        "dlog_escrow_id": "Id. de depositario",
+        "dlog_reference_txn_id": "Id. de la transacción de referencia",
+        "dlog_invoice_number": "Número de factura",
+        "dlog_custom_number": "Número personalizado",
+        "dlog_receipt_id": "Id. de recibo",
+        "dlog_balance": "Saldo",
+        "dlog_address_line1": "Línea de dirección 1",
+        "dlog_address_line2": "Línea de dirección 2",
+        "dlog_town_city": "Población/Ciudad",
+        "dlog_state": "Estado/Provincia",
+        "dlog_postal_code": "Código postal",
+        "dlog_country": "País/región",
+        "dlog_contact_phone_number": "Número de teléfono de contacto",
+        "dlog_contact_subject": "Asunto",
+        "dlog_contact_note": "Nota",
+        "dlog_payment_source": "Fuente de fondos",
+        "dlog_card_type": "Tipo de tarjeta",
+        "dlog_tcode": "Código de evento de la transacción",
+        "dlog_payment_tracking_id": "Id. de seguimiento del pago",
+        "dlog_bank_reference_id": "Id. de referencia bancaria",
+        "dlog_transaction_buyer_country": "Código del país del comprador que realiza la transacción",
+        "dlog_item_details": "Detalles del artículo",
+        "dlog_coupons": "Cupones",
+        "dlog_special_offers": "Ofertas especiales",
+        "dlog_loyalty_card_number": "Número de tarjeta de fidelización",
+        "dlog_auth_review_status": "Estado de la revisión de la autorización",
+        "dlog_protection_eligibility": "Requisitos de la protección",
+        "dlog_disbursement_schedule": "Plan de desembolso",
+        "dlog_shipping_address": "Dirección de envío",
+        "dlog_quantity": "Cantidad",
+        "dlog_country_code": "Código de país",
+        "dlog_balance_impact": "Repercusiones en el saldo",
+        "dlog_pyf_comment_1": "Comentario 1",
+        "dlog_pyf_comment_2": "Comentario 2",
+        "dlog_pyf_invoice_number": "Número de factura",
+        "dlog_pyf_po_number": "Número de pedido",
+        "dlog_pyf_customer_reference_number": "Número de referencia de cliente",
+        "dlog_pyf_transaction_id": "Id. de transacción de Payflow (PNREF)",
+        "dlog_buyer_wallet": "Cartera del comprador",
+        "dlog_tip": "Propina",
+        "dlog_discount": "Descuento",
+        "dlog_seller_id": "Id. del vendedor",
+        "dlog_number_of_installments": "Número de plazos",
+        "dlog_installment_amount": "Importe del plazo",
+        "dlog_risk_filter": "Filtro de riesgo",
+        "dlog_installment_fee": "Tarifa por pago a plazos",
+        "dlog_tax_id_type": "Tipo de identificación fiscal",
+        "dlog_tax_id": "Número de identificación fiscal",
+        "dlog_credit_transactional_fee": "Tarifa de transacción del crédito",
+        "dlog_credit_promotional_fee": "Tarifa promocional del crédito",
+        "dlog_credit_offer_type": "Tipo de oferta de crédito",
+        "dlog_credit_term": "Plazo del crédito",
+        "dlog_original_invoice_id": "Id. de factura original",
+        "dlog_payment_source_subtype": "Subtipo de fuente de fondos",
+        "dlog_campaign_name": "Nombre de campaña",
+        "dlog_campaign_fee": "Tarifa de campaña",
+        "dlog_campaign_discount": "Descuento de campaña",
+        "dlog_campaign_discount_currency": "Divisa de descuento de campaña"
+      }
+    },
+    "filter": {
+      "default_custom": {
+        "include_shopping_cart_line_flag": "Incluir detalles del carro de la compra como líneas en cada transacción"
+      }
+    }
+  },
+  "statusCode": 200,
+  "historyDlogDataPopulationFailed": false,
+  "sys": {
+    "links": {
+      "jsBaseUrl": "https://www.paypalobjects.com/web/res/3c0/ac3678300edbdbde5518bdf98b835/js",
+      "cssBaseUrl": "https://www.paypalobjects.com/web/res/3c0/ac3678300edbdbde5518bdf98b835/css",
+      "templateBaseUrl": "https://www.paypalobjects.com/web/res/3c0/ac3678300edbdbde5518bdf98b835/templates/ES/es",
+      "resourceBaseUrl": "https://www.paypalobjects.com/web/res/3c0/ac3678300edbdbde5518bdf98b835",
+      "originalTemplateBaseUrl": "https://www.paypalobjects.com/web/res/3c0/ac3678300edbdbde5518bdf98b835/templates"
+    },
+    "pageInfo": {
+      "date": "Dec 7, 2021 09:57:14 -08:00",
+      "hostName": "rZJvnqaaQhLn/nmWT8cSUm+72VQ7inHLL5i8HmgD1bEyAoekrOPpNDgsXg/likaM",
+      "rlogId": "rZJvnqaaQhLn%2FnmWT8cSUk%2Bj9cg4MJ7wjXHqVr0AGgQv4Y%2BGeGU%2F%2BegmBOBV3Ygnko5qLzlklnpYMtO4gyYpgg_17d960addfd",
+      "script": "node",
+      "debug": null
+    },
+    "locality": {
+      "timezone": {
+        "determiner": "viaUserProfile",
+        "value": "Europe/Berlin"
+      },
+      "country": "ES",
+      "locale": "es_ES",
+      "language": "es",
+      "directionality": "ltr"
+    },
+    "tracking": {
+      "fpti": {
+        "name": "pta",
+        "jsURL": "https://www.paypalobjects.com",
+        "serverURL": "https://t.paypal.com/ts",
+        "dataString": "pgrp=reportingnodeweb%2Fdlog%2Fdlog.dust&page=reportingnodeweb%2Fdlog%2Fdlog.dust&pgst=1638899834365&calc=a90fe2052939e&nsid=LHjSrIeiBQU5U-l-obUlXD8zWTt8pNsD&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=ae996bdeed2d43159eec7236c51783a7&comp=reportingnodeweb&tsrce=insightsnodeweb&cu=1&gacook=982476417.1635109705&ef_policy=ccpa&c_prefs=P%3D1%2CF%3D1%2Ctype%3Dimplicit&cust=22TLHVJV84Z82&party_id=22TLHVJV84Z82&acnt=business&aver=verified&rstr=unrestricted&cnac=ES"
+      }
+    }
+  }
+}

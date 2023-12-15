@@ -1,0 +1,18 @@
+to log in, the website:
+1.1. generates local pu key and additional keys which will be used later
+   to sign remote pu key. It stores these keys in window object.
+1.2. gets remote pu key from additional http request (with local pu key as arg)
+1.3. encrypts remote pu key using keys from step 1
+
+To implement this behavior, the scraper sends all keys as JSON when calls
+santander_encrypter.js
+
+santander_encrypter.js can (and should) be called 2 times:
+2.1. without args - to obtain [1.1]
+2.2. with args (all keys, username_third, userpass_third) - to obtain [1.3]
+
+Since the PRE_login.html available only temporary after 2nd login step,
+and the DLECC.js will be loaded only when this page loaded,
+set breakpoints in webbrowser to getpwd() in DUMMY.html.
+When this breakpoint triggered, it is possible to inspect just loaded DLECC.js
+and se breakpoints their.

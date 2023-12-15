@@ -1,0 +1,120 @@
+>>> FILTER FORM
+await fetch("https://www.cajamar.es/BE/ServletOperation", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "CHANNEL=WEB&MODEL=FullModel&OP_CODE=O_A_PETIC_EXTRACTO_v1&SERV=16&NOMBRE_OPERACION=O_A_PETIC_EXTRACTO_v1&CAP=jzUG",
+    "method": "POST",
+    "mode": "cors"
+});
+// FROM SCRAPER WITH OLD HTTP
+<<< 10_resp_filter_form.html
+
+
+>>> GET OP_CODE
+await fetch("https://www.cajamar.es/BE/zkau", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "ZK-SID": "747"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "dtid=z_grf&cmd_0=onSubmit&uuid_0=formulario&data_0=%7B%22%22%3A%22true%7CACEPTAR%7Ctrue%7C_self%22%7D",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 15_resp_opcode.html
+
+>>> FILTER BY DATES
+await fetch("https://www.cajamar.es/BE/ServletOperation", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "CHANNEL=WEB&MODEL=FullModel&OP_CODE=O_A_PETIC_EXTRACTO1615012332368-S_A_PETICANUL_EXTRACTO_v1%AC1615012332404&CURRENT_NODE=W_S_PETIC_EXTRACTO&REACTION_CODE=ACEPTAR&NCTA_ALIAS=9810210800058&OPC_MOV_FECHAS=2&OP_MOV=0&FINI=06022021&FFIN=06032021&TIPODETALLE=4&OPC_FORMATO=A",
+    "method": "POST",
+    "mode": "cors"
+});
+BODY
+OrderedDict([('CHANNEL', 'WEB'),
+             ('MODEL', 'FullModel'),
+             ('OP_CODE',
+              'O_A_PETIC_EXTRACTO1615012332368-S_A_PETICANUL_EXTRACTO_v1�1615012332404'),
+             ('CURRENT_NODE', 'W_S_PETIC_EXTRACTO'),
+             ('REACTION_CODE', 'ACEPTAR'),
+             ('NCTA_ALIAS', '9810210800058'),
+             ('OPC_MOV_FECHAS', '2'),
+             ('OP_MOV', '0'),
+             ('FINI', '06022021'),
+             ('FFIN', '06032021'),
+             ('TIPODETALLE', '4'),
+             ('OPC_FORMATO', 'A')])
+<<< 20_resp_filtered.html
+
+>>> _SYNC REQ
+await fetch("https://www.cajamar.es/BE/zkau", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "ZK-SID": "2460"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "dtid=z__420&cmd_0=onSincronizar&uuid_0=kF3R0&data_0=%7B%22%22%3A%7B%7D%7D",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< ... (UNUSED)
+
+>>> GET FILE URL
+await fetch("https://www.cajamar.es/BE/zkau", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "ZK-SID": "2256"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "dtid=z_hrf&cmd_0=onClick&uuid_0=hS3Q8&data_0=%7B%22pageX%22%3A680%2C%22pageY%22%3A98%2C%22which%22%3A1%2C%22x%22%3A73%2C%22y%22%3A24%7D",
+    "method": "POST",
+    "mode": "cors"
+});
+BODY
+OrderedDict([('dtid', 'z_hrf'),
+             ('cmd_0', 'onClick'),
+             ('uuid_0', 'hS3Q8'), // 'zul.wgt.Toolbarbutton','hS3Q8'...'Descargar fichero C43' from 20_resp_filtered.html
+             ('data_0', '{"pageX":680,"pageY":98,"which":1,"x":73,"y":24}')])
+<<< 30_resp_file_link.html
+
+>>> DOWNLOAD FILE (only after FILTER BY DATES)
+await fetch("https://www.cajamar.es/BE/zkau/view/z_hrf/dwnmed-0/4fs/Documento.txt", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< N43 file

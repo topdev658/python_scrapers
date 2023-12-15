@@ -1,0 +1,38 @@
+>>> DOWNL EXCEL STEP1
+await fetch("https://www.bancsabadell.com/txempbs/TJLiqOpTradeQuery.invoke.bs?excel&", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.bancsabadell.com/txempbs/TJLiqOpTradeQuery.init.bs?key=E71DB006987181761630761809275",
+    "body": "noPag=0&r0=1&trade=33743493&account.bank=&account.branch=&account.checkDigit=&account.accountNumber=&combo1=-1&r1=1&startDate.day=03&startDate.month=09&startDate.year=2021&endDate.day=03&endDate.month=09&endDate.year=2021&r2=1",
+    "method": "POST",
+    "mode": "cors"
+});
+<<<  10_resp_down_excel_step1.html
+
+>>> DOWNL EXCEL STEP2
+await fetch("https://www.bancsabadell.com/txempbs/TJLiqOpTradeQuery.excelAttach.bs", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "iframe",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.bancsabadell.com/txempbs/TJLiqOpTradeQuery.invoke.bs?excel&",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< excel file

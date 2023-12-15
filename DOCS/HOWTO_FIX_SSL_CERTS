@@ -1,0 +1,10 @@
+PROBLEM:
+    exc: [X509] PEM lib (_ssl.c:3053)
+
+SOLUTION:
+    $ sudo apt install --reinstall ca-certificates
+    $ sudo update-ca-certificates
+
+IF NOT HELP:
+    use temp s.verify = False and search for better solution
+

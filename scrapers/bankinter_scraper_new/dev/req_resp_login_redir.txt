@@ -1,0 +1,11 @@
+OLD WEB
+>>> CONSENT
+<<< RESP URL https://empresas.bankinter.com/secure/go-to-empresasClassic.html?x-flow-type=access&x-flow-result=OK&x-flow-blocked-user=false
+
+>>> GET https://empresasapi.bankinter.com/transfer/create-ticket?site=EMPRESAS (js-driven get form url from consent resp)
+<<< https://empresas.bankinter.com/www/es-es/cgi/empresas+cuentas+integral
+
+
+NEW WEB
+>>> CONSENT
+<<< RESP URL https://empresas.bankinter.com/secure/es/posicion-global?x-flow-type=access&x-flow-result=OK&x-flow-blocked-user=false

@@ -1,0 +1,70 @@
+GET COMPANIES
+>>> curl 'https://empresas3.gruposantander.es/paas/api/nwe-subsidiary-api/v2/subsidiary?otherSubsidiary=true'
+-H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0'
+-H 'Accept: application/json, text/plain, */*' 
+-H 'Accept-Language: en-US,en;q=0.5' --compressed 
+-H 'x-session-id: 41d318cd112c965a' 
+-H 'x-user-language: es_ES' 
+-H 'Content-Type: application/json' 
+-H 'x-frame-channel: EMP' 
+-H 'DNT: 1' 
+-H 'Connection: keep-alive' 
+-H 'Referer: https://empresas3.gruposantander.es/paas/posiciononline/' 
+-H 'Cookie: utag_main=v_id:01705030da4d009da80d5ed4d7580004c00b6009009dc$_sn:32$_ss:0$_st:1599148013351$avbot:true$_se:9$ses_id:1599145003722%3Bexp-session$_pn:4%3Bexp-session; _ga=GA1.2.419267949.1581893345; __gdic=kd6ca3vriqm7zzbc9f; ___r10704211=0.3524604957125; d6744633438ad004124a57e14f565d37=e85c012ca71483edb273018ee1eadc40; bd8b48880ea43b63ca42d65b00877a3f=9ff3b43ce7165bf632663b01aa5716ae; SEIPARTENON_JSESSIONID=00018EMs0RB0e9K3jFBT6mk4RfZ:18k16aiag; /servicios/was/EMPRESAS_ANGULAR_RB/logs=00005so0x2M0UXodlNXYDY5nPII:1cmkvipiq; b4454d28f34ef460d0f0ed6a636720b7=2751f5d0e4c7e66094e565fe81d9daaf; ContentServerDLV_Cluster=0000QOESVxDxP84i8DSPdP2XYaS:1612hjtaq; ab2008915633c54275380e1c5cb2f866=a6f4eb3fd31cb28cc3031e9244774347; c4723e0b7a6ea2f91fa6b594ab3587b2=3e584132d2638c644239a9aa5cfc6d14; 95fb4f983ae0ddf2694d317619a94e24=071c5da42b3998394d88218616ccdc00; 5b11848545e12625a79f0aa3d468679c=029abc7eb7efdf6e73cd0743a618575d; JSESSIONID=0000SrNcJtIY5k1QCRBzP6h1tJG:17mjjnmoe; SUPFPA_ENS_JSESSIONID=0000twSQF65sTbl_FgEinUrMjly:1av1a72uc; ___tk10704211=0.5187920774774549; ___so10704211=eyJsc2giOjYwMzU4ODA0NCwiciI6Ii9TVVBGUEFfRU5TL0J0b0NoYW5uZWxEcml2ZXIuc3NvYnRvIiwic2QiOm51bGwsInNkYyI6bnVsbCwiZSI6eyJuIjozLCJhIjpbeyIzMCI6dHJ1ZSwic3IiOiJodHRwczovL3BhcnRpY3VsYXJlcy5ncnVwb3NhbnRhbmRlci5lcy9Fc3RhdGljby9DRV9WZW50YW5hT3BlcmF0aXZhX1ByZXMvSW1hZ2VzL2ljb0JvdG9uRGVzY29uZWN0YXIuZ2lmIn0sIjMwIl0sInJpZCI6MC43MTg5MTE3NTI3MzI0NjQ1fSwibWMiOjQzLCJuIjoxLCJjIjoxfQ%3D%3D; OPERATIVA3_JSESSIONID=0001z4_4W-9EYo5y-mrxg4gh704:1akno1igj; OPERATIVA1_JSESSIONID=0000cwGAHsDkW7AIp93ASxVGK_v:1aknnn195; OPERATIVA2_JSESSIONID=0001MnaChCdGDFNjzuWpD1T57-P:1aknnrvuk; f652497c60f1cea548c170a19c8b9ee2=03cc32bbb5b080665e86ab82d7d95213; ___sep00490086=15896218907888816718851524182#U18919183|ADRIANOFERDEZ#A1519917#___tk10704231#gruposantander.es#imagenR.particulares.gruposantander.es/10704231/stdval.js#registR.particulares.gruposantander.es/10704231/vertic_1.js#registR.particulares.gruposantander.es/10704231/hg_ch.js#notesR.particulares.gruposantander.es/10704231/SQcon2.js#registR.particulares.gruposantander.es/10704231/gre.js#velocR.empresas3.gruposantander.es/seimagesC/SQcon.js#registR.particulares.gruposantander.es/10704231/cc.js#registR.particulares.gruposantander.es/10704231/mrk.js; LSESSIONID=jLd1pa8V5YIjdSuELxot2DYOo%2F2SoHvQVEizEXavFtPX08UvN8N348ClYm%2BW1ZcLQUKYFKQmgxYZK12XeqsV; OPERPAR3_JSESSIONID=0001uuqNGk1Tm4PKQEDRLumJsOv:1akj39k1j; NewUniversalCookie=AC1628EBB27D5B299EA1723E#172.22.144.231#1596092453813#1260000#1596091257813#64000#PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pjxjb29raWU+PGRlZmluaXRpb25OYW1lPk5ld1VzZXJQYXNzd29yZENvb2tpZTwvZGVmaW5pdGlvbk5hbWU+PHVzZXJJRD4wMEFFSDFJTzwvdXNlcklEPjwvY29va2llPg==#DESede/CBC/PKCS5Padding#v1#ParticularesSANPRO#NOT_USED#SHA1withRSA#yqV4fxrx1UcgXYibuUx8c4tWDAileKJP871/lmv7Ufuy6plxPAeOsfs+S56cwq+55AELd1EVq+mEAHBbeL+mlGq/XnXajZjbW2kG2szTifU2ac42LooQq5jYbN1UGQnUPmWT+Uq4Gi6srA8Qbb5c8HGrhrNakU7ex0It00vJ57c=; b93791a0f02c2cb422a2402755d3c2a3=185715986f7a69399c96255644ecae5f; ANGULAR_HOME_RB_JSESSIONID=0000T1Kh-tTvwyMt-8dSU5h_rYX:1e0muqv5i; EMPRESAS_ANGULAR_RB_JSESSIONID=0000ogygej_iKpJGh04K7foWji4:1cmkvisj2; NewUniversalCookieSEP=7ERKVV54YTXUIQVRSTGUX2HF#185.74.81.117#1599149813875#3600000#1599146213875#64000#PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pjxjb29raWU+PGRlZmluaXRpb25OYW1lPk5ld1VzZXJQYXNzd29yZENvb2tpZTwvZGVmaW5pdGlvbk5hbWU+PHVzZXJJRD5BMTUxOTkxNzwvdXNlcklEPjwvY29va2llPg==#DESede/CBC/PKCS5Padding#v1#SupernetEmpNewPortalEmpPRO#NOT_USED#SHA1withRSA#fCQX2rv8RcHLaYdKc4gdsFcELRUSy2Ya06wVSkfQH/4TiKs8DJAU8UDudlyvpaDiCyZLSkAi2nLl8kYAtwJLMxBpLv5tfiqKCU4EOIENSMCO2CMM5nV0liQRDN8cq98BId/Jj9OuVm+5IV8y8IU/+dqAoosxr7AGYD0o7hE8JHlJCs0Jp++TskVD+XJSSS/uYRT1nYlyzGQsudBa8p8JDIec8E8UjXvEW/M3IP7qjHrcteIDXaizfjUGwPAQ/M/c3pSchtaWslJDJYK8M+lgtOe28k9kBHUoan0RxKY2uuA0NJu1wGDbZUfWQvt62v3XVgzBKmdZ+XMlbruWfIaboA==; lastAccessCookie=03/09/2020 16:45; firstime_cookie=n; morecontracts_cookie=n; WebEmpresasCookie=ZXMjRVMjMTU5OTE0ODAxMzg3NSMxODAwMDAwIzE1OTkxNDYyMTM4NzUjVXlNeEl6RWpVRWhXZWxwWVNrcFNSRFZDVFZSVmVFOVVhM2hPZW5kMlpGaE9iR05yYkVWUVp6MDlJMU09I04jTiMjI0ojMTI1MDk4MCNHQU1TVFI4OA==; CookieSecreto=-----BEGIN DAT----- qDFFAygihn9Qq3nehHdK3U9aPfrAFoLyAfqrt/3kOpWEL6Ew342Gg6b/ThP4LGc1 yclqb9FgCJM7LAQEeyabPNQ477cRXaLhW6Cfx7DdU+EuPnaxPKCW1l007xwla2jt FYGgoadAZ8PNkchk9Dwm/33B4gUB8xR6oGG3hwW5OQw= -----END DAT-----; OBSEmpresasLang=es_ES' 
+-H 'Pragma: no-cache' 
+-H 'Cache-Control: no-cache'
+
+<<< resp_companies.json
+
+REQ CORR RECENT
+>>> curl 'https://empresas3.gruposantander.es/paas/api/nwe-usuario-api/v2/comunication?pagination.limit=10&pagination.offset=1&beginDate=2020-08-18&endDate=2020-09-02&categoryCode=0000&categoryBankCode=0049&orderType=D&ascOrder=false'
+--compressed
+-H 'x-session-id: 9705b44ea1f3ed62'
+-H 'x-user-language: es_ES'
+-H 'Content-Type: application/json'
+-H 'x-frame-channel: EMP'
+-H 'DNT: 1'
+-H 'Referer: https://empresas3.gruposantander.es/paas/usuario/' ... + cookies
+
+<<< resp_corr_recent_list.json
+
+
+REQ CORR FILTERED
+>>> https://empresas3.gruposantander.es/paas/api/nwe-usuario-api/v2/comunication?pagination.limit=10&pagination.offset=1&beginDate=2020-07-01&endDate=2020-09-02&categoryCode=0000&categoryBankCode=0049&orderType=D&ascOrder=false
+
+REQ CORR FILTERED FOR COMPAMY (tab 'Filiales')
+// use personCode from resp_companies.json
+https://empresas3.gruposantander.es/paas/api/nwe-usuario-api/v2/comunication?pagination.limit=10&pagination.offset=1&beginDate=2020-08-19&endDate=2020-09-03&categoryCode=0000&categoryBankCode=0049&personCode=179869&personType=J&orderType=D&ascOrder=false
+
+PDF for corr
+    {
+      "documentId": "00003870",
+      "documentCode": "00016076173870542",
+      "documentType": "SCC_COMUNICADOS",
+      "document": "PI_Ba3750100010117442ab1ebc10200",
+      "documentManagement": "SCConDemand",
+      "description": "Operaciones de extranjero. Operaciones a plazo",
+      "date": "2020-08-31",
+      "readIndicator": "N",
+      "contract": {
+        "company": "0049",
+        "center": "6738",
+        "product": "251",
+        "number": "6180464",
+        "id": "ES1700496738512516180464",
+        "iban": "ES17",
+        "controlDigit": "51",
+        "ccc": "004967382516180464",
+        "accountNumber": "2516180464",
+        "accountNumberWithControlDigit": "00496738512516180464",
+        "contractCode": "6180464",
+        "branchCode": "6738",
+        "productTypeCode": "251",
+        "bankCode": "0049"
+      }
+    },
+>>> GET https://empresas3.gruposantander.es/paas/api/nwe-usuario-api/v1/comunication/PI_Ba3750100010117442ab1ebc10200?documentType=SCC_COMUNICADOS&documentManagement=SCConDemand&document=PI_Ba3750100010117442ab1ebc10200&documentCode=00016076173870542&documentId=00003870&shippingDate=2020-08-31
+
+
+COOKIES:
+-H 'Cookie: utag_main=v_id:01705030da4d009da80d5ed4d7580004c00b6009009dc$_sn:27$_ss:0$_st:1599047352880$avbot:true$_se:9$ses_id:1599045284236%3Bexp-session$_pn:5%3Bexp-session; _ga=GA1.2.419267949.1581893345; __gdic=kd6ca3vriqm7zzbc9f; ___r10704211=0.3524604957125; d6744633438ad004124a57e14f565d37=e85c012ca71483edb273018ee1eadc40; bd8b48880ea43b63ca42d65b00877a3f=9ff3b43ce7165bf632663b01aa5716ae; SEIPARTENON_JSESSIONID=0001A3KxN0a2IFGtidf_Q0B3g1b:18jvfb2nl; /servicios/was/EMPRESAS_ANGULAR_RB/logs=00005so0x2M0UXodlNXYDY5nPII:1cmkvipiq; b4454d28f34ef460d0f0ed6a636720b7=2751f5d0e4c7e66094e565fe81d9daaf; ContentServerDLV_Cluster=0000bpuUQ3D6IGoQSWYqYCcIrfx:1612hjtaq; ab2008915633c54275380e1c5cb2f866=a6f4eb3fd31cb28cc3031e9244774347; c4723e0b7a6ea2f91fa6b594ab3587b2=3e584132d2638c644239a9aa5cfc6d14; 95fb4f983ae0ddf2694d317619a94e24=071c5da42b3998394d88218616ccdc00; 5b11848545e12625a79f0aa3d468679c=029abc7eb7efdf6e73cd0743a618575d; JSESSIONID=0000SrNcJtIY5k1QCRBzP6h1tJG:17mjjnmoe; SUPFPA_ENS_JSESSIONID=0000twSQF65sTbl_FgEinUrMjly:1av1a72uc; ___tk10704211=0.5187920774774549; ___so10704211=eyJsc2giOjYwMzU4ODA0NCwiciI6Ii9TVVBGUEFfRU5TL0J0b0NoYW5uZWxEcml2ZXIuc3NvYnRvIiwic2QiOm51bGwsInNkYyI6bnVsbCwiZSI6eyJuIjozLCJhIjpbeyIzMCI6dHJ1ZSwic3IiOiJodHRwczovL3BhcnRpY3VsYXJlcy5ncnVwb3NhbnRhbmRlci5lcy9Fc3RhdGljby9DRV9WZW50YW5hT3BlcmF0aXZhX1ByZXMvSW1hZ2VzL2ljb0JvdG9uRGVzY29uZWN0YXIuZ2lmIn0sIjMwIl0sInJpZCI6MC43MTg5MTE3NTI3MzI0NjQ1fSwibWMiOjQzLCJuIjoxLCJjIjoxfQ%3D%3D; OPERATIVA3_JSESSIONID=0001z4_4W-9EYo5y-mrxg4gh704:1akno1igj; OPERATIVA1_JSESSIONID=0000cwGAHsDkW7AIp93ASxVGK_v:1aknnn195; OPERATIVA2_JSESSIONID=0001MnaChCdGDFNjzuWpD1T57-P:1aknnrvuk; f652497c60f1cea548c170a19c8b9ee2=03cc32bbb5b080665e86ab82d7d95213; ___sep00490086=15896218907888816718851524182#U18919183|ADRIANOFERDEZ#A1519917#___tk10704231#gruposantander.es#imagenR.particulares.gruposantander.es/10704231/stdval.js#registR.particulares.gruposantander.es/10704231/vertic_1.js#registR.particulares.gruposantander.es/10704231/hg_ch.js#notesR.particulares.gruposantander.es/10704231/SQcon2.js#registR.particulares.gruposantander.es/10704231/gre.js#velocR.empresas3.gruposantander.es/seimagesC/SQcon.js#registR.particulares.gruposantander.es/10704231/cc.js#registR.particulares.gruposantander.es/10704231/mrk.js; LSESSIONID=jLd1pa8V5YIjdSuELxot2DYOo%2F2SoHvQVEizEXavFtPX08UvN8N348ClYm%2BW1ZcLQUKYFKQmgxYZK12XeqsV; OPERPAR3_JSESSIONID=0001uuqNGk1Tm4PKQEDRLumJsOv:1akj39k1j; NewUniversalCookie=AC1628EBB27D5B299EA1723E#172.22.144.231#1596092453813#1260000#1596091257813#64000#PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pjxjb29raWU+PGRlZmluaXRpb25OYW1lPk5ld1VzZXJQYXNzd29yZENvb2tpZTwvZGVmaW5pdGlvbk5hbWU+PHVzZXJJRD4wMEFFSDFJTzwvdXNlcklEPjwvY29va2llPg==#DESede/CBC/PKCS5Padding#v1#ParticularesSANPRO#NOT_USED#SHA1withRSA#yqV4fxrx1UcgXYibuUx8c4tWDAileKJP871/lmv7Ufuy6plxPAeOsfs+S56cwq+55AELd1EVq+mEAHBbeL+mlGq/XnXajZjbW2kG2szTifU2ac42LooQq5jYbN1UGQnUPmWT+Uq4Gi6srA8Qbb5c8HGrhrNakU7ex0It00vJ57c=; EMPRESAS_ANGULAR_RB_JSESSIONID=0000lQvMFc2QnHy2yQL2lL8whoF:1cmkvisj2; ANGULAR_HOME_RB_JSESSIONID=0000UbArOtzx695J6i-OhP7_VLG:1e0muqv5i; NewUniversalCookieSEP=36JJ9H26M1YB3WYSRHVAB563#185.74.81.117#1599047123677#1800000#1599045323677#64000#PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pjxjb29raWU+PGRlZmluaXRpb25OYW1lPk5ld1VzZXJQYXNzd29yZENvb2tpZTwvZGVmaW5pdGlvbk5hbWU+PHVzZXJJRD5BMTUxOTkxNzwvdXNlcklEPjwvY29va2llPg==#DESede/CBC/PKCS5Padding#v1#SupernetEmpNewPortalEmpPRO#NOT_USED#SHA1withRSA#lWJAy0j/U1WTG04FGmxC96BXTHjZ2YteRTX1iiSQwq18+VOsYrQRBHFL0E91O3XSVm4vle7kPvPtG0Hes+jvhKeQ3m7K5NIWUUmDWXgsWr7BLIh8siIb0ZywPRMOSaGZfABATRcar9b/6JH0fHCuhE1KPk7G+6M9+uQnrXgHLLr4QK5xDPfVEGfrJG8oilnR4mDq2Xemjr64hwkh0CzpPB59PU5IRp/SM+DRU072Ef4SqdYuLScmhh8YI8bJXUIX+TT5B1Y4OmAj0eIrW2RNxvM2FNQuDMJISvKtsdayGwdkjMJaicN1blNHY689aIS8oGg3szTHpaGr8k9K4+DlmQ==; lastAccessCookie=02/09/2020 11:45; firstime_cookie=n; morecontracts_cookie=n; WebEmpresasCookie=ZXMjRVMjMTU5OTA0NzEyNDI3MiMxODAwMDAwIzE1OTkwNDUzMjQyNzIjVXlNeEl6RWpVRWhXZWxwWVNrcFNSRFZDVFZSVmVFOVVhM2hPZW5kMlpGaE9iR05yYkVWUVp6MDlJMU09I04jTiMjI0ojMTI1MDk4MCNHQU1TVFI4OA==; CookieSecreto=-----BEGIN DAT----- Uc/7UhDnC2S9Fj6c3NOREZrosSPAgrrnSRgpiQqIzMQEuKfi69XtkkxnPLiLRSJB 0bVGz/LQ9pUYiNwMQnd2H9oeT9Eem3SRph9JpmRvVlCW0DuMwDZ9KzndwbhqijYK 0TgTnnYWwXd3TNFTlFmIE/2Y5avow7SnJL7jqN3my14= -----END DAT-----; OBSEmpresasLang=es_ES; b93791a0f02c2cb422a2402755d3c2a3=185715986f7a69399c96255644ecae5f'

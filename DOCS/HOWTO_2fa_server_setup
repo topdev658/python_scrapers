@@ -1,0 +1,11 @@
+1. install nginx to use in front of scraping_server_for_2fa
+$ sudo apt install nginx
+2. configure nginx
+
+3. run server_for_2fa as a service (port 8181):
+3.1 copy server_for_2fa.service to /etc/systemd/system/server_for_2fa.service (or symlink)
+$ sudo cp server_for_2fa/server_for_2fa.service /etc/systemd/system/
+$ sudo chmod +x /etc/systemd/system/server_for_2fa.service
+$ sudo systemctl enable server_for_2fa.service
+$ sudo systemctl start server_for_2fa.service
+// $ sudo systemctl daemon-reload

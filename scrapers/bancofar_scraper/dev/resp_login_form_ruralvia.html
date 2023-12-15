@@ -1,0 +1,435 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <!--META http-equiv="Page-Enter" CONTENT="progid:DXImageTransform.Microsoft.Blinds(Duration=0)" />
+    <META http-equiv="Page-Exit" CONTENT="progid:DXImageTransform.Microsoft.Blinds(Duration=0)" /-->
+
+
+    <!--meta HTTP-EQUIV="Cache-Control" CONTENT="No-cache"/>
+  <META HTTP-EQUIV="Pragma" CONTENT="No-cache"/>
+  <META HTTP-EQUIV="Expires" CONTENT="Now"/-->
+
+
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+
+    <!-- 26-07-2019 Responsive INICIO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+    <link href="/estilos_prtl/css_acceso/rvia.css" rel="stylesheet" type="text/css" />
+    <link href="/estilos_prtl/css_acceso/0125/rvia.css?id=002" rel="stylesheet" type="text/css" />
+
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/rvia-ie6.css" type="text/css">
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/0125/rvia-ie6.css" type="text/css">
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/rvia-ie7.css" type="text/css">
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/0125/rvia-ie7.css" type="text/css">
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/rvia-ie8.css" type="text/css">
+    <link rel="stylesheet" href="/estilos_prtl/css_acceso/0125/rvia-ie8.css" type="text/css">
+    <![endif]-->
+
+    <script type="text/javascript" src="/js/redireccion.js" charset="UTF-8"></script>
+
+    <title>Bankofar</title>
+
+
+
+
+
+
+
+    <script type="text/javascript"  src="/js/redireccion.js"></script>
+    <script type="text/javascript"  src="/js/checkUsuPass.js"></script>
+    <script type="text/javascript"  src="/javascripts_portal/js/acceso.js"></script>
+
+
+    <script type="text/javascript"  src="/javascripts_portal/es_ES/js_portal/keyboard.js"></script>
+
+
+    <script type="text/javascript" >
+        function Conectando(formulario){
+
+
+
+            if ((formulario != 1) && (formulario != 2) && (formulario != 3)){
+                formulario = 1;
+            }
+            if (formulario == 1){
+                var usuarioDP=document.forms[0].tNexaywSmGdYkep.value.substring(0,2);
+                document.forms[0].TOGA.value=usuarioDP;
+            }else if (formulario == 2){
+                var usuarioDP=document.forms[1].tNexaywSmGdYkep.value.substring(0,2);
+                document.forms[1].TOGA.value=usuarioDP;
+            }else{
+                var usuarioDP=document.forms[2].tNexaywSmGdYkep.value.substring(0,2);
+                document.forms[2].TOGA.value=usuarioDP;
+            }
+            return mandar(formulario);
+
+
+        }
+
+        function ConectandoIur(){
+
+            var usuarioDP=document.forms[0].tNexaywSmGdYkep.value.substring(0,2);
+            document.forms[0].TOGA.value=usuarioDP;
+            mandarIur();
+        }
+
+        var pulsada = 0;
+
+        window.addEventListener("pageshow", function() {
+            pulsada = 0;
+        });
+
+
+        var fActual = new Date();
+        function volverTemporizado(){
+            if(pulsada!=0) return false;
+
+            var fec = new Date();
+            if((fec-fActual)>120000){
+                setTimeout('window.location.href=URLredireccion2()',0);
+            }
+        }
+        var timerPPub = setInterval(volverTemporizado, 10000);
+
+
+        function mandar(formulario){
+
+            var PLATAFORMA=navigator.platform;
+
+            if (formulario == 1){
+                document.forms[0].tNexaywSmGdYkep.value=document.forms[0].tNexaywSmGdYkep.value.toUpperCase();
+
+
+
+                if ( document.forms[0].elements['expediente'] ){
+                    var expediente = document.forms[0].elements['expediente'].value;
+                    if ( expediente == "" ){
+                        alert("El expediente es obligatorio");
+                        return false;
+                    }
+                    for (i = 0; i < expediente.length; i++)
+                    {
+                        // Comprueba que sea un numero.
+                        var c = expediente.charAt(i);
+                        if ( ( c < "0") || (c  > "9") ){
+                            alert("El expediente tiene que ser numérico");
+                            return false;
+                        }
+                    }
+                }
+
+
+
+                if (checkAlphanumeric(document.forms[0].tNexaywSmGdYkep, "Usuario", false)){
+
+                    if (checkDocumento(document.forms[0].CtFzjouYunmHCZp, false)){
+
+
+
+                        if (checkAlphanumeric(document.forms[0].NcNVVeBZHFGziSB, "Password", false)){
+
+                            if(pulsada==1){
+                                alert('La operación está en curso. Espere, por favor.');
+                            }else{
+                                pulsada =1;
+                                return true;
+                                if(!document.all){
+                                    return true;
+                                }
+                                if(PLATAFORMA!="MacPPC"){
+                                    document.forms[0].reset();
+                                }
+                                pulsada = 0;
+                            }
+                        }
+                        else{
+                            return false;
+                        }
+
+                    }else{
+                        return false;
+                    }
+
+                }else{
+                    return false;
+                }
+
+            }else if (formulario == 2){
+                document.forms[1].tNexaywSmGdYkep.value=document.forms[1].tNexaywSmGdYkep.value.toUpperCase();
+
+                if (checkAlphanumeric(document.forms[1].tNexaywSmGdYkep, "Usuario", false)){
+                    if(pulsada==1){
+                        alert('La operación está en curso. Espere, por favor.');
+                    }else{
+                        pulsada =1;
+                        //document.forms[1].submit();
+                        return true;
+                        if(!document.all){
+                            return true;
+                        }
+                        if(PLATAFORMA!="MacPPC"){
+                            document.forms[1].reset();
+                            //return true;
+                        }
+                        pulsada = 0;
+                    }
+                }
+                else{
+                    return false;
+                }
+            }else{
+                document.forms[2].tNexaywSmGdYkep.value=document.forms[2].tNexaywSmGdYkep.value.toUpperCase();
+
+
+                if (checkAlphanumeric(document.forms[2].tNexaywSmGdYkep, "Usuario", false)){
+
+                    if (checkDocumento(document.forms[0].CtFzjouYunmHCZp, false)){
+
+                        if (checkAlphanumeric(document.forms[2].NcNVVeBZHFGziSB, "Password", false)){
+                            if(pulsada==1){
+                                alert('La operación está en curso. Espere, por favor.');
+                            }else{
+                                pulsada =1;
+                                //document.forms[2].submit();
+                                return true;
+                                if(!document.all){
+                                    return true;
+                                }
+                                if(PLATAFORMA!="MacPPC"){
+                                    document.forms[2].reset();
+
+                                }
+                                pulsada = 0;
+                            }
+                        }else{
+                            return false;
+                        }
+
+                    }else{
+                        return false;
+                    }
+
+                }else{
+                    return false;
+                }
+
+            }
+        }
+
+        function mandarIur(){
+
+            var PLATAFORMA=navigator.platform;
+
+            document.forms[0].tNexaywSmGdYkep.value=document.forms[0].tNexaywSmGdYkep.value.toUpperCase();
+
+            if (checkAlphanumeric(document.forms[0].tNexaywSmGdYkep, "Usuario", false)){
+                if (checkAlphanumeric(document.forms[0].NcNVVeBZHFGziSB, "Password", false)){
+                    if(pulsada==1){
+                        alert('La operación está en curso. Espere, por favor.');
+                    }
+                    else{
+                        alert("Estimado cliente: Con una simple llamada al 902 54 58 54 ponemos a tu alcance los servicios de Banca Telefónica. Para poder operar simplemente accede al servicio con tu usuario y PIN Telefónico y da tu conformidad a tus operaciones con la tarjeta de coordenadas. El PIN Telefónico se obtiene a través de la opción de menú 'Servicios/Cambio de Claves/Cambio de PIN', indicando el  PIN seleccionado e introduciendo la coordenada de firmas requerida.");
+                        pulsada =1;
+                        //document.forms[0].submit();
+                        return true;
+                        if(!document.all){
+                            return true;
+                        }
+                        if(PLATAFORMA!="MacPPC"){
+                            document.forms[0].reset();
+                        }
+                        pulsada = 0;
+                    }
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }
+
+
+        function posicion (){
+
+            document.forms[0].tNexaywSmGdYkep.focus()
+        }
+
+    </script>
+
+    <script type="text/javascript" >
+
+        ie4tecla = (document.all)? true:false;
+
+        function pulsarTecla (teclaPulsada)
+        {
+
+            if ((ie4tecla && (event.keyCode == 13)) || (! ie4tecla && (teclaPulsada.which == 13)))
+            {
+
+                if ((document.getElementById('acceso_normal')!=null) && document.getElementById('acceso_dni') != null){
+                    if (document.getElementById('acceso_normal').style.display=="block"){
+                        //document.forms[0].submit();
+                        return true;
+                        //return Conectando(1);
+                    }else if(document.getElementById('acceso_dni').style.display=="block"){
+                        firmarDNI();
+                    }else{
+                        //document.forms[0].submit();
+                        return true;
+                        //return Conectando(1);
+                    }
+                }else{
+                    //document.forms[0].submit();
+                    return true;
+                    //return Conectando(1);
+
+                }
+                return false;
+
+            }
+        }
+
+        document.onkeydown = pulsarTecla;
+
+    </script>
+
+</head>
+
+<body >
+
+
+
+
+
+
+
+
+<div id="caja_acceso" class="acceso_admin">
+    <div id="arriba">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class='content' data-role='content'>
+            <div id="loginCont" style="display:none">
+
+                <form name="form1" action="
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    https://banca.bancofaronline.es:443/isum/Main?ISUM_LM_REQUEST=6uOruSSXVU8aJvIzja7z5J8KhZmeCzYyPheOdvSCCv8VYfUgM8n7tZ3O8t%2FtfyWcSG26l%2FLtPYoWmvD0xBUAxqaF2vO7iSJIZsAdK9T0Zdd8s%2BVhL6V%2Fy01K3cyPoxWdwybYrTyc9Ce3IcLrIzPS7sDJvVN9OpcTB%2FrE6j1kwRv4BMkChTSKIBhcVc7JZGV3uba8zJh%2FPabczj5Zrj9ok1WkuZIwsInESsu0zrHHr81fAvNOSbHhq0PMGPvA7BTUyZq1XZwYAK1zi9vUpzqAD2xs3chK0Azh8xyB8sOeczljNJwjxLCJviVku2VGnJhVTEaUg0iIxfFFEPcNMLJTcH09H55QIwmqc0vaoHiMGIK%2Bx8IBto7HxniDycnhEEP67wimzxhA6%2FKM8KSjK3jQWZ6eqf7zje9LlEfK6qXCW68D%2F3BObVO5ZYBO8rsL1cEedDyvUB5UgUnXY9kOG08hv2d4JUsVsLcqpEU%2BOKR8PKBMWbdEQ%2BEo4HyOYP1Pj2%2FEDo265msz4wkHngZnprli%2FfbD6efS4qumwAFgfQED52Ja4fQvGkl3plQ3ufRFAkY72gMOiqxa%2BVp6Accbx1osKtpE%2BbV%2FKS0I%2ByynKSJOSgWYocUMlq6urgAQO4jUTYbAbcyR0Nn3oQO%2FRxLQCzi6gazlZGJRSd4Y7IfLejqp%2BEU9NQpnDLOv9ihW73LRA7VuBf%2FbPAOPLCWCOjYgayzFMJSmJQPG0AhjFkJbmP9xisX5ZHDPaud7kKRjXiksIoUf0m3Sh2YIDldMYTYxbX2zFOSI84CxCfFeggujl7aEuYlJ4J3ytZxuMpYB1gnXA336tY%2Fzlnsljj794asEqzQ8NS6ctBtyN5l0HGa1vGWygv67F0U71G2FER%2BCekQbnBSz9fAXIftjyqgACYp0mwcPNDcEl24S8xZnH5lHQvXyiPkxabGZ77OoDCjIKFBURsqbtG5tD9PSfOXTIXr7oy7Nn53SGJrj22lb7WTJXE9FuYri6%2FP3vdPZpuuEQ8%2BHMomrBSYIH7nDkMOtHh0pkEOsUQ%3D%3D" method="post" >
+
+                    <label for="tNexaywSmGdYkep">Usuario</label>
+                    <input class="datoAcceso" type="hidden" value="4C016079" name="tNexaywSmGdYkep" id="tNexaywSmGdYkep" size="10" maxlength="10" />
+
+                    <label for="clave">Token</label>
+                    <input class="datoAcceso" type="hidden" value="2016910a-073a-493a-b9d4-b761549958a2" name="tokenSSO" id="tokenSSO" size="15" maxlength="50" />
+
+                    <input type="submit" class="entrar" name="botoncico" value="entrar" />
+
+                </form>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+<script language="javascript">
+    /*$(document).ready(function(){
+      iniAcceso();
+    });*/
+    window.onload = function() {
+        iniAcceso();
+    };
+    function iniAcceso(){
+        document.forms[0].submit();
+    }
+
+</script>
+
+
+
+
+
+</div>
+<div id="abajo">
+
+
+
+    <div id="contenido_inferior">
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+<script async type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1677996201"></script>
+</body>
+
+</html>
+

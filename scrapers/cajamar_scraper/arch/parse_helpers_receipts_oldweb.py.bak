@@ -1,0 +1,131 @@
+import re
+from datetime import datetime
+from typing import List
+
+from custom_libs import convert
+from custom_libs import extract
+from project.custom_types import CorrespondenceDocParsed
+from scrapers.cajamar_scraper.custom_types import AccountForCorrespondence
+
+
+def get_accounts_for_correspondence(resp_text: str) -> List[AccountForCorrespondence]:
+    """
+    Parses
+    (from 01_2_resp_filter_form_scrap.html):
+
+    <select class="fondo" name="NCTA_ALIAS" tabindex="30">
+        <option value="560127200001859">ES25 3058 5601 1727 2000 1859</option>
+        <option value="560127990000036">ES94 3058 5601 1727 9900 0036</option>
+    </select>
+    """
+
+    # ES25 3058 5601 1727 2000 1859 -> NCTA_ALIAS: 560127200001859
+    accs_html = extract.re_first_or_blank("""(?si)<select[^>]+name="NCTA_ALIAS".*?</select>""", resp_text)
+    accounts_for_corr = []  # type: List[AccountForCorrespondence]
+    for acc_req_param, account_no in re.findall(r'''option value="(\d+)">(ES[\d\s]+)<''', accs_html):
+        acc = AccountForCorrespondence(
+            account_no=account_no.replace(' ', ''),  # IBAN
+            req_param=acc_req_param
+        )
+        accounts_for_corr.append(acc)
+    return accounts_for_corr
+
+
+def get_correspondence_from_list(resp_text: str, account_no: str) -> List[CorrespondenceDocParsed]:
+    """
+    Parses
+    02_2_resp_corr_filtered_from_scrap.html
+
+    <tr>
+        <td class="impar" width="23">
+            <input id="0" name="TAB_DOCU_CHECK" tabindex="5" type="checkbox" width="20"></input>
+        </td>
+        <td align="center" class="impar">
+            01-08-2020
+        </td>
+        <td align="center" class="impar">
+
+            <a class="normal" href="javascript: sobre(0)" tabindex="5" target="_self">
+                <img border="0" name="IMGSOBRE" src="/BE/util_apoyo/img/esp/cl.gif"></img></a>
+
+        </td>
+        <td align="left" class="impar">
+            <a class="normal" href="javascript:actImagen(0,'SOBRE=N&TIPODOCU=0P100A&ESTADO=&NCTA=000560127200001859&OFICINA=3058&CORRESPONSALIA=&SECUENCIA=806144122&ID_DR=806144122&SRCE=SF-CORE&VENTCODI=&IMPO_HISTO=587.072%2C57&INSTANCIA_CONSULTA=&ENTIDADLOGO=')" href="#" tabindex="5" target="_self">LIQUIDACIÓN INTERESES</a>
+        </td>
+        <td align="right" class="impar">
+            587.072,57
+        </td>
+        <td align="left" class="impar">
+            GAMBASTAR S.L.
+        </td>
+        <td align="center" class="impar">
+
+            <a class="normal"  href="javascript: pdf(0)" tabindex="5" target="_self">
+                <img border="0" name="PDF" src="/BE/util_apoyo/img/esp/pdf.gif"></img></a>
+
+        </td>
+    </tr>
+    """
+    corrs_from_list = []  # type: List[CorrespondenceDocParsed]
+
+    corr_table = extract.re_first_or_blank('(?si)<table[^>]+name="TAB_DOCU".*?</table>', resp_text)
+    trs = re.findall('(?si)<tr.*?</tr>', corr_table)
+    for tr in trs:
+        cells = re.findall('(?si)<td.*?>(.*?)</td>', tr)
+        if len(cells) != 7 or cells[1] == 'Fecha':
+            # headers
+            continue
+
+        date_raw = extract.remove_tags(cells[1])
+        if not date_raw:
+            # service header ('Submit query')
+            continue
+
+        corr_date = datetime.strptime(date_raw, '%d-%m-%Y')
+        corr_type = extract.remove_tags(cells[3])
+
+        amount = None  # 587.072,57
+        amount_str = extract.remove_tags(cells[4])
+        if amount_str:
+            amount = convert.to_float(amount_str)
+        doc_ix = extract.re_first_or_blank(r"javascript: pdf\((\d+)", tr)
+        _, pdf_params_raw = extract.build_req_params_from_form_html_patched(
+            resp_text,
+            form_name='TAB_DOCU_{}_2'.format(doc_ix)
+        )
+        # {'OP_CODE': 'O_C_BUZON_VIRTUAL_BIZTOL1600365420994-S_C_OPCION_BUZON_BIZTOL_v1¬1600365424187',
+        # 'DOMINIO': '',
+        # 'VENTCODI': '',
+        # 'OFICINA': '3058',
+        # 'CURRENT_NODE': 'W_C_DOCUMENTOS_BUZON_UNIR_PDF',
+        # 'ID_DR': '810038609',
+        # 'ENLACE_FICHERO': 'PDF',
+        # 'CORRESPONSALIA': '',
+        # 'ESTADO': '',
+        # 'ENTIDADLOGO': '',
+        # 'IMPO_HISTO': '',
+        # 'TIPODOCU': '0F001C',
+        # 'NCTA': '000560127200001859',
+        # 'MODEL': 'FullModel',
+        # 'SRCE': 'SF-CORE',
+        # 'SECUENCIA': '810038609',
+        # 'REACTION_CODE': 'PDF',
+        # 'INSTANCIA_CONSULTA': '810038609',
+        # 'CHANNEL': 'WEB',
+        # 'SOBRE': 'S'}
+        pdf_params = {k.strip('#@'): v for k, v in pdf_params_raw.items()}
+
+        corr = CorrespondenceDocParsed(
+            type=corr_type,
+            account_no=account_no,
+            operation_date=corr_date,
+            value_date=None,
+            amount=amount,
+            currency=None,
+            descr='',
+            extra={
+                'req_pdf_params': pdf_params
+            }
+        )
+        corrs_from_list.append(corr)
+    return corrs_from_list

@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" charset="UTF-8">
+        (function (global) {
+            global.outsystems = global.outsystems || {};
+            global.outsystems.internal = global.outsystems.internal || {};
+        })(this);
+        outsystems.internal.timerspolyfillResponseStart = new Date().getTime();
+        outsystems.internal.startInstant = new Date();
+        outsystems.internal.requestEventName = 'WebScreenClientExecuted';
+        outsystems.internal.beaconRESTURL = '/PerformanceProbe/rest/BeaconInternal/WebScreenClientExecutedEvent';
+    </script>
+    <title>
+        Movimentos
+    </title>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/LT_BPINetEmpresas/img/IconBPI.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <style>
+        .OSFillParent {
+            display: block;
+            width: 100%;
+        }
+
+        table.OSFillParent {
+            display: table;
+        }
+
+        input.OSFillParent,
+        button.OSFillParent,
+        select.OSFillParent,
+        textarea.OSFillParent {
+            display: inline-block;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .OSInline {
+            display: inline-block;
+            *zoom: 1;
+            *display: inline;
+            vertical-align: top;
+        }
+
+        table.OSInline {
+            display: inline-table;
+        }
+
+        .OSAutoMarginTop {
+            margin-top: 10px;
+        }
+
+        table[class*="ThemeGrid_Width"] {
+            display: inline-table;
+            vertical-align: top;
+        }
+
+        div[class*="ThemeGrid_Width"] {
+            vertical-align: top;
+        }
+
+        th[class*="ThemeGrid_Width"],
+        td[class*="ThemeGrid_Width"] {
+            display: table-cell;
+        }
+
+        [class*="ThemeGrid_Width"] {
+            display: inline-block;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            *zoom: 1;
+            *display: inline;
+        }
+
+        .ThemeGrid_Container {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+    </style>
+    <link href="/RichWidgets/Blocks/RichWidgets/RichWidgets/Icon.css?11605" type="text/css" rel="stylesheet"/>
+    <link href="/WebPatterns/Blocks/WebPatterns/Private/Tooltipster_3_0_6.css?9604" type="text/css" rel="stylesheet"/>
+    <link href="/WebPatterns/Blocks/WebPatterns/Javascript/SilkUI.css?9604" type="text/css" rel="stylesheet"/>
+    <link href="/RichWidgets/Blocks/RichWidgets/jQueryUI/jQueryUIInternal.css?11605" type="text/css" rel="stylesheet"/>
+    <link href="/RichWidgets/Blocks/RichWidgets/RichWidgets/Feedback_Message.css?11605" type="text/css"
+          rel="stylesheet"/>
+    <link href="/LT_BPINetEmpresas/Blocks/LT_BPINetEmpresas/Utils/jQueryBlockUI.css?12142" type="text/css"
+          rel="stylesheet"/>
+    <link href="/RichWidgets/Blocks/RichWidgets/RichWidgets/DropDownMenu.css?11605" type="text/css" rel="stylesheet"/>
+    <link href="/WebPatterns/Blocks/WebPatterns/Private/ColumnsCSS.css?9604" type="text/css" rel="stylesheet"/>
+    <link href="/LT_BPI_Patterns/Blocks/LT_BPI_Patterns/NewPatterns/FormItem.css?12106" type="text/css"
+          rel="stylesheet"/>
+    <link href="/RichWidgets/Blocks/RichWidgets/RichWidgets/Input_Calendar.css?11605" type="text/css" rel="stylesheet"/>
+    <link href="/LT_BPINetEmpresas/Theme.LT_BPINetEmpresas.css?12142" type="text/css" rel="stylesheet"/>
+    <link href="/LT_BPINetEmpresas/Theme.LT_BPINetEmpresas.extra.css?12142" type="text/css" rel="stylesheet"/>
+    <script id="_OSrequestInfoScript" type="text/javascript">(function (global) {
+        global.outsystems = global.outsystems || {};
+        global.outsystems.internal = global.outsystems.internal || {};
+        global.outsystems.internal.requestInfo = {
+            visitorKey: 'abe944ad-8691-4d03-bb79-11d66a06b007',
+            visitKey: '4c30e788-a60b-4cac-b530-cc2a66bbc577',
+            sessionKey: 'RWDDxEtqP0CIilyqCTgasw==',
+            userKey: '76b39bea-2fcd-f14c-d36e-31f7d17d81eb',
+            requestKey: '288246b8-ed2a-4df2-b3d5-45bc0c2c0224',
+            webScreenKey: '13f956bd-0274-48b5-9e92-34f9a37dd609',
+            webScreenName: 'Movimentos',
+            espaceKey: 'a8bfcb9c-4032-478a-aba7-2dd63d687c6b',
+            espaceName: 'NetEmp_Contas_DO',
+            applicationKey: '2584dab5-0758-47e0-84ca-7985f26db500',
+            applicationName: 'NetEmp Contas DO',
+            tenantKey: '73fac5cc-13a0-2659-c9c1-f906b6d62537',
+            tenantName: 'LB_BPIEmpresas',
+            environmentKey: 'bc0736cd-f4b6-420f-9b0d-93322a6dd60b',
+            environmentName: 'Produção Externo',
+            frontendKey: '$1$wmIslauePXWcJb/rDMex3A==ZYSdhfxLQMfRw5+2NQKTGsq6UrAWgcSlnOU9rPJjT3Q='
+        }
+    })(this);</script>
+    <script src="_osjs.js?11_10_2_26915" type="text/javascript" charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Javascript/SilkUICommon.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Javascript/SilkUI.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Utilities/Feedback_AjaxWait.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/RichWidgets/jQueryUI/jQueryUIInternal.pt.js?11605" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/RichWidgets/jQueryUI/jQueryComponents.pt.js?11605" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/RichWidgets/RichWidgets/Feedback_Message.pt.js?11605" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/LT_BPINetEmpresas/Utils/jQueryBlockUI.js?12142" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/LT_BPINetEmpresas/Utils/BlockUI_Feedback_AjaxWait.js?12142"
+            type="text/javascript" charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/LT_BPINetEmpresas/Common/Layout_BPINetEmpresas.js?12142"
+            type="text/javascript" charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/RichWidgets/RichWidgets/DropDownMenu.pt.js?11605" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Navigation/Breadcrumbs.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Private/ColumnsJS.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/CW_NETEmp_Comum/Common/PrintThis_V2.js?12178" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Private/jQuery_Easing.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/WebPatterns/Content/SectionExpandable.pt.js?9604" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/LT_BPI_Patterns/Patterns/FormEdit.js?12106" type="text/javascript"
+            charset="UTF-8"></script>
+    <script src="/NetEmp_Contas_DO/Blocks/RichWidgets/RichWidgets/Input_Calendar.pt.js?11605" type="text/javascript"
+            charset="UTF-8"></script>
+
+</head>
+<body>
+<form method="post" action="Movimentos.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="WebForm1"
+      name="WebForm1">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""/>
+        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""/>
+        <input type="hidden" name="__OSVSTATE" id="__OSVSTATE"
+               value="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"/>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value=""/>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms['WebForm1'];
+        if (!theForm) {
+            theForm = document.WebForm1;
+        }
+
+        function __doPostBack(eventTarget, eventArgument) {
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+
+        //]]>
+    </script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        function WebForm_OnSubmit() {
+            OsPrepareCheckboxesForSubmit();
+            OsFixUploadBeforeSubmit();
+            if (!OsValidatorOnSubmit()) return false;
+            return true;
+        }
+
+        //]]>
+    </script>
+
+    <div class="aspNetHidden">
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8BD0E57F"/>
+    </div>
+    <div class="Page layout-os firefox OSAutoMarginTop">
+        <div class="demo-sticker">
+            <div class="demo-sticker-inner">
+                <div class="demo-sticker-title">BPI NET EMPRESAS</div>
+                <div class="demo-sticker-subtitle">DEMONSTRA&#199;&#195;O</div>
+            </div>
+        </div>
+        <div class="Header">
+            <div id="LT_BPINetEmpresas_wt37_block_wtHeaderLogo" class="header-logo">
+                <a id="LT_BPINetEmpresas_wt37_block_wtHeaderLogo_CW_NETEmp_Comum_wt4_block_wt1" tabindex="1"
+                   href="/NetEmp/Inicio.aspx?MenuId=PaginaInicial"><img alt=""
+                                                                        src="/CW_NETEmp_Comum/img/logoBPICaixaBank.gif?12178"/></a>
+            </div>
+            <div id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu" class="header-menu"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl00_wt6"
+                    tabindex="5" href="/NetEmp/Inicio.aspx?MenuId=PaginaInicial">P&#225;g. Principal</a><a
+                    onclick="window.open(&#39;http://www.bancobpi.pt/seguranca-online&#39;, &#39;Seguranca&#39;, &#39;&#39;,false);"
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl02_wt5"
+                    tabindex="6" href="javascript:void(0);">Seguran&#231;a</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl04_wt6"
+                    tabindex="11" href="/NETEmp_Comunicacao_Gestor/FaleConnosco.aspx">Fale Connosco</a><a
+                    onclick="window.open(&#39;https://bpinetempresas.bancobpi.pt/AJUDA/Ajuda.htm&#39;, &#39;Ajuda&#39;, &#39;&#39;,false);"
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl06_wt5"
+                    tabindex="12" href="javascript:void(0);">Ajuda</a><a
+                    onclick="window.open(&#39;http://www.bancobpi.pt/empresas/precario&#39;, &#39;Precario&#39;, &#39;&#39;,false);"
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl08_wt5"
+                    tabindex="15" href="javascript:void(0);">Pre&#231;&#225;rio</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtHeaderMenu_CW_NETEmp_Comum_wt34_block_wtListLinks_ctl10_wt6"
+                    tabindex="20" href="/NETEmp/Logout.aspx">Sair</a></span></div>
+        </div>
+        <div class="tabs-menu">
+            <div id="LT_BPINetEmpresas_wt37_block_wtTabs" class="tabs-menu-content"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl00_wt2"
+                    tabindex="21" class="active"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl00$wt2&#39;,&#39;&#39;)">Consultas</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl02_wt2"
+                    tabindex="22"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl02$wt2&#39;,&#39;&#39;)">Opera&#231;&#245;es</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl04_wt2"
+                    tabindex="23"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl04$wt2&#39;,&#39;&#39;)">Ficheiros</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl06_wt2"
+                    tabindex="24"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl06$wt2&#39;,&#39;&#39;)">Internacional</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl08_wt2"
+                    tabindex="25"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl08$wt2&#39;,&#39;&#39;)">Factoring e Confirming</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl10_wt2"
+                    tabindex="26"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl10$wt2&#39;,&#39;&#39;)">Cart&#245;es</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl12_wt2"
+                    tabindex="27"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl12$wt2&#39;,&#39;&#39;)">Investimento</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl14_wt2"
+                    tabindex="28"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl14$wt2&#39;,&#39;&#39;)">Autoriza&#231;&#245;es</a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtTabs_CW_NETEmp_Comum_wt27_block_wtListTabs_ctl16_wt2"
+                    tabindex="29"
+                    href="javascript:__doPostBack(&#39;LT_BPINetEmpresas_wt37$block$wtTabs$CW_NETEmp_Comum_wt27$block$wtListTabs$ctl16$wt2&#39;,&#39;&#39;)">Manuten&#231;&#227;o</a></span>
+            </div>
+        </div>
+        <div id="LT_BPINetEmpresas_wt37_block_wtMenu" class="Menu OSInline">
+            <div id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMenu_TopMenus"
+                 class="Menu_TopMenus"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal"
+                    class="Menu_DropDownButton OSInline"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtDropDownButtonRoot"
+                    class="Menu_DropDownButton OSInline" aria-expanded="false" role="menuitem"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtDropDownButtonElement"
+                    class="Menu_TopMenu"
+                    aria-controls="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    role="button"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtMenuItem"><div>Global</div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    class="Menu_DropDownPanel"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtMenuSubItems"
+                    class="Menu_SubItemsPlaceholder"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel"
+                    class="ListRecords"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl00_wt3_wt8"
+                    tabindex="33" href="/NetEmp_Global/PosicaoIntegrada.aspx"><div>Posição Integrada</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl00_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl02_wt3_wt8"
+                    tabindex="35" href="/NetEmp_Global/PosicaoIntegradaGlobal.aspx"><div>Posição Integrada Global</div></a></span></div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtDropDownButtonRoot"
+                    class="Menu_DropDownButton OSInline" aria-expanded="false" role="menuitem"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtDropDownButtonElement"
+                    class="Menu_TopMenu"
+                    aria-controls="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    role="button"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuItem"><div>Contas DO</div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    class="Menu_DropDownPanel"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems"
+                    class="Menu_SubItemsPlaceholder"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel"
+                    class="ListRecords"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl00_wt3_wt8"
+                    tabindex="39" href="/NetEmp_Contas_DO/Saldos.aspx"><div>Saldos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl02_wt3_wt8"
+                    tabindex="41" href="/NetEmp_Contas_DO/ListaSaldos.aspx"><div>Lista Saldos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl04_wt3_wt8"
+                    tabindex="43" href="/NetEmp_Contas_DO/Movimentos.aspx"><div>Movimentos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl06_wt3_wt8"
+                    tabindex="45" href="/NetEmp_Contas_DO/ImprimirMovimentos.aspx"><div>Imprimir Movimentos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl08_wt3_wt8"
+                    tabindex="47" href="/NetEmp/Inicio.aspx?MenuId=ContasDO_DownloadMovimentos"><div>Download Movimentos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl02_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl10_wt3_wt8"
+                    tabindex="49" href="/NetEmp_Contas_DO/IbanSwift.aspx"><div>NIB/IBAN/SWIFT</div></a></span></div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtDropDownButtonRoot"
+                    class="Menu_DropDownButton OSInline" aria-expanded="false" role="menuitem"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtDropDownButtonElement"
+                    class="Menu_TopMenu"
+                    aria-controls="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    role="button"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtMenuItem"><div>Contas Correntes</div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    class="Menu_DropDownPanel"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtMenuSubItems"
+                    class="Menu_SubItemsPlaceholder"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel"
+                    class="ListRecords"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl00_wt3_wt8"
+                    tabindex="53" href="/NetEmp_Contas_CC/Saldos.aspx"><div>Saldos</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl04_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl02_wt3_wt8"
+                    tabindex="55" href="/NetEmp_Contas_CC/Movimentos.aspx"><div>Movimentos</div></a></span></div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtDropDownButtonRoot"
+                    class="Menu_DropDownButton OSInline" aria-expanded="false" role="menuitem"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtDropDownButtonElement"
+                    class="Menu_TopMenu"
+                    aria-controls="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    role="button"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuItem"><div>Personalização Movimentos</div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    class="Menu_DropDownPanel"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuSubItems"
+                    class="Menu_SubItemsPlaceholder"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel"
+                    class="ListRecords"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl00_wt3_wt8"
+                    tabindex="59" href="/NetEmp_PersonalizacaoMov/PedidoRegular.aspx"><div>Pedido Regular</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl02_wt3_wt8"
+                    tabindex="61" href="/NetEmp_PersonalizacaoMov/PedidoOcasional.aspx"><div>Pedido Ocasional</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl06_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl04_wt3_wt8"
+                    tabindex="63" href="/NetEmp_PersonalizacaoMov/AlterarPedidoRegular.aspx"><div>Alt. Pedido Regular</div></a></span></div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtDropDownButtonRoot"
+                    class="Menu_DropDownButton OSInline" aria-expanded="false" role="menuitem"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtDropDownButtonElement"
+                    class="Menu_TopMenu"
+                    aria-controls="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    role="button"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuItem"><div>Documentos Digitais</div></div></div><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtDropDownPanel"
+                    class="Menu_DropDownPanel"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems"
+                    class="Menu_SubItemsPlaceholder"><span
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel"
+                    class="ListRecords"><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl00_wt3_wt8"
+                    tabindex="67" href="/NetEmp_DocumentosDigitais/AvisosFaturasNotasCreditoeDebito.aspx"><div>Avisos/Faturas/Notas Crédito e Débito</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl02_wt3_wt8"
+                    tabindex="69" href="/NetEmp_DocumentosDigitais/ExtratosConta.aspx"><div>Extrato Conta</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl04_wt3_wt8"
+                    tabindex="71" href="/NetEmp/Inicio.aspx?MenuId=DocumentosDigitais_ExtractoCartoes"><div>Extracto Cartões</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl06_wt3_wt8"
+                    tabindex="73" href="/NetEmp_DocumentosDigitais/ExtratosInvestimento.aspx"><div>Extrato Investimento</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl08_wt3_wt8"
+                    tabindex="75" href="/NetEmp_DocumentosDigitais/ExtratoTPA.aspx"><div>Extrato TPA</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl10_wt3_wt8"
+                    tabindex="77" href="/NetEmp_DocumentosDigitais/DeclaracoesFiscais.aspx"><div>Declarações Fiscais</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl12_wt3_wt8"
+                    tabindex="79" href="/NetEmp_DocumentosDigitais/ExtratoComissoes.aspx"><div>Extrato Comissões<sup>NOVO</sup></div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl14_wt3_wt8"
+                    tabindex="81" href="/NetEmp_DocumentosDigitais/Cartas.aspx"><div>Cartas</div></a><a
+                    id="LT_BPINetEmpresas_wt37_block_wtMenu_CW_NETEmp_Comum_wt35_block_wtMnuPrincipal_ctl08_RichWidgets_wtHomeMenu_block_wtMenuSubItems_wt22_wtMenus2Nivel_ctl16_wt3_wt8"
+                    tabindex="83" href="/NETEmp_documentosdigitais/subscricao.aspx"><div>Subscrição<sup>NOVO</sup></div></a></span></div></div></div></span>
+            </div>
+        </div>
+        <div class="Content ThemeGrid_Wrapper">
+            <div class="ThemeGrid_Container" style="margin-top: 0px;">
+                <div class="topBannerPrint"><img alt="" src="/LT_BPINetEmpresas/img/hb_logo.gif?12142"/><span
+                        class="Bold">BPI NET EMPRESAS</span></div>
+                <div id="LT_BPINetEmpresas_wt37_block_wtNavigation" class="Navigation PH">
+                    <div class="Breadcrumbs">
+                        <div id="LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel1"
+                             class="OSInline">Contas DO
+                        </div>
+                        <div class="OSInline"><span class="fa fa-fw fa-angle-right"></span>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel2"
+                                 class="OSInline">Movimentos
+                            </div>
+                        </div>
+                        <div class="OSInline"><span class="fa fa-fw fa-angle-right"></span>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel3"
+                                 class="OSInline"></div>
+                        </div>
+                        <div class="OSInline"><span class="fa fa-fw fa-angle-right"></span>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel4"
+                                 class="OSInline"></div>
+                        </div>
+                        <div class="OSInline"><span class="fa fa-fw fa-angle-right"></span>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel5"
+                                 class="OSInline"></div>
+                        </div>
+                        <script>if ($('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel2').html() == '') $('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel2').parent().hide();
+                        if ($('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel3').html() == '') $('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel3').parent().hide();
+                        if ($('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel4').html() == '') $('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel4').parent().hide();
+                        if ($('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel5').html() == '') $('#LT_BPINetEmpresas_wt37_block_wtNavigation_WebPatterns_wt12_block_wtLevel5').parent().hide();</script>
+                    </div>
+                </div>
+                <div class="ContextContainer" style="margin-top: 0px;">
+                    <div id="LT_BPINetEmpresas_wt37_block_wtContext" class="Context PH">
+                        <div id="LT_BPINetEmpresas_wt37_block_wtContext_wtEmpresasContas2">
+                            <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_wtgrupoNome">
+                                <div class="ClientAccount">
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt1_block_wtAccountLabel"
+                                         class="AccountLabel">Nome
+                                    </div>
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt1_block_wtAccountValue"
+                                         class="AccountValue"><span
+                                            id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt1_block_wtAccountValue_wtlbNomeEmpresa">SACYR NERVI&#211;N,S.L.-SUCURSAL EM PORTUGAL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_wtgrupoListaEmpresas"
+                                 style="display:none">
+                                <div class="ClientAccount">
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountLabel"
+                                         class="AccountLabel">Empresa
+                                    </div>
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountValue"
+                                         class="AccountValue">
+										<select
+                                            name="LT_BPINetEmpresas_wt37$block$wtContext$CW_NETEmp_Comum_wtEmpresasContas$block$LT_BPI_Patterns_wt9$block$wtAccountValue$wtcbListaEmpresas"
+                                            id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountValue_wtcbListaEmpresas"
+                                            tabindex="84" aria-invalid="false"
+                                            onchange="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountValue_wtcbListaEmpresas&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtContext$CW_NETEmp_Comum_wtEmpresasContas$block$LT_BPI_Patterns_wt9$block$wtAccountValue$wtcbListaEmpresas&#39;,&#39;Change&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;);"
+                                            onkeyup="this.onchange();">
+                                        <option selected="selected" value="164903206">SACYR NERVI&#211;N,S.L.-SUCURSAL
+                                            EM PORTUGAL
+                                        </option>
+
+                                    </select><span style="display: none;" class="ValidationMessage" role="alert"
+                                                   id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountValue_wtcbListaEmpresas"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_wtgrupoListaContas">
+                                <div class="ClientAccount">
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountLabel"
+                                         class="AccountLabel">Conta
+                                    </div>
+                                    <div id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountValue"
+                                         class="AccountValue">
+                                        <select
+                                            name="LT_BPINetEmpresas_wt37$block$wtContext$CW_NETEmp_Comum_wtEmpresasContas$block$LT_BPI_Patterns_wt3$block$wtAccountValue$wtcbListaContas"
+                                            id="LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountValue_wtcbListaContas"
+                                            tabindex="85" aria-invalid="false"
+                                            onchange="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountValue_wtcbListaContas&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtContext$CW_NETEmp_Comum_wtEmpresasContas$block$LT_BPI_Patterns_wt3$block$wtAccountValue$wtcbListaContas&#39;,&#39;Change&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;);"
+                                            onkeyup="this.onchange();">
+                                        <option selected="selected" value="286972080">9-5707988.000.001 - Conta
+                                            9-5707988.000.001
+                                        </option>
+
+                                    </select>
+                                        <span style="display: none;" class="ValidationMessage" role="alert"
+                                                   id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountValue_wtcbListaContas"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="LT_BPINetEmpresas_wt37_block_wtContextAditionalInfo"
+                         class="ContextAditionalInfo OSAutoMarginTop"></div>
+                </div>
+                <div class="Notifications PH">
+                    <div class="FeedbackMessageContainer"></div>
+                    <div id="LT_BPINetEmpresas_wt37_block_wtAlertPlaceholder" class="Alerts PH"></div>
+                </div>
+                <div id="LT_BPINetEmpresas_wt37_block_wtAuxActions" class="AuxActions PH"
+                     style="margin-top: 0px;"></div>
+                <div id="LT_BPINetEmpresas_wt37_block_wtMainContent" class="MainContent"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_wtErrorExist"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_wtSaldo2" class="ContextAditionalInfo"
+                        style="margin-top: 0px;"><div class="ContextTwoColumns"><div
+                        class="Columns Columns2 NoGutter tab_DontBreak mob_BreakAll"><div class="Column ColFirst"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn1"
+                        class="OSInline"><div class="GrayBorder"><div class="Box White"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn1_WebPatterns_wt6_block_wtContent"><div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn1_WebPatterns_wt6_block_wtContent_wtLabel"
+                        class="Text_darkblue ContextTwoColumns_label">Saldo Dispon&#237;vel:</div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn1_WebPatterns_wt6_block_wtContent_wtInput"
+                        class="ContextTwoColumns_input"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn1_WebPatterns_wt6_block_wtContent_wtInput_wtlbSaldoDisponivel">662.920,99 EUR</span></div></div></div></div></div></div></div><div
+                        class="Column ColLast"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn2"
+                        class="OSInline"><div class="GrayBorder"><div class="Box White"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn2_WebPatterns_wt7_block_wtContent"><div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn2_WebPatterns_wt7_block_wtContent_wtLabel2"
+                        class="Text_darkblue ContextTwoColumns_label">Saldo Contabil&#237;stico:</div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn2_WebPatterns_wt7_block_wtContent_wtInput2"
+                        class="ContextTwoColumns_input"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wt19_block_LT_BPI_Patterns_wt4_block_WebPatterns_wt12_block_wtColumn2_WebPatterns_wt7_block_wtContent_wtInput2_wtlbSaldoContabilistico">662.920,99 EUR</span></div></div></div></div></div></div></div></div></div></div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_wtNoMovements"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_wtContainer_Imprimir_excel" class="AuxActions"
+                        style="margin-top: 0px;"><a
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_NETEmp_Comum_wt8_block_wtlnkExcelExexute"
+                        tabindex="86" class="First" title="Exportar para Excel"
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_NETEmp_Comum_wt8_block_wtlnkExcelExexute&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_NETEmp_Comum_wt8$block$wtlnkExcelExexute&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        href="#"><img alt="" src="/CW_NETEmp_Comum/img/Excel.gif?12178"/>Exportar</a><a
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_NETEmp_Comum_wt42_block_wt1" tabindex="87"
+                        class="First"
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_NETEmp_Comum_wt42_block_wt1&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_NETEmp_Comum_wt42$block$wt1&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        href="#"><img alt="" src="/CW_NETEmp_Comum/img/Impressora.gif?12178"
+                                      style="margin-left: 1px;margin-right: 3px"/><span
+                        data-style-key="Fu4b8Yg4O0OrQ5xfA9ZSVQ">Imprimir</span></a></div></span><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_wtMovimentos2" style="margin-top: 20px;"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtFilters"
+                        class="Section_Filter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtSectionExpandableArea"
+                        class="SectionExpandable"><a class='Section-anchor'></a><div class="SectionExpandable_header"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtTitle"
+                        class="Heading2 SectionExpandable__title">Procurar Movimento(s)</div><div
+                        class="Heading2 SectionExpandable__icon"><span
+                        class="fa fa-fw fa-angle-down"></span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent"
+                        class="SectionExpandable_content"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm"
+                        class="FormEdit"><div class="Form"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_wtTypeOfMovementContainer"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><div><input type="radio"
+                                                                                 name="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block$1103974314"
+                                                                                 checked="checked"
+                                                                                 id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtInput_wt93"
+                                                                                 tabindex="89" value="Todos"
+                                                                                 onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                                                                                 onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtInput_wt93&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt132$block$wtRow$LT_BPI_Patterns_wt61$block$wtInput$wt93&#39;,&#39;Change&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;);"/><span
+                        style="margin-left: 10px;">Todos</span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtNote"
+                        class="FormEditItem_Note PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt132_block_wtRow_LT_BPI_Patterns_wt61_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><input type="radio"
+                                                                            name="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block$1103974314"
+                                                                            id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtInput_wt74"
+                                                                            tabindex="90" value="Debito"
+                                                                            onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                                                                            onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtInput_wt74&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt5$block$wtRow$LT_BPI_Patterns_wt24$block$wtInput$wt74&#39;,&#39;Change&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;);"/><span
+                        style="margin-left: 10px;">A D&#233;bito</span></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtNote"
+                        class="FormEditItem_Note PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt5_block_wtRow_LT_BPI_Patterns_wt24_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><input type="radio"
+                                                                            name="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block$1103974314"
+                                                                            id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtInput_wt68"
+                                                                            tabindex="91" value="Credito"
+                                                                            onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                                                                            onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtInput_wt68&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt131$block$wtRow$LT_BPI_Patterns_wt135$block$wtInput$wt68&#39;,&#39;Change&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;);"/><span
+                        style="margin-left: 10px;">A Cr&#233;dito</span></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtNote"
+                        class="FormEditItem_Note PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt131_block_wtRow_LT_BPI_Patterns_wt135_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div></div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_wttypeofmovementif2"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"><span style="margin-top:5px">Montante entre</span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wtMontanteCont"><input
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt111$block$wtRow$LT_BPI_Patterns_wt92$block$wtInput$wttxtMontanteInf"
+                        type="text" maxlength="10"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteInf"
+                        tabindex="92" class="maskcurrencynegative" placeholder=""
+                        onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                        aria-invalid="false" style="width: 80px"/><span style="display: none;" class="ValidationMessage"
+                                                                        role="alert"
+                                                                        id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteInf"></span><script
+                        type="text/javascript">
+//<![CDATA[
+OsInputPrompt_Bootstrap('LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteInf');
+//]]>
+</script><span style="margin-left:10px; margin-right:10px; font-weight: bold; margin-top:5px">e</span><input
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt111$block$wtRow$LT_BPI_Patterns_wt92$block$wtInput$wttxtMontanteSup"
+                        type="text" maxlength="10"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteSup"
+                        tabindex="93" class="maskcurrencynegative" placeholder=""
+                        onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                        aria-invalid="false" style="width: 80px; margin-left: 0px"/><span style="display: none;"
+                                                                                          class="ValidationMessage"
+                                                                                          role="alert"
+                                                                                          id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteSup"></span><script
+                        type="text/javascript">
+//<![CDATA[
+OsInputPrompt_Bootstrap('LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteSup');
+//]]>
+</script></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtNote"
+                        class="FormEditItem_Note PH">(Facultativo)</div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div></span><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"><span style="margin-top:5px">Data Mov. entre</span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wtDatasContainer"><input
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt103$block$wtRow$LT_BPI_Patterns_wt73$block$wtInput$wttxtDataInicio"
+                        type="text" value="01-04-2021" maxlength="10"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio"
+                        tabindex="94" class="maskdate input_date"
+                        onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                        aria-invalid="false" style="width: 79px"/><span style="display: none;" class="ValidationMessage"
+                                                                        role="alert"
+                                                                        id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio"></span><script
+                        type="text/javascript">
+outsystems.internal.$(function () {
+    if (outsystems.internal.$('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio').attr('readonly'))
+        return;
+
+    var SPECIAL_DAYS = {};
+
+    function dateIsSpecial(year, month, day) {
+        var m = SPECIAL_DAYS[month + 1];
+        if (!m)
+            return false;
+        for (var i in m)
+            if (m[i] == day)
+                return true;
+        return false;
+    };
+
+    RichWidgets_Calendar.setup(
+        {
+            inputField: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio",
+            eventName: "click",
+            ifFormat: "%d-%m-%Y",
+            align: "Bl",
+            singleClick: true,
+            weekNumbers: false,
+            showOthers: false,
+            timeFormat: 24,
+            showsTime: false,
+            firstDay: 0, date: new Date(2021, 4, 9, 0, 0, 0),
+            electric: true,
+            step: 2,
+            cache: false
+        });
+
+});
+</script><script type="text/javascript">
+outsystems.internal.$(function () {
+    var inpid = 'LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio';
+    var inputData = OsInputPrompt_GetInputData(outsystems.internal.$('#' + inpid));
+    var prompt = (inputData || {}).prompt;
+    var iplaceholder = outsystems.internal.$('#' + inpid)[0].placeholder;
+    if ((iplaceholder == 'undefined' || iplaceholder == '') && typeof (prompt) == 'undefined' || prompt == '') {
+        OsInputPrompt_Bootstrap('LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio', 'DD-MM-AAAA');
+    }
+});
+</script><span style="margin-left:10px; margin-right:10px; font-weight: bold; margin-top:5px">e</span><input
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt103$block$wtRow$LT_BPI_Patterns_wt73$block$wtInput$wttxtDataFim"
+                        type="text" value="14-05-2021" maxlength="10"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim"
+                        tabindex="95" class="maskdate input_date"
+                        onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                        aria-invalid="false" style="width: 79px; margin-left: 0px"/><span style="display: none;"
+                                                                                          class="ValidationMessage"
+                                                                                          role="alert"
+                                                                                          id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim"></span><script
+                        type="text/javascript">
+outsystems.internal.$(function () {
+    if (outsystems.internal.$('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim').attr('readonly'))
+        return;
+
+    var SPECIAL_DAYS = {};
+
+    function dateIsSpecial(year, month, day) {
+        var m = SPECIAL_DAYS[month + 1];
+        if (!m)
+            return false;
+        for (var i in m)
+            if (m[i] == day)
+                return true;
+        return false;
+    };
+
+    RichWidgets_Calendar.setup(
+        {
+            inputField: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim",
+            eventName: "click",
+            ifFormat: "%d-%m-%Y",
+            align: "Bl",
+            singleClick: true,
+            weekNumbers: false,
+            showOthers: false,
+            timeFormat: 24,
+            showsTime: false,
+            firstDay: 0, date: new Date(2021, 4, 9, 0, 0, 0),
+            electric: true,
+            step: 2,
+            cache: false
+        });
+
+});
+</script><script type="text/javascript">
+outsystems.internal.$(function () {
+    var inpid = 'LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim';
+    var inputData = OsInputPrompt_GetInputData(outsystems.internal.$('#' + inpid));
+    var prompt = (inputData || {}).prompt;
+    var iplaceholder = outsystems.internal.$('#' + inpid)[0].placeholder;
+    if ((iplaceholder == 'undefined' || iplaceholder == '') && typeof (prompt) == 'undefined' || prompt == '') {
+        OsInputPrompt_Bootstrap('LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim', 'DD-MM-AAAA');
+    }
+});
+</script></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtNote"
+                        class="FormEditItem_Note PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow"
+                        class="FormRow"><div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block"><div
+                        class="FormEditItem BoxInputContainer SmallHeight"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtBoxInput_ContentLabel"
+                        class="BoxInput_ContentLabel FormEditItem_ContentLabel ThemeGrid_Width4"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtLabel"
+                        class="BoxInput_Label FormEditItem_Label PH"><label class=' OSFillParent' style='' for=''>Tipo Operação </label></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtBoxInput_Content"
+                        class="BoxInput_Content FormEditItem_Content ThemeGrid_Width6 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput"
+                        class="BoxInput_Input FormEditItem_Input PH"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput_wtoperationtypecontainer"><select
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wtFormFiltroPattern$block$wtForm$LT_BPI_Patterns_wt66$block$wtRow$LT_BPI_Patterns_wt55$block$wtInput$wt98"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput_wt98"
+                        tabindex="96" class="OSFillParent Mandatory"
+                        onkeydown="return OsEnterKey(&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;, arguments[0] || window.event);"
+                        aria-required="true" aria-invalid="false">
+	<option selected="selected" value="todos">Todos</option>
+	<option value="depositos">Dep&#243;sitos</option>
+	<option value="levantamentos">Levantamentos</option>
+	<option value="cheques">Cheques</option>
+	<option value="pagamentos">Pagamentos</option>
+	<option value="transferenciasNacionais">Transfer&#234;ncias Nacionais</option>
+	<option value="operacoesEstrangeiro">Opera&#231;&#245;es Estrangeiro</option>
+	<option value="titulos">T&#237;tulos</option>
+	<option value="cartoes">Cart&#245;es</option>
+	<option value="tpa">TPA </option>
+	<option value="diversos">Diversos</option>
+
+</select><span style="display: none;" class="ValidationMessage" role="alert"
+               id="ValidationMessage_LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput_wt98"></span></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtNote"
+                        class="FormEditItem_Note PH"></div></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtBoxInput_IconContent"
+                        class="BoxInput_ContentIcon FormEditItem_IconContent ThemeGrid_Width2 ThemeGrid_MarginGutter"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtIcon"
+                        class="FormEditItem_Icon PH"></div></div></div><div class="HideContainer"><script>$(document).ready(function () {
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block .ValidationMessage').each(function () {
+                        if ($(this).css('display') == 'block') { //is visible
+                            $(this).parents('.BoxInputContainer').addClass('FieldNotValid');
+                        } else {
+                            $(this).parents('.BoxInputContainer').removeClass('FieldNotValid');
+                        }
+                    });
+
+                    $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block .ValidationMessage').bind('DOMSubtreeModified', function () {
+
+                        setTimeout(function () {
+                            var formInput = $('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block .ValidationMessage');
+                            if (formInput.css('display') == 'block') { //is visible
+                                formInput.parents('.BoxInputContainer').addClass('FieldNotValid');
+                            } else {
+                                formInput.parents('.BoxInputContainer').removeClass('FieldNotValid');
+                            }
+                        }, 1);
+
+                    });
+
+                });</script></div></span></div></div></div></div><script>new formValidationMessage('#LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm');</script><div
+                        class="Buttons ButtonsControls"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsLeft"
+                        class="Buttons_Left"></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight"
+                        class="Buttons_Right"><input
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wt58$block$wtActionsRight$wt72&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        type="submit"
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wt58$block$wtActionsRight$wt72"
+                        value="Limpar"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wt72"
+                        tabindex="97" class="Button Is_Default" style="margin-left: 0px"/><input
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wtFilterBtn2&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wt58$block$wtActionsRight$wtFilterBtn2&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        type="submit"
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$WebPatterns_wt125$block$wtContent$LT_BPI_Patterns_wt58$block$wtActionsRight$wtFilterBtn2"
+                        value="Filtrar"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wt58_block_wtActionsRight_wtFilterBtn2"
+                        tabindex="98" class="Button Blue"/></div></div></div></div></div><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtShowListOfMovements2"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtResults"
+                        style="margin-top: 10px;"><table class="TableRecords OSFillParent" cellspacing="0"
+                                                         id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2">
+	<thead>
+		<tr>
+			<th class="TableRecords_Header" style="white-space: nowrap;"><div align="center">Data Mov.</div></th><th
+                class="TableRecords_Header" style="white-space: nowrap;"><div align="center">Data Valor</div></th><th
+                class="TableRecords_Header" style="white-space: normal;"><div>Descri&#231;&#227;o do Movimento</div></th><th
+                class="TableRecords_Header" style="display:none"><div align="center">Montante</div></th><th
+                class="TableRecords_Header" style="white-space: nowrap;"><div align="center">Valor em EUR</div></th><th
+                class="TableRecords_Header" style="white-space: nowrap"><div align="center">Saldo em EUR</div></th>
+		</tr>
+	</thead><tbody>
+		<tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl03_wtDataMov">07-05-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl03_wtDescricao"
+                align="left">COBR SEPA 30000195315 Finlog  Aluguer e Comercio de Auto</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl03_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl03_wtValorEur"
+                align="right"><span class="Text_red">-1.189,66</span></div></td><td class="TableRecords_OddLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl03_wtSaldoEur"
+                align="right"><span class="Text_blue">662.920,99</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl04_wtDataMov">05-05-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl04_wtDescricao"
+                align="left">COBR SEPA 01010636964 EDENRED PORTUGAL SA</div></td><td class="TableRecords_EvenLine"
+                                                                                     style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl04_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl04_wtValorEur"
+                align="right"><span class="Text_red">-43,53</span></div></td><td class="TableRecords_EvenLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl04_wtSaldoEur"
+                align="right"><span class="Text_blue">664.110,65</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl05_wtDataMov">03-05-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl05_wtDescricao"
+                align="left">TRF 0001529 DE REPSOL POLIMEROS,UNIP,LDA</div></td><td class="TableRecords_OddLine"
+                                                                                    style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl05_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl05_wtValorEur"
+                align="right"><span class="Text_blue">141.278,16</span></div></td><td class="TableRecords_OddLine"
+                                                                                      style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl05_wtSaldoEur"
+                align="right"><span class="Text_blue">664.154,18</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl06_wtDataMov">30-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl06_wtDescricao"
+                align="left">TRF 0001528 DE RUI   CANDEIAS LDA</div></td><td class="TableRecords_EvenLine"
+                                                                             style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl06_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl06_wtValorEur"
+                align="right"><span class="Text_blue">432,96</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl06_wtSaldoEur"
+                align="right"><span class="Text_blue">522.876,02</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl07_wtDataMov">30-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl07_wtDescricao"
+                align="left">COBR SEPA ODAD0000238 TRANSTEL, SA - SUCURSAL EM PORTUGA</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl07_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl07_wtValorEur"
+                align="right"><span class="Text_red">-1.398,51</span></div></td><td class="TableRecords_OddLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl07_wtSaldoEur"
+                align="right"><span class="Text_blue">522.443,06</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl08_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl08_wtDescricao"
+                align="left">TRF 1527 P/ PT50004564214026020532889 DIFFERENCIAS</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl08_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl08_wtValorEur"
+                align="right"><span class="Text_red">-25,49</span></div></td><td class="TableRecords_EvenLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl08_wtSaldoEur"
+                align="right"><span class="Text_blue">523.841,57</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl09_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl09_wtDescricao"
+                align="left">TRF 1526 P/ PT50001000003926024000125 SUBSIDIO FERIAS</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl09_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl09_wtValorEur"
+                align="right"><span class="Text_red">-543,45</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl09_wtSaldoEur"
+                align="right"><span class="Text_blue">523.867,06</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl10_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl10_wtDescricao"
+                align="left">PAGAMENTO DE SERVICOS - 003621227 - 20237</div></td><td class="TableRecords_EvenLine"
+                                                                                     style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl10_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl10_wtValorEur"
+                align="right"><span class="Text_red">-625,44</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl10_wtSaldoEur"
+                align="right"><span class="Text_blue">524.410,51</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl11_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl11_wtDescricao"
+                align="left">TRF 0001525 DE REPSOL POLIMEROS,UNIP,LDA</div></td><td class="TableRecords_OddLine"
+                                                                                    style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl11_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl11_wtValorEur"
+                align="right"><span class="Text_blue">264.499,43</span></div></td><td class="TableRecords_OddLine"
+                                                                                      style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl11_wtSaldoEur"
+                align="right"><span class="Text_blue">525.035,95</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl12_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl12_wtDescricao"
+                align="left">TRF 0001524 DE INST SEGURANCA SOCIAL IP CENTRO</div></td><td class="TableRecords_EvenLine"
+                                                                                          style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl12_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl12_wtValorEur"
+                align="right"><span class="Text_blue">27,09</span></div></td><td class="TableRecords_EvenLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl12_wtSaldoEur"
+                align="right"><span class="Text_blue">260.536,52</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl13_wtDataMov">29-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl13_wtDescricao"
+                align="left">COBR SEPA 06400530338 VODAFONE PORTUGAL-COM. PESSOAIS,S.</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl13_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl13_wtValorEur"
+                align="right"><span class="Text_red">-304,18</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl13_wtSaldoEur"
+                align="right"><span class="Text_blue">260.509,43</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl14_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl14_wtDescricao"
+                align="left">TRF 1487 P/ PT50000700000045535457023 EDENRED</div></td><td class="TableRecords_EvenLine"
+                                                                                         style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl14_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl14_wtValorEur"
+                align="right"><span class="Text_red">-5.098,53</span></div></td><td class="TableRecords_EvenLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl14_wtSaldoEur"
+                align="right"><span class="Text_blue">260.813,61</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl15_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl15_wtDescricao"
+                align="left">TRF 1486 P/ PT50004563244004397039622 CEMETRA-CENTRO DE ME</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl15_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl15_wtValorEur"
+                align="right"><span class="Text_red">-320,00</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl15_wtSaldoEur"
+                align="right"><span class="Text_blue">265.912,14</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl16_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl16_wtDescricao"
+                align="left">TRF 1485 P/ PT50005900044396610001224 PAGO PENSAO ALIMENTO</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl16_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl16_wtValorEur"
+                align="right"><span class="Text_red">-75,00</span></div></td><td class="TableRecords_EvenLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl16_wtSaldoEur"
+                align="right"><span class="Text_blue">266.232,14</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl17_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl17_wtDescricao"
+                align="left">TRF 1484 P/ ES5730587421002810007141 MARIA SAGRARIO PECO RAB</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl17_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl17_wtValorEur"
+                align="right"><span class="Text_red">-4.667,15</span></div></td><td class="TableRecords_OddLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl17_wtSaldoEur"
+                align="right"><span class="Text_blue">266.307,14</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl18_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl18_wtDescricao"
+                align="left">IMPOSTO SELO SOBRE DESPESAS (17.3.4) 003096270</div></td><td class="TableRecords_EvenLine"
+                                                                                          style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl18_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl18_wtValorEur"
+                align="right"><span class="Text_red">-0,56</span></div></td><td class="TableRecords_EvenLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl18_wtSaldoEur"
+                align="right"><span class="Text_blue">270.974,29</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl19_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl19_wtDescricao"
+                align="left">DESPESAS SOBRE PAGAMENTOS SEPA N. 003096270</div></td><td class="TableRecords_OddLine"
+                                                                                       style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl19_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl19_wtValorEur"
+                align="right"><span class="Text_red">-14,00</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl19_wtSaldoEur"
+                align="right"><span class="Text_blue">270.974,85</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl20_wtDataMov">28-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl20_wtDescricao"
+                align="left">REMUNERACOES   003096270 NOMINAS 042021</div></td><td class="TableRecords_EvenLine"
+                                                                                   style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl20_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl20_wtValorEur"
+                align="right"><span class="Text_red">-49.465,42</span></div></td><td class="TableRecords_EvenLine"
+                                                                                     style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl20_wtSaldoEur"
+                align="right"><span class="Text_blue">270.988,85</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl21_wtDataMov">27-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl21_wtDescricao"
+                align="left">TRF 1483 P/ PT50003300000000010117205 REPSOL PORTUGUESA</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl21_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl21_wtValorEur"
+                align="right"><span class="Text_red">-483,07</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl21_wtSaldoEur"
+                align="right"><span class="Text_blue">320.454,27</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl22_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl22_wtDescricao"
+                align="left">TRF 1482 P/ PT50001000001674577000167 DNC TECNICA - MANUTE</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl22_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl22_wtValorEur"
+                align="right"><span class="Text_red">-1.180,25</span></div></td><td class="TableRecords_EvenLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl22_wtSaldoEur"
+                align="right"><span class="Text_blue">320.937,34</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl23_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl23_wtDescricao"
+                align="left">TRF 1481 P/ PT50003300000009920791505 TELGAL</div></td><td class="TableRecords_OddLine"
+                                                                                        style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl23_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl23_wtValorEur"
+                align="right"><span class="Text_red">-169,74</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl23_wtSaldoEur"
+                align="right"><span class="Text_blue">322.117,59</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl24_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl24_wtDescricao"
+                align="left">TRF 1480 P/ PT50003520880001184993071 SANTEACO</div></td><td class="TableRecords_EvenLine"
+                                                                                          style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl24_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl24_wtValorEur"
+                align="right"><span class="Text_red">-122,45</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl24_wtSaldoEur"
+                align="right"><span class="Text_blue">322.287,33</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl25_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl25_wtDescricao"
+                align="left">TRF 1479 P/ PT50016900010003081305749 AIR LIQUIDE</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl25_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl25_wtValorEur"
+                align="right"><span class="Text_red">-1.097,83</span></div></td><td class="TableRecords_OddLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl25_wtSaldoEur"
+                align="right"><span class="Text_blue">322.409,78</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl26_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl26_wtDescricao"
+                align="left">TRF 1478 P/ PT50000700010002365001825 ELECTRO PORTUGAL</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl26_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl26_wtValorEur"
+                align="right"><span class="Text_red">-1.185,53</span></div></td><td class="TableRecords_EvenLine"
+                                                                                    style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl26_wtSaldoEur"
+                align="right"><span class="Text_blue">323.507,61</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl27_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl27_wtDescricao"
+                align="left">TRF 1477 P/ PT50001000005474536000114 PARTNERS STEALTH, LD</div></td><td
+                class="TableRecords_OddLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl27_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl27_wtValorEur"
+                align="right"><span class="Text_red">-992,05</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl27_wtSaldoEur"
+                align="right"><span class="Text_blue">324.693,14</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl28_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl28_wtDescricao"
+                align="left">TRF 1476 P/ PT50001000003314732000168 LUIS MANUEL DA SILVA</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl28_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl28_wtValorEur"
+                align="right"><span class="Text_red">-392,97</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl28_wtSaldoEur"
+                align="right"><span class="Text_blue">325.685,19</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl29_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl29_wtDescricao"
+                align="left">TRF 1475 P/ PT50001800004109937000182 VARANDA</div></td><td class="TableRecords_OddLine"
+                                                                                         style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl29_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl29_wtValorEur"
+                align="right"><span class="Text_red">-625,58</span></div></td><td class="TableRecords_OddLine" style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl29_wtSaldoEur"
+                align="right"><span class="Text_blue">326.078,16</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl30_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl30_wtDescricao"
+                align="left">TRF 1474 P/ PT50000700000048875011823 JFSC COMERCIO</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl30_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl30_wtValorEur"
+                align="right"><span class="Text_red">-676,72</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl30_wtSaldoEur"
+                align="right"><span class="Text_blue">326.703,74</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_OddLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl31_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_OddLine" style="white-space: nowrap"></td><td class="TableRecords_OddLine"
+                                                                                  style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl31_wtDescricao"
+                align="left">TRF 1473 P/ PT50001800003611206900151 ESMAL</div></td><td class="TableRecords_OddLine"
+                                                                                       style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl31_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_OddLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl31_wtValorEur"
+                align="right"><span class="Text_red">-10.841,96</span></div></td><td class="TableRecords_OddLine"
+                                                                                     style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl31_wtSaldoEur"
+                align="right"><span class="Text_blue">327.380,46</span></div></td>
+		</tr><tr>
+			<td class="TableRecords_EvenLine" style="white-space: nowrap"><div
+                    id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl32_wtDataMov">26-04-2021</div></td><td
+                class="TableRecords_EvenLine" style="white-space: nowrap"></td><td class="TableRecords_EvenLine"
+                                                                                   style="white-space: normal, width: 41%"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl32_wtDescricao"
+                align="left">TRF 1472 P/ PT50001000002200959000196 DERICHEBOURG</div></td><td
+                class="TableRecords_EvenLine" style="display:none"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl32_wtMontente"
+                align="right" style="align: right;"><span class="Text_blue"></span></div></td><td
+                class="TableRecords_EvenLine"><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl32_wtValorEur"
+                align="right"><span class="Text_red">-568,01</span></div></td><td class="TableRecords_EvenLine"
+                                                                                  style=""><div
+                id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtMovimentosList2_ctl32_wtSaldoEur"
+                align="right"><span class="Text_blue">338.222,42</span></div></td>
+		</tr>
+	</tbody>
+</table></div></span><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtViewMore"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtShowSeeMoreBtn"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtBtnContainer"
+                        align="right" style="margin-top: 10px;"><div class="Buttons ButtonsControls"><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_LT_BPI_Patterns_wt119_block_wtActionsLeft"
+                        class="Buttons_Left"></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_LT_BPI_Patterns_wt119_block_wtActionsRight"
+                        class="Buttons_Right"><input
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_LT_BPI_Patterns_wt119_block_wtActionsRight_wtButtonVerMais&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$LT_BPI_Patterns_wt119$block$wtActionsRight$wtButtonVerMais&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        type="submit"
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$LT_BPI_Patterns_wt119$block$wtActionsRight$wtButtonVerMais"
+                        value="Ver Mais"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_LT_BPI_Patterns_wt119_block_wtActionsRight_wtButtonVerMais"
+                        tabindex="99" class="Button"/></div></div></div></span></div><div
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtexcelbtncontainer"><input
+                        type="submit"
+                        name="LT_BPINetEmpresas_wt37$block$wtMainContent$CW_Contas_Empresas_wtMovimentos$block$wtExportExcel"
+                        value="ExportExcel"
+                        id="LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_wtExportExcel"
+                        tabindex="100" class="Button" style="display:none"/></div></div></span></div>
+                <div id="LT_BPINetEmpresas_wt37_block_wtAuxInfo" class="AuxInfo PH"><input
+                        onclick="OsAjax(arguments[0] || window.event,&#39;LT_BPINetEmpresas_wt37_block_wtAuxInfo_wtbtnSetErrorMode&#39;,&#39;LT_BPINetEmpresas_wt37$block$wtAuxInfo$wtbtnSetErrorMode&#39;,&#39;&#39;,&#39;__OSVSTATE,&#39;,&#39;&#39;); return false;"
+                        type="submit" name="LT_BPINetEmpresas_wt37$block$wtAuxInfo$wtbtnSetErrorMode"
+                        value="SetErrorMode" id="LT_BPINetEmpresas_wt37_block_wtAuxInfo_wtbtnSetErrorMode"
+                        tabindex="101" class="Button" style="display:none"/></div>
+                <div id="LT_BPINetEmpresas_wt37_block_wtNotes" class="Notes PH"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtNotes_wtErrorExist3"><div class="ListNotes"><label
+                        class=' NotesLabel' style='' for=''>Nota(s)</label><div
+                        id="LT_BPINetEmpresas_wt37_block_wtNotes_CW_NETEmp_Comum_wt23_block_LT_BPI_Patterns_wt2_block_wtListNotes"
+                        class="Notes PH"><span
+                        id="LT_BPINetEmpresas_wt37_block_wtNotes_CW_NETEmp_Comum_wt23_block_LT_BPI_Patterns_wt2_block_wtListNotes_wtListRecords1"
+                        class="ListRecords"><div>​Esta opção permite consultar os movimentos efetuados no mês corrente e nos três meses anteriores. Por defeito são apresentados os movimentos do mês corrente e do mês anterior. Para consultar outras datas utilize o filtro Data Mov. entre.<br></div><div>O fornecimento do seu Nº Conta BPI a terceiros pode permitir o conhecimento do nome associado à conta. <br></div></span></div></div></span>
+                </div>
+                <div class="Notes notes-sticker PH" style="display:none">
+                    <div class="ListNotes"><label class=' NotesLabel OSFillParent' style='' for=''>Nota do Site de
+                        Demonstração:</label>
+                        <div class="Notes PH">
+                            <ul class="List">
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem1" class="PH">Os
+                                    dados constantes na vers&#227;o Demo do BPI Net Empresas s&#227;o fict&#237;cios
+                                </li>
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem2" class="PH">Nos
+                                    ecr&#227;s de confirma&#231;&#227;o de opera&#231;&#245;es h&#225; campos em que n&#227;o
+                                    s&#227;o considerados os dados introduzidos pelo utilizador.
+                                </li>
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem3" class="PH">Nos
+                                    ecr&#227;s de consulta, as opera&#231;&#245;es criadas pelo utilizador na vers&#227;o
+                                    Demo n&#227;o s&#227;o visualiz&#225;veis.
+                                </li>
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem4"
+                                    class="PH"></li>
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem5"
+                                    class="PH"></li>
+                                <li id="LT_BPINetEmpresas_wt37_block_wt23_WebPatterns_wt5_block_wtItem6"
+                                    class="PH"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footerPrint" style="margin-left: 10px">Documento processado em 09-05-2021, 06:45:10</div>
+    <script>SilkDeviceDetect.init('desktop', false, false, 'firefox', false, false)</script>
+    <div id="LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_wt13_wtdivWait" class="Feedback_AjaxWait" align="center"
+         style="display:none">
+        <div id="LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_wt13_wtloader" class="Loader"></div>
+         Carregando
+    </div>
+    <script>RichWidgets_Feedback_AjaxWait_init('LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_wt13_wtdivWait');</script>
+    <span id="LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_RichWidgets_wt9_block"><script type='text/javascript'>
+OsRegisterExceptionHandler(RichWidgets_Feedback_Message_ErrorHandler)
+</script><div id="LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_RichWidgets_wt9_block_wtFeedback_Wrapper"
+              class="Feedback_Message_Wrapper"><span
+            id="LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_RichWidgets_wt9_block_wtnotify"><span
+            class="NotifyWidget"></span><SCRIPT type="text/javascript">
+//<![CDATA[
+RichWidgets_Feedback_Message_notifyWidget = 'LT_BPINetEmpresas_wt37_block_WebPatterns_wt4_block_RichWidgets_wt9_block_wtnotify';
+//]]>
+</SCRIPT></span></div></span>
+    <div id="LT_BPINetEmpresas_wt37_block_wt5_wt5_wtLagartaContainer" class="blockUI-displayBox OSInline"><img alt=""
+                                                                                                               src="/LT_BPINetEmpresas/img/Lagarta.gif?12142"/>
+    </div>
+    <script type='text/javascript'>
+        if ($('div.FieldNotValid').length == 0) {
+            RichWidgets_Feedback_AjaxWait_init();
+        }
+    </script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/standardstyle.behaviors.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskcurrency2.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskcurrency3.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskcurrency.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskcontachkdig.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskcurrencynegative.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.masknum.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.masktextalfa.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskdecimaln.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskdecimalnegative.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskdate.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.masktextnum.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.masktext2.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskNDigits.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskAtoJ.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskContaOrdem.js?v=44'></script>
+    <script type='text/javascript' src='/LT_Widgets/scripts/behavior.maskAlfaNum.js?v=44'></script>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var OsPage_ValidatorsOrder = new Array("LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteInf", "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteSup", "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio", "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim", "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput_wt98", "LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt9_block_wtAccountValue_wtcbListaEmpresas", "LT_BPINetEmpresas_wt37_block_wtContext_CW_NETEmp_Comum_wtEmpresasContas_block_LT_BPI_Patterns_wt3_block_wtAccountValue_wtcbListaContas");
+        var OsPage_Validators = new Array({},
+            {
+                controltovalidate: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteInf",
+                evaluationfunction: "OsCustomValidatorEvaluateIsValid",
+                errormessage: "Formato inv\x26#225;lido!",
+                clientvalidationfunction: "OsCustomValidatorText"
+            },
+            {
+                controltovalidate: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt111_block_wtRow_LT_BPI_Patterns_wt92_block_wtInput_wttxtMontanteSup",
+                evaluationfunction: "OsCustomValidatorEvaluateIsValid",
+                errormessage: "Formato inv\x26#225;lido!",
+                clientvalidationfunction: "OsCustomValidatorText"
+            },
+            {
+                controltovalidate: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataInicio",
+                evaluationfunction: "OsCustomValidatorEvaluateIsValid",
+                errormessage: "Formato inv\x26#225;lido!",
+                clientvalidationfunction: "OsCustomValidatorText"
+            },
+            {
+                controltovalidate: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt103_block_wtRow_LT_BPI_Patterns_wt73_block_wtInput_wttxtDataFim",
+                evaluationfunction: "OsCustomValidatorEvaluateIsValid",
+                errormessage: "Formato inv\x26#225;lido!",
+                clientvalidationfunction: "OsCustomValidatorText"
+            },
+            {
+                controltovalidate: "LT_BPINetEmpresas_wt37_block_wtMainContent_CW_Contas_Empresas_wtMovimentos_block_WebPatterns_wt125_block_wtContent_LT_BPI_Patterns_wtFormFiltroPattern_block_wtForm_LT_BPI_Patterns_wt66_block_wtRow_LT_BPI_Patterns_wt55_block_wtInput_wt98",
+                evaluationfunction: "OsRequiredFieldValidatorEvaluateIsValid",
+                errormessage: "Campo Obrigat\x26#243;rio!",
+                initialvalue: ""
+            });
+        //]]>
+    </script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var OsPage_ValidationActive = false;
+        OsValidatorOnLoad();
+
+        function OsValidatorOnSubmit() {
+            if (OsPage_ValidationActive) {
+                return OsValidatorCommonOnSubmit();
+            }
+            return true;
+        }
+
+        // ]]>
+    </script>
+</form>
+<script type="text/javascript">outsystems.internal.$._waitForViewstate = true;
+outsystems.internal.$(document).ready(function () {
+    outsystems.internal.$('input[name=__OSVSTATE]').val('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');
+    outsystems.internal.$._waitForViewstate = false;
+});</script>
+<script type="text/javascript">//<![CDATA[
+if (!window.OsJSONUpdate) {
+    do {
+        try {
+            if (window.parent && window.parent.OsJSONUpdate) window.OsJSONUpdate = window.parent.OsJSONUpdate;
+        } catch (ex) {
+            d = document.domain.indexOf('.') + 1;
+            document.domain = document.domain.substr(d, document.domain.length - d);
+        }
+    } while (!window.OsJSONUpdate && document.domain.indexOf('.') != document.domain.lastIndexOf('.'));
+    if (!window.OsJSONUpdate) {
+        try {
+            document.domain = window.location.hostname;
+        } catch (ex) {
+        }
+        window.OsJSONUpdate = function () {
+        };
+    }
+}
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+OsJSONUpdate({"js": ["outsystems.internal.$(document).ready(function() {OsJSONUpdate({\"js\":[\"$('.Feedback_Message_Wrapper').hide();\",\"$('.Feedback_Message_Wrapper').hide();\",\"$('.Feedback_Message_Wrapper').hide();\"]})});"]})//]]></script>
+<script src="/PerformanceProbe/performanceprobe.js?11_10_2_26915" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

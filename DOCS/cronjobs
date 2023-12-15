@@ -1,0 +1,15 @@
+MAILTO=""
+PATH=/home/vbelan/bin:/home/vbelan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:
+
+
+* * * * * flock -n ~/tmp/server_for_scraping.lock ./run_server_for_scraping.sh >> ~/logs/cron_flock_server_for_scraping.log 2>&1
+
+* * * * * flock -n ~/tmp/celery.lock ./run_celery.sh >> ~/logs/cron_flock_celery.log 2>&1
+
+* * * * * flock -n ~/tmp/machine_stat.lock ./run_machine_statistics_collector.sh >> ~/logs/cron_flock_machine_stat.log 2>&1
+
+# UTC = LOCAL - 1
+0 2 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > ~/logs/night_scraping.log 2>&1
+# for night re-scraping, green tunnel should be finished already (default 0-4 UTC)
+0 4 * * * ulimit -s unlimited && python3 -X faulthandler main_launcher_receipts.py > ~/logs/night_rescraping.log 2>&1
+

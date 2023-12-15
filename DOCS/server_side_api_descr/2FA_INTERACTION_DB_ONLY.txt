@@ -1,0 +1,31 @@
+# https://www.websequencediagrams.com/
+
+title 2FA INTERACTION with DB :)
+
+
+note over TesFront,TesBack,DB,Scraper: Event: Scraper needs 2FA token
+note over Scraper: Start
+Scraper->DB:Update access 001:\n`DoubleAuthStatus`="need"\n`DoubleAuthQuestion`="123456"\n`DoubleAuthStartTimeStamp`=now()
+
+
+
+TesFront->TesBack: Get 2FA accesses for the customer
+TesBack->DB:  Select accesses where `DoubleAuthStatus`="need"
+DB-->TesBack:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}]
+TesBack->DB:Update access 001:\n`DoubleAuthStatus`="question_sent"
+TesBack-->TesFront:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}] as JSON
+
+loop Check for updates:
+    Scraper->DB: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    DB-->Scraper: [ ]
+end
+
+note over TesFront, Scraper: Event: User entered 2FA token
+
+TesFront->TesBack: {access: 001, token: "987654"}
+TesBack->DB: Update access 001:\n`DoubleAuthToken`="987654"\n`DoubleAuthStatus`="token_received"
+Scraper->DB: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+DB-->Scraper:`DoubleAuthToken`="987654"
+Scraper->DB: Update access 001\n`DoubleAuthStatus`="ok"
+note over Scraper: Finish
+

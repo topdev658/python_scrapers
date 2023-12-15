@@ -1,0 +1,27 @@
+        #  1480-0010-92-0100025438
+        req_url1 = 'https://www.volkswagenbank.es/servlet/GatewayServlet/;jsessionid=web4-a3%3A5a08b6f2%3Ad6a184b192c51c9?transaction=B031FM&AP_CENTRO=0010&AP_TIPO=01&AP_NUMERO=000254&AP_DIGITO=38&AP_N_ULTIMOS=&AP_FECHA_INICIO=&AP_FECHA_FIN=&AP_IMP_DESDE=&AP_IMP_HASTA=&cuenta_escogida=tree%3A%3Aposicion-global%3A%3A%2F%2Frow%5Bcuenta%2Fcodigo-centro%3D%270010%27+and+cuenta%2Ftipo-contrato%3D%2701%27+and+cuenta%2Fnumero-contrato%3D%27000254%27%5D&action=initresposta&selectImporte='
+
+        filter_by_dates1 = 'https://www.volkswagenbank.es/servlet/GatewayServlet/;jsessionid=web4-a3%3A5a08b6f2%3Ad6a184b192c51c9?transaction=B031FM' \
+                           '&AP_CENTRO=0010' \
+                           '&AP_TIPO=01' \
+                           '&AP_NUMERO=000254' \
+                           '&AP_DIGITO=38' \
+                           '&AP_N_ULTIMOS=' \
+                           '&AP_FECHA_INICIO=21-10-2017' \
+                           '&AP_FECHA_FIN=' \
+                           '&AP_IMP_DESDE=' \
+                           '&AP_IMP_HASTA=' \
+                           '&cuenta_escogida=tree%3A%3Aposicion-global%3A%3A%2F%2Frow%5Bcuenta%2Fcodigo-centro%3D%270010%27+and+cuenta%2Ftipo-contrato%3D%2704%27+and+cuenta%2Fnumero-contrato%3D%27001235%27%5D' \
+                           '&action=initresposta&selectImporte='
+
+        # open movements from
+
+        # 1480-0010-90-0400042579
+        req_url2 = 'https://www.volkswagenbank.es/servlet/GatewayServlet/;jsessionid=web4-a3%3A5a08b6f2%3Ad6a184b192c51c9?transaction=B031FM&AP_CENTRO=0010&AP_TIPO=04&AP_NUMERO=000425&AP_DIGITO=79&AP_N_ULTIMOS=&AP_FECHA_INICIO=&AP_FECHA_FIN=&AP_IMP_DESDE=&AP_IMP_HASTA=&cuenta_escogida=tree%3A%3Aposicion-global%3A%3A%2F%2Frow%5Bcuenta%2Fcodigo-centro%3D%270010%27+and+cuenta%2Ftipo-contrato%3D%2704%27+and+cuenta%2Fnumero-contrato%3D%27000425%27%5D&action=initresposta&selectImporte='
+
+        # urllib.parse.unquote_plus
+        "https://www.volkswagenbank.es/servlet/GatewayServlet/;jsessionid=web4-a3:5a08b6f2:d6a184b192c51c9?transaction=B031FM&AP_CENTRO=0010&AP_TIPO=04&AP_NUMERO=000425&AP_DIGITO=79&AP_N_ULTIMOS=&AP_FECHA_INICIO=&AP_FECHA_FIN=&AP_IMP_DESDE=&AP_IMP_HASTA=&cuenta_escogida=tree::posicion-global:://row[cuenta/codigo-centro='0010' and cuenta/tipo-contrato='04' and cuenta/numero-contrato='000425']&action=initresposta&selectImporte="
+
+        req_url3 = 'https://www.volkswagenbank.es/servlet/GatewayServlet/;jsessionid=web4-a3%3A5a08b6f2%3Ad6a184b192c51c9?transaction=B031FM&AP_CENTRO=0010&AP_TIPO=04&AP_NUMERO=001235&AP_DIGITO=75&AP_N_ULTIMOS=&AP_FECHA_INICIO=&AP_FECHA_FIN=&AP_IMP_DESDE=&AP_IMP_HASTA=&cuenta_escogida=tree%3A%3Aposicion-global%3A%3A%2F%2Frow%5Bcuenta%2Fcodigo-centro%3D%270010%27+and+cuenta%2Ftipo-contrato%3D%2704%27+and+cuenta%2Fnumero-contrato%3D%27001235%27%5D&action=initresposta&selectImporte='
+
+        #  1480-0010-98-0400123575

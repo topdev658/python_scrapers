@@ -1,0 +1,154 @@
+>>> CUENTAS > NORMA43 (peticion de fichero)
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/accountGroups?basic=true&authorised=208293esrSYSXjkaj", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "3b7bs9DxcDfD",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43",
+    "method": "GET",
+    "mode": "cors"
+});
+<<<
+{
+  "page": 0,
+  "items": [
+    {
+      "id": "6b9dc",
+      "name": "Fichero todas las cuentas"
+    },
+    {
+      "id": "a3b3D",
+      "name": "SIN GRUPO"
+    }
+  ],
+  "totalElements": 2
+}
+
+>>> N43 by file request
+
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/accountGroups", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "3b7bs9DxcDfD",
+        "Content-Type": "application/json",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43/peticion-grupo/resumen",
+    "body": "{\"id\":\"d6afff\",\"name\":\"GRUPO\",\"fileRqs\":[{\"id\":\"d6afff\",\"type\":\"peticion\",\"fileName\":\"NOMBRE FICHERO\",\"info\":{\"description\":false,\"observation\":false,\"automaticMovement\":false},\"startDate\":\"2022-02-24\",\"endDate\":\"2022-04-09\",\"fileStatus\":\"descargado\"}],\"companiesList\":[{\"id\":\"3b7bs9DxcDfD\",\"company\":\"ROI PERFORMANCE MEDIA SL\",\"accounts\":[{\"nickname\":\"Cuenta Corriente\",\"account\":{\"id\":\"df85x2ssf9HfsoJfssSwccOwwxS9ODexf2HB8sow\",\"display\":\"ES8901280078930100052464\"}}]}]}",
+    "method": "POST",
+    "mode": "cors"
+});
+
+BODY JSON:
+{
+  "id": "d6afff",
+  "name": "GRUPO",
+  "fileRqs": [
+    {
+      "id": "d6afff",
+      "type": "peticion",
+      "fileName": "NOMBRE FICHERO",
+      "info": {
+        "description": false,
+        "observation": false,
+        "automaticMovement": false
+      },
+      "startDate": "2022-02-24",
+      "endDate": "2022-04-09",
+      "fileStatus": "descargado"
+    }
+  ],
+  "companiesList": [
+    {
+      "id": "3b7bs9DxcDfD",
+      "company": "ROI PERFORMANCE MEDIA SL",
+      "accounts": [
+        {
+          "nickname": "Cuenta Corriente",
+          "account": {
+            "id": "df85x2ssf9HfsoJfssSwccOwwxS9ODexf2HB8sow",
+            "display": "ES8901280078930100052464"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+======== DOWNLOAD REQUESTED FILES ('Consultar descrargas Norma 43' dropdown option) =======
+
+>>> List of files from 'en curso' tab
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/accountGroups?status=descargado&basic=true&authorised=5d399MZu5Qk5AEDqx", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 100_resp_en_curso.json (need to find all 'diaria')
+
+>>> download file step 1
+await fetch("https://empresasapi.bankinter.com/api/norma43/v2/accountGroups/6b9dc/fileRqs/d981c_B_XBBBB9fcS8/fileId?excel=false", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 110_resp_file_webid.json
+
+>>> download step 2
+await fetch("https://empresasapi.bankinter.com/api/filetickets/v1/filesDownload/f96e9cfc4f494ea8beeb8dbf9ec579a1.473/liftRedirect", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-BkCompany": "c5cdxcDHDDfs",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://empresas.bankinter.com/secure/es/cuentas-y-tarjetas/cuentas/norma43",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< file content from redirected to https://empresasapi.bankinter.com/file/6f7b08f8ddf3321b9a8f40187874cf6e
+
+
+
+
+

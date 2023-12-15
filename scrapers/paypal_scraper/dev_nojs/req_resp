@@ -1,0 +1,183 @@
+>>> LOGIN OPEN FORM
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 05_login_open_form.html
+
+>>> VALIDATION IMAGE
+await fetch("https://t.paypal.com/ts?nojs=1&pgrp=main%3Aunifiedlogin%3Asplitlogin%3A%3Aemail&page=main%3Aunifiedlogin%3Asplitlogin%3A%3Aemail%3A%3A%3A&qual=input_email&pgst=1634769126497&calc=f5656608cdf55&nsid=ois2MzMd9iF9dmHOoeybdcTDffgtQZC0&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=fb348f8f80d743b093bda800ccae002d&comp=unifiedloginnodeweb&tsrce=unifiedloginnodeweb&cu=0&ef_policy=gdpr_v2.1&transition_name=ss_prepare_email&userRedirected=true&xe=101216%2C103648%2C104200%2C101817&xt=103864%2C114559%2C117843%2C115775&ctx_login_ot_content=0&obex=signin&landing_page=login&state_name=begin_email&ctx_login_ctxid_fetch=ctxid-not-exist&ctx_login_content_fetch=success&ctx_login_lang_footer=shown&ctx_login_signup_btn=shown%7Cdefault&ctx_login_intent=signin&ctx_login_flow=Signin&ctx_login_state_transition=login_loaded&post_login_redirect=default&ret_url=%2F", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "image/avif,image/webp,*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Sec-Fetch-Dest": "image",
+        "Sec-Fetch-Mode": "no-cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://www.paypal.com/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+>>> LOGIN STEP 1
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.paypal.com/signin",
+    "body": "_csrf=KlKEWmwrrSQ4jYzBT5kjmy%2F7KmcH7DZiecxdY%3D&locale.x=es_ES&processSignin=main&fn_sync_data=fn_sync_data&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&captchaCode=&btnNext=Next&login_phone=&initialSplitLoginContext=inputEmail&isTpdOnboarded=&login_password=&captcha=&splitLoginContext=inputEmail",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 07_login_step1_email.html
+
+>>> VALIDATION IMAGE
+await fetch("https://t.paypal.com/ts?nojs=1&pgrp=main%3Aunifiedlogin%3Asplitlogin%3A%3Apwd&page=main%3Aunifiedlogin%3Asplitlogin%3A%3Apwd%3A%3A%3A&qual=input_password&pgst=1634769156918&calc=f224938510297&nsid=ois2MzMd9iF9dmHOoeybdcTDffgtQZC0&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=55f3ddfc002f4d81bddda8217630d984&comp=unifiedloginnodeweb&tsrce=unifiedloginnodeweb&cu=0&ef_policy=gdpr_v2.1&transition_name=process_hybrid&ads_captcha=no_intercept&xe=101735%2C101216%2C104200%2C100644%2C101820%2C101817&xt=105856%2C103864%2C117843%2C101702%2C106324%2C115775&ctx_login_ot_content=0&obex=signin&landing_page=login&state_name=begin_hybrid_login&ctx_login_ctxid_fetch=ctxid-not-exist&ctx_login_content_fetch=success&ctx_login_lang_footer=shown&ctx_login_signup_btn=shown%7Cdefault&pub_cred_type=email&ctx_login_intent=signin&ctx_login_flow=Signin&ctx_login_state_transition=login_submitted&post_login_redirect=default&ret_url=%2F", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "image/avif,image/webp,*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Sec-Fetch-Dest": "image",
+        "Sec-Fetch-Mode": "no-cors",
+        "Sec-Fetch-Site": "same-site"
+    },
+    "referrer": "https://www.paypal.com/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+>>> LOGIN STEP 2 PWD
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.paypal.com/signin",
+    "body": "_csrf=vz5EIA4SUVbw%2B9zv81TIWW6SEtzh%2FET8rXUiY%3D&locale.x=es_ES&processSignin=main&fn_sync_data=fn_sync_data&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&captchaCode=&initialSplitLoginContext=inputEmail&isTpdOnboarded=&login_password=G...&captcha=&btnLogin=Login&splitLoginContext=inputPassword",
+    "method": "POST",
+    "mode": "cors"
+});
+Will be redirected to https://www.paypal.com/authflow/entry/?returnUri=%2Fsignin%2Freturn%3FflowFrom%3Danw-stepup%26ctxId%3Dstep_up12f0186949e7476cb7aefa4824cd1688&country.x=ES&locale.x=es_ES&acnw_dep=ul&stepupContext=3082ce40344f3a884e2449a688f95e0b&ctxId=step_up12f0186949e7476cb7aefa4824cd1688
+<<< 09_login_step2_pwd.html
+
+======================================================================
+AFTER 2FA
+======================================================================
+
+>>> OPEN LOGIN FORM
+await fetch("https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney#banks-section", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+
+curl 'https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney#banks-section' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Cookie: enforce_policy=gdpr_v2.1; cookie_check=yes; d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758; tsrce=authchallengenodeweb; ts=vreXpYrS%3D1729699107%26vteXpYrS%3D1635006507%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff%26vtyp%3Dreturn; ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff; KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd; ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3; x-pp-s=eyJ0IjoiMTYzNTAwNDUwMTI2OSIsImwiOiIwIiwibSI6IjAifQ; nsid=s%3AqSifOMoGOcDq6AS0DsN_cSGiaP8D7IVM.Mqn2QexqoA8xTJ7TffaTn6Vphx5V7Mn9nnrfknKsYdA; x-cdn=0333; fn_dt=5a73d77ad3ed4f7f9dfd48cca1835298; AV894Kt2TSumQQrJwe-8mzmyREO=; DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=; id_token=; rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq; SEGM=bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ; X-PP-ADS=AToB4i50YYFsGTCJbNJ5s1UpIS6DsGE; LANG=es_ES%3BES' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-User: ?1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache'
+
+<<< dev_nojs/10_resp_login_form.html
+
+>>> NOJS VALIDATION IMG (TO GET COOKIE)
+await fetch("https://t.paypal.com/ts?nojs=1&pgrp=main%3Aunifiedlogin%3A%3A%3Alogin&page=main%3Aunifiedlogin%3A%3A%3Alogin%3A%3A%3A&pgst=1635017347521&calc=f16551817eac2&nsid=qSifOMoGOcDq6AS0DsN_cSGiaP8D7IVM&rsta=es_ES&pgtf=Nodejs&env=live&s=ci&ccpg=ES&csci=13319e8571a64c45aeba7babcadeaaa7&comp=unifiedloginnodeweb&tsrce=authchallengenodeweb&cu=0&ef_policy=gdpr_v2.1&xe=104200%2C104458%2C102557%2C101408%2C102434%2C104039%2C102390%2C101090%2C101735%2C101216%2C104200&xt=117843%2C119355%2C109630%2C104577%2C109051%2C116598%2C108797%2C104050%2C105856%2C103864%2C117843&transition_name=ss_prepare_pwd&userRedirected=true&ctx_login_ot_content=0&obex=signin&landing_page=login&state_name=begin_pwd&ctx_login_ctxid_fetch=ctxid-not-exist&ctx_login_content_fetch=success&ctx_login_lang_footer=shown&ctx_login_signup_btn=shown%7Cdefault&ctx_login_intent=signin&ctx_login_flow=Signin&ctx_login_state_transition=login_loaded&post_login_redirect=returnUri&ret_url=%2Fbusinesswallet%2Fmoney", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "image/avif,image/webp,*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Sec-Fetch-Dest": "image",
+        "Sec-Fetch-Mode": "no-cors",
+        "Sec-Fetch-Site": "same-site",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache"
+    },
+    "referrer": "https://www.paypal.com/",
+    "method": "GET",
+    "mode": "cors"
+});
+
+>>> DO LOGIN
+await fetch("https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney",
+    "body": "_csrf=sySBjPPWhhnfkSAHxYR9QzmI%2FVaidqin7UoSk%3D&locale.x=es_ES&processSignin=main&fn_sync_data=fn_sync_data&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin%3FreturnUri%3Dhttps%253A%252F%252Fwww.paypal.com%252Fbusinesswallet%252Fmoney&forcePhonePasswordOptIn=&returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&login_password=G...&login_phone=&btnLogin=Login&splitLoginContext=inputPassword&isCookiedHybridEmail=true",
+    "method": "POST",
+    "mode": "cors"
+});
+
+curl 'https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://www.paypal.com' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Referer: https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney' -H 'Cookie: enforce_policy=gdpr_v2.1; cookie_check=yes; d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758; tsrce=unifiedloginnodeweb; ts=vreXpYrS%3D1729711749%26vteXpYrS%3D1635019149%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee%26vtyp%3Dreturn; ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee; KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd; ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3; x-pp-s=eyJ0IjoiMTYzNTAxNzM0NzU1OCIsImwiOiIwIiwibSI6IjAifQ; nsid=s%3AqSifOMoGOcDq6AS0DsN_cSGiaP8D7IVM.Mqn2QexqoA8xTJ7TffaTn6Vphx5V7Mn9nnrfknKsYdA; x-cdn=0333; fn_dt=5a73d77ad3ed4f7f9dfd48cca1835298; AV894Kt2TSumQQrJwe-8mzmyREO=; DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=; id_token=; rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq; SEGM=bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ; X-PP-ADS=AToB4i50YYFsGTCJbNJ5s1UpIS6DsGE; LANG=es_ES%3BES; l7_az=dcg14.slc' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-User: ?1' --data-raw '_csrf=sySBjPPWhhnfkSAHxYR9QzmI%2FVaidqin7UoSk%3D&locale.x=es_ES&processSignin=main&fn_sync_data=fn_sync_data&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin%3FreturnUri%3Dhttps%253A%252F%252Fwww.paypal.com%252Fbusinesswallet%252Fmoney&forcePhonePasswordOptIn=&returnUri=https%3A%2F%2Fwww.paypal.com%2Fbusinesswallet%2Fmoney&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&login_password=G...&login_phone=&btnLogin=Login&splitLoginContext=inputPassword&isCookiedHybridEmail=true'
+<<< dev_nojs/20_resp_logged_in.html
+
+>>> SKIP PHONE CONFIRMATION
+# "https://www.paypal.com/signin/phone-confirmation/loadPrimaryPhone?intent=business"
+await fetch("https://www.paypal.com/signin/client-log", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
+        "Accept": "application/json",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.paypal.com/signin/phone-confirmation/loadPrimaryPhone?intent=business",
+    "body": "_csrf=9BFu9hHDe1tOtHhHh8yXlgyOBxnczXa%2BcgwEE%3D&currentUrl=https%3A%2F%2Fwww.paypal.com%2Fsignin%2Fphone-confirmation%2FloadPrimaryPhone%3Fintent%3Dbusiness&logRecords=%5B%7B%22evt%22%3A%22state_name%22%2C%22data%22%3A%22begin_interstitial%22%2C%22instrument%22%3Atrue%2C%22timestamp%22%3A1643282250195%7D%2C%7B%22evt%22%3A%22transition_name%22%2C%22data%22%3A%22click_not_now%22%2C%22instrument%22%3Atrue%2C%22timestamp%22%3A1643282250195%7D%2C%7B%22evt%22%3A%22context_correlation_id%22%2C%22data%22%3A%22f7327868380c0%22%2C%22instrument%22%3Atrue%7D%2C%7B%22evt%22%3A%22serverside_data_source%22%2C%22data%22%3A%22business%22%2C%22instrument%22%3Atrue%7D%2C%7B%22evt%22%3A%22intent%22%2C%22data%22%3A%22business%22%2C%22instrument%22%3Atrue%7D%5D&intent=business&_sessionID=null",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< redirect to https://www.paypal.com/mep/merchantredirect?otpSuccess=false
+then https://www.paypal.com/mep/dashboard will be opened
+ANOTHER WAY: just open https://www.paypal.com/mep/dashboard when phone confirmation is requested

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,11"/>
+    <meta charset="utf-8">
+    </meta><script type="text/javascript" src="/secure/ruxitagentjs_ICA2Vfghqrux_10227211018092056.js" data-dtconfig="app=a1e9e19d3fde5a93|rcdec=1209600000|featureHash=ICA2Vfghqrux|cux=1|vcv=2|xb=browseranalytic^bs.com^pdoubleclick^bs.net^pdemdex^bs.net^panalytics^bs.com^pgoogle-analytics^bs.com^pfd.^bsbrowseranalytic|rdnt=1|uxrgce=1|bp=3|srmcrv=10|cuc=6x9v7ja9|mel=100000|dpvc=1|md=mdcc1=aspan.header-button__link-name-nav:nth-child(3),mdcc2=abody ^rb layout-root ^rb layout-layout ^rb main ^rb pagos-root ^rb pagos-movements ^rb section.container.margin-bottom_16.section-end-padding ^rb div ^rb div ^rb app-tabs ^rb div ^rb div ^rb div ^rb nav ^rb ul ^rb li.tab-table__list-item.tab-table__list-item--active.tab-table__list-item--filters ^rb a ^rb span:nth-child(1),mdcc3=abody ^rb layout-root ^rb layout-layout ^rb main ^rb acuentas-root ^rb cuentas-root ^rb cuentas-detail-account ^rb section ^rb div ^rb div ^rb app-tabs ^rb div ^rb div ^rb div ^rb nav ^rb ul ^rb li.tab-table__list-item.tab-table__list-item--filters.tab-table__list-item--active ^rb a ^rb span:nth-child(1),mdcc4=abody ^rb layout-root ^rb layout-layout ^rb main ^rb cobros-root ^rb ads-panel ^rb ads-panel-tabs ^rb section ^rb app-tabs ^rb div ^rb div ^rb div ^rb nav ^rb ul ^rb li.tab-table__list-item.tab-table__list-item--filters.tab-table__list-item--active ^rb a ^rb span:nth-child(1),mdcc5=abody ^rb layout-root ^rb layout-layout ^rb main ^rb signaturemgmt-root ^rb signmgmt-signature-mgmt ^rb signmgmt-operations ^rb section ^rb signmgmt-operations-tabs ^rb app-tabs ^rb div ^rb div ^rb div ^rb nav ^rb ul ^rb li.tab-table__list-item.tab-table__list-item--filters.tab-table__list-item--active ^rb a ^rb span:nth-child(1),mdcc6=abody ^rb layout-root ^rb layout-layout ^rb main ^rb area-ficheros-root ^rb section.margin-bottom_104 ^rb div ^rb app-tabs ^rb div ^rb div ^rb div ^rb nav ^rb ul ^rb li.tab-table__list-item.tab-table__list-item--filters.tab-table__list-item--active ^rb a ^rb span:nth-child(1)|ssv=4|lastModification=1648802438395|dtVersion=10227211018092056|srmcrl=1|tp=500,50,0,1|uxdcw=1500|agentUri=/secure/ruxitagentjs_ICA2Vfghqrux_10227211018092056.js|reportUrl=/secure/rb_32d2040b-e176-40d5-bb75-e6b6f8fb7ff7|rid=RID_383962137|rpid=-1737819886|domain=bankinter.com"></script></head>
+
+<body>
+<script id="inicializationScript"> // <-- VB: successfully logged in
+    // Init variables
+    window['urlBase']="/resources/companiesBanking/en/";
+
+</script>
+<script>
+    (function() {
+
+        function browserType() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+            if (msie > 0) {
+                return "ie" ;
+            } else if(navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                return "ie11"
+            }
+            return "not-ie";
+        }
+        var browserMode = browserType();
+
+        var domIsReady = (function(domIsReady) {
+            domIsReady = function(callback) {
+                if(callback && typeof callback === "function") {
+                    if(browserMode == "ie") {
+                        document.attachEvent("onreadystatechange", function() {
+                            if(document.readyState === "complete") {
+                                return callback();
+                            }
+                        });
+                    } else if(browserMode == "ie11") {
+                        window.addEventListener("load", function() {
+                            return callback();
+                        });
+                    } else  {
+                        document.addEventListener("DOMContentLoaded", function() {
+                            return callback();
+                        });
+                    }
+                } else {
+                    console.error("The callback is not a function!");
+                }
+            };
+            return domIsReady;
+        })(domIsReady || {});
+
+        function cleanArray(actual) {
+            var i;
+            var newArray = new Array();
+            for(i = 0; i < actual.length; i++) {
+                if(actual[i] && !actual[i].match(/^\s+$/)) {
+                    newArray.push(actual[i]);
+                }
+            }
+            return newArray;
+        }
+
+        function easyLoad(text) {
+            window.document.open();
+            window.document.write(text);
+            window.document.close();
+        }
+
+        function notSoEasyLoad(text) {
+            var i;
+
+            var htmlAttrs = /<html(?:\s([^>]*))?>/i.exec(text);
+            var head = /<head(\s[^>]*)?>(.|\r|\n)*<\/head\s*>/i.exec(text);
+            var body = /(<)body(\s[^>]*)?>(.|\r|\n)*<\/body\s*>/i.exec(text); // Se pone (<) en lugar de < al principio de la expresión regular para evitar problemas con GneisTemplateFilter en el método isDuplicateError.
+
+            var attrs;
+            if(htmlAttrs[1]) {
+                var cleanAttrs = htmlAttrs[1].replace(/\s*=\s*/g, "=");
+                attrs = cleanArray(cleanAttrs.split(" "));
+            }
+
+            var html = document.getElementsByTagName("html")[0];
+
+            if(attrs) {
+                var attr;
+                for(i = 0; i < attrs.length; i++) {
+                    attr = attrs[i].split("=");
+                    html.setAttribute(attr[0], attr[1] ? attr[1].substring(1, attr[1].length - 1) : "");
+                }
+            }
+
+            html.innerHTML = head[0] + body[0];
+            var bodyElement = html.getElementsByTagName("body")[0];
+            var scripts = bodyElement.querySelectorAll("script");
+            var script;
+            for(i = 0; i < scripts.length; i++) {
+                bodyElement.removeChild(scripts[i]);
+                script = document.createElement("script");
+                if(scripts[i].type) {
+                    script.type = scripts[i].type;
+                }
+                if(scripts[i].src) {
+                    script.src = scripts[i].src;
+                }
+                if(scripts[i].innerHTML) {
+                    script.innerHTML = scripts[i].innerHTML;
+                }
+                script.setAttribute("defer", true);
+                bodyElement.appendChild(script);
+
+            }
+        }
+
+        var forceNotEasyLoad = browserMode == "ie11" ;
+        function load() {
+            var url = window['urlBase'] + "index.html" + "?ts=" + new Date().getTime(); // Cargar la URL según el punto de despliegue
+            var request = new XMLHttpRequest();
+
+            request.open("GET", url);
+            request.setRequestHeader("Cache-Control", "no-cache");
+            request.onloadend = function() {
+                var text = request.responseText;
+                var ini = document.getElementById("inicializationScript")
+                if(ini) {
+                    text = text.replace(/([<]body[^>]*[>])/, "$1" + ini.outerHTML)
+                }
+
+                if(forceNotEasyLoad) {
+                    if(console) {
+                        console.warn("Forcing notEasyLoad");
+                    }
+                    notSoEasyLoad(text);
+                } else {
+                    try {
+                        easyLoad(text);
+                    } catch (error) {
+                        if(console) {
+                            console.warn("Trying notEasyLoad");
+                        }
+                        notSoEasyLoad(text);
+                    }
+                }
+            };
+            request.send();
+        }
+
+        domIsReady(load);
+
+    })();
+
+</script>
+</body>
+
+</html>

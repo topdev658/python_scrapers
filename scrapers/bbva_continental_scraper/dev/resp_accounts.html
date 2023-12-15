@@ -1,0 +1,2495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+<head>
+
+
+
+
+
+
+
+
+<meta http-equiv="Expires" CONTENT="0" />
+<meta http-equiv="Pragma" CONTENT="no-cache" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, target-densitydpi=device-dpi" />
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel=stylesheet type="text/css" href="../css/base_pibee.css?ran=20161107_6" media="screen"/>
+<link rel=stylesheet type="text/css" href="../css/base_pibee_print.css?ran=20161107_6" media="print"/>
+<script type="text/javascript" src="../r7/js/fingerprint.min.js?ran=20161107_6"></script>
+<link rel=stylesheet type="text/css" href="../css/ae_alerta.css"/>
+
+<style type="text/css">
+
+  .datazo-close {
+    background: #26437f;
+      color: #fff;
+      display: block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+    font-family: monospace;
+    font-size: 18px;
+    line-height: 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .datazo-close:hover {
+    background: #1d3367;
+  }
+
+  .datazo-modal {
+    position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 10;
+      text-align: center;
+      display: none;
+  }
+
+  .datazo-dialog {
+    border-radius: 3px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px 10px 10px 10px;
+      box-sizing: border-box;
+      position: relative;
+      display: inline-block;
+  }
+
+  .datazo-img {
+    border-radius: 3px;
+  }
+
+</style>
+
+<script type="text/javascript" src="../js/polyfills.js"></script>
+<script type="text/javascript" src="../js/fpd2.js"></script>
+
+<script type="text/javascript" >
+
+  console.log('indAfraude :: enviado');
+  console.log('indicador WBF :: N');
+  console.log('indicadorFreemium :: N');
+  console.log('flagMuestra :: N');
+  console.log('tipoPantalla :: -');
+  console.log('codigoServicio :: 3300');
+  console.log('pathDatazo :: https://db7iz008klofj.cloudfront.net/peru/BANNERS/');
+  console.log('imgBanner :: .');
+  console.log('urlBanner :: .');
+  console.log('imgPopup :: .');
+  console.log('urlPopup :: .');
+
+
+
+
+//Implementacion de Antifraude
+var JUNCTION_TEMP = "/SPECNET/cent6_pe_web/servlet";
+var ipPortal = window.location.protocol + '//' + window.location.host;
+
+function antiFraude(){
+console.log('En cent...');
+
+
+
+
+
+    if ( '.' != '.' ) {
+      document.getElementById('dtz-img-banner').onload = function() {
+        document.getElementById('dtz-link-banner').style.display = 'block';
+        resizeIframe();
+      }
+      document.getElementById('dtz-img-banner').src = 'https://db7iz008klofj.cloudfront.net/peru/BANNERS/' + '.';
+      if ( '.' != '.' )
+        document.getElementById('dtz-link-banner').href = '.';
+    }
+    else
+      document.getElementById('dtz-link-banner').parentNode.removeChild(document.getElementById('dtz-link-banner'));
+
+
+}
+
+
+
+
+  function redirigir() {
+    location.href = 'OperacionCBTFServlet?proceso=banking_fraud_pr&operacion=banking_fraud_op&accion=redirigir&url=' + encodeURIComponent(window.location.href);
+  }
+
+/*extras*/
+function eliminarElementoDOM(elem){
+  elem.style.display = "none";
+  if(elem !== null)
+        while (elem.hasChildNodes())
+            elem.removeChild(elem.lastChild);
+    var padre = elem.parentNode;
+  padre.removeChild(elem);
+}
+function ejecutarVersion(versionNuevaAE){
+
+  var bandera = false;
+  var url = JUNCTION_TEMP+"/OperacionCBTFServlet?proceso=ae_alerta_pr&operacion=ae_alerta_op&accion="+(versionNuevaAE=="M"?"mantenerVersion":"versionGratis");
+  if(versionNuevaAE=="B"){
+    if(confirm("Atenci\u00f3n!\r Si migras a la versi\u00f3n gratuita, tus configuraciones ser\u00e1n eliminadas y solo tendr\u00e1s acceso a consultar tus cuentas, sin poder operarlas. ¿Est\u00e1s seguro?"))
+      bandera=true;
+  }else if(versionNuevaAE=="M")
+    bandera = true;
+
+  if(bandera)
+    document.getElementById("frameAfraude").src = url;
+
+
+
+}
+
+function redimencionarFreemium(){
+  var v;
+  if ( document.getElementById("imgFreemium_Inf").style.display != 'none' )
+    v = document.getElementById("imgFreemium_Inf");
+  else
+    v = document.getElementById("imgFreemium_Dec");
+
+  var ancho = v.width;
+  var alto = v.height;console.log(ancho);console.log(alto);
+  var px1 = 0.2617;
+  var px2 = 0.503;
+  var px3 = 0.643;
+  var px4 = 0.884;
+  var py1 = 0.8631;
+  var py2 = 0.954;
+  var x1 = ancho*px1;
+  var x2 = ancho*px2;
+  var x3 = ancho*px3;
+  var x4 = ancho*px4;
+  var y1 = alto*py1;
+  var y2 = alto*py2;
+  var coords1 = ""+x1+","+y1+","+x2+","+y2;
+  var coords2 = ""+x3+","+y1+","+x4+","+y2;
+  document.getElementById("shapeFree1").setAttribute("coords",coords1);
+  document.getElementById("shapeFree2").setAttribute("coords",coords2);
+}
+//Implementacion de Antifraude
+function abrirPopupExterno()
+{
+  window.open('https://www.bbvacontinental.pe/empresas/canales/continental-net-cash/','_blank');
+}
+
+function replaceall(strAF,replace,with_this)
+{
+    var str_hasil ="";
+    var temp;
+
+    for(var i=0;i<strAF.length;i++) // not need to be equal. it causes the last change: undefined..
+    {
+        if (strAF[i] == replace)
+        {
+            temp = with_this;
+        }
+        else
+        {
+                temp = strAF[i];
+        }
+
+        str_hasil += temp;
+    }
+
+    return str_hasil;
+}
+
+function invocarTLCL1(indBankingFraud, indFreemium, datosSesion, funcion) {
+  console.log('Creando sesión en tlcl');
+  var path = '/SPETLCL/tlcl_pe_web/servlet/PIBEE';
+  var url = '?proceso=tlcl_adt_creacion_pr_multipais&operacion=tlcl_adt_enviarfichero_op_multipais&accion=puente';
+
+  var params = [];
+  params.push('pb_cod_prod=007');
+  params.push('pb_cod_serv=8500');
+  params.push('pb_cod_proc=85000010');
+  params.push('LOCALE=es_PE');
+  params.push('pb_xti_comprper=N');
+  params.push('pb_url=' + url);
+  params = params.join('&');
+
+  var ajax = new XMLHttpRequest();
+  ajax.open('POST', ipPortal + path + url, true);
+  ajax.addEventListener('load', function() { invocarTLCL2(indBankingFraud, indFreemium, datosSesion, funcion); });
+  ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  ajax.send(params);
+}
+
+function invocarTLCL2(indBankingFraud, indFreemium, datosSesion, funcion) {
+  console.log('Seteando sesión en tlcl');
+  var url = '/SPETLCL/tlcl_pe_web/banking_fraud.jsp';
+
+  var params = [];
+  params.push('indicadorBankingFraud=' + indBankingFraud);
+  params.push('indicadorFreemium=' + indFreemium);
+  params.push('flagMuestra=' + datosSesion.flagMuestra);
+  params.push('tipoPantalla=' + datosSesion.tipoPantalla);
+  params.push('pathDatazo=' + datosSesion.pathDatazo);
+  params.push('imgBanner=' + datosSesion.imgBanner);
+  params.push('urlBanner=' + datosSesion.urlBanner);
+  params.push('imgPopup=' + datosSesion.imgPopup);
+  params.push('urlPopup=' + datosSesion.urlPopup);
+  params = params.join('&');
+
+  var ajax = new XMLHttpRequest();
+  ajax.open('POST', ipPortal + url, true);
+  ajax.addEventListener('load', funcion);
+  ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  ajax.send(params);
+}
+
+</script>
+
+
+
+<link type="text/css" rel="stylesheet"  href="../r7/css/jquery-ui-1.8.4.custom.css?v=2015100101" />
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../js/jquery.ui.datepicker-es.js"></script>
+<script type="text/javascript" src="../r7/js/jquery.ui.datepicker.js?v=2015100101"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.ic_pdf').parent().click(function(e){
+    e.preventDefault();
+    var $form, idForm = "exportaPDFform";
+    if(!$('#'+idForm).length>0){
+      $form = $('<form/>');
+      $form.attr({action:'/cent6_pe_web/r7/componentePDF.jsp',method:'post',id:idForm}); //ExportarPDF
+      //$form.attr({action:'ExportarPDF',method:'post',id:idForm}); //ExportarPDF
+      $('body').append($form);
+    }else{
+      $form = $('#'+idForm);
+    }
+
+    $form.html('');
+    var titulo = $('<input/>').attr({id:'pdf_titulo',name:'pdf_titulo'});
+    var html = $('<input/>').attr({id:'pdf_html',name:'pdf_html'});
+    var orientacion = $('<input/>').attr({id:'pdf_orientacion',name:'pdf_orientacion'});
+    titulo.val($('.page_title h2:first').length > 0?$('.page_title h2:first').html():$('.page_title_h h2:first').length>0?$('.page_title_h h2:first').html():'descarga');
+
+    var pdf_orientacion = $('body').attr('exp-pdf-orientacion');
+    (pdf_orientacion == 'H')?orientacion.val(pdf_orientacion):orientacion.val('V');
+
+    html.val($('body').html());
+
+    /* ------------------------------ CAMBIO LEASING ------------------------------ */
+    var logo = $('<input/>').attr({id:'pdf_logo',name:'pdf_logo'});
+    var pdf_logo = $('body').attr('exp-pdf-logo');
+    logo.val(pdf_logo);
+    $form.append(logo);
+    /* ---------------------------- FIN CAMBIO LEASING ---------------------------- */
+
+    $form.append(titulo);
+    $form.append(html);
+    $form.append(orientacion);
+
+    $form.submit();
+    $form.remove();
+  });
+
+});
+
+function componerURL(url_final, pb_url) {
+
+  if (url_final && url_final.indexOf && pb_url && pb_url.indexOf) {
+    var index = pb_url.indexOf('?');
+    if (index > -1) {
+      return url_final + (url_final.indexOf( '?' ) > -1 ? pb_url.substring(index + 1) : pb_url.substring(index));
+    }
+  }
+  return url_final;
+}
+
+function lanzaInvocador(producto, servicio, proceso, locale, pb_url, url_final, pb_xti_comprper, target, showLoadBox, des_url, xti_perhttp){
+  try{
+  if (url_final && pb_url && pb_url.replace) {
+
+    var $wpd = $(window.parent.document);
+    var $frm = $wpd.find('#kyop-process-form');
+    var frm = $frm[0];
+
+    if (frm) {
+      frm.pb_cod_prod.value = producto;
+      frm.pb_cod_serv.value = servicio;
+      frm.pb_cod_proc.value = proceso;
+      frm.LOCALE.value = locale;
+
+      frm.pb_xti_comprper.value = pb_xti_comprper;
+      var pb_url_toPrint = pb_url.replace(/&amp;/gi, "&");
+      frm.pb_url.value = pb_url_toPrint;
+
+      //INICIO - TICKET 2553 - Invocación desde HD Regional (Solución provisional)
+      var regExp = new RegExp("//[^/]*/");
+      var dominio = '//' + window.top.location.host + '/';
+      url_final = url_final.replace( regExp, dominio );
+      //FINAL - TICKET 2553 - Invocación desde HD Regional (Solución provisional)
+      frm.action = componerURL(url_final, pb_url_toPrint);
+      frm.target = target;
+      /*if (target == "_ventana1") {// Se ejecuta el servicio en un popup
+        window.open('', '_ventana1', "menubar=0,resizable=0,toolbar=0,scrollbars=1,height=565,width=760").focus();
+      }*/
+      frm.submit();
+    }
+  }
+
+  }catch(err){}
+}
+</script>
+
+<script type="text/javascript" src="../r7/js/banner.js"></script>
+<script type="text/javascript" src="../js/utilidades.js"></script>
+
+<link type="text/css" href="../css/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-1.8.2.custom.min.js"></script>
+<script type="text/javascript" src="../js/jMessage.js"></script>
+<script type="text/javascript">
+function paginarFianzasAvales(modo){
+  var pr_anteriorInicial="";
+  var pr_anteriorFinal="";
+  var pr_valorInicial="";
+
+
+  if(modo=="adelante"){
+    pr_anteriorInicial=$("#pr_valorInicial").val();
+    pr_anteriorFinal=$("#pr_valorFinal").val();
+    pr_valorInicial=$("#pr_valorFinal").val();
+  }
+
+  if(modo=="atras"){
+    pr_valorInicial=$("#pr_valorFinal").val();
+    pr_anteriorInicial=$("#pr_anteriorInicial").val();
+    pr_anteriorFinal=$("#pr_anteriorFinal").val();
+  }
+
+  var aleatorio = Math.ceil(Math.random()*10000);
+  $.ajaxSetup({ cache: false });
+  $.ajax({
+    url: "OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=posicion_global_opUX&accion=cargaFianzas&pr_indicadorRecorrido="+ modo+"&pr_anteriorInicial="+pr_anteriorInicial+"&pr_anteriorFinal="+pr_anteriorFinal+"&pr_valorInicial="+pr_valorInicial+"&aleatorio="+aleatorio,
+    contentType: "text/html; charset=utf-8",
+    dataType: "html",
+    beforeSend: function(obj){
+    $("#paginaFianza").html("");
+       //showLoad("Iniciando paginacion...");
+    },
+    error: function(objeto, quepaso, otroobj){
+      document.cuerpo.action="OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=posicion_global_opUX&accion=errorAsync";
+      //document.cuerpo.submit();
+    },
+    success: function(htmm){
+      $("#paginaFianza").html(htmm);
+      resizeIframe();
+    }
+    });
+  }
+
+<!--
+function MM_s() { //v3.0
+var i,x,a=document.MM_sr;  for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+
+
+
+function MM_j(n, d) { //v3.0
+var p,i,x;  if(!d) d=document;
+if((p=n.indexOf("?"))>0&&parent.frames.length) {d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all)  x=d.all[n];  for (i=0;!x&&i<d.forms.length;i++)  x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++)  x=MM_j(n,d.layers[i].document);
+if(!x&&d.getElementById) x=d.getElementById(n);
+return x;}
+
+function MM_w() { //v3.0
+var i,j=0,x,a=MM_w.arguments; document.MM_sr=new Array;
+for(i=0;i<(a.length-1);i+=2)
+if ((x=MM_j(a[i]))!=null)
+{ document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src;
+x.src=a[i+1];}}
+
+function MM_o(theURL,winName,features) {
+window.open(theURL,winName,features);
+
+}
+// -->
+
+
+</script>
+<script type="text/javascript">
+<!--
+ function doPrint() {
+   Imprimir();
+ }
+
+// -->
+</script>
+<script type="text/javascript">
+<!--
+function click(e) {
+  var message="BBVA Banco Continental - Derechos Reservados 2003";
+  if (document.all) {
+    if (event.button==2||event.button==3) {
+      alert(message);
+      return false;
+    }
+  }
+
+  if (document.layers) {
+    if (e.which == 3) {
+      alert(message);
+      return false;
+    }
+  }
+}
+
+
+if (document.layers) {
+document.captureEvents(Event.MOUSEDOWN);
+}
+
+var isNN = (navigator.appName.indexOf("Netscape")!=-1);
+
+function desactiva() {
+  if(isNN)
+      return false;
+      else
+    event.returnValue = false;
+}
+document.onmousedown=click;
+
+function fCampana(estado, campana, descripcion){
+var url="OperacionCBTFServlet?proceso=campana_manejo_pr&operacion=campana_ingreso_op&accion=continuar&estado=" + estado;
+  document.dato.campana.value = campana;
+  document.dato.descripcion.value = descripcion;
+  document.dato.action=url;
+  document.dato.submit();
+}
+
+// -->
+</script>
+
+<script type="text/javascript">
+
+function llamadaincidencia(url,param1,param2,param3,param4,param5){
+  document.dato.TipoIncidencia.value=param1;
+  document.dato.Moneda.value=param2;
+  document.dato.Cantidad.value=param3;
+  document.dato.Importe.value=param4;
+  document.dato.Tipo.value=param5;
+
+  document.dato.action=url;
+  document.dato.submit();
+}
+
+function llamada(url,param1,param2){
+  document.dato.AsuntoPropio.value=param1;
+  document.dato.desTipo.value=param2;
+  document.dato.indPagina.value="PG";
+  document.dato.action=url;
+  document.dato.submit();
+}
+
+function llamadafmutuos(url,param1,param2,param3,param4,param5){
+  document.dato.AsuntoPropio.value=param1;
+  document.dato.desTipo.value=param2;
+  document.dato.valorizacion.value=param3;
+  document.dato.valorcuota.value=param4;
+  document.dato.totalcuotas.value=param5;
+  document.dato.action=url;
+  document.dato.submit();
+}
+
+function ejecutarSeleccionCombo(){
+  var filtro=document.getElementById("selfic").value;
+  if(filtro == "empresa" ){
+    document.dato.action="OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=posicion_global_opUX&accion=menuPosicion";
+    document.dato.submit();
+    document.dato.btnFiltrar.disabled=true;
+  }
+  if(filtro == "divisa"){
+    document.dato.action="OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=posicion_global_opUX&accion=menuPosicion&filtro=divisa";
+    document.dato.submit();
+    document.dato.btnFiltrar.disabled=true;
+  }
+}
+
+</script>
+
+<script type="text/javascript">
+
+function ocultar(){
+  var fil='empresa';
+  var tam;
+
+  if(fil == "empresa")
+  tam= '4';
+
+  if(fil == "divisa")
+  tam= '3';
+
+
+  var table;
+  for(i=0;i<tam;i++){
+    for(j=0;j<15;j++){
+      table=document.getElementById('tabla-contenedor'+i+'_'+j);
+      if(table!=null){
+        if(table.rows.length < 2){
+        document.getElementById('contenedor'+i+'_'+j).style.display = 'none';
+        }
+        if(j>=6){
+          if(table.rows.length >= 2){
+            var $a= $('#rel_obli'+i);
+            $a.show();
+          }
+        }
+      }
+    }
+  }
+}
+
+$(document).ready(function(){
+  $('.titulo-acordion').click(function(e){
+    var $id = $(this).attr('id');
+
+    var $contenedor = $('#cont_'+$id);
+
+    if($contenedor.is(':hidden')){
+      $contenedor.show();
+      $(this).find('a.ic:first').find('i').removeClass('plus');
+      $(this).find('a.ic:first').find('i').addClass('minus');
+    }else{
+      $contenedor.hide();
+      $(this).find('a.ic:first').find('i').removeClass('minus');
+      $(this).find('a.ic:first').find('i').addClass('plus');
+    }
+  });
+
+  ocultar();
+
+});
+</script>
+<style type="text/css">
+.ocultaExpExcel {
+
+}
+</style>
+
+
+<SCRIPT type="text/javascript">
+/*<![CDATA[*/
+document.cookie = "IV_JCT=%2FSPECNET; path=/";
+/*]]>*/
+</SCRIPT>
+</head>
+<body onLoad="startBanner()" class="pag-contenido" link="#660099">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+
+<body>
+
+    <a style="display: none;" id="dtz-link-banner" target="_blank"><img id="dtz-img-banner" width="100%" class="mb10"></a>
+
+
+<div id="cia_data">
+  <ul>
+    <li id="id_cia_name" class="cia_name"><span>COMSA PERU SAC</span></li>
+    <li id="id_today_date" class="today_date"><span>2018/10/27  04:47:27</span></li>
+  </ul>
+
+</div>
+
+
+
+
+</body>
+</html>
+
+<div class="page_title_h">
+  <h2 class="mb07">Bienvenido al BBVA</h2>
+
+
+
+  <ul class="titleButtons">
+    <li>
+      <a class="bt_m bt_azul bt_m_ic_r" href="../ci00_excel.jsp" target="_new">
+        <span>Exportar</span>
+        <i class="ic ic_excel"></i>
+      </a>
+
+      <a href="../ec_pdf_JAXER.jsp" title="Descargar Pdf" target="_new" class="bt_m bt_azul bt_m_ic_r">
+        <span>Exportar</span>
+        <i class="ic ic_pdf"></i>
+      </a>
+
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+
+  <div class="borde pdfexportnone">
+
+      <div class="section">
+        <table class="tb_form">
+        <tr class="tb_entry">
+            <td class="ta_r">
+              <input type="button" name="btnFiltrar" class="bt_m bt_azul" value="Filtrar" onClick="javascript:ejecutarSeleccionCombo();">
+              <select class="sel " name="selfic" id="selfic">
+                <option selected="selected" value='empresa'>Empresa</option>
+                <option value='divisa'>Moneda</option>
+              </select>
+
+            </td>
+        </tr>
+        </table>
+      </div>
+
+  </div>
+
+
+<!-- INICIO CAMPAÑASSS -->
+
+
+
+
+
+
+<!-- FIN CAMPAÑASSS -->
+
+
+
+
+<div class="contenedor-seccion">
+
+  <div class="titulo-acordion" id="acordion0">
+    <table class="tb_data ">
+      <tr class="tb_header">
+        <th colspan="6">
+          <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">COMSA PERU SAC</span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+<div class="contenido-acordion" id="cont_acordion0">
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor0_1">
+<div class="titulo-acordion" id="sub-acordion0_1" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+          <th colspan="6">
+            <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">
+          Cuentas Jurídicas
+          </span>
+          </th>
+      </tr>
+    </table>
+</div>
+<div class="contenido-acordion" id="cont_sub-acordion0_1">
+<table class="tb_data mobile_h" id="tabla-contenedor0_1">
+<tr class="tb_column_header">
+    <td class="ta_c">Número</td>
+    <td class="ta_l">Tipo</td>
+    <!-- <td class="ta_l">Empresa</td>  -->
+    <td class="ta_r">Saldo Contable</td>
+    <td class="ta_r">Saldo Disponible</td>
+    <td class="ta_c">Moneda</td>
+</tr>
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001101940100051253$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0194-01-00051253
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA PERU SAC</td> -->
+          <td class="ta_r">180.16</td>
+          <td class="ta_r">180.16</td>
+          <td class="ta_c">DOLARES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001101940100051245$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0194-01-00051245
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA PERU SAC</td> -->
+          <td class="ta_r">313,877.46</td>
+          <td class="ta_r">313,877.46</td>
+          <td class="ta_c">SOLES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+<table class="tb_data mobile">
+<tr class="tb_header tb_header_m">
+  <th colspan="2">Cuentas Jurídicas</th>
+</tr>
+<tr class="tb_column_header tb_column_header_m">
+  <td>N° Cuenta</td>
+  <td>Disponible</td>
+</tr>
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001101940100051253$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0194-01-00051253
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>180.16</div>
+            <div>DOLARES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001101940100051245$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0194-01-00051245
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>313,877.46</div>
+            <div>SOLES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+<table class="tb_data w100p">
+<tr>
+    <td class="ta_r">
+
+        <a class="enlace" href="OperacionCBTFServlet?proceso=operaciones_interbancarias_pr&operacion=equiv_interbancarias_op&accion=mostrar">
+          Consulte su código de Cuenta Interbancaria.
+        </a>
+
+    </td>
+</tr>
+</table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="page_title" id="rel_obli0" style="display:none" >
+  <h3>
+
+
+
+        <b>Relaci&oacute;n de obligaciones</b>
+
+
+  </h3>
+  </div>
+
+
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor0_8">
+  <div class="titulo-acordion" id="sub-acordion0_8" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+        <th colspan="5">
+        <a class="ic"><i class="minus"></i></a>
+        <span class="descripcion">
+        Tarjetas
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="contenido-acordion" id="cont_sub-acordion0_8">
+      <table class="tb_data mobile_h" id="tabla-contenedor0_8">
+      <tr class="tb_column_header">
+        <td class="ta_c">Número</td>
+        <td class="ta_c">Tipo</td>
+        <!--  <td class="ta_c">Empresa</td> -->
+        <td class="ta_r">L&iacute;mite de Cr&eacute;dito</td>
+        <td class="ta_r">Cr&eacute;dito Disponible</td>
+        <td class="ta_c">Moneda</td>
+        <td class="ta_c">Deuda Vencida</td>
+      </tr>
+
+
+      <tr class="even">
+
+
+
+          <td align="center" >0011-0169-50-01184522</td>
+
+
+
+
+
+        <td class="ta_c" align="left" >ORO EMPRESARIAL</td>
+        <!--  <td class="ta_c">COMSA PERU SAC</td>  -->
+        <td class="ta_r" align="right">5,000.00</td>
+        <td class="ta_r" align="right">5,000.00</td>
+        <td class="ta_c" align="center">DOLARES</td>
+        <td class="ta_c" align="center">N</td>
+      </tr>
+
+
+    </table>
+
+
+    <table class="tb_data mobile">
+        <tr class="tb_header">
+        <th colspan="2">Tarjetas</th>
+      </tr>
+      <tr class="tb_column_header">
+        <td class="ta_c">N&uacute;mero</td>
+        <td class="ta_r">Cr&eacute;dito disponible</td>
+      </tr>
+
+
+      <tr class="even">
+
+
+
+
+
+          <td align="center" >0011-0169-50-01184522</td>
+
+
+
+
+        <td class="ta_r" align="center">
+          <div>5,000.00</div>
+
+        </td>
+      </tr>
+
+    </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+<div class="contenedor-seccion">
+
+  <div class="titulo-acordion" id="acordion1">
+    <table class="tb_data ">
+      <tr class="tb_header">
+        <th colspan="6">
+          <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">COMSA INDUSTRIAL PER U SAC</span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+<div class="contenido-acordion" id="cont_acordion1">
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor1_1">
+<div class="titulo-acordion" id="sub-acordion1_1" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+          <th colspan="6">
+            <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">
+          Cuentas Jurídicas
+          </span>
+          </th>
+      </tr>
+    </table>
+</div>
+<div class="contenido-acordion" id="cont_sub-acordion1_1">
+<table class="tb_data mobile_h" id="tabla-contenedor1_1">
+<tr class="tb_column_header">
+    <td class="ta_c">Número</td>
+    <td class="ta_l">Tipo</td>
+    <!-- <td class="ta_l">Empresa</td>  -->
+    <td class="ta_r">Saldo Contable</td>
+    <td class="ta_r">Saldo Disponible</td>
+    <td class="ta_c">Moneda</td>
+</tr>
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100034396$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00034396
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INDUSTRIAL PER U SAC</td> -->
+          <td class="ta_r">14,533.81</td>
+          <td class="ta_r">14,533.81</td>
+          <td class="ta_c">DOLARES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100034388$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00034388
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INDUSTRIAL PER U SAC</td> -->
+          <td class="ta_r">112.18</td>
+          <td class="ta_r">112.18</td>
+          <td class="ta_c">SOLES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100053781$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00053781
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INDUSTRIAL PER U SAC</td> -->
+          <td class="ta_r">108.67</td>
+          <td class="ta_r">108.67</td>
+          <td class="ta_c">EUROS</td>
+      </tr>
+
+
+
+
+
+
+</table>
+
+
+<table class="tb_data mobile">
+<tr class="tb_header tb_header_m">
+  <th colspan="2">Cuentas Jurídicas</th>
+</tr>
+<tr class="tb_column_header tb_column_header_m">
+  <td>N° Cuenta</td>
+  <td>Disponible</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100034396$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00034396
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>14,533.81</div>
+            <div>DOLARES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100034388$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00034388
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>112.18</div>
+            <div>SOLES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100053781$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00053781
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>108.67</div>
+            <div>EUROS</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+</table>
+
+
+
+<table class="tb_data w100p">
+<tr>
+    <td class="ta_r">
+
+        <a class="enlace" href="OperacionCBTFServlet?proceso=operaciones_interbancarias_pr&operacion=equiv_interbancarias_op&accion=mostrar">
+          Consulte su código de Cuenta Interbancaria.
+        </a>
+
+    </td>
+</tr>
+</table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="page_title" id="rel_obli1" style="display:none" >
+  <h3>
+
+
+
+        <b>Relaci&oacute;n de obligaciones</b>
+
+
+  </h3>
+  </div>
+
+
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor1_8">
+  <div class="titulo-acordion" id="sub-acordion1_8" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+        <th colspan="5">
+        <a class="ic"><i class="minus"></i></a>
+        <span class="descripcion">
+        Tarjetas
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="contenido-acordion" id="cont_sub-acordion1_8">
+      <table class="tb_data mobile_h" id="tabla-contenedor1_8">
+      <tr class="tb_column_header">
+        <td class="ta_c">Número</td>
+        <td class="ta_c">Tipo</td>
+        <!--  <td class="ta_c">Empresa</td> -->
+        <td class="ta_r">L&iacute;mite de Cr&eacute;dito</td>
+        <td class="ta_r">Cr&eacute;dito Disponible</td>
+        <td class="ta_c">Moneda</td>
+        <td class="ta_c">Deuda Vencida</td>
+      </tr>
+
+
+
+    </table>
+
+
+    <table class="tb_data mobile">
+        <tr class="tb_header">
+        <th colspan="2">Tarjetas</th>
+      </tr>
+      <tr class="tb_column_header">
+        <td class="ta_c">N&uacute;mero</td>
+        <td class="ta_r">Cr&eacute;dito disponible</td>
+      </tr>
+
+
+      <tr class="even">
+
+
+
+
+
+          <td align="center" >0011-0169-50-01184522</td>
+
+
+
+
+        <td class="ta_r" align="center">
+          <div>5,000.00</div>
+
+        </td>
+      </tr>
+
+    </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+<div class="contenedor-seccion">
+
+  <div class="titulo-acordion" id="acordion2">
+    <table class="tb_data ">
+      <tr class="tb_header">
+        <th colspan="6">
+          <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">COMSA SA SUCURSAL EN  PERU</span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+<div class="contenido-acordion" id="cont_acordion2">
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor2_1">
+<div class="titulo-acordion" id="sub-acordion2_1" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+          <th colspan="6">
+            <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">
+          Cuentas Jurídicas
+          </span>
+          </th>
+      </tr>
+    </table>
+</div>
+<div class="contenido-acordion" id="cont_sub-acordion2_1">
+<table class="tb_data mobile_h" id="tabla-contenedor2_1">
+<tr class="tb_column_header">
+    <td class="ta_c">Número</td>
+    <td class="ta_l">Tipo</td>
+    <!-- <td class="ta_l">Empresa</td>  -->
+    <td class="ta_r">Saldo Contable</td>
+    <td class="ta_r">Saldo Disponible</td>
+    <td class="ta_c">Moneda</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029775$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029775
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA SA SUCURSAL EN  PERU</td> -->
+          <td class="ta_r">28,352.38</td>
+          <td class="ta_r">28,352.38</td>
+          <td class="ta_c">SOLES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029783$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029783
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA SA SUCURSAL EN  PERU</td> -->
+          <td class="ta_r">3,675.71</td>
+          <td class="ta_r">3,675.71</td>
+          <td class="ta_c">DOLARES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+<table class="tb_data mobile">
+<tr class="tb_header tb_header_m">
+  <th colspan="2">Cuentas Jurídicas</th>
+</tr>
+<tr class="tb_column_header tb_column_header_m">
+  <td>N° Cuenta</td>
+  <td>Disponible</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029775$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029775
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>28,352.38</div>
+            <div>SOLES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="odd">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029783$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029783
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>3,675.71</div>
+            <div>DOLARES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+<table class="tb_data w100p">
+<tr>
+    <td class="ta_r">
+
+        <a class="enlace" href="OperacionCBTFServlet?proceso=operaciones_interbancarias_pr&operacion=equiv_interbancarias_op&accion=mostrar">
+          Consulte su código de Cuenta Interbancaria.
+        </a>
+
+    </td>
+</tr>
+</table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="page_title" id="rel_obli2" style="display:none" >
+  <h3>
+
+
+
+        <b>Relaci&oacute;n de obligaciones</b>
+
+
+  </h3>
+  </div>
+
+
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor2_8">
+  <div class="titulo-acordion" id="sub-acordion2_8" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+        <th colspan="5">
+        <a class="ic"><i class="minus"></i></a>
+        <span class="descripcion">
+        Tarjetas
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="contenido-acordion" id="cont_sub-acordion2_8">
+      <table class="tb_data mobile_h" id="tabla-contenedor2_8">
+      <tr class="tb_column_header">
+        <td class="ta_c">Número</td>
+        <td class="ta_c">Tipo</td>
+        <!--  <td class="ta_c">Empresa</td> -->
+        <td class="ta_r">L&iacute;mite de Cr&eacute;dito</td>
+        <td class="ta_r">Cr&eacute;dito Disponible</td>
+        <td class="ta_c">Moneda</td>
+        <td class="ta_c">Deuda Vencida</td>
+      </tr>
+
+
+
+    </table>
+
+
+    <table class="tb_data mobile">
+        <tr class="tb_header">
+        <th colspan="2">Tarjetas</th>
+      </tr>
+      <tr class="tb_column_header">
+        <td class="ta_c">N&uacute;mero</td>
+        <td class="ta_r">Cr&eacute;dito disponible</td>
+      </tr>
+
+
+      <tr class="even">
+
+
+
+
+
+          <td align="center" >0011-0169-50-01184522</td>
+
+
+
+
+        <td class="ta_r" align="center">
+          <div>5,000.00</div>
+
+        </td>
+      </tr>
+
+    </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+<div class="contenedor-seccion">
+
+  <div class="titulo-acordion" id="acordion3">
+    <table class="tb_data ">
+      <tr class="tb_header">
+        <th colspan="6">
+          <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">COMSA INSTALACIONES  Y SISTEMAS INDUSTRIA LES SA SUCURSAL EN</span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+<div class="contenido-acordion" id="cont_acordion3">
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor3_1">
+<div class="titulo-acordion" id="sub-acordion3_1" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+          <th colspan="6">
+            <a class="ic"><i class="minus"></i></a>
+          <span class="descripcion">
+          Cuentas Jurídicas
+          </span>
+          </th>
+      </tr>
+    </table>
+</div>
+<div class="contenido-acordion" id="cont_sub-acordion3_1">
+<table class="tb_data mobile_h" id="tabla-contenedor3_1">
+<tr class="tb_column_header">
+    <td class="ta_c">Número</td>
+    <td class="ta_l">Tipo</td>
+    <!-- <td class="ta_l">Empresa</td>  -->
+    <td class="ta_r">Saldo Contable</td>
+    <td class="ta_r">Saldo Disponible</td>
+    <td class="ta_c">Moneda</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029759$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029759
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INSTALACIONES  Y SISTEMAS INDUSTRIA LES SA SUCURSAL EN</td> -->
+          <td class="ta_r">2,145,813.34</td>
+          <td class="ta_r">2,145,813.34</td>
+          <td class="ta_c">SOLES</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100053773$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00053773
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INSTALACIONES  Y SISTEMAS INDUSTRIA LES SA SUCURSAL EN</td> -->
+          <td class="ta_r">43.95</td>
+          <td class="ta_r">43.95</td>
+          <td class="ta_c">EUROS</td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029767$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029767
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_l">CUENTA CORRIENTE</td>
+<!--          <td class="ta_l">COMSA INSTALACIONES  Y SISTEMAS INDUSTRIA LES SA SUCURSAL EN</td> -->
+          <td class="ta_r">75,970.47</td>
+          <td class="ta_r">75,970.47</td>
+          <td class="ta_c">DOLARES</td>
+      </tr>
+
+
+
+
+
+
+
+
+</table>
+
+
+<table class="tb_data mobile">
+<tr class="tb_header tb_header_m">
+  <th colspan="2">Cuentas Jurídicas</th>
+</tr>
+<tr class="tb_column_header tb_column_header_m">
+  <td>N° Cuenta</td>
+  <td>Disponible</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029759$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029759
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>2,145,813.34</div>
+            <div>SOLES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100053773$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00053773
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>43.95</div>
+            <div>EUROS</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <tr class="even">
+        <td class="ta_c">
+
+
+
+
+                  <a class="enlace" href="javascript:llamada('OperacionCBTFServlet?proceso=posicion_global_prUX&operacion=movimientos_ctas_op_ux&accion=movimientos', '01$001103770100029767$Saldo-Movimiento','CUENTA CORRIENTE')">
+                      0011-0377-01-00029767
+                  </a>
+
+
+
+
+
+
+        </td>
+          <td class="ta_r">
+            <div>75,970.47</div>
+            <div>DOLARES</div>
+          </td>
+      </tr>
+
+
+
+
+
+
+
+
+
+</table>
+
+
+
+<table class="tb_data w100p">
+<tr>
+    <td class="ta_r">
+
+        <a class="enlace" href="OperacionCBTFServlet?proceso=operaciones_interbancarias_pr&operacion=equiv_interbancarias_op&accion=mostrar">
+          Consulte su código de Cuenta Interbancaria.
+        </a>
+
+    </td>
+</tr>
+</table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="page_title" id="rel_obli3" style="display:none" >
+  <h3>
+
+
+
+        <b>Relaci&oacute;n de obligaciones</b>
+
+
+  </h3>
+  </div>
+
+
+
+
+
+
+
+
+<div class="sub-contenedor-seccion" id="contenedor3_8">
+  <div class="titulo-acordion" id="sub-acordion3_8" >
+    <table class="tb_data mn">
+      <tr class="tb_header">
+        <th colspan="5">
+        <a class="ic"><i class="minus"></i></a>
+        <span class="descripcion">
+        Tarjetas
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="contenido-acordion" id="cont_sub-acordion3_8">
+      <table class="tb_data mobile_h" id="tabla-contenedor3_8">
+      <tr class="tb_column_header">
+        <td class="ta_c">Número</td>
+        <td class="ta_c">Tipo</td>
+        <!--  <td class="ta_c">Empresa</td> -->
+        <td class="ta_r">L&iacute;mite de Cr&eacute;dito</td>
+        <td class="ta_r">Cr&eacute;dito Disponible</td>
+        <td class="ta_c">Moneda</td>
+        <td class="ta_c">Deuda Vencida</td>
+      </tr>
+
+
+
+    </table>
+
+
+    <table class="tb_data mobile">
+        <tr class="tb_header">
+        <th colspan="2">Tarjetas</th>
+      </tr>
+      <tr class="tb_column_header">
+        <td class="ta_c">N&uacute;mero</td>
+        <td class="ta_r">Cr&eacute;dito disponible</td>
+      </tr>
+
+
+      <tr class="even">
+
+
+
+
+
+          <td align="center" >0011-0169-50-01184522</td>
+
+
+
+
+        <td class="ta_r" align="center">
+          <div>5,000.00</div>
+
+        </td>
+      </tr>
+
+    </table>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<form name='dato' method=post>
+
+<input type=hidden name="campana">
+<input type=hidden name="descripcion">
+<input type=hidden name="AsuntoPropio">
+<input type=hidden name="desTipo">
+<input type=hidden name="SeleccionMes">
+<input type=hidden name="valorizacion">
+<input type=hidden name="valorcuota">
+<input type=hidden name="totalcuotas">
+<input type=hidden name="Tipo">
+
+<input type=hidden name="TipoIncidencia">
+<input type=hidden name="Moneda">
+<input type=hidden name="Cantidad">
+<input type=hidden name="Importe">
+<input type=hidden name="indPagina">
+<input type=hidden name="indicador" value="2">
+
+<input type='hidden' name='identifica' value=''>
+
+</form>
+<script type="text/javascript">
+/*
+var da = (document.all) ? 1 : 0;
+var mac = (navigator.userAgent.indexOf("Mac") != -1);
+var isNN = (navigator.appName.indexOf("Netscape")!=-1);
+
+var id = '';
+
+if (id=="100121" || id=="100061" || id=="100205" || id=="100166" || id=="100205" || id=="100001" || id=="273352" )
+{    if(isNN) {
+      top.centro.main.frames['menu'].location.href="menum.jsp";
+    } else {
+      top.centro.main.menu.location.href="menum.jsp";
+    }
+}else{
+
+
+    if(isNN) {
+      top.centro.main.frames['menu'].location.href="menu_Premium.jsp";
+    } else {
+      top.centro.main.menu.location.href="menu_Premium.jsp";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+*/
+</script>
+
+
+
+
+
+
+</body>
+</html>

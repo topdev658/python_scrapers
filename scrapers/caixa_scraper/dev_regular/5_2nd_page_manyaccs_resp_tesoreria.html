@@ -1,0 +1,1038 @@
+
+
+
+
+
+
+
+<script type="text/javascript" src="./js/EloGenB000003.js"></script>
+<script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+<script type="text/javascript" src="./js/gestionTablas.js"></script>
+<script type="text/javascript" src="./js/AjaxQueue.js"></script>
+<script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+<script type="text/javascript" src="./js/over.js"></script>
+<script type="text/javascript" src="./js/boton-desplegable.js"></script>
+<script type="text/javascript" src="./js/arq/jQuery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./js/arq/jQueryUI/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="./js/arq/init/tooltips.js"></script>
+<script type="text/javascript" src="./js/slider.js"></script>
+<script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+<script id="TablaBean01EvalScript" language="javascript" type="text/javascript">var TablaBean01_RefVal1= new Array("sow~zNa90r2yjD7M1r3SvQAAAWmK5ZMMiqFU6xNQ9wI","sow~zNUy2GeyjD7M1TLYZwAAAWmK5ZMMgqthJgMdcFA","sow~zNX46LSyjD7M1fjotAAAAWmK5ZMM2U55ktYGE4Q","sow~zNV9OPayjD7M1X049gAAAWmK5ZMMLPFbatHlkH8","sow~zNWMhx6yjD7M1YyHHgAAAWmK5ZMMgkMCXnhANrI","sow~zNV7QpSyjD7M1XtClAAAAWmK5ZMMyjM1bp3ebIQ","sow~zNXKIUqyjD7M1cohSgAAAWmK5ZMMQOPEoJPYYVM","sow~zNVlq9yyjD7M1WWr3AAAAWmK5ZMMWSAPVZ6ayu0","sow~zNUlEDSyjD7M1SUQNAAAAWmK5ZMMAMhm3JkAXZ8","sow~zNVNdo2yjD7M1U12jQAAAWmK5ZMM1VKl4TuOfjg","sow~zNUj_8iyjD7M1SP_yAAAAWmK5ZMMLegtpRVhJ04","sow~zNVc4muyjD7M1VziawAAAWmK5ZMMcZ8swmWDvtw","sow~zNU6EUOyjD7M1ToRQwAAAWmK5ZMM8I5upaRkb_Y","sow~zNUee52yjD7M1R57nQAAAWmK5ZMMA_5aSVUHjrY","sow~zNX_05ayjD7M1f_TlgAAAWmK5ZMNxcK6FaTII8g","sow~zNUCWQyyjD7M1QJZDAAAAWmK5ZMN9j8jzWMR~uA","sow~zNVcIGuyjD7M1VwgawAAAWmK5ZMNW8CRO6JxXdU","sow~zNX5WPWyjD7M1flY9QAAAWmK5ZMNJXA7B7A26Wg","sow~zNVwnY~yjD7M1XCdjwAAAWmK5ZMNQljLCQEea3k","sow~zNWy1MGyjD7M1bLUwQAAAWmK5ZMNQ3ND0C9_Z1M");
+var TablaBean01_RefVal2= new Array("","","","","","","","","","","","","","","","","","","","");
+var TablaBean01_RefVal3= new Array("N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N");
+</script>
+
+<div id="contenedorTablaInventarioCuentasAJAX">
+<div id="TablaBean01ContainerFinal">
+<table class="table_generica ltxt"  id="TablaBean01"><thead>
+<tr  id="" class="" style="">
+<th  scope="col"  class="  ltxt   ltxt medida30"  id="colNumCuenta" >Número de cuenta</th>
+<th  scope="col"  class="  ctxt    medida2"  id="colExtractoAQM" ></th>
+<th  scope="col"  class="  ocultar ctxt    medida2"  id="colTraspasoRapido" ></th>
+<th  scope="col"  class="  ocultar ctxt    medida2"  id="colExtractoReducido" ></th>
+<th  scope="col"  class="  ltxt    medida25"  id="colTipo" >Tipo</th>
+<th  scope="col"  class="  rtxt    medida20"  id="EUR0" >Saldo en euros</th>
+<th  scope="col"  class="  ocultar dnone rtxt    medida20"  id="PTS0" ></th>
+<th  scope="col"  class="  no_paddings ltxt   "  id="col7" ></th>
+<th  scope="col"  class="  ocultar rtxt    medida25"  id="colOpciones" >Opciones</th>
+</tr>
+</thead><tbody>
+<tr id="Oculta"    class="ocultar" style="display:none">
+<td width="100%" colspan="99">
+<div id="TablaBean01DivAjax"></div>
+</td>
+</tr>
+<tr id="data_1" name="data_1" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(0, '')"   title=""><span>ES28 2100 3571 5022 0009 0443</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido1" ></td>
+<td class="ocultar "  id="celdaExtractoReducido1" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono21" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_1&REFVAL_COMPLEJO_796=sow~zNYq9lmyjD7M1ir2WQAAAWmK5ZSCAY3yWnnaZUY','data_1','data_1DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono21");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR1" ><span>+554.722,67</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS1" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_1" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_1');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(0);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000090443&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200090443','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_1Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_1BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_1DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_2" name="data_2" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(1, '')"   title=""><span>ES91 2100 3571 5822 0009 9781</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido2" ></td>
+<td class="ocultar "  id="celdaExtractoReducido2" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono22" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_2&REFVAL_COMPLEJO_5414=sow~zNe2XxWyjD7M17ZfFQAAAWmK5ZSB5wFMmozpCGM','data_2','data_2DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono22");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR2" ><span>+409.699,63</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS2" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_2" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_2');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(1);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000099781&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200099781','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_2Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_2BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_2DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_3" name="data_3" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(2, '')"   title=""><span>ES84 2100 3571 5922 0010 7715</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido3" ></td>
+<td class="ocultar "  id="celdaExtractoReducido3" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono23" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_3&REFVAL_COMPLEJO_7921=sow~zNfFd42yjD7M18V3jQAAAWmK5ZMAn8KMkffk2eo','data_3','data_3DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono23");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR3" ><span>+4.347,96</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS3" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_3" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_3');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(2);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000107715&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200107715','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_3Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_3BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_3DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_4" name="data_4" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(3, '')"   title=""><span>ES07 2100 3571 5122 0010 7941</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido4" ></td>
+<td class="ocultar "  id="celdaExtractoReducido4" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono24" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_4&REFVAL_COMPLEJO_1778=sow~zNYwRF2yjD7M1jBEXQAAAWmK5ZMBG2RGunCX9mA','data_4','data_4DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono24");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR4" ><span>+0,00</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS4" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_4" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_4');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(3);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000107941&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200107941','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_4Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_4BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_4DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_5" name="data_5" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(4, '')"   title=""><span>ES88 2100 3571 5122 0010 8035</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido5" ></td>
+<td class="ocultar "  id="celdaExtractoReducido5" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono25" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_5&REFVAL_COMPLEJO_7300=sow~zNYaJNmyjD7M1hok2QAAAWmK5ZMCCcjrGGyR4gc','data_5','data_5DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono25");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR5" ><span>+0,00</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS5" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_5" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_5');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(4);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000108035&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200108035','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_5Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_5BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_5DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_6" name="data_6" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(5, '')"   title=""><span>ES21 2100 3571 5322 0010 9046</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido6" ></td>
+<td class="ocultar "  id="celdaExtractoReducido6" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono26" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_6&REFVAL_COMPLEJO_4049=sow~zNZWdi6yjD7M1lZ2LgAAAWmK5ZMCMkQ6o4DoGD8','data_6','data_6DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono26");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR6" ><span>+2.066,22</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS6" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_6" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_6');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(5);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000109046&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200109046','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_6Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_6BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_6DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_7" name="data_7" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(6, '')"   title=""><span>ES11 2100 3571 5422 0011 0632</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido7" ></td>
+<td class="ocultar "  id="celdaExtractoReducido7" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono27" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_7&REFVAL_COMPLEJO_5121=sow~zNY~cCayjD7M1j5wJgAAAWmK5ZMDFdrECgSiANE','data_7','data_7DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono27");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR7" ><span>+224.538,06</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS7" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_7" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_7');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(6);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000110632&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200110632','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_7Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_7BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_7DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_8" name="data_8" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(7, '')"   title=""><span>ES80 2100 3571 5122 0011 6133</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido8" ></td>
+<td class="ocultar "  id="celdaExtractoReducido8" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono28" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_8&REFVAL_COMPLEJO_8572=sow~zNZWkU6yjD7M1laRTgAAAWmK5ZMEGRI7AFNEA6o','data_8','data_8DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono28");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR8" ><span>+833,85</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS8" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_8" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_8');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(7);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000116133&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200116133','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_8Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_8BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_8DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_9" name="data_9" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(8, '')"   title=""><span>ES24 2100 3571 5322 0011 7722</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido9" ></td>
+<td class="ocultar "  id="celdaExtractoReducido9" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono29" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_9&REFVAL_COMPLEJO_4573=sow~zNYgHM2yjD7M1iAczQAAAWmK5ZMFL2UAGasW9sQ','data_9','data_9DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono29");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR9" ><span>+3.510,03</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS9" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_9" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_9');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(8);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000117722&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200117722','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_9Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_9BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_9DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_10" name="data_10" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(9, '')"   title=""><span>ES58 2100 3571 5822 0011 7835</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido10" ></td>
+<td class="ocultar "  id="celdaExtractoReducido10" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono210" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_10&REFVAL_COMPLEJO_8062=sow~zNYTMbmyjD7M1hMxuQAAAWmK5ZMFvHkIEqZDXCc','data_10','data_10DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono210");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR10" ><span>+0,00</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS10" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_10" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_10');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(9);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000117835&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200117835','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_10Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_10BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_10DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_11" name="data_11" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(10, '')"   title=""><span>ES98 2100 3571 5622 0011 8959</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido11" ></td>
+<td class="ocultar "  id="celdaExtractoReducido11" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono211" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_11&REFVAL_COMPLEJO_9012=sow~zNfewL2yjD7M197AvQAAAWmK5ZMGfEexqHYpyJA','data_11','data_11DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono211");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR11" ><span>+858.397,34</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS11" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_11" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_11');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(10);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000118959&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200118959','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_11Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_11BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_11DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_12" name="data_12" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(11, '')"   title=""><span>ES55 2100 3571 5822 0011 9053</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido12" ></td>
+<td class="ocultar "  id="celdaExtractoReducido12" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono212" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_12&REFVAL_COMPLEJO_2726=sow~zNYJ_miyjD7M1gn~aAAAAWmK5ZMGAIj_NERvG_k','data_12','data_12DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono212");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR12" ><span>+429.723,72</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS12" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_12" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_12');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(11);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000119053&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200119053','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_12Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_12BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_12DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_13" name="data_13" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(12, '')"   title=""><span>ES84 2100 3571 5322 0012 1298</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido13" ></td>
+<td class="ocultar "  id="celdaExtractoReducido13" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono213" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_13&REFVAL_COMPLEJO_4303=sow~zNZoyLqyjD7M1mjIugAAAWmK5ZMGGNxcFhINkrE','data_13','data_13DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono213");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR13" ><span>+15.076,00</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS13" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_13" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_13');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(12);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000121298&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200121298','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_13Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_13BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_13DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_14" name="data_14" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(13, '')"   title=""><span>ES51 2100 3571 5222 0012 1650</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido14" ></td>
+<td class="ocultar "  id="celdaExtractoReducido14" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono214" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_14&REFVAL_COMPLEJO_4169=sow~zNayL6myjD7M1rIvqQAAAWmK5ZMH22kTPLkE_mI','data_14','data_14DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono214");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR14" ><span>+4.623,32</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS14" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_14" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_14');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(13);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000121650&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200121650','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_14Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_14BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_14DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_15" name="data_15" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(14, '')"   title=""><span>ES41 2100 3571 5022 0012 5129</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido15" ></td>
+<td class="ocultar "  id="celdaExtractoReducido15" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono215" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_15&REFVAL_COMPLEJO_2950=sow~zNVH1vqyjD7M1UfW~gAAAWmK5ZMHFuzDYY28p34','data_15','data_15DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono215");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR15" ><span>+256.320,49</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS15" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_15" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_15');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(14);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000125129&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200125129','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_15Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_15BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_15DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_16" name="data_16" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(15, '')"   title=""><span>ES48 2100 3571 5722 0012 5242</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido16" ></td>
+<td class="ocultar "  id="celdaExtractoReducido16" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono216" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_16&REFVAL_COMPLEJO_8873=sow~zNUAnn~yjD7M1QCefwAAAWmK5ZMIoYbx9aMG048','data_16','data_16DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono216");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR16" ><span>+1.174,75</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS16" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_16" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_16');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(15);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000125242&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200125242','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_16Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_16BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_16DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_17" name="data_17" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(16, '')"   title=""><span>ES53 2100 3571 5222 0013 2090</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido17" ></td>
+<td class="ocultar "  id="celdaExtractoReducido17" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono217" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_17&REFVAL_COMPLEJO_6149=sow~zNazt4KyjD7M1rO3ggAAAWmK5ZMIVarcIwku8qo','data_17','data_17DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono217");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR17" ><span>+27.779,35</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS17" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_17" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_17');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(16);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000132090&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200132090','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_17Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_17BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_17DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_18" name="data_18" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(17, '')"   title=""><span>ES63 2100 3571 5422 0013 2103</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido18" ></td>
+<td class="ocultar "  id="celdaExtractoReducido18" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono218" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_18&REFVAL_COMPLEJO_6658=sow~zNZjZBKyjD7M1mNkEgAAAWmK5ZMJDNOzgfrADKU','data_18','data_18DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono218");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR18" ><span>+0,00</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS18" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_18" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_18');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(17);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000132103&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200132103','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_18Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_18BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_18DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_19" name="data_19" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(18, '')"   title=""><span>ES50 2100 3571 5322 0013 3453</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido19" ></td>
+<td class="ocultar "  id="celdaExtractoReducido19" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono219" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_19&REFVAL_COMPLEJO_2799=sow~zNbq6_iyjD7M1urr~AAAAWmK5ZMJKkgFmVJ6u9A','data_19','data_19DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono219");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR19" ><span>+1.128.457,26</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS19" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_19" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_19');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(18);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000133453&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200133453','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_19Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_19BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_19DivAjax"></div>
+</div>
+</td>
+</tr>
+<tr id="data_20" name="data_20" class="" style="">
+<td scope="row"  class="ltxt " ><a id="" href="JavaScript:enviar(19, '')"   title=""><span>ES59 2100 3571 5522 0013 7849</span></a></th>
+<td class="" ></td>
+<td class="ocultar "  id="celdaTraspasoRapido20" ></td>
+<td class="ocultar "  id="celdaExtractoReducido20" ><div class="boto_taula">
+<a  class=" tooltip_activen"  data-tooltip-position="bottom"  id="enlaceicono220" href="JavaScript:visualizarMovimientos('PN=GCT&PE=132&idFilaCuenta=data_20&REFVAL_COMPLEJO_6998=sow~zNZURVGyjD7M1lRFUQAAAWmK5ZMK3PPTjDQ7z_g','data_20','data_20DivAjax')"  title="Ver últimos movimientos">
+<span class="ico ico_desplegar"></span>
+</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+initMailboxTooltip("enlaceicono220");
+});
+</script>
+</td>
+<td class="ltxt " >CUENTA CORRIENTE</td>
+<td class="rtxt  medida20"  id="EUR20" ><span>+360.259,64</span></td>
+<td class="ocultar dnone rtxt  medida20"  id="PTS20" ><span></span></td>
+<td class="no_paddings ltxt " ></td>
+<td class="ocultar ltxt  medida10" ><div  class="contenedor-boton-desplegable ancho-190 rfloat ocultar"  id="opcionesCuenta_20" >
+<div class="contenedor-boton clearfix">
+<span class="image-superior-izquierda"></span>
+<span class="texto ">
+<a href="#"  onclick="return Toggle('opcionesCuenta_20');" ><span>Opciones</span></a>
+</span><span class="image-superior-derecha"></span>
+ </div>
+<div class="desplegable">
+<div class="listado">
+  <ul>
+    <li><a href="javascript:enviar(19);"><span>Ver movimientos</span></a></li>
+    <li><a href="javascript:enlaces('TTU','1','&CUENTA_ORIGEN=0012100357120220600000137849&CCOri_ent=2100&CCOri_of=3571&CCOri_dc=**&CCOri_no=2200137849','E','TRF','0','EOC7');"><span>Traspasar dinero a otra cuenta</span></a></li>
+    <li><a href="javascript:enlaces('AAT','0',' ','E','AAT','0','EOC8');"><span>Pagar un recibo, multa, impuesto ...</span></a></li>
+    <li><a href="javascript:enlaces('MAC','1',' ','E','GCT','11','EOCC');"><span>Cambiar nombre de cuenta</span></a></li>
+   </ul>
+ </div>
+ <div class="contenedor-images clearfix"><span id="2" class="image-inferior-izquierda"></span><span class="image-inferior-medio "></span><span id="4" class="image-inferior-derecha"></span> </div>
+ </div>
+</div>
+</td>
+</tr>
+<tr id="data_20Oculta"class="bg_azulclaro fila_activa" style="display:none">
+<td colspan="99" class="pos_relative">
+<div id="data_20BlockContainer">
+<div class="ico-cerrar-top-right--5 cerrar-fila"></div>
+<div id="data_20DivAjax"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="TablaBean01ContainerTmp" style="display:none;"></div>
+
+
+
+
+<div class=" ocultar "><div class="lfloat  br_gris_d"><a class="previous_acumulativo_on " href="JavaScript:pagInicio()">Inicio</a></div><div class="lfloat"><a class="next_acumulativo_on " href="javaScript:pagSiguiente()">Siguientes</a></div><div class="limpiar"></div></div>
+</div>
+<script id="evaluaScript_GCT111">
+
+<!-- TODO PARAMD FOR THIRD PAGE -->
+var f = document.forms[0];
+f.CLAVE_CONTINUACION_CLCOTG.value="020";
+f.CLAVE_CONTINUACION_TOOFCU.value="357100000000000 000000198388816 ";
+f.CLAVE_CONTINUACION_TOGECU.value="00000000000 000000198388816 ";
+f.CLAVE_CONTINUACION_CLCOTG_SIG.value="040";
+f.CLAVE_CONTINUACION_TOOFCU_SIG.value="357100000000000 000000626541845 ";
+f.CLAVE_CONTINUACION_TOGECU_SIG.value="00000000000 000000626541845 ";
+</script>
+
+
+
+<!-- FROM THIRD (NO 4th available) -->
+<script id="evaluaScript_GCT111">
+var f = document.forms[0];
+f.CLAVE_CONTINUACION_CLCOTG.value="040";
+f.CLAVE_CONTINUACION_TOOFCU.value="357100000000000 000000626541845 ";
+f.CLAVE_CONTINUACION_TOGECU.value="00000000000 000000626541845 ";
+f.CLAVE_CONTINUACION_CLCOTG_SIG.value="000";  <!-- no next page marker -->
+f.CLAVE_CONTINUACION_TOOFCU_SIG.value="000000000000000 000000000000000 ";
+f.CLAVE_CONTINUACION_TOGECU_SIG.value="00000000000 000000000000000 ";
+</script>

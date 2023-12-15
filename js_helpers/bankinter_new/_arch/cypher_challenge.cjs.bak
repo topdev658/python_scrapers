@@ -1,0 +1,248 @@
+const {cypher} = require("./cypher2.cjs");
+(function (exports) {
+    'use strict';
+
+    const {Unibabel} = require('./unibabel.cjs');
+    const crypto = require('crypto').webcrypto;
+    let {f, importRsaPrivateKey} = require("./helpers.cjs").helpers;
+    let {cypher} = require('./cypher2.cjs');
+
+////  CHALLENGES ////
+
+// 50337
+const enhanceClientKey = function (l) {
+        return Object.assign({
+        }, l, {
+            alg: 'RS256'
+        })
+}
+
+// 50343
+const enhanceServerKey = function (l) {
+    return Object.assign({
+    }, l, {
+        alg: 'RSA-OAEP'
+    })
+}
+
+// 49533 - request body
+const svcUpdateChallengeAnswers = function (n, u) {
+    // n  - id
+    // u - username, userpass answers obj from updateChallengeAnswers
+    var e = this,
+        t = Array.from(arguments);
+    return new yw(u, (function (n) {
+        var i = t.findIndex((function (l) {
+            return l === u
+        }));
+        // t = [
+        //     "e74f0bp3Wwrkeg5hj2VblrRMe9XSI4GZl05m5",
+        //     "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.E8fypLnx2fIx0At3wbkLXGqesKBIDU6AUpGasLEsWBAURAhptJf0qPcztp4fXT0Yk4Rv_74kmCE9vJmp7753P0UsSYOtK-R7kVMs-JP4N8ubeDM3FpiDT7BVzN-tPgzN8__g-HSonrX0XfjuPPPAb09ie4FdtDT0YC91xVK97iaUaXF6ihFkMTeiRc07SUqw3HdcaLKOEJaMIJiksz18oIQiSap0Daz-OMb_JX8NP5f_xnmyqVRm8rJYOscx1p-z5ym4b9RylPp7Duq63hAsHqRe5ptUnt_Hb3FgYjNiMfQHMNTh2JAIWsBxVsS5Gtb0oGqqxC-0LtOXxXnii5nocw.-lrtelRmJym6WP9r.Y3jJD__JZ_KVBFulzTJyLZDrooaSWEwiLHL_imrKGIglhG_WEJeP0B4Pokqz3TzbX_cz70FJn58Jzu3PtEBXFZ9UWOBaZ5HVL_Zrn6FfdByREsucNhHAG_lFkqo9VkcwQnQkAsfrKg4blmtQnpPSzCW0P5s4piXJukBSh1JdXI8q9qHER51fXfrw-gOKMBuiWfrwpacuB1BYHvo22ZAFEydcV4gufLe3he43LO_PX2z581gL_lN5byILc_V6CEQtdIEBXiHm298zvgUvE0w8_Nb5aKgf0EMZw5SrDcM9F9wDByh3tQpc63C8D96wZaUMEDA0KswNuXU4nIowUiPGTfkF6HqvxTLkP1ztHcZY64bGRqjqOTFws8p04wPMziOp1d5Y7Yrun0T6I_FXjxxlQvVXrG7ZqoF5-lKbENQgUBriQb3OWIc_ZMAq3tUcuf_uUYx8EAJ_5iPh8WU379mR5TuHMKJiXYwQ9bJnOaIVt6B02SYI2MoxoKfTgaB2ogp1Vp_iBNUilkdoQfphiWucobhWwnvnRPwMEPPN-thBkRmihE1mO1Oo2O43hy5MlaHU0xYgDxjcrA8tN1Dxz_zVkRDHMq4eZPWU2hYJmmy_Qpol_0pXzxstwfARR2Oizn6a2lT7ko2P3j-7KWqT-DUTgkM14Jeypp-ZKzUdCCwiAMVM-TnsZw1PTcjMfS_HWQTxXwStYZun65_bWs_VInQnVrr03gFlSqliJMFH4UVUGS9lO4wAeEpCtDgOwx7cgWwmKJyY9az8owUi5ndn5J0DgzQvEyq85w-LvI-5QKK10ckA2jL9brAlRyW3EbCMah0U2PdrRZHuB8zq0qrvPJ8vKrc4R_ImprFcF3nwHXGMu8LCKC_LdY8ndv2wAddARMj0vyZAygezhqL3T3EryOPhB8rEPOjFJDcJnbxKnAAQSuHw4FjjiwR3kuktnKXZLWHJPulTksevbMY9Y5Wdbqa2lyJIp3gNqv18fUFFfgHmUcC7sPtSvK8zLHQvjNmGI7fUo-Nzhc8FMvngdECFuzZTS8KRHHQvWz6pLDsdQlzuYqBC_vZ4kEikC4l2WzIZ2U9EbhkIRy73vUb5DuSXhPqUTdqd1yTx_K-HPK09ZhThlQtl7Gdz3v3vNVEgJyQeQMduK8b2cj3jCYSqiBPWsy5HG0Ebv18O7UTNw_L0O5vCO6kqKlXBJ-ZAWXVoitaIU1h7EzOQXkOo1n4H.UbmKtNIWgVC5hAvp2sU-OA",
+        //     "updateChallengeAnswers"
+        // ]
+        return t[i] = n,
+            l.prototype.composeRequest.call(e, t, {
+                observe: 'response'
+            }).pipe(K((function (l) {
+                return new bw(l.body, (function (n) {
+                    return is(l.clone({
+                        body: n
+                    }))
+                }))
+            })))
+    }))
+}
+
+// 50297, for DEV
+const updateChallengeAnswersRaw = function (l, n, u, e) {
+    // this = {service: baseUrl: "/seguridad/api/authorization/v0"}...
+
+    //
+    // l = {
+    //     "id": "76f6PkCuqC8TQWareQvd5HptSUnwd9fDl5p5r",
+    //     "interactionId": "9c08c799a6f9d1c5",
+    //     "type": "ACCESS",
+    //     "flow": "DEFAULT",
+    //     "status": "PENDING",
+    //     "validUntil": "2022-03-19T21:02:34",
+    //     "visualizationData": {
+    //         "theme": "companiesbanking"
+    //     },
+    //     "identificationData": {
+    //         "clientData": {
+    //             "clientId": "empresas-web",
+    //             "displayName": "empresas-web"
+    //         },
+    //         "secondClientData": {}
+    //     },
+    //     "integrationData": {
+    //         "system": "CA",
+    //         "caSessionId": "a1a1b51a-3b87-470d-935c-a68623026461"
+    //     },
+    //     "challenges": [
+    //         {
+    //             "challengeType": "USER",
+    //             "id": "694bHVWxMCLenXr",
+    //             "challengeStatus": "PENDING"
+    //         },
+    //         {
+    //             "challengeType": "PASSWORD",
+    //             "id": "5a8dmt0S5zxbfPA",
+    //             "challengeStatus": "PENDING",
+    //             "challengeMethod": "SALTED_SHA256_SHA1",
+    //             "challengeSeed": "yi9VQEfL8lnHuadckBdaMokUnDu7WxmFHMR5yFlQsprSNPGwWyM0OGjduzmTRIQb"
+    //         }
+    //     ],
+    //     "consents": [],
+    //     "additionalInfo": {},
+    //     "messages": [],
+    //     "existsAdditionalConsents": false,
+    //     "backAllowed": false,
+    //     "allowedFlowPreferences": [
+    //         "REACTIVATION_WITH_IDDOCS"
+    //     ]
+    // }
+
+    // username, userpass
+    // n = {
+    //     "answers": [
+    //         {
+    //             "id": "694bHVWxMCLenXr",
+    //             "challengeType": "USER",
+    //             "pattern": "KD(1647723645041;tag:INPUT;id:694bHVWxMCLenXr;mod:2;code:17)KD(154;code:86)KU(69;code:86)KU(115;mod:0;code:17)",
+    //             "challengeAnswer": "B09417932"
+    //         },
+    //         {
+    //             "id": "5a8dmt0S5zxbfPA",
+    //             "challengeType": "PASSWORD",
+    //             "pattern": "KD(1647723675222;tag:INPUT;id:5a8dmt0S5zxbfPA;mod:2;code:17)KD(372)KU(170)KU(33;mod:0;code:17)",
+    //             "challengeAnswer": "e2754dabd916fa8acd4cb1d1e12cb26eae6031c477cad18149813f59fca9ee2e"
+    //         }
+    //     ],
+    //     "backToPrevious": false
+    // }
+
+    // client generated private key
+    // u = {
+    //     "kty": "RSA",
+    //     "n": "vmvj2edCo9DUrelSflnX6g97pzVZOIv1ZHC4WQuzy_5xS-xffKaP-LND02rGDvKvGJVBgTEIcSG1_VVRE-8cP_kxN-HfTt5MUOIG236pLwVIxBO8-xPI8YQmgsYlv3aEU1bw1FIxE-AtpNTzik-pmEvy8ucNJLkDyXbXQw5G71s",
+    //     "e": "AQAB",
+    //     "d": "WRlQhuAPrWkEas-Wuuo8_hb6i9WJhszuKG4ZxAiWu2e2CYlzcHbbPMpcfSsju1DQnxcPjGyt_4l_hycJheNG-tSDwpnBZ25f3xKz6AFIxKf4q_pZoJ642AsSTEjbGIQG9rQdrMLZjx-6T7qu5SkPfBtI0apVtV8VrZmfI05r5OE",
+    //     "p": "8wKq6b926C6p9wgaX1HG_aqBlecqp4aFE0Y7n5SWCd_b-wBc9GX-9joMFLfT8KYRrBkUAa8i70TmIvtC9y3JSw",
+    //     "q": "yJmZhU96MgMgNI9y_2T7LcAapSAhe1UkdFRVLs25uS8O6-b5rbvWhDUaENjtshC_hzloqHJarIa5MPlexZE4MQ",
+    //     "dp": "ZMltc2bqfR-ldIRS08fJ_TkzZ6WppjN_i9_sKKJqnAvRY8fhxadr2Fl42zrm1v85gyQfjRdDKPNtc4K8YmIGAw",
+    //     "dq": "laL2gRobRelNAcgr-VVjhOozNg_0yeJmUhyCempd60SuNczTXQSsbWyLKBwZm2Wg6YcqidTbzKymwmCSkH_WUQ",
+    //     "qi": "OvFD2Vb1_rWlUlmLDFKY2le3abhIeh_rvEeaLotZixZ5PH6qg8N0RSDhXDDLTEl1TxLuEOSO2CfDTlYhADtOWg"
+    // }
+
+    // key from handshake resp decrypted
+    // e = {
+    //     "kty": "RSA",
+    //     "kid": "server_76f6PkCuqC8TQWareQvd5HptSUnwd9fDl5p5r",
+    //     "n": "6fSUjFPu5xWxWTvqttq0v23wcZ2lXf-lVXsLtHTDLC4KK3Z7dWS0JIW9nKJy7q7VlQT38Z48CQqWpvY5ZsDmeSKKZ871CWYKk1HyG0u2bxTIT5_geNIte2EPrveTbHi1GcY9Yvk4hdlLKTiRWVLmL5IerK9xsJMX52UBbNIHHgCEXc6MkvWwkdI772mE-x0vyNpsE-dQML16ew3oubuT_2KJRX0_efRvovFY_IPLA6tiKl8gRaDpIQGkQh_qjRmvBPm0MolGTtWA0VpLEOvd4w6psCJsqq2BtUu8yV8Wl6TEChiyo3YlanpCGNAfyht-jz47lx2O4VgLpPP38FS6iQ",
+    //     "e": "AQAB"
+    // }
+
+    // 49533, see helpers_obf:  l.prototype.sign = function (l, n)
+    // REAL PIPE
+    // 1. encrypt stringify json answer with enhanced key from handshake resp decrypted
+    // 2. sign stringify json answer with client generated private key
+    return this._service.updateChallengeAnswers(l.id, n) // compose req
+        .sign(enhanceClientKey(u))
+        .encrypt(enhanceServerKey(e))
+        .execute()
+        .pipe(Gs((function (l) {return l.decrypt(u).verify(e).execute()
+        })))
+}
+
+// 49533
+// REAL PIPE
+// 1. encrypt stringify json answer with enhanced key from handshake resp decrypted
+// 2. sign stringify json answer with client generated private key
+
+// return this._service.updateChallengeAnswers(authObj.id, credObj) // compose req
+//     .sign(enhanceClientKey(clientPrivKeyObj))
+//     .encrypt(enhanceServerKey(srvPubKeyObj))
+//     .execute()
+//     .pipe(Gs((function (l) {return l.decrypt(clientPrivKeyObj).verify(srvPubKeyObj)
+//     .execute()
+//     })))
+
+/**
+ * @param {Object} credObj
+ * @param {Object} clientPrivKeyObj
+ * @param {Object} serverPubKeyObj
+ */
+const updateChallengeAnswers = async (credObj, clientPrivKeyObj, serverPubKeyObj) => {
+    let msgSig = await cypher.signReq(credObj, enhanceClientKey(clientPrivKeyObj))
+    let msgEnc = await cypher.encryptReq(msgSig, enhanceServerKey(serverPubKeyObj))
+    return msgEnc
+}
+
+const zR = function () {
+    function l(l) {
+        this._service = l
+    }
+    return l.prototype.getAuthorization = function (l, n, u) {
+        return this._service.getAuthorization(l).pipe(Gs((function (l) {
+            return l.decrypt(n).verify(u).execute()
+        })))
+    },
+
+        // l =
+        // n =
+        l.prototype.updateChallengeAnswers = function (l, n, u, e) {
+            // 49533, see helpers_obf:  l.prototype.sign = function (l, n)
+            return this._service.updateChallengeAnswers(l.id, n)
+                .sign(this.enhanceClientKey(u))
+                .encrypt(this.enhanceServerKey(e))
+                .execute()
+                .pipe(Gs((function (l) {return l.decrypt(u).verify(e).execute()
+            })))
+        },
+        l.prototype.updateConsentAnswers = function (l, n, u, e) {
+            return this._service.updateConsentAnswers(l.id, {answers: n})
+                .sign(this.enhanceClientKey(u))
+                .encrypt(this.enhanceServerKey(e)).execute()
+                .pipe(Gs((function (l) {return l.decrypt(u).verify(e).execute()
+            })))
+        },
+        l.prototype.updateAdditionalInfoAnswers = function (l, n, u, e) {
+            return this._service.updateAdditionalInfoAnswers(l.id, {
+                answers: n
+            }).sign(this.enhanceClientKey(u)).encrypt(this.enhanceServerKey(e)).execute().pipe(Gs((function (l) {
+                return l.decrypt(u).verify(e).execute()
+            })))
+        },
+        l.prototype.deleteAuthorization = function (l, n, u, e) {
+            return this._service.deleteAuthorization(l.id, n).pipe(Gs((function (l) {
+                return l.decrypt(u).verify(e).execute()
+            })))
+        },
+        l.prototype.updateChallengeParameters = function (l, n, u, e) {
+            return this._service.updateChallengeParameters(l.id, {
+                parameters: n
+            }).sign(this.enhanceClientKey(u)).encrypt(this.enhanceServerKey(e)).execute().pipe(Gs((function (l) {
+                return l.decrypt(u).verify(e).execute()
+            })))
+        },
+        l.prototype.enhanceClientKey = function (l) {
+            return Object.assign({
+            }, l, {
+                alg: 'RS256'
+            })
+        },
+        l.prototype.enhanceServerKey = function (l) {
+            return Object.assign({
+            }, l, {
+                alg: 'RSA-OAEP'
+            })
+        },
+        l
+}()
+
+exports.cypherChallenge = {
+    updateChallengeAnswers
+};
+}('undefined' !== typeof exports && exports || 'undefined' !== typeof window && window || global));
+

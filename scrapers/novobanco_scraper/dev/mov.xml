@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Workbook xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns="urn:schemas-microsoft-com:office:spreadsheet">
+    <Styles>
+        <Style ss:ID="contentHeaderStyle">
+            <Alignment ss:Horizontal="Center"/>
+            <Font ss:Bold="1"/>
+            <Borders>
+                <Border ss:Position="Left" ss:Color="#000000" ss:LineStyle="Continuous" ss:Weight="1"/>
+                <Border ss:Position="Top" ss:Color="#000000" ss:LineStyle="Continuous" ss:Weight="1"/>
+                <Border ss:Position="Right" ss:Color="#000000" ss:LineStyle="Continuous" ss:Weight="1"/>
+                <Border ss:Position="Bottom" ss:Color="#000000" ss:LineStyle="Continuous" ss:Weight="1"/>
+            </Borders>
+        </Style>
+        <Style ss:ID="contentStyle">
+            <Alignment ss:Horizontal="Center"/>
+        </Style>
+        <Style ss:ID="contentFormatStyle">
+            <NumberFormat ss:Format="Standard"/>
+        </Style>
+        <Style ss:ID="contentCurrencyStyle">
+            <Alignment ss:Horizontal="Right"/>
+        </Style>
+        <Style ss:ID="contentFormatDateTime">
+            <Alignment ss:Horizontal="Left"/>
+            <NumberFormat ss:Format="dd-MM-yyyy hh:mm"/>
+        </Style>
+        <Style ss:ID="contentFormatDate">
+            <Alignment ss:Horizontal="Left"/>
+            <NumberFormat ss:Format="dd-MM-yyyy"/>
+        </Style>
+        <Style ss:ID="s67">
+            <NumberFormat ss:Format="Standard"/>
+        </Style>
+    </Styles>
+    <Worksheet ss:Name="ConsultaSaldosMovimentos">
+        <Table x:FullColumns="1" x:FullRows="1">
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Column ss:AutoFitWidth="1" ss:Width="60"/>
+            <Column ss:AutoFitWidth="1" ss:Width="300"/>
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Column ss:AutoFitWidth="1" ss:Width="120"/>
+            <Column ss:AutoFitWidth="1" ss:Width="140"/>
+            <Column ss:AutoFitWidth="1" ss:Width="80"/>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Cuenta:</Data>
+                </Cell>
+                <Cell>
+                    <Data ss:Type="String">000208003115</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Moneda:</Data>
+                </Cell>
+                <Cell>
+                    <Data ss:Type="String">EUR</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Fecha (PT):</Data>
+                </Cell>
+                <Cell ss:StyleID="contentFormatDateTime">
+                    <Data ss:Type="DateTime">2018-04-08T20:59:34</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Contable:</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="Number">99304.91</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Retenido:</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="Number">0</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String">Disponible:</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="Number">99304.91</Data>
+                </Cell>
+            </Row>
+            <Row/>
+            <Row/>
+            <Row ss:Height="14">
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Fecha Operación</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Fecha Valor</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Tipo</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Detalle</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Cargo</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Abono</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Saldo Operación</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Cód. Aplicación Emisora</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Cód. Iniciador de la Transacción</Data>
+                </Cell>
+                <Cell ss:StyleID="contentHeaderStyle">
+                    <Data ss:Type="String">Descripción Oficina</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell ss:StyleID="contentFormatDate">
+                    <Data ss:Type="DateTime">2018-04-05T00:00:00</Data>
+                </Cell>
+                <Cell ss:StyleID="contentFormatDate">
+                    <Data ss:Type="DateTime">2018-04-05T00:00:00</Data>
+                </Cell>
+                <Cell>
+                    <Data ss:Type="String">DEB</Data>
+                </Cell>
+                <Cell>
+                    <Data ss:Type="String">COM UTILIZACAO NBnetwork MAR2018</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="Number">11.07</Data>
+                </Cell>
+                <Cell ss:StyleID="contentStyle">
+                    <Data ss:Type="String">-</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="Number">99304.91</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="String">C25</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="String">B0138</Data>
+                </Cell>
+                <Cell ss:StyleID="s67">
+                    <Data ss:Type="String">Canais Directos</Data>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell>
+                    <Data ss:Type="String"/>
+                </Cell>
+            </Row>
+        </Table>
+    </Worksheet>
+</Workbook>

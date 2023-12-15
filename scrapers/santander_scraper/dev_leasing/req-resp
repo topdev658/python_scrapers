@@ -1,0 +1,37 @@
+== LEASING / FINANCIACION ==
+== SUBSIDIARIES ==
+>>>
+https://empresas3.gruposantander.es/paas/api/nwe-subsidiary-api/v1/subsidiary?otherSubsidiary=true
+GET
+<<< 11_resp_subsidiaries.json
+
+== CONTRACTS ==
+>>>
+GET
+https://empresas3.gruposantander.es/paas/api/nwe-leasingrenting-api/leasing/v1/contract?clientCif=B60917051&personCode=1588307&personType=J&contractType=3&expDateFrom=1984-01-01&expDateTo=2063-12-31&dateSignedFrom=1984-01-01&dateSignedTo=2023-07-03&size=10&sort=contractSignatureDate,desc
+<<< 12_resp_contracts.json
+
+== CONTRACT ==
+>>>
+GET
+https://empresas3.gruposantander.es/paas/api/nwe-leasingrenting-api/leasing/v1/contract/0473156?clientCif=B60917051&personCode=1588307&contractNumber=0473156&personType=J&size=10
+<<< 13_resp_contract.json
+
+== MATURITY (Cuadro de vencimientos) ==
+<<<
+GET
+>>> 14_resp_maturity.json
+
+== INVOICE (Facturacion) ==
+GET
+<<<
+https://empresas3.gruposantander.es/paas/api/nwe-leasingrenting-api/leasing/v1/invoice?clientCif=B60917051&personCode=1588307&personType=J&contractNumber=0473156&dateIssueFrom=2002-01-01&dateIssueTo=2063-12-31&sort=invoiceDate%2Casc
+>>> 15_resp_invoice.json
+
+== INVOICE DETAIL  ==
+<<<
+GET
+https://empresas3.gruposantander.es/paas/api/nwe-leasingrenting-api/leasing/v1/invoice/23016661?contractNumber=0473156&personType=J&size=10&clientCif=B60917051
+>>> 16_resp_invoice_detail.json
+
+

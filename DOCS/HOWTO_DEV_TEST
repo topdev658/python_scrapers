@@ -1,0 +1,6 @@
+DEV SERVER
+$ curl -v -X POST 'http://192.168.195.112:8080/process' --data "token=super-secret-token&uid=131453"
+$ tail -f logs/server_start_cronjob.log  - to get server output
+
+
+

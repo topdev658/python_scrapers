@@ -1,0 +1,28 @@
+Movements temp_balance calculation:
+  1. the website shows the only today's open (Start of day cleared)
+  and the current balance (Today's cleared) of an account even during movs filtering
+
+  2. today's movements (future movements) have no temp_balance and extended description information
+  3. in an exported excel file, there is no field 'temp_balance'
+
+  Can't set date_to greater than next working day
+
+Solution:
+ calculate temp_balances in excel from the current account balance
+ set date_to = date of the most recemt movement
+ if date_to < today then
+  get temp_balance of the most recent movement from the page
+  use this temp_balance to calculate temp balances in excel
+
+
+----
+
+The scrapers uses TOKEN to control user actions:
+1 action for 1 token
+a new token for each new page
+
+Solution:
+Only serial processing is allowed
+To provide 'navigation integrity' the scraper
+uses click_back() after each process_account
+

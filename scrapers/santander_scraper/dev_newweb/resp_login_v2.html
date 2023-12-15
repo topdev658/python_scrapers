@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body onload="enviarFormulario();">
+<script>
+    function enviarFormulario() {
+        document.getElementById('submit').click();
+    }
+</script>
+<script>
+    sessionStorage.removeItem('global-session-id');
+    for(k in sessionStorage){
+        if (sessionStorage.hasOwnProperty(k)) {
+            if(k.indexOf('x-sessionscatoken') !== -1){
+                sessionStorage.removeItem(k);
+            }
+        }
+    }
+
+</script>
+
+<form name="acceso_portal" method="POST" action="https://empresas3.gruposantander.es/SEI_PARTENON_ENS/BEComponentesGeneralesAccesoSEI/OPAccesoEmpresasABE/s.bto?dse_contextRoot=true">
+    <input type="hidden" name="entradaDesde" value="AVISO_SEG_FIRMA" />
+    <input type="hidden" name="mensajeXML" value="" />
+    <input type="hidden" name="hojaEstilos" value="../../Estatico/ComunesSEI/Styles/estilo_e.css" />
+    <input type="hidden" name="imagenes.flecha" value="flecha_e.gif" />
+    <input type="hidden" name="imagenes.boton" value="boton_e.gif" />
+    <input type="hidden" name="dse_operationName" value="OPAccesoEmpresasABE" />
+    <input type="hidden" name="dse_parentContextName" value="" />
+    <input type="hidden" name="dse_processorState" value="initial" />
+    <input type="hidden" name="dse_nextEventName" value="start" />
+    <input type="hidden" name="dse_nextEventName" value="start" />
+    <input type="hidden" name="dse_errorPage" value="/Globales/Jsp/errorJspAccesoEmpresas.jsp" />
+    <input type="hidden" name="cod_entrada" value="S" />
+    <input type="hidden" name="DatosCliente.ENTRADA_POR" value="" />
+    <input type="hidden" name="timestamp" value="1603894770820" />
+    <input type="hidden" name="Modo" value="" />
+    <input type="hidden" name="Origen" value="" />
+
+
+
+
+
+
+
+    <input type="hidden" name="IndPantallaAcceso" value="" />
+    <input type="hidden" name="URLConfirmacion" value="" />
+    <input type="hidden" name="URLRespuesta" value="" />
+    <input type="hidden" name="usuario" value="56299RAMONS" />
+    <input type="hidden" name="passwd" value="F30E11R1" />
+    <input type="hidden" name="datoAgent" value="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0" />
+    <button type="submit" id="submit" style="display: none;"></button>
+</form>
+</body>
+</html>

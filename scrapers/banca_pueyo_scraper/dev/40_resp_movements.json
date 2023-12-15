@@ -1,0 +1,366 @@
+{
+    "filter": {
+        "@class": "com.bancapueyo.epueyo2.back.domain.acount.filter.AccountMovementFilterResponse",
+        "relatedTo": "y8sE4vC5pXTfMP9p1EeAnKFZhBwnGH9buNpgSbaFIlQ",
+        "from": null,
+        "to": null,
+        "fromPage": 1,
+        "toPage": 1,
+        "txId": 346999975,
+        "itemId": null,
+        "defaultSearch": false,
+        "movementType": "ALL",
+        "@baseMovementType": "accountMovementType",
+        "previousBalance": null,
+        "sequence": null
+    },
+    "pages": [
+        {
+            "page": 1,
+            "data": [
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "RIGHTPLACE REAL ESTATE, SL",
+                    "operationDate": "2022-09-23T07:58:00.000+0200",
+                    "amount": 172.17,
+                    "id": "D9535028F68C437BA070E489C79B8A66",
+                    "valorDate": "2022-09-23T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        },
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitReturnAction",
+                            "type": "DIRECTDEBIT_TRANSFER_RETURN"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 36632.52
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-09-22T07:57:00.000+0200",
+                    "amount": 3581.81,
+                    "id": "FD7B1EC5830F439AA9AB0B261CFB6E08",
+                    "valorDate": "2022-09-22T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        },
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitReturnAction",
+                            "type": "DIRECTDEBIT_TRANSFER_RETURN"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 36460.35
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-09-22T07:57:00.000+0200",
+                    "amount": 6445.57,
+                    "id": "A99014B390DF4F79AB762F6C95C84561",
+                    "valorDate": "2022-09-22T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        },
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitReturnAction",
+                            "type": "DIRECTDEBIT_TRANSFER_RETURN"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 32878.54
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "0119-4540-000147 RCBO:0020 TOTAL",
+                    "operationDate": "2022-09-07T08:54:00.000+0200",
+                    "amount": -2169.51,
+                    "id": "A257445B8B9A4FF681E74E6E62451CD1",
+                    "valorDate": "2022-09-07T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "REC.PRESTAMO",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 26432.97
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-08-26T08:05:00.000+0200",
+                    "amount": 6213.92,
+                    "id": "17DA8DCE878F44B1819A13B34D284A3F",
+                    "valorDate": "2022-08-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 28602.48
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-08-26T08:05:00.000+0200",
+                    "amount": 4205.03,
+                    "id": "6B6D108355D742AD9598C334DACE80EB",
+                    "valorDate": "2022-08-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 22388.56
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "0119-4540-000147 RCBO:0019 TOTAL",
+                    "operationDate": "2022-08-08T09:48:00.000+0200",
+                    "amount": -2169.51,
+                    "id": "0D8CFB604D5945C98879E6EF67643C3D",
+                    "valorDate": "2022-08-07T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "REC.PRESTAMO",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 18183.53
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-07-26T08:45:00.000+0200",
+                    "amount": 1197.83,
+                    "id": "0CADEDC6CF084F9F85DB05C13D0B930E",
+                    "valorDate": "2022-07-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 20353.04
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-07-26T08:45:00.000+0200",
+                    "amount": 7155.64,
+                    "id": "858F0484E32143E5ADCCC159E97C9705",
+                    "valorDate": "2022-07-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 19155.21
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-07-26T08:45:00.000+0200",
+                    "amount": 4084.72,
+                    "id": "34962B27F5064215943A2D71055709F4",
+                    "valorDate": "2022-07-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 11999.57
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "RIGHTPLACE REAL ESTATE, SL",
+                    "operationDate": "2022-07-26T08:45:00.000+0200",
+                    "amount": 114.78,
+                    "id": "C218D013391B429F861D0A70AE3660A1",
+                    "valorDate": "2022-07-26T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 7914.85
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "0119-4540-000147 RCBO:0018 TOTAL",
+                    "operationDate": "2022-07-07T09:22:00.000+0200",
+                    "amount": -2169.51,
+                    "id": "42730EC788DC4E10A42C670C002E42D2",
+                    "valorDate": "2022-07-07T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "REC.PRESTAMO",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 7800.07
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "GASTOS TRANSFERENCIAS",
+                    "operationDate": "2022-07-05T16:46:00.000+0200",
+                    "amount": -0.50,
+                    "id": "D434DBD4E7C24C8EA1546E33A380A82E",
+                    "valorDate": "2022-07-05T00:00:00.000+0200",
+                    "office": "0080-E-PUEYO",
+                    "conceptDetail": "GASTOS TRANSFERENCIAS",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 9969.58
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "TRASP DE PUEYO A 4631 SANTANDER",
+                    "operationDate": "2022-07-05T16:46:00.000+0200",
+                    "amount": -25000.00,
+                    "id": "46D62947B4C04E8B972A8E162473BE8F",
+                    "valorDate": "2022-07-05T00:00:00.000+0200",
+                    "office": "0080-E-PUEYO",
+                    "conceptDetail": "S/O TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.transfer.commons.actions.TransferOrderWatchAction",
+                            "type": "TRANSFER_EMITTED_VIEW_ORDER"
+                        },
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.transfer.commons.actions.TransferReceiptWatchAction",
+                            "type": "TRANSFER_EMITTED_VIEW_RECEIPT"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 9970.08
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "COMISION DE MANTENIMIENTO",
+                    "operationDate": "2022-06-30T18:38:00.000+0200",
+                    "amount": -3.00,
+                    "id": "11A698C7ED48409A916FB14B5B826482",
+                    "valorDate": "2022-06-30T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "COMISION DE MANTENIMIENTO",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 34970.08
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-06-24T08:38:00.000+0200",
+                    "amount": 1091.42,
+                    "id": "813C3C6FC15C4E308DC5FEAD6BEEC4E1",
+                    "valorDate": "2022-06-24T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 34973.08
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-06-24T08:38:00.000+0200",
+                    "amount": 2611.95,
+                    "id": "7D381796E17841ABA1220FF05A196080",
+                    "valorDate": "2022-06-24T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 33881.66
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "ASPASION SHORT RENTALS, SL",
+                    "operationDate": "2022-06-24T08:38:00.000+0200",
+                    "amount": 6046.83,
+                    "id": "53820DB90CF843A484D94741AE52C800",
+                    "valorDate": "2022-06-24T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "TRANSFERENCIA",
+                    "actions": [
+                        {
+                            "@class": "com.bancapueyo.epueyo2.back.domain.directdebit.actions.DirectDebitWatchAction",
+                            "type": "DIRECTDEBIT_VIEW"
+                        }
+                    ],
+                    "txId": 346999975,
+                    "balance": 31269.71
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "0119-4540-000147 RCBO:0017 TOTAL",
+                    "operationDate": "2022-06-07T09:19:00.000+0200",
+                    "amount": -2169.51,
+                    "id": "FE67CE692CF241FAAE8E85516B70491F",
+                    "valorDate": "2022-06-07T00:00:00.000+0200",
+                    "office": "0000-SERVICIOS CENTRALES",
+                    "conceptDetail": "REC.PRESTAMO",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 25222.88
+                },
+                {
+                    "@class": "com.bancapueyo.epueyo2.back.domain.acount.movements.AccountMovementWithBalanceEntry",
+                    "concept": "GASTOS TRANSFERENCIAS",
+                    "operationDate": "2022-06-03T16:35:00.000+0200",
+                    "amount": -0.50,
+                    "id": "388D5316607D4CEFB86C9FEBDF824D56",
+                    "valorDate": "2022-06-03T00:00:00.000+0200",
+                    "office": "0080-E-PUEYO",
+                    "conceptDetail": "GASTOS TRANSFERENCIAS",
+                    "actions": [],
+                    "txId": 346999975,
+                    "balance": 27392.39
+                }
+            ]
+        }
+    ],
+    "hasMore": false
+}

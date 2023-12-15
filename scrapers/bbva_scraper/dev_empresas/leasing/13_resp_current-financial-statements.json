@@ -1,0 +1,101 @@
+{
+	"data": {
+		"id": "1",
+		"installmentsPlan": {
+			"quotaType": {
+				"id": "CONSTANT_NET_FEE"
+			},
+			"installmentsNumber": 84,
+			"quotaBase": "N",
+			"periodicity": "MONTHLY",
+			"totalQuota": {
+				"currency": "EUR",
+				"amount": 2493.82,
+				"number": 84
+			},
+			"payment": {
+				"paymentPeriodType": "PREPAID"
+			},
+			"gracePeriod": {
+				"installmentsNumber": 0
+			},
+			"isFinancedInsurance": false
+		},
+		"conditions": [
+			{
+				"id": "0",
+				"paymentMethod": "POSTPONED",
+				"unit": {
+					"unitType": "PERCENTAGE",
+					"percentage": 1.5,
+					"percentageName": "FIJO"
+				}
+			},
+			{
+				"id": "1",
+				"paymentMethod": "POSTPONED",
+				"unit": {
+					"unitType": "PERCENTAGE",
+					"percentage": 21,
+					"percentageName": "I.V.A. MEDIO"
+				}
+			},
+			{
+				"id": "2",
+				"paymentMethod": "POSTPONED",
+				"unit": {
+					"unitType": "PERCENTAGE",
+					"percentage": 1.566028
+				}
+			},
+			{
+				"id": "3",
+				"paymentMethod": "POSTPONED",
+				"unit": {
+					"unitType": "AMOUNTUNIT",
+					"amount": 2493.82,
+					"currency": "EUR"
+				}
+			},
+			{
+				"id": "4",
+				"paymentMethod": "POSTPONED",
+				"unit": {
+					"unitType": "AMOUNTUNIT",
+					"amount": 3017.52
+				}
+			}
+		],
+		"balances": [
+			{
+				"balanceType": "NET",
+				"amount": 201090,
+				"currency": "EUR"
+			},
+			{
+				"balanceType": "FINANCED_EXPENSES",
+				"amount": 0,
+				"currency": "EUR"
+			},
+			{
+				"balanceType": "CASH_ADVANCED",
+				"amount": 0,
+				"currency": "EUR",
+				"grossAmount": {
+					"currency": "EUR",
+					"amount": 0
+				}
+			},
+			{
+				"balanceType": "FLOOR_PRICE",
+				"amount": 0,
+				"currency": "EUR"
+			},
+			{
+				"balanceType": "FINANCED_AMOUNT",
+				"amount": 201090,
+				"currency": "EUR"
+			}
+		]
+	}
+}

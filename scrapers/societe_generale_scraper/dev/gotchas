@@ -1,0 +1,10 @@
+- FIXED: can log in only via recognized graph pinpad
+- FIXED: the pinpad has corrupted size (doesn't equal to num_digits * digit_size - width has additional pixel)
+- FIXED: when log in, the back-end sends TLS handshake error - thanks for cookies, I can extract necessary data
+- FIXED: should load each page in 2 steps: left menu and page content (after parsed main menu page)
+- FIXED: can't process accounts in parallel mode: sometimes back-end doesn't switch to next page
+- FIXED: no year in movement's dates - should be calculated similar to la caixa
+- FIXED: no temp balances in movements - should be calculated
+- FIXED: back-end returns movements in descending ordering for several dates but in ascending ordering if one date (!) - should be reordered and temp_balances should be recalculated
+- WIP: it looks like they can ban proxies temporary (all subnet), the server just doesn't response - should try to scrape later, added delay
+- WIP: check movements ordering for 2 days in response

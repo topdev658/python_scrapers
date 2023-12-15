@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grupo Cooperativo Cajamar</title>
+
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zk.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zul.lang.wpd" charset="UTF-8"></script>
+    <script type="text/javascript" src="/BE/zkau/web/a897673c/js/zkbind.wpd" charset="UTF-8"></script>
+    <!-- ZK 8.0.4 EE 2017011012 -->
+    <script class="z-runonce" type="text/javascript">
+        zkopt({kd:1});
+    </script>
+    <link rel="stylesheet" type="text/css" href="/BE/zkau/web/a897673c/_zkiju-viridianGCC/zul/css/zk.wcs"/>
+    <link rel="stylesheet" type="text/css" href="/BE/util_apoyo/css/estilos.css"/>
+</head>
+<body>
+<div id="n7DQ_" class="z-temp"><div id="zk_proc" class="z-loading"><div class="z-loading-indicator"><span class="z-loading-icon"></span>Procesando...</div></div></div>
+<script class="z-runonce" type="text/javascript">
+    zk.themeName='viridianGCC';zkmx(
+        [0,'n7DQ_',{dt:'z_qy8',cu:'\x2FBE',uu:'\x2FBE\x2Fzkau',ru:'\x2Fplantillas\x2Fout_zk\x2FW_C_GENERAL_BE_v1.zul'},{},[
+            ['zul.wnd.Window','n7DQ0',{id:'z__i175034',$$onMinimize:false,$$0onMinimize:true,$$onMove:false,$$0onMove:true,$$onOpen:false,$$onSize:false,$$0onSize:true,$onCallCrossCheck:true,$$onZIndex:false,$$0onZIndex:true,$onClose:true,$onAfterSize:true,$$0onAfterSize:true,$$onMaximize:false,$$0onMaximize:true,$onSincronizar:true,domExtraAttrs:{'currentNode':'W_C_GENERAL_BE'
+                },$ZKAUS$:true,width:'100%'},{},[
+                ['zul.utl.Script','n7DQ1',{},{},[]],
+                ['zhtml.Widget','formulario',{id:'formulario',prolog:'<form id=\"formulario\">',epilog:'<\/form>'},{},[
+                    ['zul.box.Vlayout','n7DQ2',{id:'WINDOW',width:'100%',sclass:'window-area',spacing:'5px'},{},[
+                        ['zul.box.Hlayout','n7DQ3',{id:'HEADER',sclass:'rpv header-area halign-center',spacing:'5px'},{},[
+                            ['zul.box.Hlayout','n7DQ4',{id:'HEADERAUX',sclass:'valign-middle',spacing:'5px'},{},[
+                                ['zul.wgt.Label','n7DQ5',{id:'TITULO',sclass:'title',value:'Consulta General'},{},[]],
+                                ['zul.wgt.Toolbarbutton','n7DQ6',{id:'AYUDA',$$onCheck:false,$onClick:true,left:'0px',top:'0px',sclass:'help',tabindex:0,mode:'default'},{},[]]]]]],
+                        ['zul.box.Vlayout','n7DQ7',{id:'MAIN',width:'100%',sclass:'main-area',spacing:'5px'},{},[
+                            ['zul.box.Hlayout','n7DQ8',{id:'ENLACES',sclass:'halign-left',spacing:'5px'},{},[
+                                ['zul.wgt.Toolbarbutton','n7DQ9',{id:'GRAFICOS',$onClick:true,left:'0px',top:'0px',sclass:'rpv-iconify',tabindex:0,label:'Gr\xE1ficos',iconSclass:'z-icon-pie-chart',mode:'default'},{},[]]]],
+                            ['zul.box.Vlayout','n7DQa',{id:'TABLAS',width:'100%',spacing:'5px'},{},[
+                                ['zul.wnd.Panel','n7DQb',{$$onMinimize:false,$$0onMinimize:true,$$onMove:false,$$0onMove:true,$$onOpen:false,$$onSize:false,$$0onSize:true,$$onZIndex:false,$$0onZIndex:true,$onClose:true,$$onMaximize:false,$$0onMaximize:true,title:'CUENTAS A LA VISTA (2)',collapsible:true,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQc',{id:'PCUENTAS'},{},[
+                                        ['zul.grid.Grid','n7DQd',{id:'MM_BD_SEL_CUENTASVISTA_RR',$$onDataLoading:true,$$0onDataLoading:true,$$onRender:true,$$0onRender:true,$$onInnerWidth:false,$$0onInnerWidth:true,$$onScrollPos:false,$$0onScrollPos:true,$$onPageSize:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:2,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQe',{$$onColSize:false},{},[
+                                                ['zul.grid.Column','n7DQf',{id:'MM_BD_SEL_CUENTASVISTA_RR_NCTAAUX',$onSort:true,$$0onSort:true,width:'260px',label:'Cuenta',align:'center'},{},[]],
+                                                ['zul.grid.Column','n7DQg',{id:'MM_BD_SEL_CUENTASVISTA_RR_ALIASAUX',$onSort:true,$$0onSort:true,label:'Alias personal',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQh',{id:'MM_BD_SEL_CUENTASVISTA_RR_RELACION',$onSort:true,$$0onSort:true,label:'Relaci\xF3n ',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQi',{id:'MM_BD_SEL_CUENTASVISTA_RR_FECHA',$onSort:true,$$0onSort:true,width:'135px',label:'Fecha ult. oper.',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQj',{id:'MM_BD_SEL_CUENTASVISTA_RR_SALDO',$onSort:true,$$0onSort:true,width:'140px',label:'Saldo contable',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQk',{id:'MM_BD_SEL_CUENTASVISTA_RR_IMPO',$onSort:true,$$0onSort:true,width:'140px',label:'Saldo disponible',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQl',{id:'MM_BD_SEL_CUENTASVISTA_RR_MONEDA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQm',{id:'MM_BD_SEL_CUENTASVISTA_RR_ALIAS',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQn',{id:'MM_BD_SEL_CUENTASVISTA_RR_NCTA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQo',{id:'MM_BD_SEL_CUENTASVISTA_RR_ORIGEN',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQp',{id:'MM_BD_SEL_CUENTASVISTA_RR_FECHAULTOPER',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQq',{id:'MM_BD_SEL_CUENTASVISTA_RR_TIPO',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQr',{_offset:0,visibleItemCount:2},{},[
+                                                ['zul.grid.Row','n7DQs',{id:'MM_BD_SEL_CUENTASVISTA_RR_row_0',sclass:'rpv z-clickEvent-row',_index:0},{},[
+                                                    ['zul.wgt.Cell','n7DQt',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].CELDA',domExtraAttrs:{'data-title':'Cuenta'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQu',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].NCTA',$onClick:true,value:'ES25 3058 5601 1727 2000 1859'},{},[]],
+                                                        ['zul.inp.Combobox','n7DQv',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].CCUENTAS',$$onSelect:false,$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$onError:false,$$0onError:true,$$onChange:false,$onChange:true,$$1onChange:true,left:'0px',top:'0px',sclass:'onlyButton-combo',style:'margin-left:3px;width:32px !important',tabindex:0,_value:'&nbsp;',readonly:true},{},[
+                                                            ['zul.inp.Comboitem','n7DQ94',{label:'datos de la cuenta'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQa4',{label:'movimientos'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQb4',{label:'buz\xF3n virtual'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQc4',{label:'domiciliaciones'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQd4',{label:'traspaso'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQe4',{label:'transferencia'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQf4',{domExtraAttrs:{'onclick':'function selectElementContents(el) {var range = document.createRange();range.selectNodeContents(el);var sel = window.getSelection();sel.removeAllRanges();sel.addRange(range);}var elemento=document.getElementById(\"n7DQu\");selectElementContents(elemento);document.execCommand(\'copy\')'
+                                                                },label:'copiar'},{},[]]]]]],
+                                                    ['zul.wgt.Cell','n7DQw',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].ZKCELL1',$onClick:true,domExtraAttrs:{'data-title':'Alias personal'
+                                                        },align:'left',valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQx',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].ALIAS',visible:false,sclass:'halign-left'},{},[]],
+                                                        ['zul.wgt.Toolbarbutton','n7DQy',{id:'MM_BD_SEL_CUENTASVISTA_RR[0].ENLACE_ALIAS',$onClick:true,left:'0px',top:'0px',tabindex:0,label:'Asignar alias',iconSclass:'z-icon-buysellads',mode:'default'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQz',{$onClick:true,domExtraAttrs:{'data-title':'Relaci\xF3n '
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ_0',{value:'Primer titular'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ00',{$onClick:true,domExtraAttrs:{'data-title':'Fecha ult. oper.'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ10',{value:'25/06/2020'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ20',{$onClick:true,domExtraAttrs:{'data-title':'Saldo contable'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ30',{value:'612.368,04 eur'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ40',{$onClick:true,domExtraAttrs:{'data-title':'Saldo disponible'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ50',{value:'612.368,04 eur'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ60',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ70',{value:'EUR'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ80',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ90',{},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQa0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQb0',{value:'560127200001859'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQc0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQd0',{value:'S'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQe0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQf0',{value:'25062020'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQg0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQh0',{value:'3'},{},[]]]]]],
+                                                ['zul.grid.Row','n7DQi0',{id:'MM_BD_SEL_CUENTASVISTA_RR_row_1',sclass:'rpv z-clickEvent-row',_index:1},{},[
+                                                    ['zul.wgt.Cell','n7DQj0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].CELDA',domExtraAttrs:{'data-title':'Cuenta'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQk0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].NCTA',$onClick:true,value:'ES94 3058 5601 1727 9900 0036'},{},[]],
+                                                        ['zul.inp.Combobox','n7DQl0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].CCUENTAS',$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$0onError:true,$onChange:true,$$1onChange:true,left:'0px',top:'0px',sclass:'onlyButton-combo',style:'margin-left:3px;width:32px !important',tabindex:0,_value:'&nbsp;',readonly:true},{},[
+                                                            ['zul.inp.Comboitem','n7DQg4',{label:'datos de la cuenta'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQh4',{label:'movimientos'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQi4',{label:'buz\xF3n virtual'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQj4',{label:'domiciliaciones'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQk4',{label:'traspaso'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQl4',{label:'transferencia'},{},[]],
+                                                            ['zul.inp.Comboitem','n7DQm4',{domExtraAttrs:{'onclick':'function selectElementContents(el) {var range = document.createRange();range.selectNodeContents(el);var sel = window.getSelection();sel.removeAllRanges();sel.addRange(range);}var elemento=document.getElementById(\"n7DQk0\");selectElementContents(elemento);document.execCommand(\'copy\')'
+                                                                },label:'copiar'},{},[]]]]]],
+                                                    ['zul.wgt.Cell','n7DQm0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].ZKCELL1',$onClick:true,domExtraAttrs:{'data-title':'Alias personal'
+                                                        },align:'left',valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQn0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].ALIAS',visible:false,sclass:'halign-left'},{},[]],
+                                                        ['zul.wgt.Toolbarbutton','n7DQo0',{id:'MM_BD_SEL_CUENTASVISTA_RR[1].ENLACE_ALIAS',$onClick:true,left:'0px',top:'0px',tabindex:0,label:'Asignar alias',iconSclass:'z-icon-buysellads',mode:'default'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQp0',{$onClick:true,domExtraAttrs:{'data-title':'Relaci\xF3n '
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQq0',{value:'Primer titular'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQr0',{$onClick:true,domExtraAttrs:{'data-title':'Fecha ult. oper.'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQs0',{value:'11/05/2020'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQt0',{$onClick:true,domExtraAttrs:{'data-title':'Saldo contable'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQu0',{value:'2.308,28 usd'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQv0',{$onClick:true,domExtraAttrs:{'data-title':'Saldo disponible'
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQw0',{value:'2.308,28 usd'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQx0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQy0',{value:'USD'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQz0',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ_1',{},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ01',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ11',{value:'560127990000036'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ21',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ31',{value:'S'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ41',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ51',{value:'11052020'},{},[]]]],
+                                                    ['zul.wgt.Cell','n7DQ61',{$onClick:true,domExtraAttrs:{'data-title':''
+                                                        },align:null,valign:null},{},[
+                                                        ['zul.wgt.Label','n7DQ71',{value:'3'},{},[]]]]]]]]]]]]]],
+                                ['zul.wnd.Panel','n7DQ81',{$$0onMinimize:true,$$0onMove:true,$$0onSize:true,$$0onZIndex:true,$onClose:true,$$0onMaximize:true,title:'TARJETAS',collapsible:true,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQ91',{id:'PTARJETAS'},{},[
+                                        ['zul.grid.Grid','n7DQa1',{id:'MM_BD_SEL_CTASCREDDEB_RR',visible:false,$$0onDataLoading:true,$$0onRender:true,$$0onInnerWidth:true,$$0onScrollPos:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:0,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQb1',{},{},[
+                                                ['zul.grid.Column','n7DQc1',{id:'MM_BD_SEL_CTASCREDDEB_RR_NTARAUX',$onSort:true,$$0onSort:true,width:'175px',label:'Tarjeta',align:'center'},{},[]],
+                                                ['zul.grid.Column','n7DQd1',{id:'MM_BD_SEL_CTASCREDDEB_RR_DESC',$onSort:true,$$0onSort:true,label:'Tipo',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQe1',{id:'MM_BD_SEL_CTASCREDDEB_RR_FCADU',$onSort:true,$$0onSort:true,width:'95px',label:'Caducidad',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQf1',{id:'MM_BD_SEL_CTASCREDDEB_RR_NCTA',$onSort:true,$$0onSort:true,width:'225px',label:'Cuenta domiciliaci\xF3n',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQg1',{id:'MM_BD_SEL_CTASCREDDEB_RR_LIMITE',$onSort:true,$$0onSort:true,width:'140px',label:'L\xEDmite cr\xE9dito',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQh1',{id:'MM_BD_SEL_CTASCREDDEB_RR_DISPUESTO',$onSort:true,$$0onSort:true,width:'140px',label:'Disponible cr\xE9dito',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQi1',{id:'MM_BD_SEL_CTASCREDDEB_RR_NTARCLIENTE',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQj1',{id:'MM_BD_SEL_CTASCREDDEB_RR_CODIGO_PRODUCTO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQk1',{id:'MM_BD_SEL_CTASCREDDEB_RR_NTAR',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQl1',{id:'MM_BD_SEL_CTASCREDDEB_RR_ORIGEN',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQm1',{id:'MM_BD_SEL_CTASCREDDEB_RR_SALDOPREPAGO',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQn1',{_offset:0,visibleItemCount:0},{},[]]]],
+                                        ['zul.box.Hlayout','n7DQo1',{id:'HTARJETAS',width:'100%',sclass:'rpv halign-center valign-middle',spacing:'5px'},{},[
+                                            ['zul.wgt.Label','n7DQp1',{id:'NO_TARJETAS',sclass:'z-label-empty',value:'No dispone de ninguna tarjeta. Solicitar tarjeta.'},{},[]],
+                                            ['zul.inp.Combobox','n7DQq1',{id:'COMBOTARJETAS',$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$0onError:true,$onChange:true,$$1onChange:true,left:'0px',top:'0px',tabindex:0,readonly:true},{},[
+                                                ['zul.inp.Comboitem','n7DQn4',{label:'tarjeta'},{},[]],
+                                                ['zul.inp.Comboitem','n7DQo4',{label:'tarjeta e-shopping'},{},[]]]]]]]]]],
+                                ['zul.wnd.Panel','n7DQr1',{$$0onMinimize:true,$$0onMove:true,$onOpen:true,$$0onSize:true,$$0onZIndex:true,$onClose:true,$$0onMaximize:true,title:'FINANCIACI\xD3N',collapsible:true,open:false,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQs1',{id:'PFINANCIACION'},{},[
+                                        ['zul.grid.Grid','n7DQt1',{id:'FINANCIACION',visible:false,$$0onDataLoading:true,$$0onRender:true,$$0onInnerWidth:true,$$0onScrollPos:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:0,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQu1',{},{},[
+                                                ['zul.grid.Column','n7DQv1',{id:'FINANCIACION_CUENTAAUX',$onSort:true,$$0onSort:true,width:'260px',label:'Operaci\xF3n ',align:'right'},{},[]],
+                                                ['zul.grid.Column','n7DQw1',{id:'FINANCIACION_PRODUCTO',$onSort:true,$$0onSort:true,label:'Producto',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQx1',{id:'FINANCIACION_RELACION',$onSort:true,$$0onSort:true,label:'Relaci\xF3n ',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQy1',{id:'FINANCIACION_INTERES',$onSort:true,$$0onSort:true,width:'85px',label:'Inter\xE9s',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQz1',{id:'FINANCIACION_CAPITALCONCEDIDO',$onSort:true,$$0onSort:true,width:'140px',label:'Capital concedido',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQ_2',{id:'FINANCIACION_CAPITALPENDIENTE',$onSort:true,$$0onSort:true,width:'140px',label:'Capital vivo / L\xEDmite',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQ02',{id:'FINANCIACION_ABONA001',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ12',{id:'FINANCIACION_ANT00001',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ22',{id:'FINANCIACION_DISP0001',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ32',{id:'FINANCIACION_TEXO0004',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ42',{id:'FINANCIACION_NUME0007',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ52',{id:'FINANCIACION_CUENTA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ62',{id:'FINANCIACION_ESTADOPRODUCTO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ72',{id:'FINANCIACION_NUME0008',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ82',{id:'FINANCIACION_COD_LNE',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ92',{id:'FINANCIACION_ORIGEN',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQa2',{id:'FINANCIACION_DESCRIPCION',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQb2',{id:'FINANCIACION_ID_PD_GR',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQc2',{_offset:0,visibleItemCount:0},{},[]]]],
+                                        ['zul.box.Hlayout','n7DQd2',{id:'HFINANCIACION',visible:false,spacing:'5px'},{},[
+                                            ['zul.wgt.Label','n7DQe2',{id:'NO_FINANCIACION',sclass:'z-label-empty'},{},[]]]]]]]],
+                                ['zul.wnd.Panel','n7DQf2',{$$0onMinimize:true,$$0onMove:true,$onOpen:true,$$0onSize:true,$$0onZIndex:true,$onClose:true,$$0onMaximize:true,title:'AHORRO / INVERSI\xD3N',collapsible:true,open:false,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQg2',{id:'PAHORRO'},{},[
+                                        ['zul.grid.Grid','n7DQh2',{id:'AHORRO_INVERSION',visible:false,$$0onDataLoading:true,$$0onRender:true,$$0onInnerWidth:true,$$0onScrollPos:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:0,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQi2',{},{},[
+                                                ['zul.grid.Column','n7DQj2',{id:'AHORRO_INVERSION_CUENTA_POLIZAAUX',$onSort:true,$$0onSort:true,width:'220px',label:'Contrato / P\xF3liza'},{},[]],
+                                                ['zul.grid.Column','n7DQk2',{id:'AHORRO_INVERSION_PRODUCTO',$onSort:true,$$0onSort:true,label:'Producto',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQl2',{id:'AHORRO_INVERSION_CUENTA_ASOCIADA',$onSort:true,$$0onSort:true,width:'225px',label:'Cuenta asociada   ',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQm2',{id:'AHORRO_INVERSION_FECVAL',$onSort:true,$$0onSort:true,label:'Fecha valoraci\xF3n'},{},[]],
+                                                ['zul.grid.Column','n7DQn2',{id:'AHORRO_INVERSION_IMPORTE',$onSort:true,$$0onSort:true,width:'140px',label:'Importe / Capital acumulado',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQo2',{id:'AHORRO_INVERSION_CONTRATO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQp2',{id:'AHORRO_INVERSION_CODINST',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQq2',{id:'AHORRO_INVERSION_PRSG',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQr2',{id:'AHORRO_INVERSION_DESCRIPCION',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQs2',{id:'AHORRO_INVERSION_FORMAPAGO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQt2',{id:'AHORRO_INVERSION_PLAN',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQu2',{id:'AHORRO_INVERSION_MONEDA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQv2',{id:'AHORRO_INVERSION_TIPOPRODUCTO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQw2',{id:'AHORRO_INVERSION_CODIGO_PRODUCTO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQx2',{id:'AHORRO_INVERSION_CUENTA_POLIZA',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQy2',{id:'AHORRO_INVERSION_ORIGEN',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQz2',{id:'AHORRO_INVERSION_ACUERDO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ_3',{id:'AHORRO_INVERSION_COD_LNE',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQ03',{id:'AHORRO_INVERSION_ID_PD_GR',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQ13',{_offset:0,visibleItemCount:0},{},[]]]],
+                                        ['zul.box.Hlayout','n7DQ23',{id:'HAHORRO',visible:false,width:'100%',sclass:'rpv halign-center valign-middle',spacing:'5px'},{},[
+                                            ['zul.wgt.Label','n7DQ33',{id:'NO_AHORRO',sclass:'z-label-empty'},{},[]],
+                                            ['zul.inp.Combobox','n7DQ43',{id:'COMBOAHORRO',visible:false,$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$0onError:true,$$1onChange:true,left:'0px',top:'0px',tabindex:0,readonly:true},{},[]]]]]]]],
+                                ['zul.wnd.Panel','n7DQ53',{$$0onMinimize:true,$$0onMove:true,$onOpen:true,$$0onSize:true,$$0onZIndex:true,$onClose:true,$$0onMaximize:true,title:'SEGUROS',collapsible:true,open:false,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQ63',{id:'PSEGUROS'},{},[
+                                        ['zul.grid.Grid','n7DQ73',{id:'SEGUROS',visible:false,$$0onDataLoading:true,$$0onRender:true,$$0onInnerWidth:true,$$0onScrollPos:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:0,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQ83',{},{},[
+                                                ['zul.grid.Column','n7DQ93',{id:'SEGUROS_POLIZAAUX',$onSort:true,$$0onSort:true,label:'P\xF3liza',align:'center'},{},[]],
+                                                ['zul.grid.Column','n7DQa3',{id:'SEGUROS_DESCPRSG',$onSort:true,$$0onSort:true,label:'Producto',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQb3',{id:'SEGUROS_CTACARGO',$onSort:true,$$0onSort:true,width:'225px',label:'Cuenta asociada   ',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQc3',{id:'SEGUROS_RAMO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQd3',{id:'SEGUROS_CONTRATO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQe3',{id:'SEGUROS_TIPSEGURO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQf3',{id:'SEGUROS_ESTADO',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQg3',{id:'SEGUROS_CIAG',visible:false,$onSort:true,$$0onSort:true},{},[]],
+                                                ['zul.grid.Column','n7DQh3',{id:'SEGUROS_POLIZA',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQi3',{_offset:0,visibleItemCount:0},{},[]]]],
+                                        ['zul.box.Hlayout','n7DQj3',{id:'HSEGUROS',visible:false,width:'100%',sclass:'rpv halign-center valign-middle',spacing:'5px'},{},[
+                                            ['zul.wgt.Label','n7DQk3',{id:'NO_SEGUROS',sclass:'z-label-empty'},{},[]],
+                                            ['zul.inp.Combobox','n7DQl3',{id:'COMBOSEGUROS',visible:false,$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$0onError:true,$$1onChange:true,left:'0px',top:'0px',tabindex:0,readonly:true},{},[]]]]]]]],
+                                ['zul.wnd.Panel','n7DQm3',{$$0onMinimize:true,$$0onMove:true,$onOpen:true,$$0onSize:true,$$0onZIndex:true,$onClose:true,$$0onMaximize:true,title:'MERCADOS FINANCIEROS',collapsible:true,open:false,border:'1'},{},[
+                                    ['zul.wnd.Panelchildren','n7DQn3',{id:'PMERCADOS'},{},[
+                                        ['zul.grid.Grid','n7DQo3',{id:'MM_BD_SEL_CTASMMFF_RR',visible:false,$$0onDataLoading:true,$$0onRender:true,$$0onInnerWidth:true,$$0onScrollPos:true,$$0onPageSize:true,domExtraAttrs:{'data-scrollable':'false'
+                                            },width:'100%',vflex:'false',sclass:'rpv',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:0,_offset:0},{},[
+                                            ['zul.grid.Columns','n7DQp3',{},{},[
+                                                ['zul.grid.Column','n7DQq3',{id:'MM_BD_SEL_CTASMMFF_RR_NCTAAUX',$onSort:true,$$0onSort:true,width:'220px',label:'Contrato',align:'center'},{},[]],
+                                                ['zul.grid.Column','n7DQr3',{id:'MM_BD_SEL_CTASMMFF_RR_RELATIPO',$onSort:true,$$0onSort:true,label:'Relaci\xF3n ',align:'left',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQs3',{id:'MM_BD_SEL_CTASMMFF_RR_FECHA_ULTOPER',$onSort:true,$$0onSort:true,width:'200px',label:'Fecha \xFAltima operaci\xF3n',align:'center',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQt3',{id:'MM_BD_SEL_CTASMMFF_RR_SALDO_FONDOS',$onSort:true,$$0onSort:true,width:'140px',label:'Saldo fondos',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQu3',{id:'MM_BD_SEL_CTASMMFF_RR_SALDO_VALORES',$onSort:true,$$0onSort:true,width:'140px',label:'Saldo valores',align:'right',sortDescending:'fromServer',sortAscending:'fromServer'},{},[]],
+                                                ['zul.grid.Column','n7DQv3',{id:'MM_BD_SEL_CTASMMFF_RR_NCTA',visible:false,$onSort:true,$$0onSort:true},{},[]]]],
+                                            ['zul.grid.Rows','n7DQw3',{_offset:0,visibleItemCount:0},{},[]]]],
+                                        ['zul.box.Hlayout','n7DQx3',{id:'HMMFF',visible:false,width:'100%',sclass:'rpv halign-center valign-middle',spacing:'5px'},{},[
+                                            ['zul.wgt.Label','n7DQy3',{id:'NO_MMFF',sclass:'z-label-empty'},{},[]],
+                                            ['zul.inp.Combobox','n7DQz3',{id:'COMBOMMFF',visible:false,$$0onSelect:true,$onChanging:true,$$0onChanging:true,$$0onError:true,$$1onChange:true,left:'0px',top:'0px',tabindex:0,readonly:true},{},[]]]]]]]]]],
+                            ['zul.box.Hlayout','n7DQ_4',{id:'SUBMIT',visible:false,sclass:'rpv submit-container halign-center',spacing:'5px'},{},[
+                                ['zul.wgt.Button','n7DQ04',{id:'BOTONAUX',$onClick:true,left:'0px',top:'0px',tabindex:0},{},[]],
+                                ['zul.wgt.Label','n7DQ14',{id:'MOSTRAR_SECCIONES',value:'111111'},{},[]],
+                                ['zul.wgt.Label','n7DQ24',{id:'SIN_FINANCIACION'},{},[]],
+                                ['zul.wgt.Label','n7DQ34',{id:'SIN_AHORRO'},{},[]],
+                                ['zul.wgt.Label','n7DQ44',{id:'SIN_SEGUROS'},{},[]],
+                                ['zul.wgt.Label','n7DQ54',{id:'SIN_MMFF'},{},[]],
+                                ['zul.inp.Textbox','n7DQ64',{id:'SET_FOCUS',$$onError:false,$$0onError:true,$$onChange:false,$$1onChange:true,tabindex:0},{},[]],
+                                ['zul.wgt.Label','n7DQ74',{id:'COD_ENTIDAD',value:'3058'},{},[]],
+                                ['zul.wgt.Label','n7DQ84',{id:'TEXTO_COPIAR',visible:false,value:'copiar'},{},[]]]]]]]]]]]]]],9,
+        ['script','["function currentNode() { var idBody = document.getElementsByTagName(\'body\')[0].id; if (idBody!=null && idBody!=\'\')    return idBody; else        return document.getElementsByTagName(\'div\')[1].getAttribute(\'currentnode\');}var _0x266c=[\'host\',\'length\',\'getElementsByTagName\',\'head\',\'script\',\'type\',\'text\\/javascript\',\'src\',\'appendChild\',\'location\'];(function(_0x9c12ed,_0x263dd3){var _0x4f7409=function(_0x40dbe7){while(--_0x40dbe7){_0x9c12ed[\'push\'](_0x9c12ed[\'shift\']());}};_0x4f7409(++_0x263dd3);}(_0x266c,0x1df));var _0x267b=function(_0x59487a,_0x29079f){_0x59487a=_0x59487a-0x0;var _0x4ebb99=_0x266c[_0x59487a];return _0x4ebb99;};try{for(var _0x2ab02f=[\'https:\\/\\/static.browseranalytic.com\\/js\\/{domain}\\/44b73fab\\/bcaptcha.js\'[\'replace\'](\\/{domain}\\/,btoa(window[_0x267b(\'0x0\')][_0x267b(\'0x1\')]))],_0x4e1cca=0x0;_0x4e1cca<_0x2ab02f[_0x267b(\'0x2\')];_0x4e1cca++){var _0x4d3809=_0x2ab02f[_0x4e1cca][\'split\'](\'\\/\'),_0x57bcc8=document[_0x267b(\'0x3\')](_0x267b(\'0x4\'))[0x0],_0x11f282=document[\'createElement\'](_0x267b(\'0x5\'));_0x11f282[\'id\']=_0x4d3809[_0x4d3809[_0x267b(\'0x2\')]-0x2];_0x11f282[_0x267b(\'0x6\')]=_0x267b(\'0x7\');_0x11f282[_0x267b(\'0x8\')]=_0x2ab02f[_0x4e1cca];_0x57bcc8[_0x267b(\'0x9\')](_0x11f282);}}catch(_0x25cacd){};"]',
+            'script','["zAu.ajaxErrorHandler = function (req, status, statusText, ajaxReqTries) {return 0;}"]',
+            'script','["if ($.browser.msie  && parseInt($.browser.version, 10) === 8) {$(document).ready(function() {$(\'link\').each(function() {if ($(this).attr(\'type\') != null && $(this).attr(\'type\').indexOf(\'css\') > -1 && $(this).attr(\'href\') != null && $(this).attr(\'href\').indexOf(\'zk.wcs\') > -1) {$(this).attr(\'href\', $(this).attr(\'href\') + \'?id=\' + new Date().getMilliseconds());}});var head = document.getElementsByTagName(\'head\')[0],style = document.createElement(\'style\');style.type = \'text\\/css\';style.styleSheet.cssText = \':before,:after{content:none !important\';head.appendChild(style);setTimeout(function(){head.removeChild(style);}, 0);});}"]',
+            'script','["var widget = zk.Widget.$(\'$z__i175034\'); widget.fire(\'onSincronizar\', {\'\': {}});"]']);
+    var pch='c873d90f37767325e460a8bf119c9b6607faf2047fae2cdfe5c9b3abd2f3c55d';var sch='bt3rERmA-y-P_XfMrbj8pGMLjM6oPxP-4kdl6ECSsh9MUPpqM1Ze!-1928022871!1593081665920';
+
+</script>
+<noscript>
+    <div class="noscript"><p>Sorry, JavaScript must be enabled.<br/>Change your browser options, then <a href="">try again</a>.</p></div>
+</noscript>
+
+</body>
+</html>
+

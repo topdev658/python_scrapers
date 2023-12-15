@@ -1,0 +1,1531 @@
+{
+  "data": {
+    "hasMoreData": false,
+    "family": [
+      {
+        "id": "TARJETAS DE CREDITO",
+        "internalCode": "00029",
+        "balances": [
+          {
+            "id": "balance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 0.00,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "FONDOS NACIONALES",
+        "internalCode": "00025",
+        "balances": [
+          {
+            "id": "balance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 2793.54,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "PLANES INDIVIDUALES",
+        "internalCode": "00027",
+        "balances": [
+          {
+            "id": "balance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 6128.46,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CUENTAS PERSONALES",
+        "internalCode": "00056",
+        "balances": [
+          {
+            "id": "balance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 44123.28,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "liabilityBalance",
+        "balances": [
+          {
+            "id": "liabilityBalance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 0.00,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "assetBalance",
+        "balances": [
+          {
+            "id": "assetBalance",
+            "currencies": [
+              {
+                "id": "EUR",
+                "amountBalances": [
+                  {
+                    "amount": 53045.28,
+                    "currency": "EUR"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "hasViewers": true,
+    "isEnrolled": true,
+    "contracts": [
+      {
+        "id": "ES9095081000000000000000000505109977XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "FONDOS DE INVERSION",
+              "internalCode": "00008"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "FONDOS NACIONALES",
+              "internalCode": "00025"
+            }
+          ]
+        },
+        "number": "00000000000000000505109977",
+        "numberType": {
+          "id": "IUC"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "9095"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "2"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000000430",
+          "name": "QUALITY INVERSIÓN MODERADA, FI",
+          "description": "QUALITY INVERSIÓN MODERADA, FI"
+        },
+        "productType": "INVESTMENT_FUND",
+        "formats": [
+          {
+            "number": "01820121081000000018074921",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000505109977",
+            "numberType": {
+              "id": "IUC"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "liquidValue",
+              "amounts": [
+                {
+                  "amount": 12.433836,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "balance",
+              "amounts": [
+                {
+                  "amount": 961.04,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "funds": [
+            {
+              "number": "ES0172242002",
+              "numberType": {
+                "id": "ISIN"
+              },
+              "netAssetValue": {
+                "amount": 961.04,
+                "currency": "EUR"
+              }
+            }
+          ],
+          "ownedShares": 77.2919737,
+          "maturityDate": "0001-01-01T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES9095081000000000000000000505109817XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "FONDOS DE INVERSION",
+              "internalCode": "00008"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "FONDOS NACIONALES",
+              "internalCode": "00025"
+            }
+          ]
+        },
+        "number": "00000000000000000505109817",
+        "numberType": {
+          "id": "IUC"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "9095"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "2"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000002316",
+          "name": "BBVA MEGATENDEN.PLANETA TIERRA",
+          "description": "BBVA MEGATENDEN.PLANETA TIERRA"
+        },
+        "productType": "INVESTMENT_FUND",
+        "formats": [
+          {
+            "number": "01820121081000000018074920",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000505109817",
+            "numberType": {
+              "id": "IUC"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "liquidValue",
+              "amounts": [
+                {
+                  "amount": 7.323488,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "balance",
+              "amounts": [
+                {
+                  "amount": 950.99,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "funds": [
+            {
+              "number": "ES0172243000",
+              "numberType": {
+                "id": "ISIN"
+              },
+              "netAssetValue": {
+                "amount": 950.99,
+                "currency": "EUR"
+              }
+            }
+          ],
+          "ownedShares": 129.8552724,
+          "maturityDate": "0001-01-01T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES9095081000000000000000000505110087XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "FONDOS DE INVERSION",
+              "internalCode": "00008"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "FONDOS NACIONALES",
+              "internalCode": "00025"
+            }
+          ]
+        },
+        "number": "00000000000000000505110087",
+        "numberType": {
+          "id": "IUC"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "9095"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "2"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000000246",
+          "name": "QUALITY MEJORES IDEAS, FI",
+          "description": "QUALITY MEJORES IDEAS, FI"
+        },
+        "productType": "INVESTMENT_FUND",
+        "formats": [
+          {
+            "number": "01820121081000000018074923",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000505110087",
+            "numberType": {
+              "id": "IUC"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "liquidValue",
+              "amounts": [
+                {
+                  "amount": 11.790822,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "balance",
+              "amounts": [
+                {
+                  "amount": 881.51,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "funds": [
+            {
+              "number": "ES0110119031",
+              "numberType": {
+                "id": "ISIN"
+              },
+              "netAssetValue": {
+                "amount": 881.51,
+                "currency": "EUR"
+              }
+            }
+          ],
+          "ownedShares": 74.7627777,
+          "maturityDate": "0001-01-01T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES0182061500000000000000000433791534XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "FINANCIACION",
+              "internalCode": "00002"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "TARJETAS DE CREDITO",
+              "internalCode": "00016"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "TARJETAS DE CREDITO",
+              "internalCode": "00029"
+            }
+          ]
+        },
+        "number": "5478240004324483",
+        "numberType": {
+          "id": "PAN"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0T00000189",
+          "name": "TARJETAS DE CREDITO",
+          "description": "TARJETA NEGOCIOS CREDITO"
+        },
+        "productType": "CARD",
+        "subProductType": {
+          "id": "CREDIT_CARD"
+        },
+        "formats": [
+          {
+            "number": "01820121061500000030989181",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000433791534",
+            "numberType": {
+              "id": "IUC"
+            }
+          },
+          {
+            "number": "5478240004324483",
+            "numberType": {
+              "id": "PAN"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "detail": {
+          "expirationDate": "0001-01-01T00:00:00.000+0100",
+          "indicators": [
+            {
+              "id": "IS_BUSINESS_CARD",
+              "isActive": true
+            },
+            {
+              "id": "IS_RELOADABLE",
+              "isActive": true
+            },
+            {
+              "id": "IS_AFFINITY",
+              "isActive": false
+            }
+          ],
+          "specificAmounts": [
+            {
+              "id": "availableBalance",
+              "amounts": [
+                {
+                  "amount": 2000.00,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 2000.00,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "limit",
+              "amounts": [
+                {
+                  "amount": 2000.00,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "disposedAmount",
+              "amounts": [
+                {
+                  "amount": 0.00,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "paymentMethod": {
+            "id": "TOTAL_AMOUNT_PAYMENT",
+            "period": {
+              "id": "MONTHLY"
+            }
+          },
+          "internalProduct": {
+            "product": {
+              "id": "9841"
+            },
+            "offer": {
+              "id": "0000"
+            }
+          },
+          "embossingDate": "2019-05-17T00:00:00.000+0200",
+          "migrationType": "NORMAL",
+          "status": {
+            "id": "OPERATIVE",
+            "reason": {}
+          },
+          "dependencyValue": "000000001"
+        }
+      },
+      {
+        "id": "ES0182061600000000000000000270546984XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "TARJETAS DE DEBITO",
+              "internalCode": "00005"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "TARJETAS DE DEBITO",
+              "internalCode": "00022"
+            }
+          ]
+        },
+        "number": "5181760004611421",
+        "numberType": {
+          "id": "PAN"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000011176",
+          "name": "TARJETAS DE DEBITO",
+          "description": "TARJETA AHORA MASTERCARD"
+        },
+        "productType": "CARD",
+        "subProductType": {
+          "id": "DEBIT_CARD"
+        },
+        "formats": [
+          {
+            "number": "01820121061600000020437694",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000270546984",
+            "numberType": {
+              "id": "IUC"
+            }
+          },
+          {
+            "number": "5181760004611421",
+            "numberType": {
+              "id": "PAN"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "detail": {
+          "expirationDate": "0001-01-01T00:00:00.000+0100",
+          "indicators": [
+            {
+              "id": "IS_BUSINESS_CARD",
+              "isActive": false
+            },
+            {
+              "id": "IS_RELOADABLE",
+              "isActive": true
+            },
+            {
+              "id": "IS_AFFINITY",
+              "isActive": false
+            }
+          ],
+          "specificAmounts": [
+            {
+              "id": "availableBalance",
+              "amounts": [
+                {
+                  "amount": 0.00,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 0.00,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "paymentMethod": {
+            "id": "TOTAL_AMOUNT_PAYMENT",
+            "period": {
+              "id": "INMEDIATE"
+            }
+          },
+          "internalProduct": {
+            "product": {
+              "id": "3096"
+            },
+            "offer": {
+              "id": "0000"
+            }
+          },
+          "embossingDate": "2019-06-10T00:00:00.000+0200",
+          "migrationType": "NORMAL",
+          "status": {
+            "id": "OPERATIVE",
+            "reason": {}
+          },
+          "dependencyValue": "000000001"
+        }
+      },
+      {
+        "id": "ES0182061600000000000000000415242973XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "TARJETAS DE DEBITO",
+              "internalCode": "00005"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "TARJETAS DE DEBITO",
+              "internalCode": "00022"
+            }
+          ]
+        },
+        "number": "5181760022542533",
+        "numberType": {
+          "id": "PAN"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000009719",
+          "name": "TARJETAS DE DEBITO",
+          "description": "TARJETA AHORA MASTERCARD"
+        },
+        "productType": "CARD",
+        "subProductType": {
+          "id": "DEBIT_CARD"
+        },
+        "formats": [
+          {
+            "number": "01820121061600000032887249",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000415242973",
+            "numberType": {
+              "id": "IUC"
+            }
+          },
+          {
+            "number": "5181760022542533",
+            "numberType": {
+              "id": "PAN"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "detail": {
+          "expirationDate": "0001-01-01T00:00:00.000+0100",
+          "indicators": [
+            {
+              "id": "IS_BUSINESS_CARD",
+              "isActive": false
+            },
+            {
+              "id": "IS_RELOADABLE",
+              "isActive": true
+            },
+            {
+              "id": "IS_AFFINITY",
+              "isActive": false
+            }
+          ],
+          "specificAmounts": [
+            {
+              "id": "availableBalance",
+              "amounts": [
+                {
+                  "amount": 0.00,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 0.00,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "paymentMethod": {
+            "id": "TOTAL_AMOUNT_PAYMENT",
+            "period": {
+              "id": "INMEDIATE"
+            }
+          },
+          "internalProduct": {
+            "product": {
+              "id": "9929"
+            },
+            "offer": {
+              "id": "0000"
+            }
+          },
+          "embossingDate": "2018-09-24T00:00:00.000+0200",
+          "migrationType": "NORMAL",
+          "status": {
+            "id": "OPERATIVE",
+            "reason": {}
+          },
+          "dependencyValue": "000000001"
+        }
+      },
+      {
+        "id": "ES9184080000000000000000000256847898XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "PLANES DE PENSIONES",
+              "internalCode": "00009"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "PLANES INDIVIDUALES",
+              "internalCode": "00027"
+            }
+          ]
+        },
+        "number": "00000000000000000256847898",
+        "numberType": {
+          "id": "IUC"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "9184"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000007778",
+          "name": "BBVA PLAN MULTIACTIVO DECIDIDO",
+          "description": "BBVA PLAN MULTIACTIVO DECIDIDO"
+        },
+        "productType": "RETIREMENT_PLAN",
+        "formats": [
+          {
+            "number": "01820121080000000005338138",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000256847898",
+            "numberType": {
+              "id": "IUC"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "balance",
+              "amounts": [
+                {
+                  "amount": 6094.69,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "ownedShares": "4618.3130376",
+          "netAssetValue": {
+            "amount": 1.319679,
+            "currency": "EUR"
+          },
+          "expirationDate": "0001-01-01T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES9184080000000000000000000372995291XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "PLANES DE PENSIONES",
+              "internalCode": "00009"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "PLANES INDIVIDUALES",
+              "internalCode": "00027"
+            }
+          ]
+        },
+        "number": "00000000000000000372995291",
+        "numberType": {
+          "id": "IUC"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "9184"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "SINGLE"
+        },
+        "currencies": [
+          {
+            "currency": " ",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000000908",
+          "name": "BBVA PLAN MERCADO MONETARIO, PPI",
+          "description": "BBVA PLAN MERCADO MONETARIO, PPI"
+        },
+        "productType": "RETIREMENT_PLAN",
+        "formats": [
+          {
+            "number": "01820121080000000007263305",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000372995291",
+            "numberType": {
+              "id": "IUC"
+            }
+          }
+        ],
+        "isLegacy": true,
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "balance",
+              "amounts": [
+                {
+                  "amount": 33.77,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "ownedShares": "29.7180015",
+          "netAssetValue": {
+            "amount": 1.136198,
+            "currency": "EUR"
+          },
+          "expirationDate": "0001-01-01T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES0182002000000000000000000477248086XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "CUENTAS EN EUROS Y DIVISAS",
+              "internalCode": "00004"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "CUENTAS PERSONALES",
+              "internalCode": "00056"
+            }
+          ]
+        },
+        "number": "ES5901820121160201685745",
+        "numberType": {
+          "id": "IBAN"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "INDISTINCT"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "2"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0000015109",
+          "name": "CUENTAS PERSONALES",
+          "description": "CUENTA VA CONTIGO"
+        },
+        "productType": "ACCOUNT",
+        "formats": [
+          {
+            "number": "01820121002000000000168574",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000477248086",
+            "numberType": {
+              "id": "IUC"
+            }
+          },
+          {
+            "number": "01820121160201685745",
+            "numberType": {
+              "id": "CCC"
+            }
+          },
+          {
+            "number": "ES5901820121160201685745",
+            "numberType": {
+              "id": "IBAN"
+            }
+          }
+        ],
+        "isLegacy": false,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "availableBalance",
+              "amounts": [
+                {
+                  "amount": 40010.46,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 40010.46,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "currentBalance",
+              "amounts": [
+                {
+                  "amount": 40010.46,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 40010.46,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "expirationDate": "9999-12-31T00:00:00.000+0100"
+        }
+      },
+      {
+        "id": "ES0182002000000000000000000405303614XXXXXXXXX",
+        "classification": {
+          "level": [
+            {
+              "id": "FIRST_LEVEL",
+              "name": "INVERSION",
+              "internalCode": "00001"
+            },
+            {
+              "id": "SECOND_LEVEL",
+              "name": "CUENTAS EN EUROS Y DIVISAS",
+              "internalCode": "00004"
+            },
+            {
+              "id": "THIRD_LEVEL",
+              "name": "CUENTAS PERSONALES",
+              "internalCode": "00056"
+            }
+          ]
+        },
+        "number": "ES3701821150050201568494",
+        "numberType": {
+          "id": "IBAN"
+        },
+        "countryId": "ES",
+        "bank": {
+          "id": "0182"
+        },
+        "branch": {
+          "id": "0121"
+        },
+        "signedAuthorization": {
+          "id": "SINGLE"
+        },
+        "currencies": [
+          {
+            "currency": "EUR",
+            "isMajor": true
+          }
+        ],
+        "participant": {
+          "participantType": {
+            "id": "HOLDER",
+            "order": "1"
+          },
+          "name": "HOLDER"
+        },
+        "userAccessControl": [
+          {
+            "channel": {
+              "id": "BBVANet"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "CAJEROS"
+            },
+            "isVisible": true,
+            "canOperate": true
+          },
+          {
+            "channel": {
+              "id": "BANCA_TELEFONICA"
+            },
+            "isVisible": true,
+            "canOperate": true
+          }
+        ],
+        "marketerEntity": {
+          "id": "0182"
+        },
+        "product": {
+          "id": "0CA0000245",
+          "name": "CUENTAS PERSONALES",
+          "description": "CUENTA ONLINE"
+        },
+        "productType": "ACCOUNT",
+        "formats": [
+          {
+            "number": "01820121002000000000000019",
+            "numberType": {
+              "id": "BOCF"
+            }
+          },
+          {
+            "number": "00000000000000000405303614",
+            "numberType": {
+              "id": "IUC"
+            }
+          },
+          {
+            "number": "01821150050201568494",
+            "numberType": {
+              "id": "CCC"
+            }
+          },
+          {
+            "number": "ES3701821150050201568494",
+            "numberType": {
+              "id": "IBAN"
+            }
+          }
+        ],
+        "isLegacy": false,
+        "arrearsSituation": "NO_ARREARS",
+        "detail": {
+          "specificAmounts": [
+            {
+              "id": "availableBalance",
+              "amounts": [
+                {
+                  "amount": 4112.82,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 4112.82,
+                  "currency": "EUR"
+                }
+              ]
+            },
+            {
+              "id": "currentBalance",
+              "amounts": [
+                {
+                  "amount": 4112.82,
+                  "currency": "EUR"
+                },
+                {
+                  "amount": 4112.82,
+                  "currency": "EUR"
+                }
+              ]
+            }
+          ],
+          "expirationDate": "9999-12-31T00:00:00.000+0100"
+        }
+      }
+    ]
+  }
+}

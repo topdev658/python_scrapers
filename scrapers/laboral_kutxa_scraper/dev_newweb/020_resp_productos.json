@@ -1,0 +1,309 @@
+{
+  "misProductos": [
+    {
+      "entidad": {
+        "iconoUrl": "https://lkweb.laboralkutxa.com/entidades/PRV72400003035-65.png",
+        "id": "PRV72400003035"
+      },
+      "actualizandoSaldo": false,
+      "alias": "CUENTA PROFESIONAL",
+      "aliasEditable": true,
+      "categoriaC14D": {
+        "grupo": "1",
+        "orden": "01",
+        "subgrupo": "1"
+      },
+      "categoriaId": "1",
+      "desactivada": false,
+      "disponible": {
+        "cantidad": 18049.18,
+        "moneda": "EUR"
+      },
+      "esCuentaDomiciliacionTarjeta": false,
+      "esCuentaDomiciliacionTarjetaCredito": false,
+      "esDeCredito": false,
+      "esMancomunada": false,
+      "esProductoParticular": false,
+      "familia": "001",
+      "grupo": "cuentasCorrientes",
+      "id": "0",
+      "importeASumar": {
+        "cantidad": 17449.18,
+        "moneda": "EUR"
+      },
+      "nombreProducto": "CUENTA PROFESIONAL",
+      "numero": "ES4330350045270450086742",
+      "numeroCorto": "0450086742",
+      "origen": "",
+      "permisos": [
+        {
+          "nombre": "verMovimientos"
+        },
+        {
+          "nombre": "verDetalle"
+        },
+        {
+          "nombre": "domiciliarServicioAlertas"
+        },
+        {
+          "nombre": "traspasoDestino"
+        },
+        {
+          "nombre": "traspasoOrigen"
+        },
+        {
+          "nombre": "transferencia"
+        },
+        {
+          "nombre": "halCash"
+        },
+        {
+          "nombre": "traspasoOrigenAhorroClick"
+        },
+        {
+          "nombre": "domiciliarTarjetaPRO"
+        },
+        {
+          "nombre": "domiciliarTarjeta"
+        },
+        {
+          "nombre": "domiciliarPrestamo"
+        },
+        {
+          "nombre": "domiciliarSeguro"
+        },
+        {
+          "nombre": "domiciliarRecibo"
+        },
+        {
+          "nombre": "operarRecibo"
+        },
+        {
+          "nombre": "operarDepositos"
+        },
+        {
+          "nombre": "aportarPlan"
+        },
+        {
+          "nombre": "reembolsarFondo"
+        },
+        {
+          "nombre": "subscribirFondos"
+        },
+        {
+          "nombre": "solicitarCheques"
+        }
+      ],
+      "producto": "CRA",
+      "saldo": {
+        "cantidad": 17449.18,
+        "moneda": "EUR"
+      },
+      "titularidadId": "titular",
+      "visible": true
+    },
+    {
+      "entidad": {
+        "iconoUrl": "https://lkweb.laboralkutxa.com/entidades/PRV72400003035-65.png",
+        "id": "PRV72400003035"
+      },
+      "actualizandoSaldo": false,
+      "acumulado": {
+        "cantidad": 0.00,
+        "moneda": "EUR"
+      },
+      "alias": "LINEA DE RECIBOS",
+      "aliasEditable": true,
+      "categoriaC14D": {
+        "grupo": "3",
+        "orden": "01",
+        "subgrupo": "1"
+      },
+      "categoriaId": "84",
+      "disponible": {
+        "cantidad": 50000.00,
+        "moneda": "EUR"
+      },
+      "esProductoParticular": false,
+      "familia": "031",
+      "grupo": "cobros",
+      "id": "2",
+      "importeASumar": {
+        "cantidad": 0.0,
+        "moneda": "EUR"
+      },
+      "limite": {
+        "cantidad": 50000.00,
+        "moneda": "EUR"
+      },
+      "nombreProducto": "LINEA DE RECIBOS",
+      "numero": "0000078991",
+      "numeroCorto": "0000078991",
+      "origen": "",
+      "producto": "RBO",
+      "subGrupo": "lineaRecibos",
+      "titularidadId": "titular",
+      "visible": true
+    },
+    {
+      "entidad": {
+        "iconoUrl": "https://lkweb.laboralkutxa.com/entidades/PRV72400003035-65.png",
+        "id": "PRV72400003035"
+      },
+      "actualizandoSaldo": false,
+      "alias": "PRESTAMO",
+      "aliasEditable": true,
+      "categoriaC14D": {
+        "grupo": "4",
+        "orden": "06",
+        "subgrupo": "1"
+      },
+      "categoriaId": "97",
+      "esCuentaCreditoPagoAplazado": false,
+      "esProductoParticular": false,
+      "estaExcedido": false,
+      "familia": "008",
+      "fecha": "2020-12-29T23:00:00Z",
+      "grupo": "prestamos",
+      "id": "1",
+      "importeASumar": {
+        "cantidad": 50000.00,
+        "moneda": "EUR"
+      },
+      "nombreProducto": "PRESTAMO",
+      "numero": "0454643983",
+      "numeroCorto": "0454643983",
+      "origen": "",
+      "pendiente": {
+        "cantidad": 50000.00,
+        "moneda": "EUR"
+      },
+      "permisos": [
+        {
+          "nombre": "amortizar"
+        },
+        {
+          "nombre": "simularAmortizacion"
+        },
+        {
+          "nombre": "verDetallePrestamo"
+        },
+        {
+          "nombre": "verPagosRealizados"
+        },
+        {
+          "nombre": "verProximasCuotas"
+        },
+        {
+          "nombre": "verPagosRealizados"
+        }
+      ],
+      "producto": "PTM",
+      "proximaCuota": {
+        "cantidad": 93.75,
+        "moneda": "EUR"
+      },
+      "tipoPrestamo": "pgp",
+      "titularidadId": "titular",
+      "visible": true
+    },
+    {
+      "esProductoParticular": false,
+      "grupo": "ordenesPendientesCobro",
+      "id": "9998",
+      "importeASumar": {
+        "cantidad": 0.0,
+        "moneda": "EUR"
+      },
+      "origen": "pagoProveedores",
+      "visible": true
+    }
+  ],
+  "numeroOperacionesPendientesFirma": 0,
+  "productosDeOtros": [],
+  "seguros": [],
+  "_Importes": {
+    "_AportacionesLK": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_Bolsa": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_CuentasAhorro": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_CuentasAhorroNegocio": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_CuentasAhorroParticular": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_CuentasCorrientes": {
+      "cantidad": 17449.18,
+      "moneda": "EUR"
+    },
+    "_CuentasCorrientesNegocio": {
+      "cantidad": 17449.18,
+      "moneda": "EUR"
+    },
+    "_CuentasCorrientesParticular": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_Depositos": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_DispuestoTarjetas": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_Financiacion": {
+      "cantidad": 50000.00,
+      "moneda": "EUR"
+    },
+    "_FinanciacionNegocio": {
+      "cantidad": 50000.00,
+      "moneda": "EUR"
+    },
+    "_FinanciacionParticular": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_Fondos": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_MisAhorros": {
+      "cantidad": 17449.18,
+      "moneda": "EUR"
+    },
+    "_MisAhorrosNegocio": {
+      "cantidad": 17449.18,
+      "moneda": "EUR"
+    },
+    "_MisAhorrosParticular": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_Planes": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_RemesasExportacion": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    },
+    "_RemesasImportacion": {
+      "cantidad": 0.0,
+      "moneda": "EUR"
+    }
+  },
+  "mensaje": "",
+  "resultado": 0
+}

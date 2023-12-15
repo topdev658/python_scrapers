@@ -1,0 +1,23 @@
+can't use mobile app ruralvia for development - the app stops when using proxy; it can be passed using burpsuite without hidden mode, but the app still falls when trying to select organization -> try web
+
+several sessions per user account are allowed
+when selected an organization, can't process another organization
+several tabs are allowed, not necessary to log in to execute requests for each account?
+
+
+movements: if only one account per organization (contract) - the app uses this account instead of suggesting the dropdown to select the account when clicked at Movements link
+parse excel to get more than 50 movements from web
+
+== SOLUTION ==
+log in using requests (check generated cookies)
+get list of organizations
+
+log in necessary times to process each organization in parallel mode
+process each organization:
+  get list of accounts from Initio tab and upload the data
+  switch to Cuentas tab
+  process each account from dropdown parallel:
+    get list of movements and upload
+
+
+

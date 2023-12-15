@@ -1,0 +1,206 @@
+
+<HTML>
+<HEAD>
+    <TITLE>Consulta de Ultimos Movimientos</TITLE>
+    <SCRIPT language="JavaScript">
+        <!--
+        var sincargar = true;
+        var ejecutado = false;
+
+        function IniciaPag()
+        {
+            self.defaultStatus = "Consulta de Ultimos Movimientos";
+            return true;
+        }
+
+        function FinPag()
+        {
+            self.defaultStatus = "";
+            return true;
+        }
+
+        function CallAdelante()
+        {
+            document.maslineas.SENTIDO.value ="1";
+            return true;
+        }
+
+        function CallAtras()
+        {
+            document.maslineas.SENTIDO.value ="2";
+            return true;
+        }
+
+        function EnviarAExcel()
+        {
+            if ("SI" == "NO")
+            {
+                alert("No existen movimientos para pasar a Excel.");
+                return false;
+            }
+            else
+            {
+                document.xls.submit();
+                return true;
+            }
+        }
+
+        function CargarImg(obj, camino)
+        {
+            obj.src = camino;
+        }
+        // -->
+    </SCRIPT>
+
+    <!--hoja de estilos-->
+    <link rel="stylesheet" href="/FicherosGenerales/estilosKIE.css" type="text/css">
+</HEAD>
+
+<BODY bgcolor="#cccccc" text="#000000" link="#666666" vlink="#666666" alink="#666666" onLoad="return IniciaPag()" onUnload="return FinPag()">
+<SCRIPT language="JavaScript">
+    function Print() {
+        if (document.queryCommandSupported('print')) {
+            document.execCommand('print', false, null);
+        }
+        else {
+            window.parent.ventana_principal.focus();
+            window.print();
+        }
+    }
+</SCRIPT>
+<div style="width:100%; height:100%; background-color:#fff; border:0px; margin:0px; padding:0px;">
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%; background-color:#fff; border:0px; margin:0px; padding:0px;">
+        <tr style="width:100%; height:10px;" height="10" class="ScreenOnly">
+            <td width="10" height="10" style="width:10px; height:10px;" class="ScreenOnly"><img src="/imk/ai.gif" width="10" height="10" style="width:10px; height:10px;"/></td>
+            <td height="10" style="height:10px;font-size:1px;">&nbsp;</td>
+            <td width="10" height="10" style="width:10px; height:10px;" class="ScreenOnly"><img src="/imk/ad.gif" width="10" height="10" style="width:10px; height:10px;"/></td>
+        </tr>
+        <tr>
+            <td width="10" style="width:10px;"><img src="/imk/pb.gif" width="10" style="width:10px;"/></td>
+            <td valign="top" style="position:relative;top:0px;">
+
+                <center>
+                    <table width="550" border="0" cellspacing="0" cellpadding="0" align="center" style="background-color:#ffffff;">
+                        <tr><td colspan="4" width="8" height="8"><img src="/ImgArista/punto.gif" width="8" height="8"/></td></tr>
+                        <tr>
+
+                            <td width="435"><font face="Verdana, Arial, Helvetica, sans-serif" size="4" color="#666666">Consulta de Ultimos Movimientos</font></td>
+
+                            <td width="10">&nbsp</td>
+
+                            <td width="80" class="txtazul"><div align="right">26-06-2020<BR>12:09:13</div></td>
+                            <td width="25" valign="middle" align="right"><A HREF="javascript:Print()"><IMG class="ScreenOnly" SRC="/ImgArista/impresora.gif" ALT="Imprimir" BORDER="0"></A></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" width="550" height="2" bgcolor="#D12176"><img src="/ImgArista/punto.gif" width="2" height="2"/></td>
+                        </tr>
+
+                    </table>
+                    <br/>
+
+                    <table width='550' border='0' cellspacing='0'>
+                        <TR>
+                            <TH class='txtazul' align='left' height=15>Cuenta:</TH>
+                            <TD class='txtazul' align='left' colspan=3>691.002305.8 (Cuenta Ordinaria En Divisas)</TD>
+                        </TR>
+                        <TR><td colspan='4'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></td></TR>
+                        <TR>
+                            <TH class='txtazul' align='left' height=15>Movimientos Desde:</TH>
+                            <TD class='txtazul' align='left'>01-01-2020</TD>
+                            <TH class='txtazul' align='left'>Saldo Anterior:</TH>
+                            <TD class='txtazul' align='right'>1.049,15+ USD</TD>
+                        </TR>
+                        <TR><td colspan='4'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></td></TR>
+                        <TR>
+                            <TH class='txtazul' align='left' height=15>Movimientos Hasta:</TH>
+                            <TD class='txtazul' align='left'>26-06-2020</TD>
+                            <TH class='txtazul' align='left'>Saldo Actual:</TH>
+                            <TD class='txtazul' align='right'>1.019,27+ USD</TD>
+                        </TR>
+                        <TR><td colspan='4'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></td></TR>
+                        <TR>
+                            <TH class='txtazul' align='left' height=15>&nbsp;</TH>
+                            <TD class='txtazul' align='left'>&nbsp;</TD>
+                            <TH class='txtazul' align='left'>Saldo Disponible:</TH>
+                            <TD class='txtazul' align='right'>1.019,27+ USD</TD>
+                        </TR>
+                        <TR><td colspan='4'><img src="/ImgArista/punto_blanco.gif" width="100%" height="1"></td></TR>
+                        <TR><td colspan='4'><img src="/ImgArista/punto.gif" width="100%" height="10"></td></TR>
+                    </TABLE>
+
+
+                    <form name="frm">
+                        <table width='575' border='0' cellspacing='0' cellpadding='0'><tr><td colspan='10'><img src='/ImgArista/punto_blanco.gif' width='100%' height='1'></td></tr><tr><td ALIGN='CENTER' nowrap bgcolor='#666666' class='txtblanco2' height='18'>F.Contable</td><td bgcolor='#666666' class='txtblanco2' height='18'><img src='/ImgArista/punto_gris.gif' width='1' height='18'></td><td ALIGN='CENTER' nowrap bgcolor='#666666' class='txtblanco2' height='18'>Oper.</td><td bgcolor='#666666' class='txtblanco2' height='18'><img src='/ImgArista/punto_gris.gif' width='1' height='18'></td><td ALIGN='CENTER' nowrap bgcolor='#666666' class='txtblanco2' height='18'>Concepto</td><td bgcolor='#666666' class='txtblanco2' height='18'><img src='/ImgArista/punto_gris.gif' width='1' height='18'></td><td ALIGN='CENTER'  nowrap bgcolor='#666666' class='txtblanco2' height='18'>F.Valor</td><td bgcolor='#666666' class='txtblanco2' height='18'><img src='/ImgArista/punto_gris.gif' width='1' height='18'></td><td ALIGN='CENTER' colspan='2' nowrap bgcolor='#666666' class='txtblanco2' height='18'>Importe Moneda Cta.</td></tr>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>07-01-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>81</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80203922 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>07-01-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>121830,12</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>07-01-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>O2</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80203922 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>07-01-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-5,04</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>09-01-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>82</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>TR80506353 RI80506083</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>09-01-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-121830,12</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>11-02-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>81</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80209071 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>11-02-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>84706,56</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>11-02-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>O2</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80209071 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>11-02-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-4,92</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>12-02-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>81</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80209135 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>12-02-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>43338,24</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>12-02-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>O2</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80209135 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>12-02-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-4,92</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>14-02-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>82</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>TR80506399 TRASP.A 23</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>14-02-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-128044,8</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>04-03-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>22</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>LIQUIDACION INTERESES</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>04-03-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-2,36</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>81</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80217137 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>485419,2</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>O2</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80217137 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-4,95</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>81</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80217138 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>347544</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>O2</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>OP80217138 GAMBASTAR</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>14-04-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-4,95</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR bgcolor='#EEEEEE'><TD nowrap class='txtazul' ALIGN='CENTER'>17-04-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>82</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>TR80506503 TRASP.A 23</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>17-04-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-832963,2</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                            <TR><TD nowrap class='txtazul' ALIGN='CENTER'>03-06-2020</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='CENTER'>22</TD><TD>&nbsp;</TD><TD class='txtazul' ALIGN='Left'><notranslate>LIQUIDACION INTERESES</notranslate></TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='CENTER'>03-06-2020</TD><TD>&nbsp;</TD><TD nowrap class='txtazul' ALIGN='Right'><notranslate>-2,74</notranslate></TD><TD nowrap class='txtazul' ALIGN='Middle'>USD</TD></TR>
+                        </TABLE>
+                    </form>
+
+
+                    <form name="xls" action="C020_DivisasXLS.asp" method="post">
+                        <input type="hidden" name="Id" value="496223487"/>
+                        <input type="hidden" name="lcuenta" value="6910023058@26@691.002305.8"/>
+                        <input type="hidden" name="FECHAINICIO" value="01012020"/>
+                        <input type="hidden" name="FECHAFIN" value="26062020"/>
+                        <input type="hidden" name="FICHERO" value="0"/>
+                        <input type="hidden" name="NUMERO" value="0"/>
+                        <input type="hidden" name="SENTIDO" value="0"/>
+                        <input type="hidden" name="HISTORICO" value="0"/>
+                        <input type="hidden" name="PRIMERO" value="0"/>
+                        <input type="hidden" name="PRIMERMOV" value="7850"/>
+                        <input type="hidden" name="FECHAPRIMERO" value=""/>
+                        <input type="hidden" name="FECHAULTIMO" value=""/>
+                    </form>
+
+                    <form name="maslineas" action="C020_Divisas.asp" method="post">
+                        <input type="hidden" name="Id" value="496223487"/>
+                        <input type="hidden" name="PRIMERMOV" value="7850"/>
+                        <input type="hidden" name="lcuenta" value="6910023058@26@691.002305.8"/>
+                        <input type="hidden" name="FECHAINICIO" value="01012020"/>
+                        <input type="hidden" name="FECHAFIN" value="26062020"/>
+                        <input type="hidden" name="FICHERO" value="NOTHING"/>
+                        <input type="hidden" name="NUMERO" value="0008000"/>
+                        <input type="hidden" name="SENTIDO"/>
+                        <input type="hidden" name="HISTORICO" value="NOTHING"/>
+                        <input type="hidden" name="PRIMERO" value="0007850"/>
+                        <input type="hidden" name="FECHAPRIMERO" value="07012020"/>
+                        <input type="hidden" name="FECHAULTIMO" value=""/>
+
+                    </form>
+
+                    <br style="font-size: 1px;">
+                    <table width="550" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="font-size: 1px;" width="100%" bgcolor="#D12176"><img src="/ImgArista/punto.gif" width="100%" height="2" alt=""/></td>
+                        </tr>
+                    </table>
+                </center>
+            </td>
+            <td width="10" style="width: 10px"><img src="/imk/pb.gif" width="10" style="width: 10px" alt=""/></td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <br/>
+
+</div>
+
+</BODY>
+<SCRIPT>
+    sincargar = false;
+</SCRIPT>
+</HTML>

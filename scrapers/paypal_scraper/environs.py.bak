@@ -1,0 +1,100 @@
+"""
+Access-specific cookies to emulate
+scraping from the 'confirmed' environment (web browser).
+Usually, these cookies require SMS confirmation and cannot be obtained
+without extra customer-provided efforts.
+
+Add once here the necessary cookies for every access after the SMS confirmation.
+"""
+
+from typing import Dict, NamedTuple
+
+
+Env = NamedTuple('Env', [
+    ('headers', Dict[str, str]),
+    ('cookies', Dict[str, str])
+])
+
+# {access_id_int: Env(headers={header_name: header_val}, cookies={cookie_name: cookie_val})}
+ENVS = {
+    31902: Env(
+        headers={
+            'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0',
+        },
+        cookies={
+            'd_id': '93bf289185a44f98bb9cb2deffff3dbc1634767508758',
+            'ts': 'vreXpYrS%3D1729699107%26vteXpYrS%3D1635006507%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff%26vtyp%3Dreturn',
+            'ts_c': 'vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK': 'zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd',
+            'ui_experience': 'login_type%3DEMAIL_PASSWORD%26home%3D3',
+            'x-pp-s': 'eyJ0IjoiMTYzNTAwNDUwMTI2OSIsImwiOiIwIiwibSI6IjAifQ',
+            'x-cdn': '0333',
+            'fn_dt': '5a73d77ad3ed4f7f9dfd48cca1835298',
+            'AV894Kt2TSumQQrJwe-8mzmyREO=': '',
+            'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=': '',
+            'rmuc': '-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq',
+            'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+            'X-PP-ADS': 'AToB4i50YYFsGTCJbNJ5s1UpIS6DsGE',
+            'LANG': 'es_ES%3BES',
+        }
+    ),
+    32757: Env(
+        headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36',
+        },
+        cookies={
+            'd_id': '37167588263848c99105858d9f2ce06b1638528085836',
+            'ts': 'vreXpYrS%3D1733223035%26vteXpYrS%3D1638530435%26vr%3D7fe26f3517d0ad006273ca47f9cd85ab%26vt%3D7fe26f3517d0ad006273ca47f9cd85aa%26vtyp%3Dnew',
+            'ts_c': 'vr%3D7fe26f3517d0ad006273ca47f9cd85ab%26vt%3D7fe26f3517d0ad006273ca47f9cd85aa',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK': 'd1wHFV64JBbwMLbQ0w3RCa1ghr4iEHfv9eg-cJ7NhdI8TH4w4jlg4GXI17F79R48Y5OS9rgzzkjwirNy',
+            'ui-experience': 'login_type%3DEMAIL_PASSWORD',
+            'x-pp-s': 'eyJ0IjoiMTYzODUyODYzNDk4NyIsImwiOiIxIiwibSI6IjAifQ',
+            'x-cdn': '0010',
+            'fn_dt': '37167588263848c99105858d9f2ce06b',
+            'rmuc': 'qS8PLcAvex4cBCrqCBdKnb0rY3iVMpsErQae3TM2rUZcRLzuNH6zfgrsV1HlDtZBVLANueO2ypgsSLtYVJku89skMKDgGHwDMO-s7JeU1m8Ac5sij_HchR8tfO6jWE2C5ebjYIuhIB7eLikvI9Olj-_S--hKv53lzuYEzuQ3-_S0u1AxyMW_FCBcIaV8RmS_4ICcRW',
+            'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+            'LANG': 'es_ES%3BES',
+            'AV894Kt2TSumQQrJwe-8mzmyREO=': '',
+            'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=': '',
+        }
+    ),
+    32814: Env(
+        headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36',
+        },
+        cookies={
+            'd_id' : '60f3fe8e0491410c98819f78aaeb6c1c1639129474126',
+            'ts' : 'vreXpYrS%3D1733824959%26vteXpYrS%3D1639132359%26vr%3Da3bae43f17d0a78873dfa65bf987e78d%26vt%3Da3bae43f17d0a78873dfa65bf987e78c%26vtyp%3Dnew',
+            'ts_c' : 'vr%3Da3bae43f17d0a78873dfa65bf987e78d%26vt%3Da3bae43f17d0a78873dfa65bf987e78c',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK' : '36vQKXwDNRKlVgvI6x1qlTvIW9pGiLv8mPxGvs62OKVXXyX99RM8iubqFgVxkcGx7A-_tdAZqJaPNHpy',
+            'ui-experience' : 'login_type%3DEMAIL_PASSWORD',
+            'x-pp-s' : 'eyJ0IjoiMTYzOTEzMDU1OTI2OCIsImwiOiIxIiwibSI6IjAifQ',
+            'x-cdn' : '0113',
+            'fn_dt' : '60f3fe8e0491410c98819f78aaeb6c1c',
+            'rmuc' : 'Q3k-caP3qYLTobp6CfV4dYsYbbUhSZcYGvkYAJBNaarhB-zn_SWon0MKBENdNlUm2GV_ed9fmFGOUYjxL3IpGsw5qNpgv-hVRpjNbeZNJXKKsJyJVhJDkHIbG0-eHGm0u3_Vlq7r8lOKeaZGfUECBxZgBERamccKWVE8SsuYoCMuEwXYWvDnPmh3Se8',
+            'SEGM' : 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+            'TLTSID' : '94271335723681924014572921271768',
+            'LANG' : 'es_ES%3BES',
+            'AV894Kt2TSumQQrJwe-8mzmyREO=' : '',
+            'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=' : '',
+        }
+    )
+
+}  # type: Dict[int, Env]
+
+ENV_DEFAULT = Env(
+    headers={
+        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0',
+    },
+    cookies={}
+)
+
+
+# VB: LONG LIFE COOKIES
+# d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758;
+# KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd;
+# rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq
+# ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee
+# ts=vreXpYrS%3D1729711965%26vteXpYrS%3D1635019365%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee%26vtyp%3Dreturn
+# ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3
+# X-PP-ADS=AToBXGN0YcV13H5LEYkfulfkAbGEC.Y

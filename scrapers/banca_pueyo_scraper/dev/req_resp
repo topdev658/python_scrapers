@@ -1,0 +1,53 @@
+AUTH TOKEN
+
+>> POST https://www.e-pueyo.com/e-pueyo2.0/prod/back/uaa/oauth/token
+FORM DATA
+{
+    'grant_type': 'password',
+    'username': self.username,
+    'password': self.userpass,
+    'userConnectionInfo': '{"application":"web","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0","geolocation":{"latitude":"0","longitude":"0"}}'
+}
+HEADERS
+Host: www.e-pueyo.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded; charset=utf-8;
+Authorization: Basic dWktd2ViOg==
+Content-Length: 227
+Origin: https://www.e-pueyo.com
+Connection: keep-alive
+Referer: https://www.e-pueyo.com/home
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+<<
+10_resp_token.json
+
+
+USER AUTH INFO BEFORE LOGIN
+
+>> POST https://www.e-pueyo.com/e-pueyo2.0/prod/back/services/users/v1/info
+BODY
+{
+  "version": "3.0.2"
+}
+HEADERS
+Host: www.e-pueyo.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0
+Accept: application/json
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Authorization: BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1Y2MyMDFmNTg0MjkxYTk3ZjgwZjM0Y2EwNDZhZjA3ZSIsInJvbGVzIjpbIlJPTEVfQVVUSF9VU0VSX1BTRDJfU0NBIl0sImlzcyI6Imh0dHBzOi8vd3d3LmUtcHVleW8uY29tOjEwMjkxL2UtcHVleW8yLjAvcHJvZC9iYWNrL3NlcnZpY2VzL3VhYS9vYXV0aC90b2tlbiIsImV4cCI6MTY2Mzk0NTc3NX0.ykre3wEQ4AxBKudp13KhBIWIhWXWCWh_t4siEYeke4rfuQIPG6TNZKj8y3Fh-7kqjvlZs2LhcIi2eutmKWVYNg
+Content-Length: 19
+Origin: https://www.e-pueyo.com
+Connection: keep-alive
+Referer: https://www.e-pueyo.com/global
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+<< 20_resp_user_info.json
+

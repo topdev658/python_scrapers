@@ -1,0 +1,755 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
+
+<!-- INI-RE-000001 Externalización de Codigos de Servicio -->
+
+
+
+<script language="JavaScript">
+	var FORMATO_IMPORTE ="0,000.00";
+	var FORMATO_FECHA ="dd-mm-aaaa";
+	var FORMATO_ESTILO ="1";
+
+	var JUNCTION ="";
+
+	//document.write("<link rel=stylesheet type='text/css' media='screen' href='/SPETLCL/mult/TLCLEstilo_f2"+FORMATO_ESTILO+".css' />");
+	//document.write("<link rel=stylesheet type='text/css' media='screen' href='/SPETLCL/mult/TLCLEstilos_cash2"+FORMATO_ESTILO+".css' />");
+</script>
+<!-- <link rel=stylesheet type="text/css" media="print"  href="/mult/TLCLEstiloImprimeMetamenu.css" /> -->
+
+<script language="JavaScript">
+	var UTIL_PIBEE;
+
+	if ('TLCL' == 'TLCL')
+		UTIL_PIBEE = "/SPEKDPO/kdpo_mult_web_pub/js/utilPibee.js";
+	else if ('TLCL' == 'TLHD')
+		UTIL_PIBEE = "/SPEKDPO/kdpo_mult_web_pub/js/utilPibee.js";
+	else
+		UTIL_PIBEE = "/SPETLCL/mult/utilPibee.js";
+	document.write('<script type="text/javascript" language="JavaScript" src="'+UTIL_PIBEE+'"><\/script>');
+</script>
+
+<script type="text/javascript" language="JavaScript" src="/SPETLCL/mult/jquery.js"></script>
+<script type="text/javascript" language="JavaScript" src="/SPETLCL/mult/r7/webtoolkit.scrollabletable.js?vers=0.5226203119710576"></script>
+<script type="text/javascript" language="JavaScript" src="/SPETLCL/mult/webtoolkit.jscrollable.js"></script>
+<SCRIPT type="text/javascript">
+/*<![CDATA[*/
+document.cookie = "IV_JCT=%2FSPETLCL; path=/";
+/*]]>*/
+</SCRIPT>
+</head>
+</html>
+<title>Información de cuentas. Saldos Contables.</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+
+
+<html>
+<head>
+
+<link rel=stylesheet type="text/css" href="/SPETLCL/mult/css/base_pibee.css?ran=20160320_9" media="screen"/>
+<link rel=stylesheet type="text/css" href="/SPETLCL/mult/css/base_pibee_print.css?ran=20160320_9" media="print"/>
+<script type="text/javascript" language="JavaScript" src="/SPETLCL/mult/js/utilPortalKyop.js"></script>
+
+<script language="javascript" src="/SPETLCL/mult/fingerprint.min.js"></script>
+<script type="text/javascript" src="/SPETLCL/mult/js/polyfills.js"></script>
+<script type="text/javascript" src="/SPETLCL/mult/js/fpd2.js"></script>
+<script type="text/javascript" >
+/*de regreso*/
+function completaDatosFraude(){
+	antiFraudeTLCL($("#hdnEmpresaHost").val(),$("#hdnHoraHost").val());
+}
+
+function antiFraudeTLCL(empresa_host, hora_host){
+	console.log("inicio: "+empresa_host+" "+hora_host);
+		var nomEmpresaAf = empresa_host;
+		var cadenaSesion = hora_host;
+		console.log('cadena sesion: '+cadenaSesion);
+// 		cadenaSesion = "02-10-17||S||2||988776544";
+		var vector="";
+		var flagMuestra = "N";
+		var tipoPantalla = "";
+		var codCentralAF = "";
+		var poderFirma = "";
+		var pathDatazo = "";
+		var imgBanner = ".";
+		var urlBanner = ".";
+		var imgPopup = ".";
+		var urlPopup = ".";
+
+		if ( cadenaSesion.includes('||') ) {
+			vector = cadenaSesion.split("||");
+			codCentralAF = vector[1];
+			poderFirma = vector[2];
+			flagMuestra = vector[3];
+			tipoPantalla = vector[4];
+			pathDatazo = vector[5];
+			imgBanner = vector[6];
+			urlBanner = vector[7];
+			imgPopup = vector[8];
+			urlPopup = vector[9];
+		}
+
+		antiFraude_original(empresa_host, codCentralAF, flagMuestra, tipoPantalla, poderFirma, pathDatazo, imgBanner, urlBanner, imgPopup, urlPopup);
+
+		if(flagMuestra=="S"){
+			document.body.removeChild(document.querySelector('.datazo-modal'));
+			document.getElementById("cia_data_popup").style.display = "block";
+			if(tipoPantalla=='1'){
+				document.getElementById("imgFreemium_Inf").style.display = "block";
+				document.getElementById("imgFreemium_Inf").setAttribute("usemap","#mapfree");
+			}else{
+				document.getElementById("imgFreemium_Dec").style.display = "block";
+				document.getElementById("imgFreemium_Dec").setAttribute("usemap","#mapfree");
+			}
+		}else{
+			eliminarElementoDOM(document.getElementById('cia_data_popup'));
+			if ( imgPopup != '.' ) {
+				document.querySelector('.datazo-img').onload = function() {
+					document.querySelector('.datazo-modal').style.display = 'block';
+					parent.com.bbva.kyop.controller.CoreController.resizeMainContent();
+				}
+				document.querySelector('.datazo-img').src = pathDatazo + imgPopup;
+				if ( urlPopup != '.' )
+					document.getElementById('linkPopupDatazo').href = urlPopup;
+			}
+			else
+				document.body.removeChild(document.querySelector('.datazo-modal'));
+		}
+
+
+
+
+	parent.com.bbva.kyop.controller.CoreController.resizeMainContent();
+
+}
+
+</script>
+
+<script language="javascript" src="/SPETLCL/mult/fingerprint.min.js"></script>
+<script type="text/javascript" >
+	console.log('Indicador Antifraude :: enviado');
+	console.log('Indicador WBF :: N');
+	console.log('Indicador Freemium :: N');
+	console.log('Flag Muestra :: N');
+	console.log('Tipo Pantalla :: -');
+	console.log('Codigo Servicio :: 8700');
+	console.log('pathDatazo :: https://db7iz008klofj.cloudfront.net/peru/BANNERS/');
+	console.log('imgBanner :: .');
+	console.log('urlBanner :: .');
+	console.log('imgPopup :: .');
+	console.log('urlPopup :: .');
+
+var JUNCTION_TEMP = "/SPECNET/cent6_pe_web/servlet";//"/cent6_web/servlet";//
+var ipPortal = window.location.protocol + '//' + window.location.host;
+
+$(document).ready(function(){
+
+
+
+
+
+
+
+    crearIframe();
+    antiFraude();
+});
+
+
+function crearIframe(){
+	$('body').append('<iframe id="frameAfraude" style="display: none"></iframe>');
+}
+
+function antiFraude(){
+console.log('En tlcl...');
+
+}
+
+function invocandoCENT(metodo, parametros){
+	var ip = document.URL;
+	var ipAC = (ip.substring(ip.indexOf("//")+2)).substring(0,(ip.substring(ip.indexOf("//")+2)).indexOf("/"));
+	var servidorViaje = "https://"+ipAC+"/SPECNET/cent6_pe_web/servlet/PIBEE";
+	lanzaInvocadorCENT('007','3318','89990114','es_PE','OperacionCBTFServlet?proceso=ae_alerta_pr&operacion=ae_alerta_op&accion='+metodo+parametros ,servidorViaje,'N','kyop-central-load-area','true','','S');
+}
+
+function lanzaInvocadorCENT(producto, servicio, proceso, locale, pb_url, url_final, pb_xti_comprper, target, showLoadBox, des_url, xti_perhttp){
+	try{
+	if (url_final && pb_url && pb_url.replace) {
+
+		var $wpd = $(window.parent.document);
+		var $iff = $wpd.find('#kyop-central-load-area-container');
+
+		$iff.append('<iframe id="frameFraude" name="frameFraude" style="display:none" width="100%"></iframe>');
+		var $frm = $wpd.find('#kyop-process-form');
+		var frm = $frm[0];
+
+
+		$frm[0].onload = function() {
+			document.cookie = "IV_JCT=%2FSPETLCL; path=/";
+		};
+
+
+		if (frm) {
+			frm.pb_cod_prod.value = producto;
+			frm.pb_cod_serv.value = servicio;
+			frm.pb_cod_proc.value = proceso;
+			frm.LOCALE.value = locale;
+
+			frm.pb_xti_comprper.value = pb_xti_comprper;
+			var pb_url_toPrint = pb_url.replace(/&amp;/gi, "&");
+			frm.pb_url.value = pb_url_toPrint;
+
+			//INICIO - TICKET 2553 - Invocación desde HD Regional (Solución provisional)
+			var regExp = new RegExp("//[^/]*/");
+			var dominio = '//' + window.top.location.host + '/';
+			url_final = url_final.replace( regExp, dominio );
+			//FINAL - TICKET 2553 - Invocación desde HD Regional (Solución provisional)
+			frm.action = componerURL(url_final, pb_url_toPrint);
+			frm.target = "frameFraude";
+			/*if (target == "_ventana1") {// Se ejecuta el servicio en un popup
+				window.open('', '_ventana1', "menubar=0,resizable=0,toolbar=0,scrollbars=1,height=565,width=760").focus();
+			}*/
+			frm.submit();
+		}
+	}
+
+	}catch(err){}
+}
+
+
+function antiFraude_original(nomEmpresaAf, codCentralAF, flagMuestra, tipoPantalla, poderFirma, pathDatazo, imgBanner, urlBanner, imgPopup, urlPopup){
+
+
+
+}
+
+/*extras*/
+function eliminarElementoDOM(elem){
+	elem.style.display = "none";
+	if(elem !== null)
+        while (elem.hasChildNodes())
+            elem.removeChild(elem.lastChild);
+    var padre = elem.parentNode;
+	padre.removeChild(elem);
+}
+
+function ejecutarVersion(versionNuevaAE){
+
+	var bandera = false;
+	var accion = versionNuevaAE=="M"?"mantenerVersion":"versionGratis";
+	if(versionNuevaAE=="B"){
+		if(confirm("Atenci\u00f3n!\r Si migras a la versi\u00f3n gratuita, tus configuraciones ser\u00e1n eliminadas y solo tendr\u00e1s acceso a consultar tus cuentas, sin poder operarlas. ¿Est\u00e1s seguro?"))
+			bandera=true;
+	}else if(versionNuevaAE=="M")
+		bandera = true;
+
+	if(bandera)
+		invocandoCENT(accion, "");
+
+
+}
+
+function redimencionarFreemium(){
+	var v;
+	if ( document.getElementById("imgFreemium_Inf").style.display != 'none' )
+		v = document.getElementById("imgFreemium_Inf");
+	else
+		v = document.getElementById("imgFreemium_Dec");
+
+	var ancho = v.width;
+	var alto = v.height;console.log(ancho);console.log(alto);
+	var px1 = 0.2617;
+	var px2 = 0.503;
+	var px3 = 0.643;
+	var px4 = 0.884;
+	var py1 = 0.8631;
+	var py2 = 0.954;
+	var x1 = ancho*px1;
+	var x2 = ancho*px2;
+	var x3 = ancho*px3;
+	var x4 = ancho*px4;
+	var y1 = alto*py1;
+	var y2 = alto*py2;
+	var coords1 = ""+x1+","+y1+","+x2+","+y2;
+	var coords2 = ""+x3+","+y1+","+x4+","+y2;
+	document.getElementById("shapeFree1").setAttribute("coords",coords1);
+	document.getElementById("shapeFree2").setAttribute("coords",coords2);
+}
+//Implementacion de Antifraude
+function abrirPopupExterno()
+{
+	window.open('https://www.bbvacontinental.pe/empresas/canales/continental-net-cash/','_blank');
+}
+
+function replaceall(str,replace,with_this)
+{
+    var str_hasil ="";
+    var temp;
+
+    for(var i=0;i<str.length;i++) // not need to be equal. it causes the last change: undefined..
+    {
+        if (str[i] == replace)
+        {
+            temp = with_this;
+        }
+        else
+        {
+                temp = str[i];
+        }
+
+        str_hasil += temp;
+    }
+
+    return str_hasil;
+}
+
+function componerURL(url_final, pb_url) {
+
+	if (url_final && url_final.indexOf && pb_url && pb_url.indexOf) {
+		var index = pb_url.indexOf('?');
+		if (index > -1) {
+			return url_final + (url_final.indexOf( '?' ) > -1 ? pb_url.substring(index + 1) : pb_url.substring(index));
+		}
+	}
+	return url_final;
+}
+
+function invocarBankingFraud(codigoCentral, flagMuestra, tipoPantalla, poderFirma, pathDatazo, imgBanner, urlBanner, imgPopup, urlPopup) {
+	if ( poderFirma == 'S' ) {
+		var fingerprintv2 = MPFingerprintV2.getData();
+		fingerprintv2.then(function(_data) {
+			$.post(JUNCTION_TEMP + '/IncorporacionAperturaMasivaServlet', {
+				'flujo': 'BankingFraud',
+				'fingerprint': JSON.stringify(_data),
+				'indAccion': 'N',
+				'codigoCentral': codigoCentral,
+				'flagMuestra': flagMuestra,
+				'tipoPantalla': tipoPantalla,
+				'pathDatazo': pathDatazo,
+				'imgBanner': imgBanner,
+				'urlBanner': urlBanner,
+				'imgPopup': imgPopup,
+				'urlPopup': urlPopup
+			}, function(response) {
+				console.log('Respuesta WBF :: ' + response);
+				$.post('/SPETLCL/tlcl_pe_web/banking_fraud.jsp', {
+					'indicadorBankingFraud': response,
+					'indicadorFreemium': response,
+					'flagMuestra': flagMuestra,
+					'tipoPantalla': tipoPantalla,
+					'pathDatazo': pathDatazo,
+					'imgBanner': imgBanner,
+					'urlBanner': urlBanner,
+					'imgPopup': imgPopup,
+					'urlPopup': urlPopup
+				}, function() {
+					if ( response == '1' )
+						redirigir();
+				});
+			});
+		});
+	}
+	else {
+		$.post('/SPETLCL/tlcl_pe_web/banking_fraud.jsp', {
+			'indicadorBankingFraud': 'N',
+			'indicadorFreemium': 'N',
+			'flagMuestra': flagMuestra,
+			'tipoPantalla': tipoPantalla,
+			'pathDatazo': pathDatazo,
+			'imgBanner': imgBanner,
+			'urlBanner': urlBanner,
+			'imgPopup': imgPopup,
+			'urlPopup': urlPopup
+		}, function() { console.log('sesión tlcl seteada'); });
+		$.post(ipPortal + '/SPECNET/cent6_pe_web/r7/banking_fraud_tlcl.jsp', {
+			'indicadorBankingFraud': 'N',
+			'indicadorFreemium': 'N',
+			'flagMuestra': flagMuestra,
+			'tipoPantalla': tipoPantalla,
+			'pathDatazo': pathDatazo,
+			'imgBanner': imgBanner,
+			'urlBanner': urlBanner,
+			'imgPopup': imgPopup,
+			'urlPopup': urlPopup
+		}, function() { console.log('sesión cent seteada'); });
+	}
+}
+
+function redirigir() {
+	var form = document.createElement('form');
+	form.action = JUNCTION_TEMP + '/OperacionCBTFServlet?proceso=banking_fraud_pr&operacion=banking_fraud_op&accion=redirigir';
+	form.method = 'POST';
+	var input = document.createElement('input');
+	input.name = 'url';
+	input.type = 'hidden';
+	input.value = window.location.href;
+	form.appendChild(input);
+	document.body.appendChild(form);
+	form.submit();
+}
+
+</script>
+</head>
+
+<body>
+
+
+
+
+
+</body>
+</html>
+
+<!--meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /-->
+
+
+
+
+
+<!--link rel=stylesheet type="text/css" media="print"  href="/mult/TLCLEstiloImprimeMetamenu.css" /-->
+
+<script language="JavaScript">
+
+var ordenacion_0="FECHA OPERACIÓN";
+var ordenacion_4="SALDO CONTABLE";
+var ordenacion_6="IMPORTE DEBE / DÉBITOS";
+var ordenacion_7="IMPORTE HABER / CRÉDITOS";
+
+</script>
+
+
+
+
+
+ 	<script language="JavaScript" type="text/javascript" src="/SPETLCL/mult/TLCLUtilidades_CAS.js" charset="ISO-8859-1"></script>
+
+
+ <script language="JavaScript">
+	jQuery(document).ready(function(){
+	var t = new ScrollableTable(document.getElementById('tabladatos'), 50);
+			});
+
+ </script>
+
+	<script language="javascript">
+
+	function ponerFoco()
+	{
+		if(document.paginacion.iReg.value>0)
+		{
+			document.paginacion.listaCuentas.focus();
+		}
+	}
+
+	//Creo funcion para mostrar el detalle d los movimientos
+	function mostrarDetalleMvto(fechaContable, indMvto, numeroCuenta, accion)
+	{
+		document.paginacion.numeroCuenta.value=numeroCuenta;
+		document.paginacion.fechaMovimiento.value=fechaContable;
+		document.paginacion.indMvto.value=indMvto;
+
+		document.paginacion.action=accion;
+		document.paginacion.submit();
+	}
+
+	function irCuentas(numeroCuenta, accion)
+	{
+
+		//Para recoger d combo:numeroCuenta=document.paginacion.listaCuentas.value;
+		if (numeroCuenta == -1)	{
+			alert("Seleccione una cuenta, por favor.");
+		} else {
+			document.paginacion.numeroCuenta.value = numeroCuenta;
+			document.paginacion.action=accion;
+			document.paginacion.submit();
+		}
+	}
+  </script>
+
+</head>
+
+<!-- body class="fond-pagina" onLoad="controlPibee();ponerFoco()" onClick="noScroll(event);" onKeyPress="noScroll(event);" -->
+<body class="fond-pagina" onLoad="controlPibee();ponerFoco()">
+<!--UNDOBR-->
+<!------------------------------RUTA------------------------------------------>
+<div class="miga">Consultas&nbsp;&gt;&nbsp;Cuentas</div>
+<!------------------------------FIN RUTA------------------------------------------>
+
+<div class="page_title">
+	<h2>Saldos Contables</h2>
+</div>
+
+
+<form name="paginacion" method="post">
+
+<input type="hidden" name="numeroCuenta" value="0">
+<input type="hidden" name="fechaMovimiento" value="0">
+<input type="hidden" name="iReg" value="0">
+
+<!--Añado un campo para recoger el indice d Mvto seleccionado-->
+<input type="hidden" name="indMvto" value="0">
+
+<div class="form_container">
+	<div class="borde">
+		<div class="section_container">
+			<div class="section">
+				<table class="tb_form">
+				<tr class="tb_entry">
+					<td width="25%">
+						<span class="ng">Período:</span>
+					</td>
+					<td width="25%">
+						<span>de 01-09-2018 a 27-10-2018</span>
+					</td>
+					<td width="25%">
+						<span class="ng">Primera Ordenación:</span>
+					</td>
+					<td width="25%">
+						<span>
+							<script language="JavaScript">
+								document.write(ordenacion_0);
+							</script>
+						</span>
+					</td>
+				</tr>
+				<tr class="tb_entry">
+					<td>
+						<span class="ng">Rango de Importe:</span>
+					</td>
+					<td>
+						<span>TODOS</span>
+					</td>
+					<td>
+						<span class="ng">Segunda Ordenación:</span>
+					</td>
+					<td>
+						<span>
+							<script language="JavaScript">
+								document.write(ordenacion_4);
+							</script>
+						</span>
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+		<div class="section_container">
+			<div class="subtitle">
+				<h3>Selección de Cuenta</h3>
+			</div>
+			<div class="section">
+				<table class="tb_form">
+				<tr class="tb_entry">
+					<td width="25%">
+						<span class="ng">Cuenta Actual:</span>
+					</td>
+					<td colspan="3" class="nw">
+						<span>00110194810100051253&nbsp;USD &nbsp; &nbsp;</span>
+					</td>
+				</tr>
+
+
+				<tr class="tb_entry">
+					<td>
+						<span class="ng">Ver Otras Cuentas:</span>
+					</td>
+					<td colspan="3">
+					<select class="sel" name="listaCuentas">
+							<option value="-1">Seleccione cuenta</option>
+
+							<script language="javascript">
+								document.paginacion.iReg.value="14";
+							</script>
+
+								<option value="1"> 00110194870100051245&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="2"> 00110377900100033306&nbsp;USD&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="3"> 00110377900100034396&nbsp;USD&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="4"> 00110377920100029775&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="5"> 00110377920100033292&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="6"> 00110377960100029759&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="7"> 00110377960100029783&nbsp;USD&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="8"> 00110377960100053773&nbsp;EUR&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="9"> 00110377970100029805&nbsp;USD&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="10"> 00110377970100034388&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="11"> 00110377990100029767&nbsp;USD&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="12"> 00110377990100029791&nbsp;PEN&nbsp;&nbsp;
+							    </option>
+
+
+								<option value="13"> 00110377990100053781&nbsp;EUR&nbsp;&nbsp;
+							    </option>
+
+
+					</select>
+
+						<input type="button" class="bt bt_azul" value="Ir" onClick="javascript:irCuentas(listaCuentas.value, 'OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_informe_saldos_contables_op_multipais&accion=paginar&numOPRequest=3');">
+
+				</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="oa">
+	<table class="tb_data mn">
+	<tr class="tb_header">
+		<th colspan="7" class="ta_l">
+			<span>
+
+				Importes en USD
+
+			</span>
+		</th>
+	</tr>
+	</table>
+
+	<table class="tb_data" id="tabladatos">
+    <tr class="tb_column_header">
+		<td><span>F.Operación</span></td>
+		<td><span>Mvtos. [D]</span></td>
+		<td><span>Imp. Mvtos.[D]</span></td>
+		<td><span>Mvtos. [Cr]</span></td>
+		<td><span>Imp. Mvtos.[Cr]</span></td>
+		<td><span>Saldo Contable</span></td>
+		<td class="ultimo"><span>Disponible Valor</span></td>
+	</tr>
+
+
+
+						<!-- Los sgtes campos aparecen en Ctx d OP pero no los he usado pues no sé q 		representan: "indicadorDHFinal" y "indicadorSaldoValor"-->
+
+						<!--Para ver el detalle, paso la fecha contable a la OM y el índice d Mvto
+							para recuperarlo d la OP para la cabecera d la sgte pantalla:DetalleMovimientos	-->
+
+							<tr class="even">
+								<td class="ta_c">
+									<a class="enlace" href="javascript:mostrarDetalleMvto('07-09-2018','0', '0', 'OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_informe_saldos_contables_op_multipais&accion=verDetalle&numOPRequest=3')" class="linkframe">07-09-2018</a>
+								</td>
+								<td>
+									<span>2</span>
+								</td>
+								<td>
+									<span>5,000.25</span>
+								</td>
+								<td>
+									<span>1</span>
+								</td>
+								<td>
+									<span>5,000.00</span>
+								</td>
+
+								<td>
+									<span class="monedapos">392.71</span>
+								</td>
+
+
+								<td>
+									<span class="monedapos">392.71</span>
+								</td>
+							</tr>
+
+
+
+						<!-- Los sgtes campos aparecen en Ctx d OP pero no los he usado pues no sé q 		representan: "indicadorDHFinal" y "indicadorSaldoValor"-->
+
+						<!--Para ver el detalle, paso la fecha contable a la OM y el índice d Mvto
+							para recuperarlo d la OP para la cabecera d la sgte pantalla:DetalleMovimientos	-->
+
+							<tr class="odd">
+								<td class="ta_c">
+									<a class="enlace" href="javascript:mostrarDetalleMvto('28-09-2018','1', '0', 'OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_informe_saldos_contables_op_multipais&accion=verDetalle&numOPRequest=3')" class="linkframe">28-09-2018</a>
+								</td>
+								<td>
+									<span>4</span>
+								</td>
+								<td>
+									<span>5,212.55</span>
+								</td>
+								<td>
+									<span>1</span>
+								</td>
+								<td>
+									<span>5,000.00</span>
+								</td>
+
+								<td>
+									<span class="monedapos">180.16</span>
+								</td>
+
+
+								<td>
+									<span class="monedapos">192.46</span>
+								</td>
+							</tr>
+
+
+						<tr class="tb_total">
+							<td colspan="6" class="ta_r">
+								<span>SALDO MEDIO:</span>
+							</td>
+
+							<td>
+								<span class="monedapos">383.61</span>
+							</td>
+						</tr>
+
+	</table>
+</div>
+
+<div class="formActionButtons">
+	<div class="ta_c">
+		<input type="button" class="bt bt_m bt_azul" value="Volver" name="b_aceptar" onClick="javascript:window.location='OperacionCBTFServlet?proceso=tlcl_sym_saldos_contables_pr_multipais&operacion=tlcl_sym_muestra_formulario_SC_op_multipais&numOPRequest=3'" />
+	</div>
+</div>
+
+</form>
+</body>
+</html>

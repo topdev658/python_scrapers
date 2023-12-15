@@ -1,0 +1,884 @@
+RBS
+
+open
+GET https://www.bankline.rbs.com/CWSLogon/logon.do?CTAuthMode=RBSG_CORP4P&domain=.bankline.rbs.com&ct-web-server-id=Internet&CT_ORIG_URL=%2Fbankline%2Frbs%2Fdefault.jsp&ct_orig_uri=https%3A%2F%2Fwww.bankline.rbs.com%3A443%2Fbankline%2Frbs%2Fdefault.jsp
+OrderedDict([
+	('CTAuthMode', 'RBSG_CORP4P'),
+	('domain', '.bankline.rbs.com'),
+	('ct-web-server-id', 'Internet'),
+	('CT_ORIG_URL', '/bankline/rbs/default.jsp'),
+	('ct_orig_uri', 'https://www.bankline.rbs.com:443/bankline/rbs/default.jsp')
+])
+
+
+// 1st step
+// RANDOM_ID form the init page or
+POST https://www.bankline.rbs.com/CWSLogon/4P/CheckId.do
+data
+ct_orig_uri=https%3A%2F%2Fwww.bankline.rbs.com%3A443%2Fbankline%2Frbs%2Fdefault.jsp&RANDOM_ID=1667523718&customerId=871995&userId=elishaedou&submit=Continue
+OrderedDict([
+	('ct_orig_uri', 'https://www.bankline.rbs.com:443/bankline/rbs/default.jsp'),
+	('RANDOM_ID', '1667523718'),
+	('customerId', '87..95'),
+	('userId', 'eli....dou'),
+	('submit', 'Continue')
+])
+
+
+<<< PIN PAGE
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Below attributes commented as part of CR927 -->
+<!--
+
+
+
+-->
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+    (function (exports) {
+        "use strict";
+        function getMetatagContent(name) {
+            var elem = document.getElementsByName(name)[0];
+            if (elem) {
+                return elem.getAttribute('content');}
+            return "";
+        }
+        exports.cdApi = {
+            getCustomerSessionID: function (callback) {
+                //example how to pull the CustomerSessionId from meta tag called bcsid
+                callback(getMetatagContent('bcsid'));
+            },
+            getCustomerConfigLocation: function (callback) {
+                callback('https://wup-8a3adb80.eu.v2.we-stats.com/client/v3/web/wup?cid=genesis');
+            }};
+    })(self);
+    </script>
+
+
+
+            <script async defer type="text/javascript" src="https://bcdn-8a3adb80.we-stats.com/scripts/8a3adb80/8a3adb80.js"></script>
+            <meta name="bcsid" content="b13f044a999f4a4abc3e4ca0d61d58e6">
+            <script>window.postMessage({type:'ContextChange', context: 'Login_1'}, window.location.href);</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Below if condition commented as part of CR927  -->
+
+<!--[if lt IE 9]<script IE9=true>[endIf]-->
+<!--
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script type="text/javascript">
+     function pCallback(range,x,y) {
+           return (x+y)*range;
+     }
+</script>
+<script type="text/javascript">
+     init();
+     if (pCallback(a,b,c)>z)
+           document.createElement('script'), attrs, async:true, type:"text/javascript");
+</script>
+<table cellpadding="0" cellspacing="0" width="100%">
+     <tr>
+           <td valign="top" width="90%">
+</table
+<script type="text/javascript">
+           x.toString()=function(){x="text/java"; return x;}
+</script>
+<script type="text/javascript" src="/CWSLogon/scripts/jquery-1.4.2/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-1.4.2/jquery-1.4.2.min.js"></script>
+-->
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<link href="/CWSLogon/common/styles/cws.css"
+    rel="stylesheet" type="text/css">
+<link href="/CWSLogon/web/4p/cesd_rbs/styles/brand.css"
+    rel="stylesheet" type="text/css">
+<title>Bankline - Logon</TITLE>
+
+
+<script type="text/javascript" src="/CWSLogon/scripts/common.js"></script>
+
+
+
+
+    <script type="text/javascript" src="/CWSLogon/scripts/cesd_rbs/jquery-1.4.2.min.js"></script>
+
+
+    <!--  Added for TMX Tag Obfuscation start -->
+
+    <script type="text/javascript" src="/CWSLogon/scripts/cpbtm2412.js"></script>
+
+    <script type="text/javascript">cpbtm2412.profile('tags.bankline.rbs.com', '7plxvmut', '1456b948e5949d250f01d51730e7bf2','10')</script>
+
+
+
+    <!-- Added for TMX Tag Obfuscation end -->
+
+    <!-- Function pCallback commented as part of CR927 -->
+
+    <!-- <script type="text/javascript">function pCallback(_0xe21bx1,_0xe21bx2){$["\x70\x6F\x73\x74"]("\x2F\x43\x57\x53\x4C\x6F\x67\x6F\x6E\x2F\x61\x6E\x61\x6C\x79\x74\x69\x63\x73","\x78\x3D"+_0xe21bx1);} ;</script> -->
+
+
+<!-- CR927 : Commented code starts -->
+
+<!--
+-->
+<!--
+
+-->
+<!--  Commented code ends : CR927 -->
+
+
+
+
+
+<!-- Added for CR881 start -->
+
+    <script type="text/JavaScript" language="JavaScript" src='//assets.adobedtm.com/5165c8c319825f6ec3fb78d0a8dcc1054ab35a3d/satelliteLib-c555d349b4a83c3eee98688f4684648d37b53924.js'></script>
+
+<!-- Added for CR881 end -->
+</head>
+
+<body bgcolor="#FFFFFF">
+<table border="0" cellPadding="0" cellSpacing="0" width="100%">
+    <tr>
+        <td valign="top" width="100%">
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"
+    summary="Header" title="Header">
+    <tbody>
+        <tr class="brand-bar">
+            <td width="33%"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/bankline_header.gif'
+                alt="Bankline" hspace="16" border="0" /></td>
+            <td width="33%"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+            <td width="34%" align="right"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/logo_rbs.gif' border="0"
+                alt="The Royal Bank of Scotland logo" /><a name="top"></a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"
+    summary="Header Options" title="Header Options">
+    <tbody>
+        <tr class="top-nav-bar">
+            <td bgcolor="#7390ba" colspan="10"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+            <td bgcolor="#7390ba"></td>
+            <td bgcolor="#7390ba"></td>
+        </tr>
+        <tr class="top-nav-bar">
+            <td bgcolor="#7390ba" height="21" width="16"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+
+            <td bgcolor="#7390ba" width="6"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+
+            <td bgcolor="#7390ba" width="21"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/arrow.gif'
+                alt="Help (opens in new window)" border="0" /></td>
+
+            <td bgcolor="#7390ba" width="50"><span class="opt-header">&nbsp;
+            <a
+                href="https://help.bankline.rbs.com/support/logon"
+                tabindex="1515" target="_helpWin" title="Help">Help</a> </span> <SCRIPT
+                type="text/javascript">
+        document.writeln('<td bgcolor="#7390ba" width="5"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/spacer.gif\' alt="" border="0"/><\/td>');
+        document.writeln('<td bgcolor="#7390ba" width="21"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/arrow.gif\' alt="" border="0"/><\/td> <td bgcolor="#7390ba" width="130"><span class="opt-header">&nbsp;<a href="javascript:parent.window.close()" tabindex="1515" title="Close this window">Close window<\/a><\/span><\/td><td colspan="3" bgcolor="#7390ba" width="4"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/spacer.gif\' alt="" border="0"/><\/td>');
+     </SCRIPT></td>
+
+
+
+
+
+            <td bgcolor="#7390ba" height="21" width="28" nowrap="nowrap"></td>
+            <td bgcolor="#7390ba" height="21" width="160" nowrap="nowrap"></td>
+        </tr>
+
+        <tr>
+            <td height="9" valign="top"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0"
+                height="10" width="16" /></td>
+
+            <td height="9" valign="top" colspan="3"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/arrow_bottom.gif' alt=""
+                border="0" height="5" width="29" /></td>
+
+
+            <td height="9" align="left" valign="top" colspan="3"><img
+                src='/CWSLogon/web/4p/cesd_rbs/images/arrow_bottom.gif' alt=""
+                border="0" height="5" width="29" /></td>
+
+
+
+            <td height="9" align="left" valign="top" colspan="3"></td>
+
+
+
+            <td height="9" width="28" valign="top"></td>
+
+            <td height="9" width="160" valign="top"></td>
+
+        </tr>
+
+    </tbody>
+</table>
+
+
+        </td>
+    </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+
+        <td valign="top" width="90%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td width="5%"><img src='/CWSLogon/common/images/spacer.gif'
+            alt="" width="6" height="1" /></td>
+        <td valign="top" width="90%"><br />
+
+        <h1>Log On</H1>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form name="PPPpForm" method="post" action="/CWSLogon/4P/CheckPPPP.do">
+
+
+
+            <script type="text/javascript" src="/CWSLogon/scripts/jquery.autotab/jquery.autotab.js"></script>
+
+
+            <input type="hidden" name="ct_orig_uri" value="https://www.bankline.rbs.com:443/bankline/rbs/default.jsp">
+
+            <input type="hidden"  id="RANDOM_ID" name="RANDOM_ID"
+                    value="114312779" />
+
+
+            <table class="form" width="100%" cellpadding="0" cellspacing="0">
+                <tr class="header">
+                    <td colspan="6">
+                    <h2>Please enter the requested numbers from your PIN. (Note that the cursor will automatically move to the next field after each entry.)</h2>
+                    </td>
+                </tr>
+                <tr class="shade">
+                    <td align="right" width="5%"><b>
+                    <label for="Pin1"><span style="display:none">Enter </span>2nd<span style="display:none"> character from your PIN. Note that the cursor will automatically move to the next field after each entry.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="pinIndexed[0].value" maxlength="1" size="1" tabindex="1" value="" id="Pin1"></td>
+                    <td align="right" width="5%"><b>
+                    <label for="Pin2"><span style="display:none">Enter </span>4th<span style="display:none"> character from your PIN.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="pinIndexed[1].value" maxlength="1" size="1" tabindex="2" value="" id="Pin2"></td>
+                    <td align="right" width="5%"><b>
+                    <label for="Pin3"><span style="display:none">Enter </span>1st<span style="display:none"> character from your PIN.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="pinIndexed[2].value" maxlength="1" size="1" tabindex="3" value="" id="Pin3"></td>
+                </tr>
+            </table>
+
+            <br />
+
+            <table class="form" width="100%" cellpadding="0" cellspacing="0">
+                <tr class="header">
+                    <td colspan="6">Enter the requested characters from your password and select Continue.</td>
+                </tr>
+                <tr class="shade">
+                    <td align="right" width="5%"><b>
+                    <label for="Pass1"><span style="display:none">Enter </span>1st<span style="display:none"> character from your password.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="passIndexed[0].value" maxlength="1" size="1" tabindex="4" value="" id="Pass1"></td>
+                    <td align="right" width="5%"><b>
+                    <label for="Pass2"><span style="display:none">Enter </span>5th<span style="display:none"> character from your password.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="passIndexed[1].value" maxlength="1" size="1" tabindex="5" value="" id="Pass2"></td>
+                    <td align="right" width="5%"><b>
+                    <label for="Pass3"><span style="display:none">Enter </span>9th<span style="display:none"> character from your password.</span></label></b></td>
+                    <td width="5%">&nbsp;<input type="password" name="passIndexed[2].value" maxlength="1" size="1" tabindex="6" value="" id="Pass3"></td>
+                </tr>
+            </table>
+
+
+            <br />
+            <br>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td height="11"></td>
+                </tr>
+                <tr>
+                    <td><td align="center" valign="top"><img src="/CWSLogon/web/4p/cesd_rbs/images/readerAdvice_rbs.png" title="Security Warning" alt="Security warning: You will never be asked for a smartcard code in order to log on to Bankline. If in doubt, call the Bankline Helpdesk."/></td></td>
+                </tr>
+                <tr>
+                    <td height="6"></td>
+                </tr>
+            </table>
+
+            <div class="btns_4P" style="float:right">
+            <input type="submit" name="button"
+                tabindex="7" value="Continue" class="button-submit" title="continue">
+            </div>
+            <div class="btns_4P" style="float:left"><input type="submit" name="button"
+                tabindex="8" value="Back" class="button-back" title="Back">
+            </div>
+
+            <br />
+            <br />
+
+
+
+
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="forgotpin">
+                        <tr>
+                            <td height="6"></td>
+                        </tr>
+                        <tr>
+                            <td><b> Forgotten your PIN/Password?</b><br/></td>
+                        </tr>
+                        <tr>
+                            <td height="6"></td>
+                        </tr>
+                        <tr>
+                            <td>For <B>instant reactivation requests</B> we recommend that you contact your own Bankline Administrator who can request these for
+            you <B>quickly and easily online.</B><br />
+                            If this is not possible please select
+                            <a href="/CWSLogon/viewUserDetails.do" title="Forgotten PIN / Password reset">Forgotten PIN/Password</a>.</td>
+                        </tr>
+                        <tr>
+                            <td height="6"></td>
+                        </tr>
+                    </table>
+
+
+
+
+        </form></td>
+        <td width="5%"><img src='/CWSLogon/common/images/spacer.gif'
+            alt="" width="6" height="1" /></td>
+    </tr>
+</table>
+
+
+</td>
+    </tr>
+</table>
+
+
+
+    <script type="text/javascript">
+        (function () {
+            for (i in a = new Array("InjBotName", "InjNetName", "_LDR", "_AZClientConfig", "InjDataA", "InjDataB", "InjDataC", "InjDataD")) {
+                if ((window[a[i]] != undefined) || (document.getElementById(a[i]))) {
+                    window.location = "/bankline/branding_rbs/OutOfService.html?found=" + window.a[i]; break;
+                }
+            }
+        })();
+
+        self.setInterval(function () { },1000);
+
+        self.setInterval(function() {
+            for (i in a = new Array("checkTopFrame", "onLoadMethod", "ErrorMessagePanel_lv", "lvldv", "lvljs", "lvlfr", "lvlfrpost", "lvltxt", "lvltxt_login_s1", "lvltxt_login_s2")) {
+                if ((window[a[i]] != undefined) || (document.getElementById(a[i]))) {
+                    window.location = "/bankline/branding_rbs/OutOfService.html?found=" + window.a[i]; break;
+                }
+            }
+        }, 500);
+    </script>
+
+<!-- Added for CR881 start -->
+
+    <script type="text/JavaScript">_satellite.pageBottom()</script>
+
+<!-- Added for CR881 end -->
+
+<!--  Added for TMX Tag Obfuscation start -->
+
+
+
+        <noscript>
+                <iframe   src= https://tags.bankline.rbs.com/fp/tags?org_id=7plxvmut&session_id=1456b948e5949d250f01d51730e7bf2&page_id=10
+                  style="width: 100px; height: 100px; border: 0; position: absolute; top: -5000px;">
+                  </iframe>
+        </noscript>
+
+
+
+
+ <!--  Added for TMX Tag Obfuscation end -->
+
+</ body></html>
+
+// END PIN PAGE
+
+
+
+// entered pin req
+POST https://www.bankline.rbs.com/CWSLogon/4P/CheckPPPP.do
+
+ct_orig_uri=https%3A%2F%2Fwww.bankline.rbs.com%3A443%2Fbankline%2Frbs%2Fdefault.jsp&RANDOM_ID=114312779&pinIndexed%5B0%5D.value=0&pinIndexed%5B1%5D.value=9&pinIndexed%5B2%5D.value=2&passIndexed%5B0%5D.value=S&passIndexed%5B1%5D.value=l&passIndexed%5B2%5D.value=9&button=Continue
+OrderedDict([
+	('ct_orig_uri', 'https://www.bankline.rbs.com:443/bankline/rbs/default.jsp'),
+	('RANDOM_ID', '114312779'),
+	('pinIndexed[0].value', '0'),
+	('pinIndexed[1].value', '9'),
+	('pinIndexed[2].value', '2'),
+	('passIndexed[0].value', 'S'),
+	('passIndexed[1].value', 'l'),
+	('passIndexed[2].value', '9'),
+	('button', 'Continue')
+])
+
+
+
+
+
+<<< CONFIRM LOG IN
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Below attributes commented as part of CR927 -->
+<!--
+
+
+
+-->
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+	(function (exports) {
+   	 	"use strict";
+    	function getMetatagContent(name) {
+			var elem = document.getElementsByName(name)[0];
+		  	if (elem) {
+			  	return elem.getAttribute('content');}
+		  	return "";
+		}
+    	exports.cdApi = {
+        	getCustomerSessionID: function (callback) {
+        		//example how to pull the CustomerSessionId from meta tag called bcsid
+            	callback(getMetatagContent('bcsid'));
+        	},
+        	getCustomerConfigLocation: function (callback) {
+        		callback('https://wup-8a3adb80.eu.v2.we-stats.com/client/v3/web/wup?cid=genesis');
+        	}};
+	})(self);
+	</script>
+
+
+
+			<script async defer type="text/javascript" src="https://bcdn-8a3adb80.we-stats.com/scripts/8a3adb80/8a3adb80.js"></script>
+			<meta name="bcsid" content="b13f044a999f4a4abc3e4ca0d61d58e6">
+			<script>window.postMessage({type:'ContextChange', context: 'Login_1'}, window.location.href);</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Below if condition commented as part of CR927  -->
+
+<!--[if lt IE 9]<script IE9=true>[endIf]-->
+<!--
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script type="text/javascript">
+     function pCallback(range,x,y) {
+           return (x+y)*range;
+     }
+</script>
+<script type="text/javascript">
+     init();
+     if (pCallback(a,b,c)>z)
+           document.createElement('script'), attrs, async:true, type:"text/javascript");
+</script>
+<table cellpadding="0" cellspacing="0" width="100%">
+     <tr>
+           <td valign="top" width="90%">
+</table
+<script type="text/javascript">
+           x.toString()=function(){x="text/java"; return x;}
+</script>
+<script type="text/javascript" src="/CWSLogon/scripts/jquery-1.4.2/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery-1.4.2/jquery-1.4.2.min.js"></script>
+-->
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<link href="/CWSLogon/common/styles/cws.css"
+	rel="stylesheet" type="text/css">
+<link href="/CWSLogon/web/4p/cesd_rbs/styles/brand.css"
+	rel="stylesheet" type="text/css">
+<title>Bankline - Logon</TITLE>
+
+
+<script type="text/javascript" src="/CWSLogon/scripts/common.js"></script>
+
+
+
+
+	<script type="text/javascript" src="/CWSLogon/scripts/cesd_rbs/jquery-1.4.2.min.js"></script>
+
+
+	<!--  Added for TMX Tag Obfuscation start -->
+
+
+	<!-- Added for TMX Tag Obfuscation end -->
+
+	<!-- Function pCallback commented as part of CR927 -->
+
+	<!-- <script type="text/javascript">function pCallback(_0xe21bx1,_0xe21bx2){$["\x70\x6F\x73\x74"]("\x2F\x43\x57\x53\x4C\x6F\x67\x6F\x6E\x2F\x61\x6E\x61\x6C\x79\x74\x69\x63\x73","\x78\x3D"+_0xe21bx1);} ;</script> -->
+
+
+<!-- CR927 : Commented code starts -->
+
+<!--
+-->
+<!--
+
+-->
+<!--  Commented code ends : CR927 -->
+
+
+
+
+
+<!-- Added for CR881 start -->
+
+	<script type="text/JavaScript" language="JavaScript" src='//assets.adobedtm.com/5165c8c319825f6ec3fb78d0a8dcc1054ab35a3d/satelliteLib-c555d349b4a83c3eee98688f4684648d37b53924.js'></script>
+
+<!-- Added for CR881 end -->
+</head>
+
+<body bgcolor="#FFFFFF">
+<table border="0" cellPadding="0" cellSpacing="0" width="100%">
+	<tr>
+		<td valign="top" width="100%">
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"
+	summary="Header" title="Header">
+	<tbody>
+		<tr class="brand-bar">
+			<td width="33%"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/bankline_header.gif'
+				alt="Bankline" hspace="16" border="0" /></td>
+			<td width="33%"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+			<td width="34%" align="right"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/logo_rbs.gif' border="0"
+				alt="The Royal Bank of Scotland logo" /><a name="top"></a></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"
+	summary="Header Options" title="Header Options">
+	<tbody>
+		<tr class="top-nav-bar">
+			<td bgcolor="#7390ba" colspan="10"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+			<td bgcolor="#7390ba"></td>
+			<td bgcolor="#7390ba"></td>
+		</tr>
+		<tr class="top-nav-bar">
+			<td bgcolor="#7390ba" height="21" width="16"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+
+			<td bgcolor="#7390ba" width="6"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0" /></td>
+
+			<td bgcolor="#7390ba" width="21"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/arrow.gif'
+				alt="Help (opens in new window)" border="0" /></td>
+
+			<td bgcolor="#7390ba" width="50"><span class="opt-header">&nbsp;
+			<a
+				href="https://help.bankline.rbs.com/support/logon"
+				tabindex="1515" target="_helpWin" title="Help">Help</a> </span> <SCRIPT
+				type="text/javascript">
+     	document.writeln('<td bgcolor="#7390ba" width="5"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/spacer.gif\' alt="" border="0"/><\/td>');
+     	document.writeln('<td bgcolor="#7390ba" width="21"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/arrow.gif\' alt="" border="0"/><\/td> <td bgcolor="#7390ba" width="130"><span class="opt-header">&nbsp;<a href="javascript:parent.window.close()" tabindex="1515" title="Close this window">Close window<\/a><\/span><\/td><td colspan="3" bgcolor="#7390ba" width="4"><img src=\'/CWSLogon/web/4p/cesd_rbs/images/spacer.gif\' alt="" border="0"/><\/td>');
+	 </SCRIPT></td>
+
+
+
+
+
+			<td bgcolor="#7390ba" height="21" width="28" nowrap="nowrap"></td>
+			<td bgcolor="#7390ba" height="21" width="160" nowrap="nowrap"></td>
+		</tr>
+
+		<tr>
+			<td height="9" valign="top"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/spacer.gif' alt="" border="0"
+				height="10" width="16" /></td>
+
+			<td height="9" valign="top" colspan="3"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/arrow_bottom.gif' alt=""
+				border="0" height="5" width="29" /></td>
+
+
+			<td height="9" align="left" valign="top" colspan="3"><img
+				src='/CWSLogon/web/4p/cesd_rbs/images/arrow_bottom.gif' alt=""
+				border="0" height="5" width="29" /></td>
+
+
+
+			<td height="9" align="left" valign="top" colspan="3"></td>
+
+
+
+			<td height="9" width="28" valign="top"></td>
+
+			<td height="9" width="160" valign="top"></td>
+
+		</tr>
+
+	</tbody>
+</table>
+
+
+		</td>
+	</tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+
+		<td valign="top" width="90%">
+
+
+
+
+
+
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="5%">
+			<img src='/CWSLogon/common/images/spacer.gif' alt="" width="6" height="1"/>
+		</td>
+		<td valign="top" width="90%" >
+
+			<br />
+
+
+	<h1>
+	Welcome to the Royal Bank of Scotland Group
+    </h1>
+
+<br>
+
+<table width="100%" cellpadding="5%" cellspacing="0" class="form">
+  <tr class="header">
+    <td>
+    <h2>
+    Please confirm that:
+    </h2>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+		<ul>
+			<li class="content-normal">you are accessing Bankline
+			as Eduardo                        Ramos                          on behalf of LCC TRANS-SENDING LTD                              </li>
+			<li class="content-normal">the date you last logged on to the system is correct</li>
+			<li class="content-normal">Wednesday 20th March 2019 at 13:19</li>
+		</ul>
+		<p>by selecting the 'Confirm' button below.</p>
+		<p>If any of these details are wrong, please telephone your Electronic Banking Help Desk and select the Exit button below to leave the site.</p>
+		<p>Please note that by clicking on change PIN/password you are confirming that the above details are correct.</p>
+	</td>
+  </tr>
+</table>
+
+<form name="welcomeForm" method="post" action="/CWSLogon/4P/AcceptWelcome.do">
+
+	<input type="hidden" name="ct_orig_uri" value="https://www.bankline.rbs.com:443/bankline/rbs/default.jsp">
+
+	<input type="hidden"  id="RANDOM_ID" name="RANDOM_ID"
+		value="-1152199732" />
+
+	<div style="float:left" onClick="javascript:window.close();">
+
+		<input type="submit" name="button" tabindex="5" value="Exit" class="button-back" title="Exit">
+	</div>
+
+	<div style="float:right" onClick="MaximiseWindowSize();">
+
+		<input type="submit" name="button" tabindex="3" value="Confirm" class="button-submit" title="Confirm">
+
+
+	</div>
+	<div style="text-align: center">
+
+		<input type="submit" name="button" tabindex="4" value="Change PIN/Password" class="button-submit" title="Change PIN/Password">
+
+	</div>
+
+</form>
+
+</td>
+		<td width="5%" >
+			<img src='/CWSLogon/common/images/spacer.gif' alt="" width="6" height="1"/>
+		</td>
+	</tr>
+	</table>
+
+
+</td>
+	</tr>
+</table>
+
+
+
+	<script type="text/javascript">
+		(function () {
+			for (i in a = new Array("InjBotName", "InjNetName", "_LDR", "_AZClientConfig", "InjDataA", "InjDataB", "InjDataC", "InjDataD")) {
+				if ((window[a[i]] != undefined) || (document.getElementById(a[i]))) {
+					window.location = "/bankline/branding_rbs/OutOfService.html?found=" + window.a[i]; break;
+				}
+			}
+		})();
+
+		self.setInterval(function () { },1000);
+
+		self.setInterval(function() {
+			for (i in a = new Array("checkTopFrame", "onLoadMethod", "ErrorMessagePanel_lv", "lvldv", "lvljs", "lvlfr", "lvlfrpost", "lvltxt", "lvltxt_login_s1", "lvltxt_login_s2")) {
+				if ((window[a[i]] != undefined) || (document.getElementById(a[i]))) {
+					window.location = "/bankline/branding_rbs/OutOfService.html?found=" + window.a[i]; break;
+				}
+			}
+		}, 500);
+	</script>
+
+<!-- Added for CR881 start -->
+
+	<script type="text/JavaScript">_satellite.pageBottom()</script>
+
+<!-- Added for CR881 end -->
+
+<!--  Added for TMX Tag Obfuscation start -->
+
+
+ <!--  Added for TMX Tag Obfuscation end -->
+
+</ body></html>
+
+
+// confirm log in req
+POST https://www.bankline.rbs.com/CWSLogon/4P/AcceptWelcome.do
+data
+ct_orig_uri=https%3A%2F%2Fwww.bankline.rbs.com%3A443%2Fbankline%2Frbs%2Fdefault.jsp&RANDOM_ID=-1152199732&button=Confirm
+
+then
+GET https://www.bankline.rbs.com/bankline/rbs/default.jsp
+GET https://www.bankline.rbs.com/bankline/rbs/global/home.do

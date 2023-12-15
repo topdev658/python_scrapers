@@ -1,0 +1,118 @@
+==========
+Summary:
+
+These tests focused on higher-level results and basically are e2e tests
+
+==========
+How to run:
+
+Please, find
+tests/kutxa_scraper_tests.py
+tests/santander_scraper_tests.py
+
+You just can copy one of them and create the tests for another scraper.
+
+To launch the tests, use (form project root)
+# standard output
+$ python3 -m unittest tests/santander_scraper_tests.py
+
+# log files will be created/rewrited
+python3 -m unittest tests/santander_scraper_tests.py > logs/tests.out.log 2> logs/tests.err.log
+
+OR add the new test in the file 'run_tests.sh' similar to previous tests
+# adds additional rows into log files
+python3 -m unittest tests/santander_scraper_tests.py >> logs/tests.out.log 2>> logs/tests.err.log
+
+Note, the python's unittest allows to run tests like `python3 -m unittest tests/* `, BUT you shouldn't do it with these test cases to provide graceful shutdown.
+
+==========
+As for the test cases modules:
+
+you can find several methods and, basically, you should add them to other test cases:
+
+def test_accounts_num(self):
+    """Checks the number of scraped accounts"""
+    self.assertGreaterEqual(test_helpers.uploaded_accounts_num(self.scraper), 22)
+
+def test_movements_num(self):
+    """Checks the number of scraped movements"""
+    self.assertGreaterEqual(test_helpers.uploaded_movements_num(self.scraper), 10000)
+
+def test_movements_num_per_account(self):
+    """Checks the number of scraped movements of each account"""
+    expect = {}
+    uploaded = test_helpers.uploaded_movements_per_account_num(self.scraper)
+    for a, m in expect:
+        self.assertGreaterEqual(uploaded[a], m)
+
+
+All you have to do, just set corresponding values:
+22 means we expect at least 22 acccounts
+10000 (will fail, just for demo) means we expect at least 10000 movements
+test_movements_num_per_account: expect = {} should be smth like {"ES12345": 10} and means that we expect 10 movements for FinEntAccountId "ES12345"
+
+If you want to add more complex checkers, let me know, I'll add them in test_helpers
+One test module can contain several test classes (test cases)
+
+==========
+Defaults
+
+Each test case should be a child of
+tests.helpers.basic_test_case.BasicTestCase (test/helpers/basic_test_case.py)
+
+This BasicTestCase class:
+1. redefines
+project_settings.IS_UPDATE_DB = True
+project_settings.IS_PRODUCTION_DB = False
+project_settings.IS_SEND_NOTIFICATIONS = False
+
+(a liitle bit hacky, but for safety of the PROD DB)
+
+2. it starts scraping process before all tests in a child (defined in setUpClass method)
+3. it provides common test to check scraping result code
+def test_scraping_result_code(self):
+    self.assertEqual(self.scraping_result_code, '0')
+
+==========
+Note, each test method's name should start from 'test_' or unittest will not execute it
+
+
+==========
+
+I've added one more type of tests: check for authorization (log in) possibility only
+These tests allow to quickly (without full scraping) understand the situation with the corresponding website, I think, this should be useful
+
+
+You can find examples in the TFS and PROD/DEV servers
+
+The code of test class much simpler than full test classes, it doesn't have any methods and looks like:
+
+class KutxaScraperLoginOnlyTestCase(LoginOnlyTestCase):
+    scraper = test_helpers.new_scraper_for_tests(
+        KutxaScraper,
+        customer_id=131794,
+        fin_ent_access_id=8416,
+        date_from='',
+        date_to=''
+    )
+
+All you have to specify is the scraper class (here is KutxaScraper), customer_id, fin_ent_access_id
+
+Then, there is a run_tests_login_only.sh - add necessary files with login-only tests here to split full tests and login-only tests
+The output of tests will be in logs/test_login.out.log and logs/test_login.err.log
+
+If there are no errors, you will find
+....
+----------------------------------------------------------------------
+Ran 4 tests in 3.996s
+
+OK
+in logs/test_login.err.log (unittest's package output is stderr always)
+
+IMPORTANT NOTE: this class inherits LoginOnlyTestCase and does't redefine the project settings (because this test doesn't affect the DB), so IS_UPDATE_DB, IS_PRODUCTION_DB, IS_SEND_NOTIFICATIONS will be as defined in settings.py.
+
+If you'll be unable to run this kind of tests for some of the scrapers due to non-standard login-method results, let me know
+
+
+Regards,
+Vladimir

@@ -1,0 +1,190 @@
+import traceback
+from datetime import datetime
+from typing import List, Tuple, Optional
+
+from custom_libs import extract
+from custom_libs import pdf_funcs
+from custom_libs.myrequests import MySession
+from project.custom_types import CorrespondenceDocParsed
+from project.custom_types import CorrespondenceDocScraped, DBOrganization
+from project.settings import DOWNLOAD_CORRESPONDENCE_OFFSET_DAYS
+from . import parse_helpers_receipts_oldweb
+from .cajamar_scraper_oldweb import CajamarScraper
+from scrapers.cajamar_scraper.custom_types import AccountForCorrespondence
+
+__version__ = '2.0.0'
+
+__changelog__ = """
+2.0.0
+renamed to download_correspondence(), CorrespondenceDocParsed, CorrespondenceDocScraped
+1.2.0
+correspondence: currency field support
+1.1.0
+use project-level offset for corr
+1.0.0
+init
+"""
+
+
+class CajamarReceiptsScraper(CajamarScraper):
+    scraper_name = 'CajamarReceiptsScraper'
+
+    def download_correspondence(
+            self,
+            s: MySession,
+            organization_title: str) -> Tuple[bool, List[CorrespondenceDocScraped]]:
+
+        if not self.basic_should_download_correspondence():
+            return False, []
+
+        organization = self.basic_get_organization(organization_title)  # type: Optional[DBOrganization]
+
+        if not organization:
+            self.logger.error("download_correspondence: no organization_saved with title '{}'. "
+                              "Can't continue. Abort".format(organization_title))
+            return False, []
+
+        date_from, date_from_str = self.basic_get_date_from_for_correspondence(
+            offset=DOWNLOAD_CORRESPONDENCE_OFFSET_DAYS,
+            max_offset=55  # 2 months with padding
+        )
+
+        req_params = {
+            'CHANNEL': 'WEB',
+            'MODEL': 'FullModel',
+            'OP_CODE': 'O_C_BUZON_VIRTUAL_BIZTOL_v1',
+            'SERV': '17',
+            'NOMBRE_OPERACION': 'O_C_BUZON_VIRTUAL_BIZTOL_v1'
+        }
+
+        resp_filter_form = s.post(
+            self._url('BE/ServletOperation'),
+            data=req_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies
+        )
+
+        accounts_for_corr = parse_helpers_receipts_oldweb.get_accounts_for_correspondence(resp_filter_form.text)
+        self.logger.info('Got {} accs for corr: {}'.format(len(accounts_for_corr), accounts_for_corr))
+        op_code_param = extract.form_param(resp_filter_form.text, 'OP_CODE')
+        for acc in accounts_for_corr:
+            self.download_account_correspondence(
+                s,
+                organization,
+                acc,
+                date_from,
+                self.date_to,
+                op_code_param
+            )
+        return True, []  # results are not used
+
+    def _download_correspondence_pdf(
+            self,
+            s: MySession,
+            corr: CorrespondenceDocParsed) -> Tuple[bool, MySession, bytes]:
+
+        req_params = corr.extra['req_pdf_params']
+
+        resp_pdf = s.post(
+            self._url('BE/ServletOperation'),
+            data=req_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            stream=True,
+        )
+
+        pdf_content = resp_pdf.content
+        if b'<html' in pdf_content:
+            return False, s, pdf_content
+
+        return True, s, pdf_content
+
+    def download_account_correspondence(
+            self,
+            s: MySession,
+            organization: DBOrganization,
+            account_for_corr: AccountForCorrespondence,
+            date_from: datetime,
+            date_to: datetime,
+            op_code_param) -> Tuple[bool, List[CorrespondenceDocScraped]]:
+
+        self.logger.info('Download account correspondence for {}'.format(account_for_corr))
+
+        req_params = {
+            'CHANNEL': 'WEB',
+            'MODEL': 'FullModel',
+            'OP_CODE': op_code_param,
+            'CURRENT_NODE': 'W_C_BUZON_VIRTUAL_NUEVO',
+            'REACTION_CODE': 'ACEPTAR',
+            'NCTA_ALIAS': account_for_corr.req_param,  # '560127200001859'
+            'TIPO_DOCUS': '0',
+            'MOVIMIENTOS': '0',
+            'TIPO_CONSUL': '1',
+            'FINI': date_from.strftime('%d%m%Y'),  # '01082020'
+            'FFIN': date_to.strftime('%d%m%Y'),  # '15092020'
+            'TIPODOCUMENTO': '00',
+            'CHECKCONSULTA': '0',
+            'CONFIGURAR_BUZON': '0'
+        }
+
+        resp_corr_filtered = s.post(
+            self._url('BE/ServletOperation'),
+            data=req_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies
+        )
+
+        # All docs at 1 page, no pagination required
+        corrs_parsed_asc = parse_helpers_receipts_oldweb.get_correspondence_from_list(
+            resp_corr_filtered.text,
+            account_for_corr.account_no
+        )  # type: List[CorrespondenceDocParsed]
+        corrs_scraped = []  # type: List[CorrespondenceDocScraped]
+
+        for i, corr_parsed in enumerate(corrs_parsed_asc):
+            try:
+                ok, s, doc_pdf_content = self._download_correspondence_pdf(s, corr_parsed)
+                if not ok:
+                    self.logger.error("{}: {}: can't download correspondence PDF. Skip".format(
+                        organization.Name,
+                        corr_parsed,
+                    ))
+                    continue
+
+                document_text = pdf_funcs.get_text(doc_pdf_content)
+                product_id = corr_parsed.account_no  # 'ES7020482178763400008898'
+
+                corr_scraped = CorrespondenceDocScraped(
+                    CustomerId=self.db_customer_id,
+                    OrganizationId=organization.Id,
+                    FinancialEntityId=self.db_financial_entity_id,
+                    ProductId=product_id,
+                    ProductType='',
+                    DocumentDate=corr_parsed.operation_date,
+                    Description=corr_parsed.descr,
+                    DocumentType=corr_parsed.type,
+                    DocumentText=document_text,
+                    # Need to use Checksum to compare with PDFs from receipts
+                    Checksum=pdf_funcs.calc_checksum(bytes(document_text, 'utf-8')),
+                    AccountId=None,  # Account DB Id
+                    StatementId=None,
+                    Amount=corr_parsed.amount,
+                    Currency=corr_parsed.currency,
+                )
+
+                corr_scraped_upd, should_add = self.basic_check_correspondence_doc_to_add(
+                    corr_parsed,
+                    corr_scraped
+                )
+
+                if should_add:
+                    corrs_scraped.append(corr_scraped_upd)
+                    self.basic_save_correspondence_doc_pdf_and_update_db(corr_scraped_upd, doc_pdf_content)
+
+            except:
+                self.logger.error("{}: can't download correspondence PDF: HANDLED EXCEPTION\n{}".format(
+                    corr_parsed,
+                    traceback.format_exc()
+                ))
+
+        return True, corrs_scraped

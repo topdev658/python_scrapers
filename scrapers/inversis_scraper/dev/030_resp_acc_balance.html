@@ -1,0 +1,2554 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+
+
+    <title>Inversis</title>
+
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+
+
+    <script type="text/javascript">
+
+
+        if (navigator.platform == 'iPad') {
+            document.location.href="/tablet/cbTabinversiones";
+        }
+        if (navigator.userAgent.indexOf("Mobile") == -1 && navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href="/tablet/cbTabinversiones";
+        }
+
+
+        if ((navigator.platform == 'iPhone') || (navigator.platform == 'iPod')) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+        if (navigator.userAgent.indexOf("Mobile") != -1 && navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+        if (navigator.userAgent.indexOf("BlackBerry") != -1 || navigator.userAgent.indexOf("BB10") != -1 || navigator.userAgent.indexOf("PlayBook") != -1) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+
+
+    </script>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/reset.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/basic_styles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/basic_color.css" />
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/styles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/styles_color.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/calendario.css" />
+
+
+
+    <link rel="stylesheet" type="text/css" media="all" href="/css/inversiones/jqModal.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="/css/inversiones/styles_print.css" />
+
+
+
+    <!--[if IE 7]>
+    <link rel="STYLESHEET" type="text/css" media="all" href="/css/inversiones/styles_ie7.css" />
+    <![endif]-->
+    <!--[if lte IE 6]>
+    <link rel="STYLESHEET" type="text/css" media="all" href="/css/inversiones/styles_ie6.css" />
+    <link rel="STYLESHEET" type="text/css" media="print" href="/css/inversiones/styles_ie6_print.css" />
+    <script type="text/javascript" src="/js/inversiones/pngfix.js"></script>
+    <script type="text/javascript" src="/js/inversiones/bgiframe.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var hestilos = "";
+    </script>
+
+
+
+    <script type="text/javascript" src="/js/inversiones/jquery-1.2.6.pack.js"></script>
+
+
+
+
+    <script type="text/javascript" src="/js/inversiones/totaljs.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        var _id_tds = "qDlM7AkL43pRejvoL0BWMOil9zWVgV2qvhruw6yahEx6rRLLuI74!1789967887!-1145187264!16076083059311802216824226270652";
+        var _esLH = "N";
+    </script>
+
+
+    <!-- Start frame busting code - part 1/2 -->
+    <style>
+        html { display : none ; }
+    </style>
+    <!-- End frame busting code - part 1/2 -->
+
+    <script>
+        <!-- Start frame busting code - part 2/2 -->
+        if ( self == top ) {
+            document.documentElement.style.display = 'block';
+        } else {
+            top.location = self.location;
+        }
+        <!-- End frame busting code - part 2/2 -->
+    </script>
+
+    <script type="text/javascript">
+
+
+        InversisMenu.setDataServer({
+            path:"1_0",
+
+            urlData:"/menu/banco/5000_es.json"
+
+        });
+
+        Dialog.setDataServer({
+            strErr:"Error",
+            strWarning:"Alerta"
+        });
+
+
+        ConfigTimeOut.setDataServer({
+            maxTime:'90000',//en milisegundos,
+            strTimeOut:'Se ha producido un problema en la realización de su transacción. <br>En caso de persistir, póngase en contacto con su responsable de cuenta o Gestor. ',
+            strTitleTimeOut: "Mensaje"
+        });
+        callCenter.setDataServer({
+            internac:{
+                titulo:"CALL CENTER"
+            },
+            urlData:"",
+            urlConfig:""
+        });
+
+        opciones.setDataServer({
+            internac:{
+                titulo:"OPCIONES"
+            },
+            urlData:"/trans/inversis/SvlAjaxControl?accion=opcionesUsuario"
+        });
+
+    </script>
+    <script language="Javascript" src='/servlet/Satellite?pagename=inversiones/Menu/JspParametros&tipoPeticionJs=S&tIzda=MIA&idiomaUsuario=es&localizacionUsuario=ES&cobranding=cbInversiones&cachecontrol=immediate'></script>
+
+
+    <script type="text/javascript" src="/js/inversiones/common_logged.js"></script>
+    <script type="text/javascript">
+        favoritos.setDataServer({
+            internac:{
+                titulo:"FAVORITOS",
+                addFavoritos:"Añadir Favoritos"
+            },
+            urlData:"/trans/inversis/SvlAjaxControl?accion=favoritosUsuario",
+            urlConfig:"/trans/inversis/SvlUsuario?accion=funFavoritas"
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        var  ALERT_109= "Introduzca el Código de Usuario.";
+
+        var  ALERT_110= "Introduzca la Password del Usuario.";
+
+
+    </script>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        if (navigator.platform == 'iPad') {
+            document.location.href="/tablet/cbTabinversiones";
+        }
+        if (navigator.userAgent.indexOf("Mobile") == -1 && navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href="/tablet/cbTabinversiones";
+        }
+
+
+        if ((navigator.platform == 'iPhone') || (navigator.platform == 'iPod')) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+        if (navigator.userAgent.indexOf("Mobile") != -1 && navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+        if (navigator.userAgent.indexOf("BlackBerry") != -1 || navigator.userAgent.indexOf("BB10") != -1 || navigator.userAgent.indexOf("PlayBook") != -1) {
+            document.location.href="/mobile/cbMobinversiones";
+        }
+
+
+    </script>
+
+
+
+
+    <script type="text/javascript">
+
+        if (!top.Cabecera.validarFrames(document.location))
+            top.location=document.location;
+
+        var servidorHTTPS ="";
+        $jq(document).ready(function() {
+            Cabecera.init('');
+        });
+        var hestilos = "";
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>origenInternac='S';
+
+    function imprimirExcel()
+    {
+        var valorModoPresentacion = $jq("#modoPresentacion").val();
+        var tipoexcel = 1
+
+        if (valorModoPresentacion == 'G')
+        { tipoexcel = 2 }
+        generarExcel(tipoexcel,'.xla','inversis')
+    }
+
+    $jq(document).ready(function() {
+
+        // Inicializacion del bloqueo de la fecha en funcio del valor del checkbox online
+        bloquearFechaActualIntegrada  ( true );
+
+
+    });
+
+
+    </script>
+
+
+
+
+
+
+
+
+    <script>
+        function obtenerFechaActualServidor(){return "10/12/2020";}
+        function obtenerDateActualServidor(){return new Date("2020", "12" - 1, "10", "14", "54", "3");}
+        function obtenerAnyoActualServidor(){return "2020";}
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        function mostrarDemo(pag) {
+            irDemo(pag);
+        }
+
+        function irDemo(pagina) {
+            var parametro=((typeof(pagina)!=="undefined")&&(pagina!==""))?"?pagina="+pagina:"";
+            url="/pagEstaticas/Demo/home.html"+parametro;
+            var x,y;
+            x=(screen.width-10)/2-780/2;
+            y=(screen.height-30)/2-520/2;
+            if (top.ie) {
+                parametros='width=780,height=520,left='+x+',top='+y+',titlebar=0,menubar=0,toolbar=0,location=0,directories=0,scrollbars=0,status=0,resizable=0,fullscreen=0';
+            } else {
+                parametros='width=780,height=520,screenX='+x+',screenY='+y+',titlebar=0,menubar=0,toolbar=0,location=0,directories=0,scrollbars=0,status=0,resizable=0,fullscreen=0,hotkeys=0';
+            }
+            window.open(url,"Demo",parametros);
+        }
+
+        function ayuda(pag) {
+            var pagina = "/ayuda/" + dirAyuda + pag.toLowerCase() + ".html";
+            var ventana = window.open(pagina,"ventanaAyuda","resizable=yes,scrollbars=yes,width=670,height=400");
+        }
+
+        function herramienta_excel(){
+            imprimirExcel();
+        }
+
+        function herramienta_pdf(){
+            imprimirPdf();
+        }
+
+        function herramienta_imprimir(){
+            imprimirPagina();
+        }
+
+        function herramienta_imprimir_modal(){
+            imprimirPaginaModal();
+        }
+
+        var formatoHora ="HH:mm";
+        var formatoHoraExtendida ="HH:mm:ss";
+        var formatoFecha="dd/MM/yyyy";
+        var formatoFechaExtendida="dd/MM/yyyy HH:mm:ss";
+        var formatoFechaCorta="MM/yyyy";
+        var formatoFechaInterno ="yyyy-MM-dd";
+        var formatoFechaInternoExtendida ="yyyy-MM-dd HH:mm:ss";
+        var separadorMiles = '.';
+        var separadorDecimales = ',';
+        var fechaglobal = 'Fecha: 10/12/2020 14:54:03';
+        var fechaglobalHoy = '10/12/2020';
+        var descripcionSi = "Sí";
+        var descripcionNo = "No";
+        var descripcionCancelar = "Cancelar";
+        var descripcionAceptar = "Aceptar";
+        //Arrastrar capa por la pantalla
+        var arrastrarCapaPantalla = "Arrastrar capa por la pantalla";
+        var idioma = "es";
+        var localizacion = "ES";
+        var esInstitucionInversis = "true";
+
+
+        var openNewWindow = '';
+        if('true' == openNewWindow ){
+            var menuFunc = '';
+            var newWindowUrl = '';
+            if('funDocSolOrdenTrans' == menuFunc){
+                newWindowUrl = "/servlet/Satellite?blobcol=urldatos&blobheader=application%2Fpdf&blobkey=id&blobnocache=true&blobtable=FicheroExterno&blobwhere=1225377801688&ssbin";
+
+                //Inicio PRJ0016874 - EVAR - Adecuación Ley de Protección de Datos
+            }else if('funPoliticaProtecDatos' == menuFunc){
+                newWindowUrl = "/servlet/Satellite?blobcol=urldatos&blobheader=application%2Fpdf&blobkey=id&blobnocache=true&blobtable=FicheroExterno&blobwhere=1225377845530&ssbinary=true&blobheadername1=Content-Disposition&blobheadervalue1=inline";
+
+                //Fin PRJ0016874 - EVAR - Adecuación Ley de Protección de Datos
+            }else if ('funPSD2' == menuFunc){
+                newWindowUrl = "/servlet/Satellite?blobcol=urldatos&blobheader=application%2Fpdf&blobkey=id&blobnochache=true&blobtable=FicheroExterno&blobwhere=1225378087409&ssbinary=true&blobheadername1=Content-Disposition&blobheadervalue=1=inline";
+            }
+            if(''!= newWindowUrl){
+                window.open(newWindowUrl);
+            }
+        }
+
+
+
+        var nombreP = 'fo_co_resumen_saldos';
+        var dirAyuda = '';
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        var  ALERT_513= "Formato de fecha introducido incorrecto. El formato correcto es: ";
+
+        var  ALERT_535= "Tiene que seleccionar una persona o una cuenta";
+
+        var  ALERT_053= "La fecha no es válida (formato dd/mm/aaaa). Introduzca de nuevo los datos del campo";
+
+        var  ALERT_010= "Debe seleccionar una cuenta";
+
+        var  ALERT_846= "Si ha rellenado el campo 'Cuenta' como criterio de búsqueda, no debe rellenar el campo 'Tipo intervención'.";
+
+        var  ALERT_4237= "No es una cuenta de efectivo";
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+<div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        var mostrarBtnFavorito = true;
+
+        $jq(document).ready(function() {
+
+            $jq("#btn-Usr").click(function () {
+                $jq("#divAreaAcceso").each(function() {
+                    displaying = $jq(this).css("display");
+                    if(displaying == "block") {
+                        $jq(this).fadeOut('slow',function() {
+                            //  $jq(this).css("display","none");
+                        });
+                        $jq("#btn-Usr").removeClass("mostrado");
+                    } else {
+                        $jq(this).fadeIn('slow',function() {
+                            //  $jq(this).css("display","block");
+
+                        });
+                        $jq("#btn-Usr").addClass("mostrado");
+                        $jq("#codigoUsuario").focus();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <div id="header">
+
+        <div id="sup_menu" class="divRecursiva">
+
+
+
+
+
+
+
+
+
+            <ul>
+
+                <!-- INICIO - PRJ0039756 - SSO por CV e ISIN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="recursiva3"  class='icono-contacto'><a href="#" onclick="abrirContactenos()">Contáctenos</a></li>
+
+
+
+
+
+                <!-- INICIO - PRJ0039756 - SSO por CV e ISIN -->
+
+
+                <li class="icono-ultima">Última conexión: 09/12/2020 - 21:39</li>
+                <li class="icono-conexion last"><a class="btn-desc" id="salidaUsuario_" href="/trans/inversis/SvlAutentificar?accion=salirSesion">DESCONECTAR</a></li>
+
+            </ul>
+
+
+            <script>
+
+                function abrirContactenos(){
+                    document.location.href = "/inversion/microsites/contactenos"+escape("");
+                }
+
+            </script>
+
+            <script type="text/javascript">
+
+                $jq(document).ready(function() {
+                    $jq("ul#navRecursiva li:last").addClass("last");
+                });
+            </script>
+            <!-- PRJ0039756 - SSO por CV e ISIN -->
+
+
+
+
+
+
+
+            <div class="relative00 zi5">
+                <div id="capa_idioma" class="drag_module noshow">
+                    <div class="drag_contenedor">
+                        <div class="fin_capa">
+                            <div class="inicio_capa">
+                                <div class="drag_contenido">
+                                    <span class="ftl"> Seleccione un idioma </span>
+                                    <ul>
+
+                                        <li> <a href="/trans/inversis/SvlIdioma?codIdioma=02">Inglés</a></li>
+
+                                        <li> <a href="/trans/inversis/SvlIdioma?codIdioma=07">Francés</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PRJ0039756 - SSO por CV e ISIN -->
+        </div>
+
+        <div id="divHeaderTop">
+
+            <div id="logo_principal" class="divLogoPrincipal">
+                <h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <a href="/index.html"><img src="/servlet/Satellite?blobcol=urlcontenido&blobheader=png&blobkey=id&blobtable=ContenidoCobranding&blobwhere=1225374654482&ssbinary=true" alt=""/></a>
+
+
+
+
+                </h1>
+            </div>
+
+
+            <div id="divHeaderRight">
+
+
+
+                <div class="divClientes" id="user_logged">
+                    <!-- INICIO - PRJ0039756 - SSO por CV e ISIN -->
+
+                    <a class="btns" id="btn-Usr" href="#" onclick=""><span>Mi cuenta</span></a>
+
+                    <div id="divAreaAcceso">
+
+                        <div class="fila botoneraAlias"><input id="doalias" class="btn-b" type="button" value='alias' name="alias"  onclick="actualizarAliasSesion();return false;"></div>
+
+
+                        <div class="fila"><a href="#" class="btn-favoritos" onclick="mostrarCapaFavoritos()">Favoritos</a></div>
+
+
+                        <div class="fila datos-usuario">
+                            <label>
+                                <span class="ico-usuario"></span>Usuario:
+                            </label>
+                            <span class="texto">JAIME  CHURRUCA AZQUETA</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <div id="navmenu">
+            <div class="ccMenu"  id="auxMenu">
+                <div class="ccMenuOption right-side" id="ccMenu1" style="display: block; left: 472px; top: 156px;"></div>
+                <div class="ccMenuOption right-side" id="ccMenu2" style="display: block; left: 665px; top: 212px;"></div>
+                <div class="ccMenuOption" id="ccMenu3" style="display: none;"></div>
+                <div class="ccMenuOption" id="ccMenu4" style="display: none;" ></div>
+            </div>
+            <div id="m_inv">
+
+                <ul class="elem_5">
+
+                    <li id="opc_0">
+                        <div>
+                            <div>
+                                <a class="hasChild clearfix" href="#"><span class="ftl">Mi banco</span><span class="menu_dropdown"></span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="opc_1">
+                        <div>
+                            <div>
+                                <a class="hasChild clearfix" href="#"><span class="ftl">Cuentas</span><span class="menu_dropdown"></span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="opc_2">
+                        <div>
+                            <div>
+                                <a class="hasChild clearfix" href="#"><span class="ftl">Inversiones</span><span class="menu_dropdown"></span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="opc_3">
+                        <div>
+                            <div>
+                                <a class="hasChild clearfix" href="#"><span class="ftl">Análisis y mercados</span><span class="menu_dropdown"></span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="opc_4">
+                        <div>
+                            <div>
+                                <a class="hasChild clearfix" href="#"><span class="ftl">Conózcanos</span><span class="menu_dropdown"></span></a>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div><script type="text/javascript">
+            InversisMenu.load();
+        </script>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="wrapper" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="listIcons">
+            <ul>
+
+
+
+
+                <li>
+                    <a href="#" class="ico_print last" onclick="herramienta_imprimir();return false;">Imprimir</a>
+                </li>
+
+            </ul>
+        </div>
+        <script>
+            if ($jq("#listIcons ul li").length == 0) $jq("#listIcons").hide();
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+        <h1>
+
+
+            <!-- PRJ0052938 - DMND0001525 elimina "rentabilidad" para andbank -->
+
+
+
+            Resumen de Saldos
+
+            <!-- fin  PRJ0052938 - DMND0001525 elimina "rentabilidad" para andbank -->
+
+
+
+        </h1>
+        <p class="nota">
+            <!-- PRJ0052938 - DMND0001525 elimina "rentabilidad" para andbank -->
+
+
+
+            Para consultar datos distintos de los que se muestran, seleccione en los campos superiores y pulse Iniciar consulta. <b>Recuerde que sus posiciones de Cuenta de valores están valoradas a los últimos precios de cierre disponibles</b>.
+
+            <!-- Fin PRJ0052938 - DMND0001525 elimina "rentabilidad" para andbank -->
+        </p>
+
+
+
+        <script type="text/javascript">
+            _IT.setDataServer({
+                litVistaAgrupada : "Vista agrupada",
+                litVistaInicial: "Vista inicial",
+                hasVistaResumen : false
+            })
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <script language="JavaScript" src="/js/inversiones/contenidos/warrants/JsDivMensajes.js"></script>-->
+        <script language="JavaScript" src="/js/inversiones/trading/JsCrPosicionDetalle.js"></script>
+        <script language="JavaScript" src="/js/inversiones/efectivo/JsPosicionIntegrada.js"></script>
+        <script language="JavaScript" src="/js/inversiones/comun/JsComunesTipoProd.js"></script>
+        <script language="JavaScript" src="/js/inversiones/JsValidate.js"></script>
+        <script language="javascript" src="/js/inversiones/comun/JsGeneral.js"></script>
+        <script language="JavaScript" src="/js/inversiones/comun/JsFormatosInternacionalizacion.js"></script>
+        <script language="JavaScript" src="/js/comun/JsGenerarPDF.js"></script>
+        <script language="JavaScript" src="/js/inversiones/comun/JsFuncionesAjax.js"></script>
+
+        <form name="formPosicionIntegrada" id="formPosicionIntegrada" method="post">
+            <div id="gnralFormLayer" class="clearfix ml1 mr1" >
+                <div class="p1">
+                    <input type="hidden" name="modoPresentacion" id="modoPresentacion" value="D" />
+                    <input type="hidden" name="accion" value="posicionIntegrada">
+                    <input type="hidden" name="origen" value="posicionIntegrada">
+                    <input type="hidden" name="cuentaSeleccionada" id="cuentaSeleccionada">
+                    <input type="hidden" name="cuentaSeleccionadaInicio" value="0029493443" >
+                    <input type="hidden" name="tipoSaldo" id="tipoSaldo"/>
+                    <input type="hidden" name="producto" id="producto"/>
+                    <input type="hidden" name="tipoInforme" value="1">
+                    <input type="hidden" name="datoPersona" value="" >
+                    <input type="hidden" name="servicio">
+                    <input type="hidden" name="internacionalizado" value="SI">
+                    <input type="hidden" name="tipo" value="S">
+                    <input type="hidden" name="indEfecMarcaBlanca" id="indEfecMarcaBlanca" value="N">
+                    <input type="hidden" name="esPosIntegrada" id="esPosIntegrada" value="false">
+                    <div class="grid_100">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <script type="text/javascript">
+
+
+                            var  ALERT_021= "Este campo solo puede contener valores numéricos. Introduzcalo de nuevo.";
+
+                            var  ALERT_025= "Ha introducido caracteres no válidos para la cuenta externa. Introdúzcalo de nuevo";
+
+                            var  ALERT_010= "Debe seleccionar una cuenta";
+
+                            var  ALERT_3127= "Debe seleccionar un tipo de confirmación";
+
+                            var  ALERT_074= "Este campo sólo puede contener valores alfanuméricos. Introdúzcalo de nuevo.";
+
+
+                        </script>
+
+
+
+
+
+
+
+
+                        <div class="grid_100">
+                            <div class="ftl">
+                                <label for="cta">
+                                    <input type="hidden" id="nombreForm" name="nombreForm">
+
+                                    <span id="etiquetaCuenta">Cuenta</span>
+
+                                    <script language="Javascript">
+                                        var fc = $jq("#nombreForm").parents('form:first').attr('name');
+                                        var fcDatos = $jq("#nombreForm").parents('form:first').attr('name');
+                                        function cargarCuentas() {
+                                            f = document.forms[fc].productos0;
+                                            f.length = 0;
+
+                                            if (aCuentas.length > 1) {
+                                                var obj = null;
+                                                var idx = 0;
+                                                for (i = 0; i < aCuentas.length; i++) {
+                                                    if (aCuentas[i][0] == "") {
+                                                        obj = aCuentas[i];
+                                                        idx = i;
+                                                        break;
+                                                    }
+                                                }
+                                                if (obj != null) {
+                                                    for (i = idx - 1; i >= 0; i--)
+                                                        aCuentas[i + 1] = aCuentas[i];
+                                                    aCuentas[0] = obj;
+                                                }
+                                            }
+                                            for (i = 0; i < aCuentas.length; i++) {
+                                                var opcion = new Option(aCuentas[i][1],aCuentas[i][0]);
+
+
+
+                                                if(typeof(document.forms[fc].descCortaBuscador) != "undefined") {//traderWeb:
+                                                    if(document.forms[fc].descCortaBuscador.value == "S") {
+                                                        opcion = new Option(aCuentas[i][0],aCuentas[i][0]);
+                                                    }
+                                                }
+
+                                                f.options[i] = opcion;
+                                                if (aCuentas[i][3] == "S")
+                                                    f.options[i].selected = true;
+                                                if (!document.layers) {
+                                                    if (aCuentas[i][2] == "C")
+                                                        f.options[i].style.color = "Red";
+                                                    else
+                                                        f.options[i].style.color = "Black";
+                                                } else {
+                                                    if (aCuentas[i][2] == "C")
+                                                        f.options[i].text = f.options[i].text + "-" + 'Cancelada';
+                                                }
+                                                f.onclick=cambiar_estilo;
+                                            }
+                                            cambiar_estilo();
+                                        }
+
+                                        function ordenaArray(obj1, obj2) {
+                                            if (obj1[0] > obj2[0])
+                                                return 1;
+                                            else
+                                                return -1;
+                                        }
+
+                                        function ordenaFinal(array) {
+                                            var aCuentaAux = new Array();
+                                            var cont = 0;
+                                            for (i = 0; i < array.length; i++) {
+                                                if (array[i][2] == "A") {
+                                                    aCuentaAux[cont] = array[i];
+                                                    cont ++;
+                                                }
+                                            }
+                                            for (i = 0; i < array.length; i++) {
+                                                if (array[i][2] == "C") {
+                                                    aCuentaAux[cont] = array[i];
+                                                    cont ++;
+                                                }
+                                            }
+                                            return aCuentaAux;
+                                        }
+
+                                        function cambiar_estilo() {
+                                            f = document.forms[fc].productos0;
+                                            if ((!document.layers) && (f.length > 0))
+                                                f.style.color=f.options[f.selectedIndex].style.color;
+                                        }
+
+                                        function cambiar_estilo_interv() {
+                                            f = document.forms[fc].ordte;
+
+                                            if (f != null && (!document.layers) && (f.length > 0))
+                                                f.style.color=f.options[f.selectedIndex].style.color;
+                                        }
+
+
+                                        //value, texto, color, seleccionado
+                                        var aCuentas = [
+
+                                            ["","","A","N"]
+                                            ,
+
+                                            ["0029493443","CUENTA EFECTIVO - 0232-0105-00-0029493443 - VIA CELERE DESARROLLOS INMOBIL",
+
+                                                "A",
+
+                                                "S",
+
+                                                "EUR"]
+
+                                        ];
+
+                                        function keyPressValorBusquedaIE() {
+                                            switch (event.srcElement.name) {
+                                                case "numeroCuenta" :
+                                                    // Comprobar si se ha pulsado 'Enter'
+                                                    var keyChar = event.keyCode;
+                                                    if ( keyChar == '13') {
+                                                        busqDirectaCuenta('productos0','0');
+                                                        return false;
+                                                    }
+                                                    break;
+                                                default :
+                                            }
+                                        }
+
+                                        function keyPressValorBusquedaN7(keyStroke) {
+                                            switch (keyStroke.target.name) {
+                                                case "numeroCuenta" :
+                                                    eventChooser = keyStroke.keyCode;
+                                                    if(eventChooser=='13') {
+                                                        busqDirectaCuenta('productos0','0');
+                                                        return false;
+                                                        break;
+                                                    }
+                                                default:
+                                            }
+                                        }
+
+                                        function abrirBuscadorCuenta(url) {
+                                            if ((typeof _esLH != "undefined") && (_esLH === "S")){
+                                                Dialog.openWindowType2LH(url);
+                                            }else{
+                                                Dialog.openWindowType1(url);
+                                            }
+                                        }
+
+                                    </script>
+                                    <select class="cta" id="productos0"  name="productos0" onChange="onCambiarCuenta(this,'productos0','0')">
+                                        <option></option>
+                                    </select>
+                                </label>
+                                <input type="hidden" id="cuentaCompleta0" name="cuentaCompleta0" value="">
+
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+                            <input type="hidden" name="divisaFiltro0" value="">
+                            <input type="hidden" name="divisaCuenta0" value="EUR">
+
+                            <!--  22726 Fernando Manjón 02/03/2016: oculto para almacenar la entidad de triangulación -->
+                            <input type="hidden" id="institucionTriangulacion" name="institucionTriangulacion" value="5000">
+                            <input type="hidden" id="divisaInstitucion" name="divisaInstitucion" value="EUR">
+                            <input type="hidden" id="divisaDecimalesInstitucion" name="divisaDecimalesInstitucion" value="2">
+
+                        </div>
+                        <div class="grid_100">
+
+
+
+
+                        </div>
+
+
+                        <script>
+                            $jq(document).ready(function() {
+                                actualizarObjetivoCartera();
+                                actualizarTipoServicio();
+                            });
+
+                            function actualizarObjetivoCartera() {
+                                if ($jq("#objetivoCartera").size()>0) {
+                                    $jq("#descripcionObjetivoCartera").val($jq("#objetivoCartera option:selected").text());
+                                } else {
+                                    $jq("#descripcionObjetivoCartera").val();
+                                }
+                            }
+
+                            function actualizarTipoServicio() {
+                                if ($jq("#tipoServicio").size()>0) {
+                                    $jq("#descripcionTipoServicio").val($jq("#tipoServicio option:selected").text());
+                                } else {
+                                    $jq("#descripcionTipoServicio").val();
+                                }
+                            }
+
+                            var Saldo={
+                                inputId:"",
+                                botonId:"",
+                                init:function(){
+
+                                    var f = eval("document."+fc);
+
+
+                                    var $allSaldos=$jq("label[for^='saldo_']")
+
+                                    $jq("label[for^='saldo_']").each(function(){
+
+                                        var $inputButton=$jq(this).find("input[name=saldo]");
+
+                                        var idSaldo=($inputButton.attr("id")).split("_")[1];
+                                        if($jq("#"+idSaldo).attr("disabled")){
+                                            $jq(this).hide();
+                                        }else{
+                                            $jq(this).show();
+                                            $inputButton.unbind("click");
+                                            $inputButton.click(function(){
+                                                Saldo.load(idSaldo)
+                                            })
+                                        }
+                                    })
+
+                                },
+                                load:function(id){
+
+                                    var f = eval("document."+fc);
+
+                                    if(f.productos0.selectedIndex >= 0){
+                                        var cuenta = f.productos0.options[f.productos0.selectedIndex].value;
+                                        cuenta = rellenaNumeroCuenta(cuenta);
+
+                                        $jq.getData({
+                                            url:"/trans/inversis/SvlAjaxControl?accion=busquedaSaldo&numeroCuenta="+cuenta,
+                                            cache:true,
+                                            mode:"json",
+                                            user_function: function(data,backoffice){Saldo.parser(data,backoffice,id)}
+                                        })
+                                    }
+                                    if(typeof(f.cuentaSeleccionada) != "undefined" && typeof(f.cuentaSeleccionada.value) != "undefined")
+                                    {
+                                        var cuenta = f.cuentaSeleccionada.value;
+                                        cuenta = rellenaNumeroCuenta(cuenta);
+
+                                        $jq.getData({
+                                            url:"/trans/inversis/SvlAjaxControl?accion=busquedaSaldo&numeroCuenta="+cuenta,
+                                            cache:true,
+                                            mode:"json",
+                                            user_function: function(data,backoffice){Saldo.parser(data,backoffice,id)}
+                                        })
+                                    }
+
+                                },
+                                parser:function(data,backoffice,id){
+
+                                    var $saldoCueta=$jq("#saldoCuenta_"+id)
+                                    var $explicaSaldo=$jq("#explicaSaldo_"+id)
+                                    var $botonSaldo=$jq("#botonSaldo_"+id)
+
+                                    if ( parseInt(backoffice.CODIGO_RESPUESTA) < 0){
+                                        $saldoCueta.val("")
+                                        return false;
+                                    }
+                                    var valor=data.SALDO.VALOR
+                                    var divisa=data.SALDO.DIVISA
+                                    var descripcion=data.SALDO.DESCRIPCION_CUENTA_EFECTIVO
+
+                                    $saldoCueta.val(valor +" " +divisa)
+
+                                    if($explicaSaldo.size()==0){
+
+                                        var xyBotonSaldo=$botonSaldo.offset()
+                                        $botonSaldo.parent().append('<a href="#" class="explicaSaldo1" id="explicaSaldo_'+id+'" ><strong>[?]</strong></a>')
+
+                                        $explicaSaldo=$jq("#explicaSaldo_"+id)
+                                        $explicaSaldo.css("left",parseInt(xyBotonSaldo.left+25)+ "px")
+                                        $explicaSaldo.css("top",xyBotonSaldo.top+"px")
+                                    }
+                                    if(!$jq.browser.msie){
+                                        $explicaSaldo.css("opacity","0")
+                                        $explicaSaldo.show()
+                                        $explicaSaldo.animate(
+                                            {"opacity": 1}, { duration: 500 }
+                                        );
+                                    }else{
+                                        $explicaSaldo.show()
+                                    }
+                                    $explicaSaldo.click(function(){
+                                        Dialog.showTooltip(
+                                            descripcion,
+                                            $jq(this),
+                                            {width:250,closebutton:true },
+                                            true
+                                        );return false;
+                                    })
+
+                                }
+                            }
+                        </script>
+
+                        <!--22726 GLOBALIZACION-->
+                        <input type="hidden" class="fechaGlobalizar" id="fechaGlobalizarId" value="" />
+                        <input type="hidden" id="hIniciarConsulta" value="true" />
+
+                        <input type="hidden" name="c_codigoProducto">
+                        <input type="hidden" name="c_numeroCtaExterna">
+                        <input type="hidden" name="c_tipoProducto">
+                        <input type="hidden" name="c_descripcionCorta">
+                        <input type="hidden" name="c_estadoProducto">
+                        <input type="hidden" name="c_estadoPersonaProducto">
+                        <input type="hidden" name="c_tipoTitular">
+                        <input type="hidden" name="c_tipoFirma">
+                        <input type="hidden" name="c_descripcionTipoProducto">
+                        <input type="hidden" name="nombreSelect">
+                        <input type="hidden" name="inicio">
+                        <input type="hidden" name="saldoInternacionalizado" value="S">
+                        <input type="hidden" name="multiDivisa0" value="S">
+                        <input type="hidden" name="indMostrarEuros0" value="">
+                        <input type="hidden" name="hinstitucionCuenta" id="hinstitucionCuenta">
+                        <input type="hidden" name="tipoCuenta" id="tipoCuenta">
+                        <input type="hidden" name="institucionColectiva" id="institucionColectiva">
+                        <input type="hidden" name="institucionlogado" id="institucionlogado"  value="5000">
+
+
+
+                        <input type="hidden" name="tipoProductoBuscador0" value="CE">
+                        <input type="hidden" name="estadoProductoBuscador0" value="">
+                        <script>
+                            function onCambiarCuenta(obj,nombreSelect,cabecera){
+                                f = document.forms[fc];
+                                if ((typeof(f.t_divisa)!="undefined") &&  (aCuentas.length > 1))
+                                {
+                                    for (i = 0; i < aCuentas.length; i++)
+                                    {
+                                        if (aCuentas[i][0] == obj.options[obj.options.selectedIndex].value){
+                                            if ((typeof(aCuentas[i][4]) != "undefined"))
+                                                f.t_divisa.value = aCuentas[i][4];
+                                            else
+                                                f.t_divisa.value = "";
+                                        }
+                                    }
+                                }
+                                if (f.desSaldo != undefined) {
+                                    f.desSaldo.value = "";
+                                    f.datAdiSaldo.value = "";
+                                }
+                                busqComboCuenta(nombreSelect,cabecera,obj.options[obj.options.selectedIndex].value);
+                                //onSeleccionarCuenta();
+                                if($jq("input.fechaGlobalizar").size() > 0){
+                                    obtenerFechaActualGlobalizada(obj.options[obj.options.selectedIndex].value);
+                                }
+                            }
+                            function BuscarCuentas(n){
+
+                                var a=document.forms[fc];
+                                a.action="/trans/inversis/SvlBuscador?accion=buscarProductos&inicio=si&nombreSelect=" + n +"&internac=si";
+                                a.target="BuscadorCuentas";
+                                a.method="POST";
+                                BuscadorCuentas=window.open("/blank.html","BuscadorCuentas","directories=no,status=yes,width=750,height=300,scrollbars=yes");
+                                BuscadorCuentas.moveTo(100, 100);
+
+                                document.forms[fc].submit();
+                            }
+
+                            function onBuscadorRetornoCuenta(n,e,s,dc,c,te,tp,dtp,dcu,est,cpm,alias,divC,cueExt,datosCuenta,datosProducto){
+
+                                aCuentasEntidadesTemp = te;
+
+                                var divisaCuenta = eval("document.forms[fc].divisaCuenta" + 0);
+                                divisaCuenta.value = divC;
+                                if ($jq("input[name='t_divisa']").size()> 0) {
+                                    $jq("input[name='t_divisa']").val(divC);
+                                    $jq("input[name='divisaCuenta0']").val(divC);
+                                }
+
+                                var tc = 'TC';
+                                var td = 'TD';
+                                var ce = 'CE';
+                                var pp = 'PE';
+                                var cr = 'CR';
+                                var cv = 'CV';
+
+                                var re = 'RE';
+
+                                var BAJA = 'B';
+                                var ANULADO = 'N';
+                                var CANCELADO = 'C';
+                                var VENCIDO = 'V';
+                                var isAliasActivo = false;
+                                var numCuenta = cpm;
+                                if (document.forms[fc].cuentaCompleta0){
+                                    document.forms[fc].cuentaCompleta0.value = cpm;
+                                }
+                                ;
+                                en=false; //existe ya?
+
+                                for (i=0;i<document.forms[fc].length;i++){
+                                    f=document.forms[fc].elements[i];
+                                    if (f.name==n)
+                                        break;
+                                }
+
+                                if (c!=""){
+                                    var nCuentas=f.length;
+                                    for (var i=0;i<nCuentas;i++){
+                                        if (c==f.options[i].value){
+                                            f.options[i].selected=true;
+                                            en=true;
+                                            break;
+                                        }
+                                    }
+
+
+
+                                    var descCortaAlias = dcu;
+                                    if (isAliasActivo) descCortaAlias = alias;
+                                    if (!en){
+                                        if (tc == te || td == te)
+                                            var no=new Option(dtp+" - "+"XXXX-XXXX-XXXX-" + cpm.substring(cpm.length - 4, cpm.length)+" - "+descCortaAlias,c);
+                                        else {
+                                            var no=new Option(dtp+" - "+numCuenta+" - "+descCortaAlias,c);
+                                            if(typeof(document.forms[fc].descCortaBuscador) != "undefined") {//traderWeb:
+                                                if(document.forms[fc].descCortaBuscador.value == "S") {
+                                                    var no=new Option(c,c);
+                                                }
+                                            }
+                                        }
+
+                                        f.options[i] = no;
+                                        f.options[i].selected=true;
+
+                                        if (!document.layers)
+                                        {
+                                            if (((tc == te || td == te) && (est == CANCELADO || est == BAJA || est == ANULADO || est == VENCIDO)) ||
+                                                ((ce == te || cr == te || pp == te || te == cv || te == re) && (est == CANCELADO)))
+                                                f.options[i].style.color = "Red";
+                                            else
+                                                f.options[i].style.color = "Black";
+                                        }
+                                        else
+                                        {
+                                            if (((tc == te || td == te) && (est == CANCELADO || est == BAJA || est == ANULADO || est == VENCIDO)) ||
+                                                ((ce == te || cr == te || pp == te || te == cv || te == re) && (est == CANCELADO)))
+                                                f.options[i].text = f.options[i].text + "-" + 'Cancelada';
+                                        }
+                                        cambiar_estilo();
+                                    }
+                                    if (document.forms[fc].desSaldo != undefined) {
+                                        document.forms[fc].desSaldo.value = "";
+                                        document.forms[fc].datAdiSaldo.value = "";
+                                    }
+
+                                }
+
+                                if (typeof(jspAsignarOrdenante) !="undefined")  {
+                                    jspAsignarOrdenante();
+                                }
+
+                                if (typeof onBuscadorRetornoCuentaCallback === "function"){
+                                    onBuscadorRetornoCuentaCallback(datosCuenta,datosProducto);
+                                }
+                            }
+                        </script>
+                        <script>
+
+                            function busqComboCuenta(n,cabecera,cuenta) {
+                                //22726 globalizacion
+                                $jq("#hIniciarConsulta").val("");
+
+                                busqCuentaSolicitante(n,cabecera,cuenta);
+                                return false;
+
+                            }
+
+                            function busqDirectaCuenta(n,cabecera) {
+                                var numCue = eval("document."+fc+".numeroCuenta"+cabecera);
+                                var cuenta= numCue.value;
+
+                                //22726 globalizacion
+                                $jq("#hIniciarConsulta").val("");
+
+                                busqCuentaSolicitante(n,cabecera,cuenta);
+                                return false;
+                            }
+
+                            function busqCuentaSolicitante(n,cabecera,numCue,noLlamarRetornoBuscador) {
+
+                                var divisaFiltro =  eval("document."+fc+".divisaFiltro"+cabecera).value;
+                                var indMostrarEuros =  eval("document."+fc+".indMostrarEuros"+cabecera).value;
+                                var buscarOrdenante = (eval("document."+fc).c_ordenante)?eval("document."+fc).c_ordenante.value:"";
+                                if(cabecera>0)
+                                {
+                                    buscarOrdenante="N";
+                                }
+                                var numCueExt = "";
+
+                                if(typeof(eval("document."+fc+".numeroCuentaExterna"+cabecera)) != "undefined"){
+                                    numCueExt = eval("document."+fc+".numeroCuentaExterna"+cabecera).value;
+                                }
+
+                                var estadoproducto = "estadoProductoBuscador" + cabecera;
+                                var estadoProducBus = eval("document."+fc+"."+estadoproducto);
+                                if(typeof(estadoProducBus.value) != "undefined"){
+                                    estadoProducBus = estadoProducBus.value;
+                                }
+                                else
+                                {
+                                    estadoProducBus ="";
+                                }
+
+                                var tipoProducto = eval("document."+fc+"."+"tipoProductoBuscador"+cabecera);
+                                if(typeof(tipoProducto.value) != "undefined"){
+                                    tipoProducto = tipoProducto.value;
+                                }
+                                else
+                                {
+                                    tipoProducto ="";
+                                }
+                                var codigoProducto = eval("document."+fc).c_codigoProducto;
+                                var cadena = "";
+                                if(numCue != "") {
+                                    if(esCuentaExterna(numCue)) {
+                                        cadena = numCue;
+                                        //cadena = (numCue).replace('@','');
+                                        //if(!esAlfaNumCab(cadena)) return false;//8877
+                                        numCue = "";
+                                        numCueExt = cadena;
+                                    } else {
+                                        cadena = numCue;
+                                        if(validarNumeroCuentaBusqueda(numCue))
+                                            numCue = rellenaNumeroCuenta(numCue);
+                                        else
+                                            return false;
+                                    }
+
+                                    var origen = $jq('input:hidden[name=origen]').val();
+                                    $jq.getData({
+                                        url: "/trans/inversis/SvlAjaxControl?accion=procesaBusquedaCuenta&numeroCuenta="+numCue+"&nombreSelect="+n+"&estadoProductoBuscador"+cabecera+"="+estadoProducBus+"&ordenante="+buscarOrdenante+"&numeroCuentaExterna="+numCueExt+"&tipoProducto="+tipoProducto+"&divisaFiltro="+divisaFiltro+"&indMostrarEuros="+indMostrarEuros+"&origen="+origen,
+                                        cache:true,
+                                        mode:"json",
+                                        asynchronous: false,
+                                        user_function: function(data,backoffice){
+
+                                            // INC_PRB000040775 INICIO
+                                            if ((data!="undefined") && (data!=null) && typeof typeof(data.PETICION_CUENTA)!= "undefined" && typeof(data.PETICION_CUENTA.CONJUNTODATOSCUENTA)!= "undefined" &&  data.PETICION_CUENTA &&
+                                                data.PETICION_CUENTA.CONJUNTODATOSCUENTA && backoffice.CODIGO_RESPUESTA == "0")
+                                            {
+                                                // INC_PRB000040775 FIN
+                                                datosJuntas=data.PETICION_ORDENANTE; //INC_PRJ0023488 - gc - BM (T36 Entrada de órdenes datos de juntas)
+                                                var datosCuenta=data.PETICION_CUENTA.CONJUNTODATOSCUENTA.DATOSCUENTA;
+                                                var datosProducto=data.PETICION_CUENTA.CONJUNTODATOSCUENTA.DATOSPRODUCTO;
+                                                var e = datosCuenta.ENTIDAD_CUENTA;
+                                                var s = datosCuenta.SUCURSAL_CUENTA;
+                                                var dc = datosCuenta.DIGITO_CONTROL;
+                                                var c = datosCuenta.NUMERO_CUENTA;
+                                                var te = datosProducto.TIPO_ENTIDAD;
+                                                var tp = datosProducto.TIPO_PRODUCTO;
+                                                var dtp = datosProducto.DESCRIPCION_TIPO_PRODUCTO;
+                                                var dcu = datosCuenta.DESCRIPCION_LARGA;
+                                                var alias = datosProducto.ALIAS;
+                                                var est = datosCuenta.ESTADO_CUENTA;
+                                                var cpm = datosProducto.CODIGO_PRODUCTO;
+                                                var divC = datosCuenta.DIVISA_CUENTA;
+                                                var cueExt = datosCuenta.NUMERO_CUENTA_EXTERNA;
+
+                                                //if($jq("#institucionTriangulacion").val()=="")$jq("#institucionTriangulacion").val(datosCuenta.CODIGO_INSTITUCION);
+                                                $jq("#institucionTriangulacion").val(datosCuenta.CODIGO_INSTITUCION);
+
+                                                $jq("#divisaInstitucion").val(datosCuenta.DIVISA_INSTITUCION);
+                                                $jq("#divisaDecimalesInstitucion").val(datosCuenta.DECIMALES_DIVISA_INSTITUCION);
+                                                $jq("#hinstitucionCuenta").val(datosCuenta.CODIGO_INSTITUCION);
+
+                                                //Inicio PRJ0087173
+                                                $jq("#tipoCuenta").val(datosCuenta.TIPO_CUENTA);
+                                                $jq("#institucionColectiva").val(datosCuenta.INSTITUCION_COLECTIVA);
+                                                //Fin PRJ0087173
+
+                                                //22726 GLOBALIZACION SAFI CT
+                                                if($jq("input.fechaGlobalizar").size() > 0){
+                                                    obtenerFechaActualGlobalizada(datosCuenta.NUMERO_CUENTA);
+
+                                                    var auxFecha = $jq("input.fechaGlobalizar").val();
+                                                    actualizaFechasGlob(auxFecha, c);
+                                                }
+
+                                                if ($jq("#descripcionTipoServicio").size()>0) {
+                                                    obtenerTiposServicio(datosCuenta.NUMERO_CUENTA);
+                                                }
+
+                                                onBuscadorRetornoCuenta(n,e,s,dc,c,te,tp,dtp,dcu,est,cpm,alias,divC,cueExt,datosCuenta,datosProducto);
+                                                //return false;
+                                            } else {
+                                                var url=$jq("#ico_buscador"+cabecera).attr("href");
+                                                Dialog.openWindowType1(url);
+
+                                                //numCueAux y numCueExtAux se usan para clonar lso datos a la ventana modal
+                                                numCueAux=numCue
+                                                numCueExtAux=numCueExt
+
+                                                return false;
+                                            }
+                                            var f = eval("document."+fcDatos);
+                                            var doc = f.codOrdenante;
+                                            if(typeof(data.PETICION_ORDENANTE)!= "undefined" &&  typeof(data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES) != "undefined" && typeof(doc) != "undefined")
+                                            {
+                                                //var f = eval("document."+fc);
+                                                //var doc = f.codOrdenante;
+                                                for(var borrar=0; borrar <= f.codOrdenante.length; borrar++) {//antes de pintar los intervinientes para una cuenta, borro los de la anterior
+                                                    f.codOrdenante.options[0]=null;
+                                                }
+
+                                                if (eval('window.creaInfoOrdenante'))
+                                                    eval('creaInfoOrdenante(data)');
+                                                eval(doc).disabled=false;
+                                                if(data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.length>0 )
+                                                {
+                                                    var cont = data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.length;
+                                                    for (var i =0; i<data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.length; i++)
+                                                    {
+
+                                                        // PRJ0144152 - Quitamos la persona jurídica para Banca March en la pantalla de  compraVentaRFMB
+                                                        if ($jq("#institucionlogado").val() == "399101" && eval("document."+fc).origen.value == "compraVentaRFMB" && data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES[i].DATOSORDENANTE.TIPO_LEGAL == "J")
+                                                        {
+                                                            cont--;
+                                                        }else{
+                                                            var nuevaOption = new Option(data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES[i].DATOSORDENANTE.NOMBRE_COMPLETO,data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES[i].DATOSORDENANTE.CODIGO_INTERNO);
+
+                                                            eval(doc).options[cont] = nuevaOption;
+                                                            if("N"==data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES[i].DATOSORDENANTE.VIGENCIA_TEST || ""==data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES[i].DATOSORDENANTE.VIGENCIA_TEST)
+                                                            {
+                                                                eval(doc).options[cont].style.color= "Red";
+                                                            }else{
+                                                                eval(doc).options[cont].style.color= "Black";
+                                                            }
+
+                                                            cont--;
+                                                            if(cont==0) {
+                                                                var option = new Option("--Seleccione Ordenante--",'');
+                                                                eval(doc).options[0]=option;
+                                                                eval(doc).options[0].selected=true;
+                                                                eval(doc).options[0].style.color= "Black";
+                                                                cont=cont-1;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    if(ord != "") {
+                                                        for(var j=0; j < f.codOrdenante.length; j++) {
+                                                            if(f.codOrdenante.options[j].value == ord)
+                                                            {
+                                                                f.codOrdenante.options[j].selected = true;
+                                                            }
+                                                        }
+                                                        jspAsignarOrdenante ();
+                                                    }
+                                                    f.codOrdenante.onclick=cambiar_estilo_interv;
+                                                }
+                                                else
+                                                {
+                                                    var cont = 1;
+                                                    for (var i =0; i<1; i++)
+                                                    {
+                                                        var nuevaOption = new Option(data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.DATOSORDENANTE.NOMBRE_COMPLETO,data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.DATOSORDENANTE.CODIGO_INTERNO);
+                                                        eval(doc).options[cont] = nuevaOption;
+                                                        eval(doc).options[cont].selected=true;
+                                                        if("N"==data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.DATOSORDENANTE.VIGENCIA_TEST || ""==data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.DATOSORDENANTE.VIGENCIA_TEST)
+                                                        {
+                                                            eval(doc).options[cont].style.color= "Red";
+                                                        }
+                                                        else{
+                                                            eval(doc).options[cont].style.color= "Black";
+                                                        }
+                                                        cont--;
+                                                        if(cont==0 && "S"!=data.PETICION_ORDENANTE.CONJUNTODATOSTITULARES.DATOSORDENANTE.FIJO) {
+                                                            var option = new Option("--Seleccione Ordenante--",'');
+                                                            eval(doc).options[0]=option;
+                                                            eval(doc).options[0].selected=true;
+                                                            eval(doc).options[0].style.color= "Black";
+                                                            cont=cont-1;
+                                                        }
+                                                        /* else{
+                                                          if(f.codOrdenante.options[0].value == "")
+                                                            eval(doc).options[1].selected=true;
+                                                          eval(doc).disabled=true;
+
+                                                        } */
+                                                    }
+                                                    if(ord != "") {
+                                                        for(var j=0; j < f.codOrdenante.length; j++) {
+                                                            if(f.codOrdenante.options[j].value == ord)
+                                                            {
+                                                                f.codOrdenante.options[j].selected = true;
+                                                            }
+                                                        }
+                                                        jspAsignarOrdenante ();
+                                                    }
+                                                    f.codOrdenante.onclick=cambiar_estilo_interv;
+                                                }
+                                            }
+                                            if (typeof(noLlamarRetornoBuscador)=="undefined")
+                                                onSeleccionarCuenta(cabecera);
+
+                                            cambiar_estilo_interv();
+                                        }
+                                    });
+
+                                    if(typeof(eval("document."+fcDatos).numeroCuenta0) != "undefined")
+                                    {
+                                        eval("document."+fcDatos).numeroCuenta0.value="";
+                                    }
+
+                                    if(typeof(eval("document."+fcDatos).saldo) != "undefined")
+                                    {
+                                        eval("document."+fcDatos).saldo.value="";
+                                    }
+
+                                    if (typeof busqCuentaSolicitanteCallback === "function"){
+                                        busqCuentaSolicitanteCallback();
+                                    }
+
+                                    //INICIO INC_PRJ0023488 - gc - BM (T36 Entrada de órdenes datos de juntas)
+                                    if (typeof busqCuentaSolicitanteCallbackJuntas === "function"){
+                                        busqCuentaSolicitanteCallbackJuntas();
+                                    }
+                                    //FIN  INC_PRJ0023488 - gc - BM (T36 Entrada de órdenes datos de juntas)
+
+                                    return false;
+                                    //eval("document."+fc).submit();
+                                    //ventana.close();
+                                }
+                            }
+
+                            function validarNumeroCuentaBusqueda(param) {
+                                if(!((param == null) || (param.length == 0))) {
+                                    for (var i = 0;i<param.length;i++){
+                                        var c = param.charAt(i);
+                                        if (!esDigitoCab(c)) {
+                                            Dialog.showErr(ALERT_021);
+                                            return false;
+                                        }
+                                    }
+                                    return true;
+                                }
+                            }
+
+                            function esCuentaExterna(param) {
+                                //pc: primer caracter -> controlar si es @
+                                var pc = param.substring(0,1);
+                                if ((pc == "@") || (pc == "|") || (pc == "$"))
+                                    return true;
+                                else
+                                    return false;
+                            }
+
+                            function rellenaNumeroCuenta(param) {
+                                /*var longitud = eval("document."+fc).numeroCuenta.value.length;
+                                if (longitud < 10 && longitud > 0) {
+                                  for (var i = 0; i < 10 - longitud; i++)
+                                    eval("document."+fc).numeroCuenta.value = "0" + eval("document."+fc).numeroCuenta.value;
+                                }*/
+
+                                var longitud = param.length;
+                                if (longitud < 10 && longitud > 0) {
+                                    for (var i = 0; i < 10 - longitud; i++)
+                                        param = "0" + param;
+                                }
+                                return param;
+
+                            }
+
+                            function esCaracterCab(c){
+                                return ("-._".indexOf(c) >= 0);
+                            }
+
+                            function esLetraCab(c){
+                                return (((c >= "a") && (c <= "z")) || ((c >= "A") && (c <= "Z")) || esCaracterCab(c));
+                            }
+
+                            function esDigitoCab(c){
+                                return ((c >= "0") && (c <= "9"));
+                            }
+
+                            function esAlfaNumCab(sC){
+                                for (var i = 0;i<sC.length;i++){
+                                    var c = sC.charAt(i);
+                                    if (( !esLetraCab(c)) && (!esDigitoCab(c))) {
+                                        Dialog.showErr(ALERT_025);
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+
+                            cargarCuentas();
+
+                            $jq(document).ready(function(){
+                                inicializarCabeceraCuenta(0);
+
+                            });
+
+                            function inicializarCabeceraCuenta (ind) {
+                                if (typeof(ind) == "undefined") {
+                                    ind = 0;
+                                }
+                                numCueAux="";
+                                numCueExtAux="";
+                                iniciaCabecera("productos"+ind,ind);
+                                if(typeof(Saldo.init) != "undefined"){
+                                    Saldo.init();
+                                }
+                            }
+
+                            function iniciaCabecera(nombre,cabecera)
+                            {
+                                var f = eval("document."+fc);
+                                var campoSelect = eval("f."+nombre);
+                                if(campoSelect.selectedIndex >= 0){
+                                    var cuenta = campoSelect.options[campoSelect.selectedIndex].value;
+                                    busqCuentaSolicitante(nombre,cabecera,cuenta,true);
+                                }
+                            }
+
+                            function validaTipoConfirmacion() {
+                                // Si no se tiene que pintar el combo, o no existe el valor XX
+                                if ($jq("#tipoConfirma").length <= 0 ||
+                                    $jq("#tipoConfirma option[value='XX']").length <= 0) {
+                                    return 0;
+                                }
+                                // Si se pinta el combo...
+                                else if ($jq("#tipoConfirma").length >= 0) {
+                                    // Se debe seleccionar un valor distinto a XX
+                                    if ($jq("#tipoConfirma").val() == 'XX') {
+                                        Dialog.showErr(ALERT_3127);
+                                        $jq("#tipoConfirma").focus();
+                                        return -1;
+                                    } else {
+                                        return 0;
+                                    }
+                                }
+                            }
+
+                            //22726 GLOBALIZACION SAFI CT
+                            function actualizaFechasGlob(auxFecha, cuenta){
+
+                                //22726 GLOBALIZACION
+                                if($jq('.fechaG').length > 0 && cuenta != null)
+                                {
+                                    if($jq("#hIniciarConsulta").length && $jq("#hIniciarConsulta").val() != 'false')
+                                    {
+                                        if($jq('#online').length && !$jq("#online").is(':checked'))
+                                        {
+                                            $jq(".fechaG").val(auxFecha);
+                                        }
+                                        else if(!$jq('#online').length)
+                                        {
+                                            $jq(".fechaG").val(auxFecha);
+                                        }
+                                    }
+                                }
+
+                                //22726 GLOBALIZACION - Fechas desde y Fechas Hasta
+                                if($jq('.fechaGDesde').length > 0 && cuenta != null)
+                                {
+                                    if($jq("#hIniciarConsulta").length && $jq("#hIniciarConsulta").val() != 'false')
+                                    {
+                                        var parts = auxFecha.split('/');
+                                        var fDesde = new Date(parts[2], parseInt(parts[1])-1, parts[0]);
+                                        fDesde.setUTCDate(fDesde.getUTCDate() - 30);
+
+                                        $jq('.fechaGDesde').val(formatDate(fDesde,formatoFecha));
+                                    }
+                                }
+
+                                //22726 GLOBALIZACION - CrPosicionDetalle
+                                if($jq('#fechaActual').length && $jq('#fechaActual').hasClass("fechaG"))
+                                {
+                                    var parts = auxFecha.split('/');
+                                    var d = new Date(parts[2], parseInt(parts[1])-1, parts[0]);
+                                    $jq("#fechaActual").val(d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate());
+                                }
+
+                            }
+
+
+                            //22726 GLOBALIZACION
+                            function obtenerFechaActualGlobalizada(cuenta)
+                            {
+                                if(cuenta != undefined && cuenta != ''){
+                                    $jq.getData({
+                                        url: "/trans/inversis/SvlAjaxControl?accion=consultaFechaGlobalizada&cuentaValores="+cuenta+"&indicadorLocalidadDes=HL",
+                                        cache:true,
+                                        mode:"json",
+                                        asynchronous: false,
+                                        user_function: function(data,backoffice){
+                                            if(data != null && data.RESULTADOSEJECUCION.FECHA_ACTUAL_GLOBALIZADA != null)
+                                            {
+                                                var dateString = data.RESULTADOSEJECUCION.FECHA_ACTUAL_GLOBALIZADA;
+                                                var pattern = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/;
+                                                var dateArray = dateString.match(pattern);
+
+                                                //Fecha globalizada
+                                                $jq("input.fechaGlobalizar").val(dateArray[3] + '/' + dateArray[2] + '/' + dateArray[1]);
+
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+
+
+                            function obtenerFechaActualGlobalizadaInstitucion(cuenta)
+                            {
+                                if(cuenta == undefined || cuenta == ''){
+                                    $jq.getData({
+                                        url: "/trans/inversis/SvlAjaxControl?accion=consultaFechaGlobalizada&indicadorLocalidadDes=HL",
+                                        cache:true,
+                                        mode:"json",
+                                        asynchronous: false,
+                                        user_function: function(data,backoffice){
+                                            if(data != null && data.RESULTADOSEJECUCION.FECHA_ACTUAL_GLOBALIZADA != null)
+                                            {
+                                                var dateString = data.RESULTADOSEJECUCION.FECHA_ACTUAL_GLOBALIZADA;
+                                                var pattern = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/;
+                                                var dateArray = dateString.match(pattern);
+
+                                                //Fecha globalizada
+                                                $jq("input.fechaGlobalizar").val(dateArray[3] + '/' + dateArray[2] + '/' + dateArray[1]);
+                                                $jq("input.fechaG").val(dateArray[3] + '/' + dateArray[2] + '/' + dateArray[1]);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+
+                            function obtenerTiposServicio(cuenta) {
+                                if(cuenta != undefined && cuenta != ''){
+                                    $jq.getData({
+                                        url: "/trans/inversis/SvlAjaxControl?accion=consultarTiposServicioCuenta&numeroCuenta="+ cuenta,
+                                        cache:true,
+                                        mode:"json",
+                                        asynchronous: false,
+                                        user_function: function(data,backoffice){
+
+                                            if(data != null && data.CONJUNTOCOMBOSALIDA != null && data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA != null && data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.length > 0)
+                                            {
+                                                $jq("#capaTipoServicio").show();
+                                                var valores;
+                                                var valorSeleccionado ="";
+                                                if ($jq("#tipoServicio").prop) {
+                                                    valores = $jq("#tipoServicio").prop("options");
+                                                } else {
+                                                    valores = $jq("#tipoServicio").attr("options");
+                                                }
+
+                                                while ( valores.length > 0 ) {
+                                                    valores.remove(0);
+                                                }
+                                                for (var i=0; i< data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.length; i++ ) {
+                                                    valores[valores.length] = new Option(data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA[i].DESCRIPCION,data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA[i].CODIGO);
+                                                    if (data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA[i].EXTRA == 'S') {
+                                                        valorSeleccionado  = data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA[i].CODIGO;
+                                                    }
+                                                }
+
+                                                $jq("#tipoServicio").val(valorSeleccionado);
+                                                actualizarTipoServicio();
+
+                                            } else {
+                                                if(data != null && data.CONJUNTOCOMBOSALIDA != null && data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA != null && data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.CODIGO != null)
+                                                {
+                                                    $jq("#capaTipoServicio").show();
+                                                    var valores;
+                                                    var valorSeleccionado ="";
+                                                    if ($jq("#tipoServicio").prop) {
+                                                        valores = $jq("#tipoServicio").prop("options");
+                                                    } else {
+                                                        valores = $jq("#tipoServicio").attr("options");
+                                                    }
+
+                                                    while ( valores.length > 0 ) {
+                                                        valores.remove(0);
+                                                    }
+                                                    valores[valores.length] = new Option(data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.DESCRIPCION,data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.CODIGO);
+                                                    valorSeleccionado  = data.CONJUNTOCOMBOSALIDA.DATOSCOMBOSALIDA.CODIGO;
+                                                    $jq("#tipoServicio").val(valorSeleccionado);
+                                                    actualizarTipoServicio();
+
+                                                } else {
+                                                    $jq("#capaTipoServicio").hide();
+                                                    var valores;
+                                                    var valorSeleccionado ="";
+                                                    if ($jq("#tipoServicio").prop) {
+                                                        valores = $jq("#tipoServicio").prop("options");
+                                                    } else {
+                                                        valores = $jq("#tipoServicio").attr("options");
+                                                    }
+
+                                                    while ( valores.length > 0 ) {
+                                                        valores.remove(0);
+                                                    }
+                                                    actualizarTipoServicio();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+
+                            }
+
+
+                            $jq(document).ready(function() {
+                                if ($jq("#tipoServicio").size()>0) {
+
+
+                                }
+                                if ($jq("#objetivoCartera").size()>0) {
+
+
+                                }
+
+                            });
+
+                            // INICIO - PRJ0039756 - SSO por CV e ISIN
+
+                            //FIN - PRJ0039756 - SSO por CV e ISIN
+
+                        </script>
+
+
+
+
+                        <div id="detalleCabecera" style="visibility:hidden;position:absolute;left:380px;top:380px;z-index:1"></div>
+
+                        <script>
+                            //INC_PRJ0143531 INICIO
+                            $jq(document).ready(function() {
+                                obtenerTipoConfirmacion();
+                            });
+
+                            function obtenerTipoConfirmacion() {
+                                var origen = $jq('input:hidden[name=origen]').val();
+                                if(origen != undefined && $jq('#tipoConfirma')[0] != undefined) {
+                                    $jq.getData({
+                                        url: "/trans/inversis/SvlAjaxControl?accion=tipoConfirmacion",
+                                        cache:true,
+                                        mode:"json",
+                                        send: {origen: origen },
+                                        user_function: function(data,backoffice){
+                                            console.log(data);
+                                            if(data && data.CONJUNTOTIPOCONFIRMACION && data.CONJUNTOTIPOCONFIRMACION.DATOSTIPOCONFIRMACION) {
+                                                $jq($jq('#tipoConfirma')[0]).html("");
+                                                var sel = $jq('#tipoConfirma')[0];
+                                                if(Array.isArray(data.CONJUNTOTIPOCONFIRMACION.DATOSTIPOCONFIRMACION)) {
+                                                    for(ind in data.CONJUNTOTIPOCONFIRMACION.DATOSTIPOCONFIRMACION) {
+                                                        var item = data.CONJUNTOTIPOCONFIRMACION.DATOSTIPOCONFIRMACION[ind];
+                                                        $jq(sel).append($jq("<option>").attr('value',item.CODIGO_TIPO_CONFIRMACION).text(item.DESCRIPCION_TIPO_CONFIRMACION));
+                                                    }
+                                                } else {
+                                                    var item = data.CONJUNTOTIPOCONFIRMACION.DATOSTIPOCONFIRMACION;
+                                                    $jq(sel).append($jq("<option>").attr('value',item.CODIGO_TIPO_CONFIRMACION).text(item.DESCRIPCION_TIPO_CONFIRMACION));
+                                                }
+
+                                                $jq('#tipoConfirma').val($jq('#tipoConfirmaOculto').val());
+                                            }
+
+                                        }
+                                    });
+                                }
+                            }
+                            //INC_PRJ0143531 FIN
+                            // INC_PRJ0178084 INICIO
+                            function ocultarDatosOrden(){
+                                debugger;
+                                var pestanaCondicionada = document.getElementById('pestanaCondicionada');
+                                var pestanaStopLoss = document.getElementById('pestanaStopLoss');
+                                var tipoConfirma = document.getElementById('tipoConfirma');
+                                var parametroFinveris = document.getElementById('parametroFinveris');
+
+                                if (null != pestanaCondicionada && null != pestanaStopLoss && null != parametroFinveris){
+                                    if (parametroFinveris.value == tipoConfirma.value){
+                                        pestanaCondicionada.style.display = 'none';
+                                        pestanaStopLoss.style.display = 'none';
+                                        pestana.toggle($jq("#nav li:eq(3)"),3);
+                                    }else{
+                                        pestanaCondicionada.style.display = 'block';
+                                        pestanaStopLoss.style.display = 'block';
+                                    }
+                                }
+                            }
+                            // INC_PRJ0178084 FIN
+                        </script>
+
+                    </div>
+                    <div class="grid_100">
+                        <div class="grid_33">
+                            <div class="grid_66" id="divFecha">
+                                <label for="fecha">
+                                    <span>Fecha</span>
+                                    <input class="hasDatePicker fecha fechaG" type="text" name="fecha" id="fecha" maxlength="10" value="10/12/2020">
+                                </label>
+                            </div>
+                            <div class="grid_33">
+                                <label for="online" class="mt15">
+                                    <input type="checkbox" name="online" id="online" value="S" class="ftl mr05" onChange="bloquearFechaActualIntegrada ()"
+                                           checked="checked"
+                                    />
+                                    <span class="ftl">Online</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid_33">
+                            <label for="tipoProducto" class="ajusteSelect">
+                                <span>Producto</span>
+
+
+                                <select class="producto" name="tipoProducto" id="tipoProducto" ><OPTION value=""></option><OPTION value='CE'>CUENTA DE EFECTIVO</option><OPTION value='CR'>CREDITOS</option><OPTION value='CV'>CUENTA DE VALORES</option><OPTION value='PE'>CUENTA DE PENSIONES</option><OPTION value='PL'>CUENTA A PLAZO</option><OPTION value='PT'>PRESTAMOS</option><OPTION value='RE'>CUENTA REMUNERADA</option><OPTION value='TC'>TARJETA CREDITO</option><OPTION value='TD'>TARJETA DEBITO</option></select>
+
+                            </label>
+                            <label for="contravalorEn">
+                                <span>Contravalor</span>
+                                <select class="contravalor" name="contravalorEn" id="contravalorEn" ><OPTION value=""> </option><OPTION value='EUR'>EUR</option><OPTION value='USD'>USD</option><OPTION value='CZK'>CZK</option><OPTION value='DKK'>DKK</option><OPTION value='NOK'>NOK</option><OPTION value='SEK'>SEK</option><OPTION value='AUD'>AUD</option><OPTION value='CAD'>CAD</option><OPTION value='HKD'>HKD</option><OPTION value='NZD'>NZD</option><OPTION value='SGD'>SGD</option><OPTION value='HUF'>HUF</option><OPTION value='CHF'>CHF</option><OPTION value='GBP'>GBP</option><OPTION value='TRY'>TRY</option><OPTION value='MTD'>MTD</option><OPTION value='PHP'>PHP</option><OPTION value='MXN'>MXN</option><OPTION value='ZAR'>ZAR</option><OPTION value='BRL'>BRL</option><OPTION value='RUB'>RUB</option><OPTION value='IDR'>IDR</option><OPTION value='ILS'>ILS</option><OPTION value='TWD'>TWD</option><OPTION value='KRW'>KRW</option><OPTION value='JPY'>JPY</option><OPTION value='CNY'>CNY</option><OPTION value='PLN'>PLN</option></select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="grid_100">
+                        <div class="grid_33">
+                            <label for="tipoTitular">
+                                <span>Tipo intervención</span>
+                                <select class="tipoIntervencion" name="tipoTitular" id="tipoTitular" ><OPTION value=""></option><OPTION value='06'>AUTORIZADO</option><OPTION value='30'>NUDOPROPIETARIO</option><OPTION value='07'>REPR. LEGAL JURIDICO</option><OPTION value='11'>REPR. LEGAL P. FISICA</option><OPTION value='01'>TITULAR</option><OPTION value='02'>USUFRUCTUARIO</option></select>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnFormSubmit">
+                    <div class="btnInput btn_type3 ftr mt24">
+                        <div>
+                            <label for="iniciarBusqueda">
+                                <input type="submit" name="iniciarBusqueda" id="iniciarBusqueda" title="Iniciar Búsqueda" value="Iniciar Búsqueda" onclick="iniciarConsultaPosicion('CE');return false;" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+        <div id="tabCarteraValores" class="clearfix">
+            <div class="anexoTabla">
+                <div class="sumatorioTabla ar">
+
+                    <span>TOTAL POSICIÓN: 99.822,82 EUR</span>
+                </div>
+            </div>
+            <table summary="Resultado de búsqueda de posiciones integradas" class="tabDatosInterior1">
+                <caption>Resultado de búsqueda de posiciones integradas</caption>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Intervencion</th>
+                    <th><span style="breakInSmall">Cuenta Asociada</span></th>
+                    <th>Importe cuenta</th>
+                    <th>Contravalor en  EUR</th>
+                    <th>%</th>
+                </tr>
+
+
+
+
+
+
+
+                <tr id='n_0b'>
+                    <td class="nivel1 paddL1">AHORRO & INVERSIONES</td>
+                    <td class="nivel1" colspan="5">&nbsp;</td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <tr id='n_0_0b'>
+                    <td class="nivel2 paddL2">CUENTA DE EFECTIVO</td>
+                    <td class="nivel2" colspan="5">&nbsp;</td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <tr id='n_0_0_0_1_d'>
+                    <td class="nivel4 paddL4_2">
+
+
+
+
+                        <a href="#" onclick="lnkConsultaCuenta('CE','0029493443');return false;">
+
+                            <!-- INC_24208 - INTEGRAMPF - Para IndCabeceraCuentaExt="S", pintamos el NUMERO_CUENTA_EXTERNA en vez de el NUMERO_CUENTA -->
+
+                            ES6302320105000029493443
+
+
+                        </a>
+                        &nbsp;
+
+
+
+
+
+                    </td>
+                    <td class="nivel4">REPR. LEGAL JURIDICO&nbsp;</td>
+                    <td class="nivel4">
+
+
+                        ES6302320105000029493443&nbsp;
+
+
+                    </td>
+                    <td class="nivel4 ar">
+                        99.822,82&nbsp;EUR
+                    </td>
+                    <td class="nivel4 ar">
+                        99.822,82
+                    </td>
+                    <td class="nivel4 ar">
+                        100,00
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <tr id='n_0_0' class="hasChild">
+                    <td class="nivel2 paddL2" colspan="4">
+                        <a href="#" class="minus" onclick="_IT.clickOption(this);return false">&nbsp;</a>
+                        TOTAL CUENTA DE EFECTIVO
+                    </td>
+                    <td class="nivel2 ar">
+                        99.822,82
+                    </td>
+                    <td class="nivel2 ar">
+                        100,00
+                    </td>
+                </tr>
+                <script>
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <tr id='n_0' class="hasChild">
+                    <td class="nivel1 paddL1" colspan="4">
+                        <a href="#" class="minus" onclick="_IT.clickOption(this);return false">&nbsp;</a>
+                        TOTAL AHORRO & INVERSIONES
+                    </td>
+                    <td class="nivel1 ar">
+                        99.822,82
+                    </td>
+                    <td class="nivel1 ar">
+                        100,00
+                    </td>
+                </tr>
+
+
+
+            </table>
+            <div class="anexoTabla">
+                <div class="sumatorioTabla ar ">
+
+                    <span>TOTAL POSICIÓN: 99.822,82 EUR</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div id="tabCarteraValores" class="clearfix">
+            <table summary="Resultado de búsqueda de posiciones integradas" class="tabDatosInterior1">
+                <caption>Resultado de búsqueda de posiciones integradas</caption>
+                <thead>
+
+                </thead>
+            </table>
+        </div>
+
+
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="footer" class="clearfix">
+
+        <ul id="navfooter">
+
+            <li><a href="/trans/inversis/SvlForwardDelegator?accion=mapaSite&cobranding=cbInversiones">Mapa web</a></li>
+
+            <li><a href="/inversion/microsites/seguridad?cobranding=cbInversiones">Seguridad</a></li>
+
+            <li><a href="/trans/inversis/SvlControlIfr?accion=contenedorIFR&path=/pagEstaticas/tablonAnuncios_1.html&cobranding=cbInversiones">Tablón de anuncios</a></li>
+
+            <li><a href="/inversion/microsites/aviso-legal?cobranding=cbInversiones">Nota legal</a></li>
+
+            <li><a href="/inversion/microsites/gobierno-corporativo?cobranding=cbInversiones">Gobierno corporativo y Política de remuneraciones</a></li>
+
+            <li><a href="/?opennewwindow=true&menufunc=funPoliticaProtecDatos&cobranding=cbInversiones">Política de protección de datos</a></li>
+
+            <li><a href="/mobile?cobranding=cbInversiones">Web Mobile</a></li>
+
+            <li><a href="/tablet?cobranding=cbInversiones">Web Tablet</a></li>
+
+            <li><a href="/?opennewwindow=true&menufunc=funPSD2&cobranding=cbInversiones">PSD2</a></li>
+
+            <li><a href="#" onClick='javascript:window.open("/pagEstaticas/EstadisticasServicioPSD2Inversis.xlsx", "_blank");return false;'>Estadísticas PSD2</a></li>
+
+        </ul>
+        <div id="divfootercopyright">
+
+            <span id="footercopyright">&#169; INVERSIS. Todos los derechos reservados</span>
+
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript" src="/js/inversiones/cookies.js"></script>
+    <script type="text/javascript">
+        $jq(document).ready(function() {
+            if (Cookies.get("euCookiesPolicyAcceptance") == undefined) {
+                Cookies.set("euCookiesPolicyAcceptance", "false", {expires:new Date("9999", "12", "31")});
+                $jq("#politicaCookies").show();
+            } else if (Cookies.get("euCookiesPolicyAcceptance") == "false") {
+                $jq("#politicaCookies").show();
+            }
+        });
+
+        $jq(window).unload(function() {
+            aceptaCookies();
+        });
+
+        function aceptaCookies() {
+            if (Cookies.get("euCookiesPolicyAcceptance") == "false") {
+                $jq("#politicaCookies").hide();
+                Cookies.set("euCookiesPolicyAcceptance", "true", {expires:new Date("9999", "12", "31")});
+            }
+        }
+    </script>
+    <style>
+        .cookiesDisclaimer {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2000;
+            padding: 10px;
+            font-size: 14px;
+            text-align: left;
+            color: #fff;
+            background: none repeat scroll 0px 0px #696969;
+        }
+    </style>
+    <div id="politicaCookies" class="cookiesDisclaimer">
+        <div>
+            En nuestros sitios web utilizamos cookies propias y de terceros para mejorar nuestros servicios mediante el análisis de sus hábitos de navegación. Si continúa navegando, consideramos que acepta su uso. Para obtener más información, consulte nuestra política de cookies que se encuentra en nuestra nota legal.
+        </div>
+        <div>&nbsp;</div>
+        <div>
+            <input type="button" class="botonDisclaimerCookies" value='Aceptar' onclick="javascript:aceptaCookies();return false;">
+        </div>
+    </div>
+</div>
+<div class="jqmWindow" id="dialog"></div><div class="jqmPopup" id="wrapperModalPopUp" ></div><div id="tooltip" class="tooltip left"> </div><div id="altdiv" class="tooltip"> </div>
+<div class="none" id="divAnalitica">
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var analyticArray = new Array();
+
+        analyticArray[0] = '78768862';
+
+        analyticArray[1] = '1607608263797';
+
+        analyticArray[2] = '';
+
+        analyticArray[3] = 'posicionIntegrada';
+
+        analyticArray[4] = '';
+
+        analyticArray[5] = '10/12/202014:54:03';
+
+        analyticArray[6] = '';
+
+        analyticArray[7] = 'resumenSaldosPI';
+
+        analyticArray[8] = '3639';
+
+        analyticArray[9] = '';
+
+        analyticArray[10] = '5000';
+
+        analyticArray[11] = 'es';
+
+        analyticArray[12] = 'cbInversiones';
+
+        analyticArray[13] = 'C';
+
+        analyticArray[14] = '~_|78768862~_|1607608263797~_|https://www.inversis.com/trans/inversis/SvlConsultaCC?accion=resumenSaldosPI&tipo=S&pathMenu=1_0&esLH=N~_|posicionIntegrada~_|~_|10/12/202014:54:03~_|~_|resumenSaldosPI~_|3639~_|~_|5000~_|es~_|cbInversiones~_|C~_|';
+
+    </script>
+
+    <script type="text/javascript">
+        <!-- // Inversis Analytics Codes
+        inv_p1 = analyticArray[0];
+        inv_p2 = analyticArray[3];
+        inv_p3 = analyticArray[4];
+        inv_p4 = analyticArray[7];
+        inv_p5 = analyticArray[8];
+        inv_p6 = analyticArray[9];
+        inv_p7 = analyticArray[10];
+        inv_p8 = analyticArray[11];
+        inv_p9 = analyticArray[12];
+        inv_p10= analyticArray[13];
+        beginAnalyticInversis = analyticArray[14];
+        inv_domain = ".inversis.com";
+        //-->
+    </script>
+
+    <script type="text/javascript">
+        <!--
+        xtnv = document;                  //parent.document or top.document or document
+        xtsdi = "/js/spacer_analytic.gif";          // transparent  pixel 1x1
+        xtsite = "454668";
+        xtn2 = "";                      // level 2 site
+        xtpage = "";                    //page name (with the use of :: to create chapters)
+        xtdi = "";                      //implication degree
+        xtidp = "";                     //country iso-code
+        xtidprov = "";                    //Province id
+        xt_an = "";                     //id usuario. look inside
+        xt_ac = "";                     //categoría sólo un numero. look inside
+        //-->
+    </script>
+
+    <script type="text/javascript" src="/js/xtfirst.js?1607608443646"></script>
+
+    <noscript>
+        <img width="1" height="1" alt="" src="/js/spacer_analytic.gif?s=454668&s2=&p=&di=&idpays=&idprov=" >
+    </noscript>
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    var session = {
+        tiempo : 1800000 + 60000 //milisegundos
+    }
+
+    function compruebaSesion(){
+
+        $jq.ajax({
+            url: '/trans/inversis/SvlAutentificar?accion=comprobarSesion',
+
+            success: function(datos){
+
+                if (datos == "0"){
+                    document.location.href = '/trans/inversis/SvlAutentificar?accion=salirSesion';
+                }
+            },
+            dataType: "text",
+            type: "post"
+        });
+
+    }
+
+    setInterval(function(){compruebaSesion();}, session.tiempo);
+
+</script>
+
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    (function() {
+        var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+        sz.src = '//siteimproveanalytics.com/js/siteanalyze_6104451.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+    })();
+    /*]]>*/
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

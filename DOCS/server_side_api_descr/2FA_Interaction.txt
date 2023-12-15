@@ -1,0 +1,37 @@
+# https://www.websequencediagrams.com/
+title 2FA INTERACTION
+
+
+note over Front,Back,DB,Scraper: Event: User started scraping process
+loop Check for updates:
+    Front->Back: Get 2FA accesses for the customer
+    Back->DB: Select accesses where `DoubleAuthStatus`="need"
+    DB-->Back:[ ]
+    Back-->Front:[ ]
+end
+
+note over Front, Scraper: Event: Scraper needs 2FA token
+note over Scraper: Start
+Scraper->DB:Update access 001:\n`DoubleAuthStatus`="need"\n`DoubleAuthQuestion`="123456"\n`DoubleAuthStartTimeStamp`=now()
+
+
+
+Front->Back: Get 2FA accesses for the customer
+Back->DB:  Select accesses where `DoubleAuthStatus`="need"
+DB-->Back:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}]
+Back->DB:Update access 001:\n`DoubleAuthStatus`="question_sent"
+Back-->Front:[{access: 001,\n  finEntityName: "Real",\n  doubleAuthQuestion: "123456"}] as JSON
+
+loop Check for updates:
+    Scraper->DB: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    DB-->Scraper: [ ]
+end
+
+note over Front, Scraper: Event: User entered 2FA token
+
+Front->Back: {access: 001, token: "987654"}
+Back->DB: Update access 001:\n`DoubleAuthToken`="987654"\n`DoubleAuthStatus`="token_received"
+    Scraper->DB: Select access 001\nwhere `DoubleAuthStatus`="token_received"
+    DB-->Scraper:`DoubleAuthToken`="987654"
+    Scraper->DB: Update access 001\n`DoubleAuthStatus`="ok"
+    note over Scraper: Finish

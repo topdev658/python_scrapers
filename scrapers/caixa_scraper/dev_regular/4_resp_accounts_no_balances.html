@@ -1,0 +1,243 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate, no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+
+<link href="./css/lo_master.css" rel="STYLESHEET" type="text/css"><link href="./css/slider.css" rel="STYLESHEET" type="text/css"><link href="./css/imprimir.css" rel="STYLESHEET" media="print" type="text/css">
+<script type="text/javascript" src="./js/EloGenB000003.js"></script>
+<script type="text/javascript" src="./js/EloGenB000007TablaAJAX.js"></script>
+<script type="text/javascript" src="./js/gestionTablas.js"></script>
+<script type="text/javascript" src="./js/AjaxQueue.js"></script>
+<script type="text/javascript" src="./js/EloGenB000008PaginacionAJAX.js"></script>
+<script type="text/javascript" src="./js/over.js"></script>
+<script type="text/javascript" src="./js/boton-desplegable.js"></script>
+<script type="text/javascript" src="./js/EloGenB000002V2.js"></script>
+<script type="text/javascript" src="./js/tamanytext_v2.js"></script>
+<script type="text/javascript" src="./js/slider.js"></script>
+<script type="text/javascript" src="./js/arq/init/initGeneric.js"></script>
+<script language="javascript" type="text/javascript">
+var tabla_cuentas_RefVal1= new Array("2ptmJoPRy17am2Ymg9HLXgAAAWep8ukYmkp1~iigCWo:DOM:1");
+var tabla_cuentas_RefVal2= new Array("N");
+var tabla_cuentas_RefVal3= new Array("2ptmJoPwk4Xam2Ymg_CThQAAAWep8ukhD7Y8CvOj~gQ");
+var tabla_cuentas_RefVal4= new Array("");
+var tabla_cuentas_RefVal5= new Array("2ptmJoPduNram2Ymg9242gAAAWep8ukbkD0rdi23VSM:DOM:1");
+</script>
+
+<script type="text/javascript" src="../js/EloGfiB000100.js"></script>
+<script type="text/javascript" language="JavaScript">
+var PNAjuda="DOM";
+var PEAjuda="1";
+NS4=(document.layers)?true:false;
+window.onresize=resizeFix;
+function resizeFix(){
+if (!NS4) {
+winW=(NS4)? window.innerWidth:document.body.offsetWidth;
+}
+}
+function enviar(opt,indice,alias) {
+InicializaErrores();
+f=document.forms[0];
+if (opt!=0) {
+f.REF_CUENTA.value = tabla_cuentas_RefVal1[indice];
+}
+if (opt==0){
+f.PN.value="DOM";
+f.PE.value="1";
+f.CLICK_ORIG.value="PAG_DOM_1";
+f.FLUJO.value = "GFI,7,''";
+f.PRIMERA_PAGINA.value = "N";
+f.FLAG_PAGINACION.value = "D";
+}
+else if (opt==1){
+f.PN.value="DOM";
+f.PE.value="2";
+f.CLICK_ORIG.value="FLX_DOM_1";
+}
+else if (opt==2){
+f.PN.value="DGR";
+f.PE.value="25";
+f.TIPCON.value=tabla_cuentas_RefVal2[indice];
+f.SERVIREB.value=tabla_cuentas_RefVal1[indice];
+f.CLICK_ORIG.value="RED_DOM_1";
+}
+else if (opt==3){
+f.PN.value="DOM";
+f.PE.value="13";
+f.CLICK_ORIG.value="FLX_DOM_1";
+}
+else if (opt==4){
+f.PN.value="DGR";
+f.PE.value="1";
+f.ALIAS_CUENTA.value=alias;
+f.CLICK_ORIG.value="RED_DOM_1";
+}else if (opt==5){
+f.PN.value="PPE";
+f.PE.value="9";
+f.CLICK_ORIG.value="RED_DOM_1";
+f.ADVORIGNEGOCI.value="DOM";
+f.ADVORIGPETICIO.value="1";
+}else if (opt==6){
+f.PN.value="PPE";
+f.PE.value="10";
+f.CLICK_ORIG.value="RED_DOM_1";
+f.ADVORIGNEGOCI.value="DOM";
+f.ADVORIGPETICIO.value="1";
+}else if (opt==7){
+f.PN.value="DOM";
+f.PE.value="200";
+f.MODO.value="M";
+f.REF_CUENTA_VINCULADA.value=tabla_cuentas_RefVal4[indice];
+f.REF_SENNSEN.value=tabla_cuentas_RefVal5[indice];
+f.CLICK_ORIG.value="PAG_DOM_1";
+}else if (opt==8){
+f.PN.value="DOM";
+f.PE.value="200";
+f.MODO.value="A";
+f.CLICK_ORIG.value="PAG_DOM_1";
+}
+if (ProcesaErrores("Recibos")){
+f.submit();
+}
+}
+function gestionCEF(indice) {
+f=document.forms[0];
+f.PN.value="EPC";
+f.PE.value="1";
+f.CLICK_ORIG.value="FLX_DOM_1";
+f.REF_CUENTA.value=tabla_cuentas_RefVal1[indice];
+f.submit();
+}
+function historicoCEF(indice) {
+f=document.forms[0];
+f.PN.value="EPC";
+f.PE.value="50";
+f.CLICK_ORIG.value="FLX_DOM_1";
+f.REF_CUENTA.value=tabla_cuentas_RefVal1[indice];
+f.submit();
+}
+function inicio() {
+f=document.forms[0];
+f.PRIMERA_PAGINA.value = "S";
+f.REF_CLCBDR.value = "";
+f.PN.value="DOM";
+f.PE.value="1";
+f.FLAG_PAGINACION.value = "I";
+f.CLICK_ORIG.value="PAG_DOM_1";
+f.submit();
+}
+function imprimir() {
+if (window.print) window.print();
+else {
+InicializaErrores();
+AddError("Su navegador no soporta esta opción. Para imprimir seleccione la opción de menú Archivo-Imprimir...");
+ProcesaErrores("Recibos");
+}
+}
+function recibosPendientesAutorizar() {
+f=document.forms[0];
+f.PN.value="DOM";
+f.PE.value="400";
+f.CLICK_ORIG.value="FLX_DOM_1";
+f.submit();
+}
+function reciboUnico(opt,indice){
+f=document.forms[0];
+f.REF_CUENTA.value=tabla_cuentas_RefVal1[indice];
+f.PN.value="DRU";
+f.CLICK_ORIG.value="EOC_DOM_1";
+f.FLUJO.value = "DOM,1,:GFI,7,''";
+if (opt==0) {
+f.PE.value="10";
+} else if(opt==1) {
+f.PE.value="49";
+}
+
+f.REFVAL_SIMPLE_CUENTA_DRU.value=tabla_cuentas_RefVal3[indice];
+f.submit();
+}
+</script>
+</head>
+<body id="cos" class="margen_top5 " bgcolor="white">
+<script>var PNLomilu='DOM';var PELomilu='1';</script><script type="text/javascript" src="./js/arq/init/lomiluTaglibs.js"></script>
+<div id="lo_contenido">
+
+
+<div class="mostrar"><div class="lfloat inferior20"><img src="./imatge/EloGenI003400.gif" alt="La Caixa" /></div><div class="rfloat">Fecha impresión: <strong>22/12/2018</strong>&nbsp;</div><div class="limpiar"></div></div><div class="tabs "><div class="rfloat nowrap"><ul class="funciones_tit "><li><a title="¿Necesita imprimirlo? Protejamos el medio ambiente" class="printgreen" href="javascript:imprimir()">Imprimir</a></li><li><a href="javascript:reduir();" title="a -" id="linkred" class="amenos noactivo">a -</a></li><li><a href="javascript:augmentar();" title="a +" id="linkaug" class="amas">a +</a></li><li class="ajuda"><span class="funciones_ini"></span><a class="ocultar" href="javascript:top.Titol.obtenerAyuda();" title="Ayuda"></a><span class="funciones_fin"></span></li></ul></div><ul class="tabs_menu clearfix">
+<li>
+<a href="#"  class="selected"  title=""><span>Recibos</span></a></li>
+<li>
+<a id="pestanya2" href="javaScript:recibosPendientesAutorizar()"   title=""><span>Pendientes de autorizar</span></a></li>
+</ul>
+<div class="limpiar"></div><div class="tabs_content" id="listaPestanyasTitulo">
+
+<br>
+<div id="errores"><script language="javascript" type="text/javascript">ListaErroresHTML("Se han detectado los errores siguientes en la operación que estaba haciendo.<br>Por favor, corríjalos y continúe el proceso.",null,"errores");</script></div>
+<table class="table_generica"  id="tabla_cuentas"><thead>
+<tr  id="" class="" style="">
+<th  scope="col"  class="   ltxt border_right"  id="cuenta0"><span>Cuenta principal</span></th>
+<th style="display:none;" scope="col"  class=" nobold   ltxt border_right"  id="cuenta0_Seg"><a title="<span>Cuenta principal</span>" href="JavaScript:capaCabecera('cuenta',new Array('alias'),2)"><span>Cuenta principal</span></a></th>
+<th style="display:none;" scope="col"  class=" ltxt   "  id="alias0"><span>Alias</span></th>
+<th  scope="col"  class=" nobold ltxt   "  id="alias0_Seg"><a title="<span>Alias</span>" href="JavaScript:capaCabecera('alias',new Array('cuenta'),2)"><span>Alias</span></a></th>
+<th  scope="col"  class="    " ><span></span></th>
+<th  scope="col"  class="  ltxt   "  colspan="3" ><span>Opciones disponibles</span></th>
+<th  scope="col"  class="    " ><span>&nbsp;</span></th>
+<th  scope="col"  class="  ltxt   " ><span>&nbsp;</span></th>
+</tr>
+</thead><tbody>
+<tr onMouseOver="TrOver(this, 1)" onMouseOut="TrOver(this, 0)" id="" name="" class="" style="">
+<th scope="row"  class="ltxt "  colspan="2"  id="cuenta1"><span>ES63 2100 5858 7402 0000 9275</span></th>
+<td class="bold ltxt "  colspan="2"  id="alias1" style="display:none;"><span></span></td>
+<td class="ctxt " ><span>&nbsp;</span></td>
+<td class="border_left_blue ltxt " ><span></span></td>
+<td class="ltxt " ><a href="JavaScript:enviar(2,0)"  class="no_subrayado"  title=""  onClick="this.blur();"><span>Histórico</span></a></td>
+<td class="ltxt " ><span>&nbsp;</span></td>
+<td class="ltxt " ><span>&nbsp;</span></td>
+<td class="ltxt " ><span>&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class=""><div class="lfloat  br_gris_d"><span class="previous_acumulativo_off " href="">Inicio</span></div><div class="lfloat "><span class="next_acumulativo_off " href="">Siguientes</span></div><div class="limpiar"></div></div>
+<br>
+<a id="boton_informacion" href="JavaScript:enviar(6)"   class="boton boton_26funcion botonsinicon  lfloat ocultar" title=""><span>No quiero que aparezca ninguna información en concreto en el momento de la conexión</span></a>
+<br>
+<div style="clear:both;">&nbsp;</div>
+</div></div>
+<form action="/GPeticiones;WebLogicSession=cYfXi5abFO9qX0vlj-6Qs-voMBW8Qy3NRIowBNAIqG4OT014eD_d!-1536439180!-9259576" method="POST">
+<input type="hidden" name="PN" value="">
+<input type="hidden" name="PE" value="">
+<input type="hidden" name="REF_CLCBDR" value="2ptmJoOnWEjam2Ymg6dYSAAAAWep8ukYa0bPtVQzhKw:DOM:1">
+<input type="Hidden" name="REF_CUENTA" value="">
+<input type="Hidden" name="ALIAS_CUENTA" value="">
+<input type="Hidden" name="FLUJO" value="DOM,1,:GFI,7,''">
+<input type="hidden" name="TIPCON" value="">
+<input type="hidden" name="PRIMERA_PAGINA" value="">
+<input type="Hidden" name="RAFEGA" value="">
+<input type="Hidden" name="CODPREST" value="0502">
+<input type="Hidden" name="ADVORIGNEGOCI" value="">
+<input type="Hidden" name="ADVORIGPETICIO" value="">
+<input type="Hidden" name="ADVORIGPN" value="DOM">
+<input type="Hidden" name="ADVORIGPE" value="1">
+<input type="Hidden" name="MODO" value="">
+<input type="Hidden" name="REF_CUENTA_VINCULADA" value="">
+<input type="Hidden" name="REF_SENNSEN" value="">
+<input type="hidden" name="SERVIREB" value="">
+<input type="hidden" name="FLAG_PAGINACION" value="N">
+<input type="hidden" name="REFVAL_SIMPLE_CUENTA_DRU" value="">
+<input type="hidden" name="CLICK_ORIG" value=""></form>
+</div>
+<div class="limpiar"></div>
+</body>
+</html>

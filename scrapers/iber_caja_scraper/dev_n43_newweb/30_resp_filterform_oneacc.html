@@ -1,0 +1,99 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    </meta>
+</head>
+
+<script language="JavaScript" src="../../js/browser.js"></script>
+<script language="JavaScript" src="../../js/importes.js"></script>
+<script language="JavaScript" src="../../js/General.js"></script>
+<script language="JavaScript" src="../../js/Fechas.js"></script>
+<script language="JavaScript" src="../../js/Norma43/SeleccionaRecibirN43.js"></script>
+<link href="../../css/fonts_nuevo.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/estilos_iframe_central.css" rel="stylesheet" type="text/css"/>
+<script src="../../js/jquery.min.js" type="text/javascript"></script>
+<script src="../../js/jquery-ui.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/jquery-ui.css" type="text/css" media="all" />
+
+
+
+<script>
+    function activaEventosNetscape() {
+        if (is_nav) {
+            document.onkeydown = keyDown;
+            document.captureEvents(Event.keyDown);
+        }
+    }
+</script>
+<body bgcolor="white" marginheight="0" topmargin="0" marginwidth="2" leftmargin="2" onload="javascript: activaEventosNetscape()">
+<center>
+    <BR>
+    <form id="Formulario" name="Formulario"  method="post">
+        <input type=hidden name=IdOperacion value = "0076_1">
+        <input type=hidden name=Entidad value="2085">
+        <input type=hidden name=Canal value="IBE">
+        <input type=hidden name=Dispositivo value="INTR">
+        <input type=hidden name=Idioma value="ES">
+        <table border="0" cellspacing="2" width="100%">
+            <tr>
+                <td class="articletitle" height="25">
+                    <b>Recepción de extractos AEB 43<!--Recepción en el PC de extractos CSB 43--></b>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div id="capaError"><b>
+            <!-- Miramos si nos viene error del componente -->
+            <BR>
+        </b></div>
+
+        <br>
+        <div class="textoazulnormal">Ud. podrá recibir en su ordenador un fichero con los movimientos de las cuentas que previamente haya seleccionado en Cuentas/Cuentas para extractos.</div>
+        <br>
+        <table class="estilotabla" border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+                <td width="50%" class="labelyfondo"><b>Funciones disponibles:&nbsp;&nbsp;</b></td>
+                <td width="50%" class="campos" valign="middle">&nbsp;&nbsp;
+                    <select name="funcseleccionada">
+
+                        <option value="DesdeFecha">Captura de movimientos desde una fecha
+                        <option value="EntreFechas">Captura de movimientos entre dos fechas
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%" class="labelyfondo"><b>Fecha desde:&nbsp;&nbsp;</b></td>
+                <td width="50%" class="campos" valign="middle">&nbsp;&nbsp;
+                    <input type="text" name="fechainiciodia" value="" maxlength=2 size=2 onkeypress="javascript: return SoloDigitos()">/
+                    <input type="text" name="fechainiciomes" value="" maxlength=2 size=2 onkeypress="javascript: return SoloDigitos()">/
+                    <input type="text" name="fechainicioano" value="" maxlength=4 size=4 onkeypress="javascript: return SoloDigitos()"></td>
+            </tr>
+            <tr>
+                <td width="50%" class="labelyfondo"><b>Fecha hasta:&nbsp;&nbsp;</b></td>
+                <td width="50%" class="campos" valign="middle">&nbsp;&nbsp;
+                    <input type="text" name="fechafindia" value="" maxlength=2 size=2 onkeypress="javascript: return SoloDigitos()">/
+                    <input type="text" name="fechafinmes" value="" maxlength=2 size=2 onkeypress="javascript: return SoloDigitos()">/
+                    <input type="text" name="fechafinano" value="" maxlength=4 size=4 onkeypress="javascript: return SoloDigitos()">&nbsp;*</td>
+            </tr>
+        </table>
+        <br>
+        <div class="textoazulnormal"><SUP>*</SUP>Sólo se toma en consideración en la función Captura de movimientos entre dos fechas</EM></div>
+        <br>
+
+        <table border="0" height="30" width="100%" cellspacing="0">
+            <tr>
+                <td width="100%" align="right">
+                    <a class="botonayuda" href="javascript:ayuda('EXTP')"></a>
+                </td>
+                <td width="50%" align="center">
+                    <input type="image" align="BOTTOM" border="0" value="Aceptar" src="../../img/btn_aceptar.png" onclick="javascript:return ValidarDatos('Fecha Inicio Incorrecta.','Fecha Fin Incorrecta.','Intervalo de fechas incorrecto.','Las fechas deben ser anteriores al día de hoy','','F25CA7E7E44346D7A4C30561F8C5A553KENI20220310234913PDDQ44346D7A4CLFSGEN30561F8C5AERF16503C4A7D6434REA5C8F16503NEGSFLC43C4A7D64344E7E7AC52FREA5C8F1', 'ID')" id=image1 name=image1></input>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+    </form>
+</center>
+</body>
+</html>

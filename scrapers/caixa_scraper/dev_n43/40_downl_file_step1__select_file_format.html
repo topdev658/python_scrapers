@@ -1,0 +1,57 @@
+
+
+
+<script type="text/javascript">
+    function actualizarFormulario(){
+        f = document.forms["formularioPopUp"];
+        f.PN.value = "FTR";
+        f.PE.value = "23";
+        f.CLAVE_ITR.value = "L_NvdQ55pt8v8291Dnmm3wAAAXiaKQf_1GIhWW9A5gA";
+        f.CLAU_REC.value = "00001MHC99973";
+        f.CLAVE_PRODUCTO.value = "";
+        f.IDIOMA.value = "02";
+        f.NOM_FICH_HP.value = "L_NvdQ2wgWIv8291DbCBYgAAAXiaKQf_opVGY14omXE";
+        f.NOM_FICH_PC.value = "TT100421.755";
+        f.USUARI_SAU.value = "0003751317";
+        f.LITERAL_TEXTO.value = "";
+        f.presentacion.value = "/jsp/prometeus/popupdescargafichero/web/FTRPopupDescargaFichero.jsp";
+        f.SITUA.value = "RU";
+        f.CLICK_ORIG.value = "RED_FTR_70";
+    }
+</script>
+<div id="contenedorLightbox"><h2 id="titulo">Descargar ficheros</h2><div id="cuadroError" class="round_corn_error margin--bottom-normal clearfix display--none"><p class="error-rojo">Revisa el siguiente campo</p><ul class="c-listicon margin--left-normal"> <li class="c-listicon__item c-listicon__item c-listicon__item--dot">Selecciona un formato de descarga</li></ul></div><h3 id="textoInformacion" class="padding--bottom-small">Selecciona en qué formato quieres descargar el fichero</h3>
+    <P id="texto_tipoFichero" class="margin--bottom-none color--gray500">Tipo de fichero</P>
+    <P id="tipoFichero" class="padding--bottom-none">Ext.C43/3 SEPA</P>
+    <div id="menuOpciones" class="u-flex_container padding--bottom-small"><div class="u-flex">
+        <label class="u-col--width-4/12c c-status c-status--linear c-status--theme-default">
+            <input name="c-status_horizontal_separated_radio_check" onClick="JavaScript:setOpcion(1,'RMHC9997301002','RMHC999730100201')" type="radio"/>
+            <span class="c-status__button u-flex u-flex-align-item-center">
+                <span class="loicon-excel loicon--size-24px margin--right-small color--secureblue"></span>Formato Excel</span></label>
+        <label class="u-col--width-4/12c c-status c-status--linear c-status--theme-default">
+            // RMHC9997302002 -- FORMAT
+            // RMHC999730200201 -- ESTILO
+            <input name="c-status_horizontal_separated_radio_check"
+                   onClick="JavaScript:setOpcion(3,'RMHC9997302002','RMHC999730200201')"
+                   type="radio"/>
+            <span class="c-status__button u-flex u-flex-align-item-center">
+                <span class="loicon--size-24px margin--right-small color--secureblue">
+                    <img alt="ico_text.svg" src="../../c-images/html-images/icons/24x24/ico_text.svg"></span>Formato texto</span></label></div></div>
+    <b id="mensajeError" class="color--corporativered padding--bottom-small display--none">Selecciona un formato de descarga</b>
+    <p id="textoRecomendacion" class="padding--bottom-superextrasmall" >Recuerda que si quieres el fichero en el otro formato, podrás descargarlo pidiendo un duplicado.</p>
+    <div id="botonDescarga" class="margin--horizontal-auto text--align-center">
+        <a class="btn btn--mg btn--primary text--align-center" href="JavaScript:descargar()">
+            Descargar
+        </a>
+    </div>
+</div>
+<div id="loading" style="display:none;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="recarga"  align="center">
+        Procesando
+    </div>
+    <br>
+    <br>
+</div>

@@ -1,0 +1,76 @@
+LOGGED IN WITH BANNER
+
+// 'logged in' page with further notificaton page
+<<< https://www.volkswagenbank.es/BEWeb/1480/1480/pag0002m.action?OPERACION=pag0002m&IDIOMA=01&OPERAC=4903&LLAMADA=Z7W2Z2B0Z1S0D0F340H3&CLIENTE=1480008149&CAJA=1480&CAMINO=1480
+<script language="javascript"  type="text/javascript">
+	//var xmldoc = ""; // variable a la que vuelcas la respuesta
+	//var http_emarketing = false; //objeto para abrir la instancia
+	//url a la que se va a invocar
+
+	if( typeof( peticionEmarketing ) == "undefined" )
+	{
+	var http_emarketing = false; //objeto para abrir la instancia
+	var peticionEmarketing = function (url){
+		if (window.XMLHttpRequest) { // Mozilla, Safari, IE7...
+			http_emarketing = new XMLHttpRequest();
+			if (http_emarketing.overrideMimeType){
+				http_emarketing.overrideMimeType('text/plain');
+			}
+			http_emarketing.onreadystatechange = controlXML; //funcion que se lanza cuando cambia el estado del objeto
+			http_emarketing.open('GET', url, true);
+			http_emarketing.send(null);
+		}else  if (window.ActiveXObject) { //IE6
+			try {
+				http_emarketing = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch (e) {
+				try {
+					http_emarketing = new ActiveXObject("Microsoft.XMLHTTP"); }
+				catch (e) {
+				}
+			}
+			http_emarketing.onreadystatechange = controlXML; //funcion que se lanza cuando cambia el estado del objeto
+			http_emarketing.open('GET', url, true); //se abre por metodo GET
+			http_emarketing.send(null);
+		}
+
+		if (!http_emarketing) { //si no se puede crear la instancia AJAX
+			//alert('Error:( no se puede crear la instancia XMLHTTP_2), prueba con otro navegador o actualiza el existente');
+			return false;
+		}
+	}
+	}
+
+	function controlXML() {
+	  if (http_emarketing.readyState == 4)
+	  {
+	      if (http_emarketing.status == 200)
+	      {
+	         if(typeof(campaignAjax) != "undefined"){
+	         		document.location = campaignAjax;
+	         	}
+	      }
+	   }
+	}
+
+	</script>
+<html>
+<head>
+</head>
+<body onload='peticionEmarketing("/BEWeb/1480/1480/emarketing_painted.action?OPERACION=emarketing_painted&IDIOMA=01&OPERAC=1004&LLAMADA=Z7W2Z2B0Z1S0D0F340H3&CLIENTE=1480008149&CAJA=1480&CAMINO=1480&campaignId=CampaMant&campaignOper=0002m")'>
+
+
+
+
+
+
+
+<script>
+	var campaignAjax="/BEWeb/1480/1480/pagCampaMant.action?LLAMADA=Z7W2Z2B0Z1S0D0F340H3&IDIOMA=01&campaingID=CampaMant&inicializaCampa=true";
+</script>
+
+
+
+</body>
+</html>
+
+

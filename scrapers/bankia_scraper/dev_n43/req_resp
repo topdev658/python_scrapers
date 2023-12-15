@@ -1,0 +1,136 @@
+# FICHEROS MENU
+>>> GET https://oficinaempresas.bankia.es/api/1.0/servicios/escenariocliente.personalizacion/8.0/escenariocliente/personalizacion?_ts1610711827088
+<<< 10_Peticion N43-Aperiodica-filterForm.json
+
+
+# N43 FILTER FORM
+>>>
+await fetch("https://oficinaempresas.bankia.es/api/1.0/servicios/financiacion.confirmingprov.consulta/3.0/financiacion/confirmingprov/consulta?_eventId=end&execution=e2s1&_ts1611750859245", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "application/json",
+        "Accept-Language": "en-US,en;q=0.5",
+        "j_gid_platform": "bor",
+        "x-j_gid_cod_app": "o2",
+        "content-type": "application/json"
+    },
+    "referrer": "https://oficinaempresas.bankia.es/nbole/bole/sib-war-1.0/gf2/GID/products/GF3/products/norma43/list.html?opcsubmenu=N43A&origen=OIE2",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 14_resp_pre_filter_form.json
+
+>>>
+await fetch("https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?origen=OIE2&opcsubmenu=N43A&", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://oficinaempresas.bankia.es/nbole/bole/sib-war-1.0/gf2/GID/products/GF3/products/norma43/list.html?opcsubmenu=N43A&origen=OIE2",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 15_resp_filter_form.html
+
+
+#FILTER N43 (NO DATA)
+>>> POST https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s3
+
+fetch("https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s3", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "es-ES,es;q=0.9",
+    "cache-control": "max-age=0",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "iframe",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrer": "https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s3",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "peticionSelected.cuentaCargo=ES0420381830136000255776&downloadFileType=txt&date-box=&fromDate.dia=14&fromDate.mes=01&fromDate.anyo=2021&date-box=&toDate.dia=14&toDate.mes=01&toDate.anyo=2021&_eventId_search=",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+<<< 20_resp_no_43_data.html
+
+#FILTER N43 (SUCCESS)
+>>> POST https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s4
+
+fetch("https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s4", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "es-ES,es;q=0.9",
+    "cache-control": "max-age=0",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "iframe",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrer": "https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s4",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "peticionSelected.cuentaCargo=ES0420381830136000255776&downloadFileType=txt&date-box=&fromDate.dia=01&fromDate.mes=01&fromDate.anyo=2021&date-box=&toDate.dia=14&toDate.mes=01&toDate.anyo=2021&_eventId_search=",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+<<< 30_resp_continueForm.html
+
+#DOWNLOAD N43
+>>> POST https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s5
+
+fetch("https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s5", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "es-ES,es;q=0.9",
+    "cache-control": "max-age=0",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "iframe",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrer": "https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s5",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "peticionSelected.cuentaCargo=ES0420381830136000255776&downloadFileType=txt&date-box=&fromDate.dia=01&fromDate.mes=01&fromDate.anyo=2021&date-box=&toDate.dia=14&toDate.mes=01&toDate.anyo=2021&_eventId_continue=",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+<<< 40_resp_n43_download.html
+
+DOWNL N43 FILE
+>>>
+await fetch("https://ficheros.bankia.es/sib-war-1.0/norma43/download/consulta43.html?cuentaCargo=ES0420381830136000255776", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://ficheros.bankia.es/sib-war-1.0/products/GF3/products/norma43/list.html?execution=e1s3",
+    "method": "GET",
+    "mode": "cors"
+});
+
+

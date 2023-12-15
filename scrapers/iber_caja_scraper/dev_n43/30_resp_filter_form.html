@@ -1,0 +1,102 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html">
+    <title>BE Ibercaja</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><script type="text/javascript" src="../js/browser.js"></script><script type="text/javascript" src="cobrospagos/js/general.js"></script><link rel="stylesheet" type="text/css" href="../css/estilos_iframe_central.css">
+    <link rel="stylesheet" type="text/css" href="../css/fonts_nuevo.css">
+    <link rel="stylesheet" type="text/css" href="cobrospagos/css/estilos_cobrospagos.css"><script language="JavaScript" src="cobrospagos/js/navigator.js"></script><script language="JavaScript" src="cobrospagos/ficheros/js/recibir_ficheros.js"></script><script>
+    var Accounts = new Array('2085/8428/18/0330033048 - C.CTE'
+    );
+</script><script language="JavaScript" src="
+		cobrospagos/js.asp?idoperacion=131_0Xidioma=ES"></script></head>
+<body bgcolor="white" marginheight="0" topmargin="0" marginwidth="2" leftmargin="2" onload="javascript: return inicio();">
+<form name="ordena" action="modulodirector.asp" method="post"><input name="idoperacion" type="hidden" value="725_22"><input name="Entidad" type="hidden" value="2085"><input name="Canal" type="hidden" value="WEB"><input name="Dispositivo" type="hidden" value="INTR"><input name="Idioma" type="hidden" value="ES"><input type="hidden" name="ticket" value="6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70"><input type="hidden" name="error" value="0"><input type="hidden" name="tipo" value="04301"><input type="hidden" name="tipooperacion" value="RF"><input type="hidden" name="tipocuenta" value="AH"><input type="hidden" name="subtipocuenta" value="01,02,03,04,07,09,83,93,94"><input type="hidden" name="tipopermiso" value="OCN"><input type="hidden" name="operation" value="1"><input type="hidden" name="lista" value="0"><input type="hidden" name="nPag" value=""><input type="hidden" name="colOrder" value=""><input type="hidden" name="dirOrder" value=""></form>
+<form name="ficheros_aceptar" action="modulodirector.asp" method="POST"><input name="idoperacion" type="hidden" value="725_29"><input name="Entidad" type="hidden" value="2085"><input name="Canal" type="hidden" value="WEB"><input name="Dispositivo" type="hidden" value="INTR"><input name="Idioma" type="hidden" value="ES"><input type="hidden" name="ticket" value="6E778D6E557A49CDBCA17BA07C0FC415KSDAMO20210204131457NM57A49CDBCAMI17BA07C0FCDB70AB71ACBDC94A7BDCF0C70AB71IMACBDC91ACBDC94A755E6D877E6BDCF0C70"><input type="hidden" name="error" value="0"><input type="hidden" name="tipooperacion" value="RF"><input type="hidden" name="tipocuenta" value="AH"><input type="hidden" name="subtipocuenta" value="01,02,03,04,07,09,83,93,94"><input type="hidden" name="tipopermiso" value="OCN"><input type="hidden" name="operation" value="1"><input type="hidden" name="lista" value="1"><input type="hidden" name="account"><input type="hidden" name="fromday"><input type="hidden" name="frommonth"><input type="hidden" name="fromyear"><input type="hidden" name="today"><input type="hidden" name="tomonth"><input type="hidden" name="toyear"><br><table border="0" cellspacing="0" cellpadding="0" width="100%" align="left">
+    <tr>
+        <td class="articletitle" height="25">Recepción de ficheros</td>
+    </tr>
+</table><br><br><br><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" class="estilotabla">
+                <tr>
+                    <td width="50%" class="labelyfondo"><b><font id="CP131LIT0002">Tipo de fichero</font></b></td>
+                    <td width="50%" class="campos" valign="middle"><select name="tipo" onchange="
+								javascript: return tipochanged(document.ficheros_aceptar.tipo[document.ficheros_aceptar.tipo.selectedIndex].value);
+							"><option value="01996">Rechazo Adeudos Sepa - Core (plano / XML)</option>
+                        <option value="01997">Rechazo Adeudos Sepa - B2B (plano / XML)</option>
+                        <option value="01998">Devolución Adeudos Sepa - Core (plano / XML)</option>
+                        <option value="01999">Devolución Adeudos Sepa - B2B (plano / XML)</option>
+                        <option value="05896">Rechazo Adeudos Sepa Financiados - Core (XML)</option>
+                        <option value="05897">Rechazo Adeudos Sepa Financiados - B2B (XML)</option>
+                        <option value="05898">Devolución Adeudos Sepa Financiados - Core (XML)</option>
+                        <option value="05899">Devolución Adeudos Sepa Financiados - B2B (XML)</option>
+                        <option value="01910">Devolución recibos</option>
+                        <option value="04301" selected>Extractos</option>
+                        <option value="05610">Devolución cheques</option>
+                        <option value="05810">Devolución anticipos</option>
+                        <option value="F0105">Respuesta Abono Gasóleo Bonificado</option>
+                        <option value="FFFFF">Ficheros genéricos</option></select></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</form>
+<div id="AccountsDIV" style="position:absolute; left:2px; top:110px; width:100%; height:0px; z-index:1">
+    <form id="divform" name="divform" method="post">
+        <table border="0" height="30" width="100%" cellspacing="0" align="right">
+            <tr>
+                <td width="100%" align="right"><a class="botonayuda" id="btnAyuda" href="#" onFocus="blur();" onClick="javascript:ayuda('REFI')"></a></td>
+                <td width="100%" align="center"><a href="#" onFocus="blur();" onClick="javascript: return aceptar()"><img align="bottom" border="0" src="../img/botonAceptar.png"></a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="AccountsDIVExtractos" style="position:absolute; left:2px; top:110px; width:100%; height:0px; z-index:1">
+    <form id="divformExtractos" name="divformExtractos" method="post">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%" class="estilotabla">
+                        <tr>
+                            <td width="50%" class="labelyfondo"><b><font id="CP131LIT0025">Operación</font></b></td>
+                            <td width="50%" class="campos" valign="middle"><select name="operationdiv" onchange="javascript: return changeoperation(document.divformExtractos.operationdiv.selectedIndex)"><option value="1"><font id="CP131LIT0023">Solicitar nuevos movimientos</font></option>
+                                <option value="0">
+                                    <font id="CP131LIT0024">Solicitud entre fechas</font>
+                                </option></select></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="labelyfondo"><b><font id="CP131LIT0019">Cuentas</font></b></td>
+                            <td width="50%" class="campos" valign="middle"><select name="accountdiv" disabled="true"><option value=""></option>
+                                <option value="2085/8428/18/0330033048 - C.CTE">2085/8428/18/0330033048 - C.CTE</option></select></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="labelyfondo"><b><font id="CP131LIT0020">Desde</font></b></td>
+                            <td width="50%" class="campos" valign="middle"><input type="text" name="fromdaydiv" maxlength="2" size="1" class="dia" disabled="true" onblur="javascript: return dateblur(1);" onkeypress="javascript: return datepress(1, event);" onkeyup="javascript: return datechange(1);" value="">/
+                                <input type="text" name="frommonthdiv" maxlength="2" size="1" class="mes" disabled="true" onblur="javascript: return dateblur(2);" onkeypress="javascript: return datepress(2, event);" onkeyup="javascript: return datechange(2);" value="">/
+                                <input type="text" name="fromyeardiv" maxlength="4" size="3" class="ano" disabled="true" onkeypress="javascript: return datepress(3, event);" value=""></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="labelyfondo"><b><font id="CP131LIT0021">Hasta</font></b></td>
+                            <td width="50%" class="campos" valign="middle"><input type="text" name="todaydiv" maxlength="2" size="1" class="dia" disabled="true" onblur="javascript: return dateblur(4);" onkeypress="javascript: return datepress(4, event);" onkeyup="javascript: return datechange(4);" value="">/
+                                <input type="text" name="tomonthdiv" maxlength="2" size="1" class="mes" disabled="true" onblur="javascript: return dateblur(5);" onkeypress="javascript: return datepress(5, event);" onkeyup="javascript: return datechange(5);" value="">/
+                                <input type="text" name="toyeardiv" maxlength="4" size="3" class="ano" disabled="true" onkeypress="javascript: return datepress(6, event);" value=""></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table><br><table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td height="25"><b><div class="textoazulnormal"><font id="CP132LIT0001">Los usuarios solo podrán consultar y recibir movimientos si tienen permiso de consulta sobre todas las cuentas de los ficheros.</font></div></b></td>
+        </tr>
+    </table><br><table border="0" height="30" width="100%" cellspacing="0" align="right">
+        <tr>
+            <td width="100%" align="right"><a class="botonayuda" id="btnAyuda" href="#" onFocus="blur();" onClick="javascript:ayuda('REFI')"></a></td>
+            <td width="100%" align="center"><a href="#" onFocus="blur();" onClick="javascript: return aceptar()"><img align="bottom" border="0" src="../img/botonAceptar.png"></a></td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>

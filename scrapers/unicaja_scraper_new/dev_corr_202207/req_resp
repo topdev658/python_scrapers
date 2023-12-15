@@ -1,0 +1,39 @@
+>>> FILTER
+await fetch("https://univia.unicajabanco.es/services/rest/api/notificaciones/correspondencias?tipoCorrespondencia=&papelera=N&leido=&fechaDesde=2022-06-01&fechaHasta=2022-07-03&concepto=", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "ANHRFP1K",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/comunicados",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 10_resp_corr_filtered.json
+
+>>> DOWNLOAD CORR
+await fetch("https://univia.unicajabanco.es/services/rest/api/notificaciones/correspondencias/detalleCorrespondencia?idCorrespondencia=3283106685", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "ANHRFP1K",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://univia.unicajabanco.es/comunicados",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< PDF

@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Consulta de movimientos - Bancofar - </title>
+	<!--Nuevo js comun BEWEB-->
+	<script type="text/javascript">
+			try
+			{
+				document.domain="bancofar.es";//para poder hablar entre frames y el dominio de cep.ceca.es(tiene que estar en todos los frames)
+			}
+			catch( _ex )
+			{
+				if( "bancofar.es" == "bmn.es" )
+
+					document.domain="sanostra.es";
+			}
+		var rutaBEcontenido="https://be.bancofar.es";
+		var ruta_beweb_estatico="/6125";
+		var rutaCGI="https://be.bancofar.es/cgi-bin/INclient_6125";
+		var salto1004="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004&IDIOMA=01&OPERAC=5838&LLAMADA=F1E1R0W0Z2A0C0X350S1&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+		var salto1004M="https://be.bancofar.es/cgi-bin/INclient_6125?OPERACION=1004M&IDIOMA=01&OPERAC=5838&LLAMADA=F1E1R0W0Z2A0C0X350S1&CLIENTE=0125037428&CAJA=0125&CAMINO=6125";
+	</script>
+	<script src="/6125/js/comunBEWEB.js?jversion=20190829133350" type="text/javascript"></script>
+<meta name="description" content="P&aacute;gina que muestre el listado de movimientos de una cuenta seleccionada" />
+<meta name="autor" content=" Bancofar " />
+<meta name="keywords" content="Bancofar" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+var diaActual ="30";
+var mesActual ="09";
+var anyoActual="2019";
+</script>
+<script src="/6125/js/acc_calendar.js" type="text/javascript"></script>
+<link href="/6125/css/acc_calendar.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/6125/css/contenido.css?cssversion=20190813130010" media="screen" />
+<link rel="stylesheet" type="text/css" href="/6125/css/estilos_impresion.css?cssversion=20190813130010" media="print" />
+<script type="text/javascript">
+/* == PONERROR == */
+var pagina='D';
+if (pagina=="C")
+{
+	var codErrPagM='';
+	var txtErrPagM='';
+}
+/* == FIN PONERROR == */
+/*** PONAYUDA***/
+//titAyu-->titulo
+//txtAyu1-->1º texto
+//txtAyu2-->2º texto
+var txtAyu1="5838Ayu00";
+var txtAyu2="5838Ayu01";
+var titAyu="Mensaje de ayuda:";
+var litAyu1="Una vez seleccionado un criterio de b&uacute;squeda, podr&aacute; ver de forma acumulativa y de 17 en 17, los movimientos de la cuenta seleccionada y ordenar por el criterio deseado (tipo de movimiento, concepto, importe,...).";
+var litAyu2="Las cuentas que aparecen en un tono m&aacute;s claro, le indican que la cuenta est&aacute; cancelada. Podrá obtener toda la informaci&oacute;n relativa a dicha cuenta.<br />Para ver su detalle &uacute;nicamente deber&aacute; pinchar sobre la lupa.";
+/***FIN PONAYUDA***/
+var codreanuda="                    ";
+var codretro="                    ";
+var dedonde="5838";
+var limpiares="SI";
+var txtDebSelOpc = 'Debe seleccionar una opci&oacute;n';
+var txtIrASelOpc = 'Ir a seleccionar una opci&oacute;n';
+var txtDebSelFec='Debe rellenar las fechas.';
+var txtIrASelFec='Ir a seleccionar una fecha.';
+var feciniant="";
+var fecfinant="";
+var opcionSel="";
+var portalServidor ="";
+var duplicacod="";
+var compte="01250100010000362000745844";
+var urlDetalle="/BEWeb/0125/6125/not8400_d_5838m.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima";
+var txtSumTab="Resultado de la consulta de movimientos";
+var txtCapTab="Resultado de la consulta de movimientos";
+var txtFecha="Fecha";
+var txtAbbrDTipo="tipo";
+var txtTipoMovim="Tipo";
+var txtTxtConcep="Concepto";
+var txtTxtImport="Importe";
+var txtTextSaldo="Saldo";
+var txtTxtDetal="Ver detalle";
+var txtTitVerDet="Enlace para ver el detalle del movimiento";
+var txtSalNoDis="No disponible";
+var txtFecVal="Fecha valor";
+var txtRutaEstatico="/6125";
+var restadias30 = "31082019";
+var fechaactual = "30092019";
+var url5801="/BEWeb/0125/6125/vrsnot5801_d_AJX_e0AJX.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima?OPERACION=vrsnot5801_d_AJX_e0AJX&IDIOMA=01&OPERAC=5838&LLAMADA=F1E1R0W0Z2A0C0X350S1&CLIENTE=0125037428&CAJA=0125&CAMINO=6125&amp;GCUENTA=01250100010000362000745844";
+var resultados5838 = new Array();
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "23/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-2,13";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "24.361,55";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "23092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009757";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "21092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "21/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "24/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "RECIBO SEPA                           ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "GESTION OPTIMA DE FAR                 ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-550,55";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.811,00";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "24092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009758";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "24092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "24/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "24/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "RECIBO SEPA                           ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "PHARMEX                               ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-113,69";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.697,31";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "24092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009759";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "24092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "24/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "24/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "RECIBO SEPA                           ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "FERRER INTERNACIONAL,                 ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-233,22";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.464,09";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "24092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009760";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "24092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "24/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "24/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "LIQUIDACION COMERCIO                  ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO TPV                             ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "436,88";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.900,97";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "24092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009761";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "23092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "23/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "24/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-1,74";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.899,23";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "24092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009762";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "23092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "23/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "25/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "RECIBO SEPA                           ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "Chiesi Espana S.A.U.                  ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-305,98";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "23.593,25";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "25092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009763";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "25/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "TRANSF. A S/F                         ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "Colegio Oficial de Fa                 ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "40.858,32";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "64.451,57";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "25092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009764";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "25/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "LIQUIDACION COMERCIO                  ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO TPV                             ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "1.229,10";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "65.680,67";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "25092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009765";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "24092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "24/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "25/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-4,90";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "65.675,77";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "25092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009766";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "24092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "24/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "26/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "LIQUIDACION COMERCIO                  ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO TPV                             ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "597,66";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.273,43";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "26092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009767";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "26/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-2,39";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.271,04";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "26092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009768";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "26/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "LIQUIDACION COMERCIO                  ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO TPV                             ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-5,62";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.265,42";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "26092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009769";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "26/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "0,02";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.265,44";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "26092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009770";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "25092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "25/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "27/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "LIQUIDACION COMERCIO                  ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO TPV                             ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "579,10";
+resultados5838[ resultados5838.length - 1 ].signomovi = "A";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.844,54";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "27092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009771";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "26092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "26/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "27/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "COMISION COMERCIO                     ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "COMISION TPV                          ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-2,33";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "66.842,21";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "27092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009772";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "26092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "26/09/2019";
+resultados5838[ resultados5838.length ] = new Object();
+resultados5838[ resultados5838.length - 1 ].fechmovi2 = "27/09/2019";
+resultados5838[ resultados5838.length - 1 ].concepto1 = "ORDEN TRANSFERENCIA SEPA              ";
+resultados5838[ resultados5838.length - 1 ].concepto2 = "ABONO SOE 17996/6                     ";
+resultados5838[ resultados5838.length - 1 ].impomovi = "-27.100,00";
+resultados5838[ resultados5838.length - 1 ].signomovi = "C";
+resultados5838[ resultados5838.length - 1 ].saldcuen = "39.742,21";
+resultados5838[ resultados5838.length - 1 ].fechmovi = "27092019";
+resultados5838[ resultados5838.length - 1 ].secuencia = "009773";
+resultados5838[ resultados5838.length - 1 ].fecvalmo = "27092019";
+resultados5838[ resultados5838.length - 1 ].fecvalmo2 = "27/09/2019";
+</script>
+<script src="/6125/js/5838.js?jversion=20190813130010" type="text/javascript"></script>
+<script src="/6125/js/comunFormularios.js" type="text/javascript"></script>
+<script src="/6125/js/tablesort.js" type="text/javascript"></script>
+</head>
+<body>
+
+		<!-- saldo   |39742,21|  -->
+	<!-- SALDOCTASIG    |39.742,21|  -->
+	<!-- INICIO CONTENIDO -->
+	<div id="contenido">
+
+		<!-- INICIO CAB_CONTENIDO -->
+<!--CABECERA CONTENIDO-->
+<!--titulo = Título de la operación en la que estamos .ConsMovim. -->
+<!--ayuda  = Si va relleno muestra el icono de ayuda .Enlace que muestra la ayuda. Se abre en ventana nueva.. -->
+<!--impri  = Si va relleno muestra el icono de imprimir .Enlace que imprime la p&aacute;gina. -->
+<!--excel  = Si va relleno muestra el icono del excel .Enlace que exporta los datos mostrados en la p&aacute;gina a un archivo excel. -->
+<!--camino = .6125. -->
+
+
+<div class="indentado">
+	<a accesskey="1" href="#frame_contenido_1" title="Acceso directo al frame del contenido de la operaci&oacute;n">Ir al frame del contenido de la operaci&oacute;n</a>
+</div>
+
+<div id="logo_impresion">
+	<img src="/6125/img/logoBlanco.jpg?20150827" alt=""/>
+</div>
+
+	<!-- TITULO DE LA PÁGINA -->
+	<div class="tituloPagina">
+		<a name="frame_contenido_1" id="frame_contenido_1"></a>
+		<h2>Consulta de movimientos</h2>
+
+			<div class="flotaDer no_imprimir">
+				<ul class="lista_iconos" id="lista_iconos">
+					<li><a href="#anclaAyu" id="aAyu"><img src="/6125/img/icoAyuda.gif" alt="Enlace que muestra la ayuda. Se abre en ventana nueva." /></a></li>
+					<li><a href="#" id="aImpr"><img src="/6125/img/icoImprimir.gif" alt="Enlace que imprime la p&aacute;gina" /></a></li>
+					<li><a href="#" id="aExcl"><img src="/6125/img/ico_excel.gif" alt="Enlace que exporta los datos mostrados en la p&aacute;gina a un archivo excel" /></a></li>
+				</ul>
+			</div>
+	</div>
+	<!-- FIN TITULO PÁGINA -->		<!-- FIN CAB_CONTENIDO -->
+
+		<!-- INICIO CONT_CONTENIDO -->
+		<div id="cont_contenido">
+			<div id="mens_error"></div>
+			<div id="txtAyuda"></div>
+			<p class="txtIzq mb11 mt2">Seleccione la cuenta, el criterio de b&uacute;squeda y pulse aceptar.</p>
+
+			<!-- formulario -->
+			<form name="datos" method="post" action="/BEWeb/0125/6125/not5838_d_5838m.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima">
+
+<!--Patron formulario datos-->
+<div class="recuadro_bord_verde">
+
+				<fieldset>
+
+					<legend class="visible">Datos para realizar la consulta de movimientos</legend>
+
+						<!-- Selector cuentas -->
+						<div class="flotaIzq clearn">
+						<label class="margen" for="GCUENTA">N&uacute;mero de cuenta</label>
+									<select name="GCUENTA" id="GCUENTA" class="flotaIzq">
+
+																<option value="01250100010000362000745844" selected>  0125-0001-36-2000745844 NAVIDAD SANCHEZ
+															</option>
+									</select>
+								<span class="txtSaldo">Saldo actual:</span> <span class="txtVerde" id="txtSaldoAct"></span>
+							 <!--<span id="texto_saldo"><button class="btn_blanco" id="verSaldo" type="button" name="verSaldo" title="Ver Saldo">Ver Saldo</button></span>-->
+						</div>
+						<!-- Fin selector -->
+
+						<!-- Ultimos movimientos -->
+						<div class="m0 clearb">
+							<div class="flotaIzq ml25">
+								<input class="check" type="radio" name="OPCION" id="OPCION0" value="0" />
+								<label for="OPCION0">&Uacute;ltimos movimientos</label>
+							</div>
+						</div>
+						<!-- Fin ultimos movimientos -->
+
+
+						<!-- Selector Mes/Año -->
+						<div class="flotaIzq clearb ml25">
+							<input class="check" type="radio" name="OPCION" id="OPCION2" value="2" />
+							<label for="MES">Mes de</label>
+								<select name="MES" id="MES">
+<option value="01"> Enero</option><option value="02"> Febrero</option><option value="03"> Marzo</option><option value="04"> Abril</option><option value="05"> Mayo</option><option value="06"> Junio</option><option value="07"> Julio</option><option value="08"> Agosto</option><option value="09" selected="selected"> Septiembre</option><option value="10"> Octubre</option><option value="11"> Noviembre</option><option value="12"> Diciembre</option>								</select>
+
+							<label for="ANIO" class="ml05">de</label>
+							<select name="ANIO" id="ANIO">
+<option value="2016"> 2016</option><option value="2017"> 2017</option><option value="2018"> 2018</option><option value="2019" selected="selected"> 2019</option>							</select>
+						</div>
+						<!-- Fin selector Mes/Año -->
+
+						<!-- Fechas / Calendario -->
+						<div class="clearb">
+
+						<!-- Fecha inicio -->
+						<div class="flotaIzq clearn ml25">
+							<input class="check" type="radio" name="OPCION" id="OPCION1" value="1" />
+							<label for="FECHINI">Seleccione fecha (<abbr title="d&iacute;a con dos d&iacute;gitos mes con dos d&iacute;gitos a&ntilde;o">DDMMAAAA</abbr>) Desde:<span class="indentado">(Este campo s&oacute;lo permite escribir caract&eacute;res n&uacute;mericos.)</span></label>
+							<input type="text" name="FECHINI" id="FECHINI" maxlength="8" size="10" value=""/>
+							<a href="#" id="cal_FECHINI" class="calendario"><img src="/6125/img/ico_calendario.gif" alt="Enlace que abre un calendario para seleccionar la fecha. Se abre en ventana nueva." /></a>
+						</div>
+						<!-- Fin Fecha inicio -->
+
+						<!-- Fecha fin -->
+						<div class="flotaIzq clearn">
+							<label for="FECHFIN">Hasta:<span class="indentado">(Este campo s&oacute;lo permite escribir caract&eacute;res n&uacute;mericos.)</span></label>
+							<input type="text" name="FECHFIN" id="FECHFIN" maxlength="8" size="10" value=""/>
+							<a class="calendario" href="#" id="cal_FECHFIN"><img src="/6125/img/ico_calendario.gif" alt="Enlace que abre un calendario para seleccionar la fecha. Se abre en ventana nueva."/></a>
+						</div>
+      					<!-- Fin Fecha fin -->
+
+      					</div>
+      					<!-- Fin fechas / calendario -->
+
+				</fieldset>
+
+</div>
+
+<!-- Botonera -->
+<div class="botonera tar">
+<!-- BOTÓN TIPO IMAGEN
+**nombre  id del botón
+**titulo  title del botón
+**clase   clase del botón
+**lit    literal/texto del botón
+litind    literal indentado anterior
+litind2    literal indentado posterior -->
+
+
+
+<button id="enviar" title="Enviar los datos introducidos para realizar la consulta de movimientos" class="boton_flecha" type="button"><span class="boton_verde"><span class="indentado"></span> Aceptar <span class="indentado"></span></span></button></div>
+<!--Fin Patron formulario datos-->
+		<!-- TABLA DE RESULTADOS -->
+		<div class="recuadro_tab_buzon" id="divResultados">
+		</div>
+		<!-- FIN TABLA DE RESULTADOS -->
+
+		<!-- BOTONERA -->
+		<div class="botonera clearfix">
+				<div class="botonera_dcha">
+<!--BOTÓN TIPO VERDE-->
+<!--nombre = id del botón-->
+<!--titulo = title del botón-->
+<!--lit    = literal/texto del botón-->
+<!--spa1   = literal/texto complementario anterior al texto del botón-->
+<!--spa2   = literal/texto complementario posterior al texto del botón-->
+
+
+<button id="desQ43" title="Descargar Q43" type="button" class="boton_verde "><span class="fl w100"><span class="indentado"></span> Descargar Q43 <span class="indentado"></span></span></button>							<div id="botonera_dchaR">
+<!-- BOTÓN TIPO IMAGEN
+**nombre  id del botón
+**titulo  title del botón
+**clase   clase del botón
+**lit    literal/texto del botón
+litind    literal indentado anterior
+litind2    literal indentado posterior -->
+
+
+
+<button id="masmov" title="Mostrar m&aacute;s movimientos de la cuenta" class="boton_flecha" type="button"><span class="boton_verde"><span class="indentado">Ver</span> M&aacute;s movimientos <span class="indentado"></span></span></button>							</div>
+				</div>
+		</div>
+		<!-- FIN BOTONERA -->
+
+<!--Patron campos formulario-->
+		<input name="LLAMADA" id="LLAMADA" type="hidden" value="F1E1R0W0Z2A0C0X350S1" />
+		<input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+			<input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+		<input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+		<input name="OPERAC"  id="OPERAC"  type="hidden" value="5838" />
+		<input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+		<input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+<input type="hidden" name="FECINI" value="" />
+<input type="hidden" name="FECFIN" value="" />
+<input type="hidden" name="CODREANUD" value="" />
+<input type="hidden" name="TIPOSCTAS" value="" />
+<input type="hidden" name="AUXCODREANUDA" value="" />
+<input type="hidden" name="TOPEAUXCODREANUDA" value="" />
+<input type="hidden" name="CONCEPTO2" value="" />
+<input type="hidden" name="DEDONDE" value="5838" />
+<input type="hidden" name="ULTDIA" value="" />
+<input type="hidden" name="SECUENCIA" value="" />
+<input type="hidden" name="FECHMOVI" value="" />
+<input type="hidden" name="FECHADESDECOMBO" value="" />
+<!--Fin Patron campos formulario-->
+		<input type="hidden" name="SALDOCTASIG" value="39.742,21" />
+
+
+		</form>
+
+		<!-- fin formulario -->
+		<!--mas mvtos-->
+		<form name="masMvtos" method="post" action="/BEWeb/0125/6125/not5838_d_5838m.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima">
+		<input name="LLAMADA" id="LLAMADA" type="hidden" value="F1E1R0W0Z2A0C0X350S1" />
+		<input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+			<input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+		<input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+		<input name="OPERAC"  id="OPERAC"  type="hidden" value="5838" />
+		<input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+		<input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+		<input type="hidden" name="FECINI" value="" />
+		<input type="hidden" name="FECFIN" value="" />
+		<input type="hidden" name="GCUENTA" value="01250100010000362000745844" />
+		<input type="hidden" name="OPCION" value="" />
+		<input type="hidden" name="CODREANUD" value="" />
+		<input type="hidden" name="FECHADESDECOMBO" value="" />
+
+
+		</form>
+		<!-- Q43 -->
+
+	<script>
+		var DHoy='30';
+		var MHoy='09';
+		var AHoy='2019';
+	</script>
+	<form name="Q43CLI" method="post" action="/BEWeb/0125/6125/aontDescargaInforme_Q43C_d_0.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima">
+		<input name="LLAMADA" id="LLAMADA" type="hidden" value="F1E1R0W0Z2A0C0X350S1" />
+		<input name="CLIENTE" id="CLIENTE" type="hidden" value="0125037428" />
+			<input name="IDIOMA"  id="IDIOMA"  type="hidden" value="01" />
+		<input name="CAJA"    id="CAJA"    type="hidden" value="0125" />
+		<input name="OPERAC"  id="OPERAC"  type="hidden" value="5838" />
+		<input name="CTASEL"  id="CTASEL"  type="hidden" value="" />
+		<input name="CTAFOR"  id="CTAFOR"  type="hidden" value="" />
+	<input name="GCUENTA" type="hidden" value="01250100010000362000745844" />
+	<input name="FECINI"  type="hidden" value="" />
+	<input name="FECFIN"  type="hidden" value="" />
+	<input name="FECINIAUX"  type="hidden" value="" />
+	<input name="FECFINAUX"  type="hidden" value="" />
+	<input name="FECHINI"  type="hidden" value="" />
+	<input name="FECHFIN"  type="hidden" value="" />
+	<input name="CODREANUDA"  type="hidden" value="                    " />
+	<input name="NOMBRECLIENTE"  type="hidden" value="NAVIDAD SANCHEZ MARCOS                  " />
+	<input name="FILENAME"  type="hidden" value="30092019075952.Q43" />
+	<input name="CODOPER"  type="hidden" value="5838" />
+	</form>
+		<!-- Fin Q43 -->
+
+		</div>
+		<!-- FIN CONT_CONTENIDO -->
+
+<!-- MENU PIE DE PAGINA -->
+<div id="contMenuPie">
+	<div class="menuPie no_imprimir">
+		<ul>
+			<li class="borde"><a target="_blank" href="http://www.bancofar.es/atencion-al-cliente/" title="Muestra al usuario las distintas formas de ponerse en contacto con nosotros para cualquier cuesti&oacute;n">Atenci&oacute;n al cliente</a></li>
+			<li class="borde"><a href="/BEWeb/0125/6125/psmapa.action;jsessionid=znEHcFBH4MVqCU-o0iZxef1V.tlima?OPERACION=psmapa&IDIOMA=01&OPERAC=5838&LLAMADA=F1E1R0W0Z2A0C0X350S1&CLIENTE=0125037428&CAJA=0125&CAMINO=6125" title="Muestra el &iacute;ndice de contenidos de la web">Mapa web</a></li>
+			<li class="borde"><a target="_blank" href="http://www.bancofar.es/tarifas/" title="Muestra la informaci&oacute;n de todas nuestras tarifas">Tarifas</a></li>
+			<li><a target="_blank" href="http://www.bancofar.es/aviso-legal/" title="Muestra la informaci&oacute;n legal de la web">Aviso legal</a></li>
+		</ul>
+	</div>
+</div>
+<!-- FIN MENU PIE -->
+	</div>
+	<!-- FIN CONTENIDO -->
+
+</body>
+</html>

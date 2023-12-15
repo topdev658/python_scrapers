@@ -1,0 +1,185 @@
+NIB_PreLogin asp MAGIC PAGE
+
+
+
+<html>
+<head>
+
+<script language="JavaScript">var v1=20;var v3="0123456789abcdef";function f1(v4,v5){return v4<<v5;}function f2(v6,v7){return v7==0?v6:v6&2147483648?(v6&2147483647)>>v7|1<<31-v7:v6>>v7;}function f3(v8,v9){v9=(v9&255)%32;return f1(v8,v9)|f2(v8,32-v9);}function f4(v10,v11){v11=(v11&255)%32;return f2(v10,v11)|f1(v10,32-v11);}function f5(v12,v13){var v14=(v12&65535)+(v13&65535);var v15=f2(v12,16)+f2(v13,16)+f2(v14,16);return v15<<16|v14&65535;}function f6(v16,v17){var v18=new Array(2);var v19=new Array(2);var v20=new Array(5);var v21;var v22;var v23;var v24;var v25;for(v21=0;v21<5;v21++){v20[v21]=0;}for(v21=0;v21<2;v21++){v18[v21]=f2(v16,16*v21)&65535;v19[v21]=f2(v17,16*v21)&65535;}for(v23=0;v23<2;v23++){v24=v23;for(v22=0;v22<2;v22++){v25=v20[v24]+v19[v23]*v18[v22];v20[v24]=v25&65535;v20[v24+1]+=f2(v25&4294901760,16);v24++;}}return v20[1]<<16|v20[0]<<0;}function f7(v26){var v27=0;var v28;for(v28=v26.length;v28>0;v28--){v27=(v27<<8)+v26.charCodeAt(v28-1);}return v27;}function f8(v29){var v30="";var v31;var v32;for(v31=0;v31<4;v31++){v32=f2(v29,8*v31)&255;v30+=String.fromCharCode(v32);}return v30;}function f9(v33){var v34;var v35;var v36="";for(v34=0;v34<v33.length;v34++){v35=v33.charCodeAt(v34)>>4;if((v35&15)>9){v36+=String.fromCharCode((v35&15)+87);}else{v36+=String.fromCharCode((v35&15)+48);}v35=v33.charCodeAt(v34)&15;if((v35&15)>9){v36+=String.fromCharCode((v35&15)+87);}else{v36+=String.fromCharCode((v35&15)+48);}}return v36;}function f10(v37){var v38="";var v39;for(v39=0;v39<=3;v39++){v38+=v3.charAt(f2(v37,v39*8+4)&15)+v3.charAt(f2(v37,v39*8)&15);}return v38;}function f12(v45){var v46="";var v47;var v48;for(v48=0;v48<v45.length;v48+=2){v47=v45.charCodeAt(v48)>57?v45.charCodeAt(v48)-87:v45.charCodeAt(v48)-48;v47<<=4;v47|=v45.charCodeAt(v48+1)>57?v45.charCodeAt(v48+1)-87:v45.charCodeAt(v48+1)-48;v46+=String.fromCharCode(v47);}return v46;}function f34(v147){var v148=f2(v147.length+8,6)+1;var v149=new Array(v148*16);var v150;for(v150=0;v150<v148*16;v150++){v149[v150]=0;}for(v150=0;v150<v147.length;v150++){v149[f2(v150,2)]|=v147.charCodeAt(v150)<<v150%4*8;}v149[f2(v150,2)]|=128<<v150%4*8;v149[v148*16-2]=v147.length*8;return v149;}function f35(v151,v152,v153,v154,v155,v156){return f5(f1(f5(f5(v152,v151),f5(v154,v156)),v155),v153);}function f36(v157,v158,v159,v160,v161,v162,v163){return f35(v158&v159|~v158&v160,v157,v158,v161,v162,v163);}function f37(v164,v165,v166,v167,v168,v169,v170){return f35(v165&v167|v166&~v167,v164,v165,v168,v169,v170);}function f38(v171,v172,v173,v174,v175,v176,v177){return f35(v172^v173^v174,v171,v172,v175,v176,v177);}function f39(v178,v179,v180,v181,v182,v183,v184){return f35(v180^(v179|~v181),v178,v179,v182,v183,v184);}function f40(v185){var v186;var v187;var v188;var v189;var v190;var v191;var v192;var v193;var v194;var v195;v186=f34(v185);v187=1732584193;v188=-271733879;v189=-1732584194;v190=271733878;for(v195=0;v195<v186.length;v195+=16){v191=v187;v192=v188;v193=v189;v194=v190;v187=f36(v187,v188,v189,v190,v186[v195+0],7,-680876936);v190=f36(v190,v187,v188,v189,v186[v195+1],12,-389564586);v189=f36(v189,v190,v187,v188,v186[v195+2],17,606105819);v188=f36(v188,v189,v190,v187,v186[v195+3],22,-1044525330);v187=f36(v187,v188,v189,v190,v186[v195+4],7,-176418897);v190=f36(v190,v187,v188,v189,v186[v195+5],12,1200080426);v189=f36(v189,v190,v187,v188,v186[v195+6],17,-1473231341);v188=f36(v188,v189,v190,v187,v186[v195+7],22,-45705983);v187=f36(v187,v188,v189,v190,v186[v195+8],7,1770035416);v190=f36(v190,v187,v188,v189,v186[v195+9],12,-1958414417);v189=f36(v189,v190,v187,v188,v186[v195+10],17,-42063);v188=f36(v188,v189,v190,v187,v186[v195+11],22,-1990404162);v187=f36(v187,v188,v189,v190,v186[v195+12],7,1804603682);v190=f36(v190,v187,v188,v189,v186[v195+13],12,-40341101);v189=f36(v189,v190,v187,v188,v186[v195+14],17,-1502002290);v188=f36(v188,v189,v190,v187,v186[v195+15],22,1236535329);v187=f37(v187,v188,v189,v190,v186[v195+1],5,-165796510);v190=f37(v190,v187,v188,v189,v186[v195+6],9,-1069501632);v189=f37(v189,v190,v187,v188,v186[v195+11],14,643717713);v188=f37(v188,v189,v190,v187,v186[v195+0],20,-373897302);v187=f37(v187,v188,v189,v190,v186[v195+5],5,-701558691);v190=f37(v190,v187,v188,v189,v186[v195+10],9,38016083);v189=f37(v189,v190,v187,v188,v186[v195+15],14,-660478335);v188=f37(v188,v189,v190,v187,v186[v195+4],20,-405537848);v187=f37(v187,v188,v189,v190,v186[v195+9],5,568446438);v190=f37(v190,v187,v188,v189,v186[v195+14],9,-1019803690);v189=f37(v189,v190,v187,v188,v186[v195+3],14,-187363961);v188=f37(v188,v189,v190,v187,v186[v195+8],20,1163531501);v187=f37(v187,v188,v189,v190,v186[v195+13],5,-1444681467);v190=f37(v190,v187,v188,v189,v186[v195+2],9,-51403784);v189=f37(v189,v190,v187,v188,v186[v195+7],14,1735328473);v188=f37(v188,v189,v190,v187,v186[v195+12],20,-1926607734);v187=f38(v187,v188,v189,v190,v186[v195+5],4,-378558);v190=f38(v190,v187,v188,v189,v186[v195+8],11,-2022574463);v189=f38(v189,v190,v187,v188,v186[v195+11],16,1839030562);v188=f38(v188,v189,v190,v187,v186[v195+14],23,-35309556);v187=f38(v187,v188,v189,v190,v186[v195+1],4,-1530992060);v190=f38(v190,v187,v188,v189,v186[v195+4],11,1272893353);v189=f38(v189,v190,v187,v188,v186[v195+7],16,-155497632);v188=f38(v188,v189,v190,v187,v186[v195+10],23,-1094730640);v187=f38(v187,v188,v189,v190,v186[v195+13],4,681279174);v190=f38(v190,v187,v188,v189,v186[v195+0],11,-358537222);v189=f38(v189,v190,v187,v188,v186[v195+3],16,-722521979);v188=f38(v188,v189,v190,v187,v186[v195+6],23,76029189);v187=f38(v187,v188,v189,v190,v186[v195+9],4,-640364487);v190=f38(v190,v187,v188,v189,v186[v195+12],11,-421815835);v189=f38(v189,v190,v187,v188,v186[v195+15],16,530742520);v188=f38(v188,v189,v190,v187,v186[v195+2],23,-995338651);v187=f39(v187,v188,v189,v190,v186[v195+0],6,-198630844);v190=f39(v190,v187,v188,v189,v186[v195+7],10,1126891415);v189=f39(v189,v190,v187,v188,v186[v195+14],15,-1416354905);v188=f39(v188,v189,v190,v187,v186[v195+5],21,-57434055);v187=f39(v187,v188,v189,v190,v186[v195+12],6,1700485571);v190=f39(v190,v187,v188,v189,v186[v195+3],10,-1894986606);v189=f39(v189,v190,v187,v188,v186[v195+10],15,-1051523);v188=f39(v188,v189,v190,v187,v186[v195+1],21,-2054922799);v187=f39(v187,v188,v189,v190,v186[v195+8],6,1873313359);v190=f39(v190,v187,v188,v189,v186[v195+15],10,-30611744);v189=f39(v189,v190,v187,v188,v186[v195+6],15,-1560198380);v188=f39(v188,v189,v190,v187,v186[v195+13],21,1309151649);v187=f39(v187,v188,v189,v190,v186[v195+4],6,-145523070);v190=f39(v190,v187,v188,v189,v186[v195+11],10,-1120210379);v189=f39(v189,v190,v187,v188,v186[v195+2],15,718787259);v188=f39(v188,v189,v190,v187,v186[v195+9],21,-343485551);v187=f5(v187,v191);v188=f5(v188,v192);v189=f5(v189,v193);v190=f5(v190,v194);}return f10(v187)+f10(v188)+f10(v189)+f10(v190);}function f41(v196,v197){var v198;var v199;var v200;var v201;var v202;var v203;var v204;var v205;var v206;var v207;var v208;if(v196.length==0){v196=String.fromCharCode(Math.random()*256&255);}while(v196.length<v197){v196+=v196;}v196=v196.substring(0,v197);v199=2+2*v1+2;v200=new Array(64);v198=new Array(v199);if(v197==0){v201=1;v200[0]=0;}else{v201=Math.floor((v197+3)/4);for(v202=0;v202<Math.floor((v197+3)/4);v202++){v200[v202]=f7(v196.substring(v202*4,(v202+1)*4));}}v198[0]=3084996963;for(v203=1;v203<v199;++v203){v198[v203]=v198[v203-1]+2654435769;}v204=v205=v206=v207=0;for(v203=3*(v199>v201?v199:v201);--v203>=0;){v204+=v198[v206]+v205;v198[v206]=v204=f3(v204,3);v208=v204+v205;v205=v200[v207]+v208;v200[v207]=v205=f3(v205,v208);if(++v206==v199){v206=0;}if(++v207==v201){v207=0;}}return v198;}function f42(v209,v210){var v211;var v212;var v213;var v214;var v215;var v216;var v217;var v218;var v219;v211=f7(v210.substring(0,4));v212=f7(v210.substring(4,8));v213=f7(v210.substring(8,12));v214=f7(v210.substring(12,16));v215=v209;v212+=v215[0];v214+=v215[1];for(v216=0;++v216<=v1;){v217=f6(v212,2*v212+1);if(v217&1^v217&65536){v217=f3(v217,16);}v218=f6(v214,2*v214+1);v217=f3(v217,5);v218=f3(v218,5);v211^=v217;v211=f3(v211,v218);v211+=v215[2*v216];v213^=v218;v213=f3(v213,v217);v213+=v215[2*v216+1];v219=v211;v211=v212;v212=v213;v213=v214;v214=v219;}v211+=v215[2*v1+2];v213+=v215[2*v1+3];return f8(v211)+f8(v212)+f8(v213)+f8(v214);}function f43(v220,v221){var v222;var v223;var v224;var v225;var v226;var v227;var v228;var v229;var v230;v222=f7(v221.substring(0,4));v223=f7(v221.substring(4,8));v224=f7(v221.substring(8,12));v225=f7(v221.substring(12,16));v226=v220;v224-=v226[2*v1+3];v222-=v226[2*v1+2];for(v227=v1+1;--v227>=1;){v230=v225;v225=v224;v224=v223;v223=v222;v222=v230;v228=f6(v223,2*v223+1);if(v228&1^v228&65536){v228=f3(v228,16);}v229=f6(v225,2*v225+1);v228=f3(v228,5);v229=f3(v229,5);v224-=v226[2*v227+1];v224=f4(v224,v228);v224^=v229;v222-=v226[2*v227];v222=f4(v222,v229);v222^=v228;}v225-=v226[1];v223-=v226[0];return f8(v222)+f8(v223)+f8(v224)+f8(v225);}function f44(v231,v232){var v233;var v234="";var v235;var v236="0000000000000000";v233=String.fromCharCode(f2(v232.length,0)&255)+String.fromCharCode(f2(v232.length,8)&255)+String.fromCharCode(f2(v232.length,16)&255)+String.fromCharCode(f2(v232.length,24)&255)+v232;for(v235=0;v235<Math.floor((v233.length+15)/16);v235++){v236=f46(v236,f42(v231,v233.substring(v235*16,(v235+1)*16)));v234+=v236;}return v234;}function f45(v237,v238){var v239="";var v240=0;var v241;var v242="0000000000000000";for(v241=0;v241<Math.floor((v238.length+15)/16);v241++){v239+=f43(v237,f46(v242,v238.substring(v241*16,(v241+1)*16)));v242=v238.substring(v241*16,(v241+1)*16);}v240=(v239.charCodeAt(0)<<0)+(v239.charCodeAt(1)<<8)+(v239.charCodeAt(2)<<16)+(v239.charCodeAt(3)<<24);return v239.substring(4,v240+4);}function f46(v243,v244){var v245="";var v246;for(v246=0;v246<v244.length;v246++){v245+=String.fromCharCode(v243.charCodeAt(v246)^v244.charCodeAt(v246));}return v245;}function f51(v263,v264){var v265=16;var v266="";v264+=f40(v264);v264=v264.substring(0,v265);while(v266.length<v265){v266+="f0";}var v267=f45(f41(f42(f41(v266,v265),v264),v265),v263);return v267.substring(0,v265);}function f52(v268,v269,v270){var v271=f12(PBE_RANDOM);var v272=v271.substr(0,80);var v273=v271.substr(80,20);var v274=v271.substr(80,16);v272=f45(f41(v274,16),v272);var v275=f51(v272,v268);var v276=f56();v276=v276.substr(0,20);v269.value=f9(v275);v270.value=f9(v274);return f9(f44(f41(v274,16),f44(f41(v275,16),v273+f40(f40(f62(f1.toString()+f2.toString()+f3.toString()+f4.toString()+f5.toString()+f6.toString()+f7.toString()+f8.toString()+f9.toString()+f10.toString()+f12.toString()+f34.toString()+f35.toString()+f36.toString()+f37.toString()+f38.toString()+f39.toString()+f40.toString()+f41.toString()+f42.toString()+f43.toString()+f44.toString()+f45.toString()+f46.toString()+f51.toString()+f52.toString()+f56.toString()+f62.toString()))+PBE_RANDOM)+v276)));}function f56(){var v297="";while(v297.length<128){v297+=String.fromCharCode(Math.random()*256&255);}return v297;}function f62(v327){var v328="";var v329;for(v329=0;v329<v327.length;v329++){if(v327.charAt(v329)!=" "&&v327.charAt(v329)!="{"&&v327.charAt(v329)!="}"&&v327.charAt(v329)!="("&&v327.charAt(v329)!=")"&&v327.charAt(v329)!="x"&&v327.charAt(v329)!="X"&&v327.charAt(v329)!=";"&&v327.charAt(v329)!="+"&&v327.charAt(v329)!="-"&&v327.charAt(v329)!="/"&&v327.charAt(v329)!="*"&&v327.charAt(v329)!="&"&&v327.charAt(v329)!="|"&&v327.charAt(v329)!="!"&&v327.charAt(v329)!="^"&&v327.charAt(v329)!="~"&&!(v327.charAt(v329)>="0"&&v327.charAt(v329)<="9")&&!(v327.charAt(v329)>="a"&&v327.charAt(v329)<="f")&&!(v327.charAt(v329)>="A"&&v327.charAt(v329)<="F")&&v327.charCodeAt(v329)!=10&&v327.charCodeAt(v329)!=13&&v327.charCodeAt(v329)!=9){v328+=v327.charAt(v329);}else{}}return v328;}function callF52(strformName){var form=eval('document.'+strformName);var ssign=form.txtAssinatura.value.toUpperCase();form.txtAssinatura.value='';var Ka=new String();var Ksc=new String();var Eka=f52(ssign,Ka,Ksc);window.top.Dummy.setka(Ka.value);window.top.Dummy.setksc(Ksc.value);form.txtEka.value=Eka;}</script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/jsbn2.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/prng4.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/rng.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/ec.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/sec.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/pbkdf2.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/aes.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/Clumpy.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/pad-nopadding-min.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/DLECC.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/dlecc/sha256.js"></script>
+
+
+		<script language="JavaScript" src="js/dlbEcc.js"></script>
+		<script language="JavaScript">
+			var LocalPuKey  = new String();
+			var RemotePuKey = new String();
+			var userSalt	= new String();
+			var contextoECC = '851083008';
+			userSalt.value  = 'AVANSIS';
+
+			var PBE_RANDOM='';
+			function OnSubmit(){
+				var Ka  = new String();
+				var Ksc = new String();
+
+
+					if (!getKsc(Ksc)){
+						window.document.frmEnviar.action = "NIB_Pre_Bridge.asp";
+						window.document.frmEnviar.txtMsg.value = Ksc.value + '[P.9]';
+						window.document.frmEnviar.txtMsgErro.value = Ksc.value + '[P.9]';
+						window.document.frmEnviar.submit();
+					}else{
+						parent.parent.Dummy.setksc(Ksc.value);
+					}
+
+					if (!initECC(LocalPuKey,RemotePuKey)){
+						window.document.frmEnviar.action = "";
+						document.getElementById("DivHtmlin").innerHTML = RemotePuKey.value;
+						RemotePuKey.value = "";
+					}else{
+
+!!!!  PWD encrypt ---- >	window.document.frmEnviar.txtXa.value = DLECC.encryptHashPassword(parent.parent.Dummy.getpwd(), userSalt.value, RemotePuKey.value);
+						window.document.frmEnviar.submit();
+					}
+
+			}
+		</script>
+		</head>
+		<body onLoad="OnSubmit()">
+		<form name="frmEnviar" method="POST" action="NIB_Login.asp">
+			<input type="hidden" name="txtEka" value="">
+			<input type="hidden" name="txtTipoPessoa" value="J">
+			<input type="hidden" name="txtTipoConta" value="1">
+			<input type="hidden" name="txtStatusConta" value="">
+
+	<input type="hidden" name="pm_fp" id="pm_fp">
+	<input type="hidden" name="pm_chars" id="pm_chars">
+	<input type="hidden" name="CSRFtoken" id="CSRFtoken" value="">
+
+	<script src="../../js/hashtable.js" language="JavaScript" type="text/javascript"></script>
+    <script src="../../js/rsa.js" language="JavaScript" type="text/javascript"></script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	post_deviceprint();
+	document.getElementById("pm_chars").value = document.charset;
+	//-->
+	</script>
+
+   <script language="JavaScript" type="text/javascript">
+	<!--
+	function navigateToUrl(url) {
+		//window.location.href = url;
+	}
+	//-->
+	</script>
+	<script language="javascript1.1">
+	<!--
+	  function navigateToUrl(url) {
+		 //window.location.replace(url);
+	  }
+   //-->
+   </script>
+   <script>
+   <!--
+		BrowserDetect.init();
+	-->
+   </script>
+
+	<script src="../../js/AC_OETags.js" language="javascript"></script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
+		// -----------------------------------------------------------------------------
+		// Globals
+		// Major version of Flash required
+		var requiredMajorVersion = 6;
+		// Minor version of Flash required
+		var requiredMinorVersion = 0;
+		// Minor version of Flash required
+		var requiredRevision = 0;
+		// -----------------------------------------------------------------------------
+	// -->
+   </script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	// Version check based upon the values defined in globals
+	var hasReqestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+	-->
+	</script>
+
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	if (hasReqestedVersion)
+	{
+		var d = new Date().getTime();
+		var out = "";
+		out = out + "<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'" + "\n";
+		out = out + "width='1' height='1'>" + "\n";
+		out = out + "<param name='movie' value='../../pmfso.swf?nocache=" + d + "'>" + "\n";
+		out = out + "<param name='quality' value='high'>" + "\n";
+		out = out + "<param name='bgcolor' value=#FFFFFF>" + "\n";
+		out = out + "<param name='allowScriptAccess' value='sameDomain'>" + "\n";
+		out = out + "<param name='FlashVars' value='gotoUrl=&sendUrl=%2E%2E%2F%2E%2E%2FIncludes%2FStoreFSO%2Easp&browserType=" + BrowserDetect.browser + "'>" + "\n";
+		out = out + "<embed src='../../pmfso.swf?nocache=" + d + "'" + "\n";
+		out = out + "FlashVars='gotoUrl=&sendUrl=%2E%2E%2F%2E%2E%2FIncludes%2FStoreFSO%2Easp&browserType=" + BrowserDetect.browser + "'" + "\n";
+		out = out + "allowScriptAccess='sameDomain'" + "\n";
+		out = out + "quality='high' bgcolor='#FFFFFF' width='1' height='1'" + "\n";
+		out = out + "type='application/x-shockwave-flash'>" + "\n";
+		out = out + "<noembed>" + "\n";
+		out = out + "<" + "script>" + "\n";
+		out = out + "navigateToUrl('');" + "\n";
+		out = out + "</" + "script>" + "\n";
+		out = out + " </noembed>" + "\n";
+		out = out + "<noobject></noobject>" + "\n";
+		out = out + "</embed>" + "\n";
+		out = out + "<noobject></noobject>" + "\n";
+		out = out + "</object>" + "\n";
+		document.write(out);
+	}
+	else
+	{
+		var out = "";
+		out = out + "<" + "script>" + "\n";
+		out = out + "	navigateToUrl('');" + "\n";
+		out = out + "</" + "script>" + "\n";
+		document.write(out);
+	}
+	//-->
+	</script>
+	<noscript>
+		<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
+			width='1' height='1'>
+			<param name='movie' value='../../pmfso.swf'>
+			<param name='quality' value='high'>
+			<param name='bgcolor' value=#FFFFFF>
+			<param name='FlashVars'
+				value='gotoUrl=&sendUrl=%2E%2E%2F%2E%2E%2FIncludes%2FStoreFSO%2Easp'>
+			<embed src='../../pmfso.swf'
+				FlashVars='gotoUrl=&sendUrl=%2E%2E%2F%2E%2E%2FIncludes%2FStoreFSO%2Easp'
+				quality='high' bgcolor='#FFFFFF' width='1' height='1'
+				type='application/x-shockwave-flash'>
+				<noembed></noembed>
+				<noobject></noobject>
+			</embed>
+			<noobject></noobject>
+		</object>
+	</noscript>
+			<input name="txtMsg" type="hidden">
+			<input name="txtMsgErro" type="hidden">
+			<input name="txtXa" type="hidden">
+		</form>
+		<div id="DivHtmlin">
+		</div>
+
+		</body>
+		</html>

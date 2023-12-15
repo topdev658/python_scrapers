@@ -1,0 +1,536 @@
+import datetime
+import os
+import random
+import subprocess
+import time
+from concurrent import futures
+from typing import Dict, List, Tuple, Union
+from urllib.parse import urljoin
+
+from custom_libs import date_funcs
+from custom_libs import extract
+from custom_libs.myrequests import MySession, Response
+from project import settings as project_settings
+from project.custom_types import (
+    AccountScraped, MOVEMENTS_ORDERING_TYPE_ASC, DOUBLE_AUTH_REQUIRED_TYPE_COMMON,
+    MovementParsed, ScraperParamsCommon, MainResult
+)
+from scrapers._basic_scraper.basic_scraper import BasicScraper
+from scrapers.cajamar_scraper.arch import parse_helpers_oldweb
+
+__version__ = '5.17.0'
+
+__changelog__ = """
+5.17.0
+parse_helpers: get_movements_parsed: replace 'new line' separators in descr 
+5.16.0
+cap_param for all reqs
+hooks for req_params and urls
+5.15.0
+login: detect 'need to update password'
+5.14.0
+renamed to download_correspondence()
+5.13.0
+get_accounts_scraped: handle pages with details w/o currency (use default with warn msg)
+5.12.0
+skip inactive accounts
+5.11.0
+download company documents
+5.10.0
+get_accounts_scraped: get account currency from account details (USD accs support)
+5.9.0
+login:
+  with reason
+  double auth detector
+5.8.1
+todo added
+5.8.0
+self.ssl_cert (mainly for CaixAlteaScraper)
+5.7.0
+basic_new_session
+upd type hints
+5.6.0
+more CREDENTIALS_ERROR_MARKERS
+5.5.0
+fmt
+more type hints
+use basic_get_date_from
+process_account: handle case if can't scrape all movements at once, in this case retrieve them day by day
+new get_movements_parsed()
+reduced max workers for concurrent scraping (was 8, now 4) to avoid login failures in process_account() 
+parse_helpers: fmt, renamed params, more type hints
+5.4.0
+parse_helpers: get_salt: handle minor layout changes
+5.3.0
+custom_login_req_params
+5.2.1
+CREDENTIALS_ERROR_MARKERS
+5.2.0
+basic_movements_scraped_from_movements_parsed: new format of the result 
+5.1.0
+Caixaltea-ready
+5.0.0
+basic_movements_scraped_from_movements_parsed
+OperationalDatePosition, KeyValue support
+4.6.0
+basic_upload_movements_scraped
+4.5.0
+process_account: log in for each account if IS_CONCURRENT_SCRAPING
+4.4.0
+current_ordering=custom_types.MOVEMENTS_ORDERING_TYPE_ASC
+4.3.0
+from libs import myrequests as requests  # redefine requests behavior
+4.2.0
+date_from in upload_mov call
+4.1.0
+basic_log_process_account
+4.0.2
+account_type correctly impl
+4.0.0
+_get_date_from_for_account_str_by_fin_ent_acc_id	
+upload_mov_by_fin_ent_acc_id
+3.0.0
+'account_iban' -> 'account_no'
+2.2.0
+improved credentials error detection (clave-bloqueada)
+2.1.0
+improved credentials error detection
+2.0.0
+BasicScraper integration
+return codes
+1.3.0
+scrape_logger log in errs as methods
+1.2.0
+project_settings.IS_UPDATE_DB = True
+1.1.0
+project_settings.JS_HELPERS_FOLDER
+"""
+
+CALL_JS_CAJAMAR_ENCRYPT_LIB = 'node {}'.format(
+    os.path.join(
+        project_settings.PROJECT_ROOT_PATH,
+        project_settings.JS_HELPERS_FOLDER,
+        'cajamar_encrypter.js'
+    )
+)
+
+CREDENTIALS_ERROR_MARKERS = [
+    'digo de usuario o la contrase',
+    'acceder-a-banca-electronica-reintentar',
+    '/clave-bloqueada',
+    # Account is blocked, consider this case as a credentials error:
+    # "You have exceeded the number of retry allowed to your personal
+    # key card or code received on your mobile.
+    # Go to your office to unlock the service or call ...
+    # if you have a card from our entity."
+    'Acuda a su oficina para desbloquear el servicio'
+]
+
+
+# TODO migrate to Caixa Callosa implementation (new web)
+class CajamarScraper(BasicScraper):
+    scraper_name = 'CajamarScraper'
+
+    def __init__(self,
+                 scraper_params_common: ScraperParamsCommon,
+                 proxies=project_settings.DEFAULT_PROXIES) -> None:
+
+        super().__init__(scraper_params_common, proxies)
+
+        # to redefine in child (caixaltea_scraper)
+        self.base_url = 'https://www.cajamar.es/'
+        self.entidad_param = '3058'
+        self.custom_login_req_params = {}  # type: Dict[str, str]
+        # set True (for auto) or path to cert (for manual)
+        self.ssl_cert = True  # type: Union[bool, str]
+        self.update_inactive_accounts = False
+
+    def _url(self, suffix: str) -> str:
+        return urljoin(self.base_url, suffix)
+
+    def _get_encrypted(self, text: str, salt: str) -> str:
+        cmd = '{} "{}" "{}"'.format(CALL_JS_CAJAMAR_ENCRYPT_LIB, text, salt)
+        result_bytes = subprocess.check_output(cmd, shell=True)
+        text_encrypted = result_bytes.decode().strip()
+        return text_encrypted
+
+    def _timestamp(self) -> int:
+        return int(datetime.datetime.now().timestamp() * 1000)
+
+    def _acc_alias_param(self, account_no: str) -> str:
+        t = account_no
+        return t[8:12] + t[14:18] + '0' + t[18:]
+
+    def login(self) -> Tuple[MySession, Response, bool, bool, str]:
+
+        is_logged = False
+        is_credentials_error = False
+
+        req_url_init_page = self._url('es/comun/sesion-cancelada-por-inactividad/informacion.html')
+
+        s = self.basic_new_session()
+        resp_login_page = s.get(
+            req_url_init_page,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            verify=self.ssl_cert
+        )
+
+        encrypt_salt = parse_helpers_oldweb.get_salt(resp_login_page.text)
+
+        if not encrypt_salt:
+            reason = "Can't get correct encrypt_salt"
+            return s, resp_login_page, is_logged, is_credentials_error, reason
+
+        username_encrypted = self._get_encrypted(self.username, encrypt_salt)
+        userpass_encrypted = self._get_encrypted(self.userpass, encrypt_salt)
+
+        req_url_login = self._url('BE/ServletOperation')
+        req_params_login = {
+            'CHANNEL': 'WEB',
+            'ENTIDAD': self.entidad_param,
+            'OP_CODE': 'O_LOGON_LDAP_BE_v1',
+            'MODEL': 'FullModel',
+            'LANGUAGE': 'esp',
+            'LOCHUA': 'Fire#52#1366#0768',
+            'SISTEMAO': 'NOW',
+            'NUME': username_encrypted,
+            'PASSWORD': userpass_encrypted,
+            'OPER': '8:S_C_GENERAL_v1',
+            'SESION': self._timestamp()
+        }
+
+        req_params_login.update(self.custom_login_req_params)
+
+        resp_logged_in = s.post(
+            req_url_login,
+            params=req_params_login,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            verify=self.ssl_cert
+        )
+
+        is_logged = 'Mis cuentas' in resp_logged_in.text
+        is_credentials_error = any(m in resp_logged_in.text for m in CREDENTIALS_ERROR_MARKERS)
+        reason = ''
+        if 'Introduzca la clave que ha recibido por SMS en su teléfono móvil' in resp_logged_in.text:
+            reason = DOUBLE_AUTH_REQUIRED_TYPE_COMMON
+
+        if ('Recomendaciones para su nueva contraseña' in resp_logged_in.text
+                and 'Contraseña nueva' in resp_logged_in.text):
+            reason = 'NEED TO UPDATE PASSWORD'
+
+        return s, resp_logged_in, is_logged, is_credentials_error, reason
+
+    def get_accounts_scraped(
+            self,
+            s: MySession,
+            resp_logged_in: Response) -> Tuple[bool, MySession, Response, str, List[AccountScraped], str]:
+        """:return (is_success, session, resp_accs, cap_param, accs_scraped, organization_title"""
+
+        self.logger.info('get_accounts_scraped: start')
+
+        req_url = self._url('BE/ServletOperation')
+        cap_param = extract.form_param(resp_logged_in.text, 'CAP')
+        if not cap_param:
+            self.basic_log_wrong_layout(resp_logged_in, "Can't get cap_param. Abort")
+            return False, s, resp_logged_in, '', [], ''
+
+        # From old api
+        req_params_accs = {
+            'CHANNEL': 'WEB',
+            'OP_CODE': 'S_C_GENERAL',
+            'NOMBRE_OPERACION': 'S_C_GENERAL',
+            'MODEL': 'FullModel',
+            'SERV': 8,
+            'PARAM_ENTRADA': 'null',
+            'CAP': cap_param
+        }
+        resp_accs = s.post(
+            req_url,
+            params=req_params_accs,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            verify=self.ssl_cert
+        )
+
+        company_title = extract.re_first_or_blank(
+            '<font class="usuario">(.*?)</font>',
+            resp_accs.text
+        ).strip()
+
+        accounts_parsed = parse_helpers_oldweb.get_accounts_parsed(resp_accs.text)
+
+        if not company_title:
+            self.basic_log_wrong_layout(resp_accs, "Can't extract company_title. Abort")
+            return False, s, resp_accs, cap_param, [], ''
+
+        # Get currency from Inicio > Cuentas > Mis cuentas > Datos de la cuenta
+        for account_parsed in accounts_parsed:
+            req_details_params = {
+                'OP_CODE': 'S_C_DATOS_CUENTA',
+                'SERV': '166',
+                'CHANNEL': 'WEB',
+                'MODEL': 'FullModel',
+                'NCTA': self._acc_alias_param(account_parsed['account_no']),  # 560127990000036
+                'CAP': cap_param,  # 'qc_1'
+            }
+            resp_acc_details = s.post(
+                req_url,
+                data=req_details_params,
+                headers=self.basic_req_headers_updated({
+                    'Referer': req_url,
+                }),
+                proxies=self.req_proxies,
+                verify=self.ssl_cert
+            )
+            # EUR / USD
+            is_valid_account_page = 'DATOS DE LA CUENTA EN' in resp_acc_details.text
+            currency = extract.re_first_or_blank(r'DATOS DE LA CUENTA EN (\w{3})', resp_acc_details.text)
+            if is_valid_account_page:
+                if not currency:
+                    # -a 26205
+                    self.logger.warning(
+                        "{}: there is no currency info at account details page. Use default EUR".format(
+                            account_parsed['account_no']
+                        )
+                    )
+                    currency = 'EUR'
+            else:
+                self.basic_log_wrong_layout(
+                    resp_acc_details,
+                    "Can't extract currency. Use default EUR"
+                )
+                currency = 'EUR'
+            account_parsed['currency'] = currency
+
+        accounts_scraped = [
+            self.basic_account_scraped_from_account_parsed(company_title, account_parsed)
+            for account_parsed in accounts_parsed
+        ]
+
+        self.logger.info('Accounts: {}'.format(accounts_scraped))
+        self.logger.info('get_accounts_scraped: done')
+
+        return True, s, resp_accs, cap_param, accounts_scraped, company_title
+
+    def open_movements_filter_page(
+            self,
+            s: MySession,
+            cap_param: str,
+            account_sraped: AccountScraped) -> Tuple[MySession, str]:
+        req_url = self._url('BE/ServletOperation;jsessionid={}'.format(
+            s.cookies.get('JSESSIONID')
+        ))
+
+        req_params = {
+            'CHANNEL': 'WEB',
+            'OP_CODE': 'O_C_MOV_NCTA',
+            'NOMBRE_OPERACION': 'O_C_MOV_NCTA',
+            'MODEL': 'FullModel',
+            'SERV': '12',
+            'PARAM_ENTRADA': 'null',
+            'CAP': cap_param,
+        }
+
+        resp_mov_filter_page = s.post(
+            req_url,
+            params=req_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            verify=self.ssl_cert
+        )
+
+        op_code = extract.re_first_or_blank(
+            '<input name="OP_CODE" type="hidden" value="(.*?)"></input>',
+            resp_mov_filter_page.text
+        )
+
+        return s, op_code
+
+    def _req_movs_url(self, s: MySession) -> str:
+        req_url = self._url('BE/ServletOperation;jsessionid={}'.format(
+            s.cookies.get('JSESSIONID')
+        ))
+        return req_url
+
+    def _req_movs_params(
+            self,
+            account_scraped: AccountScraped,
+            op_code: str,
+            date_from: datetime.datetime,
+            date_to: datetime.datetime) -> Dict[str, str]:
+        req_params = {
+            'OP_CODE': op_code,
+            'CHANNEL': 'WEB',
+            'MODEL': 'FullModel',
+            'CURRENT_NODE': 'W_S_MOV_NCTA',
+            'REACTION_CODE': 'ACEPTAR',
+            'MOV_TRAMOS': '2',
+            'NUMO': '16',
+            'OP_MOV': '0',
+            'FECHAINITOPE': '24022016',
+            'NCTA_PREV': '',
+            'NUM_MOV_POR_DEFECTO': '16',
+            'FINI': date_from.strftime('%d%m%Y'),
+            'FFIN': date_to.strftime('%d%m%Y'),
+            'NCTA_ALIAS': self._acc_alias_param(account_scraped.AccountNo)  # 191910210801218, 740127200002016
+        }
+        return req_params
+
+    def get_movements_parsed(
+            self,
+            s: MySession,
+            cap_param: str,
+            account_scraped: AccountScraped,
+            date_from: datetime.datetime,
+            date_to: datetime.datetime) -> Tuple[bool, MySession, List[MovementParsed]]:
+        """The bank doesn't return too many movements but only err msg if it happens.
+        In this case it is possible to retry with reduced date interval.
+        :return: (is_correct_interval, session, movements_parsed)
+        """
+
+        s, op_code = self.open_movements_filter_page(s, cap_param, account_scraped)
+
+        req_params = self._req_movs_params(
+            account_scraped,
+            op_code,
+            date_from,
+            date_to
+        )
+
+        req_movs_url = self._req_movs_url(s)
+
+        resp_movs = s.post(
+            req_movs_url,
+            params=req_params,
+            headers=self.req_headers,
+            proxies=self.req_proxies,
+            verify=self.ssl_cert
+        )
+
+        # detect case if the bank doesn't return too many movements
+        if ('La consulta realizada tiene demasiados movimientos. Por favor, acote el intervalo de fechas consultado'
+                in resp_movs.text):
+            return False, s, []
+
+        movements_parsed = parse_helpers_oldweb.get_movements_parsed(resp_movs.text)
+        return True, s, movements_parsed
+
+    def process_account(self, s: MySession, cap_param: str, account_scraped: AccountScraped):
+
+        fin_ent_account_id = account_scraped.FinancialEntityAccountId
+        if not self.basic_check_account_is_active(fin_ent_account_id):
+            return True
+
+        time.sleep(random.random())  # to make calls with diff time
+
+        if project_settings.IS_CONCURRENT_SCRAPING:
+            s, _, is_logged, _, _ = self.login()
+
+            if not is_logged:
+                self.logger.error('{} :not logged in during process_account. '
+                                  'Exit with err'.format(account_scraped.AccountNo))
+                self.basic_set_movements_scraping_finished(account_scraped.FinancialEntityAccountId)
+                return False
+        date_from_str = self.basic_get_date_from(fin_ent_account_id)
+        date_from = date_funcs.get_date_from_str(date_from_str)
+
+        self.basic_log_process_account(fin_ent_account_id, date_from_str)
+
+        is_correct_interval, s, movements_parsed = self.get_movements_parsed(
+            s,
+            cap_param,
+            account_scraped,
+            date_from,
+            self.date_to
+        )
+
+        # too wide date range -> get movements one by one day
+        if not is_correct_interval:
+            self.logger.info('{}: too wide date interval detected. Extract movements '
+                             'day by day (it is slow but reliable)'.format(fin_ent_account_id))
+            # explicitly reset movements_parsed
+            movements_parsed = []
+            date_from_to = date_from - datetime.timedelta(days=1)
+            while date_from_to < self.date_to:
+                date_from_to_str = date_funcs.convert_dt_to_scraper_date_type1(date_from_to)
+                self.logger.info('{}: extract movements of {}'.format(
+                    fin_ent_account_id,
+                    date_from_to_str
+                ))
+                date_from_to = date_from_to + datetime.timedelta(days=1)
+                is_correct_interval, s, movements_parsed_i = self.get_movements_parsed(
+                    s,
+                    cap_param,
+                    account_scraped,
+                    date_from_to,
+                    date_from_to
+                )
+                if not is_correct_interval:
+                    self.logger.error("{}: can't extract movements even with 1 day interval. Failed at {}. Skip".format(
+                        fin_ent_account_id,
+                        date_from_to_str
+                    ))
+                    self.basic_set_movements_scraping_finished(fin_ent_account_id)
+                    return False
+
+                movements_parsed.extend(movements_parsed_i)
+
+        movements_scraped, _ = self.basic_movements_scraped_from_movements_parsed(
+            movements_parsed,
+            date_from_str,
+            current_ordering=MOVEMENTS_ORDERING_TYPE_ASC
+        )
+
+        self.basic_log_process_account(fin_ent_account_id, date_from_str, movements_scraped)
+
+        self.basic_upload_movements_scraped(
+            account_scraped,
+            movements_scraped,
+        )
+        return True
+
+    def main(self) -> MainResult:
+        self.logger.info('main: started')
+
+        s, resp_logged_in, is_logged, is_credentials_error, reason = self.login()
+
+        if is_credentials_error:
+            return self.basic_result_credentials_error()
+
+        if not is_logged:
+            return self.basic_result_not_logged_in_due_reason(
+                resp_logged_in.url,
+                resp_logged_in.text,
+                reason
+            )
+
+        ok, s, resp, cap_param, accounts_scraped, org_title = self.get_accounts_scraped(s, resp_logged_in)
+
+        self.basic_upload_accounts_scraped(accounts_scraped)
+        self.basic_log_time_spent('GET BALANCES')
+
+        if not ok:
+            return self.basic_result_common_scraping_error()  # already reported
+
+        # get and save movements
+        if project_settings.IS_CONCURRENT_SCRAPING:
+            with futures.ThreadPoolExecutor(max_workers=4) as executor:
+
+                futures_dict = {
+                    executor.submit(self.process_account, s, cap_param, account_scraped):
+                        account_scraped.AccountNo
+                    for account_scraped in accounts_scraped
+                }
+
+                self.logger.log_futures_exc('process_account', futures_dict)
+        else:
+            for account_scraped in accounts_scraped:
+                self.process_account(s, cap_param, account_scraped)
+
+        self.basic_log_time_spent('GET MOVEMENTS')
+
+        self.download_correspondence(s, org_title)
+
+        return self.basic_result_success()

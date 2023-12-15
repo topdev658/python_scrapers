@@ -1,0 +1,50 @@
+Hi all,
+As we discussed, to provide more reliable and explicit scraping processes, it is necessary to check responses and/or parsing results before the next scraping steps.I've added `basic_log_wrong_layout method` to notify about unwanted/unexpected layout and/or parsing failures:
+
+
+def basic_log_wrong_layout(self, resp: requests.Response, reason_info: str) -> bool:
+    """Call it if a response with unwanted/wrong layout has been detected
+
+    :param resp: the response where wrong layout has been detected
+    :param reason_info: text message with the reason
+                        and an additional info, mostly the further action.
+    Examples:
+    ---------
+
+        # Simple case - check the resp for some text marker
+        if 'CSRFtoken' not in resp_pre_login.text:
+            self.basic_log_wrong_layout(resp_pre_login, "Can't parse csrf_token_param. Abort")
+            return s, resp_pre_login, False
+
+        # More complex parsing process:
+        # check the 'ok' flag from the parsing function (this one should be provided in this case)
+        ok, movements_parsed = parse_helpers.get_movements_parsed(resp_movs.text)
+        if not ok:
+            self.basic_log_wrong_layout(
+                resp_movs,
+                "{}: can't get movements_parsed. Skip process_account".format(fin_ent_account_id)
+            )
+            return False
+
+        # Useful information about the further action of the scraper
+        for ...:
+            ok, movements_parsed_i = parse_helpers.get_movements_parsed(resp_movs_i.text)
+            if not ok:
+                self.basic_log_wrong_layout(
+                    resp_movs_i,
+                    "{}: can't get movements_parsed_i at page #{}. Break the loop".format(
+                        fin_ent_account_id,
+                        i
+                    )
+                )
+                break
+    """
+    self.logger.error('WRONG LAYOUT. {}. RESPONSE:\n{}'.format(
+        reason_info,
+        resp.text
+    ))
+    return True
+
+Pls, find the examples of usage above.
+
+Regards,Vladimir

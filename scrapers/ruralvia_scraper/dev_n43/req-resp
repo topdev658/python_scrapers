@@ -1,0 +1,116 @@
+>>> FICHEROS
+(Inicio page, click on 'Ficheros')
+await fetch("https://www.ruralvia.com/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=K4CAW7CKKImagh%2BBfph2arWnvwXkUBvNmvgUf%2BHsr6Q%3D", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.ruralvia.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=7bZT1AcuOLF5X5huDNZu8RHDi2c9khbksVEE9QVzsi%2FxR5KcM8M%2Fuws6Knss0OcO7oIm3BCbwOQffR1ZDWQ2%2B8pc0biOu%2FZ5zvJqSXCHF8JZVo%2F28H%2FRbi6jup0BTcTb%2FM9VsYgpwsfl9rbv2OXguIth21dE22rxsWz%2B615fdA%2B844DWZ%2BgE0diA2nPpNei2FZkshy%2F0XlkZrukbv28FSn5fLNb2VXAI5S%2BG35JsaJvK%2BeGcKQSMSNhB89175ZKYzX%2FqSURlhzzWJeyop%2F0eW1d4UVclEic5rEIe66OazUzPlXgHB1ezkcZA11n32hK1ehCayrNe5Mv2gRPt3t%2BgPN3qMDFxaTSliXsWy0v6%2BMJeOl9EycNIC87rMqLmST6SycHoRYcxFueI2%2BoDc8Q9WZR16xxi%2B8Ej1jTNHPc8Y7eD7Ys0fNjPuj1PoQLI9iG1xb7SiPuvqR9TL%2BqciVNoaZ%2BqxmO603NiCoNXk9oF%2BWEIDXZisU12V3yUfnSMj1lGd8M4FaCQ%2BJd41QZ2XqmK7Q%3D%3D",
+    "method": "GET",
+    "mode": "cors"
+});
+
+<<< 10_resp_ficheros.html
+
+
+>>> N43 FILTER FORM
+(FICHEROS page, click on 'Descargas movimientos C43')
+await fetch("https://www.ruralvia.com/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ZstvxRuYwisUj9TXVNUF%2BJQih3kImLVXI3Xi6sKDKJ8%3D", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.ruralvia.com/isum/Main?ISUM_ID=menu&ISUM_SCR=groupScr&ISUM_CIPH=K4CAW7CKKImagh%2BBfph2arWnvwXkUBvNmvgUf%2BHsr6Q%3D",
+    "method": "GET",
+    "mode": "cors"
+});
+
+<<< 20_resp_n43_filter_form.html
+
+>>> FILTER N43 by ACC and DATES
+await fetch("https://www.ruralvia.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=ZstvxRuYwisUj9TXVNUF%2BJD%2F33FDfXENxGh5iXGrYT2Ax5RYAximgqO7VClIU3uYDuYwwzDxMzeyBs%2FbbKMgo8sG0P5nnnuqNrNgYRSvhzC5qtJ6KBM1e7d7LRnbqxZxr9chj%2FEQ81iMh3Ponm2CJp2Awwno76TzGlVhcWxWjIEhGqrvHYYKVz%2BYbZt4CqL0HSgQUKAmZ5lF%2BIr%2FPBYwByqL5AsT6qam2zJlghqWW4E%3D", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.ruralvia.com/isum/Main?ISUM_ID=submenu&ISUM_SCR=serviceScr&ISUM_CIPH=ZstvxRuYwisUj9TXVNUF%2BJQih3kImLVXI3Xi6sKDKJ8%3D",
+    "body": "ISUM_OLD_METHOD=POST&ISUM_ISFORM=true&SELCTA=30670141613305048823978CUENTAS+CORRIENTES&SIGPET=N&FECINI=10-01-2021&FECFIN=31-01-2021&primeraVez=1&paginaActual=0&tamanioPagina=50&campoPaginacion=lista&numeroPaginas=0&Nmovs=&FechaDesde=10-01-2021&FechaHasta=31-01-2021&Entidad=&NumClave=&cuenta=30670141613305048823&descripcionCuenta=CUENTAS+CORRIENTES&fechaComparacion=&fechaTresMeses=&clavePagina=CSB_RECEXTRAC&fechalimite=02-02-2020&DIVISA_COD=978&indOperativa=N&clavePaginaOperativa=CSB_RECEXTRAC&clavePaginaVolver=CSB_MOVIMIENTOS&validationToken=null",
+    "method": "POST",
+    "mode": "cors"
+});
+DATA
+OrderedDict([('ISUM_OLD_METHOD', 'POST'),
+ ('ISUM_ISFORM', 'true'),
+ ('SELCTA', '30670141613305048823978CUENTAS CORRIENTES'),
+ ('SIGPET', 'N'),
+ ('FECINI', '10-01-2021'),
+ ('FECFIN', '31-01-2021'),
+ ('primeraVez', '1'),
+ ('paginaActual', '0'),
+ ('tamanioPagina', '50'),
+ ('campoPaginacion', 'lista'),
+ ('numeroPaginas', '0'),
+ ('Nmovs', ''),
+ ('FechaDesde', '10-01-2021'),
+ ('FechaHasta', '31-01-2021'),
+ ('Entidad', ''),
+ ('NumClave', ''),
+ ('cuenta', '30670141613305048823'),
+ ('descripcionCuenta', 'CUENTAS CORRIENTES'),
+ ('fechaComparacion', ''),
+ ('fechaTresMeses', ''),
+ ('clavePagina', 'CSB_RECEXTRAC'),
+ ('fechalimite', '02-02-2020'),
+ ('DIVISA_COD', '978'),
+ ('indOperativa', 'N'),
+ ('clavePaginaOperativa', 'CSB_RECEXTRAC'),
+ ('clavePaginaVolver', 'CSB_MOVIMIENTOS'),
+ ('validationToken', 'null')])
+<<< 30_resp_n43_filtered_confirm.html
+
+
+>>> N43 FILE
+await fetch("https://www.ruralvia.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=ZstvxRuYwisUj9TXVNUF%2BJD%2F33FDfXENxGh5iXGrYT2Ax5RYAximgqO7VClIU3uYDuYwwzDxMzeyBs%2FbbKMgo8sG0P5nnnuqNrNgYRSvhzC5qtJ6KBM1e7d7LRnbqxZxr9chj%2FEQ81iMh3Ponm2CJp2Awwno76TzGlVhcWxWjIEhGqrvHYYKVz%2BYbZt4CqL0HSgQUKAmZ5lF%2BIr%2FPBYwByqL5AsT6qam2zJlghqWW4E%3D", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.ruralvia.com/isum/Main?ISUM_ID=portlets_area&ISUM_SCR=linkServiceScr&ISUM_CIPH=ZstvxRuYwisUj9TXVNUF%2BJD%2F33FDfXENxGh5iXGrYT2Ax5RYAximgqO7VClIU3uYDuYwwzDxMzeyBs%2FbbKMgo8sG0P5nnnuqNrNgYRSvhzC5qtJ6KBM1e7d7LRnbqxZxr9chj%2FEQ81iMh3Ponm2CJp2Awwno76TzGlVhcWxWjIEhGqrvHYYKVz%2BYbZt4CqL0HSgQUKAmZ5lF%2BIr%2FPBYwByqL5AsT6qam2zJlghqWW4E%3D",
+    "body": "ISUM_OLD_METHOD=POST&ISUM_ISFORM=true&validationToken=null&clavePagina=CSB_ACTUALIZA_C43&cuenta=30670141613305048823&RUTAPDF=C43.txt&SIGPET=N&FECINI=10-01-2021&FECFIN=31-01-2021&FECACTUAL=02-02-2021&TIPO_PETICION=&ESTADO=&ENTIDAD=&DIVISA_NAME=&DIVISA_COD=978&DIVISA_DESC=",
+    "method": "POST",
+    "mode": "cors"
+});
+DATA:
+OrderedDict([
+('ISUM_OLD_METHOD', 'POST'),
+ ('ISUM_ISFORM', 'true'),
+ ('validationToken', 'null'),
+ ('clavePagina', 'CSB_ACTUALIZA_C43'),
+ ('cuenta', '30670141613305048823'),
+ ('RUTAPDF', 'C43.txt'),
+ ('SIGPET', 'N'),
+ ('FECINI', '10-01-2021'),
+ ('FECFIN', '31-01-2021'),
+ ('FECACTUAL', '02-02-2021'),
+ ('TIPO_PETICION', ''),
+ ('ESTADO', ''),
+ ('ENTIDAD', ''),
+ ('DIVISA_NAME', ''),
+ ('DIVISA_COD', '978'),
+ ('DIVISA_DESC', '')])
+<<< N43 file
+

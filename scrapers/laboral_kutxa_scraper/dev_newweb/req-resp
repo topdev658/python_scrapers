@@ -1,0 +1,71 @@
+GET ACCS
+>>> https://lkweb.laboralkutxa.com/srv/api/mis-productos (all: cuentas, creditos, prestamos)
+ALSO
+>>> https://lkweb.laboralkutxa.com/srv/api/cuentas (only cuentas)
+HEADERS
+GET /srv/api/mis-productos HTTP/1.1
+Host: lkweb.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:83.0) Gecko/20100101 Firefox/83.0
+Accept: application/json, text/plain, */*
+Accept-Language: es-ES
+Accept-Encoding: gzip, deflate, br
+origen: web
+lkid: 5f23a469-5892-4669-a51b-4c51e9b07295
+Request-Id: |91700c7d53844b8f834b8fe27246dd7c.d528a88c4f6e4001
+DNT: 1
+Connection: keep-alive
+Referer: https://lkweb.laboralkutxa.com/posicion-total
+Cookie: lkId=bTohwrTq6kG3VChsYZciUkVfwe0Pu2rRaMRoZskhd7BqKJ_1Hl0jzPzLDc-nE3lcX2AHM07QGNrhHgC9zj4OCc5MZeONswAwUUQavCzAo1DPdcCx8GU_UOcNRSujX8jrDtvtszrcBvStGO2hhZcQkGrlUCEIEyxrJEs9CL7mWDBnckqUjfsD1X70AZs-XP4j9TCISHqZtU5hlOfM2c62jeEtYhKRA4YeipU4xyFGZRUBhQ4UV4gS2VLV66pBkusbZlKR5k-Ub7wyJUkcRQPjlGQ9tOkb-sGX2TXl83KUb-QBp2Rn3Xr2ftQp82jpDm885VIgixWU7GV8XxVUAuBp5MHcfey5uwyW4cPQs-r8hsJpPVpQdTNmMw4Q4Lodej190qfzRQih9a_ZmkF65z0icF5iBJ9HkXexNn2f8JVD6KSrqMI-Ll1UUgrloRcAZYDyRAWHAkO7Zl95XLuZJycE6dkmz4zXq55GLntFbnNcY2AnlNNWWE2Rp1ps4DhTi9G-8xuQYsbrM3t936svMXPYnEj7qmI8hg88EQD9Jfzpb3iRPg9BF7HwCpk0a5FZDlHNvsmQ-vhfS5H1ZSNEtIynT4WQEJvcVTC1L_k74riFDX2GsRNhIvMI9xkNu25Y0RrSJnBFhLsQVGlJUZSSnsOJBqC_EZen9q_6QEJDc6Uc9F1LfsRMlRI6m4hUM_5OOzY9osBmFoODEpS7_kh11-cujCHWRGSsuoCrbCYbrFrPV6R6h2sZg1zVI9XTLvNyzzasniUlok5Ph8nXut8jKTySU0yHvFJl9IBghkfzOE_Jghu4rZD4YybltG8HyDMSEzEaKY7i-Qk6gGHI4VVFVYj4zN05Q_Bd9OO0ku99mveCXzOiM8u1VczXyhjQXvIZvMTcKRJcmICsxQiK6u7fu6SjfHxogN99nftV-d9tFSKuu9ILQMbsats_Kz67zG5sz8Hw; LaboralKutxa_idioma=es-ES; ai_user=afh5c|2020-07-19T03:47:07.617Z; _gcl_au=1.1.897947127.1603542315; _evCoLT=%7B%22oid%22%3Anull%2C%22vid%22%3A%2202DZjGn4s8d%22%7D; lknet_header_token=c602e998-3a81-4934-bcef-b5ca9b80dd12; _evCo=%7B%22rules%22%3A%7B%22page_current%22%3A%7B%221%22%3A%5B%22contratar-tarjeta%22%2C%22traspaso%22%2C%22aumentar-credito%22%2C%22compra-segura%22%2C%22bloquear%22%2C%22encender-apagar%22%2C%22compra-aplazada%22%2C%22limitar-operativa%22%2C%22detalle-tarjeta%22%2C%22recarga-movil%22%5D%7D%7D%2C%22cve%22%3A1607005525%7D; _utcl=8C309251D5B38FE841597E8F%4095A38AF5D8557812EEC5E5912297775DF56C; ai_session=wXCq9|1608114244285|1608114244285; ai_authUser=0002929468%7C06YUuSRlMECzZXC1MXXrgA
+<<< 020_resp_accs.json
+
+
+MOVS
+>>> https://lkweb.laboralkutxa.com/srv/api/cuentas/0/movimientos/buscar?fechaDesde=2020-10-01&fechaHasta=2020-12-16
+<<< 030_resp_movs.json
+
+USER/CONTRACTS
+>>> await fetch("https://lkweb.laboralkutxa.com/srv/api/usuario", {
+    "credentials": "include",
+    "headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.5",
+    "sesionId": "b10372ff-706a-464b-b872-cc63d00b8031",
+    "origen": "web",
+    "lkid": "79accc0e-a833-49cd-abfd-ea541eed7c97",
+    "Request-Id": "|d92f95d19cfc4c56ad646989f69c7d35.898c7426b2ac4396",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://lkweb.laboralkutxa.com/login/con-token?token=79accc0e-a833-49cd-abfd-ea541eed7c97&origen=&returnUrl=&aviso=&avisosAbiertos=false",
+    "method": "GET",
+    "mode": "cors"
+    });
+<<< 040_resp_usuario_with_contracts.json
+
+SWITCH TO CONTRACT
+>>>
+await fetch("https://lkweb.laboralkutxa.com/srv/api/login-administrador", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "es-ES",
+        "lkid": "79accc0e-a833-49cd-abfd-ea541eed7c97",
+        "origen": "web",
+        "Content-Type": "application/json;charset=utf-8",
+        "Request-Id": "|98052e6a72e24a2ea5affd4471ac1470.02b88635c98a45e1",
+        "Request-Context": "appId=cid-v1:7cfeada0-7857-4443-8232-b19edbfaab73",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://lkweb.laboralkutxa.com/posicion-total",
+    "body": "{\"tokenAdministrador\":\"76873acd-6c16-467f-b4ec-19d83cdbe968\",\"idUsuarioAdministrado\":\"AU00011909\"}",
+    "method": "POST",
+    "mode": "cors"
+});
+// \"tokenAdministrador\":\"76873acd-6c16-467f-b4ec-19d83cdbe968\" from 040_resp_usuario_with_contracts.json (usuario -> administrador -> token)
+<<<
+{"lkId":"480340d9-e2dc-4a41-9900-fc32ef174168","solicitarSCA":false,"tokenFirmaSCA":"","mensaje":"","resultado":0}

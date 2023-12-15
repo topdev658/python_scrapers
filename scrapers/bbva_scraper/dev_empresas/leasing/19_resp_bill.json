@@ -1,0 +1,141 @@
+{
+	"data": {
+		"id": "21_A_00242937",
+		"maturity": "2021-05-11",
+		"subject": "CUOTA CORRESPONDIENTE AL VTO. DE FECHA 11-05-2021 DEL CONTRATO DE ARRENDAMIENTO FINANCIERO 0182 5425 0501 00000001704703",
+		"status": "CANCELED",
+		"grossAmount": {
+			"currency": "EUR",
+			"amount": 13428.88
+		},
+		"tax": {
+			"taxType": "VAT",
+			"percentage": 21,
+			"taxAmount": {
+				"currency": "EUR",
+				"amount": 2330.63
+			},
+			"base": {
+				"currency": "EUR",
+				"amount": 11098.25
+			}
+		},
+		"netAmount": {
+			"currency": "EUR",
+			"amount": 11098.25
+		},
+		"participants": [
+			{
+				"participantType": {
+					"id": "HOLDER"
+				},
+				"order": 1,
+				"fullName": "SAGALES CALDENTEY S.L.",
+				"identityDocument": {
+					"documentNumber": "B08304677",
+					"documentType": {
+						"id": "CIF"
+					}
+				},
+				"location": {
+					"formattedAddress": "PUIG DE SANT NICOLAU 0007",
+					"addressComponents": [
+						{
+							"componentTypes": [
+								"CITY"
+							],
+							"name": "FELANITX"
+						}
+					]
+				}
+			},
+			{
+				"participantType": {
+					"id": "HOLDER"
+				},
+				"order": 3,
+				"fullName": "SAGALES CALDENTEY S.",
+				"account": {
+					"number": "01825425110201621060",
+					"numberType": {
+						"id": "CCC"
+					}
+				},
+				"location": {
+					"formattedAddress": "APARTAT DE CORREUS 0031",
+					"addressComponents": [
+						{
+							"componentTypes": [
+								"CITY"
+							],
+							"name": "MOLLET DEL VALLÈS"
+						},
+						{
+							"componentTypes": [
+								"POSTAL_CODE"
+							],
+							"name": "08100"
+						},
+						{
+							"componentTypes": [
+								"PROVINCE"
+							],
+							"name": "ILLES BALEARS"
+						}
+					]
+				}
+			}
+		],
+		"location": {
+			"formattedAddress": "SAN NICOLAS, 4 BILBAO"
+		},
+		"title": "DUPLICADO FACTURA",
+		"billIssuance": "MADRID 11-05-2021",
+		"billNumber": "210791A00242937",
+		"billLines": [
+			{
+				"description": "IMPORTE NETO",
+				"amount": {
+					"currency": "EUR",
+					"amount": 11098.25
+				}
+			},
+			{
+				"description": "AMORTIZACION",
+				"amount": {
+					"currency": "EUR",
+					"amount": 0
+				}
+			},
+			{
+				"description": "INTERES",
+				"amount": {
+					"currency": "EUR",
+					"amount": 0
+				}
+			},
+			{
+				"description": "SEGURO",
+				"amount": {
+					"currency": "EUR",
+					"amount": 0
+				}
+			},
+			{
+				"description": "I.V.A. 21%:",
+				"amount": {
+					"currency": "EUR",
+					"amount": 2330.63
+				}
+			},
+			{
+				"description": "TOTAL FACTURA",
+				"amount": {
+					"currency": "EUR",
+					"amount": 13428.88
+				}
+			}
+		],
+		"totalSheets": "1"
+	}
+}

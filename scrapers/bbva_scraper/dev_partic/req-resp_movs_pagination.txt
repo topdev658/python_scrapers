@@ -1,0 +1,60 @@
+>>>
+https://www.bbva.es/ASO/accountTransactions/V02/accountTransactionsAdvancedSearch/?paginationKey=0&pageSize=40
+
+<<<
+40 movs +
+
+pagination	{…}
+numPages	3
+firstPage	/accountTransactions/V02/accou…h?paginationKey=0&pageSize=40
+nextPage	/accountTransactions/V02/accountTransactionsAdvancedSearch?paginationKey=%257B%2522search_after%2522%253A%255B20190808%252C190808%252C101851%252C836852.0%252C%2522140000033556668100190808101851836852%2522%255D%252C%2522currentBalancesPerIuc%2522%253A%257B%252200000000000000000278140103%2522%253A%257B%2522currentBalance%2522%253A%257B%2522currency%2522%253A%2522EUR%2522%252C%2522amount%2522%253A8064.90%252C%2522type%2522%253A%2522NMC%2522%257D%252C%2522availableBalance%2522%253A%257B%2522currency%2522%253A%2522EUR%2522%252C%2522amount%2522%253A8064.90%252C%2522type%2522%253A%2522NMC%2522%257D%252C%2522type%2522%253A%2522NMC%2522%257D%257D%252C%2522returnedRecords%2522%253A40%257D&pageSize=40
+page	1
+pageSize	40
+end	40
+total	105
+start	0
+totalResults	105
+hostResult	false
+
+>>>
+
+POST https://www.bbva.es/ASO/accountTransactions/V02/accountTransactionsAdvancedSearch?paginationKey=%257B%2522search_after%2522%253A%255B20190808%252C190808%252C101851%252C836852.0%252C%2522140000033556668100190808101851836852%2522%255D%252C%2522currentBalancesPerIuc%2522%253A%257B%252200000000000000000278140103%2522%253A%257B%2522currentBalance%2522%253A%257B%2522currency%2522%253A%2522EUR%2522%252C%2522amount%2522%253A8064.90%252C%2522type%2522%253A%2522NMC%2522%257D%252C%2522availableBalance%2522%253A%257B%2522currency%2522%253A%2522EUR%2522%252C%2522amount%2522%253A8064.90%252C%2522type%2522%253A%2522NMC%2522%257D%252C%2522type%2522%253A%2522NMC%2522%257D%257D%252C%2522returnedRecords%2522%253A40%257D&pageSize=40
+
+
+<<<
+40 movs +:
+
+pagination	{…}
+previousPage	/accountTransactions/V02/accou…h?paginationKey=0&pageSize=40
+numPages	3
+firstPage	/accountTransactions/V02/accou…h?paginationKey=0&pageSize=40
+nextPage	/accountTransactions/V02/accou…%2522%253A80%257D&pageSize=40
+page	2
+pageSize	40
+end	80
+total	105
+start	40
+totalResults	105
+hostResult	false
+
+
+>>>
+
+
+
+<<<
+25 movs +:
+
+
+// LAST PAGE - no nextPage param and end == total
+pagination	{…}
+previousPage	/accountTransactions/V02/accou…?paginationKey=40&pageSize=40
+numPages	3
+firstPage	/accountTransactions/V02/accou…h?paginationKey=0&pageSize=40
+page	3
+pageSize	40
+end	105
+total	105
+start	80
+totalResults	105
+hostResult	false

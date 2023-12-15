@@ -1,0 +1,100 @@
+OPEN FILTER FORM
+>>> POST https://www.cajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=O_C_BUZON_VIRTUAL_BIZTOL_v1
+SERV=17
+NOMBRE_OPERACION=O_C_BUZON_VIRTUAL_BIZTOL_v1
+
+
+CORR FILTERED
+>>> POST https://www.cajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=O_C_BUZON_VIRTUAL_BIZTOL1600161688156-S_C_BUZON_VIRTUAL_BIZTOL_v1%AC1600161688181
+CURRENT_NODE=W_C_BUZON_VIRTUAL_NUEVO
+REACTION_CODE=ACEPTAR
+NCTA_ALIAS=560127200001859
+TIPO_DOCUS=0
+MOVIMIENTOS=0
+TIPO_CONSUL=1
+FINI=01082020
+FFIN=15092020
+TIPODOCUMENTO=00
+CHECKCONSULTA=0
+CONFIGURAR_BUZON=0
+
+AS STR
+CHANNEL=WEB&MODEL=FullModel&OP_CODE=O_C_BUZON_VIRTUAL_BIZTOL1600161688156-S_C_BUZON_VIRTUAL_BIZTOL_v1%AC1600161688181&CURRENT_NODE=W_C_BUZON_VIRTUAL_NUEVO&REACTION_CODE=ACEPTAR&NCTA_ALIAS=560127200001859&TIPO_DOCUS=0&MOVIMIENTOS=0&TIPO_CONSUL=1&FINI=01082020&FFIN=15092020&TIPODOCUMENTO=00&CHECKCONSULTA=0&CONFIGURAR_BUZON=0
+
+CORR PDF (from details page)
+>>> POST https://www.cajamar.es/BE/ServletOperation
+DATA
+CHANNEL=WEB
+MODEL=FullModel
+OP_CODE=O_C_BUZON_VIRTUAL_BIZTOL1600374082533-S_C_IMP_DOCU_BE_v1%AC1600374141312
+CURRENT_NODE=W_C_BUZON_IMAGEN
+REACTION_CODE=PDF
+CONTRATO=000560127200001859
+ESTADO
+OFICINA=3058
+FORMATOSALIDA=2
+CODFORMU=0P100A
+SECUENCIABUZON=806144122
+INSTANCIA_CONSULTA
+ENTIDAD_COMUNICADO=3058
+FECHA=17092020
+CORRESP
+ENLACE_FICHERO=PDF
+ID_DR=806144122
+DATE_CRN
+SRCE=SF-CORE
+DATE_OPRTN=03082020205703161
+IND_DR=true
+
+
+==================================
+NEWWEB
+
+(after 20_2_resp_corr_filtered.html)
+
+>>> GET PRE PDF
+await fetch("https://www.cajamar.es/BE/zkau", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "ZK-SID": "9116"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "dtid=z_0h2&cmd_0=onSubmitGrid&uuid_0=formulario&data_0=%7B%22%22%3A%22true%7CPDF%7Ctrue%7C_self%7C0%7CTAB_DOCU_row_0%22%7D",
+    "method": "POST",
+    "mode": "cors"
+});
+OrderedDict([('dtid', 'z_0h2'),
+             ('cmd_0', 'onSubmitGrid'),
+             ('uuid_0', 'formulario'),
+             ('data_0', '{"":"true|PDF|true|_self|0|TAB_DOCU_row_0"}')])
+<<< 30_resp_pre_pdf.html
+
+>>> GET PDF
+await fetch("https://www.cajamar.es/BE/ServletOperation", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://www.cajamar.es/BE/ServletOperation",
+    "body": "CHANNEL=WEB&MODEL=FullModel&OP_CODE=O_C_BUZON_VIRTUAL_BIZTOL1616332278672-S_C_OPCION_BUZON_BIZTOL_v1%AC1616332297894&CURRENT_NODE=W_C_DOCUMENTOS_BUZON_UNIR_PDF&REACTION_CODE=PDF&TAB_DOCU%5B0%5D.ZKCHECKBOX1=1&INSTANCIA_CONSULTA=&NCTA=000009810210800058&SRCE=CORE&OFICINA=3058&ENLACE_FICHERO=&VENTCODI=&SOBRE=N&ESTADO=&SECUENCIA=972278273&CORRESPONSALIA=&TIPODOCU=&IMPO_HISTO=&ID_DR=972278273&ENTIDAD_LOGO=&DOMINIO=",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< PDF
+

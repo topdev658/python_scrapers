@@ -1,0 +1,266 @@
+>> LOGIN
+s.post(
+    "https://lknet.laboralkutxa.com/reducida/checklogon.asp",
+    data={
+        "usuario": "6662390215",
+        "CODREDUCIDA": "71659235K",
+        "clave": "LPM7165",
+        "submit1": "Aceptar"
+    },
+    cookies={
+        "LaboralKutxa_idioma": "es-ES",
+        "_gcl_au": "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"}
+    )
+
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 70
+Origin: https://lknet.laboralkutxa.com
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/reducida/acceso.asp
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+<< 10_resp_logged_in.html
+
+----- FRAMES -----
+>> CHECK ACCESS
+s.get(
+    "https://lknet.laboralkutxa.com/nuevoacceso/logo.asp",
+    cookies={
+        "LaboralKutxa_idioma": "es-ES",
+        "_gcl_au": "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"}
+)
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/reducida/checklogon.asp
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA; _utcls=A9509A79D2E7BD95495CA1CA; ASPSESSIONIDCWQBBBBA=AEGGDKOCBGPFBBEGLOCFOPOD; NSC_wt_MLOFU=ffffffffc3a01f4845525d5f4f58455e445a4a42378b
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+TE: trailers
+<< 20_resp_logo.html
+
+>>RESTRICTED ACCESS
+s.get(
+    "https://lknet.laboralkutxa.com/nuevoacceso/AccesoRestringido.asp",
+    params={
+        "Id": "740611660"
+    },
+    cookies={
+        "LaboralKutxa_idioma": "es-ES",
+        "_gcl_au": "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"
+    }
+)
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/reducida/checklogon.asp
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=0&tt=0"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA; _utcls=A9509A79D2E7BD95495CA1CA; ASPSESSIONIDCWQBBBBA=AEGGDKOCBGPFBBEGLOCFOPOD; NSC_wt_MLOFU=ffffffffc3a01f4845525d5f4f58455e445a4a42378b
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+TE: trailers
+<< 30_resp_accesso.html
+
+>> MENU
+s.post(
+    "https://lknet.laboralkutxa.com/menu/menuR.asp",
+    data={
+        "Id": "740611660",
+        "cfrm": "sup",
+        "codreducida": "71659235K",
+        "MenuNuevoCtas": "False"
+    },
+    cookies={
+        "LaboralKutxa_idioma":
+        "es-ES", "_gcl_au":
+        "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=1&tt=3r&rl=1&ld=3z75&ul=3zks\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"
+    }
+)
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 63
+Origin: https://lknet.laboralkutxa.com
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/nuevoacceso/AccesoRestringido.asp?Id=740611660
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=1&tt=3r&rl=1&ld=3z75&ul=3zks"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA; _utcls=A9509A79D2E7BD95495CA1CA; ASPSESSIONIDCWQBBBBA=AEGGDKOCBGPFBBEGLOCFOPOD; NSC_wt_MLOFU=ffffffffc3a01f4845525d5f4f58455e445a4a42378b
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+TE: trailers
+<< 40_resp_menu.html
+
+>> N43 FORM
+s.get(
+    "https://lknet.laboralkutxa.com/Consultas/C020_Sel.asp",
+    params={
+        "Id": "740611660",
+        "DesdeMenu": "**",
+        "CodReducida": "71659235K"
+    },
+    cookies={
+        "LaboralKutxa_idioma": "es-ES",
+        "_gcl_au": "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=2&tt=3r&rl=1&obo=1&ld=42k4&r=2v9d2kw7&ul=42k5\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"
+    }
+)
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/menu/menuR.asp
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=2&tt=3r&rl=1&obo=1&ld=42k4&r=2v9d2kw7&ul=42k5"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA; _utcls=A9509A79D2E7BD95495CA1CA; ASPSESSIONIDCWQBBBBA=AEGGDKOCBGPFBBEGLOCFOPOD; NSC_wt_MLOFU=ffffffffc3a01f4845525d5f4f58455e445a4a42378b; _utclc=5A416421E9C7A51B427407D1C185F1D9
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+TE: trailers
+<< 50_resp_form_n43.html
+
+>> DOWNLOAD N43
+s.post(
+    "https://lknet.laboralkutxa.com/Consultas/C020_Csb43.asp",
+    data={
+        "Id": "740611660",
+        "codreducida": "71659235K",
+        "Teradata": "S",
+        "lcuenta": "1870057839@01@187.0.05783.9",  # account
+        "cuenta1": "1870057839",  # account_no
+        "count": "1",
+        "tipo": None,
+        "DesdeMenu": "**",
+        "ULTIMOREG": "0",
+        "FECHAINICIO": "23102022",
+        "FECHAFIN": "23102022",
+        "FICHERO": "0",
+        "NUMERO": "0",
+        "SENTIDO": "0",
+        "HISTORICO": "0",
+        "PRIMERO": "0",
+        "FECHAPRIMERO": None,
+        "FECHAULTIMO": None,
+        "REGISTROS": "0",
+        "NUMREG": "0",
+        "SALDONUEVO": "00000000000000",
+        "SIGNOSALDO": " ",
+        "OPCION": "3",
+        "NUMOPE": "0",
+        "SALDO": "0",
+        "SIGNO": " ",
+        "REGOPER": "0000000",
+        "CONTADOR": "000",
+        "NORDEN": "9999999999",
+        "NRegOpe": "0000000",
+        "NumRec": "00000",
+        "SubNum": "00",
+        "NumDis": "00",
+        "CapAmorPag": "00000000000000",
+        "ImpIntPag": "00000000000000",
+        "ImpSubPag": "00000000000000",
+        "ImpMorPag": "00000000000000",
+        "TotalPag": "00000000000000",
+        "CapAmorImp": "00000000000000",
+        "ImpIntImp": "00000000000000",
+        "ImpMorImp": "00000000000000",
+        "TotalImp": "00000000000000",
+        "txtCsb43": "0",
+        "txtExcel": None,
+        "cuentaA": "1870057839@01@187.0.05783.9",  # account
+        "fechas": "F",
+        "diadesde": "24",
+        "mesdesde": "10",
+        "yeardesde": "2022",
+        "diahasta": "24",
+        "meshasta": "10",
+        "yearhasta": "2022"
+    },
+    cookies={
+        "LaboralKutxa_idioma": "es-ES",
+        "_gcl_au": "1.1.56469031.1666004752",
+        "_ga": "GA1.2.943609068.1666004742",
+        "_fbp": "fb.1.1666004752848.668256382",
+        "LaboralKutxa_segmento": "particulares",
+        "ConsentLK": "granted",
+        "RT": "\"z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=3&tt=3r&obo=2&rl=1&nu=a82t03l&cl=49j6&ld=4akv&r=6snqzmgr&ul=4akw\"",
+        "ASPSESSIONIDCUQRQRQS": "CDACJGKCIOANOPEHALNLIGAA"
+    }
+)
+HEADERS
+Host: lknet.laboralkutxa.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 823
+Origin: https://lknet.laboralkutxa.com
+Connection: keep-alive
+Referer: https://lknet.laboralkutxa.com/Consultas/C020_Sel.asp?Id=740611660&DesdeMenu=**&CodReducida=71659235K
+Cookie: LaboralKutxa_idioma=es-ES; _gcl_au=1.1.56469031.1666004752; _ga=GA1.2.943609068.1666004742; _fbp=fb.1.1666004752848.668256382; LaboralKutxa_segmento=particulares; ConsentLK=granted; RT="z=1&dm=lknet.laboralkutxa.com&si=41608cb4-67a0-4e07-8a23-f4056ea290a4&ss=l9mmufsx&sl=3&tt=3r&obo=2&rl=1&nu=a82t03l&cl=49j6&ld=4akv&r=6snqzmgr&ul=4akw"; ASPSESSIONIDCUQRQRQS=CDACJGKCIOANOPEHALNLIGAA; _utcls=A9509A79D2E7BD95495CA1CA; ASPSESSIONIDCWQBBBBA=AEGGDKOCBGPFBBEGLOCFOPOD; NSC_wt_MLOFU=ffffffffc3a01f4845525d5f4f58455e445a4a42378b; _utclc=5A416421E9C7A51B427407D1C185F1D9
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: frame
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+TE: trailers
+<< 60_resp_n43_file
+

@@ -1,0 +1,14 @@
+$ sudo apt update
+$ apt-cache policy docker.io # must be > 17
+$ sudo apt install docker.io
+$ sudo docker pull scrapinghub/splash
+$ tmux new -s splash  # quick
+$ sudo docker run -it -p 8050:8050 --rm scrapinghub/splash
+
+See:
+To SET UA or more params
+https://splash.readthedocs.io/en/stable/api.html#arg-headers
+https://splash.readthedocs.io/en/stable/api.html#execute-javascript
+https://github.com/scrapinghub/splash/issues/628#issuecomment-309606620
+
+(Used by Eurobic 2021)

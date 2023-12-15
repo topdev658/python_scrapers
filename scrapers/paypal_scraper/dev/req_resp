@@ -1,0 +1,291 @@
+>>> OPEN LOGIN FORM
+await fetch("https://www.paypal.com/es/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 05_login_open_form.html
+
+>>> RECAPTCHA
+await fetch("https://www.recaptcha.net/recaptcha/enterprise/reload?k=6LdCCOUUAAAAAHTE-Snr6hi4HJGtJk_d1_ce-gWB", {
+    "credentials": "omit",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-protobuffer",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LdCCOUUAAAAAHTE-Snr6hi4HJGtJk_d1_ce-gWB&co=aHR0cHM6Ly93d3cucGF5cGFsb2JqZWN0cy5jb206NDQz&hl=es&v=YhkYx1k-yvvb8OonJPmOpoJY&size=invisible&cb=dd0peay52lr4",
+    "body": "\n\u0018YhkYx1k-yvvb8OonJPmOpoJY\u0012ä\u000b03AGdBq24H4buCqe193VmIoeMnxrGEhLSTy5qMTSohnEKsbHgSM2l4DEu-OLUns9CqBy1-X0Y3UOJdSgqoZDS14WPZlY2bDLY8QRLU7E0-WC3Si4Mu7IjDaMRcJhX5Xb7CbTp-fXZnZeyP4oOkY3-13yB_nvKQwFuqU76m3SlpEzAvzu3lAUZc5YMvKY2wH8eT73Eztp7OR2MP63TfvMJ7-kAgcosE6zkMek-8S6hA_myEgvXHfvb_LT8N0MHqwcms31csMaPTXDtCHbz-qZaJ63Lnn-1Gdx5Pg07JwBPFeBTEKVUdwOXmhfLNCubLnCQ5UQ38GcjEEXfayZH7pA_7fvUMwcbr-4UDGulE1Eef9Gqy2EMKYxl8d5AdlpdVtrmyTvLr4Xf5v07AzUY34RAneQG_mRp_ULrPSsQtKrmXpmMothWvzzTTOgUdb5MbGCWf5kSjuYbkZM7OfgMt5YVj9Pfazwwdsf3vkxI0K0rIfZYtFpt8d2F4ju78rlA5HdkYKihfXtWBh8WoSZSjTORf-n3r8wPTPEetDJdJELh1JhsjfjY-AzBRvLoRf5NlLpwXfx1ZNTz5SQEEcfMsOkfGBCA2tKQ-lEFjqxM4x2jQPzzc-0DzS3NnkkYSSEzs8iF6s0xiti2_jdcMqKpldDfQGb7M8-f8fPJVjlJzXapQtdKs5CFZiDjJn9LBjafD0WPIi4e6VY7bDWZAzG6_J5y4_ySlFusL6kQmNH7qEqQPOf-QjS5aUkkGlOImYjgoXZDXi-pO1mPqL18U52n47lAZY04EN-5DGDXASDDNUHY6I-wjMzPBRmud6nLdALgQ8aoFm0ZXhhidyzu2pjb6DopuCBIAcX4Y1XbGCTuDNqUs38jP99vCBLruui0V5h1CliBx4_f2yTfHuuQFs95HHtpJqL-_62-mMrhXpq5OtqH85M4Rpm37Ox-u9oqP8F8rYYZrSh6a8KZj_tpm4AUX0jMX5AC7ne56aOwQ3OSDQnQOiJ0dquF3_WmYjgtv_Tn7xVxdclz8boZJSG9OOBD50q49uWOaOudUDvCODdnf3VivTSGucsi0A6ywaS_7mQuaNRVOM1VUaGNqjJdsq7zupm2bcnuy00IPuvr178-ZYZUwo9-h8GkUR6TxYEC8tTm1jimmDBF394vPIGtOy0LLm9fdquRhvgW95KUAJDZcyYMMg4fmol86bDtizFGa4NhHpRKX-GIV6pJrkXpMV26vi282MSoxs4PBP9H9gi0Eshu2_AZemuYN-vnxhgCPUS2yg1WAPuRmi4tUFaqspOXw6sVx-oy7ibzl7BO2gFzvTYr3XmyR4LTdk6BhbhGXrtF3NtVUzT8VrBV3iPJ7-M_owRkslxNA7y9BTbymbEZVpQetzCr8tNZPKwJ8kkQYMqg3XidwHpicF4ULubfHTBLGgeJ617MD5wOzR53PjyvdVz4zwJKfLyiiZb3sy91WeS8Ybhtwd0doCSdMYDSBcbp6haMYTkmEkACe8EAfIA\u001a\t[7,80,70]\"ä\t!amygbGkKAAQeDl_vbQEHDwOL56Nxb0VaabKCHwR5Q6mf8FjOJssOVxhpdUNu--6KbN2HT2O023uRtYkRD-fihAlY7JhXJtXOcKa_RqTYBege0C-EJ8nk0vCxrLAqrZXCNkTlWOUbm2tWQLjFSrI9_j5hrKD4bvdSk77AlNvFekxW9meG3u1dxMDKHE72tyN0cEHSTDTeZ4JpeJ9cDZOyqIvOtZ0f35b-ZwlUvxzp2JWDwrhAyLKWo_IcEdW0e_5zQCSZKFbxLwMRhiU4WmmxCNxRS_1SqMFAaRmyih72g4o9DuRa2dmJlFDIzLC0U5E36dcPqpSc02878nHmF78uFETtAEPshR6k--elA44qexRqt1V3VQvg7Gr3FYdBJOdiBEpZUmNqOmpqyhwSk19u8JoMv0Ws1bWh1ztRdJJtr3gCk6cnWBQ96_UwivJC1t0KlaOH6e8snZZm6fpAhhiCdUtXP_vbqVLU5xRV-dv67L_3bFxH7k9bZL9qauvBcrxCmt6D3h1-lF2Sev2IAwzjdQQnm2I_jnsdn1sGIDEmVbWwEJlDOe2YD5OcLL3OYAHuaHSC0WcFJ6IxQUrzqgNj4LOVKTK9lLfRNWMJT8BIiJdW4peKn1w_cpCt3qb53S3PysXrdAIb82Pof5RDmwso02Gp_iWeD0Av_twgJkqOL-woJ927lt9OjZ0bRw1YE1NNuPDNQR-7iRyQshb4jzx2jePLVAofSmiBfCa6OlsyEkV_y3Lt7Q6niuPwWQ87M9E_230VjFFwgJHUYMia22VlKzVVj2NwLAO9RCHuILavXdZ5Sf1oTUTpeYh-dQYV5hrVB2E_86Kw-W7L8RbRNvyXu3GR6-VkmhM439lY-97mA0zdfKa1c3kjcU57Lwun13vpDqqtRd3hnIAVC-IIrl3soFSuUDCb12nD2YRRuhsTQ1TMF9hJBeA7PC4lehD2IS7G6CVr4ojGMiPBcfiw_k7mtHWtmZ0Otxo0gSgzvcLJsmVNK77cPoUtV6_lRWmO5kqUbZr485SYH7ryvW4NTEwUJjUtUFakOJ--EQHOWQ1i3CxAWno3A6b88XKZK6kHbKvQdkFQQ6MSDJ0mY8dB8dPrwOnIjFGzoFrIU1j4fF6MN42PswpDo0fui3Mw1ZG2kKQ6gxLfqaoFWarjw_FPppqQAZlS40MvEtXFojnAUKqo69TrZ_mi_iU2m4DrSID2wHfVzvh7_upAeYCvM554c5wACtu1H-3fltA9vGw*\n1236240461\u0001¬\u00140UVVTRScSvercvqlUgXNVQOsYCuzXgmNOQy8eBDEjBfCbyLqchzJfUTMeyfboyrVgjX9hTPckFvjjjrutj3olUkQmEbzp272oU4ByVD_qBLbCq5eBcFdEPRwx7v_Er5-RcFtGMRwP8t3Jta-JdF9KNSEL9uHMt8iNWX85Kw_wBvzY8ciCp450UC0_HxXd57eogGc3LFlLLRjD8OLEr1qHeVtG8R4Q8t2ItaeJdB9MPiALtuPVt6JNemxOOeT-sNvHobFHPC4YBuwEvtiKtaGiiDA7FuLXybigiJ9ZcyVQMQgG_M3Ew3Z1k3ddKwnVyrysj3ySTGYYJBkP48Laup9tiHwrTR4T6wrKuI96Sj8vIQnwB8HbjZmbhHFzOlIqJvrLvc6ShIN-Ewj648660IqkVoFtKlft4tS_q5KqZH4wWxpG3NHBsp6FmVNtH0oJ9uvW7uOLiXxbR1koB_LqpZqMd2hNYhw26BPl5uV_dGRVQSg89hDC7b-ajVlOPi4X_xbQ6pzHnYt3MygYCfXc8KrEdqF3YHcNAvLiyrjKhJ5Qe1ExG-fczLyilaReeCpVURrWy7urk4GTTWcZJS4m7MPcqKRsiUM9Xh8qD_uflIR0YUQ2HQ335MvemLJkcGVbVQkTB-O4yqKYpoBxWkosBNvGlot7a1NBUw06LA75pL5wm4hAMlw0KQDEra2-fnl7R2BALiP4xdbQjU5DNSAR-QvF35GdkoeHdlJKCegA8rjVrqKPglk3OvPDuKqafWqAOlQGEgf86qzLqKhdbEEuBCLt_LTLnYFoOC0hB_XgzruiiXaMRmASHifj8vTUpJ5ja2E2Dxn9-gHEyIl0RDkpG__wAbvo2rynUmweSRsV9MqglYl4X0cxIwb64PSuyHqlf5JMVRMcKt_6xNC_ZIp-ZiU-69DLuKrAgWJmazVH_u3A86rFnniJLhki3tPGrpyGblxLOCMy7Aa448Oqd59KdmYM-_bP6cTTj4lzTV9LFPbf7JaLe2ZSQC4X_OrUwNWPqVuGhmEH_OzexbPEfphKdTUq9uvbzLifs22ajG5ZBB7Q-8e4wbd-gkshPw4LBtrm1KCpdTxiLBEpAM3Kq5ZlZHcwTRIy7OLprIRpbYYvKSYK3d_e17mpb05DHUcY4OH308a5dIJJMkItGgXN5LSfZmM7TCcy5ve86tONiGhuTSlH8PHx7cR9i49aPzc67wwD0-OkuHRHZGIvM_UB3M-wh5WLZ0VOKCHg7bOzeKVVVD0zPBno8efDoJ1tfGc4Lxrpv9yxiJNsXms8Nf39BvW_zLOWV0JiNw328OXDiLeDSXpTDhwCEufDobqibIBlPCAW6r7Xt7J-cIRsOD8e6PrIlMSQiEBwPTTr9PPMmrxyjVddQEwT4tfur7CkeF9qNBkUFPHSsMW9eYc2JilB6ObdpM3BdpZybVf--wq53cmse29XYi07Mefz3Me-n32FRi8YGAr348vOi6NjMy5OKg_n2Mi7j2GLcj0xPRry19mmoIR4bUZOMwvN0empj3qZgEVIL_D86OGnp2yVhFQqSPH02cCwoIBweWUvHPPdDsfnhZuXYkZgMy7z5dzSwYyUfEpfVi8D9cu3jaOehVtLGwEb9-bQtruMlmhOXxoI7Qrhv7KncmBAQ0jxFcPursO2dEluUA0p8hLW5ZSqY01xKlAsKQm5pZKui5B8UCj5D-nWu6e6qlVCYkczNRELzJjDk4B3YEAnCgP0z76fipFiXDQrBBTN26HKjpVddWRBD_jQ7Ky3u3doclkvI_wZ16jagKSHcC0pIjTa6MC_uoxXbGBdSgQh6-jiiXRxiUlDTica6P3AjHqokW5TVD8e5fbZz3maeGxVEiQX49HvmK-KlYUlNzUs0dXx1318SD0vHAbzBb_Zi7aMf2ZORQcZAPzDj4R2X0k9TAYg0t7TyKJ5jHR4YkEz-gjuybJ_mY5hNAT56dnAscF7lUdyUiwoKfD5n5SEdGFLMx4K9ePN3piyZI9mRmX78ODQvaO4cow-aVVDO_zq98rOnYhqe1kpEysUA9HMm5GHeUZQIusc3eOdtomYRSAVBfbiyd2XsWOOf204LRUazsbAr6Z5bFwmTvwH98-rxaOjaH9MLRQjCdHbz7RxdGRxVgbq68GymsheU0MyIQwb1e-hzJZzbDgtHQ705vWvyXuHkl5XWykwHBXrpcW8l5hfZAH25tfDqr54a1pGJD7wG_gDy4d8blhJMET-GMrWy8Gtt4uCTlskLhwI25-hc5CQQSz88eHMvaKUeGlWO1AKJNYB7OfFfG95dChIFQ4Z3r-uwpySQixLPDDb3sSZxqOTjGBMGSke4OfEjm9dhXYQBfXm0rnNh6FTX1U5TTUY5vnirqKHkVg6I0TZzsCul4aWUGocRxsPDtbgv5S0eUVYPhw5DtvOsY6zbVlPUzEaJf_V58KsioZxaSoaFdXSo8a7f2ZQYEMc_BDZ77yXgpBoTjUB893xrrijgH1TdD4GIhnl7MOrjYB-czkeFPnj7dqkqKZ0OUEgHBb93L-llquNPD1IOero9u22sp5vc0Y08OXVxLGYrWeBMz9KFgcb7NLQhqOXiXNMGhcmua6ejnVfdmE2\u0001qB\u0006signinr(6LdCCOUUAAAAAHTE-Snr6hi4HJGtJk_d1_ce-gWB",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 01_resp_recaptcha.json
+
+>>> VERIFY
+await fetch("https://www.paypal.com/auth/verifygrcenterprise", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "x-requested-with": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.paypal.com/es/signin",
+    "body": "_csrf=jkYxi0zgRx%2B1eJ8kDycgUbgzrwafvjc6LXpjU%3D&refTimestamp=1634767768555&grcV3EntToken=03AGdBq27UPjVTx94WNT_Nnip2lm5B0vkDQO9n69gTJB5MuVuYcKAt_9VrRBh0AAQa1d-PmFiyjSgh98BZtFvmB8beLzRnfh2Y2rMnoHwpDJbO86BsyjrTjBGlTbGK37Kj5DG30On7aeQdz9uJTtVvtFVpVKHIetGfL0kN0r8xtb3Mtw4M_Sx_KOBqds2aBAFOr9OPt_uog9dYq9fFMZDFX1q76GP866E682fhwdk9KZE44gqVovKRlWnHKNn_tvnUK76NhoOzN2oohe_gHcL14IZ_Kzwp_CRseXdfmKc5G_XYYlHRZBg9fG79HWx1GCnefepIDvmBID1_B_mrdK7XKPEXkdTggBoaZA3QhH5BSwAtNFjEZWdvkJys2lpuWQsGpaD9LsDhxdE16a_ea_l2bKbqz0dQpH_lyCspsuWgkcdsQsf031qR0n_55v05vtncWDjwJKdgJlVS3nQ7Dkjxw-zvrE5W38O9xyK78LMWUkwo-Z7GL55LLE-h2n83K5RpdoM4JopO--d6xBG7ZkgArz_ormW0Vz5HxMq9kPADho0kMG-ehsbMPEkHjTfZkSy1JPkvfzxb8dtu7tAnmdiCApb-p1BCfhCc-NOkqy59DEoPR0rLYEsLvARCYGcUkkPscYZCMU9RFWL3_oZXEuvMp7M5pL3susY3mRpVPMdlcd7JgZZxHrVAihW6OyEKWDdaycjXuzSFTYynPyYnEHL5qhrLSuVoUeh_jIJ1SsPH-Mayj6Kw55UIGqYcOMQkISzh4ev7W4txAWtNdxFZWM_sHo9pwCkiTWBPSCX8sGE0f0gE4KJb8TXAdcMBVgxfTP9vTEtLGeb0XpbKc92KL6hTL9OxwPaJrAE2-jzHSfWX2CoZkT3m78MQNOntUNj24fE_YqL-UShD6Z-b1qDwvFYwGFNXNiqEKJPAlIJY8vyWIkfkoEZCF_CHjku4g1M9PWd0O9OqSWzYow1VngbeX1WhbCE3LDRqOLwsa7nYyb2-eKywagpYz8oSR4dLy1JPTyT5-BQAMyYoMVyMDuOfVyQKDzm7ruej3eS-Kzce0HYinkQUCeEc5d1B22v0lsNUF5-S2vOzZLnRzagiU64phXdllQt8NHRwMfxBM3DaJ6zBIx4AhErXi8qCWTfu10mlz4RfMZ649UC4qiA2PCGmBD5MC0IargRqUYB7SvwjfQyTjX1Xc7F_6umJ0E4lo2g9HBxg-8zQvYe6VqLUYegGwPPtluORuwQMeFbMAgQ4wrtkr0qaxJ1yfJTN1DqRi-2_qG0IRGBVzsUQYO3iE9Xvcb4391h9FAxpa0Z9o3hvE6WJ34f58BN2ItM706XyiaSAucrKcI1A6bNiK6AxdD-3owEbnvhtuSm87C_VxYDUV1EYnGCvP33X5EN9XOt-qi_dAnu3-PJewKwlBXYCAmuEiqtZCGxerk6d9W5YmYm6CMAy990sh1HkgxJ2CKCz8ytBY-ZmHbGdSplAqgsP6kgpGc61m7Q6EKVc2T7YHw&publicKey=6LdCCOUUAAAAAHTE-Snr6hi4HJGtJk_d1_ce-gWB&grcV3RenderStartTime=1634767770748&grcV3RenderEndTime=1634767774234&_sessionID=ois2MzMd9iF9dmHOoeybdcTDffgtQZC0",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< <EMPTY IF OK>
+
+>>> PRE-LOGIN CLIENT-LOG
+await fetch("https://www.paypal.com/signin/client-log", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "application/json",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.paypal.com/es/signin",
+    "body": "_csrf=gaw1elylHJQqDHN9clcyhIVOgo3ldJJzkEcfw%3D&currentUrl=https%3A%2F%2Fwww.paypal.com%2Fes%2Fsignin&logRecords=%5B%7B%22evt%22%3A%22state_name%22%2C%22data%22%3A%22begin_hybrid_login%22%2C%22instrument%22%3Atrue%2C%22timestamp%22%3A1634768217910%7D%2C%7B%22evt%22%3A%22transition_name%22%2C%22data%22%3A%22process_next%22%2C%22instrument%22%3Atrue%2C%22timestamp%22%3A1634768217910%7D%2C%7B%22evt%22%3A%22context_correlation_id%22%2C%22data%22%3A%22f13996730b9a7%22%2C%22instrument%22%3Atrue%7D%2C%7B%22evt%22%3A%22serverside_data_source%22%2C%22data%22%3A%22signin%22%2C%22instrument%22%3Atrue%7D%2C%7B%22evt%22%3A%22intent%22%2C%22data%22%3A%22signin%22%2C%22instrument%22%3Atrue%7D%5D&intent=signin&_sessionID=null",
+    "method": "POST",
+    "mode": "cors"
+});
+<<<  09_pre_login_client_log.json
+
+>>> LOGIN STEP 1 EMAIL
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "application/json",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Content-type": "application/x-www-form-urlencoded",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.paypal.com/es/signin",
+    "body": "_csrf=gaw1elylHJQqDHN9clcyhIVOgo3ldJJzkEcfw%3D&locale.x=es_ES&processSignin=main&fn_sync_data=%257B%2522SC_VERSION%2522%253A%25222.0.1%2522%252C%2522syncStatus%2522%253A%2522data%2522%252C%2522f%2522%253A%252293bf289185a44f98bb9cb2deffff3dbc%2522%252C%2522s%2522%253A%2522UNIFIED_LOGIN_INPUT_EMAIL%2522%252C%2522chk%2522%253A%257B%2522ts%2522%253A1634767769328%252C%2522eteid%2522%253A%255B622677299%252C-6526547530%252C22098533034%252C2920642783%252C-2115758223%252C-9314262788%252C4343974954%252C3694181499%255D%252C%2522tts%2522%253A1399%257D%252C%2522dc%2522%253A%2522%257B%255C%2522screen%255C%2522%253A%257B%255C%2522colorDepth%255C%2522%253A24%252C%255C%2522pixelDepth%255C%2522%253A24%252C%255C%2522height%255C%2522%253A900%252C%255C%2522width%255C%2522%253A1600%252C%255C%2522availHeight%255C%2522%253A868%252C%255C%2522availWidth%255C%2522%253A1600%257D%252C%255C%2522ua%255C%2522%253A%255C%2522Mozilla%252F5.0%2520(X11%253B%2520Ubuntu%253B%2520Linux%2520x86_64%253B%2520rv%253A93.0)%2520Gecko%252F20100101%2520Firefox%252F93.0%255C%2522%257D%2522%252C%2522d%2522%253A%257B%2522ts1%2522%253A%2522Dk17%253A13673Di0%253A220Ui0%253A69Uk17%253A106Uh%253A1936%2522%252C%2522rDT%2522%253A%252251592%252C51812%252C58654%253A41352%252C41556%252C40994%253A36235%252C36421%252C35870%253A41366%252C41529%252C41001%253A26017%252C26126%252C25633%253A5552%252C5594%252C5139%253A41426%252C41435%252C41001%253A5593%252C5538%252C5143%253A36342%252C36263%252C35874%253A46606%252C46489%252C46127%253A41496%252C41352%252C40998%253A5639%252C5486%252C5139%253A21014%252C20848%252C20509%253A41508%252C41338%252C41003%253A31264%252C31090%252C30753%253A36389%252C36210%252C35879%253A26144%252C25962%252C25630%253A31269%252C31082%252C30790%253A5658%252C5461%252C5138%253A5660%252C5458%252C5140%253A17739%252C21%2522%257D%257D&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&login_email=finance%40gasmobi.com&captchaCode=&initialSplitLoginContext=inputEmail&isTpdOnboarded=&captcha=&splitLoginContext=inputEmail&_sessionID=null",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_login_step1_email.json
+
+... CLIENT-LOG
+
+>>> LOGIN STEP 2 PWD
+await fetch("https://www.paypal.com/signin", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "referrer": "https://www.paypal.com/es/signin",
+    "body": "_csrf=gaw1elylHJQqDHN9clcyhIVOgo3ldJJzkEcfw%3D&locale.x=es_ES&processSignin=main&fn_sync_data=%257B%2522SC_VERSION%2522%253A%25222.0.1%2522%252C%2522syncStatus%2522%253A%2522data%2522%252C%2522f%2522%253A%252293bf289185a44f98bb9cb2deffff3dbc%2522%252C%2522s%2522%253A%2522UNIFIED_LOGIN_INPUT_PASSWORD%2522%252C%2522chk%2522%253A%257B%2522ts%2522%253A1634767769328%252C%2522eteid%2522%253A%255B622677299%252C-6526547530%252C22098533034%252C2920642783%252C-2115758223%252C-9314262788%252C4343974954%252C3694181499%255D%252C%2522tts%2522%253A449549%257D%252C%2522dc%2522%253A%2522%257B%255C%2522screen%255C%2522%253A%257B%255C%2522colorDepth%255C%2522%253A24%252C%255C%2522pixelDepth%255C%2522%253A24%252C%255C%2522height%255C%2522%253A900%252C%255C%2522width%255C%2522%253A1600%252C%255C%2522availHeight%255C%2522%253A868%252C%255C%2522availWidth%255C%2522%253A1600%257D%252C%255C%2522ua%255C%2522%253A%255C%2522Mozilla%252F5.0%2520%28X11%253B%2520Ubuntu%253B%2520Linux%2520x86_64%253B%2520rv%253A93.0%29%2520Gecko%252F20100101%2520Firefox%252F93.0%255C%2522%257D%2522%252C%2522d%2522%253A%257B%2522ts1%2522%253A%2522Dk17%253A13673Di0%253A220Ui0%253A69Uk17%253A106Uh%253A1936Uh%253A2394%2522%252C%2522ts2%2522%253A%2522Dk17%253A840878Di0%253A341Ui0%253A75Uk17%253A138Uh%253A2005%2522%252C%2522rDT%2522%253A%252251592%252C51812%252C58654%253A41352%252C41556%252C40994%253A36235%252C36421%252C35870%253A41366%252C41529%252C41001%253A26017%252C26126%252C25633%253A5552%252C5594%252C5139%253A41426%252C41435%252C41001%253A5593%252C5538%252C5143%253A36342%252C36263%252C35874%253A46606%252C46489%252C46127%253A41496%252C41352%252C40998%253A5639%252C5486%252C5139%253A21014%252C20848%252C20509%253A41508%252C41338%252C41003%253A31264%252C31090%252C30753%253A36389%252C36210%252C35879%253A26144%252C25962%252C25630%253A31269%252C31082%252C30790%253A5658%252C5461%252C5138%253A5660%252C5458%252C5140%253A17739%252C21%2522%257D%257D&intent=signin&ads-client-context=signin&showCountryDropDown=true&requestUrl=%2Fsignin&forcePhonePasswordOptIn=&phoneCode=ES+%2B34&login_email=finance%40gasmobi.com&captchaCode=&initialSplitLoginContext=inputEmail&isTpdOnboarded=&login_password=G...&captcha=&splitLoginContext=inputPassword&legalCountry=ES&partyIdHash=35df45b3984f913285b8478baef39d062d4c63476000425cae90f9c761b27fbe",
+    "method": "POST",
+    "mode": "cors"
+});
+<<<
+
+
+<<< SMS CONFIRM
+HTTP/2 200 OK
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+content-security-policy: default-src 'self' https://*.paypal.com https://*.paypalobjects.com; script-src 'nonce-p1tKwZ4E0piL8oZbTrN8tqFIC38Hn/4qwPCycM8cD8XAyA/P' 'self' 'unsafe-inline' 'unsafe-eval' https://*.paypal.com https://*.paypalobjects.com; img-src 'self' data: https:; object-src 'none'; media-src data: blob: 'self' https://*.paypal.com https://*.paypalobjects.com; font-src 'self' https://*.paypal.com https://*.paypalobjects.com; style-src 'self' 'unsafe-inline' https://*.paypal.com https://*.paypalobjects.com; frame-src 'self' https://*.paypal.com https://*.paypalobjects.com https://*.qualtrics.com; child-src 'self' https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://*.paypal.com https://*.paypalobjects.com https://nexus.ensighten.com https://*.google-analytics.com https://*.qualtrics.com; form-action 'self' https://*.paypal.com; base-uri 'self' https://*.paypal.com; block-all-mixed-content;; report-uri https://www.paypal.com/csplog/api/log/csp
+content-type: application/json; charset=utf-8
+etag: W/"519b8-1N0yQesv4wQgLjKsbO6/+nw/Dlk"
+paypal-debug-id: f720993a1eb44
+set-cookie: LANG=es_ES%3BES; Max-Age=31556; Domain=.paypal.com; Path=/; Expires=Fri, 22 Oct 2021 17:01:23 GMT; HttpOnly; Secure
+enforce_policy=gdpr_v2.1; Max-Age=31536000; Domain=.paypal.com; Path=/; Expires=Sat, 22 Oct 2022 08:15:27 GMT; Secure
+x-pp-s=eyJ0IjoiMTYzNDg5MDUyNzgxMyIsImwiOiIwIiwibSI6IjAifQ; Domain=.paypal.com; Path=/; HttpOnly; Secure
+l7_az=dcg15.slc; Path=/; Domain=paypal.com; Expires=Fri, 22 Oct 2021 08:45:27 GMT; HttpOnly; Secure
+ts=vreXpYrS%3D1729584927%26vteXpYrS%3D1634892327%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Da70ee18917c0a27482f9453afba7f834%26vtyp%3Dreturn; Path=/; Domain=paypal.com; Expires=Mon, 21 Oct 2024 08:15:27 GMT; HttpOnly; Secure
+ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Da70ee18917c0a27482f9453afba7f834; Path=/; Domain=paypal.com; Expires=Mon, 21 Oct 2024 08:15:27 GMT; Secure
+x-cdn=0333; Domain=paypal.com; Path=/; Secure
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+dc: ccg11-origin-www-1.paypal.com
+accept-ranges: none
+via: 1.1 varnish, 1.1 varnish
+content-encoding: br
+date: Fri, 22 Oct 2021 08:15:27 GMT
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-served-by: cache-hhn4072-HHN, cache-mrs10580-MRS
+x-cache: MISS, MISS
+x-cache-hits: 0, 0
+x-timer: S1634890527.375233,VS0,VE528
+vary: Accept-Encoding
+server-timing: content-encoding;desc=br
+X-Firefox-Spdy: h2
+
+
+
+
+>>> SIGNIN CONFIRMED
+...
+
+
+>>> ACCOUNTS
+await fetch("https://www.paypal.com/businesswallet/money#banks-section", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+
+curl 'https://www.paypal.com/businesswallet/money#banks-section' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Cookie: headerKey=defaultKey; enforce_policy=gdpr_v2.1; cookie_check=yes; d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758; tsrce=smarthelpnodeweb; ts=vreXpYrS%3D1729698041%26vteXpYrS%3D1635005441%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff%26vtyp%3Dreturn; ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Dadcdee1317c0ad102861d47affffffff; KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd; ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3; x-pp-s=eyJ0IjoiMTYzNTAwMzYzMjkzNiIsImwiOiIwIiwibSI6IjAifQ; nsid=s%3Ax76aB0nWxllmDfyPyuRwHnnO0mmyIeNk.MD%2BF1dpnm%2FzEYIOsTfdFB5YpY20PImQRZwsmQS8B36o; x-cdn=0333; fn_dt=81dcfa25e8ad464d902cdd28ee9c5abb; AV894Kt2TSumQQrJwe-8mzmyREO=; DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP=; id_token=idtoken6243a26689904d41a3c676dbd506abca; rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq; SEGM=bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ; X-PP-ADS=AToByyx0YVRHSQECjM00CE8OLPdJAIo; LANG=es_ES%3BES; l7_az=dcg13.slc; HaC80bwXscjqZ7KM6VOxULOB534=oDesonhA_qxzMrVNsWE5qR6eHYBqiKnL1CpR1j7gnksKHCX3PkXXdwdRwBjpTSGdUiaqR6CWkuViOu2CxfB7hyqi-9QPiXS2q9YtseH8mkCQ_LbNjKgM-NVW2i9g9aa1qffzR0; tcs=main%3Abusinessweb%3Amep%3Adashboard%3Amain%7Ccss-k9cky8' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-Fetch-Dest: document' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-Site: same-origin' -H 'Sec-Fetch-User: ?1' -H 'TE: trailers'
+
+<<< 30_resp_accounts.html (bank account)
+
+
+>>> ACCOUNT DETAILS
+
+
+>>> MOVS ALL RECENT
+await fetch("https://www.paypal.com/listing/transactions", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin",
+        "Sec-Fetch-User": "?1"
+    },
+    "method": "GET",
+    "mode": "cors"
+});
+<<< <REDIRECTED TO https://www.paypal.com/activities/> 40_resp_movs_recent.html
+
+
+>>> MOVS FILTERED
+https://www.paypal.com/listing/transactions/activity?need_shipping_info=true&need_actions=true&sort=time_created&entrypoint=&limit=&next_page_token=&client=biztransactions&transactiontype=ALL_TRANSACTIONS&archive=ACTIVE_TRANSACTIONS&currency=ALL_TRANSACTIONS_CURRENCY&fromdate_day=23&fromdate_month=8&fromdate_year=2021&todate_day=23&todate_month=9&todate_year=2021
+
+>>> MOVS FILTERED BY CURRENCY
+await fetch("https://www.paypal.com/listing/transactions/activity?need_shipping_info=true&need_actions=true&sort=time_created&entrypoint=&limit=&next_page_token=&client=biztransactions&transactiontype=ALL_TRANSACTIONS&archive=ACTIVE_TRANSACTIONS&currency=EUR&fromdate_day=3&fromdate_month=9&fromdate_year=2021&todate_day=24&todate_month=9&todate_year=2021", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-REQUESTED-WITH": "XHR",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://www.paypal.com/activities/?fromDate=2021-10-03&toDate=2021-10-24&amount_lower=0&amount_upper=0&currency_value=EUR&currency_label=EUR",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 50_movs_filtered_by_currency.json
+
+
+MOVS PAGINATION
+PAGE 1
+>>> https://www.paypal.com/listing/transactions/activity?need_shipping_info=true&need_actions=true&sort=time_created&entrypoint=&limit=&next_page_token=&client=biztransactions&transactiontype=ALL_TRANSACTIONS&archive=ACTIVE_TRANSACTIONS&currency=USD&fromdate_day=15&fromdate_month=8&fromdate_year=2021&todate_day=24&todate_month=9&todate_year=2021
+<<< 55_movs_filtered_by_currency_pag1.json
+PAGE 2 (next_page_token=1634097646001)
+>>> https://www.paypal.com/listing/transactions/activity?need_shipping_info=true&need_actions=true&sort=time_created&entrypoint=&limit=&next_page_token=1634097646001&client=biztransactions&transactiontype=ALL_TRANSACTIONS&archive=ACTIVE_TRANSACTIONS&currency=USD&fromdate_day=15&fromdate_month=8&fromdate_year=2021&todate_day=24&todate_month=9&todate_year=2021
+
+=== CSV DOWNLOAD ==
+
+>>> LIST ALL CSVs
+await fetch("https://business.paypal.com/merchantdata/dlog", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://business.paypal.com/merchantdata/reportHome",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 100_resp_all_csv_files.json
+
+
+>>> EMIT NEW CSV FILE WITH MOVS (01/11-07/12)
+await fetch("https://business.paypal.com/merchantdata/dlog", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://business.paypal.com/merchantdata/reportHome",
+    "body": "_csrf=jV1SrY3xKZ93oJyl3DVIjjQa%2FYxnVPXKTbShQ%3D&name=DLOGTEMPLATE&start_date=20211101000000&end_date=20211207235959&file_format=CSV&delivery_channel=WEB&filters=BALANCE_IMPACTING",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 110_resp_emit_new_csv_file.json
+
+
+>>> REFRESH ALL CSV FILES
+await fetch("https://business.paypal.com/merchantdata/dlog", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin"
+    },
+    "referrer": "https://business.paypal.com/merchantdata/reportHome",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 110_resp_emit_new_csv_file.json

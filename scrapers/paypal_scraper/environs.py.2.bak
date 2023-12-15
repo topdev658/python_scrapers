@@ -1,0 +1,134 @@
+"""
+Access-specific cookies to emulate
+scraping from the 'confirmed' environment (web browser).
+Usually, these cookies require SMS confirmation and cannot be obtained
+without extra customer-provided efforts.
+
+Add once here the necessary cookies for every access after the SMS confirmation.
+"""
+
+from typing import Dict, NamedTuple
+
+__version__ = '2.1.0'
+__changelog__ = """
+2.1.0
+Env as struct to pass mypy
+removed ENV_DEFAULT (no further usage)
+2.0.0
+Env as dict
+more confirmed
+merge 2fa and captcha cookies
+1.0.0
+Env as struct
+"""
+
+Env = NamedTuple('Env', [
+    ('user_agent', str),
+    ('cookies', Dict[str, str])
+])
+
+
+def updated(base: dict, upd_with: dict) -> dict:
+    base.update(upd_with)
+    return base
+
+
+COOKIES_CAPTCHA_DEFAULT_1 = {
+    'x-pp-s': 'eyJ0IjoiMTYzNTAwNDUwMTI2OSIsImwiOiIwIiwibSI6IjAifQ',
+    'x-cdn': '0333',
+    'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+    'X-PP-ADS': 'AToB4i50YYFsGTCJbNJ5s1UpIS6DsGE',
+    'AV894Kt2TSumQQrJwe-8mzmyREO': '',
+    'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP': '',
+}
+
+COOKIES_CAPTCHA_DEFAULT_2 = {
+    'akavpau_ppsd': '1639529516~id=f9d6469ac157fa0ff6816b5f2dfd7348',
+    'x-cdn': '0110',
+    'X-PP-ADS':	"AToBCTm5YfrcF8KSRR1ya2d64WiSUNo",
+    'x-pp-s': 'eyJ0IjoiMTYzNTAwNDUwMTI2OSIsImwiOiIwIiwibSI6IjAifQ',
+    'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+    'TfXMWj95u2_Zf1Kmv_GCUOjlGG8': 'ihuy6C5oXtE5JhbfRiYJkrOkq74MkRz1H9HU-aylJ7jkBVl_TNxE_xPnsAZ7u7dD7OO2tJFSeEIG8u6bVFADwrLQcWWM_1Af1HtvzbLCivA4icu6uFNo_OmWlobqWtIrTehhcLhPjAa5Ihko2evYKUMuPxCoGMmtQCKUDjMCjj9EWmEyVpzst0p-fqdliv-rmjvA3AgGwa5NlPku',
+    'AV894Kt2TSumQQrJwe-8mzmyREO': '',
+    'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP': '',
+}
+
+COOKIES_CAPTCHA_DEFAULT_3_CHROME = {
+    'x-cdn': '0133',
+    'X-PP-ADS':	"AToBLDPMYbu1LuC.5dxge7HtjKYlP.E",
+    'x-pp-s': 'eyJ0IjoiMTY0MDc3MjQ2MzYzOCIsImwiOiIxIiwibSI6IjAifQ',
+    'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+    'TfXMWj95u2_Zf1Kmv_GCUOjlGG8': 'EBOJ2tsTyKxYHeqZ1kLiuXoEnuEhMu1ClCpT7zIUA4wpPv7V55jGKYLUZGHG3x9oddNwEMJ9_712iBjCbThP1VHk9k0oevdu1ZhnS8i4Img4EZzMXpl8QE5O9XveoDWJTom2pdOkYqNOpndRk0JIbm2mpoojk8dHRQJAUYZb-pclhs32mWecJIql5qO',
+    'AV894Kt2TSumQQrJwe-8mzmyREO': '',
+    'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP': '',
+}
+
+COOKIES_CAPTCHA_4 = {
+    'akavpau_ppsd': '1640771259~id=2eaae7d6c6b29a050b9439c30b164997',
+    'x-cdn': '0133',
+    'X-PP-ADS':	"AToBDHnyYdPmxcowVRnHFsbhuU-5ERE7ASZ.8mF7npDuMMDGm2eIPxwQRc1a",
+    'x-pp-s': 'eyJ0IjoiMTY0NTE4Mjc2MDU5MSIsImwiOiIxIiwibSI6IjAifQ',
+    'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+    'TfXMWj95u2_Zf1Kmv_GCUOjlGG8': 'p9XT-XSqQRLJXSzKxXMbeIfh4nefYgKo1GZETfcKiFpWPfl0URL0rLaqN9iJpDFLM_ZkjZ0frfUQUI_onqhGccePjl-zxlCtlWkEOJYUX7BQM3qO-MIABxuUiHfE8AWm3Og5dW_uL99H2lfYORY0Kr4vCZwce5jz5pD_JIYwkduUvWZTYF2ChDHXdcbTxK9tgG3LlG',
+    'AV894Kt2TSumQQrJwe-8mzmyREO': 'S23AAOk9b1Jg1lG7mQIPncOBdybNdul8GjZo-b3gpHBjzTZF1LHVdcF4DumBDcxZpxq2MZM6Jv1jDmTnrhIl4N_7vmzL6v0cQ',
+    'DPz73K5mY4nlBaZpzRkjI3ZzAY3QMmrP': 'S23AAOk9b1Jg1lG7mQIPncOBdybNdul8GjZo-b3gpHBjzTZF1LHVdcF4DumBDcxZpxq2MZM6Jv1jDmTnrhIl4N_7vmzL6v0cQ',
+}
+
+COOKIES_CAPTCHA_5 = {
+    'X-PP-ADS':	'AToB4QQYYpg6NQZD7zOFiOqMs.K9xdU',
+    'x-pp-s': 'eyJ0IjoiMTY0NTUyODEwNDUyOSIsImwiOiIxIiwibSI6IjAifQ',
+    'SEGM': 'bRdV1vB0ebq9RKdAb3xSHowCi6QnnlCiDOLNk8i1mAuLl1vTbzHQwWajSsMe8mvoWiJtY1GnpzN4Y-sixGy7BQ',
+}
+
+# {access_id_int: Env(user_agent=user_agent_str, cookies={cookie_name: cookie_val})}
+ENVS = {
+    # Alejandro
+    31902: Env(
+        user_agent='Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0',  # for captcha
+        cookies=updated({
+            # 2FA
+            'd_id': '0b369c1aa3b5494d9ad305232bb463831645178224535',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK': 'iMFktAEWqZ2O9mJKfU2sQqymfthSwhzlMAiWS0FqwrMqReqHs08_AZSdnT4IbqR0qh-4ID89tmaDYLB7',
+            'rmuc': 'OljotwRN1EQjpXFBWrJjaUf364_ZWZp5ep-u-xyK9Jq0kh9JKfSh53rKVqsvMrUEIVth1Nbb1ptadLxbssTzYJh3zhDF9LxeNKh4aogj47j2DxzJ3cZ7LyY1MdSBPsPtyifzdnrHpCztLwF3jz1OvMLSAM4A1VasMAxjke_HHtgeDwzZYppvTjRieX0yIi39qV8qSfDY3PylbVL8PFmkOm6l_VcEUCqMAtkRlss_QGHcLtgV',
+            # Since 25.02.2022
+            'fn_dt': '2f92bb51eb984491ba7d71eed090b92a',  # Created:"Thu, 24 Feb 2022 21:56:23 GMT"
+            'tcs': 'main:unifiedlogin:::login|btnLogin',
+            'ts': 'vreXpYrS=1740441098&vteXpYrS=1645748498&vr=2115aaec17f0ad046b59d638fd0277e1&vt=2dc0181a17f0ad005c708669fc9f5d5f&vtyp=return',
+            'ts_c':	'vr=2115aaec17f0ad046b59d638fd0277e1&vt=2dc0181a17f0ad005c708669fc9f5d5f',
+            'tsrce': 'authchallengenodeweb',
+            'TLTSID': '73776589647214749332958253603799',
+            'nsid': 's:cXN9qLzRYS-lTYEpsjG8xqvnhrhzT1qc.2BMAK8WlXkzs+Mm690+OCNDJjrm5kpnL+JYNvUI5e98',
+        }, COOKIES_CAPTCHA_5)
+    ),
+
+    32814: Env(
+        user_agent='Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0',
+        cookies=updated({
+            # 2FA
+            'd_id': 'e914945d622e4b08bf7187946d8903661639478886295',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK': '6kExjSOpe_EWmGyFBb388OeoK7VHsBh579gFhLLyp1OynSEmXlfhW2B5qwOimRJPTQIXXAlT-wJU9yaA',
+            'rmuc': 'St2DWclLgvV06xn3QghOM79twI7vFm2h66cYuo-RYJ2PLVo4nW5BuH0-1Sj8HEPfkZVXTzNPFGSrrYITSEBTU37aGHG4OodBA-uBCdbtlAO9BbRC8TSr1-SPFH6HhoYjw3Mf_wBOMVdbcloVbn5f6EitK3LfpPqDtgZBy2lJjWMitWIvZUIKcm1ssjTPaphrUAygTr7o-NXk8eAyxp48KPWxZxIrLya79W-UoyP6VoiRdjUkcLFwSY1bESO',
+        }, COOKIES_CAPTCHA_DEFAULT_2)
+    ),
+
+    32815: Env(
+        user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
+        cookies=updated({
+            # 2FA
+            'd_id': 'e1a2219165a8402cb54060f873ee53661640772133212',
+            'KHcl0EuY7AKSMgfvHl7J5E7hPtK': 'fv31QVOTgvtHs03vIxUGsll-xV0yja9uT3o0gUV5wT9iEiqNo0OkOaJj5pLYrnso_m9ozobLD6WWD6B6',
+            'rmuc': 'S4DETqnBsPg1fNxUdq7ndP_vZ9X71ioyJYXt7Tc8mLcAzpGNVLbLC3oR1mzm6s_bQmIMarxlZg2XWK1gGpjU-JCSBoVBdwCpB82urlpH8e_fI2cAb34BRg_-8VS6sOYZOPoYqnsd_ZpqAUo82iIJcbtjsMKQWdTO-uWG1_tk_JXTOQ5yErwtfxD_T2p-WVlgmXe2CXObWU7rFq1Va3_x8w1IsZNnX2_dNrpUsm',
+        }, COOKIES_CAPTCHA_DEFAULT_3_CHROME)
+    )
+
+}  # type: Dict[int, Env]
+
+
+# VB: LONG LIFE COOKIES
+# d_id=93bf289185a44f98bb9cb2deffff3dbc1634767508758;
+# KHcl0EuY7AKSMgfvHl7J5E7hPtK=zugCV8sTyCjxudU-PYQNqKLbg5CWbyaom8DYoBc8pZtV6hyOOuro7vpZMtM2hA78poq6MTKOCk5PVukd;
+# rmuc=-V0R2zfVeGwXDYmKUKzLqnWOhpnIeeVUrr28JDMXRtL4ML9Dx-x6ADOncMyqEC8cpVAh0GBW0bLr1CW1sR6EqPz7bq4x9eULt-89fj17-iEs5qCokiaHCXH-CFMqxyaNCjxO4lfMAW8qsBV5AYYE2lIPH8AkDLMq5bPNCooQtrhFlu0vTNmOsu17gEq
+# ts_c=vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee
+# ts=vreXpYrS%3D1729711965%26vteXpYrS%3D1635019365%26vr%3D9fbc94d817c0a7a07f4648ecff1a8a17%26vt%3Daea0d1bb17c0a7886d4cf6b7fb1357ee%26vtyp%3Dreturn
+# ui_experience=login_type%3DEMAIL_PASSWORD%26home%3D3
+# X-PP-ADS=AToBXGN0YcV13H5LEYkfulfkAbGEC.Y

@@ -1,0 +1,926 @@
+<HTML>
+
+	<HEAD>
+
+		<title>EuroBic</title>
+
+
+
+		<meta http-equiv='Cache-Control' content='no-cache, must-revalidate' />
+
+		<meta http-equiv="Expires" content="0" />
+
+		<meta http-equiv="Pragma" content="no-cache" />
+
+		<script src="/CorporateBanking/v10/PT/js/geralV1.js"></script>
+
+		<script language="JavaScript" src="/CorporateBanking/v10/PT/js/vkeyb001.js"></script>
+
+<!--		<script src="/CorporateBanking/utils.aspx"></script>  -->
+
+		<script language="javascript">
+
+WEBO_ZONE=10;
+
+WEBO_PAGE=1;
+
+if(webo_ok==1){webo_zpi(WEBO_ZONE,WEBO_PAGE,89140);}
+
+</script>
+
+
+
+
+
+		<link rel="stylesheet" href="/CorporateBanking/v10/PT/css/jquerytheme/jquery-ui-1.7.2.custom.css" type="text/css" media="screen">
+
+		<script type="text/javascript" src="/CorporateBanking/v10/PT/js/jquery-1.3.2.min.js"></script>
+
+		<script type="text/javascript" src="/CorporateBanking/v10/PT/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+
+
+		<script type="text/javascript" id="clientEventHandlersJS">
+
+<!--
+
+function keyPressTexto_SemPlica(ev) {
+
+	var keynum;
+
+	var keychar;
+
+	var numcheck;
+
+
+
+	if (window.event) { // IE
+
+		keynum = ev.keyCode;
+
+	}
+
+	else if (ev.which) { // Netscape/Firefox/Opera
+
+		keynum = ev.which;
+
+	}
+
+
+
+	keychar = String.fromCharCode(keynum);
+
+	//ALTERACAO ID7418
+
+	if (keynum != 39 && keynum != 34 && (keynum < 192 || keynum > 197) && (keynum < 200 || keynum > 207) && (keynum < 209 || keynum > 214) && (keynum < 217 || keynum > 221) && (keynum < 224 || keynum > 229) && (keynum < 232 || keynum > 239) && (keynum < 241 || keynum > 246) && (keynum < 249 || keynum > 253) && keynum != 255 )
+
+		return true;
+
+	else
+
+		return false;
+
+}
+
+
+
+function validaEnter(ev,obj) {
+
+	if(ev.keyCode==13)
+
+		__doPostBack(obj,'');
+
+}
+
+function abreActivacao() {
+
+	var windowFeatures="width=770,height=570,toolbar=no,menubar=no,location=yes,status=yes,top=50,left=50";
+
+	window.open("aspx/empresas/recenseamento/activacao/activacao_index.aspx","activacao",windowFeatures);
+
+}
+
+
+
+function validaDocumento(source,arguments) {
+
+	if ((document.forms[0].prim_pos.selectedIndex > 0) && (document.forms[0].seg_pos.selectedIndex > 0))
+
+		arguments.IsValid = true;
+
+	else
+
+		arguments.IsValid = false;
+
+}
+
+
+
+function setFocus(){
+
+	var password = document.getElementById('password');
+
+	if ( password.value == '' ) password.focus();
+
+}
+
+
+
+if ( window.addEventListener ){
+
+	window.addEventListener( 'load', setFocus, false );
+
+}
+
+else{
+
+	window.attachEvent( 'onload', setFocus );
+
+}
+
+//-->
+
+		</script>
+
+
+
+
+
+<!--/openPopupAvisoSeguranca()-->
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#password").attr('maxlength', ' 8');
+
+    });
+
+$(function(){
+
+
+
+
+
+	// Dialog
+
+	$('#popupAvisoSeguranca').dialog({
+
+		autoOpen: false,
+
+		width: 700,
+
+		modal: true,
+
+		closeOnEscape: true,
+
+		draggable: false,
+
+		resizable: false,
+
+		position: 'center',
+
+		dialogClass: 'alert_seguranca',
+
+		open: function(event, ui) { $("body").css( {overflow: 'hidden'} );  $('#popupAvisoSeguranca').css({'background-color': '#FFFFFF'}); $(".alert_seguranca .ui-dialog-titlebar").hide();$(".alert_seguranca.ui-dialog").css({'padding': '0px'});},
+
+		beforeclose: function(event, ui) { $("body").css( {overflow: 'auto'} ); setFocus(); }
+
+	});
+
+
+
+	$('#popupAvisoSeguranca').dialog('open');
+
+
+
+
+
+});
+
+
+
+</script>
+
+
+
+	<LINK media="screen" href="css/estilos.css" type="text/css" rel="stylesheet">
+
+	</HEAD>
+
+	<body bgColor="white" leftMargin="2" topMargin="0">
+
+		<form name="Form1" method="post" action="./login.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="Form1" target="_top">
+
+<div>
+
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNTQxMjMxNDgPFgQeDVBvc0FsZWF0b3JpYXMFBHRydWUeGFNlY3VyaXR5TWVzc2FnZURpc3BsYXllZAUEdHJ1ZRYCAgEPZBYMAgEPFgIeBXZhbHVlBQhDQVNBTERPU2QCBg8PFgIeBFRleHQFATNkZAIIDw8WAh8DBQE2ZGQCDg9kFgRmDxYCHglpbm5lcmh0bWxlZAIFDxYCHwRlZAIPDw8WAh8DBbsDMSAtIEludHJvZHV6YSBhIHBhc3N3b3JkLCB1dGlsaXphbmRvIGNhc28gc2VqYSBhIHN1YSBwcmVmZXLDqm5jaWEsIG8gPFNUUk9ORz50ZWNsYWRvIHZpcnR1YWwgcXVlIHBvZGUgYXRpdmFyIG5vIHJlc3BldGl2byDDrWNvbmUuPC9TVFJPTkc+PGJyPiAyIC0gU2Vyw6EgbmVjZXNzw6FyaW8gcXVlIG5vcyBmb3JuZcOnYSwgYWRpY2lvbmFsbWVudGUsIDxTVFJPTkc+YWxndW5zIGTDrWdpdG9zIGRlIHVtIGRvY3VtZW50byBkZSBpZGVudGlmaWNhw6fDo28uPC9TVFJPTkc+PHA+IFNlIG5lY2Vzc2l0YXIgZGUgYWp1ZGEsIGNvbnRhY3RlLW5vcyBhdHJhdsOpcyBkYSBMaW5oYSBFdXJvQmljIDgwOCAyMiA0NCA0NC4gQSBwYXJ0aXIgZG8gZXN0cmFuZ2Vpcm8gbGlndWUgcGFyYTogKzM1MSAyMTMgMTgwIDg3MC4gUG9kZXLDoSBmYXrDqi1sbyBlbnRyZSBhcyA4aCBlIGFzIDIzaC48cD5kZAIQDw8WAh8DZWRkZOC/9T11IlErH51UMewg90UyYeDNZtiiIjdECGepRskv" />
+
+</div>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var theForm = document.forms['Form1'];
+
+if (!theForm) {
+
+    theForm = document.Form1;
+
+}
+
+function __doPostBack(eventTarget, eventArgument) {
+
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+
+        theForm.__EVENTTARGET.value = eventTarget;
+
+        theForm.__EVENTARGUMENT.value = eventArgument;
+
+        theForm.submit();
+
+    }
+
+}
+
+//]]>
+
+</script>
+
+
+
+
+
+<html><head><script>document.location.href='https://corporatebanking.eurobic.pt/CorporateBanking/v10/PT/aspx/empresas/index.aspx';</script></head><body>&nbsp;</body></html>
+
+<script src="/corporatebanking/WebResource.axd?d=e9Niu1SM2RslzwMfDL8NNUIJKtfgeSqx34PUMPs9VW0Tm_lmBPtZWp3jriCfFxJKvNT47Kx5eNHXzXvy-RBIeJLIG6iNGxB-eNSaM-l-PHA1&amp;t=636776725224055265" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+function WebForm_OnSubmit() {
+
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+
+return true;
+
+}
+
+//]]>
+
+</script>
+
+
+
+<div>
+
+
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="883F4F4F" />
+
+</div>
+
+			<div style="LEFT: 233px; VISIBILITY: visible; POSITION: absolute; TOP: 25px">
+
+				<table height="378" cellSpacing="0" cellPadding="0" width="495" border="0">
+
+					<TBODY>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="190" src="/imagens/img_clear.gif" width="1"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="0" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="60"><label id="lblusername">utilizador:</label></td>
+
+							<td width="100">
+
+								<input name="username" type="text" id="username" disabled="disabled" class="preto333333_11" style="width:100px;height: 20px;" value="CASALDOS" />
+
+								<script>function redirectToPortal(){
+
+									var u = document.getElementById('username').value;
+
+									var h = Base64.encode((new Date()).getTime().toString() + " " + u);
+
+									document.location = 'https://www.eurobic.pt' + '#' + h;
+
+								}</script>
+
+							</td>
+
+							<td>
+
+								<a onclick="redirectToPortal(); return false;" href="#">
+
+									<img src="/imagens/botao_alterar.gif" style="border:none; margin-left: 4px;">
+
+								</a>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="5" src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="90"><label id="lblpassword">password:
+
+								</label></td>
+
+							<td><input name="password" type="password" id="password" class="preto333333_11" style="WIDTH: 100px;height: 20px;" maxlength="8" /></td>
+
+
+
+                            <td><a onclick="return displayVK(&#39;toggle&#39;,&#39;VKeyboard&#39;); ;" id="botao_enviar" class="cinza666666_10" href="javascript:__doPostBack(&#39;botao_enviar&#39;,&#39;&#39;)">
+
+                               <div style="padding-left: 4px;">    <IMG id="imagemKb" border="0" src="/imagens/Keyboard.png" name="imagemKb" height="20px" width="42px" > </div>
+
+	                        </a></td>
+
+
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="150"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="5" src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="170"></td>
+
+							<td class="brancoffffff_11" width="90"><label id="lblDocumento"><select name="ddlDoc" id="ddlDoc" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option value="B">B.I./Pass.</option>
+
+	<option selected="selected" value="C">Contribuinte</option>
+
+</select></label>
+
+							</td>
+
+							<td class="brancoffffff_11" align="right">
+
+								<table>
+
+									<tr>
+
+										<td class="brancoffffff_11"><span id="lblPrim_Pos">3</span>ª</td>
+
+										<td><select name="prim_pos" id="prim_pos" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option value=""></option>
+
+	<option value="0">0</option>
+
+	<option value="1">1</option>
+
+	<option value="2">2</option>
+
+	<option value="3">3</option>
+
+	<option selected="selected" value="4">4</option>
+
+	<option value="5">5</option>
+
+	<option value="6">6</option>
+
+	<option value="7">7</option>
+
+	<option value="8">8</option>
+
+	<option value="9">9</option>
+
+</select>
+
+										</td>
+
+										<td class="brancoffffff_11"><span id="lblSeg_Pos">6</span>ª</td>
+
+										<td><select name="seg_pos" id="seg_pos" class="preto000000_11" onfocus="displayVK(&#39;none&#39;,&#39;VKeyboard&#39;)">
+
+	<option value=""></option>
+
+	<option selected="selected" value="0">0</option>
+
+	<option value="1">1</option>
+
+	<option value="2">2</option>
+
+	<option value="3">3</option>
+
+	<option value="4">4</option>
+
+	<option value="5">5</option>
+
+	<option value="6">6</option>
+
+	<option value="7">7</option>
+
+	<option value="8">8</option>
+
+	<option value="9">9</option>
+
+</select>
+
+										</td>
+
+									</tr>
+
+								</table>
+
+							</td>
+
+							<td><IMG height="1" src="/imagens/img_clear.gif" width="150"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4" height="8"><IMG src="/imagens/img_clear.gif"></td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4">
+
+								<table cellSpacing="0" cellPadding="0" border="0">
+
+									<TBODY>
+
+										<tr>
+
+											<td width="133"><IMG src="/imagens/img_clear.gif"></td>
+
+											<td height="20"><A class="vermelho990000_11_link" style="CURSOR: hand" tabIndex="1" onclick="window.open('aspx/empresas/recenseamento/recuperacao_pass/password1_recup.aspx','Recuperacao_Password','height=570,width=770,toolbar=no,menubar=no,location=yes,status=yes,top=50,left=50');" Title="Recuperação de Password" onmouseover="window.status='Recuperação de Password'; return true;" onmouseout="window.status=''; return true;">recuperação de Password</A></td>
+
+											<td width="120"><IMG src="/imagens/img_clear.gif"></td>
+
+											<td><a id="entrar" class="entrar" name="entrar" href="javascript:__doPostBack(&#39;entrar&#39;,&#39;&#39;)"><img src="/imagens/botao_login.gif" id="imgOK" border="0" Title="Entrar" onmouseover="window.status='Entrar'; return true;" onmouseout="window.status=''; return true;"></a></td>
+
+										</tr>
+
+										<tr>
+
+											<td colSpan="4"><IMG id="px" src="/imagens/img_clear.gif" align="top" border="0" name="px">
+
+												<script>
+
+													showVK(document.Form1.password,{backgroundColor:'#ffffff'});
+
+												</script>
+
+											</td>
+
+										</tr>
+
+
+
+
+
+										<!-- id 10171 -->
+
+										<tr><td height=70 colspan="4"></td></tr>
+
+
+
+										<tr>
+
+
+
+											<table cellSpacing="0" cellPadding="0" border="0">
+
+												<TBODY>
+
+													<tr>
+
+														<td width="163"><IMG src="/imagens/img_clear.gif"></td>
+
+														<td colSpan="3" class="preto333333_11" height="230">
+
+															<IMG src="/imagens/link_popup_seguranca.gif" style="border-style: none; border-width:0" usemap="#mapaLinkSegurancaBPN">
+
+															<map name="mapaLinkSegurancaBPN">
+
+																<area href="javascript:openSegurancaBPN();" shape="poly" coords="0,64,33,6,57,40,97,16,141,35,264,34,264,62,255,62,255,87,224,90,224,101,194,101,194,78,150,78,131,130,45,131,45,64">
+
+															</map>
+
+															<br/><br/>
+
+
+
+														</td>
+
+													</tr>
+
+												</TBODY>
+
+											</table>
+
+										</tr>
+
+										<!-- FIM id 10171 -->
+
+
+
+
+
+									</TBODY>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+						<tr>
+
+							<td colSpan="4"><IMG height="100" src="/imagens/img_clear.gif" width="1"></td>
+
+						</tr>
+
+					</TBODY>
+
+				</table>
+
+			</div>
+
+<script language="JavaScript">
+
+    var user=document.getElementById("username").value;
+
+</script>
+
+			<span id="RequiredFieldValidator2" style="color:Red;display:none;"></span>
+
+			<span id="CustomValidator1" style="color:Red;display:none;"></span>
+
+			<div id="ValidationSummary1" style="color:Red;display:none;">
+
+
+
+</div>
+
+
+
+			<table cellSpacing="0" cellPadding="0" border="0" width="763">
+
+				<TBODY>
+
+					<tr>
+
+						<td background="/imagens/HB_barra_sair_1.gif" width="763" align="right" height="16" valign="top"></td>
+
+					</tr>
+
+					<tr>
+
+						<td vAlign="top" width="175">
+
+							<table cellSpacing="0" cellPadding="0" border="0">
+
+								<TBODY>
+
+									<tr>
+
+										<td height="10"><IMG src="/imagens/img_clear.gif"></td>
+
+									</tr>
+
+									<tr>
+
+										<td><img src="/4/46/logo_junho_2007.gif"></td>
+
+										<td rowSpan="3" height="300" valign="top"><img src="/imagens/HB_img_login.gif"></td>
+
+									</tr>
+
+									<tr>
+
+										<td height="230" class="cinza666666_11" valign="top" width="200">Acabou de solicitar o acesso a um serviço apenas disponível para Clientes EuroBic. Para aderir ao serviço do serviço EuroBic Net, <b><a class=cinza666666_11 href="http://wwwprd.EuroBic.pt/Portal/v10/PT/aspx/EuroBicOnline/aderirNetBanking/index.aspx">clique aqui.</a></b><p> Se já é um Cliente EuroBic, aderente ao serviço EuroBic Net, <STRONG>basta inserir os seus códigos de acesso.</STRONG> As letras no utilizador e password têm de ser escritas utilizando corretamente as maiúsculas e minúsculas. Certifique-se de que a tecla Caps Lock não está ativada acidentalmente.</td>
+
+									</tr>
+
+									<tr>
+
+										<td height="140" valign="top">
+
+											<table cellSpacing="0" cellPadding="0" border="0">
+
+												<tr>
+
+													<td height="10"><IMG src="/imagens/img_clear.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td><IMG src="/4/23/HB_topo_login.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td class="vermelho990000_11_bold"><IMG src="/4/23/seta_noticiasHome.gif">&nbsp;Login</td>
+
+												</tr>
+
+												<tr>
+
+													<td width="175" background="/imagens/tracejado_menuEsq_pagsInt.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td height="3"><IMG src="/imagens/img_clear.gif"></td>
+
+												</tr>
+
+												<tr>
+
+													<td class="cinza666666_11" width="175"><span id="lblLogin" name="lblLogin">1 - Introduza a password, utilizando caso seja a sua preferência, o <STRONG>teclado virtual que pode ativar no respetivo ícone.</STRONG><br> 2 - Será necessário que nos forneça, adicionalmente, <STRONG>alguns dígitos de um documento de identificação.</STRONG><p> Se necessitar de ajuda, contacte-nos através da Linha EuroBic 808 22 44 44. A partir do estrangeiro ligue para: +351 213 180 870. Poderá fazê-lo entre as 8h e as 23h.<p></span></td>
+
+												</tr>
+
+												<tr>
+
+													<td><span id="labelErro" class="vermelho990000_11" style="color:Red;background-color:Transparent;"></span></td>
+
+												</tr>
+
+
+
+											</table>
+
+										</td>
+
+									</tr>
+
+								</TBODY>
+
+							</table>
+
+
+
+
+
+
+
+						</td>
+
+					</tr>
+
+				</TBODY>
+
+			</table>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var Page_ValidationSummaries =  new Array(document.getElementById("ValidationSummary1"));
+
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator2"), document.getElementById("CustomValidator1"));
+
+//]]>
+
+</script>
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
+
+RequiredFieldValidator2.controltovalidate = "password";
+
+RequiredFieldValidator2.errormessage = "- Password";
+
+RequiredFieldValidator2.display = "None";
+
+RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+
+RequiredFieldValidator2.initialvalue = "";
+
+var CustomValidator1 = document.all ? document.all["CustomValidator1"] : document.getElementById("CustomValidator1");
+
+CustomValidator1.errormessage = "- Posições aleatórias de Documento de Identificação";
+
+CustomValidator1.display = "None";
+
+CustomValidator1.evaluationfunction = "CustomValidatorEvaluateIsValid";
+
+CustomValidator1.clientvalidationfunction = "validaDocumento";
+
+var ValidationSummary1 = document.all ? document.all["ValidationSummary1"] : document.getElementById("ValidationSummary1");
+
+ValidationSummary1.headertext = "Os seguintes campos são obrigatórios: <br> ----------------------------------------------- </br>";
+
+ValidationSummary1.showmessagebox = "True";
+
+ValidationSummary1.showsummary = "False";
+
+ValidationSummary1.displaymode = "List";
+
+//]]>
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+
+
+var Page_ValidationActive = false;
+
+if (typeof(ValidatorOnLoad) == "function") {
+
+    ValidatorOnLoad();
+
+}
+
+
+
+function ValidatorOnSubmit() {
+
+    if (Page_ValidationActive) {
+
+        return ValidatorCommonOnSubmit();
+
+    }
+
+    else {
+
+        return true;
+
+    }
+
+}
+
+        //]]>
+
+</script>
+
+</form>
+
+		<script language="javascript">
+
+			if(parent.top.frames.length!=0)
+
+				document.forms[0].submit();
+
+
+
+			$(function(){
+
+				//cria a popup seguranca
+
+				$('#popupSegurancaBPN').dialog({
+
+						autoOpen: false,
+
+						width: 700,
+
+						modal: true,
+
+						closeOnEscape: true,
+
+						draggable: false,
+
+						resizable: false,
+
+						position: 'center',
+
+						dialogClass: 'alert_seguranca',
+
+						open: function(event, ui) { $("body").css( {overflow: 'hidden'} );  $('#popupSegurancaBPN').css({'background-color': '#FFFFFF'}); $(".alert_seguranca .ui-dialog-titlebar").hide();$(".alert_seguranca.ui-dialog").css({'padding': '0px'});},
+
+						beforeclose: function(event, ui) { $("body").css( {overflow: 'auto'} ); setFocus();}
+
+				});
+
+			});
+
+
+
+			function openSegurancaBPN()
+
+			{
+
+				document.getElementById('segurancaBPNFrame').src = '/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpn_index.aspx';
+
+				$('#popupSegurancaBPN').dialog('open');
+
+			}
+
+
+
+			function closeSegurancaBPN()
+
+			{
+
+				$('#popupSegurancaBPN').dialog('close');
+
+			}
+
+		</script>
+
+
+
+	<style type="text/css"> body{ font: 62.5% "Trebuchet MS", sans-serif; }
+
+		/*demo page css*/ #dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+
+		#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+
+	</style>
+
+
+
+
+
+	<div id="popupAvisoSeguranca" style="align:left;padding:0px;margin:0px;overflow:hidden;display:none">
+
+	<IFRAME SRC="/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpnalerta_index.aspx" id="Avisoseg" WIDTH="700" HEIGHT="500" scrolling="no" style="border: 0px" frameborder="no" marginwidth="0px" marginheight="0px">
+
+	</IFRAME>
+
+	</div>
+
+
+
+
+
+	<!--<script language="JavaScript">-->
+
+	<!--	window.frames['Avisoseg'].document.location.href = "/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpnalerta_index.aspx?username="+user;-->
+
+	<!--</script>-->
+
+
+
+	<div style="visibility:hidden">
+
+
+
+		<input type="button" onclick="javascript:$('#popupAvisoSeguranca').dialog('close');" name="popupCloseBtn1" value="Button" id="popupCloseBtn1">
+
+
+
+	</div>
+
+
+
+	<div id="popupSegurancaBPN" style="align:left;padding:0px;margin:0px;overflow:hidden;">
+
+		<IFRAME ID="segurancaBPNFrame" SRC="/CorporateBanking/v10/PT/aspx/empresas/segurancabpn/segurancabpn_index.aspx" WIDTH="700px" HEIGHT="500px" scrolling="no" style="border: 0px" frameborder="no" marginwidth="0px" marginheight="0px">
+
+		</IFRAME>
+
+	</div>
+
+
+
+	</body>
+
+</HTML>
+

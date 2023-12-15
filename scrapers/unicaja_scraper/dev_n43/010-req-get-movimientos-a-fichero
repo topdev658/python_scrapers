@@ -1,0 +1,24 @@
+get
+https://areaprivada.unicajabanco.es/univia/servlet/ControlServlet?o=csbcta&p=1&M1=operacion&M2=cuentas&M3=cuentas-consultas&M4=cuentas-movcsb
+
+{
+	"GET": {
+		"scheme": "https",
+		"host": "areaprivada.unicajabanco.es",
+		"filename": "/univia/servlet/ControlServlet",
+		"query": {
+			"o": "csbcta",
+			"p": "3",
+			"ppp": "001",
+			"diaDesde": "01",
+			"diaHasta": "29",
+			"mesDesde": "06",
+			"mesHasta": "07",
+			"anoDesde": "2021",
+			"anoHasta": "2021"
+		},
+		"remote": {
+			"Address": "195.76.110.110:443"
+		}
+	}
+}

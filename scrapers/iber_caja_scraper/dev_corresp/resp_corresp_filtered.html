@@ -1,0 +1,1481 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+
+    <link href="../css/fonts_nuevo.css" rel="stylesheet" rel="stylesheet" type="text/css"/>
+    <link href="../css/estilos_iframe_central.css" rel="stylesheet" type="text/css"/>
+
+    <link type="text/css" href="./Iberdoc/estilos/custom-theme/jquery-ui-1.8.10.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="./Iberdoc/Jscripts/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="./Iberdoc/Jscripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#dialog').dialog({
+                autoOpen: false,
+                width: 400,
+                draggable: false,
+                buttons: { "Cerrar": function() { $(this).dialog("close") } },
+                resizable: false,
+                title: "Cuentas utilizadas"
+            });
+
+            $('#dialog_link').click(function() {
+                $('#dialog').dialog('open');
+                return false;
+            });
+        });
+    </script>
+
+    <!--StartFragment -->
+    <script LANGUAGE="JavaScript" SRC="../js/browser.js"></script>
+    <meta NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+
+
+
+
+    <script language="JavaScript">
+
+        var flag;
+        flag = 0;
+
+
+        function lanzaOperacion_Ord(columna_ini, columna_fin, tipo) {
+
+            //correpondencia -> 0
+            //Fecha -> 1
+            //Importe -> 3
+            //Contrato -> 4
+
+            if (columna_ini==columna_fin){
+                if (tipo==1){
+                    document.formData.orden.value = "0";
+                } else {
+                    document.formData.orden.value = "1";
+                }
+            } else {
+                if (columna_fin==0 || columna_fin==4) {
+                    document.formData.orden.value = "0";
+                }else{
+                    document.formData.orden.value = "1";
+                }
+                document.formData.columna_orden.value = columna_fin;
+                document.formData.pagina_a_mostrar.value = "1";
+            }
+
+            document.formData.submit();
+
+        }
+
+
+        function lanzaBusqAvanzada() {
+            document.formData_BusqAv.submit();
+        }
+
+        /*
+        function refrescarIcono(k){
+            var image;
+            var literal;
+
+            image = document.getElementById("img_" + k);
+            literal = document.getElementById("lit_" + k);
+
+
+
+            if (image.name=="N"){
+                image.src ="./Iberdoc/imagenes/sobre_abierto.gif";
+                literal.className="valTitLeido"
+
+            }
+
+        }
+        */
+
+
+
+        // Objeto de deteccion del navegador
+        function DetectorNavegador() {
+            this.NS4 = document.layers;
+            this.IE4 = document.all;
+            this.DOM = document.getElementById;
+            this.DHTML = this.NS4 || this.IE4 || this.DOM;
+        }
+
+        var soporta = new DetectorNavegador();
+
+
+        function ActualizaContador(canal){
+
+            var idioma = document.formData.Idioma.value;
+            var entorno = document.formData.entorno.value;
+
+
+            if (flag==1){
+                if (canal=='IBE' || canal=='TAR'){
+                    parent.obtenerDatosCorreo(1);
+                }else{
+                    parent.menu.obtenerDatosCorreo(1);
+                }
+                flag=0;
+            }
+
+
+            if (document.formCont.flag_menu.value == 1){
+
+                //parent.menu_vertical.location.href="../asp/menus/menu_correo.asp?MSCSAuth=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F&desplegar=1";
+                parent.menu_vertical.location.href="../asp/menus/menu_correo.asp?MSCSAuth=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F&desplegar=1&Idioma="+ idioma +"&Entorno="+ entorno;
+                document.formCont.flag_menu.value == 0;
+
+            }
+
+        }
+
+
+
+
+        function dar_formato(num){
+            var cadena = ""; var aux;
+            var cont = 1,m,k;
+            var cadena_aux;
+            var posComa;
+            var parteDecimal;
+            var parteEntera;
+            var parteEntera_aux;
+
+
+            if(num<0) aux=1; else aux=0;
+
+            num=num.toString();
+
+            posComa= num.indexOf(",");
+
+
+            if (posComa==-1){
+                parteDecimal = ",00";
+                parteEntera = num;
+            }else{
+                num = num + "00";
+                parteDecimal = num.substring(posComa,posComa+3);
+                parteEntera = num.substring(0,posComa);
+            }
+
+            parteEntera_aux ="";
+
+            for(m=parteEntera.length-1; m>=0; m--){
+
+                parteEntera_aux = parteEntera.charAt(m) + parteEntera_aux;
+
+                if(cont%3 == 0 && m >aux){
+                    parteEntera_aux = "." + parteEntera_aux;
+                }else{
+                    parteEntera_aux = parteEntera_aux;
+                }
+                if(cont== 3) cont = 1; else cont++;
+
+            }
+
+            cadena = parteEntera_aux + parteDecimal;
+            return cadena;
+
+        }
+
+        function lanzaBuscador() {
+            document.formData_Buscador.submit();
+        }
+
+
+        function getKeyCode(e)
+        {
+            e= (window.event)? event : e;
+            intKey = (e.keyCode)? e.keyCode: e.charCode;
+            return intKey;
+        }
+
+
+    </script>
+
+
+</HEAD>
+
+<!--
+<body onContextMenu="return false;" Scroll="No" onFocus="ActualizaContador('IBE');" onLoad="CargaComboVistas('527_1','IBE');"> 
+-->
+
+<body onContextMenu="return false;" Scroll="No" onFocus="ActualizaContador('IBE');" onLoad="CargaComboVistas('527_1','IBE');">
+
+
+<script language="JavaScript">
+
+
+
+
+    function cambiaCursor(id, opt) {
+        var name
+
+        name = "link_" + id
+        if(opt == 0) {
+            // Cambio del puntero del ratón
+            //INI PROVA SL 21/03/2005 Problema amb document.all.item
+            //document.all.item(name,0).style.cursor = "hand";
+            //document.all.item(name,0).style.textDecorationUnderline = true;
+            //} else document.all.item(name,0).style.textDecorationUnderline = false;
+            document.getElementsByName(name)[0].style.cursor = 'pointer';
+            document.getElementsByName(name)[0].style.textDecoration = 'underline';
+        } else document.getElementsByName(name)[0].style.textDecoration ='';
+        //FI PROVA SL 21/03/2005 Problema amb document.all.item
+    }
+
+
+    //Función que permite abrir una ventana para bajarse el Acrobat Reader
+    /*
+    function WindowAdobe(direccion, nombre, w, h, scroll) {
+             var direccion2 = "http://www.adobe.es/";
+             var winl2 = (screen.width - w) / 2;
+             var wint2 = (screen.height - h) / 2;
+             winprops2 = 'height='+h+',width='+w+',top='+wint2+',left='+winl2+',scrollbars='+scroll+',resizable';
+             var win2 = window.open(direccion, nombre, winprops2);
+
+             if (parseInt(navigator.appVersion) >= 4)
+              {
+                 win2.window.focus();
+              }
+    }
+    */
+
+    function marcaResultados(estado,operacion,entorno){
+        var i
+        var sw
+        //var contador_N
+        //var contador_S
+        var s
+        var ss
+        var consultado
+        var k
+
+
+
+        sw=0;
+
+        //contador_N=0;
+        //contador_S=0;
+
+        //Ocultamos el posible mensaje de operaciones anteriores
+        document.getElementById("MensajeOp").style.display = "none";
+
+        s = document.formValores.indcons.value;
+        ss = s.split("#");
+
+        var checkRes=window.document.getElementsByName("marca_resultados");
+
+        for(i=0;i<checkRes.length;i++){
+
+            if (checkRes[i].disabled == false){
+                sw=1;
+                //break;
+
+                k = checkRes[i].value;
+                consultado = ss[k];
+
+                /*
+                            if (consultado=="N"){
+                                contador_N+=1;
+                            }else{
+                                contador_S+=1;
+                            }
+                */
+            }
+        }
+
+        for(i=0;i<checkRes.length;i++){
+            if (checkRes[i].disabled == false){
+                checkRes[i].checked = estado;
+            }
+        }
+
+
+        if (estado==true){
+            document.getElementById("btAbrir").disabled=false;
+            document.getElementById("btAbrir").src='./Iberdoc/imagenes/btn_abrir_on.png';
+
+            //if (operacion.substring(0,4)!="528_" && operacion.substring(0,4)!="527_"){
+            if (operacion.substring(0,4)=="525_" || operacion.substring(0,4)=="526_" || (operacion.substring(0,4)=="527_" && entorno=="IN")){
+                document.getElementById("btCons").disabled=false;
+                document.getElementById("btCons").src='./Iberdoc/imagenes/btn_marcar_abierto_cerrado_on.png';
+            }
+            document.getElementById("btDuplicados").disabled=false;
+            document.getElementById("btDuplicados").src='./Iberdoc/imagenes/btn_pedir_duplicado_on.png';
+
+        }else{
+            document.getElementById("btAbrir").disabled=true;
+            document.getElementById("btAbrir").src='./Iberdoc/imagenes/btn_abrir_off.png';
+
+            document.getElementById("btCons").disabled=true;
+            document.getElementById("btCons").src='./Iberdoc/imagenes/btn_marcar_abierto_cerrado_off.png';
+            document.getElementById("btDuplicados").disabled=true;
+            document.getElementById("btDuplicados").src='./Iberdoc/imagenes/btn_pedir_duplicado_off.png';
+
+        }
+
+
+    }
+
+    function marcaCabecera(estado,operacion,entorno){
+        var i
+        var sw
+        //var contador_N
+        //var contador_S
+        var s
+        var ss
+        var consultado
+        var k
+
+        sw=0;
+
+//	contador_N=0;
+//	contador_S=0;
+
+
+        //Ocultamos el posible mensaje de operaciones anteriores
+        document.getElementById("MensajeOp").style.display = "none";
+
+        s = window.document.formValores.indcons.value;
+        ss = s.split("#");
+
+        var checkRes=window.document.getElementsByName("marca_resultados");
+        //comprobamos si están o no todos marcados
+        if (checkRes.length==1){
+
+            if (estado==true ){
+                sw=1;
+
+                k = checkRes[0].value;
+                consultado = ss[k];
+            }
+
+        }else{
+
+            for(i=0;i<checkRes.length;i++){
+
+                if (checkRes[i].checked != estado && sw==0){
+
+                    sw=1;
+                    //break;
+                }
+
+
+                if (checkRes[i].checked==true ){
+
+                    k = checkRes[i].value;
+                    consultado = ss[k];
+
+                    /*
+                    if (consultado=="N"){
+                        contador_N+=1;
+                    }else{
+                        contador_S+=1;
+                    }
+                    */
+                }
+            }
+
+        }
+
+
+        var checkCabecera=window.document.getElementsByName("marca_cabecera");
+
+
+
+        if (sw==1){
+            checkCabecera[0].checked=estado;
+            checkCabecera[0].indeterminate=true;
+
+            document.getElementById("btAbrir").disabled=false;
+            document.getElementById("btAbrir").src='./Iberdoc/imagenes/btn_abrir_on.png';
+
+            //if (operacion.substring(0,4)!="528_" && operacion.substring(0,4)!="527_"){
+            if (operacion.substring(0,4)=="525_" || operacion.substring(0,4)=="526_" || (operacion.substring(0,4)=="527_" && entorno=="IN")){
+                document.getElementById("btCons").disabled=false;
+                document.getElementById("btCons").src='./Iberdoc/imagenes/btn_marcar_abierto_cerrado_on.png';
+            }
+            document.getElementById("btDuplicados").disabled=false;
+            document.getElementById("btDuplicados").src='./Iberdoc/imagenes/btn_pedir_duplicado_on.png';
+
+
+        }else{
+            checkCabecera[0].indeterminate=false;
+            checkCabecera[0].checked=estado;
+            if (estado==false){
+                document.getElementById("btAbrir").disabled=true;
+                document.getElementById("btAbrir").src='./Iberdoc/imagenes/btn_abrir_off.png';
+
+                document.getElementById("btCons").disabled=true;
+                document.getElementById("btCons").src='./Iberdoc/imagenes/btn_marcar_abierto_cerrado_off.png';
+                document.getElementById("btDuplicados").disabled=true;
+                document.getElementById("btDuplicados").src='./Iberdoc/imagenes/btn_pedir_duplicado_off.png';
+            }
+        }
+
+    }
+
+
+</script>
+
+<script language="javascript">
+    function devuelve_ticket()  {
+        return '3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F';
+    }
+</script>
+
+
+<script language="JavaScript">
+
+    function lanzaOperacion_525(strOperacion, agrupacion) {
+        var dia
+        var mes
+        var anio1
+        var anio2
+        var ahora = new Date();
+
+        if (String(ahora.getDate()).length==1){
+            dia = '0' + ahora.getDate()
+        } else{
+            dia = ahora.getDate()
+        }
+
+        if (String(ahora.getMonth()+1).length==1){
+            mes = '0' + (ahora.getMonth()+1)
+        } else{
+            mes = ahora.getMonth()+1
+        }
+
+        anio1=ahora.getFullYear()
+        anio2=ahora.getFullYear() - 1
+
+        if (agrupacion == "14"){
+            document.formData.fecha_ini.value = anio1 + "/01/01";
+            document.formData.fecha_fin.value = anio1 + "/12/31";
+
+        }else{
+            document.formData.fecha_ini.value = anio2 + "/" + mes + "/" + dia;
+            document.formData.fecha_fin.value = anio1 + "/" + mes + "/" + dia;
+        }
+
+
+
+        document.formData.idoperacion.value = strOperacion;
+
+        document.formData.agrupacion.value = agrupacion;
+        document.formData.pagina_a_mostrar.value = "1";
+        document.formData.orden.value = "1";
+        document.formData.columna_orden.value = "1";
+        document.formData.submit();
+
+    }
+
+
+
+    function calculaFechasInfoFiscal(){
+
+
+        var valor = document.getElementById("combo").value;
+
+        document.formData.fecha_ini.value = valor + "/01/01";
+        document.formData.fecha_fin.value = valor + "/12/31";
+
+        //lanzaOperacion_525("14");
+        document.formData.agrupacion.value = "14";
+        document.formData.pagina_a_mostrar.value = "1";
+        document.formData.orden.value = "1";
+        document.formData.columna_orden.value = "1";
+        document.formData.submit();
+    }
+
+
+
+    function lanzaOperacion_Mensajes() {
+
+        document.formData_Mensajes.submit();
+
+    }
+
+
+    function lanzaOperacion(agrupacion) {
+
+        document.formData.agrupacion.value = agrupacion;
+        document.formData.pagina_a_mostrar.value = "1";
+        document.formData.orden.value = "1";
+        document.formData.columna_orden.value = "1";
+        document.formData.submit();
+
+    }
+
+
+    function lanzaOperacion_Pag(operacion,mostrarPag,direccion) {
+
+        if(direccion=="primera"){
+            mostrarPag=1
+            document.formData.pagina_a_mostrar.value = mostrarPag ;
+            document.formData.submit();
+        }else if(direccion=="siguiente"){
+            mostrarPag+=1
+            document.formData.pagina_a_mostrar.value = mostrarPag ;
+            document.formData.submit();
+        }else if(direccion=="anterior"){
+            mostrarPag-=1
+            document.formData.pagina_a_mostrar.value = mostrarPag;
+            document.formData.submit();
+        }else if(direccion=="ultima"){
+            document.formData.pagina_a_mostrar.value = mostrarPag;
+            document.formData.submit();
+        }else if(direccion=="caja"){
+            var valor = document.getElementById("numPagina").value;
+
+            if (!isNaN(valor)) {
+                if (valor > mostrarPag) valor = mostrarPag;
+                if (valor < 1) valor = 1;
+
+                document.formData.pagina_a_mostrar.value = parseInt(valor);
+                document.formData.submit();
+            }
+
+        }
+
+    }
+
+    //Marcar Cons/no cons.
+    function CambiarEstadoGrupo() {
+        var s, ss, permisos
+        var k, cont, contador
+        var tmp
+
+
+        // Obtenemos el número de registros recibidos
+        // en el formulario.
+        cont = 0;
+        contador = 0; //controla que
+
+        s = document.formValores.fechacarta.value;
+        ss = s.split("#");
+        for(k=1; k<16; k++) {
+            if((ss[k] != "") && (ss[k] != null)) cont = cont + 1;
+        }
+        document.formCons.numparams.value = cont;
+
+        //Guardamos qué registros deben actualizarse
+        var i
+        var estado = new Array(16)
+
+        var checkRes=window.document.getElementsByName("marca_resultados");
+
+        for(i=0;i<checkRes.length;i++){
+            s = document.formValores.indcons.value;
+            ss = s.split("#");
+
+            s = document.formValores.menus.value;
+            permisos = s.split("#");
+
+
+
+            if (checkRes[i].checked == true){
+
+                if(permisos[i+1].substring(2,1)=='N' || permisos[i+1].substring(2,1)=='n'){
+                    checkRes[i].checked =false;
+                    estado[i+1]=0;
+                }else{
+                    estado[i+1]=1;
+                    contador+=1;
+                }
+
+
+            }else{
+                estado[i+1]=0;
+            }
+        }
+
+        //limpiamos los parámetros
+        document.formCons.param1.value = "";
+        document.formCons.param2.value = "";
+        document.formCons.param3.value = "";
+        document.formCons.param4.value = "";
+        document.formCons.param5.value = "";
+        document.formCons.param6.value = "";
+        document.formCons.param7.value = "";
+        document.formCons.param8.value = "";
+        document.formCons.param9.value = "";
+        document.formCons.param10.value = "";
+        document.formCons.param11.value = "";
+        document.formCons.param12.value = "";
+        document.formCons.param13.value = "";
+        document.formCons.param14.value = "";
+        document.formCons.param15.value = "";
+
+        if (contador>0){
+            for(k=1; k<=document.formCons.numparams.value; k++) {
+                tmp = "";
+
+                if (estado[k]==1){
+
+                    s = document.formValores.entidad.value;
+                    tmp = s + "#";
+
+                    s = document.formValores.codref.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.codcontr.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.numcontr.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.fechacarta.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+
+                    // Marcamos 'S'/'N' para dar/no dar por consultado el comunicado
+                    s = document.formValores.indcons.value;
+                    ss = s.split("#");
+                    if(ss[k] == "S" || ss[k] == "s") tmp = tmp + "N#";
+                    else if(ss[k] == "N" || ss[k] == "n") tmp = tmp + "S#";
+
+                    s = document.formValores.claf.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    //tmp = tmp + obtener_claf2() + "#";
+                    tmp = tmp + " " + "#";
+
+                    s = document.formValores.doc1apag.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.ver1apag.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.numpag.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.codctaaso.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.numctaaso.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s = document.formValores.importe.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k].replace(",", ".") + "#";
+                    s = document.formValores.moneda.value;
+                    ss = s.split("#");
+                    tmp = tmp + ss[k] + "#";
+                    s= document.formValores.canal.value;
+                    tmp = tmp + s+ "#";
+
+
+                    // Guardamos la cadena en el parámetro
+                    if(k==1) document.formCons.param1.value = tmp;
+                    if(k==2) document.formCons.param2.value = tmp;
+                    if(k==3) document.formCons.param3.value = tmp;
+                    if(k==4) document.formCons.param4.value = tmp;
+                    if(k==5) document.formCons.param5.value = tmp;
+                    if(k==6) document.formCons.param6.value = tmp;
+                    if(k==7) document.formCons.param7.value = tmp;
+                    if(k==8) document.formCons.param8.value = tmp;
+                    if(k==9) document.formCons.param9.value = tmp;
+                    if(k==10) document.formCons.param10.value = tmp;
+                    if(k==11) document.formCons.param11.value = tmp;
+                    if(k==12) document.formCons.param12.value = tmp;
+                    if(k==13) document.formCons.param13.value = tmp;
+                    if(k==14) document.formCons.param14.value = tmp;
+                    if(k==15) document.formCons.param15.value = tmp;
+
+                }
+            }
+            // Una vez completado, enviamos el formulario
+            // para realizar la operación.
+            s= document.formValores.idoperacion.value;
+            if (s!='528_1' && s!='528_21' && s!='528_22' && s!='528_12' && s!='528_3'){
+                document.formCons.submit();
+            }
+        }else{
+
+            //Si el contador es cero, desmarcamos el check cabecera y deshabilitamos los botones
+            var checkCabecera=window.document.getElementsByName("marca_cabecera");
+            checkCabecera[0].indeterminate=false;
+            checkCabecera[0].checked=false;
+
+            document.getElementById("btAbrir").disabled=true;
+            //document.getElementById("btNoCons").disabled=true;
+            //document.getElementById("btSiCons").disabled=true;
+            document.getElementById("btCons").disabled=true;
+            document.getElementById("btDuplicados").disabled=true;
+
+            /*
+            if (cambio=='S'){
+                alert("Los documentos se encuentran ya como consultados");
+            }else{
+                alert("Los documentos se encuentran ya como no consultados");
+            }
+            */
+
+        }
+    }
+
+    function AbreVentana()
+    {
+        var w=800;
+        var h=500;
+        var direccion = "Iberdoc/Visualizacion_inicio.asp?MSCSAUTH=" + devuelve_ticket();
+
+
+        var winl = (screen.width - w) / 2;
+        var wint = (screen.height -h)  /2;
+        winprops = 'height='+h+',width='+w+',top='+wint+',left='+winl+',scrollbars='+scroll+',resizable';
+
+
+        var win = window.open(direccion, "ventana", winprops);
+
+
+        //MensajeOp.style.display = "none";
+
+    }
+
+    function PedirDuplicadosGrupo() {
+        var s, ss
+        var k, cont
+        var tmp
+
+
+        // Obtenemos el número de registros recibidos
+        // en el formulario.
+        cont = 0;
+        s = document.formValores.fechacarta.value;
+        ss = s.split("#");
+        for(k=1; k<16; k++) {
+            if((ss[k] != "") && (ss[k] != null)) cont = cont + 1;
+        }
+        document.formFaxMail.numparams.value = cont;
+
+        //Guardamos qué registros deben actualizarse
+        var i
+        var estado = new Array(16)
+
+        var checkRes=window.document.getElementsByName("marca_resultados");
+
+        for(i=0;i<checkRes.length;i++){
+            s = document.formValores.indcons.value;
+            ss = s.split("#");
+
+            if (checkRes[i].checked == true){
+                estado[i+1]=1;
+
+            }else{
+                estado[i+1]=0;
+            }
+
+        }
+
+        //limpiamos los parámetros
+        document.formFaxMail.param1.value = "";
+        document.formFaxMail.param2.value = "";
+        document.formFaxMail.param3.value = "";
+        document.formFaxMail.param4.value = "";
+        document.formFaxMail.param5.value = "";
+        document.formFaxMail.param6.value = "";
+        document.formFaxMail.param7.value = "";
+        document.formFaxMail.param8.value = "";
+        document.formFaxMail.param9.value = "";
+        document.formFaxMail.param10.value = "";
+        document.formFaxMail.param11.value = "";
+        document.formFaxMail.param12.value = "";
+        document.formFaxMail.param13.value = "";
+        document.formFaxMail.param14.value = "";
+        document.formFaxMail.param15.value = "";
+
+        for(k=1; k<=document.formFaxMail.numparams.value; k++) {
+            tmp = "";
+
+            if (estado[k]==1){
+                /*
+                //Entidad
+                s = document.formValores.entidad.value;
+                tmp = s + "#";
+                */
+
+                // disponibleonline
+                s = document.formValores.disponibleonline.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Codref
+                s = document.formValores.codref.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Claf
+                s = document.formValores.claf.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+                //tmp = tmp + obtener_claf2() + "#";
+                tmp = tmp + " " + "#";
+
+                //Doc1apag
+                s = document.formValores.doc1apag.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Ver1apag
+                s = document.formValores.ver1apag.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //numpag
+                s = document.formValores.numpag.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //CodContr
+                s = document.formValores.codcontr.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //NumContr
+                s = document.formValores.numcontr.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //CodCtaAso
+                s = document.formValores.codctaaso.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //NumCtaAso
+                s = document.formValores.numctaaso.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Importe
+                s = document.formValores.importe.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k].replace(",", ".") + "#";
+
+                //Divisa
+                s = document.formValores.moneda.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //FechaCarta
+                s = document.formValores.fechacarta.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Consultado
+                /*
+                s = document.formValores.indcons.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+                */
+
+                s = document.formValores.indcons.value;
+                ss = s.split("#");
+                if(ss[k] == "S" || ss[k] == "s") tmp = tmp + "N#";
+                else if(ss[k] == "N" || ss[k] == "n") tmp = tmp + "S#";
+
+
+                // idioma
+                s = document.formValores.idioma.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Descripción
+                s = document.formValores.descripcion.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Acceso Dup.Papel
+                s = document.formValores.accesoduppapel.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Acceso Dup.Fax
+                s = document.formValores.accesodupfax.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k] + "#";
+
+                //Acceso Dup.Mail
+                s = document.formValores.accesodupmail.value;
+                ss = s.split("#");
+                tmp = tmp + ss[k];
+
+
+
+                // Guardamos la cadena en el parámetro
+                if(k==1) document.formFaxMail.param1.value = tmp;
+                if(k==2) document.formFaxMail.param2.value = tmp;
+                if(k==3) document.formFaxMail.param3.value = tmp;
+                if(k==4) document.formFaxMail.param4.value = tmp;
+                if(k==5) document.formFaxMail.param5.value = tmp;
+                if(k==6) document.formFaxMail.param6.value = tmp;
+                if(k==7) document.formFaxMail.param7.value = tmp;
+                if(k==8) document.formFaxMail.param8.value = tmp;
+                if(k==9) document.formFaxMail.param9.value = tmp;
+                if(k==10) document.formFaxMail.param10.value = tmp;
+                if(k==11) document.formFaxMail.param11.value = tmp;
+                if(k==12) document.formFaxMail.param12.value = tmp;
+                if(k==13) document.formFaxMail.param13.value = tmp;
+                if(k==14) document.formFaxMail.param14.value = tmp;
+                if(k==15) document.formFaxMail.param15.value = tmp;
+            }
+        }
+        // Una vez completado, enviamos el formulario
+        // para realizar la operación.
+        document.formFaxMail.submit();
+    }
+
+    function CargaComboVistas(operacion,canal){
+        var strVistasGuardadas
+        var aVistas
+        var aValores
+        var i
+
+
+        //actualizar el contador
+        if (canal=='IBE' || canal=='TAR'){
+            parent.obtenerDatosCorreo(1);
+        }else{
+            parent.menu.obtenerDatosCorreo(1);
+        }
+
+
+
+        if (operacion=='528_1' || operacion=='528_21' || operacion=='528_22' || operacion=='528_12' || operacion=='528_3'){
+
+            var listadoVistas = window.document.getElementsByName("comboVistas");
+            var indice = 0;
+
+            strVistasGuardadas ='';
+            strVistasGuardadas = window.document.formData.ctas_guardadas.value;
+
+
+            if (strVistasGuardadas!=''){
+                aVistas = strVistasGuardadas.split("|");
+
+                for (i=0;i<aVistas.length;i++){
+                    aValores = aVistas[i].split(";");
+
+                    var op = window.document.createElement("OPTION");
+                    op.value = aValores[1] + ';' + aValores[2];
+                    op.text = aValores[0];
+
+                    listadoVistas[0].options[i+1]=op;	//i+1 para no eliminar el valor por defecto del combo
+
+                    if (window.document.formData.vistaSel.value!='' && op.text==window.document.formData.vistaSel.value){
+                        indice = i+1;
+                    }
+
+                }
+
+                listadoVistas[0].selectedIndex = indice;
+
+
+            }
+
+        }
+    }
+
+    function LanzaVista(){
+
+        var vistaSelec = window.document.getElementsByName("comboVistas");
+        var indice = vistaSelec[0].selectedIndex
+
+        if (indice!=0){
+
+            var aValor = vistaSelec[0].options[indice].value.split(';');
+
+            window.document.formLanzarVista.cuentas.value = '#' + aValor[1] + '#';
+            window.document.formLanzarVista.pestanas.value = aValor[0];
+            window.document.formLanzarVista.vistaSel.value = vistaSelec[0].options[indice].text;
+            if (aValor[0].substring(0,2)=='00'){
+                window.document.formLanzarVista.agrupacion.value = '';
+            }else{
+                window.document.formLanzarVista.agrupacion.value = aValor[0].substring(0,2);
+            }
+            document.formLanzarVista.submit();
+        }
+
+    }
+
+</SCRIPT>
+
+
+
+
+<table border="0" cellspacing="2" width="100%">
+    <tr>
+        <td class="articletitle" height="25">
+            <b>Consulta de documentos</b>
+        </td>
+    </tr>
+</table>
+<br><br>
+<div class="conjuntobotonesfuncionales">
+    <div class="botonfuncional"><input type=image src="./Iberdoc/imagenes/btn_abrir_off.png" name="btAbrir" id="btAbrir" disabled language="javascript" onclick="AbreVentana()"></div><div class="botonfuncional"><input type=image src="./Iberdoc/imagenes/btn_marcar_abierto_cerrado_off.png" name="btCons" id="btCons" disabled language="javascript" onclick="CambiarEstadoGrupo()"></div><div class="botonfuncional"><input type=image src="./Iberdoc/imagenes/btn_pedir_duplicado_off.png" name="btDuplicados" id="btDuplicados" disabled language="javascript" onclick="PedirDuplicadosGrupo()"></div></div><div id="MensajeOp"></div><div class="conjuntobotones"><div class="boton"><div class="imagenizquierdaseleccionada"></div><div><a href="javascript:lanzaOperacion('');" class="enlacebotonseleccionado">Todos</a></div><div class="imagenderechaseleccionada"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('04');" class="enlaceboton">Valores</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('05');" class="enlaceboton">Tarjetas</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('07');" class="boton2filas">Seg.<br>Ahorro</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('08');" class="boton2filas">Cartera y<br>Extranjero</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('09');" class="boton2filas">Ahorro y<br>Financiación</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('11');" class="enlaceboton">Recibos</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('13');" class="enlaceboton">Extractos</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('14');" class="boton2filas">Inf.<br>Fiscal</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('15');" class="boton2filas">Fondos y<br>Planes</a></div><div class="imagenderecha"></div></div><div class="boton"><div class="imagenizquierda" ></div><div><a href="javascript:lanzaOperacion('16');" class="enlaceboton">Transferencias</a></div><div class="imagenderecha"></div></div></div><table class="estilotabla" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="cabeceradetalle" width="1%"><INPUT TYPE=CHECKBOX NAME="marca_cabecera"  onclick="javascript:marcaResultados(this.checked,'527_1','IN');"></td><td class="cabeceradetalle" width="9%"><a  class="blanco" href="javascript:lanzaOperacion_Ord(1, 0,1);">Estado</td>
+        <td class="cabeceradetalle" width="5%"><a class="blanco" href="javascript:lanzaOperacion_Ord(1, 1,1);">Fecha<img SRC="./Iberdoc/imagenes/mail_list_arrow_down.png" BORDER="0" height="8" align="bottom"></td>
+        <td class="cabeceradetalle" width="43%">Descripción</td>
+        <td class="cabeceradetalle" width="10%"><a class="blanco" href="javascript:lanzaOperacion_Ord(1, 3,1);">Importe</td>
+        <td class="cabeceradetalle" width="4%">Divisa</td>
+        <td class="cabeceradetalle" width="15%"><a class="blanco" href="javascript:lanzaOperacion_Ord(1, 4,1);">Contrato</td>
+        <td class="cabeceradetalle" width="5%">Alias</td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=1 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_0"></td>
+        <td class="dos">10.08.2020</td>
+        <td class="dos" id="lit_0" class="valTitNoLeido">COM.EXT.AMORTIZACION DE FINANCIACION&nbsp;</td>
+        <td class="dos" align="right">&nbsp;</td>
+        <td class="dos">&nbsp;</td>
+        <td class="dos">20859660315800582518</td>
+        <td class="dos"></td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=2 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_1"></td>
+        <td class="un">07.08.2020</td>
+        <td class="un" id="lit_1" class="valTitNoLeido">TRANSFERENCIAS&nbsp;</td>
+        <td class="un"  align="right"><script type="text/javascript">document.write(dar_formato('125000'));</script></td>
+        <td class="un"> EUR</td>
+        <td class="un">20859660310330231072</td>
+        <td class="un">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=3 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_2"></td>
+        <td class="dos">07.08.2020</td>
+        <td class="dos" id="lit_2" class="valTitNoLeido">INF.PRESTAMOS FACTURACION CENTRALIZADA&nbsp;</td>
+        <td class="dos" align="right">&nbsp;</td>
+        <td class="dos">&nbsp;</td>
+        <td class="dos">60901212150039P000007</td>
+        <td class="dos">PR</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=4 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_3"></td>
+        <td class="un">31.07.2020</td>
+        <td class="un" id="lit_3" class="valTitNoLeido">EXTRACTO MOVIMIENTOS&nbsp;</td>
+        <td class="un" align="right">&nbsp;</td>
+        <td class="un">&nbsp;</td>
+        <td class="un">20859660310330231072</td>
+        <td class="un">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=5 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_4"></td>
+        <td class="dos">24.07.2020</td>
+        <td class="dos" id="lit_4" class="valTitNoLeido">TRANSFERENCIAS&nbsp;</td>
+        <td class="dos"  align="right"><script type="text/javascript">document.write(dar_formato('25000'));</script></td>
+        <td class="dos"> EUR</td>
+        <td class="dos">20859660310330231072</td>
+        <td class="dos">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=6 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_5"></td>
+        <td class="un">23.07.2020</td>
+        <td class="un" id="lit_5" class="valTitNoLeido">COM.EXT.AMORTIZACION DE FINANCIACION&nbsp;</td>
+        <td class="un" align="right">&nbsp;</td>
+        <td class="un">&nbsp;</td>
+        <td class="un">20859660315800582518</td>
+        <td class="un"></td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=7 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_6"></td>
+        <td class="dos">09.07.2020</td>
+        <td class="dos" id="lit_6" class="valTitNoLeido">TRANSFERENCIAS&nbsp;</td>
+        <td class="dos"  align="right"><script type="text/javascript">document.write(dar_formato('45000'));</script></td>
+        <td class="dos"> EUR</td>
+        <td class="dos">20859660310330231072</td>
+        <td class="dos">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=8 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_cerrado.png" name="N"   id="img_7"></td>
+        <td class="un">01.07.2020</td>
+        <td class="un" id="lit_7" class="valTitNoLeido">EXTRACTO MOVIMIENTOS&nbsp;</td>
+        <td class="un" align="right">&nbsp;</td>
+        <td class="un">&nbsp;</td>
+        <td class="un">20859660388300470098</td>
+        <td class="un">DIVI.</td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=9 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_8"></td>
+        <td class="dos">01.07.2020</td>
+        <td class="dos" id="lit_8" class="valTitLeido">EXTRACTO MOVIMIENTOS&nbsp;</td>
+        <td class="dos" align="right">&nbsp;</td>
+        <td class="dos">&nbsp;</td>
+        <td class="dos">20859660310330231072</td>
+        <td class="dos">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=10 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_9"></td>
+        <td class="un">25.06.2020</td>
+        <td class="un" id="lit_9" class="valTitLeido">COM.EXT.AMORTIZACION DE FINANCIACION&nbsp;</td>
+        <td class="un" align="right">&nbsp;</td>
+        <td class="un">&nbsp;</td>
+        <td class="un">20859660315800582518</td>
+        <td class="un"></td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=11 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_10"></td>
+        <td class="dos">24.06.2020</td>
+        <td class="dos" id="lit_10" class="valTitLeido">TRANSFERENCIAS&nbsp;</td>
+        <td class="dos"  align="right"><script type="text/javascript">document.write(dar_formato('100000'));</script></td>
+        <td class="dos"> EUR</td>
+        <td class="dos">20859660310330231072</td>
+        <td class="dos">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=12 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_11"></td>
+        <td class="un">24.06.2020</td>
+        <td class="un" id="lit_11" class="valTitLeido">COM.EXT.AMORTIZACION DE FINANCIACION&nbsp;</td>
+        <td class="un" align="right">&nbsp;</td>
+        <td class="un">&nbsp;</td>
+        <td class="un">20859660315800582518</td>
+        <td class="un"></td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=13 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_12"></td>
+        <td class="dos">16.06.2020</td>
+        <td class="dos" id="lit_12" class="valTitLeido">EXTRACTOS LIQUIDACION&nbsp;</td>
+        <td class="dos"  align="right"><script type="text/javascript">document.write(dar_formato('14,21'));</script></td>
+        <td class="dos"> USD</td>
+        <td class="dos">20859660388300470098</td>
+        <td class="dos">DIVI.</td>
+    </tr>
+    <tr>
+        <td class="un" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=14 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="un" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_13"></td>
+        <td class="un">16.06.2020</td>
+        <td class="un" id="lit_13" class="valTitLeido">EXTRACTOS LIQUIDACION&nbsp;</td>
+        <td class="un"  align="right"><script type="text/javascript">document.write(dar_formato('9'));</script></td>
+        <td class="un"> EUR</td>
+        <td class="un">20859660310330231072</td>
+        <td class="un">C.CTE</td>
+    </tr>
+    <tr>
+        <td class="dos" align="center"><INPUT TYPE=CHECKBOX NAME="marca_resultados" VALUE=15 onclick="javascript:marcaCabecera(this.checked,'527_1','IN');"></td>
+        <td class="dos" align="center"><img SRC="./Iberdoc/imagenes/btn_sobre_abierto.png" name="S" id="img_14"></td>
+        <td class="dos">16.06.2020</td>
+        <td class="dos" id="lit_14" class="valTitLeido">LIQUIDACION INTERESES&nbsp;</td>
+        <td class="dos"  align="right"><script type="text/javascript">document.write(dar_formato('9'));</script></td>
+        <td class="dos"> EUR</td>
+        <td class="dos">20859660310330231072</td>
+        <td class="dos">C.CTE</td>
+    </tr>
+</table>
+<div class="pietabla"><div class="siguiente"><img src="./Iberdoc/imagenes/btn_arrow_right.png" alt="" onClick="javascript:lanzaOperacion_Pag('527_1',1,'siguiente');"/></div><div class="anterior"><img src="./Iberdoc/imagenes/btn_arrow_left_off.png" alt=""/></div><div class="textopaginacion">Página 1 de 2</div></div><br>
+<TABLE><TR><TD align="right"><input type="image" align="BOTTOM" border="0" src="../img/botonVolver.png" onclick="javascript:lanzaBuscador()"></input></TD></TR></TABLE>
+
+
+<!-- Formulario oculto con los parámetros de los -->
+<!-- diferentes registros en formato:			 -->
+<!-- #<valor1>#<valor2>#<valor3># ... #<valorN># -->
+<form name="formValores">
+
+    <input type="hidden" name="idoperacion" value="527_1">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="limitCuentas" value="">
+
+    <input type="hidden" name="fechacarta" value="#2020/08/10#2020/08/07#2020/08/07#2020/07/31#2020/07/24#2020/07/23#2020/07/09#2020/07/01#2020/07/01#2020/06/25#2020/06/24#2020/06/24#2020/06/16#2020/06/16#2020/06/16#">
+    <input type="hidden" name="descripcion" value="#COM.EXT.AMORTIZACION DE FINANCIACION#TRANSFERENCIAS#INF.PRESTAMOS FACTURACION CENTRALIZADA#EXTRACTO MOVIMIENTOS#TRANSFERENCIAS#COM.EXT.AMORTIZACION DE FINANCIACION#TRANSFERENCIAS#EXTRACTO MOVIMIENTOS#EXTRACTO MOVIMIENTOS#COM.EXT.AMORTIZACION DE FINANCIACION#TRANSFERENCIAS#COM.EXT.AMORTIZACION DE FINANCIACION#EXTRACTOS LIQUIDACION#EXTRACTOS LIQUIDACION#LIQUIDACION INTERESES#">
+    <input type="hidden" name="importe" value="#0#125000#0#0#25000#0#45000#0#0#0#100000#0#14,21#9#9#">
+    <input type="hidden" name="moneda" value="#ESP#EUR#ESP#ESP#EUR#ESP#EUR#ESP#ESP#ESP#EUR#ESP#USD#EUR#EUR#">
+    <input type="hidden" name="numpag" value="#1#1#1#1#1#1#1#1#1#1#1#1#1#1#1#">
+    <input type="hidden" name="codcontr" value="#DX#SE#PR#AH#SE#DX#SE#AH#AH#DX#SE#DX#AH#AH#AH#">
+    <input type="hidden" name="numcontr" value="#20859660315800582518#999999020042831244       #60901212150039P000007#20859660310330231072#999999006041830664       #20859660315800582518#999999091040730083       #20859660388300470098#20859660310330231072#20859660315800582518#999999076039629346       #20859660315800582518#20859660388300470098#20859660310330231072#20859660310330231072#">
+    <input type="hidden" name="indcons" value="#N#N#N#N#N#N#N#N#S#S#S#S#S#S#S#">
+
+    <input type="hidden" name="doc1apag" value="#LF599 #LSE11C#LPR06A#I0031D#LSE11C#LF599 #LSE11C#I0031D#I0031D#LF599 #LSE11C#LF599 #I0111 #I0111 #I5197A#">
+    <input type="hidden" name="ver1apag" value="#2#0#0#2#0#2#0#2#2#2#0#2#2#2#4#">
+    <input type="hidden" name="codref" value="#200810001990000054#200807000990000015#200808000180021586#200801000330217375#200724001140000001#200723002780000094#200709001390000013#200701002240225463#200701002240225178#200625002400000153#200624001060000015#200624002340000107#200622002060052784#200622002060052193#200617001860040377#">
+    <input type="hidden" name="codctaaso" value="#  #AH#AH#  #AH#  #AH#  #  #  #AH#  #  #  #  #">
+    <input type="hidden" name="numctaaso" value="#                         #20859660310330231072#20859660310330231072#                         #20859660310330231072#                         #20859660310330231072#                         #                         #                         #20859660310330231072#                         #                         #                         #                         #">
+    <input type="hidden" name="accesoduppapel" value="#SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #">
+    <input type="hidden" name="accesodupfax" value="#SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #">
+    <input type="hidden" name="accesodupmail" value="#SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #SSS   #">
+    <input type="hidden" name="claf" value="#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#1 B09417932  00#">
+    <input type="hidden" name="idioma" value="#01#01#01#01#01#01#01#01#01#01#01#01#01#01#01#">
+    <input type="hidden" name="disponibleonline" value="#S#S#S#S#S#S#S#S#S#S#S#S#S#S#S#">
+    <input type="hidden" name="menus" value="#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#SSS#">
+</form>
+
+
+<form name="formData" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="idoperacion" value="527_1">
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="Idioma" value="ES">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="entorno" value="IN">
+    <!-- cuerpo -->
+    <input type="hidden" name="claf_entrada" value="">
+    <input type="hidden" name="cuentas" value="#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#">
+    <input type="hidden" name="tipo_busq" value="sitodas">
+    <input type="hidden" name="fecha_ini" value="2020/05/29">
+    <input type="hidden" name="fecha_fin" value="2020/08/22">
+    <input type="hidden" name="importe_min" value="0">
+    <input type="hidden" name="importe_max" value="9999999999">
+    <input type="hidden" name="indconsultado" value="">
+    <input type="hidden" name="agrupacion" value="">
+    <input type="hidden" name="pagina_a_mostrar" value="1">
+    <input type="hidden" name="orden" value="1">
+    <input type="hidden" name="columna_orden" value="1">
+    <input type="hidden" name="pestanas" value="00#04#05#07#08#09#11#13#14#15#16">
+    <input type="hidden" name="ctas_guardadas" value="">
+    <input type="hidden" name="ctas_ec" value="">
+    <input type="hidden" name="vistaSel" value="">
+</form>
+
+
+
+<!-- Formulario oculto para guardar el elemento seleccionado -->
+<form name="formCont" action="*" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="menu_selecc" value="">
+    <input type="hidden" name="flag_menu" value="0">
+</form>
+
+
+<!-- Formulario oculto con los parámetros para -->
+<!-- la operación 506_0 -- DUPLICADOS          -->
+<form name="formFaxMail" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="idoperacion" value="506_0">
+    <input type="hidden" name="idioma" value="ES">
+
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="Op_origen" value="527_1">
+
+    <!-- cuerpo -->
+    <input type="hidden" name="numparams" value>
+    <input type="hidden" name="param1" value>
+    <input type="hidden" name="param2" value>
+    <input type="hidden" name="param3" value>
+    <input type="hidden" name="param4" value>
+    <input type="hidden" name="param5" value>
+    <input type="hidden" name="param6" value>
+    <input type="hidden" name="param7" value>
+    <input type="hidden" name="param8" value>
+    <input type="hidden" name="param9" value>
+    <input type="hidden" name="param10" value>
+    <input type="hidden" name="param11" value>
+    <input type="hidden" name="param12" value>
+    <input type="hidden" name="param13" value>
+    <input type="hidden" name="param14" value>
+    <input type="hidden" name="param15" value>
+    <!-- Parámetros para el filtrado de los comunicados -->
+    <input type="hidden" name="fechacarta" value>
+    <input type="hidden" name="descripcion" value>
+    <input type="hidden" name="importe" value>
+    <input type="hidden" name="moneda" value>
+    <input type="hidden" name="numpag" value>
+    <input type="hidden" name="codcontr" value>
+    <input type="hidden" name="numcontr" value>
+    <input type="hidden" name="indcons" value>
+    <input type="hidden" name="doc1apag" value>
+    <input type="hidden" name="ver1apag" value>
+    <input type="hidden" name="codref" value>
+    <input type="hidden" name="codctaaso" value>
+    <input type="hidden" name="numctaaso" value>
+    <input type="hidden" name="accesoduppapel" value>
+    <input type="hidden" name="accesodupfax" value>
+    <input type="hidden" name="accesodupmail" value>
+    <!-- Claf del propietario del comunicado -->
+    <input type="hidden" name="claf" value>
+    <!-- Claf del usuario conectado -->
+    <input type="hidden" name="claf2" value>
+    <input type="hidden" name="disponibleonline" value>
+    <!-- Parámetros para el filtrado de los comunicados -->
+    <input type="hidden" name="Cod_contrato" value="">
+    <input type="hidden" name="Num_contrato" value="">
+    <input type="hidden" name="Cod_cuenta" value="">
+    <input type="hidden" name="Num_cuenta" value="">
+    <input type="hidden" name="Claf_entrada" value="">
+    <input type="hidden" name="Fecha_ini" value="2020/05/29">
+    <input type="hidden" name="Fecha_fin" value="2020/08/22">
+    <input type="hidden" name="Ind_consultado" value="">
+    <input type="hidden" name="Importe_min" value="0">
+    <input type="hidden" name="Importe_max" value="999999999">
+    <input type="hidden" name="Cod_divisa_input" value="">
+    <input type="hidden" name="Cod_familia" value="">
+    <input type="hidden" name="Cod_subfamilia" value="">
+    <input type="hidden" name="Cod_concepto" value="">
+    <input type="hidden" name="pant_orig" value="2">
+    <!-- Parámetros para la recarga -->
+    <input type="hidden" name="dir_actr" value="3">
+    <input type="hidden" name="entidad_pagr" value="2085">
+    <input type="hidden" name="cod_contrato_pagr" value="">
+    <input type="hidden" name="num_contrato_pagr" value="">
+    <input type="hidden" name="fecha_carta_pagr" value="">
+    <input type="hidden" name="cod_ref_pagr" value="99999999999999999">
+    <!-- Otros comunicados -->
+    <input type="hidden" name="otros" value="1">
+    <input type="hidden" name="referencia" value="527_1##1#1#1#IN#sitodas#0#9999999999##|00#04#05#07#08#09#11#13#14#15#16|#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#">
+    <input type="hidden" name="ctas_ec" value="">
+
+    <input type="hidden" name="agrupacion" value="">
+    <input type="hidden" name="orden" value="1">
+    <input type="hidden" name="columna_orden" value="1">
+    <input type="hidden" name="entorno" value="IN">
+    <input type="hidden" name="pestanas" value="00#04#05#07#08#09#11#13#14#15#16">
+    <input type="hidden" name="cuentas" value="#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#">
+    <input type="hidden" name="tipo_busq" value="sitodas">
+    <input type="hidden" name="ctas_guardadas" value="">
+
+</form>
+
+<!-- Formulario oculto con los parámetros para -->
+<!-- la operación 503_0 -- DAR POR CONSULTADO  -->
+
+
+<form name="formCons" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="idoperacion" value="503_0">
+    <input type="hidden" name="Idioma" value="ES">
+
+    <input type="hidden" name="Dispositivo" value="INTR">
+    <input type="hidden" name="Entidad" value="2085">
+    <input type="hidden" name="canal" value="IBE">
+
+    <!-- cuerpo -->
+    <input type="hidden" name="numparams" value>
+    <input type="hidden" name="param1" value>
+    <input type="hidden" name="param2" value>
+    <input type="hidden" name="param3" value>
+    <input type="hidden" name="param4" value>
+    <input type="hidden" name="param5" value>
+    <input type="hidden" name="param6" value>
+    <input type="hidden" name="param7" value>
+    <input type="hidden" name="param8" value>
+    <input type="hidden" name="param9" value>
+    <input type="hidden" name="param10" value>
+    <input type="hidden" name="param11" value>
+    <input type="hidden" name="param12" value>
+    <input type="hidden" name="param13" value>
+    <input type="hidden" name="param14" value>
+    <input type="hidden" name="param15" value>
+    <!-- Parámetros para el filtrado de los comunicados -->
+    <input type="hidden" name="Cod_contrato" value="">
+    <input type="hidden" name="Num_contrato" value="">
+    <input type="hidden" name="Cod_cuenta" value="">
+    <input type="hidden" name="Num_cuenta" value="">
+    <input type="hidden" name="Claf_entrada" value="">
+    <input type="hidden" name="Fecha_ini" value="2020/05/29">
+    <input type="hidden" name="Fecha_fin" value="2020/08/22">
+    <input type="hidden" name="Ind_consultado" value="">
+    <input type="hidden" name="Importe_min" value="0">
+    <input type="hidden" name="Importe_max" value="9999999999">
+    <input type="hidden" name="Cod_divisa_input" value="">
+    <input type="hidden" name="Cod_familia" value="">
+    <input type="hidden" name="Cod_subfamilia" value="">
+    <input type="hidden" name="Cod_concepto" value="">
+    <input type="hidden" name="pant_orig" value="2">
+    <!-- Parámetros para la recarga -->
+    <input type="hidden" name="dir_actr" value="3">
+    <input type="hidden" name="entidad_pagr" value="2085">
+    <input type="hidden" name="cod_contrato_pagr" value="">
+    <input type="hidden" name="num_contrato_pagr" value="">
+    <input type="hidden" name="fecha_carta_pagr" value="9999/12/31">
+    <input type="hidden" name="cod_ref_pagr" value="99999999999999999">
+    <!-- Otros comunicados -->
+    <input type="hidden" name="otros" value="1">
+    <input type="hidden" name="referencia" value="527_1##1#1#1#IN#sitodas#0#9999999999##|00#04#05#07#08#09#11#13#14#15#16|#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#">
+    <input type="hidden" name="ctas_ec" value="">
+
+    <input type="hidden" name="agrupacion" value="">
+    <input type="hidden" name="orden" value="1">
+    <input type="hidden" name="columna_orden" value="1">
+    <input type="hidden" name="entorno" value="IN">
+    <input type="hidden" name="pestanas" value="00#04#05#07#08#09#11#13#14#15#16">
+    <input type="hidden" name="op_origen" value="527_1">
+    <input type="hidden" name="cuentas" value="#AH,20859660310330231072#AH,20859660388300470098#DX,96605800048835#MP,6001753272#DX,96605800582518#LD,4920712131#LD,4920712229#LD,4923169102#LD,4924176985#">
+    <input type="hidden" name="tipo_busq" value="sitodas">
+
+
+</form>
+
+<form name="formData_Buscador" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <input type="hidden" name="idoperacion" value="527_0">
+    <input type="hidden" name="Entidad" value="2085">
+    <input type="hidden" name="Idioma" value="ES">
+    <input type="hidden" name="Dispositivo" value="INTR">
+    <input type="hidden" name="Canal" value="IBE">
+    <input type="hidden" name="Entorno" value="IN">
+</form>
+
+<form name="formData_Mensajes" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="idoperacion" value="0072_1">
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="Idioma" value="ES">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="entorno" value="IN">
+    <!-- cuerpo -->
+    <input type="hidden" name="leidos" value="">
+    <input type="hidden" name="fecha" value="">
+</form>
+
+<form name="formData_BusqAv" action="./iberdoc/BuscadorInicio.asp?MSCSAuth=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+
+    <input type="hidden" name="idoperacion" value="526_0">
+
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="idioma" value="ES">
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="entorno" value="IN">
+</form>
+
+<form name="formLanzarVista" action="./modulodirector.asp?MSCSAUTH=3AC88389EE3445C483A665570DF41E8CWDSSJP20200812194823YHCE3445C483AER665570DF41FVOYR075566A384C5443RYOVF14FD075566REA386A384C5443EE98388CA3RYOVF14F" method="post">
+    <!-- cabecera -->
+    <input type="hidden" name="idoperacion" value="528_12">
+    <input type="hidden" name="dispositivo" value="INTR">
+    <input type="hidden" name="Idioma" value="ES">
+    <input type="hidden" name="canal" value="IBE">
+    <input type="hidden" name="entidad" value="2085">
+    <input type="hidden" name="entorno" value="IN">
+    <!-- cuerpo -->
+    <input type="hidden" name="claf_entrada" value="">
+    <input type="hidden" name="tipo_busq" value="notodas">
+    <input type="hidden" name="cuentas" value="">
+    <input type="hidden" name="fecha_ini" value="2020/05/29">
+    <input type="hidden" name="fecha_fin" value="2020/08/22">
+    <input type="hidden" name="importe_min" value="0">
+    <input type="hidden" name="importe_max" value="9999999999">
+    <input type="hidden" name="indconsultado" value="">
+    <input type="hidden" name="agrupacion" value="">
+    <input type="hidden" name="pagina_a_mostrar" value="1">
+    <input type="hidden" name="orden" value="1">
+    <input type="hidden" name="columna_orden" value="1">
+    <input type="hidden" name="pestanas" value="00#04#05#07#08#09#11#13#15#16#14">
+    <input type="hidden" name="ctas_ec" value="">
+    <input type="hidden" name="guardar" value="N">
+    <input type="hidden" name="ctas_guardadas" value="">
+    <input type="hidden" name="vistaSel" value="">
+</form>
+
+
+
+
+</BODY>
+</html>

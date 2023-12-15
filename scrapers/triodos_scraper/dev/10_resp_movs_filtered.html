@@ -1,0 +1,1229 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+
+
+
+
+<html class="no-js">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="format-detection" content="telephone=no">
+    <title>Triodos Bank</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="assets/css/itecban.min.css?version=27-07-2021_11.55.51" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/itecban-vendor.min.css?version=27-07-2021_11.55.51" media="all" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/itecban-custom.css?version=27-07-2021_11.55.51" media="all" />
+
+    <link rel="stylesheet" href="assets/css/itecban-print.min.css" media="print">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <script>
+        var itecban = {};
+        itecban.config = {
+            routes:{
+
+            },
+
+            constants:{
+
+                maxFileCount:1,
+                thousandsSeparator:'.',
+                decimalSeparator:',',
+                decimalPrecision:'2f'
+            },
+            language:'es',
+            keyboard:{
+                mayusc:"mayús.",
+                limpiar:"borrar",
+                cerrar:"cerrar"
+            },
+            properties:{
+                postmore:"Click para ver mensajes",
+                errorinputfile:"El número de archivos a adjuntar excede el máximo permitido. Por favor, intentelo de nuevo.",
+                errorinputfilesize:"El fichero {name} ({size} KB) excede el tamaño máximo {maxSize} KB. Por favor, selecciona otro fichero.",
+                requiredDataOperationText: "Los campos marcados con <span class=requerido>*</span> son obligatorios.",
+                request_token: "-274039a5:17b6baab712:3e6dugYwkxKH271Dcs"
+            }
+        };
+    </script>
+</head>
+<body class="site-empresas">
+<div id="js_t">
+
+
+
+    <script src='assets/js/itecban-vendor.min.js?version=27-07-2021_11.55.51'></script>
+
+
+</div>
+<div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 col-sm-4">
+                    <h1 class="header-logo">
+
+
+
+
+                        <a class="header-logo-link" href="accesshome.do">Triodos Bank</a>
+                    </h1>
+                </div>
+
+
+                <div class="col-xs-7 col-sm-8">
+                    <div class="header-item">
+                        <a class="header-logout" href="j_logout" title="Cerrar sesi&oacute;n"><span>Desconectar</span></a>
+                    </div>
+
+                    <div class="header-item">
+                        <ul class="header-utils">
+
+
+
+
+
+
+                            <li>
+                                <a class="header-utils-item communications active" href="getincomingmailbox.do" title="Buz&oacute;n personal">
+                                    <span class="text-hide">Comunicaciones</span>
+
+                                    <span class="pending">6</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a class="header-utils-item tasks " href="signPendingOperations-flow.do" title="Operaciones pendientes de firma">
+                                    <span class="text-hide">Tareas pendientes</span>
+
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a class="header-utils-item documents " href="pendingTasks-flow.do" title="Tr&aacute;mites pendientes">
+                                    <span class="text-hide">Comunicaciones</span>
+
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a class="header-utils-item commerce " href="main_pay.sec" title="Compras pendientes">
+                                    <span class="text-hide">Compras pendientes</span>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="header-user" style="width: 475px;">
+
+
+                        <a class="header-utils-item configuration" href="initcontextcustom.do" title="Configuraci&oacute;n">
+							<span class="text-hide">Configuraci&oacute;n
+						</span></a>
+
+                        <div class="header-user">
+
+                            <span class="header-username">Hola&nbsp;<strong>LOURDES MARQUES PUIG</strong></span>
+
+
+                            <form class="header-account-form" action="PBE_contract_set" method="POST" id="contract_set">
+                                <label for="account">
+
+
+                                    <span class="labeltext">Contrato:&nbsp;</span>
+                                    <select id="j_contract" name="j_contract" onchange="javascript:setContract()">
+
+
+                                        <option value="000063763215"
+                                                selected="selected">
+                                            FUNDACIO PRIVADA MONTILIVI
+                                        </option>
+
+
+
+
+
+                                        <option value="000065072215">
+                                            FUNDACIO MAS XIRGU
+                                        </option>
+
+
+                                    </select>
+
+                                </label>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <script type="text/javascript">
+        function setContract() {
+            document.getElementById('contract_set').submit();
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <nav class="mainmenu" id="mainmenu">
+        <div class="container">
+            <ul class="mm-list">
+                <li><a class="mm-link" href="accesshome.do" onClick="javascript:navigate('accesshome.do','business.menu.home','false');" id="business.menu.home">Inicio</a></li><li><a class="mm-link" href="#mm-tusproductos" onClick="javascript:navigate('#mm-tusproductos','business.menu.products','false');" id="business.menu.products">Tus productos</a><div class="mm-submenu mm-submenu-products" id="mm-tusproductos">
+                <div class="container"><ul class="mm-submenu-level row">
+                    <li class="col-sm-12 col-md-6"><div class="mm-submenu-item mm-submenu-item-cuentas">
+                        <span class="mm-submenu-title">Tus cuentas personales</span>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem">
+                            <a href="javascript:goToProduct('14910001203000075477','initproductcontextaccount.do');">ES40 1491 0001 2030 0007 5477 </a>
+                        </div>
+                        </li>
+                        </ul>
+                        <ul class="mm-submenu-footer list-inline text-right">
+                            <li><a href="getpartialpositionaccount.do">Ir a tus cuentas&gt;</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="col-sm-12 col-md-6"><div class="mm-submenu-item mm-submenu-item-creditos">
+                        <span class="mm-submenu-title">Tus cuentas de crédito</span>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem">
+                            <a href="javascript:goToProduct('14910001242074581626','initproductcontextaccount.do');">ES33 1491 0001 2420 7458 1626 </a>
+                        </div>
+                        </li>
+                        </ul>
+                        <ul class="mm-submenu-footer list-inline text-right">
+                            <li><a href="getpartialpositioncreditaccount.do">Ir a tus cuentas de crédito&gt;</a></li>
+                        </ul></div>
+                    </li>
+                </ul>
+                </div>
+            </div></li><li><a class="mm-link" href="#mm-actions" onClick="javascript:navigate('#mm-actions','business.menu.actions','false');" id="business.menu.actions">Operar</a><div class="mm-submenu mm-submenu-operations" id="mm-actions">
+                <div class="container">
+                    <ul class="mm-submenu-level"><li>
+                        <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Transferencias</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_TRAETransfer-flow.do" onClick="javascript:navigate('main_TRAETransfer-flow.do','business.action.transfer.ownAccounts','false');" id="business.action.transfer.ownAccounts">Traspaso entre tus cuentas</a>
+                            </div>
+                        </li><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_TRNETransfer-flow.do" onClick="javascript:navigate('main_TRNETransfer-flow.do','business.action.transfer.national','false');" id="business.action.transfer.national">Nacional/Europa SEPA</a>
+                            </div>
+                        </li><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_TRNXTransfer-flow.do" onClick="javascript:navigate('main_TRNXTransfer-flow.do','business.action.transfer.foreign','false');" id="business.action.transfer.foreign">Internacional/Urgentes</a>
+                            </div>
+                        </li><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_gettransferlisttransfer.do" onClick="javascript:navigate('main_gettransferlisttransfer.do','business.action.transfer.query','false');" id="business.action.transfer.query">Recibidas/Emitidas</a>
+                            </div>
+                        </li><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_getperiodiclisttransfer.do" onClick="javascript:navigate('main_getperiodiclisttransfer.do','business.action.transfer.scheduled','false');" id="business.action.transfer.scheduled">Tus transferencias periódicas</a>
+                            </div>
+                        </li><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_favoriteTransfer-flow.do" onClick="javascript:navigate('main_favoriteTransfer-flow.do','business.action.transfer.template','false');" id="business.action.transfer.template">Tus transferencias favoritas</a>
+                            </div>
+                        </li></ul>
+                        </div>
+                    </li>
+                        <li>
+                            <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Ahorro periódico</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="main_getperiodicsavinglistaccount.do" onClick="javascript:navigate('main_getperiodicsavinglistaccount.do','business.action.periodic.saving.query','false');" id="business.action.periodic.saving.query">Consultas y modificaciones</a>
+                                </div>
+                            </li></ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Gestión de ficheros</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="creacion_ficheros_container.view" onClick="javascript:navigate('creacion_ficheros_container.view','business.action.aeb.new','false');" id="business.action.aeb.new">Crear remesa</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="uploadAebFile-flow.do" onClick="javascript:navigate('uploadAebFile-flow.do','business.action.aeb.send','false');" id="business.action.aeb.send">Enviar remesa</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="getsentheaderlistaeb.do" onClick="javascript:navigate('getsentheaderlistaeb.do','business.action.aeb.query','false');" id="business.action.aeb.query">Consultar remesas</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="getheaderlistaeb.do" onClick="javascript:navigate('getheaderlistaeb.do','product.aeb.returns','false');" id="product.aeb.returns">Consultar devoluciones/rechazos</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="getc34filelistaeb.do" onClick="javascript:navigate('getc34filelistaeb.do','business.action.aeb.c34','false');" id="business.action.aeb.c34">Gestión comunicados C34</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="getreturnfilesaeb.do" onClick="javascript:navigate('getreturnfilesaeb.do','product.aeb.returned.files','false');" id="product.aeb.returned.files">Fichero de devoluciones/rechazos</a>
+                                </div>
+                            </li></ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </li><li><a class="mm-link" href="#mm-services" onClick="javascript:navigate('#mm-services','business.menu.services','false');" id="business.menu.services">Servicios</a><div class="mm-submenu mm-submenu-operations" id="mm-services">
+                <div class="container">
+                    <ul class="mm-submenu-level"><li>
+                        <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Talonarios</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="mm-submenu-listitem"><a href="main_getdocumentbundlecheck.do" onClick="javascript:navigate('main_getdocumentbundlecheck.do','business.action.check.query','false');" id="business.action.check.query">Consultar</a>
+                            </div>
+                        </li></ul>
+                        </div>
+                    </li>
+                        <li>
+                            <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Impuestos</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentIncome-flow.do" onClick="javascript:navigate('taxPaymentIncome-flow.do','business.action.tax.income','false');" id="business.action.tax.income">Renta</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentVat-flow.do" onClick="javascript:navigate('taxPaymentVat-flow.do','business.action.tax.vat','false');" id="business.action.tax.vat">IVA</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentCompanies-flow.do" onClick="javascript:navigate('taxPaymentCompanies-flow.do','business.action.tax.companies','false');" id="business.action.tax.companies">Sociedades</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentFees-flow.do" onClick="javascript:navigate('taxPaymentFees-flow.do','business.action.tax.notifications','false');" id="business.action.tax.notifications">Notificaciones y tasas</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentOthers-flow.do" onClick="javascript:navigate('taxPaymentOthers-flow.do','business.action.tax.other','false');" id="business.action.tax.other">Otros impuestos</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="querytaxpayments.do" onClick="javascript:navigate('querytaxpayments.do','business.action.tax.query','false');" id="business.action.tax.query">Consultar impuestos AEAT</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="taxPaymentTGSS-flow.do" onClick="javascript:navigate('taxPaymentTGSS-flow.do','business.action.tax.ssgg','false');" id="business.action.tax.ssgg">Pagos Seguridad Social</a>
+                                </div>
+                            </li><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="gettgsspaymentstax.do" onClick="javascript:navigate('gettgsspaymentstax.do','business.action.tax.ssgg.query','false');" id="business.action.tax.ssgg.query">Consultar pagos Seguridad Social</a>
+                                </div>
+                            </li></ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Donaciones</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="initproductcontextdonation.do" onClick="javascript:navigate('initproductcontextdonation.do','business.action.donation.query','false');" id="business.action.donation.query">Consultar</a>
+                                </div>
+                            </li></ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mm-submenu-item"><a href="#" class="mm-submenu-title">Recibos pendientes</a><ul class="mm-submenu-list"><li class="col-sm-6 col-md-4 col-lg-3">
+                                <div class="mm-submenu-listitem"><a href="getlistbug.do" onClick="javascript:navigate('getlistbug.do','business.action.bug.query','false');" id="business.action.bug.query">Sus recibos pendientes</a>
+                                </div>
+                            </li></ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </li><li><a class="mm-link" href="#mm-contratar" onClick="javascript:navigate('#mm-contratar','business.menu.new','false');" id="business.menu.new">Contratar</a><div class="mm-submenu mm-submenu-contracting" id="mm-contratar">
+                <div class="container"><ul class="mm-submenu-level">
+                    <li class="active"><div class="mm-submenu-item">
+                        <a href="#" class="mm-submenu-title">Tu día a día</a>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem mm-submenu-cuenta-corriente">
+                            <a id="productItemLink" href="javascript:detailProduct('10','catalog.corporate.product.corporate.account.name')">Cuenta Corporativa Triodos </a>
+                            <span class="mm-submenu-intro">Para realizar tus ingresos o disponer de tu dinero mediante cheques, transferencias y domiciliación de recibos.</span>
+                        </div>
+                        </li><li><div class="mm-submenu-listitem mm-submenu-domiciliaciones">
+                            <a id="productItemLink" href="javascript:detailProduct('11','catalog.corporate.product.receipts.payments.name')">Gestión de cobros y pagos SEPA </a>
+                            <span class="mm-submenu-intro">Gestiona tus recibos y tus pagos fácilmente por internet con Triodos Bank. Darás un paso más en la gestión sostenible de tu empresa u organización.</span>
+                        </div>
+                        </li><li><div class="mm-submenu-listitem mm-submenu-tarjeta-debito">
+                            <a id="productItemLink" href="javascript:detailProduct('12','catalog.corporate.product.debitCard.name')">Tarjeta Débito </a>
+                            <span class="mm-submenu-intro">La tarjeta de consumo responsable que te permite un mayor control de gastos y más seguridad. 100% biodegradable.</span>
+                        </div>
+                        </li><li><div class="mm-submenu-listitem mm-submenu-tarjetas">
+                            <a id="productItemLink" href="javascript:detailProduct('13','catalog.corporate.product.creditCard.name')">Tarjeta Crédito </a>
+                            <span class="mm-submenu-intro">Tu tarjeta para gastos imprevistos o para establecimientos que solo admiten esta forma de pago. 100% biodegradable.</span>
+                        </div>
+                        </li><li><div class="mm-submenu-listitem mm-submenu-domiciliaciones">
+                            <a id="productItemLink" href="javascript:detailProduct('15','catalog.corporate.product.pointOfSale.name')">Terminal punto de venta </a>
+                            <span class="mm-submenu-intro">La solución de cobros para tu negocio si operas en los sectores social, cultural o ambiental. Además, formarás parte la comunidad de Consumo Responsable Triodos.</span>
+                        </div>
+                        </li></ul></div>
+                    </li>
+                    <li><div class="mm-submenu-item">
+                        <a href="#" class="mm-submenu-title">Tu tesorería</a>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem mm-submenu-cuenta-corriente">
+                            <a id="productItemLink" href="javascript:detailProduct('16','catalog.corporate.product.company.account.name')">Cuenta Triodos Empresas </a>
+                            <span class="mm-submenu-intro">Cuenta de ahorro con total disponibilidad y sin comisiones de gestión ni mantenimiento.</span>
+                        </div>
+                        </li><li><div class="mm-submenu-listitem mm-submenu-depositos">
+                            <a id="productItemLink" href="javascript:detailProduct('17','catalog.corporate.product.ipf.name')">Depósitos </a>
+                            <span class="mm-submenu-intro">Obtén rentabilidad para tus ahorros, con total flexibilidad y la posibilidad de donar parte del interés a la ONG que decidas.</span>
+                        </div>
+                        </li></ul></div>
+                    </li>
+                    <li><div class="mm-submenu-item">
+                        <a href="#" class="mm-submenu-title">Tu financiación</a>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem mm-submenu-hipotecas">
+                            <a id="productItemLink" href="javascript:detailProduct('18','catalog.corporate.product.financing.name')">Financiación </a>
+                            <span class="mm-submenu-intro">El compromiso y la especialización de Triodos Bank te permiten aportar las soluciones de financiación flexibles y de forma individualizada</span>
+                        </div>
+                        </li></ul></div>
+                    </li>
+                    <li><div class="mm-submenu-item">
+                        <a href="#" class="mm-submenu-title">Tu inversión</a>
+                        <ul class="mm-submenu-list"><li><div class="mm-submenu-listitem mm-submenu-depositos">
+                            <a id="productItemLink" href="javascript:detailProduct('19','catalog.corporate.product.ipfDocuments.name')">Certificados de Depósitos </a>
+                            <span class="mm-submenu-intro">Triodos Bank ha suspendido la posibilidad de comprar y vender Certificados de Depósito para Acciones. Por favor, consulta nuestra web para más información.</span>
+                        </div>
+                        </li></ul></div>
+                    </li>
+                </ul>
+                </div>
+            </div><form name="frmPrDet" id="frmPrDet" action="getproductdetailcatalog.do" method="POST"><input type="hidden" name="productId" id="productId" /><input type="hidden" name="productName" id="productName" /></form><script>function detailProduct(productId, productName) {document.getElementById("productId").value = productId;document.getElementById("productName").value = productName;document.getElementById("frmPrDet").submit();}</script></li></ul>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 pull-md-right">
+                    <div class="connection">
+						<span class="connection-text">
+							&Uacute;ltima conexi&oacute;n:&nbsp;<strong>22/08/21 04:28</strong>
+						</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="section-product">
+            <div class="section-header">
+                <div class="container">
+
+
+
+                    <h1 class="section-title">
+
+
+                    </h1>
+
+                    <div class="dropdown account-dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            <strong>ES33 1491 0001 2420 7458 1626 </strong>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="javascript:goToProduct('14910001242074581626','initproductcontextaccount.do');">
+                                    ES33 1491 0001 2420 7458 1626
+                                </a>
+                            </li>
+
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="javascript:goToProduct('14910001203000075477','initproductcontextaccount.do');">
+                                    ES40 1491 0001 2030 0007 5477
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <form name="creditConditions" id="creditConditions" method="POST" action="getconditionsaccount.do">
+            <input type="hidden" id="selectedAccount"" name="selectedAccount" value="14910001242074581626"/>
+        </form>
+        <script>
+            function goToCreditConditions() {
+                document.getElementById("creditConditions").submit();
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="submenu"><div class="container">
+            <ul class="submenu-list">
+                <li class="has-submenu"><a class="submenu-link" href="#">Movimientos</a><ul class="submenu-sublist"><li class=""><a class="submenu-link" href="getmovementsaccount.do">Consultar</a></li><li class=""><a class="submenu-link" href="requestMovementsSummaryAccount-flow.do">Solicitud de extracto de movimientos</a></li></ul></li><li class=""><a class="submenu-link" href="consultInvoice-flow.do">Domiciliaciones</a></li><li class="has-submenu"><a class="submenu-link" href="#">Transferencias</a><ul class="submenu-sublist"><li class=""><a class="submenu-link" href="TRAETransfer-flow.do">Traspaso entre tus cuentas</a></li><li class=""><a class="submenu-link" href="TRNETransfer-flow.do">Nacional/Europa SEPA</a></li><li class=""><a class="submenu-link" href="TRNXTransfer-flow.do">Internacional/Urgentes</a></li><li class=""><a class="submenu-link" href="gettransferlisttransfer.do">Recibidas/Emitidas</a></li><li class=""><a class="submenu-link" href="getperiodiclisttransfer.do">Tus transferencias periódicas</a></li><li class=""><a class="submenu-link" href="favoriteTransfer-flow.do">Tus transferencias favoritas</a></li></ul></li><li class="has-submenu"><a class="submenu-link" href="#">Ahorro periódico</a><ul class="submenu-sublist"><li class=""><a class="submenu-link" href="getperiodicsavinglistaccount.do">Consultas y modificaciones</a></li></ul></li><li class="has-submenu"><a class="submenu-link" href="#">Retenciones y bloqueos</a><ul class="submenu-sublist"><li class=""><a class="submenu-link" href="getretentionlistaccount.do">Retenciones</a></li><li class=""><a class="submenu-link" href="getblocklistaccount.do">Bloqueos</a></li></ul></li></ul>
+        </div>
+        </div>
+
+
+        <div class="fluidBg0">
+            <div class="container">
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="fluidBg0">
+            <div class="container">
+
+
+
+
+
+
+
+                <div class="section-alert error" id="ajaxErrorSection" style="display: none">
+                    <span class="section-alert-text" id="ajaxErrorText"></span>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            function handleAjaxError(obj) {
+                var tokens = obj.responseText.split("@");
+
+                var errorType = tokens[0];
+                var errorText = tokens[1];
+
+                if (errorType.indexOf("Functional") > -1) {
+                    document.getElementById("ajaxErrorText").innerHTML = errorText;
+                    document.getElementById("ajaxErrorSection").style.display = "block";
+                }
+                if (errorType.indexOf("Session") > -1) {
+                    window.top.location = "invalid_session_error.view"
+                }
+                if (errorType.indexOf("Technical") > -1) {
+                    window.top.location = "error.view";
+                }
+            }
+
+            function cleanAjaxError() {
+                document.getElementById("ajaxErrorText").innerHTML = "";
+                document.getElementById("ajaxErrorSection").style.display = "none";
+            }
+
+            function htmlDecode(safe) {
+                return safe.replace(/&amp;/g, '&')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/&quot;/g, '"')
+                    .replace(/&#039;/g, "'");
+            }
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="fluidBg0">
+            <div class="container">
+                <div class="searcher-container" id="searcherContainer2">
+                    <div class="header-searcher " id="searcherContainer2Header">
+                        <a data-toggle="collapse" data-parent="#searcherContainer2Header" href="#searcherContainer2Body" aria-expanded="" aria-controls="searcherContainer2Body" class="collapsed">
+                            Buscador de movimientos
+                        </a>
+                    </div>
+                    <div  id="searcherContainer2Body" role="tabpanel" class="content-searcher panel-collapse collapse ">
+                        <form id="movementsAccount" class="search-movements-form" action="getmovementsaccount.do" method="POST">
+                            <input id="selectAccount" name="selectAccount" type="hidden" value="14910001242074581626"/>
+                            <fieldset class="operation">
+                                <div class="row">
+                                    <div class="col-xs-3 col-md-2">
+                                        <label for="importe" class="control-label">Importe desde/hasta</label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group form-group-unit">
+                                            <input id="importe" name="minAmount" class="form-control" type="text" value=""/>
+                                            <span class="form-unit">&euro;</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group form-group-unit">
+                                            <input id="importe" name="maxAmount" class="form-control" type="text" value=""/>
+                                            <span class="form-unit">&euro;</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 col-md-2">
+                                        <label class="control-label" for="movementType">Concepto</label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group">
+                                            <input id="reason" name="reason" class="form-control" type="text" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 col-md-1">
+                                        <label class="control-label" for="movementType">Tipo</label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group">
+                                            <select id="movementType" name="movementType" class="form-control">
+                                                <option value="" selected="selected">Todos</option>
+                                                <option value="01">Financiaci&oacute;n</option><option value="02">Ingresos y n&oacute;minas</option><option value="03">Inversi&oacute;n</option><option value="04">Operaciones con tarjeta</option><option value="05">Recibos e impuestos</option><option value="06">Transferencias, traspasos y cheques</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="time-searcher toggleFormControls">
+                                <div class="row rowToggleFormControls">
+                                    <div class="col-xs-12">
+                                        <div class="radio">
+                                            <label>
+                                                <input id="methodController" name="methodController" type="radio" value="getAccountLastMovements"/>
+                                                <span class="control-label">&Uacute;ltimos movimientos</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row rowToggleFormControls">
+                                    <div class="col-xs-4 col-md-3">
+                                        <div class="radio">
+                                            <label>
+                                                <input id="methodController" name="methodController" type="radio" value="getAccountMovementsByDate"/>
+                                                <span class="control-label">Por mes/a&ntilde;o</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group">
+                                            <select id="month" name="monthSelected" class="form-control">
+
+                                                <option value="">Mes</option>
+                                                <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group">
+                                            <select id="year" name="yearSelected" class="form-control">
+
+                                                <option value="">A&ntilde;o</option>
+
+                                                <option value="2010">2010</option>
+
+                                                <option value="2011">2011</option>
+
+                                                <option value="2012">2012</option>
+
+                                                <option value="2013">2013</option>
+
+                                                <option value="2014">2014</option>
+
+                                                <option value="2015">2015</option>
+
+                                                <option value="2016">2016</option>
+
+                                                <option value="2017">2017</option>
+
+                                                <option value="2018">2018</option>
+
+                                                <option value="2019">2019</option>
+
+                                                <option value="2020">2020</option>
+
+                                                <option value="2021">2021</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row rowToggleFormControls">
+                                    <div class="col-xs-4 col-md-3">
+                                        <div class="radio">
+                                            <label>
+                                                <input id="methodController" name="methodController" type="radio" value="getAccountMovementsByPeriod" checked="checked"/>
+                                                <span class="control-label">Desde/hasta</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group date">
+                                            <label for="fromDate" class="hide">Fecha desde</label>
+                                            <input id="fromDate" name="fromDate" class="form-control" type="text" value="16/07/2021"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="form-group date">
+                                            <label for="toDate" class="hide">Fecha hasta</label>
+                                            <input id="toDate" name="toDate" class="form-control" type="text" value="22/08/2021"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="button-group text-right">
+                                <button class="button button1" href="javascript:document.getElementById('movementsAccount').submit()">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="fluidBg0">
+            <div class="container">
+                <div class="table-wrapper table-movimientos">
+
+                    <div class="button-group text-right">
+                        <a href="javascript:window.print();" class="button button5 button-print">
+                            Imprimir</a>
+                        <a href="/triodos-be/getmovementsaccount.do?minAmount=&amp;fromDate=16%2F07%2F2021&amp;page=0&amp;token=-274039a5%3A17b6baab712%3A3d081ks9clDO4aCn8d&amp;reason=&amp;6578706f7274=1&amp;methodController=getAccountMovementsByPeriod&amp;selectAccount=14910001242074581626&amp;maxAmount=&amp;toDate=22%2F08%2F2021&amp;movementType=&amp;d-148916-e=2&_remote_=true" class="button button5 button-file">
+                            Descargar Excel</a>
+                    </div>
+                    <div class="table-responsive" id="movements">
+
+                        <table id="table" class="table">
+                            <caption class="table-caption">Estás viendo tus movimientos del <strong>16/07/2021</strong> al <strong>22/08/2021</strong></caption>
+                            <thead>
+                            <tr>
+                                <th class="hidden"></th>
+                                <th>F. ejecución</th>
+                                <th>F. valor</th>
+                                <th>Concepto</th>
+                                <th class="text-right">Importe</th>
+                                <th class="text-right">Saldo</th></tr></thead>
+                            <tbody>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">20/08/2021</span></td>
+                                <td><span class="table-text">20/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001943@4078830752@ADSR@20/08/2021@ENT: G55121909-SDD REF:7018290715   0024@7018290715" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO FUNDACIO MAS XIRGU</span></a></td>
+                                <td><span class="table-text text-right negative">-74.939,55 &euro;</span></td>
+                                <td><span class="table-text text-right">908.529,29 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001943@4078830752@ADSR@20/08/2021@ENT: G55121909-SDD REF:7018290715   0024@7018290715"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001941@4037615603@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108530   0024@7018108530" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO COMUNIDAD DE PROPIETARIOS CALLE ST ROMA,</span></a></td>
+                                <td><span class="table-text text-right negative">-49,74 &euro;</span></td>
+                                <td><span class="table-text text-right">983.468,84 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001941@4037615603@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108530   0024@7018108530"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001940@4037615597@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108529   0024@7018108529" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO COMUNIDAD DE PROPIETARIOS CALLE ST ROMA,</span></a></td>
+                                <td><span class="table-text text-right negative">-49,31 &euro;</span></td>
+                                <td><span class="table-text text-right">983.518,58 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001940@4037615597@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108529   0024@7018108529"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001939@4037615584@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108528   0024@7018108528" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO COMUNIDAD DE PROPIETARIOS CALLE ST ROMA,</span></a></td>
+                                <td><span class="table-text text-right negative">-49,50 &euro;</span></td>
+                                <td><span class="table-text text-right">983.567,89 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001939@4037615584@ADSR@02/08/2021@ENT: H55007025-SDD REF:7018108528   0024@7018108528"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001938@4037573822@ADSR@02/08/2021@ENT: G17462128-SDD REF:7018120049   0024@7018120049" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO FUNDACIO RAMON NOGUERA</span></a></td>
+                                <td><span class="table-text text-right negative">-68.565,47 &euro;</span></td>
+                                <td><span class="table-text text-right">983.617,39 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001938@4037573822@ADSR@02/08/2021@ENT: G17462128-SDD REF:7018120049   0024@7018120049"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">01/08/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001937@4036585484@LIQC@02/08/2021@20210501202108010025+000000010000000+@0000001882" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">LIQUIDACION AHORRO/CTA COR</span></a></td>
+                                <td><span class="table-text text-right">0,00 &euro;</span></td>
+                                <td><span class="table-text text-right">1.052.182,86 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001937@4036585484@LIQC@02/08/2021@20210501202108010025+000000010000000+@0000001882"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">02/08/2021</span></td>
+                                <td><span class="table-text">01/08/2021</span></td>
+                                <td><span class="table-link pago">COMISION LIQUIDACION</span></td>
+                                <td><span class="table-text text-right negative">-249,99 &euro;</span></td>
+                                <td><span class="table-text text-right">1.052.182,86 &euro;</span></td></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001934@4030939523@ADSR@30/07/2021@ENT: Q2827003A-SDD REF:7018051679   0024@7018051679" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO TGSS. COTIZACION 001 REGIMEN GENERAL</span></a></td>
+                                <td><span class="table-text text-right negative">-68.623,84 &euro;</span></td>
+                                <td><span class="table-text text-right">1.052.432,85 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001934@4030939523@ADSR@30/07/2021@ENT: Q2827003A-SDD REF:7018051679   0024@7018051679"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001933@4030939522@ADSR@30/07/2021@ENT: Q2827003A-SDD REF:7018051678   0024@7018051678" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO TGSS. COTIZACION 001 REGIMEN GENERAL</span></a></td>
+                                <td><span class="table-text text-right negative">-317,04 &euro;</span></td>
+                                <td><span class="table-text text-right">1.121.056,69 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001933@4030939522@ADSR@30/07/2021@ENT: Q2827003A-SDD REF:7018051678   0024@7018051678"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001932@4030935382@ADSR@30/07/2021@ENT: G17462128-SDD REF:7018085733   0024@7018085733" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO FUNDACIO RAMON NOGUERA</span></a></td>
+                                <td><span class="table-text text-right negative">-83.497,52 &euro;</span></td>
+                                <td><span class="table-text text-right">1.121.373,73 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001932@4030935382@ADSR@30/07/2021@ENT: G17462128-SDD REF:7018085733   0024@7018085733"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001931@4030774562@TRSR@30/07/2021@TSRE030004527272500 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">8.235,46 &euro;</span></td>
+                                <td><span class="table-text text-right">1.204.871,25 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001931@4030774562@TRSR@30/07/2021@TSRE030004527272500 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001930@4030774560@TRSR@30/07/2021@TSRE030004527272499 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">2.571,88 &euro;</span></td>
+                                <td><span class="table-text text-right">1.196.635,79 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001930@4030774560@TRSR@30/07/2021@TSRE030004527272499 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001929@4030774557@TRSR@30/07/2021@TSRE030004527272498 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">6.423,54 &euro;</span></td>
+                                <td><span class="table-text text-right">1.194.063,91 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001929@4030774557@TRSR@30/07/2021@TSRE030004527272498 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001928@4030774555@TRSR@30/07/2021@TSRE030004527272497 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">87.745,23 &euro;</span></td>
+                                <td><span class="table-text text-right">1.187.640,37 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001928@4030774555@TRSR@30/07/2021@TSRE030004527272497 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001927@4030774552@TRSR@30/07/2021@TSRE030004527272496 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">119.478,75 &euro;</span></td>
+                                <td><span class="table-text text-right">1.099.895,14 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001927@4030774552@TRSR@30/07/2021@TSRE030004527272496 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001926@4030774550@TRSR@30/07/2021@TSRE030004527272495 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">63.016,00 &euro;</span></td>
+                                <td><span class="table-text text-right">980.416,39 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001926@4030774550@TRSR@30/07/2021@TSRE030004527272495 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001925@4030770281@TRSR@30/07/2021@TSRE030004527272473 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">34.800,91 &euro;</span></td>
+                                <td><span class="table-text text-right">917.400,39 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001925@4030770281@TRSR@30/07/2021@TSRE030004527272473 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001924@4030770279@TRSR@30/07/2021@TSRE030004527272472 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">9.893,48 &euro;</span></td>
+                                <td><span class="table-text text-right">882.599,48 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001924@4030770279@TRSR@30/07/2021@TSRE030004527272472 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><span class="table-text">30/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001923@4030770277@TRSR@30/07/2021@TSRE030004527272471 FONDO FINANCIACION A@" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link ingreso">TRANSF DE FONDO FINANCIACION A COMUNIDADES AUTONOMAS 2021 PAGADO POR I</span></a></td>
+                                <td><span class="table-text text-right">7.003,59 &euro;</span></td>
+                                <td><span class="table-text text-right">872.706,00 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001923@4030770277@TRSR@30/07/2021@TSRE030004527272471 FONDO FINANCIACION A@"></tr>
+                            <tr class="">
+                                <td class="hidden"></td>
+                                <td><span class="table-text">21/07/2021</span></td>
+                                <td><span class="table-text">21/07/2021</span></td>
+                                <td><a class="table-link detalles-link" id="0000001921@4009855215@ADSR@21/07/2021@ENT: G55121909-SDD REF:7018004105   0024@7018004105" href="#" onclick="javascript:loadReceipt(this)" title="Detalle de movimiento"><span class="table-link pago">RECIBO FUNDACIO MAS XIRGU</span></a></td>
+                                <td><span class="table-text text-right negative">-1.295,52 &euro;</span></td>
+                                <td><span class="table-text text-right">865.702,41 &euro;</span></td></tr><tr class="detalles" id="rowNum0000001921@4009855215@ADSR@21/07/2021@ENT: G55121909-SDD REF:7018004105   0024@7018004105"></tr></tbody></table>
+                        <a href="/triodos-be/getmovementsaccount.do?minAmount=&amp;fromDate=16%2F07%2F2021&amp;reason=&amp;token=-274039a5%3A17b6baab712%3A3d081ks9clDO4aCn8d&amp;page=0&amp;6578706f7274=1&amp;methodController=getAccountMovementsByPeriod&amp;maxAmount=&amp;selectAccount=14910001242074581626&amp;toDate=22%2F08%2F2021&amp;movementType=&amp;d-148916-e=2"></a>
+                    </div>
+
+
+                    <nav class="pagination-wrapper" id="pager">
+                        <div class="text-center">
+                            <ul class="pager">
+                                <li id="nextContainer">
+                                    <a href="javascript:more()" id="next">Ver m&aacute;s</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+        <script>
+
+
+            var nextPage = 'true';
+            var page = 1;
+            var methodController = 'getAccountMovementsByPeriod';
+            var maxPagesInLastMovements = 10;
+
+            function more() {
+                if (nextPage == 'true') {
+                    //Deshabilitamos botón.
+                    nextPage = 'false';
+
+                    $.ajax({url: "getmovementsaccount.do",
+                        data:{"page":page, "methodController":methodController, "async": 'true'},
+                        method  : "POST",
+                        success: function(result){
+                            h = $.parseHTML(result);
+
+                            $(h).find('.detalles-link').attr("new", "true");
+                            $('#table').find('tbody').append($(h).find('tbody').html());
+
+                            if ($(h).find('.next')[0] && (methodController !== 'getAccountLastMovements' || page < maxPagesInLastMovements)) {
+                                page = page + 1;
+                                nextPage = 'true';
+                            } else {
+                                nextPage = 'false';
+                                $('#next').css("background-color","#BEBEBE");
+                                $('#next').css("border-color","#BEBEBE");
+                                $('#next').css("color","#FFFFFF");
+                                $('#next').attr('onClick', 'return false;');
+                                $('#next').css('cursor', 'default');
+                            }
+
+                            jQuery('.detalles-link[new="true"]').showTooltip('top');
+                            jQuery('.detalles-link[new="true"]').on('click',function(e){
+                                e.preventDefault();
+                                var $tr = jQuery(this).parents('tr');
+                                if($tr.next().hasClass('detalles')){
+                                    var $trDetalles = $tr.next();
+                                    if($tr.hasClass('detalleShow')){
+                                        $tr.removeClass('detalleShow');
+                                        $trDetalles.hide();
+                                    }else{
+                                        $tr.addClass('detalleShow');
+                                        itecban.details.addCloseButtonDetails($trDetalles);
+                                        $trDetalles.show();
+                                    }
+                                }
+                            });
+                            $(h).find('.detalles-link').attr("new", "false");
+
+                            var $table = jQuery('#table');
+
+                            var $evenRows = $table.find('tbody tr:not(".detalles"):odd');
+                            var $oddRows = $table.find('tbody tr:not(".detalles"):even');
+                            $evenRows.addClass('row-even');
+                            $oddRows.addClass('row-odd');
+                        }
+                    });
+                }
+            };
+
+            function loadReceipt(e){
+                var id = e.id;
+                var account = "14910001242074581626";
+                // deshabilito enlace
+                $(e).attr('onClick', 'return false;');
+                $.ajax({url: "getmovementdetailaccount.do",
+                    data:{"reference":id, "account":account},
+                    method  : "POST",
+                    success: function(result){
+                        var detailSection = document.getElementById("rowNum" + id);
+                        detailSection.innerHTML = result;
+                        itecban.details.addCloseButtonDetails(detailSection);
+                        // vuelvo a habilitar enlace
+                        $(e).attr('onClick', 'loadReceipt(this);');
+                    }
+                });
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5">
+                    <ul class="footer-list">
+                        <li><a class="footer-link" href="https://www.triodos.es/es/particulares/aviso-legal-particulares" target="other_">Informaci&oacute;n legal</a></li>
+                        <li><a class="footer-link" href="https://www.triodos.es/es/particulares/como-operar/seguridad" target="other_">Seguridad</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-7">
+                    <p class="footer-info"><strong>Triodos</strong> 2021. España. Triodos Bank NV S.E. Todos los derechos de propiedad intelectual reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <form name="goToProductForm" id="goToProductForm" method="POST" action="">
+        <input type="hidden" name="productKey" id="productKey"/>
+    </form>
+    <script>
+
+        <!--
+        setInterval(function() {
+            checkSession();
+        }, 12*60*1000);
+
+        function checkSession() {
+            $.ajax({url: "/triodos-be/pbeCheckSession.sec",
+                success: function(result){
+                    if (result.indexOf("false") > -1) {
+                        window.top.location = "invalid_session_error.sec";
+                    }
+                }
+            });
+        }
+
+        function goToProduct(productKey, url) {
+            var form = document.getElementById('goToProductForm');
+            form.productKey.value = productKey;
+            form.action = url;
+            form.submit();
+        }
+
+        function navigate(url,id,popup) {
+            var obj = document.getElementById(id);
+            if (url.indexOf("#") == -1) {
+                obj.removeAttribute("href");
+                obj.disabled = "disabled";
+                obj.style.pointerEvents = "none";
+                obj.style.cursor = "default";
+
+                if (popup == 'true') {
+                    window.open(url);
+                } else {
+                    window.top.location = url;
+                }
+                return false;
+            }
+        }
+        //-->
+
+    </script>
+
+</div>
+
+<div id="js">
+
+
+
+    <script src='assets/js/itecban.min.js?version=27-07-2021_11.55.51'></script>
+
+
+
+    <script src="assets/js/locales/bootstrap-datepicker.es.min.js"></script>
+
+
+</div>
+</body>
+</html>

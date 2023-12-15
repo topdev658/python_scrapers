@@ -1,0 +1,132 @@
+Account semaphore (movements insertion db mutex)
+
+The aim:
+Provide reliable way for quick uploading (insertion) of unique movements from different threads and processees at the same time.
+The code should upload movements in batches without additional checks 'if exists'
+
+We can't use only code-level semaphores (mutexes) because it is possible to launch scraping processes as different system
+processes at the same time (two manual, one from API and one manual process etc., different servers) and they may be pointing to the same account.
+So, the only one way to implement reliable exclusive ownership (mutex) for the account-level scraping: use the DB for the synchronizaton.
+
+
+SOLUTION:
+Lock account only for movements insert operation at db_funcs - no need to change the scrapers. Use _TesoraliaAccounts.MovementsInsertMutex text field. If NULL - no active mutex (== not locked for insertion). The value != NULL is the unique random text ID of mutex (== locked for exclusive insertion), that was set from db_funcs.add_new_movements function ONLY for movements insert operation, and should be RELESED IMMEDIATELY after the insertion was finished.
+
+
+Handles cases
+- one access, several contracts are pointing to the same account (access-level duplicates)
+- different accesses are pointing to the same account (user-level duplicates)
+- launched from one or different servers at the same time
+
+
+CODE CHANGES:
+
+db_funcs
+	ADDED
+		AccountFuncs
+	    	set_movements_insert_mutex_if_not_locked_yet
+    		get_movements_insert_mutex
+    		release_movements_insert_mutex
+    	MovementFuncs
+    		_movements_scraped_new
+    		add_new_movements - THE TARGET FUNCTION THAT USES set.., get.., release..mutex
+
+db_connector_for_sraper
+	movements_upload - calls MovementFuncs.add_new_movements
+
+
+basic_scraper
+	basic_upload_movements_scraped - handles err_msg from db_connector.movements_upload
+
+
+
+TESTS:
+
+one access, two contracts with the same account (ES3700754610160605041384):
+-u 97244 -a 3420
+	- concurrent scraping, movements insertons for one account from different contracts at the same time - passed
+	- serial scraping, movements insertons for one accout two times from each contract - passed
+	- re-scraping (no new movements) - passed
+	- re-scraping (with new movements) - passed
+	- handle balance integrity error (other movements, should be fixed automatically) - passed
+
+
+LOGS EXAMPLE (the same time insertion):
+
+2019-05-05 21:38:51:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: ES3700754610160605041384: check and update account balance basing on scraped movements: balance is correct
+DBConnector: movements_upload_and_mark_account_as_scrap_finished [MovementScraped(Amount=-1452.69, TempBalance=20472.99, OperationalDate='20190425', ValueDate='20190425', StatementDescription='Transferencia a EDURNE MELERO OLEA', StatementExtendedDescription='Transferencia a EDURNE MELERO OLEA', OperationalDatePosition=1, KeyValue='542935cdedb621c6281a8a49504603ed77d241b6dba5a32516f5c2eb3b602db8'), ...]
+--> DB query from queue 4d0a8cd4-ad1d-4b90-aa2c-fee28bdbceec: "-- set_movements_insert_mutex f12ae15a-4602-4ced-8fa6-66e110fd4ad1 for account ES3700754610160605041384 ..."
+2019-05-05 21:38:52:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: Process_account: ES3700754610160605041384: dates from 19/04/2019 to 05/05/2019: movements: [MovementScraped(Amount=-1452.69, TempBalance=20472.99, OperationalDate='20190425', ValueDate='20190425', StatementDescription='Transferencia a EDURNE MELERO OLEA', StatementExtendedDescription='Transferencia a EDURNE MELERO OLEA', OperationalDatePosition=1, KeyValue='542935cdedb621c6281a8a49504603ed77d241b6dba5a32516f5c2eb3b602db8'), ...]
+DB query from queue db389114-8860-4635-a9aa-9a1bf552723d: "-- get_movements_after_first_movement_of_date for account ES3700754610160605041384..."
+DB query from queue 9ffb1056-6909-4845-bdd7-d6d843c8c05f: "-- get_movements_insert_mutex for account ES3700754610160605041384..."
+--> Account ES3700754610160605041384 has been successfully locked by mutex f12ae15a-4602-4ced-8fa6-66e110fd4ad1 for movements insertion.
+DB query from queue ebf6983c-cea0-4758-bd34-c5113f7e6f9d: "-- get_first_movement_of_account for account ES3700754610160605041384..."
+2019-05-05 21:38:52:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: ES3700754610160605041384: check balance integrity: start
+2019-05-05 21:38:52:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: ES3700754610160605041384: check balance integrity: No previous movements. PASSED
+2019-05-05 21:38:52:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: ES3700754610160605041384: check and update account balance basing on scraped movements: start
+2019-05-05 21:38:52:INFO:PopularScraper: DB customer 97244: fin_entity_access 3420: ES3700754610160605041384: check and update account balance basing on scraped movements: balance is correct
+DBConnector: movements_upload_and_mark_account_as_scrap_finished [MovementScraped(Amount=-1452.69, TempBalance=20472.99, OperationalDate='20190425', ValueDate='20190425', StatementDescription='Transferencia a EDURNE MELERO OLEA', StatementExtendedDescription='Transferencia a EDURNE MELERO OLEA', OperationalDatePosition=1, KeyValue='542935cdedb621c6281a8a49504603ed77d241b6dba5a32516f5c2eb3b602db8'), ...]
+DB query from queue ab423f56-e53b-4a55-9c63-3e5733e2de0f: "-- get_last_movement_of_account for account ES3700754610160605041384 ..."
+--> DB query from queue 3ae4784a-0eaf-4ecb-9b8d-29b7d4dec732: "-- set_movements_insert_mutex 4a1a0da2-401e-4c28-b238-81065811833d for account ES3700754610160605041384 ..."
+DB query from queue b47381df-e8dc-43cf-83d0-4a10317ba0c4: "-- add_new_movements #0 for account ES3700754610160605041384..."
+DB query from queue be95c56f-fd45-43ea-9b27-2f7727fc099c: "-- get_movements_insert_mutex for account ES3700754610160605041384..."
+--> Account ES3700754610160605041384 already locked by another mutex f12ae15a-4602-4ced-8fa6-66e110fd4ad1. Skip movements insertion
+DBConnector.update_acc_set_mov_scrap_fin: ES3700754610160605041384
+--> DB query from queue 1b70f47e-748c-4807-ac26-c064227078c6: "-- release_movements_insert_mutex f12ae15a-4602-4ced-8fa6-66e110fd4ad1 for account ES3700754610160605041384..."
+
+
+
+-u 204531 -a 9603 (santander 70 accs, serial mode)
+new re-scraping
+real	1m12.149s
+user	0m1.676s
+sys	0m0.148s
+
+
+old re-scraping
+real	0m59.608s
+user	0m1.488s
+sys	0m0.124s
+
+
+
+-u 222222 -a 11432 (abanca, >5000 mvs)
+
+Here are the results for PREP DB:
+-u 222222 -a 11432
+old approach: 25-150 movs/sec, raw list => 80 sec for all (main_launcher_222222__2019_05_06__19_21_34.log)
+new approach: 350-400 movs/sec, optimized list (only new movs) => 5 sec for all (main_launcher_222222__2019_05_06__19_11_22.log)
+
+
+NEW PREP 350-400 movs/sec, optmized list (5 sec/all)
+2019-05-06 19:12:55:INFO:DB query from queue f34f374c-15ea-45ba-a515-b56480ffd275: "-- add_new_movements #29 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue 30e788cd-b308-467d-9ddc-ea409fda1180: "-- add_new_movements #30 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue e0ffbe46-7483-40aa-883d-0558a8fef200: "-- add_new_movements #31 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue ccd98b90-80d7-444f-a924-c66b8c2d4f4e: "-- add_new_movements #32 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue 7ad27a85-e8fd-4887-bf78-83bc70820b86: "-- add_new_movements #33 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue 2be5279a-9231-4e02-9676-7414f48b7d3b: "-- add_new_movements #34 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue 162edf1e-6e79-4e41-9f25-c15984c101e0: "-- add_new_movements #35 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue a68b4035-eeca-44ac-ad9d-fb5e902d9cb8: "-- add_new_movements #36 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue debafcea-3aac-48aa-8a53-a543da5b6850: "-- add_new_movements #37 for account ES0920801208213040001027..."
+2019-05-06 19:12:56:INFO:DB query from queue 8a7bd734-1fa5-4dcd-8d73-df492ff99fe7: "-- add_new_movements #38 for account ES0920801208213040001027..."
+2019-05-06 19:12:57:INFO:DB query from queue b6256c26-851d-4f37-a97c-4c654b1afe58: "-- add_new_movements #39 for account ES0920801208213040001027..."
+2019-05-06 19:12:57:INFO:DB query from queue ae63884b-e0a2-4a7f-9d55-8c7a197c3de3: "-- add_new_movements #40 for account ES0920801208213040001027..."
+2019-05-06 19:12:57:INFO:DB query from queue b7c
+
+
+OLD PREP 25...150 movs/sec (80 sec/all)
+2019-05-06 19:22:43:INFO:DB query from queue 914bd321-8c0b-401c-a0f7-b7ef2a64c1e4: "-- add_movements_if_not_exist #11 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:45:INFO:DB query from queue 623c02de-9e3a-4eb6-9609-d1c13b67f660: "-- add_movements_if_not_exist #12 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:46:INFO:DB query from queue 1e7727e7-9ce8-480a-ba67-2e3f5aa68612: "-- add_movements_if_not_exist #13 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:46:INFO:DB query from queue a3b4c3db-1f4c-46d9-b6d4-eec37c32ed0c: "-- add_movements_if_not_exist #14 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:47:INFO:DB query from queue 4c74edd6-07b2-4726-9739-83158cda5cf6: "-- add_movements_if_not_exist #15 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:49:INFO:DB query from queue 58e71f4c-5e47-4043-aaad-f7cc1a64d11c: "-- add_movements_if_not_exist #16 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:50:INFO:DB query from queue 9c9d1166-6214-457b-a410-93b5212900e1: "-- add_movements_if_not_exist #17 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:50:INFO:DB query from queue e4596673-5a1d-4a94-894c-53536f13844e: "-- add_movements_if_not_exist #18 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:50:INFO:DB query from queue 67932ec8-3cba-4fe8-9421-bf6612054134: "-- add_movements_if_not_exist #19 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:51:INFO:DB query from queue 8f6d0b68-7090-4c76-9622-12cf7ffd4d0a: "-- add_movements_if_not_exist #20 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:51:INFO:DB query from queue d4cc6834-9f31-4d85-a0b8-d1293248dcfe: "-- add_movements_if_not_exist #21 for account ES0920801208213040001027 ..."
+2019-05-06 19:22:51:INFO:DB query from queue a965e721-f4c9-4bb2-b03e-e2e369efe383: "-- add_movements_if_not_exist #22 for account ES0920801208213040001027 ..."
+
+
+Also, I've tested the sraping process for all accesses of customer 97244: in parallel mode it takes 2 minutes for all accesses of the customer

@@ -1,0 +1,66 @@
+# FICHEROS MENU
+>>>
+FILTER_N43
+>>>
+fetch("https://empresas.bankinter.com/www/es-es/cgi/empresas+movsafichero", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "en-US,en;q=0.9",
+    "cache-control": "max-age=0",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrer": "https://empresas.bankinter.com/www/es-es/cgi/empresas+cuentas+credito_mov_fichero",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "CUENTA=01287611100001666&PRODUCTO=CCR&YL0300E-DD-EMISION=13&YL0300E-MM-EMISION=1&YL0300E-AA-EMISION=21&YL0300E-DD-FINAL=15&YL0300E-MM-FINAL=1&YL0300E-AA-FINAL=21&YL0300E-DISPONIB=4",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
+<<<
+
+
+>>>
+N43_FILTER_FORM
+>>>
+await fetch("https://empresas.bankinter.com/www/es-es/cgi/empresas+cuentas+credito_mov_fichero", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://empresas.bankinter.com/www/es-es/cgi/empresas+cuentas+credito_mov_fichero",
+    "method": "GET",
+    "mode": "cors"
+});
+<<<
+
+
+>>>
+N43_DOWNLOAD_FILE
+>>>
+await fetch("https://empresas.bankinter.com/www/es-es/cgi/empresas+movsafichero", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Upgrade-Insecure-Requests": "1"
+    },
+    "referrer": "https://empresas.bankinter.com/www/es-es/cgi/empresas+cuentas+credito_mov_fichero",
+    "body": "CUENTA=01287611100001666&PRODUCTO=CCR&YL0300E-DD-EMISION=18&YL0300E-MM-EMISION=1&YL0300E-AA-EMISION=21&YL0300E-DD-FINAL=19&YL0300E-MM-FINAL=1&YL0300E-AA-FINAL=21&YL0300E-DISPONIB=4",
+    "method": "POST",
+    "mode": "cors"
+});
+
+
+
+
+

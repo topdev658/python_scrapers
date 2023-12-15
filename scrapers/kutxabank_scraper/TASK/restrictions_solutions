@@ -1,0 +1,12 @@
+RESTRICTIONS
+Can't do parallel requests from one session to retrieve information of movevments for several bank accounts of one useracc
+So need to do it with multi sessions
+
+ALGORITHM
+Log in
+Get balances
+Get accunts ids
+
+Then
+Parallel log in to parse each bank account
+    Get movevments for each bank account

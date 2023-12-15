@@ -1,0 +1,32 @@
+>>> TOKEN
+await fetch("https://univia.unicajabanco.es/services/rest/autenticacion/tokenTmp", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache"
+    },
+    "referrer": "https://univia.unicajabanco.es/autoLogin?locale=es",
+    "method": "POST",
+    "mode": "cors"
+});
+<<< 10_token.json
+
+>>> ACCOUNTS
+await fetch("https://univia.unicajabanco.es/services/rest/api/productos/listacuentas", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+        "tokenCSRF": "VYIA3DKJ"
+    },
+    "referrer": "https://univia.unicajabanco.es/cuentas",
+    "method": "GET",
+    "mode": "cors"
+});
+<<< 20_resp_accounts.json

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br"><head><link rel="stylesheet" type="text/css" href="/ibeweb/javax.faces.resource/primefaces.css.xhtml?ln=primefaces&amp;v=4.0" /><script type="text/javascript" src="/ibeweb/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=4.0"></script><script type="text/javascript" src="/ibeweb/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=4.0"></script><script type="text/javascript" src="/ibeweb/javax.faces.resource/primefaces.js.xhtml?ln=primefaces&amp;v=4.0"></script>
+		<meta charset="utf-8" />
+	  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" />
+		<meta name="author" />
+		<meta name="robots" content="noindex,nofollow" />
+	  	<link type="text/css" rel="stylesheet" href="/ibeweb/css/bootstrap.min.css" />
+	  	<link type="text/css" rel="stylesheet" href="/ibeweb/css/styleNovo.css" />
+	 	<link type="text/css" rel="stylesheet" href="/ibeweb/css/icones/font-awesome.css" />
+	    <link href="/ibeweb/images/icones/favicon.ico" rel="shortcut icon" />
+		<script language="JavaScript" type="text/javascript" src="/ibeweb/js/default.js"></script>
+		<script language="JavaScript" type="text/javascript" src="/ibeweb/js/loginkeyboard.js"></script>
+		<script language="JavaScript" type="text/javascript" src="/ibeweb/js/bowser.js"></script>
+		<title>Internet Banking</title>
+		<!-- Inicio JavaScript DL -->
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/ie10-viewport-bug-workaround.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/aes.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/Clumpy.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/DLECC.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/ec.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/jsbn.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/jsbn2.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/pad-nopadding-min.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/pbkdf2.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/prng4.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/rng.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/sec.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/sha256.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/dl/codeDL.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="/ibeweb/js/blockUI.js"></script>
+		<script language="JavaScript">
+			$(function() {
+				if (window.performance.navigation.type == 2){
+					window.location = "/ibeweb/commons/logout.xhtml";
+				}
+			});
+		</script></head><body style="margin-top: 0px;"><form id="formGeral" name="formGeral" method="post" action="/ibeweb/pages/login/loginRedirect.jsf" class="form-horizontal" enctype="application/x-www-form-urlencoded"><div id="formGeral:j_id_7" class="ui-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden" data-widget="widget_formGeral_j_id_7"><div id="formGeral:j_id_7_content" class="ui-panel-content ui-widget-content"><script type="text/javascript">encerrarSession = function() {PrimeFaces.ab({source:'formGeral:j_id_8',formId:'formGeral',params:arguments[0]});}</script><a href="https://www.santander.com.br" id="formGeral:btnSair" name="formGeral:btnSair" onclick="encerrarSession()" class="no-visible no-print"></a></div></div><script id="formGeral:j_id_7_s" type="text/javascript">PrimeFaces.cw('Panel','widget_formGeral_j_id_7',{id:'formGeral:j_id_7'});</script><div id="formGeral:j_id_b_5" class="ui-outputpanel ui-widget">
+                             <script language="JavaScript">
+	                              $(function() {
+	                              	window.location = "/ibeweb/pages/home/homeNovo.xhtml";
+	                              });
+                             </script></div><script type="text/javascript">redirectAngular = function() {PrimeFaces.ab({source:'formGeral:j_id_c',formId:'formGeral',params:arguments[0]});}</script><script type="text/javascript">redirectHome = function() {PrimeFaces.ab({source:'formGeral:j_id_d',formId:'formGeral',params:arguments[0]});}</script>
+
+				  <script language="JavaScript">
+					 	function acionarRedirectHome () {
+	                    	document.getElementById("formGeral:acionarRedirectHome").click();
+	               		}
+					 	function acionarRedirectLogin () {
+					 		window.location = "/ibeweb/pages/login/login.xhtml";
+		               	}
+					 	function acionarRedirectTeclado () {
+	                    	document.getElementById("formGeral:acionarRedirectTeclado").click();
+	               		}
+						function acionarRedirectPage() {
+ 					 		document.getElementById("formGeral:acionarRedirectPage").click();
+		               	}
+				  </script><div id="formGeral:j_id_f" class="ui-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden" data-widget="widget_formGeral_j_id_f"><div id="formGeral:j_id_f_content" class="ui-panel-content ui-widget-content"><script type="text/javascript" src="/ibeweb/javax.faces.resource/oamSubmit.js.jsf?ln=org.apache.myfaces"></script><a href="#" onclick="return myfaces.oam.submitForm('formGeral','formGeral:acionarRedirectHome',null,[['Ticket','dALcXvAy6UxO/FRCAsX84JUqzI6lFEwlRpkaBKBplOuZKAt7DbfwpFx8rxiwO0InOTu3GIArMPEPWWxJEGs2300LDyR4nCsZVze4o5xc5CmURVZ9xFT/4AFkgylKCHfLW93DI/OgL5GMV4C7bYt1yYQ5IV1DlYfWBPHkxIEmF7m+owqq/nGmeYK7OF3r9YKYQoTollnje2WS3de6gexTwvenU3Zsqe9hDLOrsLP9FFhj/5i+DQs6B0Zzl3fUE7SY+eaOldsRxOTG9aWCGjAcq0kMJub9GEbRvJuYJpOmcpdGu7+FZW6z2GVzrkumL/86D2djgQ0hghorSB9HxQWQI8/x0mF0DvxlsFptSh9PLU3mKfKj0saY5NO4pvF2yf/0rx2fHXyDzCHWmJHTL5VxOdFxzOIfKI+klQRf4tK8WX46ijZUl5MVx5muirI27UAPJ4j09cNdnmI='],['txtConta',''],['txtAgencia','']]);" id="formGeral:acionarRedirectHome"></a></div></div><script id="formGeral:j_id_f_s" type="text/javascript">PrimeFaces.cw('Panel','widget_formGeral_j_id_f',{id:'formGeral:j_id_f'});</script><div id="formGeral:j_id_k" class="ui-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden" data-widget="widget_formGeral_j_id_k"><div id="formGeral:j_id_k_content" class="ui-panel-content ui-widget-content"><a href="#" onclick="return myfaces.oam.submitForm('formGeral','formGeral:acionarRedirectTeclado',null,[['Ticket','dALcXvAy6UxO/FRCAsX84JUqzI6lFEwlRpkaBKBplOuZKAt7DbfwpFx8rxiwO0InOTu3GIArMPEPWWxJEGs2300LDyR4nCsZVze4o5xc5CmURVZ9xFT/4AFkgylKCHfLW93DI/OgL5GMV4C7bYt1yYQ5IV1DlYfWBPHkxIEmF7m+owqq/nGmeYK7OF3r9YKYQoTollnje2WS3de6gexTwvenU3Zsqe9hDLOrsLP9FFhj/5i+DQs6B0Zzl3fUE7SY+eaOldsRxOTG9aWCGjAcq0kMJub9GEbRvJuYJpOmcpdGu7+FZW6z2GVzrkumL/86D2djgQ0hghorSB9HxQWQI8/x0mF0DvxlsFptSh9PLU3mKfKj0saY5NO4pvF2yf/0rx2fHXyDzCHWmJHTL5VxOdFxzOIfKI+klQRf4tK8WX46ijZUl5MVx5muirI27UAPJ4j09cNdnmI='],['txtConta',''],['txtAgencia','']]);" id="formGeral:acionarRedirectTeclado"></a></div></div><script id="formGeral:j_id_k_s" type="text/javascript">PrimeFaces.cw('Panel','widget_formGeral_j_id_k',{id:'formGeral:j_id_k'});</script><script type="text/javascript">redirect = function() {PrimeFaces.ab({source:'formGeral:j_id_p',formId:'formGeral',params:arguments[0]});}</script><script type="text/javascript">acionarRedirectPage = function() {PrimeFaces.ab({source:'formGeral:j_id_q',formId:'formGeral',params:arguments[0]});}</script><script type="text/javascript">ativarReloading = function() {PrimeFaces.ab({source:'formGeral:j_id_r',formId:'formGeral',params:arguments[0]});}</script><input type="hidden" id="formGeral:drunningMode" name="formGeral:drunningMode" value="prod1" />
+    <input type="hidden" id="nivelUsuario" value="S" /><input type="hidden" id="formGeral:segmento" name="formGeral:segmento" value="228" /><input type="hidden" id="formGeral:autenticacao" name="formGeral:autenticacao" value="" /><input type="hidden" id="formGeral:oferta" name="formGeral:oferta" value="" />
+	<script type="text/javascript">
+		var utag_data = {
+		}
+	</script>
+	<!-- Loading script asynchronously -->
+	<script type="text/javascript">
+		(function(a,b,c,d){
+			var drunningMode = document.getElementById("formGeral:drunningMode").value;
+			if(drunningMode != 'local-tomcat' && drunningMode != 'local' && drunningMode != 'tomcat'){
+				if(drunningMode == 'pi'){
+					drunningMode = 'dev';
+				}
+				else if(drunningMode == 'ocu' || drunningMode == 'ocu2' || drunningMode == 'prod1' || drunningMode == 'prod2' || drunningMode == 'prod3' || drunningMode == 'prod4'){
+					drunningMode = 'prod';
+				}
+				else if(drunningMode == 'hml' || drunningMode == 'sus'){
+					drunningMode = 'qa';
+				}
+			    a='//tags.tiqcdn.com/utag/santander/br-internet-banking-pj/'+drunningMode+'/utag.js';
+			    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+			    try{
+			    	a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+			    }catch(e){
+			    	console.log(e);
+			    }
+			}
+	    })();
+	</script><div id="formGeral:statusLoading" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow loading no-visible"><div class="ui-dialog-content ui-widget-content"><div id="formGeral:j_id_10" class="ui-outputpanel ui-widget btn-add-loading-text hidden">Por favor, aguarde a finalização da operação.<br />Não atualize seu navegador</div><img id="formGeral:j_id_12" src="/ibeweb/images/aguarde.gif?pfdrid_c=true" alt="" /></div></div><script id="formGeral:statusLoading_s" type="text/javascript">$(function(){PrimeFaces.cw('Dialog','statusLoading',{id:'formGeral:statusLoading',draggable:false,resizable:false,modal:true});});</script>
+
+	<script>
+        var scripts = document.getElementsByClassName('btn-default');
+        var i = scripts.length;
+        var contAddText = document.getElementsByClassName('btn-loading-text');
+        var j = contAddText.length;
+
+        while (j--) {
+        	contAddText[j].addEventListener('click', openLoadText, false);
+        }
+
+        while (i--) {
+            if(scripts[i].textContent == 'Voltar' || scripts[i].textContent == 'Continuar' || scripts[i].textContent == 'Cancelar' || scripts[i].textContent == 'Home'){
+                   scripts[i].addEventListener('click', blockButton(scripts[i].id), false);
+                   scripts[i].addEventListener('click', openLoad, false);
+            }
+        }
+
+	</script>
+
+	<script>
+	var objectBotaoContinuar=document.getElementById("formGeral:btnContinuar");if(objectBotaoContinuar==null){objectBotaoContinuar=document.getElementById("formGeral:btnConfirmar")}else if(objectBotaoContinuar==null){objectBotaoContinuar=document.getElementById("formGeral:btnContinuarDialog")}
+	var objectBotaoVoltar=document.getElementById("formGeral:btnVoltar"),objectBotaoVoltarVideo=document.getElementById("formGeral:panelTokens:btnVoltar"),tokenOpticoVisivel=false,tokenOpticoUnicoVisivel=false;function desabilitarBotao(){if(tokenOpticoVisivel=!0)
+	for(var t=document.getElementsByClassName("btn-default"),e=document.getElementsByClassName("ui-state-active"),o=e.length,n=t.length,l=t.length,a=!1;o--;)
+	if("Token ID"==e[o].textContent){for(;n--;)"Gerar Token ID"==t[n].textContent&&(a=!0);for(;l--;)"Continuar"==t[l].textContent&&1==a&&(document.getElementById(t[l].id).setAttribute("onClick","closeLoad()"),document.getElementById(t[l].id).parentNode.removeChild(document.getElementById(t[l].id)));0==a&&null!=document.getElementById("formGeral:btnVoltar")&&(null==document.getElementById("formGeral:btnContinuar")&&null==document.getElementById("formGeral:btnConfirmar")&&null==document.getElementById("formGeral:btnContinuarDialog"))&&document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar),null!=document.getElementById("formGeral:panelTokens:btnVoltar")&&(null==document.getElementById("formGeral:btnContinuar")&&null==document.getElementById("formGeral:btnConfirmar")&&null==document.getElementById("formGeral:btnContinuarDialog"))&&0==a&&(document.getElementById("formGeral:panelTokens:btnVoltar").setAttribute("onClick","closeLoad()"),document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.appendChild(objectBotaoContinuar),0==tokenOpticoUnicoVisivel&&(document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.insertBefore(objectBotaoVoltar,document.getElementById("formGeral:panelTokens:btnVoltar")),document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:panelTokens:btnVoltar"))))}
+	if(tokenOpticoUnicoVisivel==!1&&document.getElementById("formGeral:panelTokens:btnVoltar")==null&&document.getElementById("formGeral:panelTokens:btnGerarVideo")==null){document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo,document.getElementById("formGeral:btnVoltar"))
+	if(document.getElementById("formGeral:btnVoltar")!=null){document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))}}}
+	function habilitarBotao(){if(tokenOpticoVisivel=!0)
+	for(var t=document.getElementsByClassName("btn-default").length;t--;)null!=document.getElementById("formGeral:btnVoltar")&&(null==document.getElementById("formGeral:btnContinuar")&&null==document.getElementById("formGeral:btnConfirmar")&&null==document.getElementById("formGeral:btnContinuarDialog"))&&(document.getElementById("formGeral:btnVoltar").setAttribute("onClick","closeLoad()"),document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar),0==tokenOpticoUnicoVisivel&&(document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo,document.getElementById("formGeral:btnVoltar")),document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))))
+	if(tokenOpticoUnicoVisivel==!1){document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.insertBefore(objectBotaoVoltar,document.getElementById("formGeral:panelTokens:btnVoltar")),document.getElementById("formGeral:panelTokens:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:panelTokens:btnVoltar"))}}
+	$(function(){if(1==tokenOpticoVisivel)
+	for(var t=document.getElementsByClassName("btn-default"),e=document.getElementsByClassName("ui-state-active"),o=e.length,n=t.length,l=!1;o--;)
+	if("Token ID"==e[o].textContent){for(;n--;)"Gerar Token ID"==t[n].textContent&&(l=!0);(null!=document.getElementById("formGeral:btnContinuar")||null!=document.getElementById("formGeral:btnConfirmar")||null!=document.getElementById("formGeral:btnContinuarDialog"))&&1==l&&(objectBotaoContinuar.setAttribute("onClick","closeLoad()"),objectBotaoContinuar.parentNode.removeChild(objectBotaoContinuar)),null!=document.getElementById("formGeral:btnVoltar")&&0==l&&(document.getElementById("formGeral:btnVoltar").setAttribute("onClick","closeLoad()"),document.getElementById("formGeral:btnVoltar").parentNode.appendChild(objectBotaoContinuar),0==tokenOpticoUnicoVisivel&&(document.getElementById("formGeral:btnVoltar").parentNode.insertBefore(objectBotaoVoltarVideo,document.getElementById("formGeral:btnVoltar")),document.getElementById("formGeral:btnVoltar").parentNode.removeChild(document.getElementById("formGeral:btnVoltar"))))}});
+
+
+		function addVideo() {
+	        var timeout = 3000;
+	    	$('#btn-play').hide();
+			$('.video-player-container').show();
+	            var $counterAnim = $('.video-player-counter-animation');
+	            loading($counterAnim, {
+	                duration: timeout
+	                , end: function() {
+	                	$('.video-player-container').hide();
+						    var iframe = document.getElementById('idVideoTokenOptico');
+							iframe.contentWindow.document.getElementById("idVideo").setAttribute("src", '');
+	                }
+	            });
+
+	};
+
+	function loading(element, inOpts) {
+	    var DEFAULTS = {
+	        percent: 100,
+	        duration: 3000,
+	        end: null
+	    };
+
+	    inOpts = $.extend(DEFAULTS, inOpts);
+
+	    $(element).each(function () {
+	        var $target  = $(this);
+
+	        var opts = {
+	        percent: $target.data('percent') ? $target.data('percent') : inOpts.percent,
+	        duration: $target.data('duration') ? $target.data('duration') : inOpts.duration
+	        };
+
+	        var totalSteps = opts.duration / 1000;
+
+	        var $rotate = $target.find('.rotate');
+
+	        if ($rotate.length == 0) {
+	            $target.append('<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div><span class="counter">' + totalSteps + '</span></div>');
+	        }
+
+	        $rotate = $target.find('.rotate');
+
+	        var counter = $target.find('.counter');
+	        counter.html(totalSteps);
+
+	        $rotate.css('transform', 'rotate(0deg)');
+
+	        $target.find('.right').css({
+	            animation: '',
+	            opacity: 0});
+	        $target.find('.left').css({
+	            animation: '',
+	            opacity: 1
+	        });
+
+	        function animateRotate (elements, angle, duration, easing, complete) {
+	          return $(elements).each(function() {
+	                var $elem = $(this);
+
+	                $({deg: 0}).animate({deg: angle}, {
+	                  duration: duration,
+	                  easing: easing,
+	                  step: function(now) {
+	                    $elem.css({
+	                       transform: 'rotate(' + now + 'deg)'
+	                     });
+	                  },
+	                  complete: complete || $.noop
+	                });
+	             });
+	        }
+
+	        setTimeout(function () {
+
+	                $rotate.css({
+	                    'transition': 'transform ' + opts.duration + 'ms linear',
+	                    'transform': 'rotate(' + opts.percent * 3.6 + 'deg)'
+	                });
+
+	        }, 1);
+
+	        var step = totalSteps;
+
+	        var interval = setInterval(function() {
+	            step--;
+	            counter.html(step);
+
+	            if (step === 0) {
+	                clearInterval(interval);
+	                if (inOpts.end) {
+	                    inOpts.end();
+	                }
+	            }
+	        }, 1000);
+
+	        if (opts.percent > 50) {
+
+	                var animationRight = 'toggleOpacity ' + (opts.duration / opts.percent * 50) + 'ms step-end';
+	                var animationLeft = 'toggleOpacity ' + (opts.duration / opts.percent * 50) + 'ms step-start';
+	                $target.find('.right').css({
+	                    animation: animationRight,
+	                    opacity: 1
+	                });
+	                $target.find('.left').css({
+	                    animation: animationLeft,
+	                    opacity: 0
+	                });
+
+	        }
+	    });
+	}
+
+	function removeVideo() {
+		$('#btn-play').show();
+		var iframe = document.getElementById('idVideoTokenOptico');
+		iframe.contentWindow.document.getElementById("idVideo").setAttribute("src", '');
+	};
+
+		</script><input type="hidden" name="formGeral_SUBMIT" value="1" /><input type="hidden" name="javax.faces.ViewState" id="j_id__v_0:javax.faces.ViewState:1" value="Zet1M4s6/NZCPcl2WuO4RiS3t/NAHxEQBcMIRouPNGiXl6eH" /></form><div id="j_id_15" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_15_title" class="ui-dialog-title"></span><a href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content"></div></div><script id="j_id_15_s" type="text/javascript">$(function(){PrimeFaces.cw('Dialog','widDlgConfirmation',{id:'j_id_15',resizable:false,modal:true,dynamic:true,position:'center'});});</script><div id="j_id_1i" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_1i_title" class="ui-dialog-title"></span><a href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content"></div></div><script id="j_id_1i_s" type="text/javascript">$(function(){PrimeFaces.cw('Dialog','widDlgConfirmationLogout',{id:'j_id_1i',resizable:false,modal:true,dynamic:true,position:'center'});});</script><div id="j_id_2x" class="ui-dialog ui-widget ui-widget-content ui-overlay-hidden ui-corner-all ui-shadow"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_id_2x_title" class="ui-dialog-title"></span><a href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content"></div></div><script id="j_id_2x_s" type="text/javascript">$(function(){PrimeFaces.cw('Dialog','widDlgMessagem',{id:'j_id_2x',resizable:false,modal:true,dynamic:true,position:'center'});});</script></body>
+</html>

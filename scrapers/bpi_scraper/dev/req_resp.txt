@@ -1,0 +1,53 @@
+>>> FILTER MOVS
+await fetch("https://bpinetempresas.bancobpi.pt/operacoes/consultas/movimentos/Movimentos.asp", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
+        "Accept": "application/xml, text/xml, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest",
+        "PedidoXML": "sim"
+    },
+    "referrer": "https://bpinetempresas.bancobpi.pt/operacoes/consultas/movimentos/movimentos.asp",
+    "body": "<dadosformulario><campo nome='__submited'>sim</campo><campo nome='__accao'>grelha.consultar</campo><campo nome='lblNome'>SACYR NERVIÓN,S.L.-SUCURSAL EM PORTUGAL</campo><campo nome='cbContas'>5707988000001</campo><campo nome='lblSaldoDisp'>662.920,99 EUR</campo><campo nome='lblSaldoCont'>662.920,99 EUR</campo><campo nome='cbOrigemMovimento'></campo><campo nome='MontanteMin'></campo><campo nome='MontanteMax'></campo><campo nome='txtDataInicio'>01-04-2021</campo><campo nome='txtDataFim'>02-05-2021</campo><campo nome='cbTipoMovimento'></campo><campo nome='BCUID'>{BDB31EEC-D2A2-4D44-A8-E7-3B-E9-4E-ED-97-E5}</campo><campo nome='MostraSaldos'>S</campo><campo nome='DataInicioFiltroInicial'>01042021</campo><campo nome='rbTipo'>T</campo></dadosformulario>",
+    "method": "POST",
+    "mode": "cors"
+});
+
+"<dadosformulario>"
+"<campo nome='__submited'>sim</campo>"
+"<campo nome='__accao'>grelha.consultar</campo>"
+"<campo nome='lblNome'>SACYR NERVIÓN,S.L.-SUCURSAL EM PORTUGAL</campo>"
+"<campo nome='cbContas'>5707988000001</campo>"
+"<campo nome='lblSaldoDisp'>662.920,99 EUR</campo>"
+"<campo nome='lblSaldoCont'>662.920,99 EUR</campo>"
+"<campo nome='cbOrigemMovimento'></campo>"
+"<campo nome='MontanteMin'></campo>"
+"<campo nome='MontanteMax'></campo>"
+"<campo nome='txtDataInicio'>01-04-2021</campo>"
+"<campo nome='txtDataFim'>02-05-2021</campo>"
+"<campo nome='cbTipoMovimento'></campo>"
+"<campo nome='BCUID'>{BDB31EEC-D2A2-4D44-A8-E7-3B-E9-4E-ED-97-E5}</campo>"
+"<campo nome='MostraSaldos'>S</campo>"
+"<campo nome='DataInicioFiltroInicial'>01042021</campo>"
+"<campo nome='rbTipo'>T</campo>"
+"</dadosformulario>"
+
+
+>>> NEXT PAGE
+await fetch("https://bpinetempresas.bancobpi.pt/operacoes/consultas/movimentos/Movimentos.asp?pag=1", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0",
+        "Accept": "application/xml, text/xml, */*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest",
+        "PedidoXML": "sim"
+    },
+    "referrer": "https://bpinetempresas.bancobpi.pt/operacoes/consultas/movimentos/movimentos.asp",
+    "body": "<dadosformulario><campo nome='__submited'>sim</campo><campo nome='__accao'>pedidoxml.seguinte</campo><campo nome='lblNome'>SACYR NERVIÓN,S.L.-SUCURSAL EM PORTUGAL</campo><campo nome='cbContas'>5707988000001</campo><campo nome='lblSaldoDisp'>662.920,99 EUR</campo><campo nome='lblSaldoCont'>662.920,99 EUR</campo><campo nome='cbOrigemMovimento'></campo><campo nome='MontanteMin'></campo><campo nome='MontanteMax'></campo><campo nome='txtDataInicio'>01-04-2021</campo><campo nome='txtDataFim'>02-05-2021</campo><campo nome='cbTipoMovimento'></campo><campo nome='BCUID'>{9D2906B4-9E38-4CEF-9A-7D-BF-0E-64-9E-9B-AA}</campo><campo nome='MostraSaldos'>N</campo><campo nome='DataInicioFiltroInicial'>01042021</campo><campo nome='rbTipo'>T</campo></dadosformulario>",
+    "method": "POST",
+    "mode": "cors"
+});
